@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "last_run_at": "2026-10-05T09:18:58Z",
+  "first_observed_at": "2026-10-03T21:24:32Z",
+  "observation_count": 168,
+  "providers": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic API",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 3,
+      "source_sha256": "245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://platform.claude.com/docs/en/about-claude/pricing.md"
+      ],
+      "source_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "id": "azure",
+      "name": "Azure OpenAI",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 10,
+      "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
+        "https://prices.azure.com:443/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
+      ],
+      "source_url": "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27"
+    },
+    {
+      "id": "bedrock",
+      "name": "Amazon Bedrock",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 8,
+      "source_sha256": "c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "price_list",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/us-east-1/index.json",
+        "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/current/us-east-1/index.json"
+      ],
+      "source_url": "https://aws.amazon.com/bedrock/pricing/"
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 15,
+      "source_sha256": "a7131b657cf7a2c2fbab2a439874eee15244e5dc591a4f5460ef725679b69916",
+      "authoritative_catalog": true,
+      "error": null,
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://api.deepinfra.com/models/list"
+      ],
+      "source_url": "https://api.deepinfra.com/models/list"
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 2,
+      "source_sha256": "51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": "FIREWORKS_API_KEY not configured",
+      "source_urls": [
+        "https://docs.fireworks.ai/serverless/pricing.md"
+      ],
+      "source_url": "https://docs.fireworks.ai/serverless/pricing"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini API",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 6,
+      "source_sha256": "8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
+      ],
+      "source_url": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 2,
+      "source_sha256": "e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://console.groq.com/docs/models.md"
+      ],
+      "source_url": "https://console.groq.com/docs/models"
+    },
+    {
+      "id": "novita",
+      "name": "Novita",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 5,
+      "source_sha256": "938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2",
+      "authoritative_catalog": true,
+      "error": null,
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://api.novita.ai/v3/openai/models"
+      ],
+      "source_url": "https://api.novita.ai/v3/openai/models"
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI API",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 3,
+      "source_sha256": "0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_urls": [
+        "https://developers.openai.com/api/docs/pricing.md"
+      ],
+      "source_url": "https://developers.openai.com/api/docs/pricing"
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 2,
+      "source_sha256": "630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": "TOGETHER_API_KEY not configured",
+      "source_urls": [
+        "https://docs.together.ai/docs/serverless-models.md"
+      ],
+      "source_url": "https://docs.together.ai/docs/serverless-models"
+    },
+    {
+      "id": "vertex",
+      "name": "Google Vertex AI",
+      "state": "ok",
+      "last_attempt_at": "2026-10-05T09:18:58Z",
+      "last_success_at": "2026-10-05T09:18:58Z",
+      "offering_count": 15,
+      "source_sha256": "c694f82cb4e81fadab8425cedeb3d9ffd450a040a38b40b5e5fd4020d02403c4",
+      "authoritative_catalog": false,
+      "error": null,
+      "source_kind": "documentation",
+      "fallback_reason": "GOOGLE_CLOUD_BILLING_API_KEY not configured",
+      "source_urls": [
+        "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+      ],
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+name: Collect official prices
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: price-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Validate parsers before collecting
+        run: python -m unittest discover -s tests -v
+      - name: Collect and validate every provider
+        id: collect
+        continue-on-error: true
+        env:
+          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+          FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
+          GOOGLE_CLOUD_BILLING_API_KEY: ${{ secrets.GOOGLE_CLOUD_BILLING_API_KEY }}
+        run: python -m scripts.collect --strict --archive-lookups --response-dir "$RUNNER_TEMP/pricing-responses"
+      - name: Collection summary
+        if: always()
+        run: python -m scripts.collection_summary >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain public-source debugging responses temporarily
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: pricing-responses-${{ github.run_id }}
+          path: ${{ runner.temp }}/pricing-responses/
+          retention-days: 7
+          if-no-files-found: ignore
+          compression-level: 0
+      - name: Commit pricing changes and collection health
+        if: always() && !cancelled() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          gh auth setup-git
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # New raw responses live outside the repository, not in Git history.
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: official pricing changes and collection health'
+            git pull --rebase origin "$DEFAULT_BRANCH"
+            git push origin "HEAD:$DEFAULT_BRANCH"
+          fi
+      - name: Surface collector failures
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo '::error::At least one collector failed. Last good prices and failure status were retained in data/status.json.'
+          exit 1

@@ -1,0 +1,94 @@
+models:
+  - id: openai/gpt-oss-120b
+    creator: OpenAI
+    name: GPT-OSS 120B
+    version: "2025-08"
+    family: GPT-OSS
+    open_weight: true
+    description: A large open-weight reasoning model, served by several independent providers.
+  - id: openai/gpt-oss-20b
+    creator: OpenAI
+    name: GPT-OSS 20B
+    version: "2025-08"
+    family: GPT-OSS
+    open_weight: true
+    description: A compact open-weight reasoning model for lighter inference workloads.
+  - id: meta/llama-3.3-70b-instruct
+    creator: Meta
+    name: Llama 3.3 70B Instruct
+    version: "3.3"
+    family: Llama
+    open_weight: true
+    description: A 70B instruction-tuned model. Precision and context limits differ by offering.
+  - id: meta/llama-3.1-8b-instruct
+    creator: Meta
+    name: Llama 3.1 8B Instruct
+    version: "3.1"
+    family: Llama
+    open_weight: true
+    description: A small instruction-tuned model with a broad provider ecosystem.
+  - id: qwen/qwen3-235b-a22b-instruct-2507
+    creator: Qwen
+    name: Qwen3 235B A22B
+    version: Instruct 2507
+    family: Qwen3
+    open_weight: true
+    description: The July 2025 instruct variant. Thinking and other Qwen releases are not merged into this model.
+  - id: openai/gpt-5.4
+    creator: OpenAI
+    name: GPT-5.4
+    version: "2026-03-05"
+    family: GPT
+    open_weight: false
+    description: The GPT-5.4 release, not GPT-5.4 Pro or later GPT versions. Prices differ above 272K input tokens.
+    documentation_url: https://developers.openai.com/api/docs/models/gpt-5.4
+  - id: openai/gpt-5.4-mini
+    creator: OpenAI
+    name: GPT-5.4 mini
+    version: "2026-03-17"
+    family: GPT
+    open_weight: false
+    description: The smaller GPT-5.4 mini release. Nano and other mini releases are not merged.
+    documentation_url: https://developers.openai.com/api/docs/models/gpt-5.4-mini
+  - id: anthropic/claude-sonnet-4.6
+    creator: Anthropic
+    name: Claude Sonnet 4.6
+    version: "4.6"
+    family: Claude
+    open_weight: false
+    lifecycle: legacy
+    description: A widely cloud-hosted Sonnet release. Anthropic labels 4.6 a legacy release; it is not Sonnet 5.5.
+    documentation_url: https://platform.claude.com/docs/en/models/sonnet-4-6/overview
+  - id: anthropic/claude-opus-4.6
+    creator: Anthropic
+    name: Claude Opus 4.6
+    version: "4.6"
+    family: Claude
+    open_weight: false
+    lifecycle: legacy
+    description: The cloud-hosted Opus 4.6 release. Anthropic labels it legacy; later Opus versions remain separate.
+    documentation_url: https://platform.claude.com/docs/en/models/opus-4-6/overview
+  - id: anthropic/claude-haiku-4.5
+    creator: Anthropic
+    name: Claude Haiku 4.5
+    version: "2025-10-01"
+    family: Claude
+    open_weight: false
+    description: Anthropic's smaller Haiku release, available directly and through cloud partners.
+    documentation_url: https://platform.claude.com/docs/en/models/haiku-4-5/overview
+  - id: google/gemini-3.8-flash
+    creator: Google
+    name: Gemini 3.8 Flash
+    version: "3.8"
+    family: Gemini
+    open_weight: false
+    description: The stable Flash model, not Flash Cyber, Live, or TTS. Introductory pricing ends December 31, 2026.
+    documentation_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash
+  - id: google/gemini-3.5-flash-lite
+    creator: Google
+    name: Gemini 3.5 Flash-Lite
+    version: "3.5"
+    family: Gemini
+    open_weight: false
+    description: A lower-cost stable Gemini model. Flash, preview, and audio-only variants remain separate.
+    documentation_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite

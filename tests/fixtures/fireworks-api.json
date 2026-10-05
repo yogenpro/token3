@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "id": "accounts/fireworks/models/gpt-oss-120b",
+      "serverless_mode": "default",
+      "usage_identifier": "accounts/fireworks/models/gpt-oss-120b",
+      "context_length": 131072,
+      "pricing": [
+        {"sku": "LLM input tokens (uncached)", "amount": "0.15", "unit": "1M tokens"},
+        {"sku": "LLM input tokens (cached)", "amount": "0.015", "unit": "1M tokens"},
+        {"sku": "LLM output tokens", "amount": "0.60", "unit": "1M tokens"}
+      ]
+    },
+    {
+      "id": "accounts/fireworks/models/gpt-oss-120b",
+      "serverless_mode": "priority",
+      "pricing": [
+        {"sku": "LLM input tokens (uncached)", "amount": {"currencyCode": "USD", "units": "0", "nanos": 300000000}, "unit": "1M tokens"},
+        {"sku": "LLM output tokens", "amount": {"currencyCode": "USD", "units": "1", "nanos": 200000000}, "unit": "1M tokens"}
+      ]
+    },
+    {
+      "id": "accounts/fireworks/models/gpt-oss-120b",
+      "serverless_mode": "fast",
+      "pricing": [{"sku": "fixture fast token rate", "amount": "7", "unit": "1M tokens"}]
+    },
+    {
+      "id": "accounts/fixture/models/image-model",
+      "serverless_mode": "default",
+      "pricing": [{"sku": "fixture images", "amount": "0.03", "unit": "image"}]
+    }
+  ],
+  "nextPageToken": ""
+}

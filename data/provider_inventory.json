@@ -1,0 +1,475 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-10-05T09:18:58Z",
+  "provider_count": 11,
+  "scope": "Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
+  "retention": "Current normalized catalogs plus change-only JSONL history. New raw responses are transient; pre-existing source archives are preserved unchanged.",
+  "providers": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic API",
+      "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "source_urls": [
+        "https://platform.claude.com/docs/en/about-claude/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909",
+      "catalog_sha256": "c42e5123af3848cc7aad3d17411d1095048de953974db415ba5f8849821feb97",
+      "latest_path": "provider_catalogs/anthropic.json",
+      "record_count": 89,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/anthropic/245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909.json",
+        "source_sha256": "245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909",
+        "versions": [
+          {
+            "source_sha256": "245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909",
+            "path": "provider_sources/anthropic/245b5d0472659075015551126902de479990475fa61deb58c5fc20ef5e51a909.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "azure",
+      "name": "Azure OpenAI",
+      "source_url": "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
+      "source_urls": [
+        "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
+        "https://prices.azure.com:443/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
+      "catalog_sha256": "5783a5a0e738bccc1fcedcc865cf91445f133008b5457bc7ecc1ebb70f054378",
+      "latest_path": "provider_catalogs/azure.json",
+      "record_count": 1248,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/azure/0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3.json",
+        "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
+        "versions": [
+          {
+            "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
+            "path": "provider_sources/azure/0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "not_applicable",
+        "reason": "API/feed responses are not public page captures"
+      }
+    },
+    {
+      "id": "bedrock",
+      "name": "Amazon Bedrock",
+      "source_url": "https://aws.amazon.com/bedrock/pricing/",
+      "source_urls": [
+        "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/us-east-1/index.json",
+        "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/current/us-east-1/index.json"
+      ],
+      "source_kind": "price_list",
+      "fallback_reason": null,
+      "source_sha256": "c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf",
+      "catalog_sha256": "53b1a1ca72b271587ae6891764463609999ade9c5b8883cff92ad3a0c7080b8b",
+      "latest_path": "provider_catalogs/bedrock.json",
+      "record_count": 1508,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/bedrock/c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf.json",
+        "source_sha256": "c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf",
+        "versions": [
+          {
+            "source_sha256": "c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf",
+            "path": "provider_sources/bedrock/c71156de21cc1260e60bdc84a44bed9b5eda033142a5a12486ae89ae55f0c5bf.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "not_applicable",
+        "reason": "API/feed responses are not public page captures"
+      }
+    },
+    {
+      "id": "deepinfra",
+      "name": "DeepInfra",
+      "source_url": "https://api.deepinfra.com/models/list",
+      "source_urls": [
+        "https://api.deepinfra.com/models/list"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "a7131b657cf7a2c2fbab2a439874eee15244e5dc591a4f5460ef725679b69916",
+      "catalog_sha256": "7ffc64f6f4ad2fe9fb1af716168c2a7b86d50870d7df4af9936bddf79df4fd00",
+      "latest_path": "provider_catalogs/deepinfra.json",
+      "record_count": 386,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/deepinfra/d94a8bd54f5bbf43ef2f093ae60508328298eb3b0a3d73081f37124d253b6b15.json",
+        "source_sha256": "d94a8bd54f5bbf43ef2f093ae60508328298eb3b0a3d73081f37124d253b6b15",
+        "versions": [
+          {
+            "source_sha256": "09f8264df8cc820aa971fc3d3d145c49e3d1d212b78d5cef20fd0004ebd4baa6",
+            "path": "provider_sources/deepinfra/09f8264df8cc820aa971fc3d3d145c49e3d1d212b78d5cef20fd0004ebd4baa6.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-04T23:14:52Z"
+          },
+          {
+            "source_sha256": "dd865d8992f7b7bc3fc75c16b870779028eebcf669b8c59f8a869ff9b5180c7c",
+            "path": "provider_sources/deepinfra/dd865d8992f7b7bc3fc75c16b870779028eebcf669b8c59f8a869ff9b5180c7c.json",
+            "first_observed_at": "2026-10-04T23:19:07Z",
+            "last_seen_at": "2026-10-04T23:19:07Z"
+          },
+          {
+            "source_sha256": "86a48efa141cede5457d085693470a33b50e20dfea1f48b782dac2e38d2f0859",
+            "path": "provider_sources/deepinfra/86a48efa141cede5457d085693470a33b50e20dfea1f48b782dac2e38d2f0859.json",
+            "first_observed_at": "2026-10-04T23:24:19Z",
+            "last_seen_at": "2026-10-04T23:24:19Z"
+          },
+          {
+            "source_sha256": "d94a8bd54f5bbf43ef2f093ae60508328298eb3b0a3d73081f37124d253b6b15",
+            "path": "provider_sources/deepinfra/d94a8bd54f5bbf43ef2f093ae60508328298eb3b0a3d73081f37124d253b6b15.json",
+            "first_observed_at": "2026-10-05T07:47:09Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 4
+      },
+      "archive_reference": {
+        "state": "not_applicable",
+        "reason": "API/feed responses are not public page captures"
+      }
+    },
+    {
+      "id": "fireworks",
+      "name": "Fireworks",
+      "source_url": "https://docs.fireworks.ai/serverless/pricing",
+      "source_urls": [
+        "https://docs.fireworks.ai/serverless/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": "FIREWORKS_API_KEY not configured",
+      "source_sha256": "51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179",
+      "catalog_sha256": "34baa4a840f6bf953281403ff3af0a2e81855a1e16b20a0d957f32d7a0c80509",
+      "latest_path": "provider_catalogs/fireworks.json",
+      "record_count": 24,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/fireworks/51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179.json",
+        "source_sha256": "51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179",
+        "versions": [
+          {
+            "source_sha256": "51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179",
+            "path": "provider_sources/fireworks/51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://docs.fireworks.ai/serverless/pricing.md",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini API",
+      "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "source_urls": [
+        "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425",
+      "catalog_sha256": "d5ad8bc2c6d090df175bd934a2fa7122721eecb06b1c2f6920e5afeb6477af19",
+      "latest_path": "provider_catalogs/gemini.json",
+      "record_count": 419,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/gemini/8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425.json",
+        "source_sha256": "8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425",
+        "versions": [
+          {
+            "source_sha256": "8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425",
+            "path": "provider_sources/gemini/8ea72ea3b449ab6a05f5f645a1883a69863ab7067a729b55b8d1ccdf4442f425.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "source_url": "https://console.groq.com/docs/models",
+      "source_urls": [
+        "https://console.groq.com/docs/models.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee",
+      "catalog_sha256": "1df196cfac171f7b79fb64abda5076f689db2111967451f66ecffb5a8a921fe3",
+      "latest_path": "provider_catalogs/groq.json",
+      "record_count": 13,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/groq/e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee.json",
+        "source_sha256": "e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee",
+        "versions": [
+          {
+            "source_sha256": "95bb3e0cf277ab7e8d8b468bb7f4e3b2392adba7ad74c9b3b14ff1b8b31b55a3",
+            "path": "provider_sources/groq/95bb3e0cf277ab7e8d8b468bb7f4e3b2392adba7ad74c9b3b14ff1b8b31b55a3.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-04T23:14:52Z"
+          },
+          {
+            "source_sha256": "2991afbdcb440f9df667717f61a34bd1bc9608b296e1f27a20c6f8fe039f7f06",
+            "path": "provider_sources/groq/2991afbdcb440f9df667717f61a34bd1bc9608b296e1f27a20c6f8fe039f7f06.json",
+            "first_observed_at": "2026-10-04T23:19:07Z",
+            "last_seen_at": "2026-10-04T23:19:07Z"
+          },
+          {
+            "source_sha256": "426901e92d5b711638464ad76927dc306f0304fe99661b75f17e41620f922bc4",
+            "path": "provider_sources/groq/426901e92d5b711638464ad76927dc306f0304fe99661b75f17e41620f922bc4.json",
+            "first_observed_at": "2026-10-04T23:24:19Z",
+            "last_seen_at": "2026-10-04T23:24:19Z"
+          },
+          {
+            "source_sha256": "e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee",
+            "path": "provider_sources/groq/e2910f310df5b75fbfc17d21889ee409d73c13b5cd01cab3a3dd875dae3dd0ee.json",
+            "first_observed_at": "2026-10-05T07:47:09Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 4
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://console.groq.com/docs/models.md",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "novita",
+      "name": "Novita",
+      "source_url": "https://api.novita.ai/v3/openai/models",
+      "source_urls": [
+        "https://api.novita.ai/v3/openai/models"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2",
+      "catalog_sha256": "17f2395002de5791c7eae61f10c53a69f8460c112a13629fb53936236dedfeee",
+      "latest_path": "provider_catalogs/novita.json",
+      "record_count": 121,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/novita/938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2.json",
+        "source_sha256": "938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2",
+        "versions": [
+          {
+            "source_sha256": "938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2",
+            "path": "provider_sources/novita/938fa7fd09b3fb0e424108dacf6d3ef1cc6b3d30b007a5d7382cb120fba040a2.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "not_applicable",
+        "reason": "API/feed responses are not public page captures"
+      }
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI API",
+      "source_url": "https://developers.openai.com/api/docs/pricing",
+      "source_urls": [
+        "https://developers.openai.com/api/docs/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6",
+      "catalog_sha256": "ed6a2269aeef0f6b594be9c83d035ee2502e40f67c2a73bf1f1d80974f31bb6c",
+      "latest_path": "provider_catalogs/openai.json",
+      "record_count": 226,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/openai/0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6.json",
+        "source_sha256": "0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6",
+        "versions": [
+          {
+            "source_sha256": "0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6",
+            "path": "provider_sources/openai/0d9fb6b240209bb7b5a05d1d6ce0b8a796e0924b7e34c5ab183a3f1f890febe6.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://developers.openai.com/api/docs/pricing.md",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "together",
+      "name": "Together AI",
+      "source_url": "https://docs.together.ai/docs/serverless-models",
+      "source_urls": [
+        "https://docs.together.ai/docs/serverless-models.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": "TOGETHER_API_KEY not configured",
+      "source_sha256": "630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98",
+      "catalog_sha256": "ad1c27757bd3adcdbf901c80254705a24c178a1abab4548e84710b94e1f97b66",
+      "latest_path": "provider_catalogs/together.json",
+      "record_count": 83,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/together/630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98.json",
+        "source_sha256": "630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98",
+        "versions": [
+          {
+            "source_sha256": "630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98",
+            "path": "provider_sources/together/630f9c4dfe2d3a4b74a41403ae4c8390ca68c9c6aa5dc28986be5847d9020f98.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 1
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://docs.together.ai/docs/serverless-models.md",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    },
+    {
+      "id": "vertex",
+      "name": "Google Vertex AI",
+      "source_url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+      "source_urls": [
+        "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": "GOOGLE_CLOUD_BILLING_API_KEY not configured",
+      "source_sha256": "c694f82cb4e81fadab8425cedeb3d9ffd450a040a38b40b5e5fd4020d02403c4",
+      "catalog_sha256": "7fba0868839b9b402e09f4a07c56808bc16f7ef05e47857e4c2d1a02a5b1fb51",
+      "latest_path": "provider_catalogs/vertex.json",
+      "record_count": 926,
+      "revision": 1,
+      "first_seen_at": "2026-10-04T23:14:52Z",
+      "last_seen_at": "2026-10-05T09:18:58Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "legacy_source_archive": {
+        "latest_path": "provider_sources/vertex/7dface91a7ffb13e76f01fe97a035eaded63ca4fd77d096e264f8cb4bfe85f56.json",
+        "source_sha256": "7dface91a7ffb13e76f01fe97a035eaded63ca4fd77d096e264f8cb4bfe85f56",
+        "versions": [
+          {
+            "source_sha256": "cbc5dc20bbb452548a8abb7a55b7f2c991abc81cb7d2b585ef30de44407658d6",
+            "path": "provider_sources/vertex/cbc5dc20bbb452548a8abb7a55b7f2c991abc81cb7d2b585ef30de44407658d6.json",
+            "first_observed_at": "2026-10-04T23:14:52Z",
+            "last_seen_at": "2026-10-04T23:14:52Z"
+          },
+          {
+            "source_sha256": "8b0715f257a3c05caaae61ee03be29c6a730695c1b9ce86cde9a9dd789273adb",
+            "path": "provider_sources/vertex/8b0715f257a3c05caaae61ee03be29c6a730695c1b9ce86cde9a9dd789273adb.json",
+            "first_observed_at": "2026-10-04T23:19:07Z",
+            "last_seen_at": "2026-10-04T23:19:07Z"
+          },
+          {
+            "source_sha256": "ec5118fddbbd5e46a12e18811ebd42db3a4fe52ba5c612efac4169fe9ed3d8d5",
+            "path": "provider_sources/vertex/ec5118fddbbd5e46a12e18811ebd42db3a4fe52ba5c612efac4169fe9ed3d8d5.json",
+            "first_observed_at": "2026-10-04T23:24:19Z",
+            "last_seen_at": "2026-10-04T23:24:19Z"
+          },
+          {
+            "source_sha256": "7dface91a7ffb13e76f01fe97a035eaded63ca4fd77d096e264f8cb4bfe85f56",
+            "path": "provider_sources/vertex/7dface91a7ffb13e76f01fe97a035eaded63ca4fd77d096e264f8cb4bfe85f56.json",
+            "first_observed_at": "2026-10-05T07:47:09Z",
+            "last_seen_at": "2026-10-05T07:47:09Z"
+          }
+        ],
+        "version_count": 4
+      },
+      "archive_reference": {
+        "state": "unavailable",
+        "target_url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+        "checked_at": "2026-10-05T09:09:31Z",
+        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
+      }
+    }
+  ]
+}
