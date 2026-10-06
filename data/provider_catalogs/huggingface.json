@@ -7111,6 +7111,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-7e285f6ea15668b0db134b21",
+      "provider": "huggingface",
+      "native_id": "deepseek-ai/DeepSeek-V3.2",
+      "kind": "provider_route",
+      "label": "deepseek-ai/DeepSeek-V3.2",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.26,
+          "output": 0.38
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.26",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.38",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 163840,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-7e6be2a8364f47b56386d125",
       "provider": "huggingface",
       "native_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
@@ -8286,6 +8336,56 @@
         "is_free": false,
         "supports_tools": false,
         "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-92d50663a6c4c06c2808df1f",
+      "provider": "huggingface",
+      "native_id": "openai/gpt-oss-120b",
+      "kind": "provider_route",
+      "label": "openai/gpt-oss-120b",
+      "scope": {
+        "upstream_provider": "together"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.15,
+          "output": 0.6
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -9577,6 +9677,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-aa4a384df353e6926a6dd65d",
+      "provider": "huggingface",
+      "native_id": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "kind": "provider_route",
+      "label": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "scope": {
+        "upstream_provider": "baseten"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.3,
+          "output": 1.2
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.2",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-aa7ab7573a8ad5d1f13e082e",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
@@ -10704,37 +10855,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-c23c7da3f571958568aacb9b",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-4.7-FP8",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-4.7-FP8",
-      "scope": {
-        "upstream_provider": "zai-org"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": true,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-c25e43a7ba4eee24b06b6d00",
       "provider": "huggingface",
       "native_id": "microsoft/phi-4",
@@ -11222,6 +11342,35 @@
         "is_free": false,
         "supports_tools": false,
         "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-cd164545efd8f90cc9bd48d2",
+      "provider": "huggingface",
+      "native_id": "deepseek-ai/DeepSeek-V3.2",
+      "kind": "provider_route",
+      "label": "deepseek-ai/DeepSeek-V3.2",
+      "scope": {
+        "upstream_provider": "featherless-ai"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -14038,14 +14187,14 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "583f7834a2568e198d3d03c8ff7e8314817b7e4fc9d4ac7d3c9792aa2d07b460",
-  "revision": 2,
-  "changed_at": "2026-10-06T17:11:09Z",
+  "catalog_sha256": "b9396fa46aab721906bf9601a1df25148685df052733a55788ee5d56fa0784ce",
+  "revision": 3,
+  "changed_at": "2026-10-06T17:40:20Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "e049fef9efeee682832e77faee0fa2ac4c28eb9a76f8164971c7440d1548e565",
+  "source_sha256": "73a155edd96ee8c875abaa9311dc0664593c8c160cc00dbfe3a0993693e9c1e4",
   "archive_reference": null
 }
