@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-06T06:55:11Z",
+  "updated_at": "2026-10-06T07:24:18Z",
   "provider_count": 11,
   "scope": "Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
   "retention": "Current normalized catalogs plus change-only JSONL history. New raw responses are transient; pre-existing source archives are preserved unchanged.",
@@ -20,7 +20,7 @@
       "record_count": 89,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -59,7 +59,7 @@
       "record_count": 1248,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -96,7 +96,7 @@
       "record_count": 1508,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -126,13 +126,13 @@
       ],
       "source_kind": "api",
       "fallback_reason": null,
-      "source_sha256": "38c1db15bf7825fc917ca61dc0954ce1c2898bbf2820a4b8a3100fa611f47343",
+      "source_sha256": "4a0489800f13881bc00008f3a8789175d5c4900d8924071d4e2434525c120dd2",
       "catalog_sha256": "7ffc64f6f4ad2fe9fb1af716168c2a7b86d50870d7df4af9936bddf79df4fd00",
       "latest_path": "provider_catalogs/deepinfra.json",
       "record_count": 386,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -174,19 +174,19 @@
     {
       "id": "fireworks",
       "name": "Fireworks",
-      "source_url": "https://docs.fireworks.ai/serverless/pricing",
+      "source_url": "https://api.fireworks.ai/v1/serverless/models",
       "source_urls": [
-        "https://docs.fireworks.ai/serverless/pricing.md"
+        "https://api.fireworks.ai/v1/serverless/models"
       ],
-      "source_kind": "documentation",
-      "fallback_reason": "FIREWORKS_API_KEY not configured",
-      "source_sha256": "51f7f677cc9913ee569fb563c517530a65380534ec6a558d7cb92ef2a2166179",
-      "catalog_sha256": "34baa4a840f6bf953281403ff3af0a2e81855a1e16b20a0d957f32d7a0c80509",
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "64ab96dc95370c514bd0fc97295ec329390f8cde8da3b3810a98b8abb807de77",
+      "catalog_sha256": "b9351391811818ff54b3f0efeeeb8f5bb7d66858c5e8a6f491a4f8ba813da543",
       "latest_path": "provider_catalogs/fireworks.json",
-      "record_count": 24,
-      "revision": 1,
+      "record_count": 26,
+      "revision": 2,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-05T09:24:43Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -203,14 +203,9 @@
         "version_count": 1
       },
       "archive_reference": {
-        "state": "unavailable",
-        "target_url": "https://docs.fireworks.ai/serverless/pricing.md",
-        "checked_at": "2026-10-05T09:09:31Z",
-        "reason": "HTTPError: HTTP Error 429: Too Many Requests"
-      },
-      "last_attempt_at": "2026-10-06T06:55:11Z",
-      "last_attempt_state": "error",
-      "last_attempt_error": "ValueError: Fireworks catalog row lacks its pricing SKU list"
+        "state": "not_applicable",
+        "reason": "API/feed responses are not public page captures"
+      }
     },
     {
       "id": "gemini",
@@ -227,7 +222,7 @@
       "record_count": 419,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -265,7 +260,7 @@
       "record_count": 13,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -321,7 +316,7 @@
       "record_count": 121,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -357,7 +352,7 @@
       "record_count": 226,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -395,7 +390,7 @@
       "record_count": 83,
       "revision": 1,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
@@ -445,17 +440,18 @@
         "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus?currencyCode=USD&pageSize=500&pageToken=NzUwMA%3D%3D",
         "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus?currencyCode=USD&pageSize=500&pageToken=ODAwMA%3D%3D",
         "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus?currencyCode=USD&pageSize=500&pageToken=ODUwMA%3D%3D",
+        "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus?currencyCode=USD&pageSize=500&pageToken=OTAwMA%3D%3D",
         "https://cloud.google.com/vertex-ai/generative-ai/pricing"
       ],
       "source_kind": "api+documentation",
       "fallback_reason": null,
-      "source_sha256": "6130525dbb2cd806f7a92b2c08e61dd0b1afb8638ccd907bec498a5cc747e623",
-      "catalog_sha256": "61d5f9c91f5b9794385eec80b172ee0e9b1f61b1ea6fc0d80c10f755bf081b16",
+      "source_sha256": "de7459bdaa6ae4c9953432f5b4abcd64d456b1d21ac93dcb67298e017180f3b9",
+      "catalog_sha256": "b5eb05a62a2ed69335bc73ff90c8483d6260abaae91f6fcc58fef3ecff990867",
       "latest_path": "provider_catalogs/vertex.json",
-      "record_count": 9869,
-      "revision": 2,
+      "record_count": 9983,
+      "revision": 3,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T06:55:11Z",
+      "last_seen_at": "2026-10-06T07:24:18Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {
