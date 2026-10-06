@@ -70,8 +70,8 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 | Llama 3.3 70B Instruct | DeepInfra, Novita, Together AI |
 | Llama 3.1 8B Instruct | DeepInfra, Novita |
 | Qwen3 235B A22B Instruct 2507 | DeepInfra, Novita |
-| GPT-5.4 (2026-03-05) | OpenAI API, Azure OpenAI |
-| GPT-5.4 mini (2026-03-17) | OpenAI API, Azure OpenAI |
+| GPT-5.4 (2026-03-05) | OpenAI API, Microsoft Foundry (Azure OpenAI) |
+| GPT-5.4 mini (2026-03-17) | OpenAI API, Microsoft Foundry (Azure OpenAI) |
 | Claude Sonnet 4.6 | Anthropic API, Google Vertex AI, Amazon Bedrock |
 | Claude Opus 4.6 | Anthropic API, Google Vertex AI, Amazon Bedrock |
 | Claude Haiku 4.5 (2025-10-01) | Anthropic API, Google Vertex AI, Amazon Bedrock |
@@ -108,7 +108,7 @@ With `--archive-lookups`, changed public-document catalogs receive best-effort W
 | Google Gemini API | [Official paid pricing](https://ai.google.dev/gemini-api/docs/pricing) | Paid Standard/Priority/Flex tables, not free or Batch tiers. Introductory prices selected by UTC date; token-hour cache storage is not a cache token rate. |
 | Google Vertex AI (GCP) | [Cloud Billing Catalog API](https://docs.cloud.google.com/billing/v1/how-tos/catalog-api) + [official pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) | With `GOOGLE_CLOUD_BILLING_API_KEY`, discovers Vertex service and archives every public USD SKU, unit, region and tiered price. Reviewed dashboard quotes retain semantic document tabs: Gemini global/non-global tiers and dated promotions; Claude Global only. No speculative SKU-to-model mapping. |
 | Amazon Bedrock (AWS) | [Official pricing](https://aws.amazon.com/bedrock/pricing/) and public AWS Price List feeds | `AmazonBedrock` and `AmazonBedrockFoundationModels` US East (N. Virginia) catalogs. Explicit USD/1K or USD/1M units; Bedrock Runtime, global/regional Claude quotes, no inferred first-party pricing. |
-| Azure OpenAI | [Public USD retail meters](https://prices.azure.com/api/retail/prices) | East US billing location, complete pagination, current consumption meters in USD/1M, separate Global/US Data Zone and Standard/Priority/long-context groups. Batch, reservations, and provisioned units are excluded. |
+| Microsoft Foundry (Azure) | [Public USD retail meters](https://prices.azure.com/api/retail/prices) | Complete East US `Foundry Models` service inventory, including Azure OpenAI and other Azure-metered model families. All published units/capacity/reservation meters are retained natively. Dashboard quotes remain reviewed OpenAI consumption USD/1M groups: Global/US Data Zone and Standard/Priority/long-context; Batch, reservations and provisioned units are not calculator quotes. Marketplace-only partner prices and Foundry Tools are outside this feed. |
 
 Every observation includes the official URL, UTC timestamp, currency, and SHA-256 of its source payload. Multi-feed/page collectors hash the complete assembled JSON response. Sources can change layout: parsers fail closed on ambiguous units, invalid rates, unsupported price tables, or an empty tracked snapshot. Fixture tests cover each parser without making network requests.
 

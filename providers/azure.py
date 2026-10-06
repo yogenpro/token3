@@ -1,14 +1,15 @@
-"""Public USD consumption meters, East US billing location; no credentials."""
+"""Microsoft Foundry public USD retail meters, East US; no credentials."""
 import json
 import re
 from urllib.parse import quote, urlparse
 from .common import fetch_text, number, observation, parse_or_archive, snapshot
 from .public_pricing import metadata, require_models, today
 
-# Capture every public OpenAI service meter in East US for the full inventory.
-# The dashboard parser below still selects only reviewed canonical offerings.
-FILTER = "contains(productName, 'OpenAI') and armRegionName eq 'eastus'"
+# Foundry Models includes Azure OpenAI and Azure-metered partner model families.
+# Marketplace-only partner offers are not guaranteed to appear in this feed.
+FILTER = "serviceName eq 'Foundry Models' and armRegionName eq 'eastus'"
 SOURCE = "https://prices.azure.com/api/retail/prices?$filter=" + quote(FILTER, safe="")
+CURATED_OPENAI_PRODUCTS = {"Azure OpenAI", "Azure OpenAI GPT5"}
 API_IDS = {"5.4": "gpt-5.4-2026-03-05", "5.4 mini": "gpt-5.4-mini-2026-03-17"}
 SKU = re.compile(r"(5\.4(?: mini)?) (longco )?(pp )?(cd )?(inp|opt) (gl|dz)")
 
@@ -20,6 +21,9 @@ def parse(body, aliases, as_of=None):
         raise ValueError("Azure pagination is incomplete")
     groups = {}
     for row in document["Items"]:
+        # A version-like SKU in another Foundry family is not an OpenAI alias.
+        if row.get("productName") not in CURATED_OPENAI_PRODUCTS:
+            continue
         match = SKU.fullmatch(row["skuName"].lower())
         if match is None or row.get("type") != "Consumption" or row.get("isPrimaryMeterRegion") is not True:
             continue
@@ -78,8 +82,9 @@ def collect(aliases):
             raise ValueError("Untrusted Azure pagination link")
     else:
         raise ValueError("Azure pagination exceeded 20 pages")
-    # Hash and archive the complete assembled response, not just the first page.
+    # Hash the complete assembled response, not just the first page.
     body = json.dumps(dict(Items=items, page_count=page_count))
     result = parse_or_archive(body, SOURCE, parse, aliases)
     result.source_urls = page_urls
+    result.source_kind = "api"
     return result

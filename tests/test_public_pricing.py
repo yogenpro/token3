@@ -3,10 +3,12 @@ import unittest
 from datetime import date
 from pathlib import Path
 from unittest.mock import patch
+from urllib.parse import parse_qs, urlparse
 
 from providers import anthropic, azure, bedrock, gemini, openai, vertex
 from providers.public_pricing import dated_rate
 from scripts.normalize import catalog, normalize
+from scripts.catalog_inventory import normalize_inventory
 
 FIXTURES = Path(__file__).parent / 'fixtures'
 AS_OF = date(2026, 10, 3)
@@ -140,6 +142,40 @@ class PublicPricingTests(unittest.TestCase):
             anthropic.parse(incomplete, self.aliases)
         with self.assertRaises(ValueError):
             dated_rate('$0.75 through December 31, 2026. $1.50 starting January 3, 2027.', AS_OF)
+
+    def test_foundry_scope_preserves_openai_and_native_non_token_meters(self):
+        payload = json.loads((FIXTURES / 'azure.json').read_text())
+        before = azure.parse(json.dumps(payload), self.aliases, AS_OF).records
+        original = next(dict(row) for row in payload['Items'] if azure.SKU.fullmatch(row['skuName'].lower())
+                        and row.get('type') == 'Consumption' and row.get('isPrimaryMeterRegion') is True)
+        other = dict(original, productName='Azure Mistral Models', serviceName='Foundry Models',
+                     meterId='fixture-other-model', skuId='fixture-other-sku', retailPrice=0.0001, unitPrice=0.0001)
+        capacity = dict(original, productName='Azure AI Foundry Provisioned Throughput Reservation',
+                        serviceName='Foundry Models', meterId='fixture-capacity', skuId='fixture-capacity-sku',
+                        skuName='Provisioned Managed', unitOfMeasure='1/Hour', type='Reservation', reservationTerm='1 Year')
+        payload['Items'] += [other, capacity]
+        self.assertEqual(before, azure.parse(json.dumps(payload), self.aliases, AS_OF).records)
+        native, _ = normalize_inventory('azure', json.dumps(payload), 'api')
+        unknown = next(r for r in native['records'] if r['native_id'] == 'fixture-other-model')
+        self.assertEqual(unknown['metadata']['serviceName'], 'Foundry Models')
+        fixed = next(r for r in native['records'] if r['native_id'] == 'fixture-capacity')
+        self.assertEqual(fixed['rates'][0]['unit'], '1/Hour')
+        self.assertEqual(fixed['scope']['type'], 'Reservation')
+        self.assertFalse(fixed['comparison_eligible'])
+        with patch('providers.azure.fetch_text', return_value=json.dumps(payload)) as fetch:
+            result = azure.collect(self.aliases)
+        selected = parse_qs(urlparse(fetch.call_args.args[0]).query)['$filter'][0]
+        self.assertEqual(selected, "serviceName eq 'Foundry Models' and armRegionName eq 'eastus'")
+        self.assertEqual(result.source_kind, 'api')
+        self.assertEqual(len(json.loads(result.source_payload)['Items']), len(payload['Items']))
+        self.assertEqual(len(result.records), 10)
+
+    def test_non_openai_version_like_skus_cannot_be_canonical_openai_quotes(self):
+        payload = json.loads((FIXTURES / 'azure.json').read_text())
+        for row in payload['Items']:
+            row['productName'] = 'Azure Mistral Models'
+        with self.assertRaises(ValueError):
+            azure.parse(json.dumps(payload), self.aliases, AS_OF)
 
     def test_azure_pagination_is_complete_and_rejects_untrusted_links(self):
         payload = json.loads((FIXTURES / 'azure.json').read_text())

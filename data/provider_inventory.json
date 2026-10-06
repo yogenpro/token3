@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-06T07:24:18Z",
+  "updated_at": "2026-10-06T08:06:27Z",
   "provider_count": 11,
   "scope": "Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
   "retention": "Current normalized catalogs plus change-only JSONL history. New raw responses are transient; pre-existing source archives are preserved unchanged.",
@@ -45,21 +45,21 @@
     },
     {
       "id": "azure",
-      "name": "Azure OpenAI",
-      "source_url": "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
+      "name": "Microsoft Foundry",
+      "source_url": "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27",
       "source_urls": [
-        "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
-        "https://prices.azure.com:443/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
+        "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27",
+        "https://prices.azure.com:443/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
       ],
       "source_kind": "api",
       "fallback_reason": null,
-      "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
-      "catalog_sha256": "5783a5a0e738bccc1fcedcc865cf91445f133008b5457bc7ecc1ebb70f054378",
+      "source_sha256": "a0c159557f6623746a775ba88802daa4e84c2deabcfb2d5e3324eec150f45f46",
+      "catalog_sha256": "f69f2f4d7af0f5a407c391d7cf655e33b52eeedb1f09bf41d6c5a9a79634a113",
       "latest_path": "provider_catalogs/azure.json",
-      "record_count": 1248,
-      "revision": 1,
+      "record_count": 1699,
+      "revision": 2,
       "first_seen_at": "2026-10-04T23:14:52Z",
-      "last_seen_at": "2026-10-06T07:24:18Z",
+      "last_seen_at": "2026-10-06T08:06:27Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "legacy_source_archive": {

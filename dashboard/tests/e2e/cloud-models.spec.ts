@@ -2,8 +2,8 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const models = [
-  ['openai/gpt-5.4', ['OpenAI API', 'Azure OpenAI']],
-  ['openai/gpt-5.4-mini', ['OpenAI API', 'Azure OpenAI']],
+  ['openai/gpt-5.4', ['OpenAI API', 'Microsoft Foundry']],
+  ['openai/gpt-5.4-mini', ['OpenAI API', 'Microsoft Foundry']],
   ['anthropic/claude-sonnet-4.6', ['Anthropic API', 'Google Vertex AI', 'Amazon Bedrock']],
   ['anthropic/claude-opus-4.6', ['Anthropic API', 'Google Vertex AI', 'Amazon Bedrock']],
   ['anthropic/claude-haiku-4.5', ['Anthropic API', 'Google Vertex AI', 'Amazon Bedrock']],

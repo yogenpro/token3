@@ -16,11 +16,22 @@ Collection should prefer official structured rate catalogs. A model-list API tha
 | Google Gemini API | Documented `models.list`/`Model` resource has capabilities/token limits, no list prices | Official Gemini Developer API pricing `.md.txt` | No key for pricing document |
 | Google Vertex AI | Cloud Billing Catalog API `v1/services` and `v1/services/{id}/skus` | Complete USD SKU inventory with a key, plus pricing document for existing reviewed dashboard quotes; document-only fallback | `GOOGLE_CLOUD_BILLING_API_KEY` |
 | Amazon Bedrock | Public AWS Price List bulk JSON catalogs | Already structured feeds (`AmazonBedrock` and `AmazonBedrockFoundationModels`, `us-east-1`) | None |
-| Azure OpenAI | Azure Retail Prices API | Already API-based, full pagination of the selected East US OpenAI meter scope | None |
+| Microsoft Foundry (Azure) | Azure Retail Prices API, `serviceName eq 'Foundry Models'` | Complete East US public USD service meters, including Azure OpenAI and other model families; reviewed OpenAI dashboard mappings stay separate | None |
 
 This is an API capability review, not a claim of exhaustive commercial coverage. The providers, source scopes and original units remain explicit. Authenticated listings may be account-scoped. Region scopes for existing Azure/AWS collection are unchanged.
 
 ## API details and limits
+
+### Microsoft Foundry (Azure)
+
+Microsoft's [Foundry Models overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) states that models sold by Azure include all Azure OpenAI models and selected third-party models. The public [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices) exposes their service as `Foundry Models`.
+
+The collector now uses `serviceName eq 'Foundry Models' and armRegionName eq 'eastus'`, replacing the narrower OpenAI product-name filter. Live verification found **1,699 meters**, including all **1,248 prior OpenAI meter IDs** plus **451 additional meters**. Examples include DeepSeek, Llama, Mistral, Phi, Grok, Qwen, Kimi, Cohere, MAI and BFL Flux product families, plus managed-compute and provisioned-capacity products. These are meter counts, not unique model counts, and can change.
+
+- Public USD retail prices, complete pagination, and the existing East US billing scope; no Azure account or key required.
+- Native currencies, units, tiers, dates, reservations and service/product metadata remain explicit. Hourly capacity is not converted into token pricing.
+- Provider ID `azure` and historical offering IDs remain stable. The dashboard label is **Microsoft Foundry**; reviewed GPT-5.4/mini comparisons remain Azure OpenAI quotes. Other families are not automatically treated as comparable dashboard offerings. Product identity is checked before matching OpenAI version-like SKUs.
+- This feed is **not** the entire Foundry marketplace or platform: partner Marketplace offers may have separate pricing, Foundry Tools is a separate service, and managed compute can incur additional infrastructure charges. No negotiated rates or account-specific offers are collected.
 
 ### Together
 

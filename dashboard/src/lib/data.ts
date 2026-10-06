@@ -85,7 +85,7 @@ export const providers: Record<string, { name: string; color: string; initials: 
   gemini: { name: 'Google Gemini API', color: '#1765c1', initials: 'G' },
   vertex: { name: 'Google Vertex AI', color: '#4a58b7', initials: 'V' },
   bedrock: { name: 'Amazon Bedrock', color: '#886012', initials: 'B' },
-  azure: { name: 'Azure OpenAI', color: '#006593', initials: 'Az' },
+  azure: { name: 'Microsoft Foundry', color: '#006593', initials: 'Az' },
 };
 export function providerInfo(id: string) {
   return providers[id] ?? { name: id, color: '#6b7280', initials: id.slice(0, 2) };

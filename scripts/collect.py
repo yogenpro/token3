@@ -21,7 +21,7 @@ from .catalog_inventory import canonical
 PROVIDERS = {"deepinfra": deepinfra, "novita": novita, "together": together, "fireworks": fireworks, "groq": groq,
              "openai": openai, "anthropic": anthropic, "gemini": gemini, "vertex": vertex, "bedrock": bedrock, "azure": azure}
 PROVIDER_NAMES = {"deepinfra": "DeepInfra", "novita": "Novita", "together": "Together AI", "fireworks": "Fireworks", "groq": "Groq",
-                  "openai": "OpenAI API", "anthropic": "Anthropic API", "gemini": "Google Gemini API", "vertex": "Google Vertex AI", "bedrock": "Amazon Bedrock", "azure": "Azure OpenAI"}
+                  "openai": "OpenAI API", "anthropic": "Anthropic API", "gemini": "Google Gemini API", "vertex": "Google Vertex AI", "bedrock": "Amazon Bedrock", "azure": "Microsoft Foundry"}
 SOURCE_KINDS = {"deepinfra": "api", "novita": "api", "azure": "api", "bedrock": "price_list"}
 HISTORY_FIELDS = ("offering_id", "observed_at") + PRICE_FIELDS + ("currency", "source_url", "source_sha256")
 

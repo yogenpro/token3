@@ -162,7 +162,7 @@ def _azure(payload):
         if not item.get("meterId") or not item.get("unitOfMeasure") or not item.get("currencyCode"):
             raise ValueError("Azure meter lacks its ID, unit or currency")
         scope = {key: item.get(key) for key in ("skuId", "armRegionName", "type", "tierMinimumUnits", "effectiveStartDate")}
-        metadata = {key: item.get(key) for key in ("meterName", "skuName", "productName", "armSkuName", "location", "isPrimaryMeterRegion")}
+        metadata = {key: item.get(key) for key in ("meterName", "skuName", "productName", "armSkuName", "location", "isPrimaryMeterRegion", "serviceName", "serviceId", "serviceFamily")}
         prices = [rate("retailPrice", item["retailPrice"], item["unitOfMeasure"], item["currencyCode"])]
         rules = {key: item[key] for key in ("retailPrice", "unitPrice", "unitOfMeasure", "currencyCode", "reservationTerm", "savingsPlan") if key in item}
         records.append(entry("azure", item["meterId"], "meter", item["meterName"], scope, rules, metadata, prices))

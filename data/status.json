@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_run_at": "2026-10-06T07:24:18Z",
+  "last_run_at": "2026-10-06T08:06:27Z",
   "first_observed_at": "2026-10-03T21:24:32Z",
   "observation_count": 168,
   "providers": [
@@ -23,21 +23,21 @@
     },
     {
       "id": "azure",
-      "name": "Azure OpenAI",
+      "name": "Microsoft Foundry",
       "state": "ok",
-      "last_attempt_at": "2026-10-06T07:24:18Z",
-      "last_success_at": "2026-10-06T07:24:18Z",
+      "last_attempt_at": "2026-10-06T08:06:27Z",
+      "last_success_at": "2026-10-06T08:06:27Z",
       "offering_count": 10,
-      "source_sha256": "0e9dfb3078367f2691fdf07c6c0a9921eaeb56791d82fb5bc828acd0426ffda3",
+      "source_sha256": "a0c159557f6623746a775ba88802daa4e84c2deabcfb2d5e3324eec150f45f46",
       "authoritative_catalog": false,
       "error": null,
       "source_kind": "api",
       "fallback_reason": null,
       "source_urls": [
-        "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27",
-        "https://prices.azure.com:443/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
+        "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27",
+        "https://prices.azure.com:443/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27&$skip=1000"
       ],
-      "source_url": "https://prices.azure.com/api/retail/prices?$filter=contains%28productName%2C%20%27OpenAI%27%29%20and%20armRegionName%20eq%20%27eastus%27"
+      "source_url": "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27"
     },
     {
       "id": "bedrock",
