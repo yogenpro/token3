@@ -1,0 +1,3157 @@
+{
+  "schema_version": 1,
+  "parser_version": 1,
+  "provider": "ovhcloud",
+  "source_kind": "api",
+  "records": [
+    {
+      "id": "ovhcloud-1535b6a807c0023b48639ad2",
+      "provider": "ovhcloud",
+      "native_id": "mistral-nemo-instruct-2407",
+      "kind": "model",
+      "label": "Mistral-Nemo-Instruct-2407",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.13,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.13,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.13",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.13",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Mistral-Nemo-Instruct-2407",
+        "available": false,
+        "category": "Large Language Models (LLM)",
+        "category_v2": "Text Generation",
+        "tags": [],
+        "aliases": [
+          "mistralai/Mistral-Nemo-Instruct-2407",
+          "mistral-nemo-instruct-2407"
+        ],
+        "api_base_url": "https://mistral-nemo-instruct-2407.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 118,
+              "max_output_token_k": 118
+            }
+          },
+          "nb_of_billion_parameters": 12.2,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "06/11/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://mistral-nemo-instruct-2407.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "04/11/2026",
+          "model_publication_date": "17/07/2024",
+          "publisher": "mistralai",
+          "series": "mistral",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-27c243a90354216fa0ddecf0",
+      "provider": "ovhcloud",
+      "native_id": "nvr-tts-it-it",
+      "kind": "model",
+      "label": "nvr-tts-it-it",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_chars"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_chars",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nvr-tts-it-it",
+        "available": true,
+        "category": "Text To Speech",
+        "category_v2": "Text To Speech",
+        "tags": [
+          "Text To Speech",
+          "Multi-speaker"
+        ],
+        "aliases": [
+          "NVIDIA-RIVA"
+        ],
+        "api_base_url": "https://nvr-tts-it-it.endpoints.kepler.ai.cloud.ovh.net/api/v1/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "sound"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "audio"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "text-to-speech",
+              "multi-speaker"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "tts",
+            "params": {
+              "input_languages": [
+                "it-it"
+              ],
+              "output_languages": [
+                "it-it"
+              ]
+            }
+          },
+          "quantization": "fp32"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "28/06/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "it-it"
+          ],
+          "licence_name": "Riva license",
+          "licence_url": "https://nvr-tts-it-it.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "None",
+          "publisher": "NVIDIA Riva",
+          "series": "NVIDIA Riva",
+          "source": "NVIDIA"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-348cfe25261c596ed2f25f89",
+      "provider": "ovhcloud",
+      "native_id": "qwen-3-5-397b",
+      "kind": "model",
+      "label": "Qwen3.5-397B-A17B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.6,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 3.6,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.6",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "3.6",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3.5-397B-A17B",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [
+          "Qwen/Qwen3.5-397B-A17B",
+          "qwen3.5-397b-a17b",
+          "qwen3.5-397b"
+        ],
+        "api_base_url": "https://qwen-3-5-397b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "vision",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 262,
+              "max_images_per_prompt": 5,
+              "max_output_token_k": 262,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 397,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "15/05/2026",
+          "knowledge_cutoff": "31/09/2025",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-3-5-397b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "15/02/2026",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+        },
+        "availability": {
+          "statuses": [
+            "new"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-353686398ab2d5789f0c5241",
+      "provider": "ovhcloud",
+      "native_id": "qwen-guard-gen-8b",
+      "kind": "model",
+      "label": "Qwen3Guard-Gen-8B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3Guard-Gen-8B",
+        "available": true,
+        "category": "LLM Guard",
+        "category_v2": "Safety & Moderation",
+        "tags": [
+          "Moderation"
+        ],
+        "aliases": [
+          "Qwen/Qwen3Guard-Gen-8B"
+        ],
+        "api_base_url": "https://qwen-guard-gen-8b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "moderation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 32,
+              "max_output_token_k": 16
+            }
+          },
+          "nb_of_billion_parameters": 8,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "21/01/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-guard-gen-8b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "23/09/2025",
+          "publisher": "qwen3guard",
+          "series": "qwen3guard",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3Guard-Gen-8B"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "beta"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-38f4fc53f320a973fadb94a6",
+      "provider": "ovhcloud",
+      "native_id": "qwen-2-5-vl-72b-instruct",
+      "kind": "model",
+      "label": "Qwen2.5-VL-72B-Instruct",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.91,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.91,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.91",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.91",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen2.5-VL-72B-Instruct",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision"
+        ],
+        "aliases": [
+          "Qwen/Qwen2.5-VL-72B-Instruct",
+          "qwen2.5-vl-72b-instruct"
+        ],
+        "api_base_url": "https://qwen-2-5-vl-72b-instruct.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "multimodal",
+              "vision",
+              "text_only_compatible"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 32,
+              "max_images_per_prompt": 5,
+              "max_output_token_k": 32,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 72,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "26/03/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Qwen",
+          "licence_url": "https://qwen-2-5-vl-72b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "27/01/2025",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-40119b9379da429d05263673",
+      "provider": "ovhcloud",
+      "native_id": "whisper-large-v3",
+      "kind": "model",
+      "label": "whisper-large-v3",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 4.083e-05,
+            "price_unit": "audio_duration_seconds"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.00004083",
+            "unit": "audio_duration_seconds",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "whisper-large-v3",
+        "available": true,
+        "category": "Speech To Text",
+        "category_v2": "Speech To Text",
+        "tags": [
+          "Automatic Speech Recognition",
+          "Diarisation",
+          "Translation"
+        ],
+        "aliases": [
+          "openai/whisper-large-v3"
+        ],
+        "api_base_url": "https://whisper-large-v3.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "sound"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "json",
+              "verbose_json",
+              "text"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "speech_to_text",
+              "diarisation",
+              "translation"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "asr",
+            "params": {
+              "input_languages": [
+                "*"
+              ],
+              "max_audio_duration": 10800,
+              "max_audio_duration_unauthenticated": 60,
+              "max_audio_size": 2048,
+              "max_audio_size_unauthenticated": 10,
+              "output_languages": [
+                "*"
+              ],
+              "supported_formats": [
+                "mp3",
+                "mp4",
+                "aac",
+                "m4a",
+                "wav",
+                "flac",
+                "ogg",
+                "opus",
+                "webm",
+                "mpeg",
+                "mpga"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 1.54,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "15/07/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://whisper-large-v3.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "01/11/2023",
+          "publisher": "OpenAi",
+          "series": "Whisper",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/openai/whisper-large-v3"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-5fcf83e017d909c30a92bc0c",
+      "provider": "ovhcloud",
+      "native_id": "nvr-tts-en-us",
+      "kind": "model",
+      "label": "nvr-tts-en-us",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_chars"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_chars",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nvr-tts-en-us",
+        "available": true,
+        "category": "Text To Speech",
+        "category_v2": "Text To Speech",
+        "tags": [
+          "Text To Speech",
+          "Multi-speaker"
+        ],
+        "aliases": [
+          "NVIDIA-RIVA"
+        ],
+        "api_base_url": "https://nvr-tts-en-us.endpoints.kepler.ai.cloud.ovh.net/api/v1/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "sound"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "audio"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "text-to-speech",
+              "multi-speaker"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "tts",
+            "params": {
+              "input_languages": [
+                "en-us"
+              ],
+              "output_languages": [
+                "en-us"
+              ]
+            }
+          },
+          "quantization": "fp32"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "28/06/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "en-us"
+          ],
+          "licence_name": "Riva license",
+          "licence_url": "https://nvr-tts-en-us.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "None",
+          "publisher": "NVIDIA Riva",
+          "series": "NVIDIA Riva",
+          "source": "NVIDIA"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-6b8d3a20211cfa89e291e72a",
+      "provider": "ovhcloud",
+      "native_id": "qwen3-embedding-8b",
+      "kind": "model",
+      "label": "Qwen3-Embedding-8B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.1,
+            "price_unit": "million_input_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.1",
+            "unit": "million_input_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3-Embedding-8B",
+        "available": true,
+        "category": "Embeddings",
+        "category_v2": "Embeddings",
+        "tags": [],
+        "aliases": [
+          "Qwen/qwen3_embedding_8b"
+        ],
+        "api_base_url": "https://qwen3-embedding-8b.endpoints.kepler.ai.cloud.ovh.net/api/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "embedding_vector"
+            ],
+            "reasoning": false,
+            "response_format": [],
+            "streaming": false,
+            "supported_sampling_parameters": [],
+            "use_case_tag": [
+              "multilingual"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "embedding",
+            "params": {
+              "context_size": 32768,
+              "max_batch_size": 25,
+              "output_dimension": 4096,
+              "output_dimension_max": 4096,
+              "output_dimension_min": 32
+            }
+          },
+          "nb_of_billion_parameters": 7.6,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "26/03/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen3-embedding-8b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "06/06/2025",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/qwen3_embedding_8b"
+        },
+        "availability": {
+          "statuses": [
+            "new"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-780fe72dd5413a318bd5c95b",
+      "provider": "ovhcloud",
+      "native_id": "gpt-oss-120b",
+      "kind": "model",
+      "label": "gpt-oss-120b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.08,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.4,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.08",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.4",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "gpt-oss-120b",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [
+          "openai/gpt-oss-120b"
+        ],
+        "api_base_url": "https://gpt-oss-120b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 131,
+              "max_output_token_k": 131
+            }
+          },
+          "nb_of_billion_parameters": 117,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "12/08/2025",
+          "knowledge_cutoff": "31/06/2024",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://gpt-oss-120b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "05/08/2025",
+          "publisher": "OpenAI",
+          "series": "gpt-oss",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/openai/gpt-oss-120b"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-78db4d8da31c1a7fc38e3217",
+      "provider": "ovhcloud",
+      "native_id": "qwen-3-5-9b",
+      "kind": "model",
+      "label": "Qwen3.5-9B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.1,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.15,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.1",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.15",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3.5-9B",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [
+          "Qwen/Qwen3.5-9B",
+          "qwen3.5-9b"
+        ],
+        "api_base_url": "https://qwen-3-5-9b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "vision",
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 262,
+              "max_images_per_prompt": 5,
+              "max_output_token_k": 262,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 9.7,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "15/04/2026",
+          "knowledge_cutoff": "31/09/2025",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-3-5-9b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "15/02/2026",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3.5-9B"
+        },
+        "availability": {
+          "statuses": [
+            "new"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-7d1762dcac172c582adde67b",
+      "provider": "ovhcloud",
+      "native_id": "bge-multilingual-gemma2",
+      "kind": "model",
+      "label": "bge-multilingual-gemma2",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.01,
+            "price_unit": "million_input_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.01",
+            "unit": "million_input_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "bge-multilingual-gemma2",
+        "available": true,
+        "category": "Embeddings",
+        "category_v2": "Embeddings",
+        "tags": [],
+        "aliases": [
+          "BAAI/bge-multilingual-gemma2"
+        ],
+        "api_base_url": "https://bge-multilingual-gemma2.endpoints.kepler.ai.cloud.ovh.net/api/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "embedding_vector"
+            ],
+            "reasoning": false,
+            "response_format": [],
+            "streaming": false,
+            "use_case_tag": [
+              "multilingual"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "embedding",
+            "params": {
+              "context_size": 8192,
+              "max_batch_size": 25,
+              "output_dimension": 3584
+            }
+          },
+          "nb_of_billion_parameters": 0.567,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "24/03/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "en"
+          ],
+          "licence_name": "Gemma",
+          "licence_url": "https://bge-multilingual-gemma2.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "29/06/2024",
+          "publisher": "BAAI",
+          "series": "bge",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/BAAI/bge-multilingual-gemma2"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-83944392a2b21d553d6b4a6f",
+      "provider": "ovhcloud",
+      "native_id": "nvr-tts-de-de",
+      "kind": "model",
+      "label": "nvr-tts-de-de",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_chars"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_chars",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nvr-tts-de-de",
+        "available": true,
+        "category": "Text To Speech",
+        "category_v2": "Text To Speech",
+        "tags": [
+          "Text To Speech",
+          "Multi-speaker"
+        ],
+        "aliases": [
+          "NVIDIA-RIVA"
+        ],
+        "api_base_url": "https://nvr-tts-de-de.endpoints.kepler.ai.cloud.ovh.net/api/v1/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "sound"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "audio"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "text-to-speech"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "tts",
+            "params": {
+              "input_languages": [
+                "de-de"
+              ],
+              "output_languages": [
+                "de-de"
+              ]
+            }
+          },
+          "quantization": "fp32"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "28/06/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "de-de"
+          ],
+          "licence_name": "Riva license",
+          "licence_url": "https://nvr-tts-de-de.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "None",
+          "publisher": "NVIDIA Riva",
+          "series": "NVIDIA Riva",
+          "source": "NVIDIA"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-86ed45dccfab22c4eae789c9",
+      "provider": "ovhcloud",
+      "native_id": "whisper-large-v3-turbo",
+      "kind": "model",
+      "label": "whisper-large-v3-turbo",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 1.278e-05,
+            "price_unit": "audio_duration_seconds"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.00001278",
+            "unit": "audio_duration_seconds",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "whisper-large-v3-turbo",
+        "available": true,
+        "category": "Speech To Text",
+        "category_v2": "Speech To Text",
+        "tags": [
+          "Automatic Speech Recognition",
+          "Diarisation",
+          "Translation"
+        ],
+        "aliases": [
+          "openai/whisper-large-v3-turbo"
+        ],
+        "api_base_url": "https://whisper-large-v3-turbo.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "sound"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "json",
+              "verbose_json",
+              "text"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "speech_to_text"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "asr",
+            "params": {
+              "input_languages": [
+                "*"
+              ],
+              "max_audio_duration": 10800,
+              "max_audio_duration_unauthenticated": 60,
+              "max_audio_size": 2048,
+              "max_audio_size_unauthenticated": 10,
+              "output_languages": [
+                "*"
+              ],
+              "supported_formats": [
+                "mp3",
+                "mp4",
+                "aac",
+                "m4a",
+                "wav",
+                "flac",
+                "ogg",
+                "opus",
+                "webm",
+                "mpeg",
+                "mpga"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 0.81,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "15/07/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://whisper-large-v3-turbo.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "01/09/2024",
+          "publisher": "OpenAi",
+          "series": "Whisper",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/openai/whisper-large-v3-turbo"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-8b4da27336aee9d16990c050",
+      "provider": "ovhcloud",
+      "native_id": "bge-m3",
+      "kind": "model",
+      "label": "bge-m3",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.01,
+            "price_unit": "million_input_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.01",
+            "unit": "million_input_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "bge-m3",
+        "available": true,
+        "category": "Embeddings",
+        "category_v2": "Embeddings",
+        "tags": [],
+        "aliases": [
+          "BAAI/bge-m3",
+          "BGE-M3"
+        ],
+        "api_base_url": "https://bge-m3.endpoints.kepler.ai.cloud.ovh.net/api/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "embedding_vector"
+            ],
+            "reasoning": false,
+            "response_format": [],
+            "streaming": false,
+            "use_case_tag": [
+              "multilingual"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "embedding",
+            "params": {
+              "context_size": 8192,
+              "max_batch_size": 25,
+              "output_dimension": 1024
+            }
+          },
+          "nb_of_billion_parameters": 0.567,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "07/11/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "en"
+          ],
+          "licence_name": "MIT",
+          "licence_url": "https://bge-m3.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "27/01/2024",
+          "publisher": "BAAI",
+          "series": "bge",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/BAAI/bge-m3"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-9a8c6add80f479e56a125bfa",
+      "provider": "ovhcloud",
+      "native_id": "qwen-3-6-27b",
+      "kind": "model",
+      "label": "Qwen3.6-27B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.4,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 2.7,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.4",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "2.7",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3.6-27B",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [
+          "Qwen/Qwen3.6-27B",
+          "qwen3.6-27b"
+        ],
+        "api_base_url": "https://qwen-3-6-27b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "vision",
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 262,
+              "max_images_per_prompt": 5,
+              "max_output_token_k": 262,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 27,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "06/05/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-3-6-27b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "15/04/2026",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3.6-27B"
+        },
+        "availability": {
+          "statuses": [
+            "new"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-9bf7e0ec544cbc40efce8a3a",
+      "provider": "ovhcloud",
+      "native_id": "gpt-oss-20b",
+      "kind": "model",
+      "label": "gpt-oss-20b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.04,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.15,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.04",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.15",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "gpt-oss-20b",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [
+          "openai/gpt-oss-20b"
+        ],
+        "api_base_url": "https://gpt-oss-20b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 131,
+              "max_output_token_k": 131
+            }
+          },
+          "nb_of_billion_parameters": 21,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "12/08/2025",
+          "knowledge_cutoff": "31/06/2024",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://gpt-oss-20b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "05/08/2025",
+          "publisher": "OpenAI",
+          "series": "gpt-oss",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/openai/gpt-oss-20b"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-aca8a80019b11c4f6135934b",
+      "provider": "ovhcloud",
+      "native_id": "qwen-guard-gen-06b",
+      "kind": "model",
+      "label": "Qwen3Guard-Gen-0.6B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3Guard-Gen-0.6B",
+        "available": true,
+        "category": "LLM Guard",
+        "category_v2": "Safety & Moderation",
+        "tags": [
+          "Moderation"
+        ],
+        "aliases": [
+          "Qwen/Qwen3Guard-Gen-0.6B"
+        ],
+        "api_base_url": "https://qwen-guard-gen-06b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "moderation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 32,
+              "max_output_token_k": 16
+            }
+          },
+          "nb_of_billion_parameters": 0.6,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "21/01/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-guard-gen-06b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "23/09/2025",
+          "publisher": "qwen3guard",
+          "series": "qwen3guard",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3Guard-Gen-0.6B"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "beta"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-b934105a44a3a0315519d335",
+      "provider": "ovhcloud",
+      "native_id": "mistral-7b-instruct-v0-3",
+      "kind": "model",
+      "label": "Mistral-7B-Instruct-v0.3",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.1,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.1,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.1",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.1",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Mistral-7B-Instruct-v0.3",
+        "available": false,
+        "category": "Large Language Models (LLM)",
+        "category_v2": "Text Generation",
+        "tags": [],
+        "aliases": [
+          "mistralai/Mistral-7B-Instruct-v0.3",
+          "mistral-7b-instruct-v0.3"
+        ],
+        "api_base_url": "https://mistral-7b-instruct-v0-3.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 127,
+              "max_output_token_k": 127
+            }
+          },
+          "nb_of_billion_parameters": 7,
+          "quantization": "fp16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "06/03/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://mistral-7b-instruct-v0-3.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "01/10/2026",
+          "model_publication_date": "22/05/2024",
+          "publisher": "mistralai",
+          "series": "mistral",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-c836a22f0652869b22bce58d",
+      "provider": "ovhcloud",
+      "native_id": "mistral-small-3-2-24b-instruct-2506",
+      "kind": "model",
+      "label": "Mistral-Small-3.2-24B-Instruct-2506",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.09,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.28,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.09",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.28",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Mistral-Small-3.2-24B-Instruct-2506",
+        "available": false,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision"
+        ],
+        "aliases": [
+          "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+          "mistral-small-3.2-24b-instruct-2506"
+        ],
+        "api_base_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "vision"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 128,
+              "max_images_per_prompt": 10,
+              "max_output_token_k": 128,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 24,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "30/06/2025",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "04/11/2026",
+          "model_publication_date": "20/06/2025",
+          "publisher": "mistralai",
+          "series": "mistral",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-ccfb51c936923d6eb605a17b",
+      "provider": "ovhcloud",
+      "native_id": "qwen-3-coder-30b-a3b-instruct",
+      "kind": "model",
+      "label": "Qwen3-Coder-30B-A3B-Instruct",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.06,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.22,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.06",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.22",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3-Coder-30B-A3B-Instruct",
+        "available": false,
+        "category": "Code LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Code Assistant"
+        ],
+        "aliases": [
+          "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+          "qwen3-coder-30b-a3b-instruct"
+        ],
+        "api_base_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "multi_language_coding"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 256,
+              "max_output_token_k": 256
+            }
+          },
+          "nb_of_billion_parameters": 30,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "22/10/2025",
+          "knowledge_cutoff": "31/09/2024",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "01/10/2026",
+          "model_publication_date": "31/07/2025",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct"
+        },
+        "availability": {
+          "status": "new",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-d0cbb744d31e703c84040afb",
+      "provider": "ovhcloud",
+      "native_id": "llama-3-3-70b-instruct",
+      "kind": "model",
+      "label": "Meta-Llama-3_3-70B-Instruct",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.67,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 0.67,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.67",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.67",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Meta-Llama-3_3-70B-Instruct",
+        "available": true,
+        "category": "Large Language Models (LLM)",
+        "category_v2": "Text Generation",
+        "tags": [],
+        "aliases": [
+          "meta-llama/Llama-3.3-70B-Instruct",
+          "meta-llama-3_3-70b-instruct"
+        ],
+        "api_base_url": "https://llama-3-3-70b-instruct.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 131,
+              "max_output_token_k": 131
+            }
+          },
+          "nb_of_billion_parameters": 70,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "20/02/2025",
+          "knowledge_cutoff": "31/12/2023",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Llama 3.3 Community",
+          "licence_url": "https://llama-3-3-70b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "06/12/2024",
+          "publisher": "meta-llama",
+          "series": "llama",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-d0d771023212538ff6be1b17",
+      "provider": "ovhcloud",
+      "native_id": "stable-diffusion-xl",
+      "kind": "model",
+      "label": "stable-diffusion-xl-base-v10",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "per_image"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "per_image",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "stable-diffusion-xl-base-v10",
+        "available": true,
+        "category": "Image Generation",
+        "category_v2": "Image Generation",
+        "tags": [
+          "Image Generation"
+        ],
+        "aliases": [
+          "stabilityai/stable-diffusion-xl-base-1.0"
+        ],
+        "api_base_url": "https://stable-diffusion-xl.endpoints.kepler.ai.cloud.ovh.net/api/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "image"
+            ],
+            "reasoning": false,
+            "response_format": [],
+            "streaming": false,
+            "use_case_tag": [
+              "image_generation"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "image_generation",
+            "params": []
+          },
+          "nb_of_billion_parameters": 3.5,
+          "quantization": "fp32"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "24/10/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "OpenRail++",
+          "licence_url": "https://stable-diffusion-xl.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "25/07/2023",
+          "publisher": "stabilityai",
+          "series": "stable-diffusion",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-e529960c6ecf952c5d7afef6",
+      "provider": "ovhcloud",
+      "native_id": "nvr-tts-es-es",
+      "kind": "model",
+      "label": "nvr-tts-es-es",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_unit": "million_input_chars"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_chars",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nvr-tts-es-es",
+        "available": true,
+        "category": "Text To Speech",
+        "category_v2": "Text To Speech",
+        "tags": [
+          "Text To Speech",
+          "Multi-speaker"
+        ],
+        "aliases": [
+          "NVIDIA-RIVA"
+        ],
+        "api_base_url": "https://nvr-tts-es-es.endpoints.kepler.ai.cloud.ovh.net/api/v1/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "sound"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "audio"
+            ],
+            "streaming": false,
+            "use_case_tag": [
+              "text-to-speech",
+              "multi-speaker"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "tts",
+            "params": {
+              "input_languages": [
+                "es-es"
+              ],
+              "output_languages": [
+                "es-es"
+              ]
+            }
+          },
+          "quantization": "fp32"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "28/06/2024",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "es-es"
+          ],
+          "licence_name": "Riva license",
+          "licence_url": "https://nvr-tts-es-es.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "None",
+          "publisher": "NVIDIA Riva",
+          "series": "NVIDIA Riva",
+          "source": "NVIDIA"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-fec5c4fb8b7dff23bf31333c",
+      "provider": "ovhcloud",
+      "native_id": "qwen-3-8-27b",
+      "kind": "model",
+      "label": "Qwen3.8-27B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.4,
+            "price_unit": "million_input_tokens"
+          },
+          {
+            "price": 2.7,
+            "price_unit": "million_output_tokens"
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.4",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "2.7",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Qwen3.8-27B",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [
+          "Qwen/Qwen3.8-27B",
+          "qwen3.8-27b"
+        ],
+        "api_base_url": "https://qwen-3-8-27b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": true,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "none",
+              "low",
+              "medium",
+              "xhigh"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "vision",
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 262,
+              "max_images_per_prompt": 5,
+              "max_output_token_k": 262,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 27,
+          "quantization": "fp8"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "24/08/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen-3-8-27b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "01/08/2026",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        },
+        "availability": {
+          "statuses": [
+            "new"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    }
+  ],
+  "billing_notes": [
+    "Complete public AI Endpoints catalog, including unavailable entries. Prices retain native units; the JSON does not identify currency, so no currency is invented from a locale or another product page."
+  ],
+  "catalog_sha256": "21450544dfc22720689b05cd2c6ea575d95c2ec6a62b36af04a9b01733f27fbd",
+  "revision": 1,
+  "changed_at": "2026-10-06T16:59:50Z",
+  "source_url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
+  "source_urls": [
+    "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2"
+  ],
+  "source_sha256": "84f69d7bb5182d9f742f92296c497f35d3fec4f1952a879d6194ed3bb3a4c209",
+  "archive_reference": null
+}

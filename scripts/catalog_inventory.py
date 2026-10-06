@@ -316,10 +316,10 @@ def _quoted_rates(cells, headers, provider, headings):
     return result
 
 
-def _document(provider, body):
+def _document(provider, body, html_parser=None, identity_builder=None):
     format_, _, _ = _payload_format(body)
     if format_ == "html":
-        parser = _DocumentHTML()
+        parser = (html_parser or _DocumentHTML)()
         parser.feed(body)
         tables, paragraphs = parser.tables, parser.paragraphs
     else:
@@ -334,7 +334,7 @@ def _document(provider, body):
         scope = dict(table=index, headings=table.get("heading_scope", []), tabs=table.get("labels", []), headers=headers)
         for position, cells in enumerate(rows[1:]):
             if not any(cells): continue
-            identities = [cell for cell in cells if cell and not re.search(r"\$\s*\d", cell)]
+            identities = identity_builder(cells, headers) if identity_builder else [cell for cell in cells if cell and not re.search(r"\$\s*\d", cell)]
             key = digest(dict(identity=identities))[:24]
             billing = dict(cells=cells, columns=headers, alignment_verified=len(cells) == len(headers),
                            interpretation="source-native expressions; no inferred unit or cross-provider equivalence")
@@ -357,7 +357,10 @@ def normalize_inventory(provider, body, source_kind):
     format_, payload, _ = _payload_format(body)
     notes = []
     if format_ == "json":
-        if provider in ("deepinfra", "novita", "together", "fireworks"):
+        if isinstance(payload, dict) and payload.get("format") == "token3.inventory-sources.v1":
+            from .extended_inventory import normalize_extended
+            records, notes = normalize_extended(provider, payload)
+        elif provider in ("deepinfra", "novita", "together", "fireworks"):
             records = _models(provider, payload)
         elif provider == "azure": records = _azure(payload)
         elif provider == "bedrock": records = _bedrock(payload)

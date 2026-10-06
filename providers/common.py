@@ -22,6 +22,8 @@ class Collection:
     source_urls: Optional[List[str]] = None
     source_kind: Optional[str] = None
     fallback_reason: Optional[str] = None
+    inventory_only: bool = False
+    source_evidence: Optional[List[Dict[str, Any]]] = None
 
 
 class _NoCredentialRedirect(HTTPRedirectHandler):
@@ -40,7 +42,7 @@ def safe_error(error, secrets=()):
     return message[:500]
 
 
-def fetch_text(url: str, headers=None) -> str:
+def fetch_bytes(url: str, headers=None) -> bytes:
     if headers and urlparse(url).scheme != "https":
         raise ValueError("Authenticated sources require HTTPS")
     request_headers = {"User-Agent": "TokenTokenToken/0.1 (public pricing observation)", "Accept": "application/json, text/markdown, text/html"}
@@ -54,7 +56,7 @@ def fetch_text(url: str, headers=None) -> str:
                 body = response.read(8 * 1024 * 1024 + 1)
                 if len(body) > 8 * 1024 * 1024:
                     raise ValueError("Source exceeds the 8 MiB response limit")
-                return body.decode("utf-8")
+                return body
         except Exception as exc:
             error = exc
             if isinstance(exc, HTTPError) and exc.code < 500 and exc.code != 429:
@@ -62,6 +64,10 @@ def fetch_text(url: str, headers=None) -> str:
             if attempt < 2:
                 time.sleep(attempt + 1)
     raise RuntimeError("Could not fetch {}: {}".format(url, safe_error(error, (headers or {}).values())))
+
+
+def fetch_text(url: str, headers=None) -> str:
+    return fetch_bytes(url, headers).decode("utf-8")
 
 
 def snapshot(records, body, source_url, authoritative=False, source_kind=None):

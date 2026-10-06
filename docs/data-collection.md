@@ -2,9 +2,9 @@
 
 ## Scope and meaning of normalization
 
-The full inventory is independent of dashboard model aliases. It covers every model, meter, SKU dimension and document-table row returned by the 11 selected official sources, including text/vision, embeddings, reranking, image, video, audio, training, tools and capacity-related billing where present. Public AWS/Azure region scopes are unchanged; adding credentials does not make listings universally exhaustive. Azure now selects the complete East US `Foundry Models` retail service rather than only OpenAI-named products, preserving Azure OpenAI coverage while adding other Azure-metered model families and capacity products. This does not include every Foundry Marketplace offer or the separate Foundry Tools service.
+The full inventory is independent of dashboard model aliases. It covers every model, meter, SKU dimension and document-table row returned by the 26 selected official source groups, including text/vision, embeddings, reranking, image, video, audio, training, tools and capacity-related billing where present. Public AWS/Azure region scopes are unchanged; adding credentials does not make listings universally exhaustive. Azure now selects the complete East US `Foundry Models` retail service rather than only OpenAI-named products, preserving Azure OpenAI coverage while adding other Azure-metered model families and capacity products. This does not include every Foundry Marketplace offer or the separate Foundry Tools service.
 
-Normalization here means **a common storage schema with stable source-local identities**, not guessed cross-provider equivalence or a universal calculator. `comparison_eligible` is always false in this layer. The existing dashboard's 71 reviewed offerings are a separate dataset.
+Normalization here means **a common storage schema with stable source-local identities**, not guessed cross-provider equivalence or a universal calculator. `comparison_eligible` is always false in this layer. The existing dashboard's 71 reviewed offerings across the original 11 providers are a separate dataset. The 15 additional providers are explicitly inventory-only; see [the expanded source scopes](collection-expansion.md). Gateway/model-provider routes, native credit/DBU/compute billing and unknown currency are not automatically calculator quotes.
 
 Records contain:
 

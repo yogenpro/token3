@@ -8,7 +8,7 @@ No backend, SQL database, routing, or model inference calls. React + TypeScript 
 
 ## Run locally
 
-Requires Node.js 22.12+ (Node 24 recommended), Python 3.8+ (3.12 recommended), and npm.
+Requires Node.js 22.12+ (Node 24 recommended), Python 3.9+ (3.12 recommended), and npm.
 
 ```bash
 npm ci
@@ -26,7 +26,7 @@ python -m pip install -r requirements.txt
 python -m scripts.collect --strict
 ```
 
-`npm run collect` uses `python3` from your current environment. A collection usually takes a few seconds; network retries and paginated catalogs can take longer. The dashboard’s Refresh button reloads the **published files**, not live provider sources.
+`npm run collect` uses `python3` from your current environment. Collection spans 26 providers; complete pagination, large documents and network retries can take several minutes. The dashboard’s Refresh button reloads the **published files**, not live provider sources.
 
 ### API-first collection
 
@@ -83,6 +83,8 @@ The expanded catalog has **71 offerings across 11 providers**. Claude 4.6 releas
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
 
 ### Full source-native inventory (separate from comparisons)
+
+Collection now covers **26 providers**, including 15 new **inventory-only** sources: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They do not automatically add dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
 
 `data/provider_catalogs/<provider>.json` stores the complete selected catalog as a common source-native record schema: model IDs, meters, SKU dimensions, document rows, native billing rules/expressions, currency, units, regions, tiers, effective dates and relevant metadata. No dashboard alias filter is applied. Numerical monetary amounts are decimal strings; units are only attached when the source establishes them. Complex formulas, conditional schedules, native billing integers, ambiguous units and qualitative prices remain explicit—not guessed into USD/token rates. Document-row IDs are source-local identifiers, not canonical model equivalence. See [the inventory schema and retention policy](docs/data-collection.md).
 

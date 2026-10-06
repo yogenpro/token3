@@ -46,6 +46,8 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
         catalog.update(catalog_sha256=fingerprint, revision=revision, changed_at=observed_at,
                        source_url=result.source_url, source_urls=urls, source_sha256=result.source_sha256,
                        archive_reference=None)
+        if result.source_evidence:
+            catalog["source_evidence"] = result.source_evidence
     else:
         catalog = None
     legacy = old_row.get("legacy_source_archive")
@@ -55,8 +57,12 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
                fallback_reason=result.fallback_reason, source_sha256=result.source_sha256,
                catalog_sha256=fingerprint, latest_path=path.as_posix(), record_count=len(old_catalog.get("records", [])) if catalog is None else len(catalog["records"]),
                revision=revision, first_seen_at=old_row.get("first_seen_at", observed_at), last_seen_at=observed_at,
-               curated_parser_state="error" if result.parse_error else "ok", curated_parser_error=result.parse_error,
+               curated_parser_state="not_applicable" if result.inventory_only else "error" if result.parse_error else "ok",
+               curated_parser_error=result.parse_error,
+               collection_scope="inventory_only" if result.inventory_only else "inventory_and_reviewed_quotes",
                legacy_source_archive=legacy, archive_reference=old_row.get("archive_reference"))
+    if result.source_evidence:
+        row["source_evidence"] = result.source_evidence
     return row, catalog, events
 
 

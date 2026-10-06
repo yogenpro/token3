@@ -11,6 +11,7 @@ from pathlib import Path
 
 from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, groq, novita, openai, together, vertex
 from providers.common import safe_error
+from providers.expanded import INVENTORY_PROVIDERS
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
 from .provider_inventory import inventory_document as legacy_inventory_document, prepare_source
@@ -20,8 +21,10 @@ from .catalog_inventory import canonical
 
 PROVIDERS = {"deepinfra": deepinfra, "novita": novita, "together": together, "fireworks": fireworks, "groq": groq,
              "openai": openai, "anthropic": anthropic, "gemini": gemini, "vertex": vertex, "bedrock": bedrock, "azure": azure}
+PROVIDERS.update(INVENTORY_PROVIDERS)
 PROVIDER_NAMES = {"deepinfra": "DeepInfra", "novita": "Novita", "together": "Together AI", "fireworks": "Fireworks", "groq": "Groq",
                   "openai": "OpenAI API", "anthropic": "Anthropic API", "gemini": "Google Gemini API", "vertex": "Google Vertex AI", "bedrock": "Amazon Bedrock", "azure": "Microsoft Foundry"}
+PROVIDER_NAMES.update({key: collector.name for key, collector in INVENTORY_PROVIDERS.items()})
 SOURCE_KINDS = {"deepinfra": "api", "novita": "api", "azure": "api", "bedrock": "price_list"}
 HISTORY_FIELDS = ("offering_id", "observed_at") + PRICE_FIELDS + ("currency", "source_url", "source_sha256")
 
@@ -115,6 +118,10 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             source_metadata = {}
             try:
                 result = future.result()
+                if result.inventory_only != (name in INVENTORY_PROVIDERS):
+                    raise ValueError("Collector/dashboard scope mismatch")
+                if result.inventory_only and (result.records or result.authoritative_catalog):
+                    raise ValueError("Inventory-only collectors cannot publish or retire dashboard quotes")
                 exposed = (result.source_payload or "") + canonical([result.source_url, result.source_urls])
                 if any(secret and secret in exposed for secret in secrets):
                     raise ValueError("Source unexpectedly contains a configured credential; refusing to persist it")
@@ -135,12 +142,16 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                     response_path.write_bytes(gzip.compress(result.source_payload.encode(), mtime=0))
                     response_manifest.append(dict(provider=name, observed_at=observed_at, source_urls=source_metadata["source_urls"],
                                                   source_sha256=result.source_sha256, file=response_path.name))
+                if name == "snowflake" and result.fallback_reason and name in source_index:
+                    old_catalog = load_json(data_dir / source_index[name]["latest_path"], {})
+                    if any(row.get("kind") == "document_page" for row in old_catalog.get("records", [])):
+                        raise ValueError("Consumption PDF unavailable; preserving the last complete Snowflake inventory")
                 if archive_legacy:
                     source_row, artifact = prepare_source(name, PROVIDER_NAMES[name], result, observed_at, data_dir, source_index)
                 else:
                     source_row, artifact, native_events = prepare_catalog(name, PROVIDER_NAMES[name], result, observed_at, data_dir, source_index)
                     inventory_events.extend(native_events)
-                    if artifact and archive_lookups and not dry_run:
+                    if artifact and archive_lookups and not dry_run and not result.inventory_only:
                         reference = lookup_reference(result, observed_at)
                         source_row["archive_reference"] = reference
                         artifact["archive_reference"] = reference
@@ -151,10 +162,12 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                 inventory_touched = True
                 if result.parse_error:
                     raise ValueError("Fetched source retained for debugging; curated parser failed: {}".format(result.parse_error))
-                count = apply_snapshot(name, result, aliases, observed_at, offerings, latest, history, changes)
+                count = 0 if result.inventory_only else apply_snapshot(name, result, aliases, observed_at, offerings, latest, history, changes)
                 statuses[name] = dict(id=name, name=PROVIDER_NAMES[name], state="ok", last_attempt_at=observed_at,
                                       last_success_at=observed_at, offering_count=count,
                                       source_sha256=result.source_sha256, authoritative_catalog=result.authoritative_catalog, error=None,
+                                      collection_scope="inventory_only" if result.inventory_only else "inventory_and_reviewed_quotes",
+                                      coverage_state="limited" if result.inventory_only and result.fallback_reason else "complete_selected_source",
                                       **source_metadata)
                 print("{}: {} offerings collected ({})".format(PROVIDER_NAMES[name], count, result.source_kind))
                 if result.fallback_reason:
@@ -209,7 +222,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             writer.writerows(history)
             atomic_write(data_dir / "price_history.csv", buffer.getvalue())
     print("{}{} observations; {} change events; {} failed providers".format("Dry run: " if dry_run else "Saved: ", len(history), len(changes), failures))
-    return 1 if not offerings or failures == len(selected) or (strict and failures) else 0
+    return 1 if (not offerings and not inventory_touched) or failures == len(selected) or (strict and failures) else 0
 
 
 def main():

@@ -31,6 +31,8 @@ const providerSchema = z.object({
   id: z.string(), name: z.string(), state: z.enum(['ok', 'error']), last_attempt_at: timestamp,
   last_success_at: timestamp.nullable(), offering_count: z.number().int().nonnegative(),
   source_url: url, source_sha256: z.string().nullable(), authoritative_catalog: z.boolean(), error: z.string().nullable(),
+  collection_scope: z.enum(['inventory_only', 'inventory_and_reviewed_quotes']).optional(),
+  coverage_state: z.enum(['limited', 'complete_selected_source']).optional(), fallback_reason: z.string().nullable().optional(),
 });
 const statusSchema = z.object({
   schema_version: z.literal(1), last_run_at: timestamp, first_observed_at: timestamp.nullable(),
@@ -86,6 +88,21 @@ export const providers: Record<string, { name: string; color: string; initials: 
   vertex: { name: 'Google Vertex AI', color: '#4a58b7', initials: 'V' },
   bedrock: { name: 'Amazon Bedrock', color: '#886012', initials: 'B' },
   azure: { name: 'Microsoft Foundry', color: '#006593', initials: 'Az' },
+  openrouter: { name: 'OpenRouter', color: '#575b68', initials: 'OR' },
+  vercel: { name: 'Vercel AI Gateway', color: '#575b68', initials: 'V' },
+  alibaba: { name: 'Alibaba Cloud Model Studio', color: '#b3541e', initials: 'Ali' },
+  huggingface: { name: 'Hugging Face Inference', color: '#886012', initials: 'HF' },
+  snowflake: { name: 'Snowflake Cortex', color: '#1765c1', initials: 'SF' },
+  cloudflare: { name: 'Cloudflare Workers AI', color: '#b3541e', initials: 'CF' },
+  databricks: { name: 'Databricks', color: '#b74641', initials: 'DB' },
+  oracle: { name: 'Oracle Cloud Generative AI', color: '#b74641', initials: 'OCI' },
+  nebius: { name: 'Nebius Token Factory', color: '#0b7768', initials: 'Nb' },
+  xai: { name: 'xAI', color: '#575b68', initials: 'x' },
+  zai: { name: 'Z.ai', color: '#7148c1', initials: 'Z' },
+  ovhcloud: { name: 'OVHcloud AI Endpoints', color: '#2f64c4', initials: 'OVH' },
+  scaleway: { name: 'Scaleway Generative APIs', color: '#7148c1', initials: 'Sc' },
+  minimax: { name: 'MiniMax', color: '#b74641', initials: 'MM' },
+  deepseek: { name: 'DeepSeek', color: '#1765c1', initials: 'DS' },
 };
 export function providerInfo(id: string) {
   return providers[id] ?? { name: id, color: '#6b7280', initials: id.slice(0, 2) };

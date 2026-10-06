@@ -1,0 +1,1171 @@
+{
+  "openrouter": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "openrouter",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": {
+      "data": [
+        {
+          "id": "inclusionai/ling-3.1-flash",
+          "canonical_slug": "inclusionai/ling-3.1-flash-20261002",
+          "hugging_face_id": null,
+          "name": "inclusionAI: Ling 3.1 Flash",
+          "created": 1790950024,
+          "description": "Ling 3.1 Flash is a hybrid reasoning mixture-of-experts model from inclusionAI, with 25B active parameters out of 560B total.",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 32768,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "logprobs",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "seed",
+            "stop",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_logprobs",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/inclusionai/ling-3.1-flash-20261002/endpoints"
+          },
+          "benchmarks": {
+            "design_arena": [],
+            "artificial_analysis": {
+              "intelligence_index": 41.1,
+              "coding_index": null,
+              "agentic_index": null
+            }
+          },
+          "reasoning": {
+            "mandatory": false,
+            "default_enabled": true
+          }
+        },
+        {
+          "id": "apodex/apodex-1.1-mini:free",
+          "canonical_slug": "apodex/apodex-1.1-mini-20261001",
+          "hugging_face_id": null,
+          "name": "Apodex: Apodex 1.1 Mini (free)",
+          "created": 1790875335,
+          "description": "Apodex 1.1 Mini is a reasoning-first model from Apodex, built for complex, long-horizon research and forecasting tasks. It works directly with files, data, code, and tools to produce verifiable results,...",
+          "context_length": 262144,
+          "architecture": {
+            "modality": "text->text",
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "tokenizer": "Other",
+            "instruct_type": null
+          },
+          "pricing": {
+            "prompt": "0",
+            "completion": "0"
+          },
+          "top_provider": {
+            "context_length": 262144,
+            "max_completion_tokens": 235929,
+            "is_moderated": false
+          },
+          "per_request_limits": null,
+          "supported_parameters": [
+            "frequency_penalty",
+            "include_reasoning",
+            "max_tokens",
+            "presence_penalty",
+            "reasoning",
+            "repetition_penalty",
+            "response_format",
+            "seed",
+            "stop",
+            "structured_outputs",
+            "temperature",
+            "tool_choice",
+            "tools",
+            "top_k",
+            "top_p"
+          ],
+          "default_parameters": {},
+          "supported_voices": null,
+          "knowledge_cutoff": null,
+          "expiration_date": null,
+          "links": {
+            "details": "/api/v1/models/apodex/apodex-1.1-mini-20261001/endpoints"
+          },
+          "reasoning": {
+            "mandatory": false
+          }
+        }
+      ]
+    }
+  },
+  "vercel": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "vercel",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": {
+      "object": "list",
+      "data": [
+        {
+          "id": "alibaba/qwen-3-14b",
+          "object": "model",
+          "created": 1755815280,
+          "released": 1745798400,
+          "owned_by": "alibaba",
+          "name": "Qwen3-14B",
+          "description": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models. Built upon extensive training, Qwen3 delivers groundbreaking advancements in reasoning, instruction-following, agent capabilities, and multilingual support",
+          "context_window": 40960,
+          "max_tokens": 16384,
+          "type": "language",
+          "zdr": "all",
+          "no_training": "all",
+          "tags": [
+            "reasoning",
+            "tool-use",
+            "structured-output"
+          ],
+          "supported_specifications": [
+            "v2",
+            "v3",
+            "v4"
+          ],
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "supported_parameters": [
+            "max_tokens",
+            "temperature",
+            "stop",
+            "tools",
+            "tool_choice",
+            "reasoning",
+            "include_reasoning",
+            "response_format",
+            "structured_outputs"
+          ],
+          "temperature": true,
+          "reasoning_options": [
+            {
+              "type": "toggle"
+            }
+          ],
+          "knowledge": "2025-04",
+          "pricing": {
+            "input": "0.00000012",
+            "output": "0.00000024"
+          }
+        },
+        {
+          "id": "alibaba/qwen-3-235b",
+          "object": "model",
+          "created": 1755815280,
+          "released": 1745798400,
+          "owned_by": "alibaba",
+          "name": "Qwen3 235B A22B",
+          "description": "",
+          "context_window": 262144,
+          "max_tokens": 16384,
+          "type": "language",
+          "zdr": "some",
+          "no_training": "some",
+          "tags": [
+            "tool-use",
+            "structured-output",
+            "reasoning"
+          ],
+          "supported_specifications": [
+            "v2",
+            "v3",
+            "v4"
+          ],
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "supported_parameters": [
+            "max_tokens",
+            "temperature",
+            "stop",
+            "tools",
+            "tool_choice",
+            "reasoning",
+            "include_reasoning",
+            "response_format",
+            "structured_outputs"
+          ],
+          "temperature": true,
+          "reasoning_options": [
+            {
+              "type": "toggle"
+            },
+            {
+              "type": "effort",
+              "values": [
+                "none",
+                "low",
+                "medium",
+                "high"
+              ]
+            }
+          ],
+          "knowledge": "2025-04",
+          "pricing": {
+            "input": "0.00000022",
+            "output": "0.00000088",
+            "varies_by_provider": true
+          }
+        }
+      ]
+    }
+  },
+  "alibaba": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
+        "body": "<h2>Model inference pricing</h2>\n<h2>Text generation - Qwen &lt;span id=&quot;52500fd0880my&quot; /&gt;</h2>\n<h2>Qwen-Max &lt;span id=&quot;f82b6d3f48h8m&quot; /&gt;</h2>\n<tab title=\"Singapore\">\n<table>\n<tr><td>Model ID</td><td>Deployment scope</td><td>Mode</td><td>Input tokens per request</td><td>Input price (per 1 million tokens)</td><td>Output price (per 1 million tokens) &gt; Chain of thought + answer</td><td>Free quota [(Note)](/en/model-studio/new-free-quota#591f3dfedfyzj) Valid for 90 days from the date of Model Studio activation, model release, or application approval, whichever is later</td></tr>\n<tr><td>qwen3.8-max &gt; [context caching discount](/en/model-studio/context-cache)</td><td>International</td><td>Non-Thinking and Thinking modes</td><td>0\\</td><td>\\$2</td><td>\\$6</td><td>1 million tokens</td></tr>\n<tr><td>qwen3.8-max-0902 &gt; [context caching discount](/en/model-studio/context-cache)</td><td>International</td><td>Non-Thinking and Thinking modes</td><td>0\\</td><td>\\$2</td><td>\\$6</td><td>1 million tokens</td></tr>\n</table>\n</tab>\n<h2>Model inference pricing</h2>\n<h2>Text generation - Qwen &lt;span id=&quot;52500fd0880my&quot; /&gt;</h2>\n<h2>Qwen-Max &lt;span id=&quot;f82b6d3f48h8m&quot; /&gt;</h2>\n<tab title=\"Singapore\">\n<table>\n<tr><td>Model ID</td><td>Deployment scope</td><td>Mode</td><td>Input tokens per request</td><td>Input price (per 1 million tokens)</td><td>Output price (per 1 million tokens)</td><td>Free quota [(Note)](/en/model-studio/new-free-quota#591f3dfedfyzj) Valid for 90 days from the date of Model Studio activation, model release, or application approval, whichever is later</td></tr>\n<tr><td>qwen-max &gt; 50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount</td><td>International</td><td>Non-Thinking mode only</td><td>No tiered pricing</td><td>\\$1.6</td><td>\\$6.4</td><td>1 million tokens</td></tr>\n</table>\n</tab>"
+      }
+    ]
+  },
+  "huggingface": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "huggingface",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": {
+      "object": "list",
+      "data": [
+        {
+          "id": "Qwen/Qwen3.8-27B",
+          "object": "model",
+          "created": 1785918179,
+          "owned_by": "Qwen",
+          "architecture": {
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ]
+          },
+          "providers": [
+            {
+              "provider": "novita",
+              "status": "live",
+              "context_length": 1000000,
+              "pricing": {
+                "input": 0.42,
+                "output": 3
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": false,
+              "first_token_latency_ms": 918,
+              "throughput": 39.085463802619245,
+              "is_model_author": false
+            },
+            {
+              "provider": "cerebras",
+              "status": "live",
+              "context_length": 65536,
+              "pricing": {
+                "input": 0.99,
+                "output": 1.49
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 4805,
+              "throughput": 172.20595832615808,
+              "is_model_author": false
+            },
+            {
+              "provider": "featherless-ai",
+              "status": "live",
+              "is_free": false,
+              "is_model_author": false
+            },
+            {
+              "provider": "ovhcloud",
+              "status": "live",
+              "context_length": 262144,
+              "pricing": {
+                "input": 0.47,
+                "output": 3.19
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 618.6,
+              "throughput": 58.033696269937494,
+              "is_model_author": false
+            },
+            {
+              "provider": "deepinfra",
+              "status": "live",
+              "context_length": 262144,
+              "pricing": {
+                "input": 0.2,
+                "output": 2.5
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 4804,
+              "throughput": 15.987210231814549,
+              "is_model_author": false
+            }
+          ]
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4.1-Flash",
+          "object": "model",
+          "created": 1789006678,
+          "owned_by": "deepseek-ai",
+          "architecture": {
+            "input_modalities": [
+              "text",
+              "image"
+            ],
+            "output_modalities": [
+              "text"
+            ]
+          },
+          "providers": [
+            {
+              "provider": "novita",
+              "status": "live",
+              "context_length": 1048576,
+              "pricing": {
+                "input": 0.3,
+                "output": 1.2
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": false,
+              "first_token_latency_ms": 1170.6,
+              "throughput": 100.87492075422482,
+              "is_model_author": false
+            },
+            {
+              "provider": "fireworks-ai",
+              "status": "live",
+              "context_length": 1048576,
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 459.6,
+              "throughput": 126.43773133373843,
+              "is_model_author": false
+            },
+            {
+              "provider": "featherless-ai",
+              "status": "live",
+              "is_free": false,
+              "is_model_author": false
+            },
+            {
+              "provider": "baseten",
+              "status": "live",
+              "context_length": 1048576,
+              "pricing": {
+                "input": 0.3,
+                "output": 1.2
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 4924,
+              "throughput": 102.88065843621399,
+              "is_model_author": false
+            },
+            {
+              "provider": "deepinfra",
+              "status": "live",
+              "context_length": 1048576,
+              "pricing": {
+                "input": 0.2,
+                "output": 0.6
+              },
+              "is_free": false,
+              "supports_tools": true,
+              "supports_structured_output": true,
+              "first_token_latency_ms": 443.4,
+              "throughput": 110.7828667403885,
+              "is_model_author": false
+            }
+          ]
+        }
+      ]
+    },
+    "documents": [
+      {
+        "source_url": "https://huggingface.co/docs/inference-providers/pricing",
+        "body": "<h2>HF Inference billing</h2>\n<table>\n<tr><td>Account Type</td><td>Monthly Credits</td></tr>\n<tr><td>Free Users</td><td>$0.10, subject to change</td></tr>\n</table>\n<p>Cost is compute time in seconds times the hardware price per second. The $0.00012/second hardware example is illustrative, not a model token price.</p>"
+      }
+    ]
+  },
+  "snowflake": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
+        "body": "<h2>Snowflake AI pricing</h2>\n<h2>AI Credit price</h2>\n<table>\n<tr><td>Routing type</td><td>Price per AI Credit</td><td>When it applies</td></tr>\n<tr><td>Global routing</td><td>$2.00</td><td>`CORTEX_ENABLED_CROSS_REGION` is set to `ANY_REGION`, `AWS_GLOBAL`, `GCP_GLOBAL`, or `AZURE_GLOBAL`. Requests can be routed across broader Snowflake-supported capacity, providing the lowest AI Credit price and broader model availability.</td></tr>\n<tr><td>Regional routing</td><td>$2.20</td><td>`CORTEX_ENABLED_CROSS_REGION` is set to `DISABLED` or a specific regional setting such as `AWS_US`, `AWS_EU`, `AZURE_US`, or `AZURE_EU`. Requests are restricted to the account&#x27;s home region or selected geographies, typically for data residency or compliance requirements.</td></tr>\n</table>\n<h2>Snowflake AI pricing</h2>\n<h2>Features that use AI Credit pricing</h2>\n<table>\n<tr><td>Feature</td><td>Pricing type</td></tr>\n<tr><td>Cortex Code</td><td>AI Credit</td></tr>\n<tr><td>Cortex Agents</td><td>AI Credit</td></tr>\n</table>"
+      }
+    ]
+  },
+  "cloudflare": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
+        "body": "<h2>Pricing</h2>\n<table>\n<tr><td></td><td>Free &lt;br&gt; allocation</td><td>Pricing</td></tr>\n<tr><td>Workers Free</td><td>10,000 Neurons per day</td><td>N/A - Upgrade to Workers Paid</td></tr>\n<tr><td>Workers Paid</td><td>10,000 Neurons per day</td><td>$0.011 / 1,000 Neurons</td></tr>\n</table>\n<h2>Pricing</h2>\n<h2>LLM model pricing</h2>\n<table>\n<tr><td>Model</td><td>Price in Tokens</td><td>Price in Neurons</td></tr>\n<tr><td>@cf/meta/llama-3.2-1b-instruct</td><td>$0.027 per M input tokens &lt;br&gt; $0.201 per M output tokens</td><td>2457 neurons per M input tokens &lt;br&gt; 18252 neurons per M output tokens</td></tr>\n<tr><td>@cf/meta/llama-3.2-3b-instruct</td><td>$0.051 per M input tokens &lt;br&gt; $0.335 per M output tokens</td><td>4625 neurons per M input tokens &lt;br&gt; 30475 neurons per M output tokens</td></tr>\n</table>"
+      }
+    ]
+  },
+  "databricks": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://www.databricks.com/product/pricing/foundation-model-serving",
+        "body": "<h2>Foundation Model Serving DBU rates</h2>\n<h2>Pay Per Token</h2>\n<table>\n<tr><td>Model</td><td>Standard Pay Per Token (DBU Per 1M Tokens)</td></tr>\n<tr><td>Input</td><td>Output</td><td>Cache read</td></tr>\n<tr><td>Kimi K3 ⌖</td><td>42.857</td><td>214.286</td><td>4.286</td></tr>\n</table>\n<h2>Foundation Model Serving DBU rates</h2>\n<h2>Priority Pay Per Token</h2>\n<table>\n<tr><td>Model</td><td>Priority Pay Per Token (DBU Per 1M Tokens)</td></tr>\n<tr><td>Input</td><td>Output</td><td>Cache read</td></tr>\n<tr><td>Kimi K3 ⌖</td><td>75.000</td><td>375.000</td><td>7.500</td></tr>\n</table>"
+      },
+      {
+        "source_url": "https://www.databricks.com/product/pricing/proprietary-foundation-model-serving",
+        "body": "<h2>Proprietary Foundation Model Serving DBU rates</h2>\n<h2>Pay Per Token</h2>\n<table>\n<tr><td>Model</td><td></td><td>Standard Pay Per Token (DBU Per 1M Tokens)</td></tr>\n<tr><td>Input</td><td>Output</td><td>Cache read</td><td>Cache write</td></tr>\n<tr><td>GPT-6 Astra ⌖</td><td>Short context</td><td>142.857</td><td>714.286</td><td>14.286</td><td>178.571</td></tr>\n</table>\n<h2>Proprietary Foundation Model Serving DBU rates</h2>\n<h2>Priority Pay Per Token</h2>\n<table>\n<tr><td>Model</td><td></td><td>Priority Pay Per Token (DBU Per 1M Tokens)</td></tr>\n<tr><td>Input</td><td>Output</td><td>Cache read</td><td>Cache write</td></tr>\n<tr><td>GPT-6 Astra ⌖</td><td>Short context</td><td>285.714</td><td>1,428.57</td><td>28.571</td><td>357.143</td></tr>\n</table>"
+      }
+    ]
+  },
+  "oracle": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "oracle",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": {
+      "items": [
+        {
+          "partNumber": "B108077",
+          "displayName": "OCI Generative AI - Large Cohere",
+          "metricName": "10,000 Transactions",
+          "serviceCategory": "OCI Generative AI - Models",
+          "currencyCodeLocalizations": [
+            {
+              "currencyCode": "USD",
+              "prices": [
+                {
+                  "model": "PAY_AS_YOU_GO",
+                  "value": 0.0156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "partNumber": "B108078",
+          "displayName": "OCI Generative AI - Small Cohere",
+          "metricName": "10,000 Transactions",
+          "serviceCategory": "OCI Generative AI - Models",
+          "currencyCodeLocalizations": [
+            {
+              "currencyCode": "USD",
+              "prices": [
+                {
+                  "model": "PAY_AS_YOU_GO",
+                  "value": 0.0009
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "nebius": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "nebius",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": [
+      {
+        "type": "image2text",
+        "name": "DeepSeek V4.1 Flash",
+        "created_at": 1789509523,
+        "status": "active",
+        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+        "description": "DeepSeek’s multimodal mixture-of-experts model for coding, reasoning, and tasks combining images and text.",
+        "vendor": "deepseek",
+        "tags": [],
+        "use_cases": [
+          "dedicated-endpoint",
+          "text",
+          "image",
+          "code",
+          "responses_api"
+        ],
+        "license": {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/df42c109f1defefcbfcedbe7d905718a12266e40/LICENSE",
+          "name": "MIT",
+          "type": ""
+        },
+        "size_b": 0,
+        "quality": 0,
+        "flavors": [
+          {
+            "model_id": "deepseek-ai/DeepSeek-V4.1-Flash",
+            "model_type": "image2text",
+            "model_name": "DeepSeek V4.1 Flash",
+            "model_description": "DeepSeek’s multimodal mixture-of-experts model for coding, reasoning, and tasks combining images and text.",
+            "label": "cheap",
+            "regions": [
+              {
+                "country_code": "US",
+                "name": "us-north1"
+              }
+            ],
+            "external_provider": false,
+            "tags": [],
+            "use_cases": [
+              "dedicated-endpoint",
+              "text",
+              "image",
+              "code",
+              "responses_api"
+            ],
+            "context_window_k": 1048,
+            "max_model_len": 1048000,
+            "tokens_per_second": 139,
+            "input_price_per_million_tokens": 0.3,
+            "output_price_per_million_tokens": 1.2,
+            "quantization": "fp8"
+          }
+        ],
+        "context_window_k": 1048
+      },
+      {
+        "type": "text2text",
+        "name": "DeepSeek-V4-Flash-0731",
+        "created_at": "2026-07-31T00:00:00.000Z",
+        "status": "active",
+        "logo_url": "",
+        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "description": "DeepSeek V4 Flash 0731 is a 1M-context reasoning model designed for coding and agentic workloads.",
+        "vendor": "deepseek",
+        "tags": [
+          "1M context",
+          "reasoning",
+          "JSON mode",
+          "code",
+          "math"
+        ],
+        "use_cases": [
+          "text",
+          "reasoning",
+          "function_calling",
+          "code",
+          "context_and_rag",
+          "responses_api",
+          "fine_tune"
+        ],
+        "license": {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE",
+          "name": "MIT License",
+          "type": ""
+        },
+        "size_b": 304,
+        "quality": 0,
+        "fine_tune": {
+          "model_id": "deepseek-ai/DeepSeek-V4-Flash"
+        },
+        "flavors": [
+          {
+            "model_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+            "model_type": "text2text",
+            "model_name": "DeepSeek-V4-Flash-0731",
+            "model_description": "DeepSeek V4 Flash 0731 is a 1M-context reasoning model designed for coding and agentic workloads.",
+            "label": "cheap",
+            "regions": [
+              {
+                "country_code": "US",
+                "name": "us-central1"
+              }
+            ],
+            "external_provider": false,
+            "tags": [
+              "1M context",
+              "reasoning",
+              "JSON mode",
+              "code",
+              "math"
+            ],
+            "use_cases": [
+              "text",
+              "reasoning",
+              "function_calling",
+              "code",
+              "context_and_rag",
+              "responses_api",
+              "fine_tune"
+            ],
+            "context_window_k": 1024,
+            "max_model_len": 1024000,
+            "tokens_per_second": 351,
+            "input_price_per_million_tokens": 0.14,
+            "output_price_per_million_tokens": 0.28,
+            "quantization": "fp8"
+          }
+        ],
+        "context_window_k": 1024
+      }
+    ]
+  },
+  "xai": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://docs.x.ai/developers/pricing",
+        "body": "<h2>Pricing</h2>\n<h2>Text API</h2>\n<table>\n<tr><td>Model</td><td>Context</td><td>Short context</td><td>Long context</td></tr>\n<tr><td>Input</td><td>Cached</td><td>Output</td><td>Input</td><td>Cached</td><td>Output</td></tr>\n<tr><td>grok-4.7 Long context ≥ 200k tokens</td><td>500k</td><td>$2.00</td><td>$0.50</td><td>$6.00</td><td>$4.00</td><td>$1.00</td><td>$12.00</td></tr>\n</table>\n<h2>Pricing</h2>\n<h2>Imagine API</h2>\n<table>\n<tr><td>Model</td><td>Media Input</td><td>Resolution</td><td>Output</td></tr>\n<tr><td>grok-imagine-image-2.0 Text, Image → Image</td><td>$0.01 / img</td><td>1K · Low</td><td>$0.04 / img</td></tr>\n<tr><td>1.5K · Low</td><td>$0.05 / img</td></tr>\n</table>"
+      }
+    ]
+  },
+  "zai": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://docs.z.ai/guides/overview/pricing.md",
+        "body": "<h2>Pricing</h2>\n<h2>Models</h2>\n<h2>Latest Models</h2>\n<table>\n<tr><td>Model</td><td>Input</td><td>Cached Input</td><td>Cached Input Storage</td><td>Output</td></tr>\n<tr><td>GLM-5.3-Flash</td><td>$0.15</td><td>$0.03</td><td>Limited-time Free</td><td>$0.50</td></tr>\n<tr><td>GLM-5.3-FlashX</td><td>$0.37</td><td>$0.075</td><td>Limited-time Free</td><td>$1.25</td></tr>\n</table>\n<h2>Pricing</h2>\n<h2>Models</h2>\n<h2>Text Models</h2>\n<table>\n<tr><td>Model</td><td>Input</td><td>Cached Input</td><td>Cached Input Storage</td><td>Output</td></tr>\n<tr><td>GLM-5.1</td><td>$1.4</td><td>$0.26</td><td>Limited-time Free</td><td>$4.4</td></tr>\n<tr><td>GLM-5</td><td>$1</td><td>$0.2</td><td>Limited-time Free</td><td>$3.2</td></tr>\n</table>"
+      }
+    ]
+  },
+  "ovhcloud": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "ovhcloud",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "catalog": [
+      {
+        "available": false,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "created_at": "2025-07-16T08:47:07Z",
+        "description": "Building upon Mistral Small 3 (2501), Mistral Small 3.2 (2506) adds state-of-the-art vision understanding and enhances long context capabilities up to 128k tokens without compromising text performance.\nWith 24 billion parameters, this model achieves top-tier capabilities in both text and vision tasks.\nThis model is a minor update of Mistral-Small-3.1-24B-Instruct-2503, which is an instruction-finetuned version of: Mistral-Small-3.1-24B-Base-2503.\n",
+        "documentation_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/doc/readme",
+        "gradio_url": "https://playground.endpoints.ai.ovh.net/Mistral-Small-3.2-24B-Instruct-2506",
+        "id": "mistral-small-3-2-24b-instruct-2506",
+        "isNew": false,
+        "licence_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+        "metadata": {
+          "aliases": [
+            "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+            "mistral-small-3.2-24b-instruct-2506"
+          ],
+          "api_base_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+          "benchmark_results": [
+            {
+              "benchmark_name": "Wildbench v2",
+              "benchmark_score": 65.33
+            },
+            {
+              "benchmark_name": "Arena Hard v2",
+              "benchmark_score": 43.1
+            },
+            {
+              "benchmark_name": "IF (Internal; accuracy)",
+              "benchmark_score": 84.78
+            },
+            {
+              "benchmark_name": "Infinite Generations (Internal; Lower is better)",
+              "benchmark_score": 1.29
+            },
+            {
+              "benchmark_name": "MMLU",
+              "benchmark_score": 80.5
+            },
+            {
+              "benchmark_name": "MMLU Pro (5-shot CoT)",
+              "benchmark_score": 69.06
+            },
+            {
+              "benchmark_name": "MATH",
+              "benchmark_score": 69.42
+            },
+            {
+              "benchmark_name": "GPQA Main (5-shot CoT)",
+              "benchmark_score": 44.22
+            },
+            {
+              "benchmark_name": "GPQA Diamond (5-shot CoT )",
+              "benchmark_score": 46.13
+            },
+            {
+              "benchmark_name": "MBPP Plus - Pass@5",
+              "benchmark_score": 78.33
+            },
+            {
+              "benchmark_name": "HumanEval Plus - Pass@5",
+              "benchmark_score": 92.9
+            },
+            {
+              "benchmark_name": "SimpleQA (TotalAcc)",
+              "benchmark_score": 12.1
+            },
+            {
+              "benchmark_name": "MMMU",
+              "benchmark_score": 62.5
+            },
+            {
+              "benchmark_name": "Mathvista",
+              "benchmark_score": 67.09
+            },
+            {
+              "benchmark_name": "ChartQA",
+              "benchmark_score": 87.4
+            },
+            {
+              "benchmark_name": "DocVQA",
+              "benchmark_score": 94.86
+            },
+            {
+              "benchmark_name": "AI2D",
+              "benchmark_score": 92.91
+            }
+          ],
+          "context": "128k",
+          "deployment_information": {
+            "datacenters": [
+              {
+                "country_code": "FR"
+              }
+            ]
+          },
+          "model_base_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+          "model_specs": {
+            "capabilities": {
+              "batch": true,
+              "fill_in_the_middle": false,
+              "function_calling": true,
+              "input_modality": [
+                "text",
+                "image"
+              ],
+              "output_modality": [
+                "text"
+              ],
+              "reasoning": false,
+              "response_format": [
+                "raw_text",
+                "json_object",
+                "json_schema"
+              ],
+              "streaming": true,
+              "supported_sampling_parameters": [
+                "temperature",
+                "stop",
+                "top_p",
+                "seed"
+              ],
+              "use_case_tag": [
+                "code_chat",
+                "code_completion",
+                "code_explanation",
+                "emotion_detection",
+                "entity_extraction",
+                "multi_language_coding",
+                "multilingual",
+                "paraphrasing",
+                "sentiment_analysis",
+                "summarization",
+                "text_generation",
+                "text_only_compatible",
+                "translation",
+                "vision"
+              ],
+              "web_search": false
+            },
+            "model_parameters": {
+              "parameters_type": "vlm",
+              "params": {
+                "context_size_k": 128,
+                "max_images_per_prompt": 10,
+                "max_output_token_k": 128,
+                "supported_aspect_ratios": [
+                  "*"
+                ]
+              }
+            },
+            "nb_of_billion_parameters": 24,
+            "quantization": "bf16"
+          },
+          "playground_url": "https://playground.endpoints.ai.ovh.net/Mistral-Small-3.2-24B-Instruct-2506",
+          "publishing_information": {
+            "endpoint_publication_date": "30/06/2025",
+            "knowledge_cutoff": "None",
+            "languages": [
+              "*"
+            ],
+            "licence_name": "Apache 2.0",
+            "licence_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+            "model_eol_date": "04/11/2026",
+            "model_publication_date": "20/06/2025",
+            "publisher": "mistralai",
+            "series": "mistral",
+            "source": "huggingface",
+            "source_link": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+          },
+          "router_base_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+          "tags": [
+            "Vision",
+            "Streaming"
+          ],
+          "usage_information": {
+            "avg_throughtput": 2,
+            "avg_throughtput_unit": "empirical",
+            "pricing": [
+              {
+                "price": 0.09,
+                "price_unit": "million_input_tokens"
+              },
+              {
+                "price": 0.28,
+                "price_unit": "million_output_tokens"
+              }
+            ],
+            "rate_limit": {
+              "rate_limit_api": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 400
+                }
+              ],
+              "rate_limit_api_anonymous": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 2
+                }
+              ],
+              "rate_limit_playground": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 2
+                }
+              ]
+            },
+            "status": "live",
+            "statuses": [
+              "live"
+            ]
+          }
+        },
+        "name": "Mistral-Small-3.2-24B-Instruct-2506",
+        "new": false,
+        "openapi_url": "https://mistral-small-3-2-24b-instruct-2506.endpoints.kepler.ai.cloud.ovh.net/doc/openapi.json",
+        "router_openapi_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/doc/Mistral-Small-3.2-24B-Instruct-2506/openapi.json",
+        "tags": [
+          "Vision"
+        ],
+        "version": "v3.1"
+      },
+      {
+        "available": false,
+        "category": "Code LLM",
+        "category_v2": "Text Generation",
+        "created_at": "2025-10-28T13:58:13Z",
+        "description": "Qwen3-Coder-30B-A3B-Instruct is Alibaba Cloud's advanced code-specialized LLM that excels in agentic coding tasks and supports extended context lengths for handling large code repositories. The model delivers superior coding capabilities for automated code generation, code review, and software development automation.",
+        "documentation_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/readme",
+        "gradio_url": "https://playground.endpoints.ai.ovh.net/Qwen3-Coder-30B-A3B-Instruct",
+        "id": "qwen-3-coder-30b-a3b-instruct",
+        "isNew": true,
+        "licence_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+        "metadata": {
+          "aliases": [
+            "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+            "qwen3-coder-30b-a3b-instruct"
+          ],
+          "api_base_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+          "benchmark_results": [
+            {
+              "benchmark_name": "MMLU-Pro",
+              "benchmark_score": 70.6
+            },
+            {
+              "benchmark_name": "LiveCodeBench",
+              "benchmark_score": 40.3
+            }
+          ],
+          "context": "256k",
+          "deployment_information": {
+            "datacenters": [
+              {
+                "country_code": "FR"
+              }
+            ]
+          },
+          "model_base_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+          "model_specs": {
+            "capabilities": {
+              "batch": true,
+              "fill_in_the_middle": false,
+              "function_calling": true,
+              "input_modality": [
+                "text"
+              ],
+              "output_modality": [
+                "text"
+              ],
+              "reasoning": false,
+              "response_format": [
+                "raw_text",
+                "json_object",
+                "json_schema"
+              ],
+              "streaming": true,
+              "supported_sampling_parameters": [
+                "temperature",
+                "stop",
+                "top_p",
+                "seed"
+              ],
+              "use_case_tag": [
+                "code_chat",
+                "code_completion",
+                "code_explanation",
+                "multi_language_coding"
+              ],
+              "web_search": false
+            },
+            "model_parameters": {
+              "parameters_type": "llm",
+              "params": {
+                "context_size_k": 256,
+                "max_output_token_k": 256
+              }
+            },
+            "nb_of_billion_parameters": 30,
+            "quantization": "fp8"
+          },
+          "playground_url": "https://playground.endpoints.ai.ovh.net/Qwen3-Coder-30B-A3B-Instruct",
+          "publishing_information": {
+            "endpoint_publication_date": "22/10/2025",
+            "knowledge_cutoff": "31/09/2024",
+            "languages": [
+              "*"
+            ],
+            "licence_name": "Apache 2.0",
+            "licence_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+            "model_eol_date": "01/10/2026",
+            "model_publication_date": "31/07/2025",
+            "publisher": "Qwen",
+            "series": "qwen",
+            "source": "huggingface",
+            "source_link": "https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct"
+          },
+          "router_base_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+          "tags": [
+            "Code Assistant",
+            "Streaming"
+          ],
+          "usage_information": {
+            "avg_throughtput": 2,
+            "avg_throughtput_unit": "empirical",
+            "pricing": [
+              {
+                "price": 0.06,
+                "price_unit": "million_input_tokens"
+              },
+              {
+                "price": 0.22,
+                "price_unit": "million_output_tokens"
+              }
+            ],
+            "rate_limit": {
+              "rate_limit_api": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 400
+                }
+              ],
+              "rate_limit_api_anonymous": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 2
+                }
+              ],
+              "rate_limit_playground": [
+                {
+                  "rate_limit_unit": "req/m",
+                  "rate_limit_value": 2
+                }
+              ]
+            },
+            "status": "new",
+            "statuses": [
+              "live"
+            ]
+          }
+        },
+        "name": "Qwen3-Coder-30B-A3B-Instruct",
+        "new": true,
+        "openapi_url": "https://qwen-3-coder-30b-a3b-instruct.endpoints.kepler.ai.cloud.ovh.net/doc/openapi.json",
+        "router_openapi_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/doc/Qwen3-Coder-30B-A3B-Instruct/openapi.json",
+        "tags": [
+          "Code Assistant"
+        ],
+        "version": "v3"
+      }
+    ]
+  },
+  "scaleway": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "scaleway",
+    "catalog": {
+      "products": [
+        {
+          "sku": "/ai/inference_dedicated/deployment/h100-1/fr-par",
+          "service_category": "AI",
+          "product_category": "Inference Dedicated",
+          "product": "H100",
+          "variant": "H100 - fr-par",
+          "description": "H100 - fr-par (0.05666€ per node)",
+          "locality": {
+            "region": "fr-par"
+          },
+          "price": {
+            "retail_price": {
+              "currency_code": "EUR",
+              "units": 0,
+              "nanos": 56660000
+            }
+          },
+          "properties": {
+            "managed_inference": {
+              "instance_gpu_name": "H100-1-80G",
+              "deployment": {
+                "instance_gpu_name": "H100-1-80G"
+              }
+            }
+          },
+          "environmental_impact_estimation": {
+            "kg_co2_equivalent": 0.033748873,
+            "m3_water_usage": 3.4242512e-05
+          },
+          "unit_of_measure": {
+            "unit": "node",
+            "size": 1
+          },
+          "status": "general_availability",
+          "badges": [
+            "popular"
+          ]
+        },
+        {
+          "sku": "/ai/inference_dedicated/deployment/h100-2/fr-par",
+          "service_category": "AI",
+          "product_category": "Inference Dedicated",
+          "product": "H100-2",
+          "variant": "H100-2 - fr-par",
+          "description": "H100-2 - fr-par (0.11133€ per node)",
+          "locality": {
+            "region": "fr-par"
+          },
+          "price": {
+            "retail_price": {
+              "currency_code": "EUR",
+              "units": 0,
+              "nanos": 111330000
+            }
+          },
+          "properties": {
+            "managed_inference": {
+              "instance_gpu_name": "H100-2-80G",
+              "deployment": {
+                "instance_gpu_name": "H100-2-80G"
+              }
+            }
+          },
+          "environmental_impact_estimation": {
+            "kg_co2_equivalent": 0.055161454,
+            "m3_water_usage": 6.560753e-05
+          },
+          "unit_of_measure": {
+            "unit": "node",
+            "size": 1
+          },
+          "status": "general_availability",
+          "badges": []
+        }
+      ]
+    },
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history."
+  },
+  "minimax": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md",
+        "body": "<h2>Pay as You Go</h2>\n<h2>LLM</h2>\n<table>\n<tr><td>Model</td><td>Input</td><td>Output</td><td>Prompt caching Read</td></tr>\n<tr><td>**MiniMax-M3**&lt;br /&gt;≤ 512k input tokens Permanent 50% off</td><td>~~$0.60~~ $0.30 / M tokens</td><td>~~$2.40~~ $1.20 / M tokens</td><td>~~$0.12~~ $0.06 / M tokens</td></tr>\n<tr><td>**MiniMax-M3**&lt;br /&gt;&gt; 512k input tokens\\* Permanent 50% off</td><td>~~$1.20~~ $0.60 / M tokens</td><td>~~$4.80~~ $2.40 / M tokens</td><td>~~$0.24~~ $0.12 / M tokens</td></tr>\n</table>\n<h2>Pay as You Go</h2>\n<h2>LLM</h2>\n<table>\n<tr><td>Model</td><td>Input</td><td>Output</td><td>Prompt caching Read</td></tr>\n<tr><td>**MiniMax-M3**&lt;br /&gt;≤ 512k input tokens Permanent 50% off</td><td>~~$0.90~~ $0.45 / M tokens</td><td>~~$3.60~~ $1.80 / M tokens</td><td>~~$0.18~~ $0.09 / M tokens</td></tr>\n<tr><td>**MiniMax-M3**&lt;br /&gt;&gt; 512k input tokens Permanent 50% off</td><td>~~$1.80~~ $0.90 / M tokens</td><td>~~$7.20~~ $3.60 / M tokens</td><td>~~$0.36~~ $0.18 / M tokens</td></tr>\n</table>"
+      }
+    ]
+  },
+  "deepseek": {
+    "format": "token3.inventory-sources.v1",
+    "adapter": "documents",
+    "scope_note": "Test-only reduced excerpts from official public sources; not production history.",
+    "documents": [
+      {
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
+        "body": "<h2>Models &amp; Pricing</h2>\n<h2>Model Details ​</h2>\n<table>\n<tr><td>MODEL</td><td>deepseek-flash (1)</td><td>deepseek-v4-pro</td></tr>\n<tr><td>BASE URL (OpenAI Format)</td><td>https://api.deepseek.com</td></tr>\n<tr><td>BASE URL (Anthropic Format)</td><td>https://api.deepseek.com/anthropic</td></tr>\n</table>"
+      }
+    ]
+  }
+}

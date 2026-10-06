@@ -1,10 +1,32 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-10-06T08:06:27Z",
-  "provider_count": 11,
+  "updated_at": "2026-10-06T17:11:09Z",
+  "provider_count": 26,
   "scope": "Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
   "retention": "Current normalized catalogs plus change-only JSONL history. New raw responses are transient; pre-existing source archives are preserved unchanged.",
   "providers": [
+    {
+      "id": "alibaba",
+      "name": "Alibaba Cloud Model Studio",
+      "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
+      "source_urls": [
+        "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "69915b967240b97f63490019b6d613c0e2f2996c363ba7956e0235c5e1b25173",
+      "catalog_sha256": "6055076f495e48227df50cd4088f0540552cd506b22d3fdddc717ee602e0d59f",
+      "latest_path": "provider_catalogs/alibaba.json",
+      "record_count": 1382,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
     {
       "id": "anthropic",
       "name": "Anthropic API",
@@ -118,6 +140,51 @@
       }
     },
     {
+      "id": "cloudflare",
+      "name": "Cloudflare Workers AI",
+      "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
+      "source_urls": [
+        "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "e27a16866ead36d28f267faa0afea82d69cb60bc9e2dfe247255485e0ab825cd",
+      "catalog_sha256": "1487c14a51cb72a49519017a4f12aaf763802e2f9a85108bb3081faa98d0b01a",
+      "latest_path": "provider_catalogs/cloudflare.json",
+      "record_count": 69,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "databricks",
+      "name": "Databricks",
+      "source_url": "https://www.databricks.com/product/pricing/foundation-model-serving",
+      "source_urls": [
+        "https://www.databricks.com/product/pricing/foundation-model-serving",
+        "https://www.databricks.com/product/pricing/proprietary-foundation-model-serving"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "e746e2e5320635ab70e03435018bb324b4dad0a4ec34908ef51081a9bce4f6a0",
+      "catalog_sha256": "53de1256494f83059fa17e501e674a68ccf9178297116b8828b2fce6ee621c59",
+      "latest_path": "provider_catalogs/databricks.json",
+      "record_count": 196,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "deepinfra",
       "name": "DeepInfra",
       "source_url": "https://api.deepinfra.com/models/list",
@@ -170,6 +237,28 @@
         "state": "not_applicable",
         "reason": "API/feed responses are not public page captures"
       }
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "source_urls": [
+        "https://api-docs.deepseek.com/quick_start/pricing"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "5c177d08fb22acd33661f3d8ae21eff464ba767080dcb413ce2230dc1507ffce",
+      "catalog_sha256": "cfca4899029a829a29f6e6dbd0f19638faf78db06c44e60d46fc6f28b99d80f3",
+      "latest_path": "provider_catalogs/deepseek.json",
+      "record_count": 20,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     },
     {
       "id": "fireworks",
@@ -302,6 +391,73 @@
       }
     },
     {
+      "id": "huggingface",
+      "name": "Hugging Face Inference",
+      "source_url": "https://router.huggingface.co/v1/models",
+      "source_urls": [
+        "https://router.huggingface.co/v1/models",
+        "https://huggingface.co/docs/inference-providers/pricing"
+      ],
+      "source_kind": "api+documentation",
+      "fallback_reason": null,
+      "source_sha256": "e049fef9efeee682832e77faee0fa2ac4c28eb9a76f8164971c7440d1548e565",
+      "catalog_sha256": "583f7834a2568e198d3d03c8ff7e8314817b7e4fc9d4ac7d3c9792aa2d07b460",
+      "latest_path": "provider_catalogs/huggingface.json",
+      "record_count": 324,
+      "revision": 2,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "minimax",
+      "name": "MiniMax",
+      "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md",
+      "source_urls": [
+        "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "6ac3556abee96eaf04069b7fa896ffaa41890257423b28c72e2fa9c26e2d5757",
+      "catalog_sha256": "94dbfb628e1b310f3913a4cdb09fcf0e404f15dc21c45254f2bf7a511065908a",
+      "latest_path": "provider_catalogs/minimax.json",
+      "record_count": 55,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "nebius",
+      "name": "Nebius Token Factory",
+      "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
+      "source_urls": [
+        "https://tokenfactory.nebius.com/api/public/models_info"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "fec8d3f64e6a188b804a38ff5ce69e7e821f2bd8351d9ddc518bea2aed179868",
+      "catalog_sha256": "772488be8f1bbb42f6a2d9fa9c0a4cc22036d641333ccec0f5061ec674bb80c9",
+      "latest_path": "provider_catalogs/nebius.json",
+      "record_count": 25,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "novita",
       "name": "Novita",
       "source_url": "https://api.novita.ai/v3/openai/models",
@@ -376,6 +532,128 @@
       }
     },
     {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "source_urls": [
+        "https://openrouter.ai/api/v1/models"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "bcb02527bc7401d934b6c0afe45d0812bbe70ea3ba0686053d4058b3d843d8c4",
+      "catalog_sha256": "1bd0c8af2e469b6bbb8941af43f1e79e5bd5fcc915ad27bf9d35291ee9618314",
+      "latest_path": "provider_catalogs/openrouter.json",
+      "record_count": 466,
+      "revision": 2,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle Cloud Generative AI",
+      "source_url": "https://apexapps.oracle.com/pls/apex/cetools/api/v1/products/?currencyCode=USD",
+      "source_urls": [
+        "https://apexapps.oracle.com/pls/apex/cetools/api/v1/products/?currencyCode=USD"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "e6b26c95fe32aaaba2f1f8409653ea06dc710f2092c3779fe2b6ff885260d8d9",
+      "catalog_sha256": "e8f929cfc749d1185ef56573dd7991d85eaf917618864607b23251cbef164f44",
+      "latest_path": "provider_catalogs/oracle.json",
+      "record_count": 84,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "ovhcloud",
+      "name": "OVHcloud AI Endpoints",
+      "source_url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
+      "source_urls": [
+        "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "84f69d7bb5182d9f742f92296c497f35d3fec4f1952a879d6194ed3bb3a4c209",
+      "catalog_sha256": "21450544dfc22720689b05cd2c6ea575d95c2ec6a62b36af04a9b01733f27fbd",
+      "latest_path": "provider_catalogs/ovhcloud.json",
+      "record_count": 24,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "scaleway",
+      "name": "Scaleway Generative APIs",
+      "source_url": "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000",
+      "source_urls": [
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=1",
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=2",
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=3",
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=4",
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=5",
+        "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=6"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "73923fabd934b62af3c9ab29abeed09ad7d7c494c0e2056fda8d65d18fc72d10",
+      "catalog_sha256": "de5ae6a28a9af4c226d48e0370e728ec1750db43f9f4b79e910b4216f72a086d",
+      "latest_path": "provider_catalogs/scaleway.json",
+      "record_count": 122,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake Cortex",
+      "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
+      "source_urls": [
+        "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
+        "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "904cd415fbb455e631162b347680edb6756e420002b6916ac63f70a88b7e9b16",
+      "catalog_sha256": "708585be588e50222dba3ac317d0c03b4023c99b7538ee672696e53a23caf225",
+      "latest_path": "provider_catalogs/snowflake.json",
+      "record_count": 36,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null,
+      "source_evidence": [
+        {
+          "source_url": "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf",
+          "response_sha256": "83c3305a0d316ac0ba2eab9b15f3fcf8dfde0b54d434bbc1c9f66e7eda657b17"
+        }
+      ]
+    },
+    {
       "id": "together",
       "name": "Together AI",
       "source_url": "https://docs.together.ai/docs/serverless-models",
@@ -412,6 +690,28 @@
         "checked_at": "2026-10-05T09:09:31Z",
         "reason": "HTTPError: HTTP Error 429: Too Many Requests"
       }
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel AI Gateway",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_urls": [
+        "https://ai-gateway.vercel.sh/v1/models"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "d0f39c1cf5428e73d12b64c901f4de110ebf69387c352963736f20fa78787598",
+      "catalog_sha256": "7db86c6ca8d03b37da6458996cfc8d130600419233bd8ed485f4a9e18c7d2935",
+      "latest_path": "provider_catalogs/vercel.json",
+      "record_count": 411,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     },
     {
       "id": "vertex",
@@ -489,6 +789,50 @@
         "state": "not_applicable",
         "reason": "API/feed responses are not public page captures"
       }
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "source_url": "https://docs.x.ai/developers/pricing",
+      "source_urls": [
+        "https://docs.x.ai/developers/pricing"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "9637ee71966118147a247a3ce9aa59345d282bc51886f5b9c78ff2e039005c23",
+      "catalog_sha256": "eb87f4b2d33b9f433d004492cb36c2bf85c1d4001fff2a03189a9eb6dc635828",
+      "latest_path": "provider_catalogs/xai.json",
+      "record_count": 48,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "zai",
+      "name": "Z.ai",
+      "source_url": "https://docs.z.ai/guides/overview/pricing.md",
+      "source_urls": [
+        "https://docs.z.ai/guides/overview/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "4be580d54df5831e45c68dc41b2652742708094709189572fb85f4bd275f4a99",
+      "catalog_sha256": "6e4370749654158aa6789926ed3e69a013c5c2e910f7f9f4724571fc6265cf22",
+      "latest_path": "provider_catalogs/zai.json",
+      "record_count": 29,
+      "revision": 1,
+      "first_seen_at": "2026-10-06T16:59:50Z",
+      "last_seen_at": "2026-10-06T17:11:09Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     }
   ]
 }

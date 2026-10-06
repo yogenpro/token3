@@ -20,6 +20,10 @@ Collection should prefer official structured rate catalogs. A model-list API tha
 
 This is an API capability review, not a claim of exhaustive commercial coverage. The providers, source scopes and original units remain explicit. Authenticated listings may be account-scoped. Region scopes for existing Azure/AWS collection are unchanged.
 
+## Collection-only expansion
+
+The 15 additional providers use selected public pricing catalogs/documents with no new credentials: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They enrich the warehouse, not the reviewed comparisons. See [all source URLs, native units, scope boundaries and operational caveats](collection-expansion.md). Google Gemini Developer API and Vertex AI remain separate pricing sources.
+
 ## API details and limits
 
 ### Microsoft Foundry (Azure)
