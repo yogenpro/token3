@@ -100,17 +100,22 @@ test('explorer and feed filters navigate and distinguish discoveries from cuts',
   await expect(page.locator('.full-feed .change-item')).toHaveCount(Math.min(data.changes.filter((c) => c.model_id === 'openai/gpt-oss-20b' && c.kind !== 'price_changed').length, 20));
 });
 
-test('shows stale or failed collectors explicitly', async ({ page }) => {
+test('shows multiple failed collectors explicitly', async ({ page }) => {
   await page.route('**/status.json', async (route) => {
     const next = structuredClone(data.status);
     next.providers[0].state = 'error'; next.providers[0].error = 'Source unavailable';
+    next.providers[1].state = 'error'; next.providers[1].error = 'Second source unavailable';
     await route.fulfill({ json: next });
   });
   await page.goto('/');
   await expect(page.getByText('Some collectors have failed', { exact: false })).toBeVisible();
   await page.getByRole('button', { name: 'Check sources' }).click();
-  await expect(page.getByText('Failed · retained', { exact: true })).toBeVisible();
-  await expect(page.getByText('Source unavailable', { exact: true })).toBeVisible();
+  const first = page.locator('.collector-table tbody tr').filter({ has: page.getByText(data.status.providers[0].name, { exact: true }) });
+  const second = page.locator('.collector-table tbody tr').filter({ has: page.getByText(data.status.providers[1].name, { exact: true }) });
+  await expect(first.getByText('Failed · retained', { exact: true })).toBeVisible();
+  await expect(first.getByText('Source unavailable', { exact: true })).toBeVisible();
+  await expect(second.getByText('Failed · retained', { exact: true })).toBeVisible();
+  await expect(second.getByText('Second source unavailable', { exact: true })).toBeVisible();
 });
 
 test('shows a recoverable error for a missing dataset', async ({ page }) => {

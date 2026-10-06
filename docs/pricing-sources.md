@@ -59,4 +59,18 @@ Those schemas do not expose list-price fields. This does not prove that no priva
 - Incompatible API pricing is not discarded in favor of a guessed conversion. Independently valid source-native inventory records can be retained; normalization failures keep the last good catalog. Previous curated prices/history remain intact.
 - Pagination is bounded, detects repeated/conflicting tokens, and fails before applying partial listings. Full inventory and the curated dashboard remain separate.
 - New public raw responses are temporary 7-day debugging artifacts, not committed snapshots. Authenticated model-catalog responses are excluded, known private models are rejected, and credential echoes/errors cannot be persisted. Existing legacy archives are preserved. See [storage and archive-reference policy](data-collection.md).
-- No new authenticated source is claimed to have been live-verified without its credential. Offline tests exercise API formats, pagination, auth-header propagation, fallbacks, failure retention and secret redaction. Without credentials, live collection verifies the existing public sources and reports the three credential-dependent fallbacks.
+- Offline tests exercise API formats, pagination, auth-header propagation, fallbacks, failure retention and secret redaction. Live verification requires the corresponding credential; missing keys still produce explicit document fallbacks.
+
+## Live API validation — 2026-10-06
+
+[Successful hosted collection](https://github.com/yogenpro/token3/actions/runs/37429423042):
+
+| Provider | Verified source | Snapshot coverage |
+| --- | --- | --- |
+| Fireworks | Authenticated `/v1/serverless/models`, no document fallback | 26 model/serving-mode rows: 25 with published monetary rates and one unpriced row |
+| Google Vertex | Cloud Billing Catalog API plus reviewed pricing document, no fallback | 9,057 public USD SKUs plus 926 document rows |
+| Together | Credential not configured | Existing official-document fallback remains active |
+
+Counts describe that observation, not a fixed list of unique models. Fireworks can omit `pricing` for a product; such records retain native kind/pricing-mode metadata and unknown prices, never an invented zero. Malformed published pricing still fails closed. Its SKU ordering is normalized so reordering does not create price changes. Vertex SKU-to-dashboard mapping remains deferred; API prices are not guessed into canonical offers. All 11 collectors passed; original curated price history and legacy source archive files remained intact. No inference requests or billing-account queries were made.
+
+For future schema troubleshooting, manually dispatch `inspect-fireworks.yml`. `scripts/inspect_fireworks_catalog.py` reports aggregate field shapes/counts and samples only reviewed public model prices. It has read-only repository permissions, does not write dataset files or save authenticated response bodies, and rejects configured credential echoes.
