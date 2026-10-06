@@ -62,7 +62,7 @@ def parse_api(body, aliases):
             continue
         mode = model.get("serverless_mode")
         if mode in ("fast", "spot"):
-            continue  # Archived, but not supported by the curated calculator.
+            continue  # Retained in full inventory, not the curated calculator.
         tier = {"default": "standard", "standard": "standard", "priority": "priority"}.get(mode)
         if tier is None:
             raise ValueError("Unknown Fireworks serving mode; cannot assume Standard")
@@ -83,7 +83,7 @@ def parse_api(body, aliases):
         records.append(observation("fireworks", model_id, rates["input"], rates["output"], API_URL,
             cache_read_per_million=rates.get("cache"), service_tier=tier,
             context_window=model.get("context_length"),
-            pricing_notes="Fireworks serverless catalog API USD/1M token rates; serving mode {}. Invocation identifier: {}. Fast/Spot and non-token prices are retained only in the raw inventory.".format(mode, invocation)))
+            pricing_notes="Fireworks serverless catalog API USD/1M token rates; serving mode {}. Invocation identifier: {}. Fast/Spot and non-token prices remain source-native full-inventory records.".format(mode, invocation)))
     return snapshot(records, body, API_URL, source_kind="api")
 
 

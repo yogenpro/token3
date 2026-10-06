@@ -12,7 +12,7 @@ from urllib.parse import parse_qs, urlparse
 from providers import fireworks, google_billing, groq, together, vertex
 from providers.common import _NoCredentialRedirect, fetch_text
 from providers.pricing_api import fetch_pages
-from scripts.collect import run
+from scripts.collect import read_history, run
 from scripts.normalize import catalog, normalize
 from scripts.provider_inventory import prepare_source
 
@@ -103,6 +103,22 @@ class PricingAPITests(unittest.TestCase):
         self.assertFalse(result.authoritative_catalog)
         for row in result.records:
             normalize(row, self.aliases, TIME, result.source_sha256)
+
+    def test_full_fireworks_collection_accepts_an_unpriced_untracked_product(self):
+        os.environ["FIREWORKS_API_KEY"]="fixture-secret"
+        payload=json.loads(self.fixture("fireworks-api.json"))
+        payload["data"].append(dict(id="accounts/fireworks/models/fixture-router",kind="router",pricing_mode="per-selected-model"))
+        with tempfile.TemporaryDirectory() as directory,patch("providers.fireworks.fetch_pages",return_value=(payload,[fireworks.API_URL])):
+            path=Path(directory)
+            self.assertEqual(run(path,["fireworks"],strict=True),0)
+            index=json.loads((path/"provider_inventory.json").read_text())["providers"][0]
+            self.assertEqual(index["source_kind"],"api")
+            self.assertEqual(index["record_count"],5)
+            native=json.loads((path/index["latest_path"]).read_text())["records"]
+            router=next(r for r in native if r["native_id"].endswith("fixture-router"))
+            self.assertEqual(router["rates"],[])
+            self.assertEqual(json.loads((path/"status.json").read_text())["providers"][0]["state"],"ok")
+            self.assertEqual(len(read_history(path/"price_history.csv")),2)
 
     def test_fireworks_unknown_units_currency_mode_and_missing_prices_fail_closed(self):
         base = json.loads(self.fixture("fireworks-api.json"))

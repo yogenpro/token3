@@ -127,9 +127,13 @@ def _models(provider, payload):
             # Other modality/base/hourly/training components are decimal
             # amounts, but not assigned text units absent reviewed semantics.
         elif provider == "fireworks":
-            if not isinstance(pricing, list):
-                raise ValueError("Fireworks catalog row lacks its pricing SKU list")
-            for sku in pricing:
+            # The complete serverless catalog includes routing/unpriced
+            # products with no SKU list. Preserve them as unknown, not free.
+            if pricing is not None and not isinstance(pricing, list):
+                raise ValueError("Fireworks published pricing must be a SKU list")
+            if isinstance(pricing, list):
+                pricing = sorted(pricing, key=canonical)
+            for sku in pricing or []:
                 value = sku.get("amount")
                 currency = "USD"
                 if isinstance(value, dict):
@@ -141,6 +145,8 @@ def _models(provider, payload):
         keys = ("type", "model_type", "input_modalities", "output_modalities", "max_tokens", "context_size",
                 "context_length", "max_output_tokens", "quantization", "status", "features", "endpoints", "usage_identifier")
         metadata = {key: model[key] for key in keys if key in model}
+        if provider == "fireworks":
+            metadata.update({key:model[key] for key in ("kind", "pricing_mode", "service_tier", "aliases", "use_cases") if key in model})
         scope = {"serving_mode": model.get("serverless_mode")} if provider == "fireworks" else {}
         billing = dict(state="reported" if rates else "source_native_or_unpriced", rules=pricing)
         records.append(entry(provider, mid, "model", model.get("display_name") or model.get("title") or mid,

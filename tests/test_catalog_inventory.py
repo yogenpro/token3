@@ -100,6 +100,28 @@ class FullInventoryTests(unittest.TestCase):
             self.assertGreaterEqual(len(inventory["records"]), 3)
             self.assertTrue(any("fixture" in r["native_id"] for r in inventory["records"]))
 
+    def test_fireworks_unpriced_catalog_rows_remain_unknown_not_free(self):
+        for pricing in ("missing", None, []):
+            model=dict(id="accounts/fireworks/models/fixture-router",kind="router",pricing_mode="per-selected-model",aliases=["fixture-router"],use_cases=["routing"])
+            if pricing != "missing":model["pricing"]=pricing
+            inventory,_=normalize_inventory("fireworks",json.dumps(dict(data=[model])),"api")
+            row=inventory["records"][0]
+            self.assertEqual(row["rates"],[])
+            self.assertEqual(row["billing"]["state"],"source_native_or_unpriced")
+            self.assertEqual(row["metadata"]["pricing_mode"],"per-selected-model")
+            self.assertEqual(row["metadata"]["kind"],"router")
+            self.assertFalse(row["comparison_eligible"])
+        for invalid in ({"input":1},"1",False):
+            with self.subTest(invalid=invalid),self.assertRaises(ValueError):
+                normalize_inventory("fireworks",json.dumps(dict(data=[dict(id="model",pricing=invalid)])),"api")
+
+    def test_fireworks_sku_reordering_does_not_create_price_history(self):
+        payload=json.loads((FIXTURES/"fireworks-api.json").read_text())
+        _,before=normalize_inventory("fireworks",json.dumps(payload),"api")
+        for row in payload["data"]:row["pricing"].reverse()
+        _,after=normalize_inventory("fireworks",json.dumps(payload),"api")
+        self.assertEqual(before,after)
+
     def test_google_sku_pricing_info_is_retained_with_original_conversion_rules(self):
         info = dict(effectiveTime=TIME, pricingExpression=dict(usageUnit="1k", baseUnit="token", baseUnitConversionFactor=1000,
                     tieredRates=[dict(startUsageAmount=0, unitPrice=dict(currencyCode="USD", units="0", nanos=750000))]))
