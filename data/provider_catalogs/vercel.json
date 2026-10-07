@@ -6664,6 +6664,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-2a64d7d942ef5af9dee1fd81",
+      "provider": "vercel",
+      "native_id": "topaz/starlight-precise-2.6",
+      "kind": "model",
+      "label": "Starlight Precise 2.6",
+      "scope": {},
+      "billing": {
+        "rules": {},
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Starlight Precise 2.6",
+        "owned_by": "topaz",
+        "type": "video",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "video"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-2b4496c358aefdc5257f8845",
       "provider": "vercel",
       "native_id": "openai/gpt-5.2-pro",
@@ -12919,6 +12957,69 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-5710b874e306edcf96e9a822",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6-luna-decisions",
+      "kind": "model",
+      "label": "GPT-6 Luna Decisions",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6 Luna Decisions",
+        "owned_by": "openai",
+        "type": "evaluation",
+        "context_window": 1050000,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5859f22c46fd7c628a12eeca",
       "provider": "vercel",
       "native_id": "bytedance/seedream-4.0",
@@ -14975,6 +15076,44 @@
         ],
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-66ef8541601d065de726f28d",
+      "provider": "vercel",
+      "native_id": "topaz/wonder-3.5",
+      "kind": "model",
+      "label": "Wonder 3.5",
+      "scope": {},
+      "billing": {
+        "rules": {},
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Wonder 3.5",
+        "owned_by": "topaz",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -19676,6 +19815,44 @@
         },
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-8bc34dfe2fadf3781566b3cd",
+      "provider": "vercel",
+      "native_id": "topaz/proteus",
+      "kind": "model",
+      "label": "Proteus",
+      "scope": {},
+      "billing": {
+        "rules": {},
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Proteus",
+        "owned_by": "topaz",
+        "type": "video",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "video"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -28790,6 +28967,7 @@
             }
           ],
           "input": "0.0000015",
+          "input_cache_read": "0.00000015",
           "maps_search": "14",
           "output": "0.0000075",
           "web_search": "14"
@@ -28812,6 +28990,13 @@
           "amount": "0.0000075",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -28852,14 +29037,13 @@
           {
             "type": "effort",
             "values": [
-              "none",
-              "low",
+              "minimal",
               "medium",
               "high"
             ]
           }
         ],
-        "zdr": "none",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -37004,13 +37188,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "06772fe107b6150c9f7acaa960c86597d4c4e808ad5c2aef1934e9ddf05b521d",
-  "revision": 2,
-  "changed_at": "2026-10-06T17:40:20Z",
+  "catalog_sha256": "7e3436d6cb589c2ed04db3f9ad6f44e3f124814b9bf1e08f63212c954e2b1e71",
+  "revision": 3,
+  "changed_at": "2026-10-07T13:23:58Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "8fc79a8b9db7a2510413c6d29b1fc662d10fa4ca41c0169930ee0c532e276d34",
+  "source_sha256": "2bebf09bfaec9e526d18c5d8eb0ac73f2b548cac7bd6c5c780f4e435db1c789d",
   "archive_reference": null
 }
