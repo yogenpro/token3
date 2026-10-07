@@ -3,6 +3,8 @@ import { useState } from 'react';
 import type { Change, Dataset } from '../lib/data';
 import { providerInfo } from '../lib/data';
 import { dateLabel, exactDate, money, tokens } from '../lib/pricing';
+import type { CatalogIndex, ChangeCategory } from '../lib/catalog';
+import { NativeChanges } from './NativeChanges';
 
 const fields: Record<string, string> = { input_per_million: 'input', output_per_million: 'output', cache_read_per_million: 'cache read', cache_write_per_million: 'cache write', context_window: 'context window', quantization: 'precision', variant: 'variant', max_output_tokens: 'output limit' };
 export function movement(change: Change) {
@@ -48,14 +50,16 @@ export function RecentMovements({ data, onAll }: { data: Dataset; onAll: () => v
     <button className="feed-link" onClick={onAll}>Explore all observations <ArrowRight size={16} /></button>
   </section>;
 }
-export function ChangesView({ data }: { data: Dataset }) {
+export function ChangesView({ data, catalog, feed, onFeed, onProvider }: { data: Dataset; catalog?: CatalogIndex; feed: string; onFeed: (feed: string) => void; onProvider: (provider: string, record?: string) => void }) {
+  return <><div className="page-heading"><div className="eyebrow">FOLLOW THE MARKET</div><h1>A record of what changed.</h1><p>Reviewed comparisons, native price amounts, billing rules, and source discoveries. Every event starts with an observation.</p></div><div className="segments catalog-tabs" role="group" aria-label="Observation feed">{[['reviewed', 'Reviewed comparisons'], ['price', 'Native price amounts'], ['rule', 'Billing rules'], ['catalog', 'Catalog changes']].map(([value, label]) => <button key={value} className={feed === value ? 'active' : ''} aria-pressed={feed === value} onClick={() => onFeed(value)}>{label}</button>)}</div>{feed === 'reviewed' ? <ReviewedChanges data={data} /> : catalog ? <NativeChanges key={feed} catalog={catalog} category={feed as ChangeCategory} onProvider={onProvider} /> : <div className="catalog-loading" role="status">Waiting for catalog index…</div>}</>;
+}
+function ReviewedChanges({ data }: { data: Dataset }) {
   const [filter, setFilter] = useState('all');
   const [model, setModel] = useState('all');
   const [limit, setLimit] = useState(20);
   const changes = data.changes.filter((c) => (model === 'all' || c.model_id === model) && (filter === 'all' || (filter === 'availability' ? c.kind !== 'price_changed' : movement(c) === filter)));
   const verified = data.changes.filter((c) => c.kind === 'price_changed').length;
-  return <><div className="page-heading"><div className="eyebrow">FOLLOW THE MARKET</div><h1>A record of what changed.</h1><p>Price changes, offering updates, and new discoveries. Every event starts with an observation.</p></div>
-    <div className="notice"><Info size={17} /><span>{verified === 0 ? 'Tracking has just started. There are no verified price changes yet. The entries below are real first observations, not historical launch dates.' : `${verified} verified price changes recorded. Discovery dates are not model launch dates.`}</span></div>
+  return <><div className="notice"><Info size={17} /><span>{verified === 0 ? 'Tracking has just started. There are no verified price changes yet. The entries below are real first observations, not historical launch dates.' : `${verified} verified price changes recorded. Discovery dates are not model launch dates.`}</span></div>
     <section className="panel changes-panel"><div className="changes-toolbar"><div className="segments" role="group" aria-label="Change type">{[['all', 'All events'], ['cut', 'Price cuts'], ['increase', 'Price increases'], ['availability', 'Offerings']].map(([value, label]) => <button className={filter === value ? 'active' : ''} key={value} onClick={() => { setFilter(value); setLimit(20); }}>{label}</button>)}</div>
       <select aria-label="Filter changes by model" value={model} onChange={(e) => { setModel(e.target.value); setLimit(20); }}><option value="all">All models</option>{data.models.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}</select>
     </div><div className="event-count">{changes.length} {changes.length === 1 ? 'event' : 'events'} · timestamps in UTC</div>

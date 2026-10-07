@@ -148,7 +148,7 @@ test('mobile layout stays within the viewport and all views remain accessible', 
   await page.screenshot({ path: 'test-results/dashboard-mobile.png', fullPage: true });
   await page.getByRole('button', { name: 'Methodology', exact: true }).click();
   await expect(page.getByRole('heading', { name: `Collector health ${data.status.providers.length}` })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Download full dataset' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Download reviewed dataset' })).toBeVisible();
 });
 
 test('multi-day history and price cut/increase feeds work with test-only observations', async ({ page }) => {

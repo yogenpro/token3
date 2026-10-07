@@ -55,9 +55,11 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 - Cheapest estimate for your actual input/output/cache mix; inapplicable prompt-price bands and known context/output limits cannot win.
 - Standard/priority/flex/all-tier filters, sortable prices and estimates, expandable provenance, and comparison CSV export.
 - Input/output/cache-read history with stepped lines, date ranges, provider toggles, and an exact-observations table.
-- A changes feed with price-cut/increase/offering filters and model filtering.
-- Model explorer, collector health, calculation methodology, full dataset downloads, and stale-data warnings.
-- Responsive layout, dark theme, keyboard controls, and shareable URLs containing model, tier, view, and workload.
+- Separate reviewed-price, native-amount, billing-rule, and catalog change feeds; source absence never implies discontinuation.
+- Provider-native exploration across all 26 groups: search/filter, original billing rules/units, source scope, provenance, record details, lazy history, and filtered JSON exports.
+- A broader provider-scoped API model/route/flavor directory, separate from reviewed canonical models. Collected listing counts are not unique-model counts.
+- Collector health, calculation methodology, reviewed dataset downloads, and independent pricing/review/freshness labels.
+- Responsive layout, dark theme, keyboard controls, and shareable URLs containing model, tier, view, workload, provider, native record, directory, and feed.
 - Readable typography inspired by OpenRouter’s benchmarks page: 16px body text, 14px secondary text/controls, 12px metadata, and 20px section headings. Mobile layouts reflow instead of shrinking text.
 - Daily collection, static Pages deployment, and automated unit/collector/browser checks.
 
@@ -78,7 +80,7 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 | Gemini 3.8 Flash | Google Gemini API, Google Vertex AI |
 | Gemini 3.5 Flash-Lite | Google Gemini API, Google Vertex AI |
 
-The expanded catalog has **71 offerings across 11 providers**. Claude 4.6 releases are labeled legacy, as in Anthropic's model references: they are included for their verifiable cross-cloud coverage, not presented as the newest Claude versions. Proprietary GPT models are compared with Azure; they are not falsely listed on Bedrock or Vertex. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
+The reviewed comparison catalog has **71 offerings across 11 providers**. Claude 4.6 releases are labeled legacy, as in Anthropic's model references: they are included for their verifiable cross-cloud coverage, not presented as the newest Claude versions. Proprietary GPT models are compared with Azure; they are not falsely listed on Bedrock or Vertex. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
 
@@ -88,13 +90,13 @@ Collection now covers **26 providers**, including 15 new **inventory-only** sour
 
 `data/provider_catalogs/<provider>.json` stores the complete selected catalog as a common source-native record schema: model IDs, meters, SKU dimensions, document rows, native billing rules/expressions, currency, units, regions, tiers, effective dates and relevant metadata. No dashboard alias filter is applied. Numerical monetary amounts are decimal strings; units are only attached when the source establishes them. Complex formulas, conditional schedules, native billing integers, ambiguous units and qualitative prices remain explicit—not guessed into USD/token rates. Document-row IDs are source-local identifiers, not canonical model equivalence. See [the inventory schema and retention policy](docs/data-collection.md).
 
-This is **storage normalization**, not universally comparable cost normalization. Every row is marked `comparison_eligible: false` until separately curated. The reviewed dashboard remains at 12 models/71 offerings. Sources are scoped listings, not proof of exhaustive commercial availability; existing AWS/Azure regions remain unchanged.
+This is **storage normalization**, not universally comparable cost normalization. Every row is marked `comparison_eligible: false` until separately curated. Reviewed comparisons remain at 12 models/71 offerings. The Providers view exposes the wider warehouse without promoting native rates into the calculator. Sources are scoped listings, not proof of exhaustive commercial availability; existing AWS/Azure regions remain unchanged. See [dashboard organization and projection rules](docs/dashboard-data-organization.md).
 
 `provider_inventory.json` indexes current catalogs. `inventory_history.jsonl` records first discoveries and subsequent meaningful record/billing-condition changes; identical model lists with reordered JSON or changed HTML scripts do not create versions. `collection_checks.jsonl` retains small success/failure check records. Source-row absence is recorded as “no longer listed”, not an inferred vendor delisting. Existing curated CSV observations and all pre-existing raw source files are preserved unchanged; new unchanged daily observations are no longer appended.
 
 New raw public-source responses may be written as gzip files with `--response-dir`; scheduled collection uploads them as Actions debugging artifacts expiring after **7 days**, never permanent Git blobs. Authenticated model-catalog responses are not uploaded. Existing `provider_sources/` is a read-only legacy archive, referenced explicitly in the migrated index. One early legacy JSON artifact predates exact-body storage; it is not independently byte-rehashable.
 
-With `--archive-lookups`, changed public-document catalogs receive best-effort Wayback references. A capture is “verified” only if its exact target and fetched source-body hash match; nearest-date captures with different contents remain `content_mismatch`, and outages/missing captures remain `unavailable`. No keys, authenticated responses or assembled API feeds are submitted to Archive.org. Capture time and observation time remain distinct. None of these inventory files is published by Vite.
+With `--archive-lookups`, changed public-document catalogs receive best-effort Wayback references. A capture is “verified” only if its exact target and fetched source-body hash match; nearest-date captures with different contents remain `content_mismatch`, and outages/missing captures remain `unavailable`. No keys, authenticated responses or assembled API feeds are submitted to Archive.org. Capture time and observation time remain distinct. Original inventory/history files and raw archives are not copied by Vite. It generates validated, read-only public catalog projections: a lightweight index and lazy model listings, provider details, histories, and separate change feeds. The comparison landing page does not download the warehouse.
 
 ## Official sources and parsing
 

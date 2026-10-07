@@ -1,10 +1,11 @@
-import { Activity, ArrowUpRight, ChartNoAxesCombined, CircleHelp, Grid2X2, ShieldCheck } from 'lucide-react';
+import { Activity, ArrowUpRight, ChartNoAxesCombined, CircleHelp, Grid2X2, Building2, ShieldCheck } from 'lucide-react';
 import type { Model } from '../lib/data';
 import { Brand, ModelMark } from './UI';
-export type View = 'compare' | 'models' | 'changes' | 'methodology';
+export type View = 'compare' | 'models' | 'providers' | 'changes' | 'methodology';
 const navigation = [
   { id: 'compare', label: 'Compare prices', icon: ChartNoAxesCombined },
   { id: 'models', label: 'Model explorer', icon: Grid2X2 },
+  { id: 'providers', label: 'Providers', icon: Building2 },
   { id: 'changes', label: 'Recent changes', icon: Activity },
   { id: 'methodology', label: 'Methodology', icon: CircleHelp },
 ] as const;
@@ -22,6 +23,6 @@ export function Sidebar({ models, selected, view, onView, onModel, changeCount }
         <ModelMark model={model} small /><span>{model.name}</span>{selected === model.id && view === 'compare' && <span className="selection-dot" />}
       </button>)}
     </div>
-    <div className="sidebar-bottom"><div className="mission-card"><ShieldCheck size={20} /><strong>Just prices. No routing.</strong><p>Independent observations.<br />Official sources. Open data.</p><button onClick={() => onView('methodology')}>How we track <ArrowUpRight size={14} /></button></div><div className="sidebar-footer"><span className="live-dot" /> PUBLIC LIST PRICES <span>USD</span></div></div>
+    <div className="sidebar-bottom"><div className="mission-card"><ShieldCheck size={20} /><strong>Just prices. No routing.</strong><p>Independent observations.<br />Official sources. Open data.</p><button onClick={() => onView('methodology')}>How we track <ArrowUpRight size={14} /></button></div><div className="sidebar-footer"><span className="live-dot" /> OFFICIAL SOURCE DATA <span>NATIVE</span></div></div>
   </aside>;
 }
