@@ -199,6 +199,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "anthropic-03e0604f1f6edcf96b3cb519",
+      "provider": "anthropic",
+      "native_id": "95f18802ad835e7705aa7a6b",
+      "kind": "document_row",
+      "label": "Cache read (hit)",
+      "scope": {
+        "table": 3,
+        "headings": [
+          "Feature-specific pricing",
+          "Prompt caching"
+        ],
+        "tabs": [],
+        "headers": [
+          "Cache operation",
+          "Multiplier",
+          "Duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Cache read (hit)",
+          "0.1x base input price (0.025x on Claude Fable 5.1 and Claude Mythos 5.1; 0.05x on Claude Opus 5.5 and Claude Sonnet 5.5)",
+          "Same duration as the preceding write"
+        ],
+        "columns": [
+          "Cache operation",
+          "Multiplier",
+          "Duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "anthropic-07434c9c8f587bdce9f369eb",
       "provider": "anthropic",
       "native_id": "b359799a2f4647bc437fdc60",
@@ -479,66 +516,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "anthropic-1670aa95935e606536609032",
-      "provider": "anthropic",
-      "native_id": "8e22aa21cc66a26d0b37afda",
-      "kind": "document_row",
-      "label": "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Feature-specific pricing",
-          "Batch processing"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Batch input",
-          "Batch output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-          "$0.40 / MTok",
-          "$2 / MTok"
-        ],
-        "columns": [
-          "Model",
-          "Batch input",
-          "Batch output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Batch input:0",
-          "amount": "0.4",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$0.40 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Batch output:0",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$2 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "anthropic-17693a09dbe59358098a4928",
       "provider": "anthropic",
       "native_id": "3575e29920d15d283e2423a4",
@@ -565,7 +542,7 @@
           "$2 / MTok",
           "$2.50 / MTok",
           "$4 / MTok",
-          "$0.20 / MTok",
+          "$0.10 / MTok<sup>2</sup>",
           "$10 / MTok"
         ],
         "columns": [
@@ -615,11 +592,11 @@
         },
         {
           "dimension": "Cache hits and refreshes:0",
-          "amount": "0.2",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "/ MTok",
           "conditions": {
-            "source_expression": "$0.20 / MTok",
+            "source_expression": "$0.10 / MTok<sup>2</sup>",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -691,6 +668,107 @@
           "unit": "/ MTok",
           "conditions": {
             "source_expression": "$12.50 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "anthropic-199456c3896cbd253cfc00fb",
+      "provider": "anthropic",
+      "native_id": "3e15081a8fc1fe6f3d87b55e",
+      "kind": "document_row",
+      "label": "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Model pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+          "$0.50 / MTok",
+          "$0.625 / MTok",
+          "$1 / MTok",
+          "$0.05 / MTok",
+          "$2.50 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Base input tokens:0",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.50 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "5m cache writes:0",
+          "amount": "0.625",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.625 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "1h cache writes:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$1 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cache hits and refreshes:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.05 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output tokens:0",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$2.50 / MTok",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -959,6 +1037,107 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "anthropic-2a973b3cab1a4e1a587fd718",
+      "provider": "anthropic",
+      "native_id": "6d1b8bbdea0984a369d1fb7e",
+      "kind": "document_row",
+      "label": "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Model pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+          "$0.10 / MTok",
+          "$0.125 / MTok",
+          "$0.20 / MTok",
+          "$0.01 / MTok",
+          "$0.50 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Base input tokens:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.10 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "5m cache writes:0",
+          "amount": "0.125",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.125 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "1h cache writes:0",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.20 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cache hits and refreshes:0",
+          "amount": "0.01",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.01 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output tokens:0",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.50 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -3123,107 +3302,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "anthropic-7d0a11d5575de727ebaa77b9",
-      "provider": "anthropic",
-      "native_id": "8e22aa21cc66a26d0b37afda",
-      "kind": "document_row",
-      "label": "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Model pricing"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Base input tokens",
-          "5m cache writes",
-          "1h cache writes",
-          "Cache hits and refreshes",
-          "Output tokens"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-          "$0.80 / MTok",
-          "$1 / MTok",
-          "$1.60 / MTok",
-          "$0.08 / MTok",
-          "$4 / MTok"
-        ],
-        "columns": [
-          "Model",
-          "Base input tokens",
-          "5m cache writes",
-          "1h cache writes",
-          "Cache hits and refreshes",
-          "Output tokens"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Base input tokens:0",
-          "amount": "0.8",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$0.80 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "5m cache writes:0",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$1 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "1h cache writes:0",
-          "amount": "1.6",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$1.60 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cache hits and refreshes:0",
-          "amount": "0.08",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$0.08 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output tokens:0",
-          "amount": "4",
-          "currency": "USD",
-          "unit": "/ MTok",
-          "conditions": {
-            "source_expression": "$4 / MTok",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "anthropic-803e7c52d77d806af4813a9c",
       "provider": "anthropic",
       "native_id": "810cce6c4996653c0df645f2",
@@ -3366,6 +3444,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "anthropic-87cc8af3ded29eb343025908",
+      "provider": "anthropic",
+      "native_id": "5a2069bd41471af35053d15e",
+      "kind": "document_row",
+      "label": "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Feature-specific pricing",
+          "Batch processing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+          "$0.40 / MTok",
+          "$2 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Batch input:0",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.40 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Batch output:0",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$2 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "anthropic-882416b1499ba778c96c4b76",
       "provider": "anthropic",
       "native_id": "5c81295d65f2f7176ea72e9f",
@@ -3395,6 +3533,107 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "anthropic-8c08db079b62d4300ac7ecd8",
+      "provider": "anthropic",
+      "native_id": "5a2069bd41471af35053d15e",
+      "kind": "document_row",
+      "label": "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Model pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+          "$0.80 / MTok",
+          "$1 / MTok",
+          "$1.60 / MTok",
+          "$0.08 / MTok",
+          "$4 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Base input tokens",
+          "5m cache writes",
+          "1h cache writes",
+          "Cache hits and refreshes",
+          "Output tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Base input tokens:0",
+          "amount": "0.8",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.80 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "5m cache writes:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$1 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "1h cache writes:0",
+          "amount": "1.6",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$1.60 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cache hits and refreshes:0",
+          "amount": "0.08",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.08 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output tokens:0",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$4 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -3552,6 +3791,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "anthropic-96badc2d679497c897efd9d2",
+      "provider": "anthropic",
+      "native_id": "2c10e51a2d353d0a36ba952c",
+      "kind": "document_row",
+      "label": "Claude Haiku 5.5",
+      "scope": {
+        "table": 6,
+        "headings": [
+          "Feature-specific pricing",
+          "Tool use pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Tool use system prompt tokens: auto, none",
+          "Tool use system prompt tokens: any, tool"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 5.5",
+          "286 tokens",
+          "406 tokens"
+        ],
+        "columns": [
+          "Model",
+          "Tool use system prompt tokens: auto, none",
+          "Tool use system prompt tokens: any, tool"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "anthropic-981f0c7d685b058a4dcee671",
       "provider": "anthropic",
       "native_id": "c671a107f2f520e102761ad8",
@@ -3613,43 +3889,6 @@
         "columns": [
           "Concept",
           "Details"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "anthropic-a31b2438c49db1971a178686",
-      "provider": "anthropic",
-      "native_id": "a4b44d16e1a10a05c3966bc9",
-      "kind": "document_row",
-      "label": "Cache read (hit)",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Feature-specific pricing",
-          "Prompt caching"
-        ],
-        "tabs": [],
-        "headers": [
-          "Cache operation",
-          "Multiplier",
-          "Duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Cache read (hit)",
-          "0.1x base input price (0.025x on Claude Fable 5.1 and Claude Mythos 5.1; 0.05x on Claude Opus 5.5)",
-          "Same duration as the preceding write"
-        ],
-        "columns": [
-          "Cache operation",
-          "Multiplier",
-          "Duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -3795,43 +4034,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "anthropic-a758daa9ad5da86fcd6c9bbf",
-      "provider": "anthropic",
-      "native_id": "ed8d2cee9a1a71bc22ede73d",
-      "kind": "document_row",
-      "label": "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-      "scope": {
-        "table": 6,
-        "headings": [
-          "Feature-specific pricing",
-          "Tool use pricing"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Tool use system prompt tokens: auto, none",
-          "Tool use system prompt tokens: any, tool"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Claude Haiku 3.5 ([retired, except on Bedrock and Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
-          "264 tokens",
-          "355 tokens"
-        ],
-        "columns": [
-          "Model",
-          "Tool use system prompt tokens: auto, none",
-          "Tool use system prompt tokens: any, tool"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "anthropic-aa759b9586bebe80f92782e1",
       "provider": "anthropic",
       "native_id": "141bcb4898df87c7f50f4033",
@@ -3855,6 +4057,43 @@
           "Claude Sonnet 5",
           "354 tokens",
           "474 tokens"
+        ],
+        "columns": [
+          "Model",
+          "Tool use system prompt tokens: auto, none",
+          "Tool use system prompt tokens: any, tool"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "anthropic-acd069d479fbf095623b9a87",
+      "provider": "anthropic",
+      "native_id": "5e035e27afb2b5cc3284b053",
+      "kind": "document_row",
+      "label": "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+      "scope": {
+        "table": 6,
+        "headings": [
+          "Feature-specific pricing",
+          "Tool use pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Tool use system prompt tokens: auto, none",
+          "Tool use system prompt tokens: any, tool"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 3.5 ([retired, except on Google Cloud](https://platform.claude.com/docs/en/about-claude/model-deprecations))",
+          "264 tokens",
+          "355 tokens"
         ],
         "columns": [
           "Model",
@@ -4003,6 +4242,66 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "anthropic-bcf16e7dd4093c9c6112a357",
+      "provider": "anthropic",
+      "native_id": "3e15081a8fc1fe6f3d87b55e",
+      "kind": "document_row",
+      "label": "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Feature-specific pricing",
+          "Batch processing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 5.5 (for prompts over 100,000 tokens)",
+          "$0.25 / MTok",
+          "$1.25 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Batch input:0",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.25 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Batch output:0",
+          "amount": "1.25",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$1.25 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -4908,6 +5207,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "anthropic-edca624f2a0de06c023a7fe6",
+      "provider": "anthropic",
+      "native_id": "6d1b8bbdea0984a369d1fb7e",
+      "kind": "document_row",
+      "label": "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Feature-specific pricing",
+          "Batch processing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Claude Haiku 5.5 (for prompts up to 100,000 tokens)",
+          "$0.05 / MTok",
+          "$0.25 / MTok"
+        ],
+        "columns": [
+          "Model",
+          "Batch input",
+          "Batch output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Batch input:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.05 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Batch output:0",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "/ MTok",
+          "conditions": {
+            "source_expression": "$0.25 / MTok",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "anthropic-ef2aa0eda69f35a027ca0147",
       "provider": "anthropic",
       "native_id": "8f3669a653e907ca2dc5bf6e",
@@ -5177,7 +5536,6 @@
     "* **MTok:** Million tokens. $5 / MTok is $5 for every million tokens.",
     "* Academic and research discounts may be available",
     "* Additional usage beyond 1,550 hours is billed at **$0.05 USD per hour, per container**",
-    "* Average \\~3,700 tokens per conversation",
     "* Average web page (10 kB): \\~2,500 tokens",
     "* Billing is based on actual monthly usage",
     "* Each organization receives **1,550 free hours** of usage per month",
@@ -5189,8 +5547,6 @@
     "* Standard usage tiers use the pricing shown in [Model pricing](https://platform.claude.com/docs/en/about-claude/pricing#model-pricing)",
     "* System prompt overhead: 466–499 tokens added to the system prompt",
     "* Tool definition: about 735 input tokens per tool definition (measured with `computer_20250124`)",
-    "* Total cost: \\~$37.00 per 10,000 tickets",
-    "* Using Claude Haiku 4.5 at $1/MTok input, $5/MTok output",
     "* Volume discounts",
     "* [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/)",
     "* [Data residency](https://platform.claude.com/docs/en/manage-claude/data-residency) multipliers apply on top of fast mode pricing",
@@ -5201,11 +5557,11 @@
     "**CCU:** Claude Consumption Unit. A CCU is a unit of measure used solely for Marketplace Platform invoicing. If Customer accesses the Services through certain Marketplace Platforms (e.g., Claude Platform on AWS, Claude in Microsoft Foundry), usage will be invoiced in Claude Consumption Units (\"CCU\") rather than per MTok. One hundred (100) CCU represents $1.00 USD of fees owed for the Services, calculated at the applicable prices on [claude.com/pricing#api](https://claude.com/pricing#api), after application of any discounts.",
     "**Code execution is free when used with web search or web fetch.** When `web_search_20260209` (or later) or `web_fetch_20260209` (or later) is included in your API request, there are no additional charges for code execution tool calls beyond the standard input and output token costs.",
     "**Regional and multi-region endpoint pricing for Claude 4.5 models and beyond**",
-    "**Scope:** This pricing structure applies to Claude Sonnet 4.5, Haiku 4.5, Opus 4.5, and all future models. Earlier models (Claude Opus 4.1 and prior releases) retain their existing pricing.",
+    "**Scope:** This pricing structure applies to Claude Sonnet 4.5 (deprecated), Haiku 4.5, Opus 4.5, and all future models. Earlier models (Claude Opus 4.1 and prior releases) retain their existing pricing.",
     "**Toolset definition overhead:** Declaring `browser_toolset_20260801` with its default members adds about 6,600 input tokens to a request (about 6,610 on Claude Fable 5, Claude Mythos 5, Claude Opus 5, and Claude Opus 4.8, and about 6,670 on Claude Sonnet 5), which covers the member tool definitions and the tool use system prompt. Enabling all four optional members adds about 880 tokens, and disabling members with `configs` reduces the count. The exact count for a request is reported in the response `usage`, and you can estimate it in advance with the [token counting endpoint](https://platform.claude.com/docs/en/build-with-claude/token-counting).",
     "**Toolset definition overhead:** Declaring `computer_toolset_20260801` with its default members adds about 4,500 input tokens to a request (about 4,520 on Claude Fable 5, Claude Mythos 5, Claude Opus 5, and Claude Opus 4.8, and about 4,590 on Claude Sonnet 5), which covers the member tool definitions and the tool use system prompt. Disabling `zoom` with `configs` removes about 410 of those tokens. The exact count for a request is reported in the response `usage`, and you can estimate it in advance with the [token counting endpoint](https://platform.claude.com/docs/en/build-with-claude/token-counting).",
     "*<sup>1 Cache hits and refreshes on Claude Fable 5.1 and Claude Mythos 5.1 are priced at 0.025x the base input price.</sup>*",
-    "*<sup>2 Cache hits and refreshes on Claude Opus 5.5 are priced at 0.05x the base input price.</sup>*",
+    "*<sup>2 Cache hits and refreshes on Claude Opus 5.5 and Claude Sonnet 5.5 are priced at 0.05x the base input price.</sup>*",
     "*<sup>3 The $2/$10 per million input/output token pricing for Claude Sonnet 5, announced at launch as introductory pricing through August 31, 2026, is now the standard price. The previously scheduled increase to $3/$15 per million input/output tokens on September 1, 2026 will not occur.</sup>*",
     "1. The total number of input tokens sent to the model (including in the `tools` parameter)",
     "2. The number of output tokens generated",
@@ -5216,13 +5572,14 @@
     "All tokens consumed by a Claude Managed Agents session are billed at the rates shown in [Model pricing](https://platform.claude.com/docs/en/about-claude/pricing#model-pricing). [Prompt caching](https://platform.claude.com/docs/en/about-claude/pricing#prompt-caching) multipliers apply identically. Web search triggered inside a session incurs the standard $10 per 1,000 searches. On [Claude Platform on AWS](https://platform.claude.com/docs/en/about-claude/pricing#claude-platform-on-aws-pricing), session token and runtime charges convert to Claude Consumption Units at the standard rate. [Fast mode](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing) premium pricing applies when an agent's `model.speed` is set to `\"fast\"`.",
     "Batch API and prompt caching discounts can be combined. For example, using both features together provides significant cost savings compared to standard API calls. See [prompt caching pricing](https://platform.claude.com/docs/en/about-claude/pricing#prompt-caching) for how the multipliers interact.",
     "Browser use follows the standard [tool use pricing](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview#pricing). When using the browser use tool:",
-    "Cache write tokens are charged when content is first stored. Cache read tokens are charged when a subsequent request retrieves the cached content. A cache hit costs 10% of the standard input price, which means caching pays off after one cache read for the 5-minute duration (1.25x write), or after two cache reads for the 1-hour duration (2x write). On Claude Fable 5.1 and Claude Mythos 5.1, a cache hit costs 2.5% of the standard input price ($0.25 USD per million tokens). On Claude Opus 5.5, a cache hit costs 5% of the standard input price ($0.20 USD per million tokens).",
-    "Claude 4.6 and later models and [Claude Mythos Preview](https://anthropic.com/glasswing) include the full [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) at standard pricing. (A 900k-token request is billed at the same per-token rate as a 9k-token request.) Prompt caching and batch processing discounts apply at standard rates across the full context window.",
+    "Cache write tokens are charged when content is first stored. Cache read tokens are charged when a subsequent request retrieves the cached content. A cache hit costs 10% of the standard input price, which means caching pays off after one cache read for the 5-minute duration (1.25x write), or after two cache reads for the 1-hour duration (2x write). On Claude Fable 5.1 and Claude Mythos 5.1, a cache hit costs 2.5% of the standard input price ($0.25 USD per million tokens). On Claude Opus 5.5 and Claude Sonnet 5.5, a cache hit costs 5% of the standard input price ($0.20 USD per million tokens on Claude Opus 5.5, $0.10 USD on Claude Sonnet 5.5).",
+    "Claude 4.6 and later models (except Claude Haiku 5.5) and [Claude Mythos Preview](https://anthropic.com/glasswing) include the full [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) at standard pricing. (A 900k-token request is billed at the same per-token rate as a 9k-token request.) Prompt caching and batch processing discounts apply at standard rates across the full context window.",
     "Claude 4.7 and later models and Claude Mythos Preview use a newer tokenizer that contributes to their improved performance on a wide range of tasks. This tokenizer produces approximately 30% more tokens for the same text. The exact increase depends on the content and workload shape. Claude Sonnet 4.6 and earlier models use the previous tokenizer.",
+    "Claude Haiku 5.5 is priced by prompt length: a prompt of over 100,000 tokens pays higher prices. [Model pricing](https://platform.claude.com/docs/en/about-claude/pricing#model-pricing) and [Batch processing](https://platform.claude.com/docs/en/about-claude/pricing#batch-processing) list both sets of prices.",
     "Claude models are available on [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock) and [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai). For official pricing, visit:",
     "Client-side tools are priced the same as any other Claude API request, although server-side tools can incur additional charges based on their specific usage.",
     "Computer use follows the standard [tool use pricing](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview#pricing). When using the computer use tool:",
-    "Contact the sales team at [sales@anthropic.com](mailto:sales@anthropic.com) or through the [Claude Console](https://platform.claude.com/settings/limits) to discuss enterprise pricing options.",
+    "Contact the sales team at [sales@anthropic.com](mailto:sales@anthropic.com) or through the [Claude Console](https://platform.claude.com/usage/limits) to discuss enterprise pricing options.",
     "Deployments hosted on Azure can use the US Data Zone Standard deployment type, which keeps inference within the United States. This is equivalent to `inference_geo: \"us\"` on the Claude API and applies the same 1.1x pricing multiplier. See [Data residency](https://platform.claude.com/docs/en/manage-claude/data-residency) for details.",
     "Each web search counts as one use, regardless of the number of results returned. If an error occurs during web search, the web search will not be billed.",
     "Example token usage for typical content:",
@@ -5277,20 +5634,20 @@
     "title: Pricing",
     "url: https://platform.claude.com/docs/en/about-claude/pricing"
   ],
-  "catalog_sha256": "1f8a9c9dd9df25df008e748a2500f2b44d637f51dbf4db51bbf3fbe9557cee72",
-  "revision": 2,
-  "changed_at": "2026-10-07T13:23:58Z",
+  "catalog_sha256": "2a5039ba5364ffd265fa623cd91037d8c87b7eb261cf5d7e62c22ee0ea5d7fe8",
+  "revision": 3,
+  "changed_at": "2026-10-08T13:29:47Z",
   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
   "source_urls": [
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ],
-  "source_sha256": "f7a75fddc0f2a9445366cc2d7ec7eb5fc327a5977ec1288a2538991a4b7b24b6",
+  "source_sha256": "a3ec70f7d95205b2de6f177e470c4b2445c6628dffc415dce25362d4e3c901c5",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
-    "url": "https://web.archive.org/web/20261004000156/https://platform.claude.com/docs/en/about-claude/pricing.md",
-    "capture_at": "2026-10-04T00:01:56Z",
-    "checked_at": "2026-10-07T13:23:58Z",
+    "url": "https://web.archive.org/web/20261006125244/https://platform.claude.com/docs/en/about-claude/pricing.md",
+    "capture_at": "2026-10-06T12:52:44Z",
+    "checked_at": "2026-10-08T13:29:47Z",
     "verification": null
   }
 }

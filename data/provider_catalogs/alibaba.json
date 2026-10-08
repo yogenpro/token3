@@ -55965,6 +55965,74 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-a0596d00dc92d8602c6eb2b7-1",
+      "provider": "alibaba",
+      "native_id": "6f0900f8f6ae89e02b4cd015",
+      "kind": "document_row",
+      "label": "32K\\",
+      "scope": {
+        "table": 19,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Flash <span id=\"abf36317c47td\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "32K\\",
+          "\\$0.100",
+          "\\$0.400"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "alignment_verified": false,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "source_cell_1:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.100",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "source_cell_2:0",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.400",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-a08a654a40d571569e2a6731",
       "provider": "alibaba",
       "native_id": "1afc781637b4315712a0a4a4",
@@ -56130,6 +56198,76 @@
           "unit": null,
           "conditions": {
             "source_expression": "\\$2.1",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-a13835f44d2f7264b11d6990",
+      "provider": "alibaba",
+      "native_id": "fd7a625c07203936923cb53f",
+      "kind": "document_row",
+      "label": "qwen3.7-flash > Currently equivalent to qwen3.7-flash-2026-07-15 > [context caching discount](/en/model-studio/context-cache)",
+      "scope": {
+        "table": 19,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Flash <span id=\"abf36317c47td\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "qwen3.7-flash > Currently equivalent to qwen3.7-flash-2026-07-15 > [context caching discount](/en/model-studio/context-cache)",
+          "US",
+          "0\\",
+          "\\$0.030",
+          "\\$0.130"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input price (per 1 million tokens):0",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.030",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output price (per 1 million tokens):0",
+          "amount": "0.13",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.130",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -67316,6 +67454,79 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-bf1ad2151505a04b31de0c59",
+      "provider": "alibaba",
+      "native_id": "ffae5cac9785d06f774b58c3",
+      "kind": "document_row",
+      "label": "qwen3.8-max > [context caching discount](/en/model-studio/context-cache)",
+      "scope": {
+        "table": 6,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Max <span id=\"f82b6d3f48h8m\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Mode",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens) > Chain of thought + answer"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "qwen3.8-max > [context caching discount](/en/model-studio/context-cache)",
+          "US",
+          "Non-Thinking and Thinking modes",
+          "0\\",
+          "\\$2",
+          "\\$6"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Mode",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens) > Chain of thought + answer"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input price (per 1 million tokens):0",
+          "amount": "2",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output price (per 1 million tokens) > Chain of thought + answer:0",
+          "amount": "6",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$6",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-bf99ea4326ddb14c4f865d86",
       "provider": "alibaba",
       "native_id": "da6c7b9da6be3f99e6c59582",
@@ -68755,8 +68966,8 @@
       "billing": {
         "cells": [
           "256K\\",
-          "\\$0.66",
-          "\\$3.961"
+          "\\$0.200",
+          "\\$0.800"
         ],
         "columns": [
           "Model ID",
@@ -68771,22 +68982,90 @@
       "rates": [
         {
           "dimension": "source_cell_1:0",
-          "amount": "0.66",
+          "amount": "0.2",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$0.66",
+            "source_expression": "\\$0.200",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
           "dimension": "source_cell_2:0",
-          "amount": "3.961",
+          "amount": "0.8",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$3.961",
+            "source_expression": "\\$0.800",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-c3035676edc98ea69d273617-10",
+      "provider": "alibaba",
+      "native_id": "57084920e693c6d85386cebd",
+      "kind": "document_row",
+      "label": "256K\\",
+      "scope": {
+        "table": 19,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Flash <span id=\"abf36317c47td\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "256K\\",
+          "\\$0.25",
+          "\\$2"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "alignment_verified": false,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "source_cell_1:0",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.25",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "source_cell_2:0",
+          "amount": "2",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -68891,8 +69170,8 @@
       "billing": {
         "cells": [
           "256K\\",
-          "\\$1",
-          "\\$4"
+          "\\$0.66",
+          "\\$3.961"
         ],
         "columns": [
           "Model ID",
@@ -68907,22 +69186,22 @@
       "rates": [
         {
           "dimension": "source_cell_1:0",
-          "amount": "1",
+          "amount": "0.66",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$1",
+            "source_expression": "\\$0.66",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
           "dimension": "source_cell_2:0",
-          "amount": "4",
+          "amount": "3.961",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$4",
+            "source_expression": "\\$3.961",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -68959,8 +69238,8 @@
       "billing": {
         "cells": [
           "256K\\",
-          "\\$0.172",
-          "\\$1.72"
+          "\\$1",
+          "\\$4"
         ],
         "columns": [
           "Model ID",
@@ -68975,22 +69254,22 @@
       "rates": [
         {
           "dimension": "source_cell_1:0",
-          "amount": "0.172",
+          "amount": "1",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$0.172",
+            "source_expression": "\\$1",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
           "dimension": "source_cell_2:0",
-          "amount": "1.72",
+          "amount": "4",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$1.72",
+            "source_expression": "\\$4",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -69095,8 +69374,8 @@
       "billing": {
         "cells": [
           "256K\\",
-          "\\$0.173",
-          "\\$1.721"
+          "\\$0.172",
+          "\\$1.72"
         ],
         "columns": [
           "Model ID",
@@ -69111,22 +69390,22 @@
       "rates": [
         {
           "dimension": "source_cell_1:0",
-          "amount": "0.173",
+          "amount": "0.172",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$0.173",
+            "source_expression": "\\$0.172",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
           "dimension": "source_cell_2:0",
-          "amount": "1.721",
+          "amount": "1.72",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$1.721",
+            "source_expression": "\\$1.72",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -69163,6 +69442,74 @@
       "billing": {
         "cells": [
           "256K\\",
+          "\\$0.173",
+          "\\$1.721"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "alignment_verified": false,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "source_cell_1:0",
+          "amount": "0.173",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.173",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "source_cell_2:0",
+          "amount": "1.721",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.721",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-c3035676edc98ea69d273617-8",
+      "provider": "alibaba",
+      "native_id": "57084920e693c6d85386cebd",
+      "kind": "document_row",
+      "label": "256K\\",
+      "scope": {
+        "table": 19,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Flash <span id=\"abf36317c47td\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens)"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "256K\\",
           "\\$0.25",
           "\\$2"
         ],
@@ -69204,7 +69551,7 @@
       "comparison_eligible": false
     },
     {
-      "id": "alibaba-c3035676edc98ea69d273617-8",
+      "id": "alibaba-c3035676edc98ea69d273617-9",
       "provider": "alibaba",
       "native_id": "57084920e693c6d85386cebd",
       "kind": "document_row",
@@ -69263,74 +69610,6 @@
           "unit": null,
           "conditions": {
             "source_expression": "\\$1.721",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "alibaba-c3035676edc98ea69d273617-9",
-      "provider": "alibaba",
-      "native_id": "57084920e693c6d85386cebd",
-      "kind": "document_row",
-      "label": "256K\\",
-      "scope": {
-        "table": 19,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Flash <span id=\"abf36317c47td\" />"
-        ],
-        "tabs": [
-          "US (Virginia)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input tokens per request",
-          "Input price (per 1 million tokens)",
-          "Output price (per 1 million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "256K\\",
-          "\\$0.25",
-          "\\$2"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input tokens per request",
-          "Input price (per 1 million tokens)",
-          "Output price (per 1 million tokens)"
-        ],
-        "alignment_verified": false,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "source_cell_1:0",
-          "amount": "0.25",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$0.25",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "source_cell_2:0",
-          "amount": "2",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$2",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -93059,13 +93338,13 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: You are not charged for input. You are charged for output based on the total duration of successfully generated videos (in seconds) .",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: flat-rate pricing"
   ],
-  "catalog_sha256": "6055076f495e48227df50cd4088f0540552cd506b22d3fdddc717ee602e0d59f",
-  "revision": 1,
-  "changed_at": "2026-10-06T16:59:50Z",
+  "catalog_sha256": "d3966d19537f52377390a68d092d71afcc483d82b427676bbc4cc8573c85ba00",
+  "revision": 2,
+  "changed_at": "2026-10-08T13:29:47Z",
   "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
   "source_urls": [
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
   ],
-  "source_sha256": "69915b967240b97f63490019b6d613c0e2f2996c363ba7956e0235c5e1b25173",
+  "source_sha256": "23f8ee68bc2b434b4b481e61eac527e73d9d13aa8bfb8b134d8bbd37368ec6b7",
   "archive_reference": null
 }

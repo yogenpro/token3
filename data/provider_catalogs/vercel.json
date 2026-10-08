@@ -3978,7 +3978,8 @@
         ],
         "modalities": {
           "input": [
-            "text"
+            "text",
+            "image"
           ],
           "output": [
             "text"
@@ -4802,8 +4803,8 @@
             ]
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -5976,6 +5977,9 @@
               "medium",
               "high"
             ]
+          },
+          {
+            "type": "budget_tokens"
           }
         ],
         "zdr": "some",
@@ -7046,11 +7050,6 @@
       "scope": {},
       "billing": {
         "rules": {
-          "fast": {
-            "input": "0.0000003",
-            "input_cache_read": "0.000000006",
-            "output": "0.0000012"
-          },
           "input": "0.0000003",
           "input_cache_read": "0.000000007",
           "output": "0.0000012",
@@ -7138,6 +7137,254 @@
         ],
         "zdr": "some",
         "no_training": "some"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-3019d7cefd3f15777e2c6e7d",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-haiku-5.5",
+      "kind": "model",
+      "label": "Claude Haiku 5.5",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001",
+          "input_cache_read": "0.00000001",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000001",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000005",
+              "min": 100001
+            }
+          ],
+          "input_cache_write": "0.000000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.000000125",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.000000625",
+              "min": 100001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.0000001",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000005",
+              "min": 100001
+            }
+          ],
+          "output": "0.0000005",
+          "output_tiers": [
+            {
+              "cost": "0.0000005",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 100001
+            }
+          ],
+          "regional": {
+            "eu": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000055",
+                  "min": 100001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000006875",
+                  "min": 100001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000055",
+                  "min": 100001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 100001
+                }
+              ]
+            },
+            "us": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000055",
+                  "min": 100001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000006875",
+                  "min": 100001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000055",
+                  "min": 100001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 100001
+                }
+              ]
+            }
+          },
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Haiku 5.5",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -8202,96 +8449,6 @@
         ],
         "zdr": "some",
         "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-3cafb7b2a8b1b73893641177",
-      "provider": "vercel",
-      "native_id": "deepseek/deepseek-v3.1-terminus",
-      "kind": "model",
-      "label": "DeepSeek V3.1 Terminus",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000027",
-          "input_cache_read": "0.000000135",
-          "output": "0.000001"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000027",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000135",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "DeepSeek V3.1 Terminus",
-        "owned_by": "deepseek",
-        "type": "language",
-        "context_window": 131072,
-        "max_tokens": 65536,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -13462,97 +13619,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-5b6bfc97b554804a79bbe617",
-      "provider": "vercel",
-      "native_id": "deepseek/deepseek-v4.1-flash-fast",
-      "kind": "model",
-      "label": "DeepSeek V4.1 Flash Fast",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000003",
-          "input_cache_read": "0.000000006",
-          "output": "0.0000012"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000012",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000006",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "DeepSeek V4.1 Flash Fast",
-        "owned_by": "deepseek",
-        "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 1000000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-5b780e610179cd6d77cda7b7",
       "provider": "vercel",
       "native_id": "klingai/kling-v3.0-motion-control",
@@ -13801,8 +13867,7 @@
       "billing": {
         "rules": {
           "input": "0.00000072",
-          "output": "0.00000072",
-          "varies_by_provider": true
+          "output": "0.00000072"
         },
         "currency": "USD",
         "state": "reported",
@@ -13838,9 +13903,7 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
+          "include_reasoning"
         ],
         "supported_specifications": [
           "v2",
@@ -14107,91 +14170,6 @@
             "text"
           ]
         },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-5e191662c50101814d1f3d4c",
-      "provider": "vercel",
-      "native_id": "stepfun/step-3.5-flash",
-      "kind": "model",
-      "label": "StepFun 3.5 Flash",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000009",
-          "input_cache_read": "0.00000002",
-          "output": "0.0000003"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000009",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000002",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "StepFun 3.5 Flash",
-        "owned_by": "stepfun",
-        "type": "language",
-        "context_window": 262114,
-        "max_tokens": 262114,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -15922,8 +15900,7 @@
       "billing": {
         "rules": {
           "input": "0.00000006",
-          "output": "0.00000023",
-          "varies_by_provider": true
+          "output": "0.00000023"
         },
         "currency": "USD",
         "state": "reported",
@@ -16061,8 +16038,8 @@
             "type": "toggle"
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -16687,8 +16664,8 @@
             "type": "toggle"
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -18137,96 +18114,6 @@
           {
             "type": "effort",
             "values": [
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-8215aa9a50939250a2e6a5b9",
-      "provider": "vercel",
-      "native_id": "moonshotai/kimi-k2-thinking",
-      "kind": "model",
-      "label": "Kimi K2 Thinking",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000047",
-          "input_cache_read": "0.000000141",
-          "output": "0.000002"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000047",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000141",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Kimi K2 Thinking",
-        "owned_by": "moonshotai",
-        "type": "language",
-        "context_window": 216144,
-        "max_tokens": 216144,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
               "low",
               "medium",
               "high"
@@ -19958,19 +19845,19 @@
       "billing": {
         "rules": {
           "input": "0.000002",
-          "input_cache_read": "0.0000002",
+          "input_cache_read": "0.0000001",
           "input_cache_write": "0.0000025",
           "output": "0.00001",
           "regional": {
             "eu": {
               "input": "0.0000022",
-              "input_cache_read": "0.00000022",
+              "input_cache_read": "0.00000011",
               "input_cache_write": "0.00000275",
               "output": "0.000011"
             },
             "us": {
               "input": "0.0000022",
-              "input_cache_read": "0.00000022",
+              "input_cache_read": "0.00000011",
               "input_cache_write": "0.00000275",
               "output": "0.000011"
             }
@@ -19999,7 +19886,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000002",
+          "amount": "0.0000001",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -23271,9 +23158,7 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
+          "include_reasoning"
         ],
         "supported_specifications": [
           "v2",
@@ -24334,9 +24219,7 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
+          "include_reasoning"
         ],
         "supported_specifications": [
           "v2",
@@ -26191,6 +26074,83 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-affff2d7a8be449cfae84e07",
+      "provider": "vercel",
+      "native_id": "stealth/glyph-cluster",
+      "kind": "model",
+      "label": "Glyph Cluster",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Glyph Cluster",
+        "owned_by": "stealth",
+        "type": "language",
+        "context_window": 256000,
+        "max_tokens": 256000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-b0011aa0e08f532edaa91e14",
       "provider": "vercel",
       "native_id": "minimax/minimax-m2",
@@ -26594,8 +26554,8 @@
             "type": "toggle"
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -34644,8 +34604,8 @@
             ]
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -36781,8 +36741,7 @@
       "billing": {
         "rules": {
           "input": "0.00000024",
-          "output": "0.00000097",
-          "varies_by_provider": true
+          "output": "0.00000097"
         },
         "currency": "USD",
         "state": "reported",
@@ -36818,9 +36777,7 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
+          "include_reasoning"
         ],
         "supported_specifications": [
           "v2",
@@ -37188,13 +37145,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "7e3436d6cb589c2ed04db3f9ad6f44e3f124814b9bf1e08f63212c954e2b1e71",
-  "revision": 3,
-  "changed_at": "2026-10-07T13:23:58Z",
+  "catalog_sha256": "eaa27defadae70c095356c472f8d3fe545b8783255fa0702c7bcba961bc1c8f9",
+  "revision": 4,
+  "changed_at": "2026-10-08T13:29:47Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "2bebf09bfaec9e526d18c5d8eb0ac73f2b548cac7bd6c5c780f4e435db1c789d",
+  "source_sha256": "e2144285c8c8247a2d61b141795c9eebc0d6c62a7cb074a2aa3494d7b336e279",
   "archive_reference": null
 }

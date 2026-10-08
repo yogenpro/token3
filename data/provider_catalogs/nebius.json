@@ -136,6 +136,72 @@
       "comparison_eligible": false
     },
     {
+      "id": "nebius-2b6fb5fe924be79c1b13730e",
+      "provider": "nebius",
+      "native_id": "Qwen/Qwen3.5-397B-A17B",
+      "kind": "model_flavor",
+      "label": "Qwen3.5-397B-A17B",
+      "scope": {
+        "flavor": "cheap",
+        "region": {
+          "country_code": "US",
+          "name": "us-central1"
+        }
+      },
+      "billing": {
+        "rules": {
+          "input_price_per_million_tokens": 0.6,
+          "output_price_per_million_tokens": 3.6
+        },
+        "state": "reported",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "input_price_per_million_tokens",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output_price_per_million_tokens",
+          "amount": "3.6",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "model_type": "text2text",
+        "model_name": "Qwen3.5-397B-A17B",
+        "max_model_len": 262144,
+        "context_window_k": 262,
+        "quantization": "fp4",
+        "external_provider": false,
+        "tags": [],
+        "use_cases": [
+          "dedicated-endpoint",
+          "text",
+          "code",
+          "reasoning",
+          "function_calling",
+          "context_and_rag",
+          "responses_api"
+        ],
+        "status": "active",
+        "license": {
+          "name": "Apache 2.0 License",
+          "type": "",
+          "url": "https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/apache-2.0.md"
+        },
+        "vendor": "Qwen",
+        "huggingface_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
+        "size_b": 0
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "nebius-2fe4571e53b8eff6dc7b109b",
       "provider": "nebius",
       "native_id": "zai-org/GLM-5.3",
@@ -1086,72 +1152,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "nebius-96abea7f58676fe19e45960e",
-      "provider": "nebius",
-      "native_id": "Qwen/Qwen3.5-397B-A17B",
-      "kind": "model_flavor",
-      "label": "Qwen3.5-397B-A17B",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "FI",
-          "name": "eu-north1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_price_per_million_tokens": 0.6,
-          "output_price_per_million_tokens": 3.6
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.6",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "3.6",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "text2text",
-        "model_name": "Qwen3.5-397B-A17B",
-        "max_model_len": 262000,
-        "context_window_k": 262,
-        "quantization": "fp4",
-        "external_provider": false,
-        "tags": [],
-        "use_cases": [
-          "dedicated-endpoint",
-          "text",
-          "code",
-          "reasoning",
-          "function_calling",
-          "context_and_rag",
-          "responses_api"
-        ],
-        "status": "active",
-        "license": {
-          "name": "Apache 2.0 License",
-          "type": "",
-          "url": "https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/apache-2.0.md"
-        },
-        "vendor": "Qwen",
-        "huggingface_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
-        "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "nebius-99415446aeb30f109197a46f",
       "provider": "nebius",
       "native_id": "openai/gpt-oss-120b",
@@ -1706,13 +1706,13 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "cc0fbbe35850da0233589de644d8b9a59acc6bb8c7c13ef61fb259eda4cf612c",
-  "revision": 2,
-  "changed_at": "2026-10-07T13:23:58Z",
+  "catalog_sha256": "772488be8f1bbb42f6a2d9fa9c0a4cc22036d641333ccec0f5061ec674bb80c9",
+  "revision": 3,
+  "changed_at": "2026-10-08T13:29:47Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "7e729f87b17f8464be960f279116b0329043d65992a183ad68841dc9d7072a37",
+  "source_sha256": "fec8d3f64e6a188b804a38ff5ce69e7e821f2bd8351d9ddc518bea2aed179868",
   "archive_reference": null
 }
