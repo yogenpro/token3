@@ -25,6 +25,12 @@ class PublicPricingTests(unittest.TestCase):
             return provider.parse(body, self.aliases, as_of)
         return provider.parse(body, self.aliases)
 
+    def mixed_vertex_body(self):
+        legacy = (FIXTURES / 'vertex.html').read_text()
+        before, _, claude = legacy.partition('<button id="tab-61"')
+        _, regional_tab, regional = claude.partition('<button id="tab-94"')
+        return before + (FIXTURES / 'vertex-claude-mixed-bands.html').read_text() + regional_tab + regional
+
     def test_openai_standard_not_batch_and_explicit_prompt_bands(self):
         result = self.parse(openai)
         self.assertEqual(len(result.records), 3)
@@ -86,6 +92,67 @@ class PublicPricingTests(unittest.TestCase):
         claude = [r for r in result.records if r['provider_model_id'].startswith('claude-')]
         self.assertEqual({r['region'] for r in claude}, {'global'})
         self.assertEqual({r['provider_model_id'] for r in claude}, {'claude-sonnet-4-6', 'claude-opus-4-6', 'claude-haiku-4-5@20251001'})
+
+    def test_vertex_mixed_prompt_band_columns_preserve_reviewed_quotes(self):
+        old = self.parse(vertex, 'html')
+        new = vertex.parse(self.mixed_vertex_body(), self.aliases, AS_OF)
+        self.assertEqual(new.records, old.records)
+        self.assertEqual(len(new.records), 15)
+        self.assertNotIn('claude-haiku-5-5', {r['provider_model_id'] for r in new.records})
+        old_ids = [normalize(r, self.aliases, TIME, old.source_sha256)[0]['id'] for r in old.records]
+        new_ids = [normalize(r, self.aliases, TIME, new.source_sha256)[0]['id'] for r in new.records]
+        self.assertEqual(old_ids, new_ids)
+        with patch.dict('os.environ', {'GOOGLE_CLOUD_BILLING_API_KEY': ''}), \
+                patch('providers.vertex.fetch_text', return_value=self.mixed_vertex_body()):
+            collected = vertex.collect(self.aliases)
+        self.assertIsNone(collected.parse_error)
+        self.assertEqual(collected.records, new.records)
+
+    def test_vertex_mixed_table_keeps_asymmetric_200k_bands(self):
+        body = self.mixed_vertex_body()
+        for short, long in [('3.00', '6.00'), ('15.00', '22.50'), ('3.75', '7.50'), ('0.30', '0.60')]:
+            body = body.replace('<td>${0}</td><td>${0}</td><td></td><td></td>'.format(short),
+                                '<td>${}</td><td>${}</td><td></td><td></td>'.format(short, long))
+        result = vertex.parse(body, self.aliases, AS_OF)
+        sonnet = [r for r in result.records if r['provider_model_id'] == 'claude-sonnet-4-6']
+        self.assertEqual(len(sonnet), 2)
+        self.assertEqual([(r['min_input_tokens'], r['max_input_tokens']) for r in sonnet], [(0, 200000), (200001, None)])
+        self.assertEqual([(r['input_per_million'], r['output_per_million']) for r in sonnet], [(3, 15), (6, 22.5)])
+        self.assertEqual([(r['cache_read_per_million'], r['cache_write_per_million']) for r in sonnet], [(0.3, 3.75), (0.6, 7.5)])
+        haiku = next(r for r in result.records if r['provider_model_id'] == 'claude-haiku-4-5@20251001')
+        self.assertEqual(haiku['max_input_tokens'], 200000)
+
+    def test_vertex_mixed_table_rejects_changed_units_and_band_headers(self):
+        body = self.mixed_vertex_body()
+        short = 'Price (/1M tokens) =&lt; 200K input tokens *'
+        long = 'Price (/1M tokens) &gt; 200K input tokens *'
+        for changed in [body.replace('/1M tokens', '/1K tokens'),
+                        body.replace('100K input tokens', '500K input tokens'),
+                        body.replace(short, 'placeholder').replace(long, short).replace('placeholder', long),
+                        body.replace('100K input tokens **', '200K input tokens **')]:
+            with self.subTest(source=changed[:200]):
+                with self.assertRaises(ValueError):
+                    vertex.parse(changed, self.aliases, AS_OF)
+
+    def test_vertex_mixed_table_never_relabels_100k_rates_as_200k(self):
+        body = self.mixed_vertex_body()
+        row = '<td>Claude Sonnet 4.6</td><td>Input</td><td>$3.00</td><td>$3.00</td><td></td><td></td>'
+        for cells in ['<td>$3.00</td><td>$3.00</td><td>$0.10</td><td>$0.50</td>',
+                      '<td>$3.00</td><td>$3.00</td><td>$0.00</td><td></td>',
+                      '<td></td><td></td><td>$3.00</td><td>$6.00</td>']:
+            changed = body.replace(row, '<td>Claude Sonnet 4.6</td><td>Input</td>' + cells)
+            with self.subTest(cells=cells):
+                with self.assertRaisesRegex(ValueError, 'unsupported 100K'):
+                    vertex.parse(changed, self.aliases, AS_OF)
+
+    def test_vertex_mixed_table_still_rejects_incomplete_sources(self):
+        body = self.mixed_vertex_body()
+        for changed in [body.replace('Claude Sonnet 4.6', 'Untracked model'),
+                        body.replace('<td>Cache Hit</td><td>$0.30</td>', '<td>Unrecognized cache type</td><td>$0.30</td>'),
+                        body.replace('<td>$3.00</td><td>$3.00</td><td></td><td></td>', '<td>$3.00</td><td>$3.00</td><td></td>')]:
+            with self.subTest(source=changed[:200]):
+                with self.assertRaises(ValueError):
+                    vertex.parse(changed, self.aliases, AS_OF)
 
     def test_bedrock_units_runtime_and_real_regional_premium(self):
         result = self.parse(bedrock, 'json')

@@ -1,6 +1,7 @@
 """Vertex AI: Cloud Billing SKU inventory plus reviewed document-based quotes."""
 import hashlib
 import os
+import re
 
 from .common import Collection, fetch_text, money, observation, parse_or_archive, safe_error, snapshot
 from .google_billing import vertex_catalog
@@ -30,6 +31,23 @@ def bands(rates):
     return [(short, 0, 200000), (long, 200001, None)]
 
 
+def claude_token_table(header):
+    """Recognize only the reviewed 1M-token, 200K prompt-band columns.
+
+    Global Claude tables may append a separate 100K pair for newer models.
+    Column counts alone cannot establish either the unit or band boundaries.
+    """
+    if len(header) not in (4, 6) or header[:2] != ["Model", "Type"]:
+        return False
+    columns = [re.fullmatch(r"(?:Model)?Price \(/1M tokens\) (<=|=<|>) (200|100)K input tokens(?: \*+)?", label)
+               for label in header[2:]]
+    if any(column is None for column in columns):
+        return False
+    boundaries = [("short" if column[1] in ("<=", "=<") else "long", column[2]) for column in columns]
+    reviewed = [("short", "200"), ("long", "200")]
+    return boundaries in (reviewed, reviewed + [("short", "100"), ("long", "100")])
+
+
 def parse(body, aliases, as_of=None):
     parser = PricingHTML()
     parser.feed(body)
@@ -39,7 +57,7 @@ def parse(body, aliases, as_of=None):
             continue
         header = table["rows"][0]
         gemini = len(header) == 7 and header[:3] == ["Model", "Type", "Region"] and "1M tokens" in header[3]
-        claude = len(header) == 4 and header[:2] == ["Model", "Type"] and "200K" in header[2]
+        claude = claude_token_table(header)
         if not gemini and not claude:
             continue
         # Ignore structurally similar tables for untracked models/products.
@@ -73,6 +91,10 @@ def parse(body, aliases, as_of=None):
                 current_type = cells[1]
             if current_model is None or current_model not in aliases:
                 continue
+            # A tracked model moving to (or acquiring) a 100K schedule needs
+            # explicit review, not a fallback to different/cheaper columns.
+            if claude and any(money(cell, optional=True) is not None for cell in cells[4:]):
+                raise ValueError("Tracked Vertex Claude model has unsupported 100K prompt-band rates: " + current_model)
             if gemini:
                 region = "global" if cells[2] == "Global" else "non-global" if cells[2] in ("Non-global *", "Non-global*", "Non-global") else None
                 if region is None:

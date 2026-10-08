@@ -116,7 +116,7 @@ With `--archive-lookups`, changed public-document catalogs receive best-effort W
 
 Every observation includes the official URL, UTC timestamp, currency, and SHA-256 of its source payload. Multi-feed/page collectors hash the complete assembled JSON response. Sources can change layout: parsers fail closed on ambiguous units, invalid rates, unsupported price tables, or an empty tracked snapshot. Fixture tests cover each parser without making network requests.
 
-Vertex's regional Claude tables currently contain conflicting unlabeled input/output rows, so the collector conservatively excludes them rather than guesses. The unambiguous Global Claude tab is tracked; other regions and provider offerings are not claimed to be exhaustive. Model-version/capacity references are linked from the model selector; cloud endpoint capacities stay unverified when the source does not establish them.
+Vertex's regional Claude tables currently contain conflicting unlabeled input/output rows, so the collector conservatively excludes them rather than guesses. The unambiguous Global Claude tab is tracked, including its four-column layout and six-column layout with separate 200K/100K prompt bands. Reviewed Claude 4.x quotes use only the explicitly labeled USD/1M-token 200K columns; a tracked model acquiring 100K-band prices fails closed pending review. Other regions and provider offerings are not claimed to be exhaustive. Model-version/capacity references are linked from the model selector; cloud endpoint capacities stay unverified when the source does not establish them.
 
 ### Failure and availability policy
 

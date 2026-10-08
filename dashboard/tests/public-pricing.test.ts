@@ -61,8 +61,21 @@ describe('cloud and proprietary pricing rules', () => {
   });
   it('includes proprietary creators and native, GCP, AWS, and Azure comparisons', () => {
     for (const creator of ['OpenAI', 'Anthropic', 'Google']) expect(data.models.some((m) => m.creator === creator && !m.open_weight)).toBe(true);
-    for (const provider of ['openai', 'anthropic', 'gemini', 'vertex', 'bedrock', 'azure']) expect(data.status.providers.find((p) => p.id === provider)?.state).toBe('ok');
+    // A failed daily check retains real last-good coverage; health is not a
+    // prerequisite for displaying those observations with a warning.
+    for (const provider of ['openai', 'anthropic', 'gemini', 'vertex', 'bedrock', 'azure']) {
+      expect(data.status.providers.find((p) => p.id === provider)?.last_success_at).toEqual(expect.any(String));
+      expect(data.offerings.some((o) => o.provider === provider && o.active)).toBe(true);
+    }
     expect(new Set(rankOfferings(data, 'anthropic/claude-sonnet-4.6', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['anthropic', 'vertex', 'bedrock']));
     expect(new Set(rankOfferings(data, 'openai/gpt-5.4', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['openai', 'azure']));
+  });
+  it('retains last-good reviewed quotes without erasing collector failure status', () => {
+    const failed = datasetSchema.parse({ ...data, status: { ...data.status, providers: data.status.providers.map((p) =>
+      p.id === 'vertex' ? { ...p, state: 'error', error: 'Pricing table layout changed' } : p) } });
+    expect(failed.status.providers.find((p) => p.id === 'vertex')).toMatchObject({ state: 'error', error: 'Pricing table layout changed' });
+    const rows = rankOfferings(failed, 'anthropic/claude-sonnet-4.6', defaultWorkload);
+    expect(rows.some((r) => r.offering.provider === 'vertex')).toBe(true);
+    expect(rows).toEqual(rankOfferings(data, 'anthropic/claude-sonnet-4.6', defaultWorkload));
   });
 });
