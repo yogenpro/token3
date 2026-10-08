@@ -188,6 +188,7 @@ dashboard/src/                static React app
 .github/workflows/collect.yml  daily observations (06:17 UTC)
 .github/workflows/deploy.yml   GitHub Pages build + deploy
 .github/workflows/ci.yml       tests + typecheck + production build
+.github/workflows/self-heal.yml optional bounded parser PR/review/recovery (off by default)
 ```
 
 Vite publishes only the seven normalized dataset files. Full, uncurated provider snapshots remain in the repository and are not served to dashboard visitors until a separate curation/presentation decision. There is no server endpoint or SQL database: the versioned JSON files in Git are the project's data store. `PAGES_BASE_PATH` supports project Pages, user Pages, or another static subdirectory. The dashboard fetches files at runtime, so data is separate from the app bundle.
@@ -228,6 +229,8 @@ PAGES_BASE_PATH=/tokentokentoken/ npm run build
 The selected production repository is **`yogenpro/token3` (public)**. Collection runs at **06:17 UTC daily**, with manual dispatch available. The workflow uses pinned action commits, read permissions by default, a write token only for the collection job, a 20-minute timeout, and a concurrency guard. It commits normalized data/check health even on a partial collector failure, then marks the run failed so GitHub can notify watchers.
 
 Optional Actions secrets are `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, and `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
+
+**Optional self-healing:** `self-heal.yml` can turn a failed daily parser check into a narrow repair PR, explicitly dispatch secret-free CI, obtain an independent read-only AI review, merge the exact tested tree with an atomic non-forced update, and run one replacement collection. It is disabled until `ENABLE_SELF_HEALING=true` and a dedicated `OPENAI_API_KEY`/billing configuration are supplied. Outages, credentials, shared/inventory-only collectors, multiple failures and actual pricing/scope changes escalate to an issue instead. AI sessions cannot write to GitHub or edit warehouse/history files; replacement failures never recurse. See [activation, guardrails and residual risks](docs/self-healing.md).
 
 For another installation, create/push a repository deliberately:
 

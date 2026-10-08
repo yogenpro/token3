@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["approved", "head_sha", "ci_run_id", "reason", "risks"],
+  "properties": {
+    "approved": { "type": "boolean" },
+    "head_sha": { "type": "string" },
+    "ci_run_id": { "type": "string" },
+    "reason": { "type": "string" },
+    "risks": { "type": "array", "items": { "type": "string" } }
+  }
+}

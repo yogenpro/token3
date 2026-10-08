@@ -1,9 +1,15 @@
 name: Collect official prices
+run-name: ${{ inputs.recovery_origin_run_id && format('Replacement collection for daily run {0}', inputs.recovery_origin_run_id) || 'Collect official prices' }}
 
 on:
   schedule:
     - cron: '17 6 * * *'
   workflow_dispatch:
+    inputs:
+      recovery_origin_run_id:
+        description: Original failed daily run (audit label; replacement runs never invoke AI recovery)
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -41,6 +47,17 @@ jobs:
       - name: Collection summary
         if: always()
         run: python -m scripts.collection_summary >> "$GITHUB_STEP_SUMMARY"
+      - name: Prepare bounded recovery context (no raw/authenticated responses)
+        if: steps.collect.outcome == 'failure'
+        run: python -m scripts.self_heal collect-context --directory "$RUNNER_TEMP/recovery-context"
+      - name: Retain the exact failed-attempt context temporarily
+        if: steps.collect.outcome == 'failure'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: self-heal-context-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/recovery-context/context.json
+          retention-days: 7
+          if-no-files-found: ignore
       - name: Retain public-source debugging responses temporarily
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7

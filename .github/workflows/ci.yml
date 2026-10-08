@@ -1,16 +1,33 @@
 name: Check dashboard and collectors
+run-name: ${{ inputs.recovery_head_sha && format('Recovery CI {0} / {1}', inputs.recovery_origin_run_id, inputs.recovery_head_sha) || github.event.head_commit.message || 'Check dashboard and collectors' }}
 
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+    inputs:
+      recovery_head_sha:
+        description: Exact candidate SHA for trusted recovery CI (empty for ordinary manual CI)
+        type: string
+        default: ''
+      recovery_origin_run_id:
+        description: Original failed daily collection run ID
+        type: string
+        default: ''
+      recovery_workflow_run_id:
+        description: Trusted recovery workflow containing the evidence artifact
+        type: string
+        default: ''
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -25,6 +42,25 @@ jobs:
           cache: pip
       - run: npm ci
       - run: pip install -r requirements.txt
+      - name: Verify trusted recovery origin and exact checkout
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_head_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECOVERY_HEAD_SHA: ${{ inputs.recovery_head_sha }}
+          RECOVERY_ORIGIN_RUN_ID: ${{ inputs.recovery_origin_run_id }}
+          RECOVERY_WORKFLOW_RUN_ID: ${{ inputs.recovery_workflow_run_id }}
+        run: python -m scripts.self_heal ci-context --directory .recovery
+      - name: Download the trusted public-source replay evidence
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_head_sha != ''
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: self-heal-input
+          path: .recovery
+          github-token: ${{ github.token }}
+          run-id: ${{ inputs.recovery_workflow_run_id }}
+      - name: Preserve reviewed quotes and prove the regression failed before the repair
+        if: github.event_name == 'workflow_dispatch' && inputs.recovery_head_sha != ''
+        run: python -m scripts.self_heal probe --directory .recovery
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
