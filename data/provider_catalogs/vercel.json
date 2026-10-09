@@ -4495,8 +4495,6 @@
             "type": "effort",
             "values": [
               "none",
-              "low",
-              "medium",
               "high"
             ]
           }
@@ -4954,8 +4952,7 @@
       "billing": {
         "rules": {
           "input": "0.0000004",
-          "output": "0.000004",
-          "varies_by_provider": true
+          "output": "0.000004"
         },
         "currency": "USD",
         "state": "reported",
@@ -5015,8 +5012,8 @@
             "type": "budget_tokens"
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -5683,9 +5680,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000004",
-          "output": "0.00000017",
-          "varies_by_provider": true
+          "input": "0.000000019",
+          "output": "0.00000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -5695,14 +5691,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000004",
+          "amount": "0.000000019",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000017",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -5712,8 +5708,8 @@
         "name": "Mistral Nemo 12B",
         "owned_by": "mistral",
         "type": "language",
-        "context_window": 60288,
-        "max_tokens": 16000,
+        "context_window": 131072,
+        "max_tokens": 131072,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -5736,8 +5732,8 @@
             "text"
           ]
         },
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -6581,9 +6577,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000004",
-          "input_cache_read": "0.00000004",
-          "output": "0.00000128",
+          "input": "0.00000014",
+          "input_cache_read": "0.0000000028",
+          "output": "0.00000028",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -6594,21 +6590,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000004",
+          "amount": "0.00000014",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000128",
+          "amount": "0.00000028",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000004",
+          "amount": "0.0000000028",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -10857,8 +10853,8 @@
             ]
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -11111,8 +11107,7 @@
               "cost": "0.000015",
               "min": 128001
             }
-          ],
-          "varies_by_provider": true
+          ]
         },
         "currency": "USD",
         "state": "reported",
@@ -11186,8 +11181,8 @@
             ]
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -14903,9 +14898,7 @@
           "temperature",
           "stop",
           "tools",
-          "tool_choice",
-          "response_format",
-          "structured_outputs"
+          "tool_choice"
         ],
         "supported_specifications": [
           "v2",
@@ -14921,8 +14914,8 @@
             "text"
           ]
         },
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -19212,6 +19205,17 @@
                 "threshold": 272001
               },
               "output": "0.00002"
+            },
+            "ultrafast": {
+              "input": "0.000012",
+              "input_cache_read": "0.0000006",
+              "long_context": {
+                "input": "0.000024",
+                "input_cache_read": "0.0000012",
+                "output": "0.00009",
+                "threshold": 272001
+              },
+              "output": "0.00006"
             }
           },
           "web_search": "10"
@@ -21786,6 +21790,95 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-9a634940756dfe3810b6281f",
+      "provider": "vercel",
+      "native_id": "callstack/apex",
+      "kind": "model",
+      "label": "Apex",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000005",
+          "input_cache_read": "0.0000002",
+          "output": "0.000003"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000003",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Apex",
+        "owned_by": "callstack",
+        "type": "language",
+        "context_window": 262144,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-9a83029407bde7ee5bcea9be",
       "provider": "vercel",
       "native_id": "alibaba/qwen3-coder-30b-a3b",
@@ -21795,8 +21888,7 @@
       "billing": {
         "rules": {
           "input": "0.00000015",
-          "output": "0.0000006",
-          "varies_by_provider": true
+          "output": "0.0000006"
         },
         "currency": "USD",
         "state": "reported",
@@ -21847,8 +21939,8 @@
             "text"
           ]
         },
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -21970,8 +22062,8 @@
             "text"
           ]
         },
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -23121,8 +23213,7 @@
       "billing": {
         "rules": {
           "input": "0.0000004",
-          "output": "0.000004",
-          "varies_by_provider": true
+          "output": "0.000004"
         },
         "currency": "USD",
         "state": "reported",
@@ -23182,8 +23273,8 @@
             "type": "budget_tokens"
           }
         ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -25780,6 +25871,9 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
               "none",
@@ -26908,8 +27002,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -26926,22 +27018,8 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -27407,8 +27485,8 @@
             "text"
           ]
         },
-        "zdr": "some",
-        "no_training": "some"
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -37145,13 +37223,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "eaa27defadae70c095356c472f8d3fe545b8783255fa0702c7bcba961bc1c8f9",
-  "revision": 4,
-  "changed_at": "2026-10-08T13:29:47Z",
+  "catalog_sha256": "8ce935bfc3412ec89b30d5076994d247bad42192bb59de01d41f27c17eb07c8d",
+  "revision": 5,
+  "changed_at": "2026-10-09T13:17:30Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "e2144285c8c8247a2d61b141795c9eebc0d6c62a7cb074a2aa3494d7b336e279",
+  "source_sha256": "b6e7ceaa1d38e7aac1e65d8a4b0647050dc68da87b90edcb4340fd690fea5a08",
   "archive_reference": null
 }

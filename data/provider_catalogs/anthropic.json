@@ -5575,7 +5575,7 @@
     "Cache write tokens are charged when content is first stored. Cache read tokens are charged when a subsequent request retrieves the cached content. A cache hit costs 10% of the standard input price, which means caching pays off after one cache read for the 5-minute duration (1.25x write), or after two cache reads for the 1-hour duration (2x write). On Claude Fable 5.1 and Claude Mythos 5.1, a cache hit costs 2.5% of the standard input price ($0.25 USD per million tokens). On Claude Opus 5.5 and Claude Sonnet 5.5, a cache hit costs 5% of the standard input price ($0.20 USD per million tokens on Claude Opus 5.5, $0.10 USD on Claude Sonnet 5.5).",
     "Claude 4.6 and later models (except Claude Haiku 5.5) and [Claude Mythos Preview](https://anthropic.com/glasswing) include the full [1M token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) at standard pricing. (A 900k-token request is billed at the same per-token rate as a 9k-token request.) Prompt caching and batch processing discounts apply at standard rates across the full context window.",
     "Claude 4.7 and later models and Claude Mythos Preview use a newer tokenizer that contributes to their improved performance on a wide range of tasks. This tokenizer produces approximately 30% more tokens for the same text. The exact increase depends on the content and workload shape. Claude Sonnet 4.6 and earlier models use the previous tokenizer.",
-    "Claude Haiku 5.5 is priced by prompt length: a prompt of over 100,000 tokens pays higher prices. [Model pricing](https://platform.claude.com/docs/en/about-claude/pricing#model-pricing) and [Batch processing](https://platform.claude.com/docs/en/about-claude/pricing#batch-processing) list both sets of prices.",
+    "Claude Haiku 5.5 is priced by prompt length: a request whose prompt is over 100,000 tokens pays higher prices. A request's prompt length counts all of its input tokens, including cache reads and cache writes. Each request is priced on its own: a request over the threshold pays the higher prices even when part of its prompt is a cache hit, and earlier requests keep the prices they were billed at. [Model pricing](https://platform.claude.com/docs/en/about-claude/pricing#model-pricing) and [Batch processing](https://platform.claude.com/docs/en/about-claude/pricing#batch-processing) list both sets of prices.",
     "Claude models are available on [Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock) and [Google Cloud](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai). For official pricing, visit:",
     "Client-side tools are priced the same as any other Claude API request, although server-side tools can incur additional charges based on their specific usage.",
     "Computer use follows the standard [tool use pricing](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview#pricing). When using the computer use tool:",
@@ -5634,20 +5634,18 @@
     "title: Pricing",
     "url: https://platform.claude.com/docs/en/about-claude/pricing"
   ],
-  "catalog_sha256": "2a5039ba5364ffd265fa623cd91037d8c87b7eb261cf5d7e62c22ee0ea5d7fe8",
-  "revision": 3,
-  "changed_at": "2026-10-08T13:29:47Z",
+  "catalog_sha256": "b2c752777adbc942bb9169f41bd34639ebb61ec6ec6e1077b4bcfbb755c86988",
+  "revision": 4,
+  "changed_at": "2026-10-09T13:17:30Z",
   "source_url": "https://platform.claude.com/docs/en/about-claude/pricing",
   "source_urls": [
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ],
-  "source_sha256": "a3ec70f7d95205b2de6f177e470c4b2445c6628dffc415dce25362d4e3c901c5",
+  "source_sha256": "c7839126109bc538fa84e674e91fe1410458ae22337f1b53632d7c0ad454ddfd",
   "archive_reference": {
-    "state": "content_mismatch",
+    "state": "unavailable",
     "target_url": "https://platform.claude.com/docs/en/about-claude/pricing.md",
-    "url": "https://web.archive.org/web/20261006125244/https://platform.claude.com/docs/en/about-claude/pricing.md",
-    "capture_at": "2026-10-06T12:52:44Z",
-    "checked_at": "2026-10-08T13:29:47Z",
-    "verification": null
+    "checked_at": "2026-10-09T13:17:30Z",
+    "reason": "URLError: <urlopen error timed out>"
   }
 }

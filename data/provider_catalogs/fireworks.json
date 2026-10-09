@@ -336,71 +336,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "fireworks-4b86b5921600602a12a0601b",
-      "provider": "fireworks",
-      "native_id": "accounts/fireworks/models/inkling",
-      "kind": "model",
-      "label": "Inkling",
-      "scope": {
-        "serving_mode": "priority"
-      },
-      "billing": {
-        "state": "reported",
-        "rules": [
-          {
-            "amount": "0.17",
-            "sku": "LLM input tokens (cached)",
-            "unit": "1M tokens"
-          },
-          {
-            "amount": "1",
-            "sku": "LLM input tokens (uncached)",
-            "unit": "1M tokens"
-          },
-          {
-            "amount": "4.05",
-            "sku": "LLM output tokens",
-            "unit": "1M tokens"
-          }
-        ]
-      },
-      "rates": [
-        {
-          "dimension": "LLM input tokens (cached)",
-          "amount": "0.17",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "LLM input tokens (uncached)",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "LLM output tokens",
-          "amount": "4.05",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_length": 1048576,
-        "service_tier": "priority"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "fireworks-4f69360495b7344b7f69150b",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/ember-1",
@@ -1633,14 +1568,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "b9351391811818ff54b3f0efeeeb8f5bb7d66858c5e8a6f491a4f8ba813da543",
-  "revision": 2,
-  "changed_at": "2026-10-06T07:24:18Z",
+  "catalog_sha256": "cd4d7b4c2da845ab928fd3328613c66ac3c01e2d5f797c8edf82a81678c35e78",
+  "revision": 3,
+  "changed_at": "2026-10-09T13:17:30Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "64ab96dc95370c514bd0fc97295ec329390f8cde8da3b3810a98b8abb807de77",
+  "source_sha256": "2a684120a3709ecf359cdaec83cfcf4045a302d18b9ba31c1af0dd93a39714a8",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
