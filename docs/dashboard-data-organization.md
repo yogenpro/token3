@@ -42,6 +42,10 @@ Projection generation replays real inventory events in their recorded order. It 
 
 A structured native amount change enters the native price feed only when the same record retains the same explicit currency, unit, conditions and source scope. Unit/currency/region/band changes and source-cell extractions go to billing-rule events instead. Unknown units and non-active source expressions cannot imply a price cut. Metadata changes remain catalog events; initial discoveries and first-captured billing guides are labeled as observations.
 
+For new events explicitly verified on both sides as unbounded Google latest-price observations, rolling as-of timestamps are not billing conditions. They do not create a price/rule/catalog event; genuine same-basis tier amounts can be compared without duplicating their structured Money fields as rule changes. Explicit ranges, multi-version schedules and other effective dates retain the conservative rule classification. Unmarked legacy events are not retrospectively reinterpreted or removed.
+
+Provider detail projections expose whitelisted `pricing_observation` metadata and reconstruct exact current Google timestamps from the retained semantic snapshot plus compact default/exception values. They validate record counts, exception identities and the latest-response time window before applying this read-only overlay. The lightweight index does not download the exception map, and projection never rewrites warehouse records, hashes or history. See [observation retention and fingerprint migration](data-collection.md#google-latest-price-observations).
+
 Native history is an event timeline, not a mixed-unit line chart. Existing reviewed price charts remain in their verified USD/token basis. Linking a native record to an existing reviewed model is allowed only for an exact, same-provider identity already represented by curated offerings; the native rates still do not enter comparisons.
 
 ## Validation

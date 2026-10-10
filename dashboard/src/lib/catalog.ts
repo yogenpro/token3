@@ -16,6 +16,7 @@ export const nativeRecordSchema = z.object({
   id: z.string(), provider: z.string(), native_id: z.string(), kind: z.enum(recordKinds), label: z.string(),
   scope: object, billing: object, rates: z.array(nativeRateSchema), metadata: object,
   comparison_eligible: z.literal(false), source_url: sourceUrl, reviewed_model_ids: z.array(z.string()),
+  google_pricing_time_mode: z.literal('latest').optional(),
 });
 const counts = z.record(z.string(), z.number().int().nonnegative());
 export const catalogProviderSchema = z.object({
@@ -30,10 +31,15 @@ export const catalogIndexSchema = z.object({
   schema_version: z.literal(1), updated_at: time, record_count: z.number().int().nonnegative(),
   providers: z.array(catalogProviderSchema), change_counts: counts,
 });
+export const googlePricingObservationSchema = z.object({
+  mode: z.literal('latest'), observed_at: time, source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  default_effective_time: time, record_count: z.number().int().positive(),
+  exceptions: z.record(z.string().regex(/^vertex-[a-f0-9]{24}$/), time),
+});
 export const providerCatalogSchema = z.object({
   schema_version: z.literal(1), provider: z.string(), catalog_sha256: z.string(), revision: z.number().int().positive(),
   billing_notes: z.array(z.string()), source_evidence: z.array(z.object({ source_url: sourceUrl, response_sha256: z.string() })),
-  records: z.array(nativeRecordSchema),
+  records: z.array(nativeRecordSchema), pricing_observation: googlePricingObservationSchema.optional(),
 });
 export const listingSchema = nativeRecordSchema.pick({ id: true, provider: true, native_id: true, kind: true, label: true, reviewed_model_ids: true }).extend({
   scope_label: z.string(), pricing_state: z.string(), billing_basis: z.enum(billingBases), modalities: z.array(z.string()),

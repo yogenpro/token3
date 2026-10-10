@@ -11,6 +11,7 @@ from html import unescape
 
 from providers.public_pricing import PricingHTML
 from .provider_inventory import _payload_format
+from .inventory_retention import catalog_semantics, latest_google_request
 
 
 PARSER_VERSION = 1
@@ -353,7 +354,7 @@ def _document(provider, body, html_parser=None, identity_builder=None):
     return records, notes
 
 
-def normalize_inventory(provider, body, source_kind):
+def normalize_inventory(provider, body, source_kind, source_urls=None, observed_at=None):
     format_, payload, _ = _payload_format(body)
     notes = []
     if format_ == "json":
@@ -385,6 +386,10 @@ def normalize_inventory(provider, body, source_kind):
         unique[record["id"]] = record
     result = dict(schema_version=1, parser_version=PARSER_VERSION, provider=provider, source_kind=source_kind,
                   records=sorted(unique.values(), key=lambda r:r["id"]), billing_notes=notes)
-    # No collection timestamps, raw HTML scripts, JSON object-key ordering or
-    # model-list ordering enter this semantic hash.
-    return result, digest(result)
+    if observed_at is not None and latest_google_request(provider, source_kind, source_urls) and any(record["kind"] == "sku" for record in records):
+        result["google_pricing_time_mode"] = "latest"
+        result["google_pricing_observed_at"] = observed_at
+    # Raw records retain every native field. Only confirmed latest Google SKU
+    # as-of timestamps are excluded from semantic state; their exact values are
+    # retained separately as compact per-check provenance.
+    return result, digest(catalog_semantics(result))

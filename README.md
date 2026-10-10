@@ -112,6 +112,8 @@ Known limits remain explicit: OVHcloud currency is unverified; Snowflake PDF cel
 
 `provider_inventory.json` indexes current catalogs. `inventory_history.jsonl` records first discoveries and subsequent meaningful record/billing-condition changes; identical model lists with reordered JSON or changed HTML scripts do not create versions. `collection_checks.jsonl` retains small success/failure check records. Source-row absence is recorded as “no longer listed”, not an inferred vendor delisting. Existing curated CSV observations and all pre-existing raw source files are preserved unchanged; new unchanged daily observations are no longer appended.
 
+For verified **latest, unbounded Google Cloud Billing SKU requests**, rolling `pricingInfo.effectiveTime` values are observation provenance—not new tariffs. Exact timestamps are retained compactly in the inventory index/check ledger as a common value plus per-record exceptions, alongside source hashes. Timestamp-only changes do not append full SKU records, advance semantic revisions or rewrite current catalogs. Genuine rates, rules, scope and effective dates still create history; explicit time ranges, schedules and timestamps outside the latest-response window are not ignored. Public provider details reconstruct the exact latest captured timestamps. The next successful collection upgrades legacy fingerprints once without inventing events; existing historical rows/files are not pruned or rewritten. See [the source-specific retention policy](docs/data-collection.md#google-latest-price-observations).
+
 New raw public-source responses may be written as gzip files with `--response-dir`; scheduled collection uploads them as Actions debugging artifacts expiring after **7 days**, never permanent Git blobs. Authenticated model-catalog responses are not uploaded. Existing `provider_sources/` is a read-only legacy archive, referenced explicitly in the migrated index. One early legacy JSON artifact predates exact-body storage; it is not independently byte-rehashable.
 
 With `--archive-lookups`, changed public-document catalogs receive best-effort Wayback references. A capture is “verified” only if its exact target and fetched source-body hash match; nearest-date captures with different contents remain `content_mismatch`, and outages/missing captures remain `unavailable`. No keys, authenticated responses or assembled API feeds are submitted to Archive.org. Capture time and observation time remain distinct. Original inventory/history files and raw archives are not copied by Vite. It generates validated, read-only public catalog projections: a lightweight index and lazy model listings, provider details, histories, and separate change feeds. The comparison landing page does not download the warehouse.
@@ -189,6 +191,7 @@ scripts/normalize.py          canonical IDs, validation, stable offering IDs
 scripts/detect_changes.py     event generation
 scripts/collect.py            collection + storage + failure handling
 scripts/catalog_inventory.py  source-native catalog adaptation
+scripts/inventory_retention.py semantic state versus compact source observations
 scripts/extended_inventory.py inventory-only source adaptation
 scripts/dashboard_projection.ts validated read-only public native projections
 scripts/ci_failure_issue.py   trusted no-AI issue handoff controller

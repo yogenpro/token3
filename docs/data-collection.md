@@ -20,10 +20,10 @@ Do not rank unreviewed records by their numerical components: those components m
 
 | Path | Policy |
 | --- | --- |
-| `data/provider_catalogs/<provider>.json` | Current full source-native catalog; rewritten only when semantic content changes |
-| `data/provider_inventory.json` | Catalog pointers/fingerprints, revision counters, provenance, fallback/parser status and archive-reference status |
+| `data/provider_catalogs/<provider>.json` | Full source-native snapshot of current semantic state; rewritten on meaningful changes or a representation/provenance-policy refresh |
+| `data/provider_inventory.json` | Catalog pointers/fingerprints, revision counters, latest compact observation provenance, fallback/parser status and archive-reference status |
 | `data/inventory_history.jsonl` | Initial record discoveries, then changed records, source-row absence and billing-note changes only |
-| `data/collection_checks.jsonl` | Small success/failure ledger per provider/check; distinguishes verified unchanged checks from outages |
+| `data/collection_checks.jsonl` | Small success/failure ledger per provider/check; retains exact compact Google latest-price observation timestamps/source hashes and distinguishes unchanged checks from outages |
 | `data/price_history.csv` | Existing curated observations retained verbatim; future rows only on first observation or actual rate change |
 | `data/price_history.json` | Derived mirror for the dashboard |
 | `data/latest_prices.json`, `offerings.json`, `status.json` | Freshness/current curated state; updated independently of price history |
@@ -36,6 +36,23 @@ JSON model ordering/object-key formatting and HTML script noise do not change ca
 History entries are assigned deterministic IDs per provider revision. History is written before advancing the catalog; retrying a partially persisted revision does not append its events twice. Full source normalization failures retain the last good catalog and record an error. A curated parser can fail independently while valid source-native inventory is retained.
 
 Legacy index version lists are migrated to explicit `legacy_source_archive` references. Original historical rows are never backfilled, sparsified or replaced with fixtures. One early schema-1 JSON artifact is parsed-only and cannot be independently rehashed from exact source bytes.
+
+## Google latest-price observations
+
+Google's [Cloud Billing API contract](https://cloud.google.com/billing/docs/reference/rest/v1/services.skus/list#PricingInfo) says that without a requested time range, `pricingInfo.effectiveTime` indicates the latest pricing information within the last 12 hours. It is not, by itself, the date a tariff changed. Repeating a complete SKU record when only this as-of timestamp advances produces substantial false history growth.
+
+The retention exception is deliberately narrow:
+
+- Only Vertex SKU catalogs fetched from the verified HTTPS Cloud Billing endpoint without `startTime`/`endTime` or unknown SKU-query parameters qualify. JSON bodies, dates or model names alone do not establish this contract.
+- A record must have exactly one pricing-info object, a valid UTC timestamp, matching native rate timestamps and a matching service/SKU identity. Multiple pricing-info versions, malformed values and other providers/document rows remain semantic.
+- The timestamp must be within 12 hours before the collection timestamp, with up to 20 minutes after it allowed because the bounded collection starts before fetching. Out-of-window dates remain semantic, not guessed into observation metadata.
+- Only `billing.pricing_info[0].effectiveTime` and its matching `rates[].conditions.effective_time` are excluded from this semantic fingerprint. Prices, currencies/FX, units/conversions, tiers, aggregation, regions, metadata, prose, promotions and genuine effective dates remain compared. Raw retained snapshot/event records keep their original fields.
+
+`google_pricing_observation` in the inventory index and successful native check entries stores `default_effective_time`, `record_count` and an `exceptions` mapping of record ID to every differing timestamp. It never assumes all SKUs share a time. The check's `observed_at`, `source_sha256` and semantic `catalog_sha256` bind that compact metadata to the captured source and retained state. Failed fetches do not copy an old observation into a new check. An independently valid native observation can still be retained when reviewed parsing fails; the failed reviewed check remains explicit.
+
+Verified timestamp-only checks leave the current catalog, semantic revision and inventory history unchanged. If the same source snapshot merely ages outside the latest-response window, its representation may refresh to retain the unconfirmed dates as semantic fields, but clock aging does not create record events or advance the revision. On a genuine change, the full normalized snapshot and changed records are retained as before, including intraday price reverts and source-row absence. Current public provider details reconstruct the exact captured timestamps from the retained state plus the latest compact metadata; observation provenance remains separate from economic changes and native records remain comparison-ineligible.
+
+The first successful collection against an existing schema-1 catalog uses its recorded unbounded request URLs and snapshot time to upgrade the fingerprint/header once. A representation-only upgrade does not advance the semantic revision or `changed_at`, append discoveries/price events, or rewrite old history. No history is deleted, sparsified or recompressed: this optimization bounds **future growth**, not existing file sizes. New change events carry a latest-mode comparison marker only when both snapshots establish that contract; unmarked legacy events keep their prior conservative classification.
 
 ## Temporary debugging responses
 
@@ -62,4 +79,4 @@ References are optional provenance, not a claim of guaranteed permanent third-pa
 - Optional repository Actions secrets: `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicitly recorded official-document fallbacks. Do not put secrets in repository files or `VITE_` build variables.
 - Dashboard Pages deployment is off. It requires separate Pages setup, `ENABLE_PAGES=true`, and manual dispatch of `deploy.yml`.
 
-Inventory/check files are intentionally excluded from the dashboard build until their curation/display is designed. The collection job does not call inference APIs, perform routing, or access negotiated billing-account pricing.
+Original inventory/check files are not copied wholesale into the dashboard. Validated [read-only public native projections](dashboard-data-organization.md) select permitted records, history and observation provenance; reviewed calculators still use their separate curated files. The collection job does not call inference APIs, perform routing, or access negotiated billing-account pricing.

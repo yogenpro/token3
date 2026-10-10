@@ -116,6 +116,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             name = futures[future]
             previous = statuses.get(name, {})
             source_metadata = {}
+            check_provenance = {}
             try:
                 result = future.result()
                 if result.inventory_only != (name in INVENTORY_PROVIDERS):
@@ -151,6 +152,9 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                 else:
                     source_row, artifact, native_events = prepare_catalog(name, PROVIDER_NAMES[name], result, observed_at, data_dir, source_index)
                     inventory_events.extend(native_events)
+                    if source_row.get("google_pricing_observation") is not None:
+                        check_provenance = dict(source_sha256=source_row["source_sha256"],
+                                                google_pricing_observation=source_row["google_pricing_observation"])
                     if artifact and archive_lookups and not dry_run and not result.inventory_only:
                         reference = lookup_reference(result, observed_at)
                         source_row["archive_reference"] = reference
@@ -188,7 +192,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                 print("{}: FAILED; previous data retained. {}".format(PROVIDER_NAMES[name], error_message[:300]))
             checks.append(dict(provider=name, observed_at=observed_at, state=statuses[name]["state"],
                                catalog_sha256=source_index.get(name, {}).get("catalog_sha256"),
-                               source_kind=statuses[name].get("source_kind"), error=statuses[name].get("error")))
+                               source_kind=statuses[name].get("source_kind"), error=statuses[name].get("error"), **check_provenance))
     status = dict(schema_version=1, last_run_at=observed_at,
                   first_observed_at=min((row["observed_at"] for row in history), default=None),
                   observation_count=len(history), providers=sorted(statuses.values(), key=lambda row: row["id"]))

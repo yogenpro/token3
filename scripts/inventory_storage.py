@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 
 from .catalog_inventory import canonical, digest, normalize_inventory
 from .provider_inventory import MAX_SOURCE_BYTES, PROVIDER_ID
+from .inventory_retention import catalog_metadata, google_latest_time, google_pricing_observation, previous_catalog_semantics, semantic_record
 
 
 def prepare_catalog(provider, name, result, observed_at, data_dir, index):
@@ -19,31 +20,51 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
     urls = result.source_urls or [result.source_url]
     if any(urlparse(url).scheme != "https" or not urlparse(url).hostname for url in urls + [result.source_url]):
         raise ValueError("Source URLs must be HTTPS")
-    catalog, fingerprint = normalize_inventory(provider, body, result.source_kind)
+    catalog, fingerprint = normalize_inventory(provider, body, result.source_kind, urls, observed_at)
+    observation = google_pricing_observation(catalog)
     path = Path("provider_catalogs") / (provider + ".json")
     old_catalog = json.loads((data_dir / path).read_text()) if (data_dir / path).exists() else {}
     old_row = index.get(provider, {})
     revision = old_catalog.get("revision", 0)
-    changed = old_catalog.get("catalog_sha256") != fingerprint
+    old_semantics = previous_catalog_semantics(old_catalog) if old_catalog else None
+    latest = catalog.get("google_pricing_time_mode") == "latest"
+    previous_latest = old_semantics is not None and old_semantics.get("google_pricing_time_mode") == "latest"
+    previous_observed_at = old_catalog.get("google_pricing_observed_at", old_catalog.get("changed_at"))
+    old_records = {r["id"]:r for r in old_catalog.get("records", [])}
+    new_records = {r["id"]:r for r in catalog["records"]}
+    record_changes = []
+    for rid in sorted(old_records.keys() | new_records.keys()):
+        previous, current = old_records.get(rid), new_records.get(rid)
+        if previous == current:
+            continue  # Clock aging alone must not invent a source-record change.
+        comparable = bool(latest and previous_latest and previous_observed_at is not None and
+                          google_latest_time(previous, previous_observed_at) and google_latest_time(current, observed_at))
+        if semantic_record(previous, comparable, previous_observed_at) != semantic_record(current, comparable, observed_at):
+            record_changes.append((rid, previous, current, comparable))
+    changed = old_semantics is None or bool(record_changes) or catalog_metadata(old_semantics) != catalog_metadata(catalog)
+    # Representation/provenance-policy changes refresh the current header, not
+    # economic revisions or append-only history. This includes the one-time
+    # legacy fingerprint upgrade and an unconfirmed latest-response window.
+    rewrite = changed or old_catalog.get("catalog_sha256") != fingerprint
     events = []
     if changed:
         revision += 1
-        old_records = {r["id"]:r for r in old_catalog.get("records", [])}
-        new_records = {r["id"]:r for r in catalog["records"]}
-        for rid in sorted(old_records.keys() | new_records.keys()):
-            previous, current = old_records.get(rid), new_records.get(rid)
-            if previous == current:
-                continue
+        for rid, previous, current, comparable in record_changes:
             kind = "record_added" if previous is None else "record_no_longer_listed" if current is None else "record_changed"
             # This is source-record absence, NOT an inferred model delisting.
             event_id = digest([provider, revision, kind, rid])[:32]
-            events.append(dict(id=event_id, provider=provider, revision=revision, observed_at=observed_at,
-                               catalog_sha256=fingerprint, kind=kind, record_id=rid, after=current))
+            event = dict(id=event_id, provider=provider, revision=revision, observed_at=observed_at,
+                         catalog_sha256=fingerprint, kind=kind, record_id=rid, after=current)
+            if comparable:
+                # Both sides use the verified unbounded latest-price contract.
+                event["google_pricing_time_mode"] = "latest"
+            events.append(event)
         if catalog["billing_notes"] != old_catalog.get("billing_notes", []):
             events.append(dict(id=digest([provider, revision, "billing_notes"] )[:32], provider=provider, revision=revision,
                                observed_at=observed_at, catalog_sha256=fingerprint, kind="billing_notes_changed",
                                billing_notes=catalog["billing_notes"]))
-        catalog.update(catalog_sha256=fingerprint, revision=revision, changed_at=observed_at,
+    if rewrite:
+        catalog.update(catalog_sha256=fingerprint, revision=revision, changed_at=observed_at if changed else old_catalog["changed_at"],
                        source_url=result.source_url, source_urls=urls, source_sha256=result.source_sha256,
                        archive_reference=None)
         if result.source_evidence:
@@ -63,6 +84,8 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
                legacy_source_archive=legacy, archive_reference=old_row.get("archive_reference"))
     if result.source_evidence:
         row["source_evidence"] = result.source_evidence
+    if observation is not None:
+        row["google_pricing_observation"] = observation
     return row, catalog, events
 
 
