@@ -5064,6 +5064,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-5f95bf4594b600089021e07f",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3.8-27B",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3.8-27B",
+      "scope": {
+        "upstream_provider": "cerebras"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.99,
+          "output": 1.49
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.99",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.49",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 65536,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-5fd6114e043922a2be9970f8",
       "provider": "huggingface",
       "native_id": "MiniMaxAI/MiniMax-M1-80k",
@@ -8728,57 +8779,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-a5e288b86767738ba7f6c45d",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-5.3-Flash",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-5.3-Flash",
-      "scope": {
-        "upstream_provider": "deepinfra"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.15,
-          "output": 0.5
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-a7f5fec9619358aaf531fd3f",
       "provider": "huggingface",
       "native_id": "CohereLabs/tiny-aya-global",
@@ -9195,6 +9195,37 @@
       },
       "rates": [],
       "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-ac8db02322e8b162374cf2bb",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.6",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.6",
+      "scope": {
+        "upstream_provider": "zai-org"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
       "comparison_eligible": false
     },
     {
@@ -13180,14 +13211,14 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "2af2d03c3ab1779a7e5ce3da82d54cf553a8c1ca45fb0a542fd0fb58169c2ef5",
-  "revision": 9,
-  "changed_at": "2026-10-10T21:44:11Z",
+  "catalog_sha256": "b98e072cdf96fe1eb19f3c200f42b36fb13dd933730256a2a53e95f17844385a",
+  "revision": 10,
+  "changed_at": "2026-10-10T22:14:03Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "8e81f1d080207735700db77c8a601c3e2f40b7cb3152876ced5a474eb4bbb796",
+  "source_sha256": "0dc6207e2513b5e5b482200c6737b7866771db3036e84b5c79feb6f8587ff555",
   "archive_reference": null
 }
