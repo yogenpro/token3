@@ -2671,6 +2671,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-118ed82f2a5528820c6ba264",
+      "provider": "vercel",
+      "native_id": "microsoft/microsoft-decision-1",
+      "kind": "model",
+      "label": "Decision-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000042",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decision-1",
+        "owned_by": "microsoft",
+        "type": "evaluation",
+        "context_window": 32768,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-120a2818d9959766728b0d79",
       "provider": "vercel",
       "native_id": "minimax/minimax-m2.5",
@@ -5680,7 +5735,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.000000019",
+          "input": "0.000000029",
           "output": "0.00000003"
         },
         "currency": "USD",
@@ -5691,7 +5746,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000000019",
+          "amount": "0.000000029",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -16367,6 +16422,108 @@
         ],
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-72e0c6f2bd1c1c9d79e92ac4",
+      "provider": "vercel",
+      "native_id": "heygen/heygen-video-1",
+      "kind": "model",
+      "label": "HeyGen Video",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "video_duration_pricing": [
+            {
+              "cost_per_second": "0.01",
+              "mode": "text_to_video",
+              "resolution": "480p"
+            },
+            {
+              "cost_per_second": "0.015",
+              "mode": "text_to_video",
+              "resolution": "768p"
+            },
+            {
+              "cost_per_second": "0.045",
+              "mode": "text_to_video",
+              "resolution": "1080p"
+            },
+            {
+              "cost_per_second": "0.045",
+              "mode": "text_to_video",
+              "resolution": "2k"
+            },
+            {
+              "cost_per_second": "0.01",
+              "mode": "image_to_video",
+              "resolution": "480p"
+            },
+            {
+              "cost_per_second": "0.015",
+              "mode": "image_to_video",
+              "resolution": "768p"
+            },
+            {
+              "cost_per_second": "0.045",
+              "mode": "image_to_video",
+              "resolution": "1080p"
+            },
+            {
+              "cost_per_second": "0.045",
+              "mode": "image_to_video",
+              "resolution": "2k"
+            },
+            {
+              "cost_per_second": "0.02",
+              "mode": "reference_to_video",
+              "resolution": "480p"
+            },
+            {
+              "cost_per_second": "0.03",
+              "mode": "reference_to_video",
+              "resolution": "768p"
+            },
+            {
+              "cost_per_second": "0.09",
+              "mode": "reference_to_video",
+              "resolution": "1080p"
+            },
+            {
+              "cost_per_second": "0.09",
+              "mode": "reference_to_video",
+              "resolution": "2k"
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "HeyGen Video",
+        "owned_by": "heygen",
+        "type": "video",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "video"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -37223,13 +37380,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "8ce935bfc3412ec89b30d5076994d247bad42192bb59de01d41f27c17eb07c8d",
-  "revision": 5,
-  "changed_at": "2026-10-09T13:17:30Z",
+  "catalog_sha256": "b8a6b659e47f5720652c6bdad52cbf3a5e18d0b447654cb4ecf76e4ac8dcc4b1",
+  "revision": 6,
+  "changed_at": "2026-10-10T12:32:28Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "b6e7ceaa1d38e7aac1e65d8a4b0647050dc68da87b90edcb4340fd690fea5a08",
+  "source_sha256": "1b37596209a195414ee6abfe7cdf66d7ba98546ef4e31fdf5e0064b3f562a94a",
   "archive_reference": null
 }

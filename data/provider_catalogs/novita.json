@@ -3445,96 +3445,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-7523399929f9c7ced2e18eba",
-      "provider": "novita",
-      "native_id": "deepseek/deepseek-v4-flash",
-      "kind": "model",
-      "label": "DeepSeek V4 Flash",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 1400,
-              "price_per_m": 1400,
-              "origin_price_per_m_decimal": "0.14",
-              "price_per_m_decimal": "0.14"
-            },
-            "completion": {
-              "origin_price_per_m": 2800,
-              "price_per_m": 2800,
-              "origin_price_per_m_decimal": "0.28",
-              "price_per_m_decimal": "0.28"
-            },
-            "input_cache_read": {
-              "origin_price_per_m": 280,
-              "price_per_m": 280,
-              "origin_price_per_m_decimal": "0.028",
-              "price_per_m_decimal": "0.028"
-            }
-          },
-          "native_input_billing_units": 1400,
-          "native_output_billing_units": 2800,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.14",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.028",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 1048576,
-        "max_output_tokens": 393216,
-        "status": 1,
-        "features": [
-          "serverless",
-          "function-calling",
-          "structured-outputs",
-          "reasoning"
-        ],
-        "endpoints": [
-          "chat/completions",
-          "anthropic",
-          "responses"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-7b54398f38ced3bd30a4637a",
       "provider": "novita",
       "native_id": "deepseek/deepseek-ocr-2",
@@ -7956,14 +7866,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "9a784a24101664cb42b7275afc962025709c06f43f943b8443710c059b5aab35",
-  "revision": 2,
-  "changed_at": "2026-10-08T16:54:09Z",
+  "catalog_sha256": "a8f7ae9aef6df7b64a77b1a348a6556f60a37779a2ce62fdcf9e8358323cc0a7",
+  "revision": 3,
+  "changed_at": "2026-10-10T12:32:28Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "dc3c8f9a12ee347b0a6ed25223c2f069bb0d30f7b411d14587e6561a800bf116",
+  "source_sha256": "f8eb7f4bc539cf0d86171d298a4dd677c22daa5ce0f310ad10c798f43d2c04fa",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
