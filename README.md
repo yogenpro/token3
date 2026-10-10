@@ -188,6 +188,7 @@ dashboard/src/                static React app
 .github/workflows/collect.yml  daily observations (06:17 UTC)
 .github/workflows/deploy.yml   GitHub Pages build + deploy
 .github/workflows/ci.yml       tests + typecheck + production build
+.github/workflows/failure-issues.yml no-AI main-branch CI/collection failure tickets
 .github/workflows/self-heal.yml optional bounded parser PR/review/recovery (off by default)
 ```
 
@@ -230,7 +231,9 @@ The selected production repository is **`yogenpro/token3` (public)**. Collection
 
 Optional Actions secrets are `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, and `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
 
-**Optional self-healing:** `self-heal.yml` can turn a failed daily parser check into a narrow repair PR, explicitly dispatch secret-free CI, obtain an independent read-only AI review, merge the exact tested tree with an atomic non-forced update, and run one replacement collection. It is disabled until `ENABLE_SELF_HEALING=true` and a dedicated `OPENAI_API_KEY`/billing configuration are supplied. Outages, credentials, shared/inventory-only collectors, multiple failures and actual pricing/scope changes escalate to an issue instead. AI sessions cannot write to GitHub or edit warehouse/history files; replacement failures never recurse. See [activation, guardrails and residual risks](docs/self-healing.md).
+**Automatic failure tickets (no AI):** `failure-issues.yml` opens an owner-assigned `ci-failure` issue for failed default-branch CI and scheduled/manual collection runs. Tickets contain exact run/commit/job links, bounded redacted evidence, deterministic troubleshooting guidance, verification criteria, and a local coding-agent handoff. Failed reruns update the same ticket; PR/fork runs, cancellations and the reporter itself are excluded. No worker, model subscription, API key, automatic code changes, merge or deployment is involved. Set `ENABLE_FAILURE_ISSUES=false` to disable; it is otherwise on. See [ticket scope, privacy and local-agent usage](docs/ci-failure-tickets.md).
+
+**Optional self-healing (still disabled):** The separate `self-heal.yml` implementation can turn a failed daily parser check into a narrow repair PR, secret-free CI, independent read-only AI review, guarded merge and replacement collection. It currently requires a dedicated paid `OPENAI_API_KEY`/billing configuration; ChatGPT Plus does not fund that API path. The selected operating mode is **failure tickets plus a manually launched local coding agent**, not paid recovery or a private worker. Keep `ENABLE_SELF_HEALING=false`. See [legacy activation, guardrails and residual risks](docs/self-healing.md).
 
 For another installation, create/push a repository deliberately:
 

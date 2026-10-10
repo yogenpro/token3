@@ -47,8 +47,13 @@ jobs:
       - name: Collection summary
         if: always()
         run: python -m scripts.collection_summary >> "$GITHUB_STEP_SUMMARY"
-      - name: Prepare bounded recovery context (no raw/authenticated responses)
+      - name: Prepare bounded failure context (no raw/authenticated responses)
         if: steps.collect.outcome == 'failure'
+        env:
+          # Exact-value redaction before persisting diagnostics; never pass these to the issue job.
+          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+          FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
+          GOOGLE_CLOUD_BILLING_API_KEY: ${{ secrets.GOOGLE_CLOUD_BILLING_API_KEY }}
         run: python -m scripts.self_heal collect-context --directory "$RUNNER_TEMP/recovery-context"
       - name: Retain the exact failed-attempt context temporarily
         if: steps.collect.outcome == 'failure'
