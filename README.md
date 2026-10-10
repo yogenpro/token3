@@ -2,9 +2,21 @@
 
 Stylized as **Token³** (Token cubed), inspired by CamelCamelCamel.
 
-**Same model. Different price.** A small, transparent LLM inference pricing dashboard built from the [original MVP plan](docs/mvp-plan.md).
+**Same model. Different price.** A transparent, static LLM inference-pricing dashboard with **reviewed comparisons** and a broader **source-native catalog explorer**. The [original MVP plan](docs/mvp-plan.md) is historical context; the scope below and the linked implementation guides describe the expanded project.
 
-No backend, SQL database, routing, or model inference calls. React + TypeScript + Vite render a static dataset; Python observes official provider APIs and pricing documents. Optional collector-only API keys enable additional structured sources; visitors need no keys. GitHub Actions can collect daily and deploy to GitHub Pages.
+React + TypeScript + Vite render versioned data; Python observes official provider APIs and pricing documents. There is no backend, SQL database, paid storage, inference routing, BYOK, or benchmark/inference traffic from the dashboard or collectors. Optional collector-only API keys enable additional structured sources; visitors need no keys.
+
+### Current scope and operating mode
+
+- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, price history, provenance, and explicitly reviewed exports.
+- **Models and Providers:** a separate provider-scoped model/route/flavor directory and native pricing/rule evidence, including unknown prices, currencies and non-token units. Discovery does not establish model equivalence or make a record calculator-eligible.
+- **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. These are not mixed-unit price charts or vendor launch/delisting announcements.
+- **Operations:** daily collection and CI are active; main-branch CI/collection failures create no-AI issue handoffs for a manually launched local coding agent.
+- **Not enabled:** GitHub Pages deployment and the legacy paid-API self-healing workflow. A subscription worker was considered and deferred; no worker or hosted AI repair/review has been configured.
+
+Collector health, retained reviewed coverage, native pricing certainty and freshness are independent. Missing prices are not free; a successful recent collection does not mean all records were reviewed. See [the three data layers and dashboard views](docs/dashboard-data-organization.md).
+
+For development and coding-agent work, start with [AGENTS.md](AGENTS.md). [Documentation maintenance](#documentation-and-maintenance) is part of completing a change.
 
 ## Run locally
 
@@ -41,7 +53,7 @@ set +a
 python -m scripts.collect --strict
 ```
 
-Python does **not** load `.env` automatically. Set the same three names as GitHub repository Actions secrets for hosted collection; the workflow passes them only to the collection step. Never use `VITE_` variables for secrets: those are bundled into the public app.
+Python does **not** load `.env` automatically. Set the same three names as GitHub repository Actions secrets for hosted collection. `collect.yml` passes them to collection and, on failure, the trusted context-preparation step for exact-value redaction. They are never passed to the issue reporter, frontend, or AI jobs. The separate manual `inspect-fireworks.yml` diagnostic can receive `FIREWORKS_API_KEY` to inspect catalog structure without saving response bodies. Never use `VITE_` variables for secrets: those are bundled into the public app.
 
 If a key is missing or an API request fails, collection uses the official document and records the reason in `status.json` and `provider_inventory.json` (`source_kind`, `fallback_reason`), as well as the CLI output. A successfully fetched API response with incompatible curated pricing is never silently replaced with guessed prices. Its last good curated prices remain; independently valid full-inventory records can still be retained. New public raw responses are transient diagnostics, not permanent Git snapshots. API requests use headers, never keys in archived URLs; authenticated redirects are rejected. No inference endpoint is called.
 
@@ -61,11 +73,15 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 - Collector health, calculation methodology, reviewed dataset downloads, and independent pricing/review/freshness labels.
 - Responsive layout, dark theme, keyboard controls, and shareable URLs containing model, tier, view, workload, provider, native record, directory, and feed.
 - Readable typography inspired by OpenRouter’s benchmarks page: 16px body text, 14px secondary text/controls, 12px metadata, and 20px section headings. Mobile layouts reflow instead of shrinking text.
-- Daily collection, static Pages deployment, and automated unit/collector/browser checks.
+- Daily collection, no-AI failure tickets, automated unit/collector/browser/documentation checks, and a separately gated manual Pages deployment workflow.
 
-### Current coverage
+### Reviewed coverage and collection scope
 
-| Canonical model | Providers with observed public prices |
+Reviewed baseline: **12 canonical models / 71 recorded offerings / 11 reviewed providers**.
+
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 71 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation.
+
+| Canonical model | Providers with recorded reviewed offerings (including inactive) |
 | --- | --- |
 | GPT-OSS 120B | DeepInfra, Novita, Together AI, Fireworks, Groq, Amazon Bedrock |
 | GPT-OSS 20B | DeepInfra, Novita, Groq, Amazon Bedrock |
@@ -80,17 +96,19 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 | Gemini 3.8 Flash | Google Gemini API, Google Vertex AI |
 | Gemini 3.5 Flash-Lite | Google Gemini API, Google Vertex AI |
 
-The reviewed comparison catalog has **71 offerings across 11 providers**. Claude 4.6 releases are labeled legacy, as in Anthropic's model references: they are included for their verifiable cross-cloud coverage, not presented as the newest Claude versions. Proprietary GPT models are compared with Azure; they are not falsely listed on Bedrock or Vertex. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
+Claude 4.6 releases are labeled legacy, as in Anthropic's model references: they are included for their verifiable cross-cloud coverage, not presented as the newest Claude versions. Proprietary GPT models are compared with Azure; they are not falsely listed on Bedrock or Vertex. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
 
 ### Full source-native inventory (separate from comparisons)
 
-Collection now covers **26 providers**, including 15 new **inventory-only** sources: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They do not automatically add dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+Collection scope: **26 provider groups**, including 15 **inventory-only** sources: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They do not automatically add dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
 
 `data/provider_catalogs/<provider>.json` stores the complete selected catalog as a common source-native record schema: model IDs, meters, SKU dimensions, document rows, native billing rules/expressions, currency, units, regions, tiers, effective dates and relevant metadata. No dashboard alias filter is applied. Numerical monetary amounts are decimal strings; units are only attached when the source establishes them. Complex formulas, conditional schedules, native billing integers, ambiguous units and qualitative prices remain explicit—not guessed into USD/token rates. Document-row IDs are source-local identifiers, not canonical model equivalence. See [the inventory schema and retention policy](docs/data-collection.md).
 
-This is **storage normalization**, not universally comparable cost normalization. Every row is marked `comparison_eligible: false` until separately curated. Reviewed comparisons remain at 12 models/71 offerings. The Providers view exposes the wider warehouse without promoting native rates into the calculator. Sources are scoped listings, not proof of exhaustive commercial availability; existing AWS/Azure regions remain unchanged. See [dashboard organization and projection rules](docs/dashboard-data-organization.md).
+This is **storage normalization**, not universally comparable cost normalization. Every native row stays `comparison_eligible: false`, even when its amount is structured or it links to a reviewed model. Reviewed comparisons use separately curated offering/price files; discovery never promotes native rows into those files. The Providers view exposes selected public evidence without promoting native rates into the calculator. Sources are scoped listings, not proof of exhaustive commercial availability; existing AWS/Azure regions remain unchanged. Native record/listing counts are evidence counts, not unique-model or comparable-price counts. See [dashboard organization and projection rules](docs/dashboard-data-organization.md).
+
+Known limits remain explicit: OVHcloud currency is unverified; Snowflake PDF cells/table alignment are not curated model-to-rate mappings; gateway listings do not identify unverified supplier endpoints. Lazy loading avoids downloading native assets on the comparison landing page, but an opened provider/history asset can still be large—pagination does not reduce its downloaded bytes.
 
 `provider_inventory.json` indexes current catalogs. `inventory_history.jsonl` records first discoveries and subsequent meaningful record/billing-condition changes; identical model lists with reordered JSON or changed HTML scripts do not create versions. `collection_checks.jsonl` retains small success/failure check records. Source-row absence is recorded as “no longer listed”, not an inferred vendor delisting. Existing curated CSV observations and all pre-existing raw source files are preserved unchanged; new unchanged daily observations are no longer appended.
 
@@ -170,6 +188,10 @@ providers/*.py                independent official-source parsers
 scripts/normalize.py          canonical IDs, validation, stable offering IDs
 scripts/detect_changes.py     event generation
 scripts/collect.py            collection + storage + failure handling
+scripts/catalog_inventory.py  source-native catalog adaptation
+scripts/extended_inventory.py inventory-only source adaptation
+scripts/dashboard_projection.ts validated read-only public native projections
+scripts/ci_failure_issue.py   trusted no-AI issue handoff controller
 
 data/models.json              generated model catalog
 data/offerings.json           current offering metadata, including inactive offerings
@@ -189,18 +211,35 @@ dashboard/src/                static React app
 .github/workflows/deploy.yml   GitHub Pages build + deploy
 .github/workflows/ci.yml       tests + typecheck + production build
 .github/workflows/failure-issues.yml no-AI main-branch CI/collection failure tickets
-.github/workflows/self-heal.yml optional bounded parser PR/review/recovery (off by default)
+.github/workflows/self-heal.yml legacy opt-in paid parser recovery (disabled)
+.github/workflows/inspect-fireworks.yml manual collector-only structure diagnostic
+AGENTS.md                     contributor/agent guardrails and documentation contract
 ```
 
-Vite publishes only the seven normalized dataset files. Full, uncurated provider snapshots remain in the repository and are not served to dashboard visitors until a separate curation/presentation decision. There is no server endpoint or SQL database: the versioned JSON files in Git are the project's data store. `PAGES_BASE_PATH` supports project Pages, user Pages, or another static subdirectory. The dashboard fetches files at runtime, so data is separate from the app bundle.
+Vite publishes an explicit allowlist: the seven reviewed/health files (`models.json`, `offerings.json`, `latest_prices.json`, `price_history.json`, `price_history.csv`, `changes.json`, `status.json`) **plus generated public native projections**. `scripts/dashboard_projection.ts` validates and selects public fields without rewriting the warehouse, source hashes, aliases, or reviewed prices.
+
+Generated public native paths (build/dev assets, not committed `catalog/` authority files):
+
+```text
+catalog/index.json                    lightweight provider/health index
+catalog/models.json                   provider-scoped collected listings
+catalog/providers/<provider>.json     native public detail/rates/rules
+catalog/history/<provider>.json       native source/record history
+catalog/changes/{price,rule,catalog}.json separate native event feeds
+```
+
+The Models, Providers and native Changes views lazy-load these projections. Original warehouse JSON/JSONL, raw or authenticated responses, legacy source archives, credentials and collector scripts are **not** copied wholesale into the public app. Reviewed and native exports remain separate.
+
+There is no application backend or SQL database: versioned files in Git are the data store. Vite's development asset middleware is not a production collection API. `PAGES_BASE_PATH` supports project Pages, user Pages, or another static subdirectory. The static dashboard fetches published files at runtime; Refresh reloads those files and never invokes collectors.
 
 ### Add a model or provider
 
-1. Add the model in `catalog/models.yaml` and explicit, reviewed provider IDs in `catalog/aliases.yaml`. Do not merge thinking/instruct versions or infer aliases by substring.
-2. Add a provider module with `collect(aliases)` and pure `parse(body, aliases)` functions returning a `Collection`. Reuse `providers.common` helpers.
-3. Register the provider and display name in `scripts/collect.py`, then add its color/initials in `dashboard/src/lib/data.ts`.
-4. Add full-inventory adaptation in `scripts/catalog_inventory.py` and representative fixtures/tests. Mark a catalog authoritative only when it supports absence-based availability detection; full-inventory record absence is not vendor delisting.
-5. Run a strict collection, review native inventory changes and curated differences, and run checks before publishing.
+Follow [AGENTS.md](AGENTS.md) and keep inventory discovery separate from economic curation:
+
+- **Reviewed model/offer:** explicitly review identity, price basis and scope; edit `catalog/models.yaml` / `catalog/aliases.yaml` only for verified canonical relationships. Do not merge thinking/instruct versions or infer aliases by substring. Update the relevant reviewed parser/normalizer and regression fixtures.
+- **Provider/source collection:** add or extend a collector and register it in `scripts/collect.py`. Reviewed providers use their individual `providers/*.py` modules and `scripts/catalog_inventory.py`; inventory-only sources use `providers/expanded.py` and `scripts/extended_inventory.py`. Native records must remain comparison-ineligible.
+- **Presentation:** add provider metadata/color/access labels in `dashboard/src/lib/data.ts` and extend public projection/schema handling only with explicitly whitelisted evidence. Preserve original units, currencies, formulas, conditions and unknowns.
+- **Verification and documentation:** add fixtures/tests, use a provider-scoped strict **dry-run** first, review scope/economic changes, then use a legitimate strict collection for data writes. Update this README and the relevant guides in the same change. Only mark a catalog authoritative when its scope supports absence-based availability detection; source absence alone is not vendor delisting.
 
 ## Tests and production build
 
@@ -211,7 +250,9 @@ npm run test:e2e             # real-browser flows, downloads, failures, mobile, 
 npm run preview             # serves the production build on :4173
 ```
 
-Browser screenshots and failure traces go to ignored `test-results/`. Browser checks include WCAG 2.1 AA automated accessibility checks. Unit tests test pure cost arithmetic, null cache behavior, context constraints, units, alias safety, snapshot atomicity, history preservation, delisting/reactivation, malformed sources, cloud currency/units, prompt-band boundaries, output caps, dated promotion transitions, trusted pagination, CSV exports, and stale data.
+For `npm run check`, first activate a Python virtual environment with `requirements.txt` installed; npm invokes `python3` from `PATH`. `npm test` runs frontend unit tests, `npm run test:collectors` runs the Python suites, and `npm run build` runs TypeScript checking and the Vite production build. Install Chromium before browser checks; hosted CI also installs its system dependencies.
+
+Browser screenshots and failure traces go to ignored `test-results/`. Browser checks include WCAG 2.1 AA automated accessibility checks. Unit tests cover cost arithmetic, missing prices, scope/units/identity safety, atomicity/history, parser regressions, native projections/exports/change classification, retained coverage versus health, and automation provenance/redaction/deduplication. Documentation tests check local links, advertised npm commands, retained coverage counts and documented workflow gates. These run inside `npm run check` and collection preflight without an external service.
 
 On older Linux distributions unsupported by the latest Playwright installer, use an existing compatible Chromium executable:
 
@@ -227,7 +268,16 @@ PAGES_BASE_PATH=/tokentokentoken/ npm run build
 
 ## Collection-first GitHub setup
 
-The selected production repository is **`yogenpro/token3` (public)**. Collection runs at **06:17 UTC daily**, with manual dispatch available. The workflow uses pinned action commits, read permissions by default, a write token only for the collection job, a 20-minute timeout, and a concurrency guard. It commits normalized data/check health even on a partial collector failure, then marks the run failed so GitHub can notify watchers.
+The selected production repository is **`yogenpro/token3` (public)**. Collection runs at **06:17 UTC daily**, with manual dispatch available. The collection workflow uses pinned action commits, read permissions by default, content-write permission only for its trusted collection job, a 20-minute timeout, and a concurrency guard. It commits independently valid provider updates/check health even on a partial collector failure, retains last-good data for failures, then marks the run failed. Do not remove the final **Surface collector failures** step.
+
+| Workflow | Current operating mode |
+| --- | --- |
+| `collect.yml` | Daily schedule and deliberate manual strict collection; collector-only credentials where configured. |
+| `ci.yml` | Main-branch push, PR and manual tests/typecheck/build/browser checks. |
+| `failure-issues.yml` | Enabled (`ENABLE_FAILURE_ISSUES=true`); default-branch CI/collection failures only; issue-write permission, no code writes or AI. |
+| `self-heal.yml` | Disabled (`ENABLE_SELF_HEALING=false`); the legacy opt-in API repair/review/merge path is not the selected operating mode. |
+| `deploy.yml` | Manual-only, not enabled; requires separate deployment authorization and `ENABLE_PAGES=true`. |
+| `inspect-fireworks.yml` | Optional manual authenticated catalog-structure diagnostic; no inference or pricing-data mutation. |
 
 Optional Actions secrets are `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, and `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
 
@@ -250,3 +300,21 @@ Workflows expect the default branch to be `main`. The collection workflow commit
 **Dashboard deployment is intentionally off.** `deploy.yml` is manual-only and additionally requires repository variable `ENABLE_PAGES=true`; Pages must be configured separately before dispatch. Collection does not depend on Pages. GitHub-token data commits do not trigger ordinary push CI workflows, so collector tests run within every collection job.
 
 The public Pages site may be public even for a private repository depending on your GitHub plan. Check visibility before publishing.
+
+## Documentation and maintenance
+
+**Documentation is part of the change, not a follow-up task.** [AGENTS.md](AGENTS.md) records the project guardrails. Agents and contributors must assess this README on every task and update affected scope, views, architecture, source coverage, commands, credential boundaries, workflow gates and limitations **in the same commit/PR** as a behavior or setup change. Update the relevant detailed guide too. If no README change is needed, explain why in the PR; the [PR checklist](.github/pull_request_template.md) and generated failure tickets include that requirement.
+
+The reviewed baseline and collected-provider count above describe the checked-in data, including retained inactive offers. Native record/listing totals, active coverage, prices and health change through legitimate collection; read those from the data/UI rather than treating an undated README number as live inventory. Update declared baseline counts when the retained reviewed catalog or collection scope changes. Do not rewrite history/data just to make documentation tests pass.
+
+`tests/test_documentation.py` runs through the existing Python CI/preflight suite and catches broken local links, nonexistent npm commands, stale declared baseline/scope counts and missing workflow-gate documentation. These mechanical checks cannot prove that every prose description matches behavior; agent instructions and PR review still require that semantic check. Do not weaken the checks to conceal documentation drift.
+
+Detailed guides:
+
+- [Dashboard views, data layers, projections and change semantics](docs/dashboard-data-organization.md)
+- [Collection schema, provenance, history and retention](docs/data-collection.md)
+- [Expanded provider scopes and known limitations](docs/collection-expansion.md)
+- [Reviewed pricing sources and API capabilities](docs/pricing-sources.md)
+- [No-AI failure tickets and local-agent usage](docs/ci-failure-tickets.md)
+- [Legacy disabled recovery guardrails and residual risks](docs/self-healing.md)
+- [Original MVP plan (historical)](docs/mvp-plan.md)

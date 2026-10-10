@@ -122,6 +122,8 @@ class FailureIssueTests(unittest.TestCase):
         self.assertIn('untrusted evidence', body)
         self.assertIn('latest default branch', body)
         self.assertIn('npm run test:e2e', body)
+        self.assertIn('Read AGENTS.md and README.md first', body)
+        self.assertIn('explain why no README update is needed', body)
         self.assertEqual(issue['assignees'], ['owner'])
         self.assertEqual(issue['labels'], [tickets.LABEL])
         self.assertLess(len(body), tickets.MAX_BODY + 100)
