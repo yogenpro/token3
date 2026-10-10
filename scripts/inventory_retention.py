@@ -51,10 +51,11 @@ def google_latest_time(record, observed_at=None):
         if observed_at is not None:
             observed = datetime.fromisoformat(observed_at.replace("Z", "+00:00"))
             age = observed - effective
-            # Google guarantees latest info within 12 hours of the request.
-            # The run's timestamp precedes fetching; allow its bounded 20-minute
-            # collection window, not an arbitrary future effective date.
-            if age < -timedelta(minutes=20) or age > timedelta(hours=12):
+            # Past timestamps remain exact as-of provenance under the verified
+            # unbounded request contract, even when the API exceeds its advertised
+            # 12-hour age. Preserve that discrepancy as a warning, not a tariff.
+            # The run precedes fetching; do not suppress genuine future dates.
+            if age < -timedelta(minutes=20):
                 return None
     except (AttributeError, TypeError, ValueError):
         return None
@@ -108,5 +109,7 @@ def google_pricing_observation(catalog):
     # exactly; no assumption of uniform timestamps is used for reconstruction.
     counts = Counter(times.values())
     default = min(counts, key=lambda value: (-counts[value], value))
-    return dict(default_effective_time=default, record_count=len(times),
+    observed = datetime.fromisoformat(catalog["google_pricing_observed_at"].replace("Z", "+00:00"))
+    older = sum(observed - datetime.fromisoformat(value.replace("Z", "+00:00")) > timedelta(hours=12) for value in times.values())
+    return dict(default_effective_time=default, record_count=len(times), older_than_documented_window_count=older,
                 exceptions={key: value for key, value in sorted(times.items()) if value != default})

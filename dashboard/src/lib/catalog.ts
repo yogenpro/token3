@@ -34,6 +34,7 @@ export const catalogIndexSchema = z.object({
 export const googlePricingObservationSchema = z.object({
   mode: z.literal('latest'), observed_at: time, source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
   default_effective_time: time, record_count: z.number().int().positive(),
+  older_than_documented_window_count: z.number().int().nonnegative().default(0),
   exceptions: z.record(z.string().regex(/^vertex-[a-f0-9]{24}$/), time),
 });
 export const providerCatalogSchema = z.object({

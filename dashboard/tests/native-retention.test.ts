@@ -29,7 +29,7 @@ function fixture() {
   const provider = { id: 'vertex', name: 'Vertex', source_url: source, source_urls: [source], source_kind: 'api+documentation',
     latest_path: 'provider_catalogs/vertex.json', record_count: records.length, revision: 2, catalog_sha256: '2'.repeat(64), source_sha256: '3'.repeat(64),
     first_seen_at: first, last_seen_at: third,
-    google_pricing_observation: { record_count: 2, default_effective_time: third, exceptions: { [records[1].id]: '2026-10-12T07:10:00Z' }, collector_token: 'must-not-publish' } };
+    google_pricing_observation: { record_count: 2, older_than_documented_window_count: 0, default_effective_time: third, exceptions: { [records[1].id]: '2026-10-12T07:10:00Z' }, collector_token: 'must-not-publish' } };
   const catalog = { schema_version: 1, parser_version: 1, provider: 'vertex', source_kind: provider.source_kind, records, billing_notes: [], source_evidence: [],
     revision: provider.revision, catalog_sha256: provider.catalog_sha256, changed_at: second, google_pricing_time_mode: 'latest', google_pricing_observed_at: second };
   // The second SKU's old timestamp belongs to its discovery, but the persisted
@@ -107,12 +107,23 @@ describe('compact latest observation projection', () => {
     expect(nativeChangesSchema.parse(JSON.parse(assets.get('catalog/changes/rule.json')!)).events).toHaveLength(0);
     for (const [file, content] of before) expect(readFileSync(join(path, file), 'utf8')).toBe(content);
   });
-  it.each(['count', 'unknown record', 'invalid time', 'future effective date', 'unconfirmed mode'])('fails closed on %s observation mismatch', (field) => {
+  it('retains older past as-of timestamps with a validated source-time warning', () => {
+    const { path, provider, write } = fixture();
+    provider.last_seen_at = '2026-10-12T21:00:00Z';
+    provider.google_pricing_observation.older_than_documented_window_count = 2;
+    write('provider_inventory.json', { updated_at: provider.last_seen_at, provider_count: 1, providers: [provider] });
+    const detail = providerCatalogSchema.parse(JSON.parse(buildDashboardAssets(path).get('catalog/providers/vertex.json')!));
+    expect(detail.pricing_observation?.older_than_documented_window_count).toBe(2);
+    expect(detail.records.map((r) => r.rates[0].conditions.effective_time)).toEqual([third, '2026-10-12T07:10:00Z']);
+    expect(detail.records.every((r) => r.google_pricing_time_mode === 'latest' && !r.comparison_eligible)).toBe(true);
+  });
+  it.each(['count', 'unknown record', 'invalid time', 'future effective date', 'warning count', 'unconfirmed mode'])('fails closed on %s observation mismatch', (field) => {
     const { path, provider, catalog, write } = fixture();
     if (field === 'count') provider.google_pricing_observation.record_count = 3;
     if (field === 'unknown record') provider.google_pricing_observation.exceptions = { [`vertex-${'f'.repeat(24)}`]: third };
     if (field === 'invalid time') provider.google_pricing_observation.default_effective_time = 'not-a-time';
     if (field === 'future effective date') provider.google_pricing_observation.default_effective_time = '2026-10-13T07:00:00Z';
+    if (field === 'warning count') provider.google_pricing_observation.older_than_documented_window_count = 1;
     if (field === 'unconfirmed mode') catalog.google_pricing_time_mode = 'unknown';
     write('provider_inventory.json', { updated_at: third, provider_count: 1, providers: [provider] });
     write('provider_catalogs/vertex.json', catalog);

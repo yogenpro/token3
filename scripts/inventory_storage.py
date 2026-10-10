@@ -43,8 +43,7 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
             record_changes.append((rid, previous, current, comparable))
     changed = old_semantics is None or bool(record_changes) or catalog_metadata(old_semantics) != catalog_metadata(catalog)
     # Representation/provenance-policy changes refresh the current header, not
-    # economic revisions or append-only history. This includes the one-time
-    # legacy fingerprint upgrade and an unconfirmed latest-response window.
+    # economic revisions or append-only history, including legacy fingerprints.
     rewrite = changed or old_catalog.get("catalog_sha256") != fingerprint
     events = []
     if changed:

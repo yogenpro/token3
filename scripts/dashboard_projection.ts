@@ -32,7 +32,7 @@ function googleLatestTime(record: ObjectValue, observedAt?: string): string | nu
     (record.rates ?? []).some((rate: ObjectValue) => rate.conditions?.effective_time !== time)) return null;
   if (observedAt) {
     const age = Date.parse(observedAt) - Date.parse(time);
-    if (!Number.isFinite(age) || age < -20 * 60 * 1000 || age > 12 * 60 * 60 * 1000) return null;
+    if (!Number.isFinite(age) || age < -20 * 60 * 1000) return null;
   }
   return time;
 }
@@ -53,11 +53,14 @@ function currentGoogleRecords(catalog: ObjectValue, observation: ObjectValue | u
   if (catalog.google_pricing_time_mode !== 'latest') throw new Error('Google observation lacks a latest-price catalog');
   for (const time of [observation.default_effective_time, ...Object.values(observation.exceptions)] as string[]) {
     const age = Date.parse(observation.observed_at) - Date.parse(time);
-    if (age < -20 * 60 * 1000 || age > 12 * 60 * 60 * 1000) throw new Error('Google as-of time falls outside the latest-price window');
+    if (age < -20 * 60 * 1000) throw new Error('Google as-of time is an unconfirmed future effective date');
   }
   const eligible = new Set<string>(catalog.records.filter((r: ObjectValue) => googleLatestTime(r, catalog.google_pricing_observed_at ?? catalog.changed_at)).map((r: ObjectValue) => r.id));
   if (eligible.size !== observation.record_count || Object.keys(observation.exceptions).some((id) => !eligible.has(id))) throw new Error('Inconsistent Google pricing observation');
-  return catalog.records.map((r: ObjectValue) => eligible.has(r.id) ? googleAsOf(r, observation.exceptions[r.id] ?? observation.default_effective_time) : r);
+  const records = catalog.records.map((r: ObjectValue) => eligible.has(r.id) ? googleAsOf(r, observation.exceptions[r.id] ?? observation.default_effective_time) : r);
+  const older = records.filter((r: ObjectValue) => eligible.has(r.id) && Date.parse(observation.observed_at) - Date.parse(googleLatestTime(r)!) > 12 * 60 * 60 * 1000).length;
+  if (older !== observation.older_than_documented_window_count) throw new Error('Inconsistent Google source-time warning count');
+  return records;
 }
 export function projectRecord(raw: ObjectValue, sourceUrl: string, offerings: ObjectValue[] = [], latestGoogle = false): NativeRecord {
   const ids = new Set([raw.native_id, raw.metadata?.source_model_id].filter(Boolean));
@@ -127,7 +130,8 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
     const c = read(p.latest_path);
     if (c.provider !== p.id || c.records.length !== p.record_count || c.catalog_sha256 !== p.catalog_sha256) throw new Error(`Inconsistent provider catalog: ${p.id}`);
     const observation = p.google_pricing_observation ? googlePricingObservationSchema.parse({ mode: 'latest', observed_at: p.last_seen_at, source_sha256: p.source_sha256,
-      default_effective_time: p.google_pricing_observation.default_effective_time, record_count: p.google_pricing_observation.record_count, exceptions: p.google_pricing_observation.exceptions }) : undefined;
+      default_effective_time: p.google_pricing_observation.default_effective_time, record_count: p.google_pricing_observation.record_count,
+      older_than_documented_window_count: p.google_pricing_observation.older_than_documented_window_count, exceptions: p.google_pricing_observation.exceptions }) : undefined;
     const records = currentGoogleRecords(c, observation).map((r: ObjectValue) => projectRecord(r, p.source_url, offerings,
       !!observation && !!googleLatestTime(r, observation.observed_at)));
     if (new Set(records.map((r: NativeRecord) => r.id)).size !== records.length) throw new Error('Duplicate native records');

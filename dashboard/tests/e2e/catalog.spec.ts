@@ -58,6 +58,22 @@ test('native record deep links preserve unknown currency and source rules', asyn
   await expect(page).not.toHaveURL(/record=/);
 });
 
+test('Google source-time warnings stay separate from collector health and tariffs', async ({ page }) => {
+  await page.route('**/catalog/providers/vertex.json', async (route) => {
+    const response = await route.fetch(); const detail = await response.json();
+    detail.pricing_observation = { mode: 'latest', observed_at: '2026-10-10T21:00:00Z', source_sha256: inventory.providers.find((p: any) => p.id === 'vertex').source_sha256,
+      default_effective_time: '2026-10-10T07:00:00Z', record_count: 2, older_than_documented_window_count: 2, exceptions: {} };
+    await route.fulfill({ response, json: detail });
+  });
+  await page.goto('/?view=providers&provider=vertex');
+  const warning = page.getByRole('note', { name: 'Google source-time provenance' });
+  await expect(warning).toContainText('2 SKU timestamps are older');
+  await expect(warning).toContainText('not a new tariff or a freshness guarantee');
+  await expect(page.locator('.catalog-source-summary .health-badge').first()).toBeVisible();
+  const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  expect(result.violations).toEqual([]);
+});
+
 test('catalog filters, pagination, and native export use all matching records', async ({ page }) => {
   await page.goto('/?view=providers&provider=openrouter');
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);

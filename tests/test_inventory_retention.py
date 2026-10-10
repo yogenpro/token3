@@ -95,9 +95,9 @@ class NativeSemanticRetentionTests(unittest.TestCase):
         self.assertNotEqual(semantic_record(row, True, FIRST), semantic_record(modified, True, FIRST))
         self.assertEqual(modified["rates"][0]["conditions"]["promotion_effective_date"], SECOND)
 
-    def test_outside_latest_window_effective_dates_are_not_suppressed(self):
+    def test_unconfirmed_future_effective_dates_are_not_suppressed(self):
         _, first = normalize_inventory("vertex", json.dumps(payload()), "api+documentation", [SKU_URL], FIRST)
-        for time in [SECOND, "2026-10-09T18:00:00Z", "2026-10-10T07:21:00Z"]:
+        for time in [SECOND, "2026-10-10T07:21:00Z"]:
             with self.subTest(time=time), tempfile.TemporaryDirectory() as directory:
                 catalog, changed = normalize_inventory("vertex", json.dumps(payload((time,))), "api+documentation", [SKU_URL], FIRST)
                 self.assertNotEqual(first, changed)
@@ -115,8 +115,9 @@ class NativeSemanticRetentionTests(unittest.TestCase):
             aged, artifact, events = prepare_catalog("vertex", "Vertex", collection(payload()), "2026-10-10T21:00:00Z", path, {"vertex": row})
             self.assertEqual(aged["revision"], row["revision"])
             self.assertEqual(events, [])
-            self.assertNotIn("google_pricing_observation", aged)
-            self.assertEqual(artifact["changed_at"], FIRST)
+            self.assertIsNone(artifact)
+            self.assertEqual(aged["google_pricing_observation"]["default_effective_time"], FIRST)
+            self.assertEqual(aged["google_pricing_observation"]["older_than_documented_window_count"], 1)
 
     def test_meaningful_changes_and_intraday_reverts_still_create_full_events(self):
         _, base = normalize_inventory("vertex", json.dumps(payload()), "api+documentation", [SKU_URL], FIRST)
@@ -203,6 +204,7 @@ class NativeSemanticRetentionTests(unittest.TestCase):
             row, artifact, _ = prepare_catalog("vertex", "Vertex", collection(payload((FIRST, FIRST, "2026-10-10T07:10:00Z"))), FIRST, Path(directory), {})
             observed = row["google_pricing_observation"]
             self.assertEqual(observed["record_count"], 3)
+            self.assertEqual(observed["older_than_documented_window_count"], 0)
             self.assertEqual(observed["default_effective_time"], FIRST)
             self.assertEqual(len(observed["exceptions"]), 1)
             for record in artifact["records"]:

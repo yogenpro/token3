@@ -155,6 +155,9 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                     if source_row.get("google_pricing_observation") is not None:
                         check_provenance = dict(source_sha256=source_row["source_sha256"],
                                                 google_pricing_observation=source_row["google_pricing_observation"])
+                        older = source_row["google_pricing_observation"]["older_than_documented_window_count"]
+                        if older:
+                            print("{}: TIMING NOTICE — {} latest SKU timestamps exceed the advertised 12-hour age; exact as-of provenance retained".format(PROVIDER_NAMES[name], older))
                     if artifact and archive_lookups and not dry_run and not result.inventory_only:
                         reference = lookup_reference(result, observed_at)
                         source_row["archive_reference"] = reference
