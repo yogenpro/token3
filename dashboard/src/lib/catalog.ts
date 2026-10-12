@@ -1,13 +1,23 @@
 import { z } from 'zod';
 import { isStale, type ProviderStatus } from './data';
 
-const sourceUrl = z.url().refine((s) => { const u = new URL(s); return u.protocol === 'https:' && !u.username && !u.password; });
+const sourceUrl = z.url().refine((s) => {
+  const u = new URL(s);
+  return u.protocol === 'https:' && !u.username && !u.password && ![...u.searchParams.keys()].some((key) =>
+    !['pageToken', 'page_token', '$skiptoken'].includes(key) && /key|token|secret|signature|credential|authorization/i.test(key));
+});
 const object = z.record(z.string(), z.unknown());
 const time = z.iso.datetime();
+export const MAX_CATALOG_CHUNK_BYTES = 512 * 1024;
 export const recordKinds = ['model', 'provider_route', 'model_flavor', 'document_row', 'document_page', 'meter', 'sku', 'sku_dimension'] as const;
 export const accessKinds = ['Direct API', 'Gateway', 'Managed cloud', 'Platform'] as const;
-export const billingBases = ['Tokens', 'Compute', 'Credits / native units', 'Mixed', 'Other', 'Unknown'] as const;
+export const billingBases = ['Tokens', 'Images', 'Audio / video', 'Requests', 'Compute', 'Storage / memory', 'Capacity', 'Credits / native units', 'Mixed', 'Other', 'Unknown'] as const;
 export type BillingBasis = typeof billingBases[number];
+const chunkPath = z.string().regex(/^catalog\/chunks\/[a-f0-9]{64}\.json$/);
+export const chunkRefSchema = z.object({
+  path: chunkPath, sha256: z.string().regex(/^[a-f0-9]{64}$/), count: z.number().int().positive(),
+  bytes: z.number().int().positive().max(MAX_CATALOG_CHUNK_BYTES),
+}).refine((r) => r.path === `catalog/chunks/${r.sha256}.json`, 'Chunk path and hash differ.');
 export const nativeRateSchema = z.object({
   dimension: z.string(), amount: z.string().regex(/^\d+(?:\.\d+)?(?:[eE][+-]?\d+)?$/),
   currency: z.string().nullable(), unit: z.string().nullable(), conditions: object,
@@ -25,11 +35,18 @@ export const catalogProviderSchema = z.object({
   source_url: sourceUrl, source_urls: z.array(sourceUrl), source_kind: z.string(),
   currencies: z.array(z.string()), revision: z.number().int().positive(), catalog_sha256: z.string(), source_sha256: z.string(),
   first_seen_at: time, last_seen_at: time, changed_at: time,
-  detail_path: z.string(), history_path: z.string(),
+  detail_path: z.string().regex(/^catalog\/providers\/[a-z0-9_-]+\.json$/), history_path: z.string().regex(/^catalog\/history\/[a-z0-9_-]+\.json$/),
+});
+export const coverageSchema = z.object({
+  reviewed_model_count: z.number().int().nonnegative(), reviewed_offering_count: z.number().int().nonnegative(),
+  active_reviewed_offering_count: z.number().int().nonnegative(), reviewed_provider_count: z.number().int().nonnegative(),
+  model_listing_count: z.number().int().nonnegative(), kind_counts: counts, billing_basis_counts: counts, pricing_state_counts: counts,
+  single_provider_model_count: z.number().int().nonnegative(), gateway_only_model_count: z.number().int().nonnegative(),
+  unknown_context_offering_count: z.number().int().nonnegative(), reviewed_price_change_count: z.number().int().nonnegative(),
 });
 export const catalogIndexSchema = z.object({
-  schema_version: z.literal(1), updated_at: time, record_count: z.number().int().nonnegative(),
-  providers: z.array(catalogProviderSchema), change_counts: counts,
+  schema_version: z.literal(2), updated_at: time, record_count: z.number().int().nonnegative(),
+  providers: z.array(catalogProviderSchema), change_counts: counts, coverage: coverageSchema,
 });
 export const googlePricingObservationSchema = z.object({
   mode: z.literal('latest'), observed_at: time, source_sha256: z.string().regex(/^[a-f0-9]{64}$/),
@@ -37,15 +54,25 @@ export const googlePricingObservationSchema = z.object({
   older_than_documented_window_count: z.number().int().nonnegative().default(0),
   exceptions: z.record(z.string().regex(/^vertex-[a-f0-9]{24}$/), time),
 });
-export const providerCatalogSchema = z.object({
-  schema_version: z.literal(1), provider: z.string(), catalog_sha256: z.string(), revision: z.number().int().positive(),
-  billing_notes: z.array(z.string()), source_evidence: z.array(z.object({ source_url: sourceUrl, response_sha256: z.string() })),
-  records: z.array(nativeRecordSchema), pricing_observation: googlePricingObservationSchema.optional(),
-});
 export const listingSchema = nativeRecordSchema.pick({ id: true, provider: true, native_id: true, kind: true, label: true, reviewed_model_ids: true }).extend({
   scope_label: z.string(), pricing_state: z.string(), billing_basis: z.enum(billingBases), modalities: z.array(z.string()),
 });
+export const recordSummarySchema = listingSchema.extend({
+  comparison_eligible: z.literal(false), currencies: z.array(z.string()), units: z.array(z.string()),
+  rate_count: z.number().int().nonnegative(), rate_preview: z.array(nativeRateSchema.omit({ conditions: true })).max(2), detail_path: chunkPath,
+});
+export const providerCatalogSchema = z.object({
+  schema_version: z.literal(2), provider: z.string(), catalog_sha256: z.string(), revision: z.number().int().positive(),
+  billing_notes: z.array(z.string()), source_evidence: z.array(z.object({ source_url: sourceUrl, response_sha256: z.string() })),
+  record_count: z.number().int().nonnegative(), index_chunks: z.array(chunkRefSchema), record_chunks: z.array(chunkRefSchema),
+  pricing_observation: googlePricingObservationSchema.optional(),
+}).refine((d) => d.index_chunks.reduce((n, r) => n + r.count, 0) === d.record_count &&
+  d.record_chunks.reduce((n, r) => n + r.count, 0) === d.record_count, 'Incomplete provider manifest.');
+export const recordChunkSchema = z.object({ schema_version: z.literal(1), records: z.array(nativeRecordSchema) });
+export const recordIndexChunkSchema = z.object({ schema_version: z.literal(1), records: z.array(recordSummarySchema) });
 export const modelListingsSchema = z.object({ schema_version: z.literal(1), listings: z.array(listingSchema) });
+export const modelDirectorySchema = z.object({ schema_version: z.literal(2), listing_count: z.number().int().nonnegative(), chunks: z.array(chunkRefSchema) })
+  .refine((d) => d.chunks.reduce((n, r) => n + r.count, 0) === d.listing_count, 'Incomplete model directory.');
 const detailSchema = z.object({ field: z.string(), before: z.string().nullable(), after: z.string().nullable() });
 export const nativeChangeSchema = z.object({
   id: z.string(), provider: z.string(), record_id: z.string().nullable(), observed_at: time, revision: z.number().int().positive(),
@@ -53,13 +80,22 @@ export const nativeChangeSchema = z.object({
   details: z.array(detailSchema),
 });
 export const nativeChangesSchema = z.object({ schema_version: z.literal(1), events: z.array(nativeChangeSchema) });
+export const eventBatchSchema = z.object({
+  id: z.string(), provider: z.string(), observed_at: time, category: z.enum(['price', 'rule', 'catalog']),
+  event_count: z.number().int().positive(), chunks: z.array(chunkRefSchema),
+}).refine((b) => b.chunks.reduce((n, r) => n + r.count, 0) === b.event_count, 'Incomplete event batch.');
+export const historyManifestSchema = z.object({ schema_version: z.literal(2), event_count: z.number().int().nonnegative(), batches: z.array(eventBatchSchema) })
+  .refine((d) => d.batches.reduce((n, b) => n + b.event_count, 0) === d.event_count, 'Incomplete history manifest.');
+export type ChunkRef = z.infer<typeof chunkRefSchema>;
 export type NativeRate = z.infer<typeof nativeRateSchema>;
 export type NativeRecord = z.infer<typeof nativeRecordSchema>;
+export type RecordSummary = z.infer<typeof recordSummarySchema>;
 export type CatalogProvider = z.infer<typeof catalogProviderSchema>;
 export type CatalogIndex = z.infer<typeof catalogIndexSchema>;
 export type ProviderCatalog = z.infer<typeof providerCatalogSchema>;
 export type ModelListing = z.infer<typeof listingSchema>;
 export type NativeChange = z.infer<typeof nativeChangeSchema>;
+export type EventBatch = z.infer<typeof eventBatchSchema>;
 export type ChangeCategory = NativeChange['category'];
 
 export function accessKind(provider: string): CatalogProvider['access'] {
@@ -86,14 +122,21 @@ export function pricingState(record: Pick<NativeRecord, 'rates' | 'billing' | 'k
   return 'Price not published';
 }
 export function billingBasis(record: Pick<NativeRecord, 'rates' | 'billing' | 'scope'>): BillingBasis {
-  const text = JSON.stringify([record.rates.map((r) => r.unit), record.billing, record.scope.headers, record.scope.headings]).toLowerCase();
+  const units = [...record.rates.map((r) => r.unit ?? ''), ...[record.billing.unit, record.billing.unitOfMeasure, record.billing.unit_of_measure].filter((v): v is string => typeof v === 'string')].join(' ').toLowerCase();
+  const text = JSON.stringify([record.billing, record.scope.headers, record.scope.headings]).toLowerCase();
   const bases: BillingBasis[] = [];
-  if (/\btoken|\btpm\b/.test(text)) bases.push('Tokens');
-  if (/\bdbu|\bcredit|\bneuron/.test(text)) bases.push('Credits / native units');
-  if (/\bhour|\bsecond|\bgiby|\bnode.hour|"h"|"s"/.test(text)) bases.push('Compute');
+  // Display facets only: these labels never convert units or authorize a quote.
+  if (/\btpm\b|model\/month|ai unit per hour|custom model unit/.test(units)) bases.push('Capacity');
+  else if (/\btoken/.test(units) || (!units.trim() || /^(?:1k|1m|1|100)$/i.test(units.trim())) && /\btoken/.test(text)) bases.push('Tokens');
+  if (/\bimage/.test(units)) bases.push('Images');
+  if (/\b(audio|video)\b|(?:input|output) second|frame unit|minutes processed/.test(units)) bases.push('Audio / video');
+  if (/\b(request|call|query|queries|transaction|search|message|event|textunit)/.test(units)) bases.push('Requests');
+  if (/\bgiby|\bgby|gigabyte|\bgb[ -]|\/ gb\b/.test(units)) bases.push('Storage / memory');
+  if (!bases.includes('Capacity') && !bases.includes('Audio / video') && !bases.includes('Storage / memory') && /\bhour|\bsecond|\bnode|\bh\b|\bs\b/.test(units)) bases.push('Compute');
+  if (/\b(dbu|credit|neuron)/.test(units + ' ' + text)) bases.push('Credits / native units');
   return bases.length > 1 ? 'Mixed' : bases[0] ?? (record.rates.length ? 'Other' : 'Unknown');
 }
-export function nativeRateText(rate: NativeRate): string {
+export function nativeRateText(rate: Pick<NativeRate, 'amount' | 'currency' | 'unit'>): string {
   return `${rate.currency ?? 'Currency unknown'} ${rate.amount} / ${rate.unit ?? 'unit unverified'}`;
 }
 export function sourceFreshness(status?: ProviderStatus): { label: string; warning: boolean } {
@@ -105,9 +148,24 @@ export function sourceFreshness(status?: ProviderStatus): { label: string; warni
 export function kindLabel(kind: string): string {
   return ({ model: 'Model listing', provider_route: 'Provider route', model_flavor: 'Model flavor', document_row: 'Document row', document_page: 'Document page', meter: 'Cloud meter', sku: 'SKU', sku_dimension: 'SKU dimension' } as Record<string, string>)[kind] ?? kind;
 }
+export function summarySearch(record: ModelListing & { units?: string[]; currencies?: string[] }): string {
+  return [record.label, record.native_id, record.scope_label, record.pricing_state, record.billing_basis,
+    ...record.modalities, ...(record.units ?? []), ...(record.currencies ?? [])].join(' ').toLowerCase();
+}
 export async function loadCatalogAsset<T>(path: string, schema: z.ZodType<T>, signal?: AbortSignal): Promise<T> {
   if (!/^catalog\/(?:index|models|changes\/(?:price|rule|catalog)|providers\/[a-z0-9_-]+|history\/[a-z0-9_-]+)\.json$/.test(path)) throw new Error('Invalid catalog asset path.');
   const response = await fetch(`${import.meta.env.BASE_URL}${path}`, { cache: 'no-store', signal: signal ?? AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`Unable to load catalog (HTTP ${response.status}). Please retry.`);
   return schema.parse(await response.json());
+}
+export async function loadCatalogChunk<T>(ref: ChunkRef, schema: z.ZodType<T>, signal?: AbortSignal): Promise<T> {
+  chunkRefSchema.parse(ref);
+  if (!globalThis.crypto?.subtle) throw new Error('Native chunk verification requires HTTPS or localhost. Unverified data was not loaded.');
+  const response = await fetch(`${import.meta.env.BASE_URL}${ref.path}`, { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000) });
+  if (!response.ok) throw new Error(`Unable to load catalog chunk (HTTP ${response.status}). Please retry.`);
+  const bytes = new Uint8Array(await response.arrayBuffer());
+  if (bytes.byteLength !== ref.bytes || bytes.byteLength > MAX_CATALOG_CHUNK_BYTES) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+  const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map((b) => b.toString(16).padStart(2, '0')).join('');
+  if (hash !== ref.sha256) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+  return schema.parse(JSON.parse(new TextDecoder().decode(bytes)));
 }

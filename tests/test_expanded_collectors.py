@@ -30,7 +30,7 @@ def normalize(provider, payload=None):
 
 
 class ExpandedInventoryTests(unittest.TestCase):
-    def test_all_fifteen_public_sources_are_inventory_only(self):
+    def test_all_fifteen_expanded_sources_keep_native_records_comparison_ineligible(self):
         self.assertEqual(len(INVENTORY_PROVIDERS), 15)
         self.assertEqual(len(PROVIDERS), 26)
         for provider in INVENTORY_PROVIDERS:

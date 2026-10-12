@@ -1,8 +1,8 @@
 # Pricing source/API capability review
 
-Collection should prefer official structured rate catalogs. A model-list API that only returns IDs/capabilities is not a pricing API, and a usage/cost API reports incurred account charges rather than current public list rates. No third-party aggregator is used as a substitute for the originating provider.
+Collection should prefer official structured rate catalogs. A model-list API that only returns IDs/capabilities is not a pricing API, and a usage/cost API reports incurred account charges rather than current public list rates. A gateway quote is labeled as that gateway's billing price, never substituted for an originating provider's direct quote. Native discovery remains separate from explicit reviewed source bindings.
 
-## Source strategy for all 11 providers
+## Source strategy for all 12 reviewed billing providers
 
 | Provider | Structured pricing source | Current strategy | Credentials |
 | --- | --- | --- | --- |
@@ -17,14 +17,23 @@ Collection should prefer official structured rate catalogs. A model-list API tha
 | Google Vertex AI | Cloud Billing Catalog API `v1/services` and `v1/services/{id}/skus` | Complete USD SKU inventory with a key, plus pricing document for existing reviewed dashboard quotes; document-only fallback | `GOOGLE_CLOUD_BILLING_API_KEY` |
 | Amazon Bedrock | Public AWS Price List bulk JSON catalogs | Already structured feeds (`AmazonBedrock` and `AmazonBedrockFoundationModels`, `us-east-1`) | None |
 | Microsoft Foundry (Azure) | Azure Retail Prices API, `serviceName eq 'Foundry Models'` | Complete East US public USD service meters, including Azure OpenAI and other model families; reviewed OpenAI dashboard mappings stay separate | None |
+| Vercel AI Gateway | Public `GET https://ai-gateway.vercel.sh/v1/models` | Complete native catalog plus separately curated language-model token quotes with exact source IDs, prompt bands and Standard/Flex/Priority prices; no supplier-route inference | None |
 
 This is an API capability review, not a claim of exhaustive commercial coverage. The providers, source scopes and original units remain explicit. Authenticated listings may be account-scoped. Region scopes for existing Azure/AWS collection are unchanged.
 
-## Collection-only expansion
+## Source-native expansion and separate quote review
 
-The 15 additional providers use selected public pricing catalogs/documents with no new credentials: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They enrich the warehouse, not the reviewed comparisons. See [all source URLs, native units, scope boundaries and operational caveats](collection-expansion.md). Google Gemini Developer API and Vertex AI remain separate pricing sources.
+The 15 additional source groups use selected public pricing catalogs/documents with no new credentials: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. All enrich the native warehouse; 14 remain inventory-only. Vercel now also has a separately curated token-quote adapter. Native records still never enter comparisons directly. See [all source URLs, native units, scope boundaries and operational caveats](collection-expansion.md). Google Gemini Developer API and Vertex AI remain separate pricing sources.
+
+The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identities while preserving the original coverage. Source permission is explicit in `catalog/aliases.yaml`; a model alias present globally is not a price binding for every source. Newer AWS/Vertex/Foundry meters and unsupported source variants remain native-only.
 
 ## API details and limits
+
+### Vercel AI Gateway
+
+The [REST reference](https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api) defines token costs and `[min,max)` ranges (inclusive minimum, exclusive maximum). Reviewed prices convert USD/token to USD/1M and preserve each integer prompt interval. Missing, overlapping, incomplete or conflicting schedules fail closed. [Service tiers](https://vercel.com/docs/ai-gateway/models-and-providers/service-tiers) are best-effort routing requests, not latency or actual-served-tier guarantees.
+
+Only source-bound language identities and explicitly published Standard/Flex/Priority prices are quoted. Fast, ultrafast, regional, Batch and non-token components stay in the full native rules; no supplier endpoint is inferred. Cache-write TTL is unverified, not copied from another provider. Quote parsing can fail while the complete fetched native source is retained and last-good comparison prices remain intact. No inference API is called.
 
 ### Microsoft Foundry (Azure)
 

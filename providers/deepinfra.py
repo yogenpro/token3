@@ -1,10 +1,11 @@
 import json
-from .common import fetch_text, number, observation, parse_or_archive, snapshot
+from .common import fetch_text, number, observation, parse_or_archive, provider_aliases, snapshot
 
 SOURCE = "https://api.deepinfra.com/models/list"
 
 
 def parse(body, aliases):
+    aliases = provider_aliases(aliases, "deepinfra")
     models = json.loads(body)
     if not isinstance(models, list):
         raise ValueError("DeepInfra catalog must be an array")

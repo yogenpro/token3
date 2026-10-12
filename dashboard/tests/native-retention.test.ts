@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSyn
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { buildDashboardAssets, classifyRecordChange, projectRecord } from '../../scripts/dashboard_projection';
-import { nativeChangesSchema, providerCatalogSchema } from '../src/lib/catalog';
+import { projectedEvents, projectedProvider } from './projected-assets';
 
 const first = '2026-10-10T07:00:00Z';
 const second = '2026-10-11T07:00:00Z';
@@ -93,7 +93,7 @@ describe('compact latest observation projection', () => {
     const before = [...readdirSync(path).filter((p) => p.endsWith('.json') || p.endsWith('.jsonl')), 'provider_catalogs/vertex.json']
       .map((file) => [file, readFileSync(join(path, file), 'utf8')] as const);
     const assets = buildDashboardAssets(path);
-    const detail = providerCatalogSchema.parse(JSON.parse(assets.get('catalog/providers/vertex.json')!));
+    const detail = projectedProvider(assets, 'vertex');
     expect(detail.pricing_observation?.observed_at).toBe(third);
     expect(detail.pricing_observation?.source_sha256).toBe('3'.repeat(64));
     expect(detail.records.map((r) => r.rates[0].conditions.effective_time)).toEqual([third, '2026-10-12T07:10:00Z']);
@@ -101,10 +101,10 @@ describe('compact latest observation projection', () => {
     expect(detail.records.every((r) => r.google_pricing_time_mode === 'latest' && !r.comparison_eligible)).toBe(true);
     expect(JSON.stringify(detail)).not.toContain('must-not-publish');
     expect(JSON.parse(assets.get('catalog/index.json')!).providers[0].changed_at).toBe(second);
-    const prices = nativeChangesSchema.parse(JSON.parse(assets.get('catalog/changes/price.json')!));
+    const prices = projectedEvents(assets, 'catalog/changes/price.json');
     expect(prices.events).toHaveLength(1);
     expect(prices.events[0].observed_at).toBe(second);
-    expect(nativeChangesSchema.parse(JSON.parse(assets.get('catalog/changes/rule.json')!)).events).toHaveLength(0);
+    expect(projectedEvents(assets, 'catalog/changes/rule.json').events).toHaveLength(0);
     for (const [file, content] of before) expect(readFileSync(join(path, file), 'utf8')).toBe(content);
   });
   it('retains older past as-of timestamps with a validated source-time warning', () => {
@@ -112,7 +112,7 @@ describe('compact latest observation projection', () => {
     provider.last_seen_at = '2026-10-12T21:00:00Z';
     provider.google_pricing_observation.older_than_documented_window_count = 2;
     write('provider_inventory.json', { updated_at: provider.last_seen_at, provider_count: 1, providers: [provider] });
-    const detail = providerCatalogSchema.parse(JSON.parse(buildDashboardAssets(path).get('catalog/providers/vertex.json')!));
+    const detail = projectedProvider(buildDashboardAssets(path), 'vertex');
     expect(detail.pricing_observation?.older_than_documented_window_count).toBe(2);
     expect(detail.records.map((r) => r.rates[0].conditions.effective_time)).toEqual([third, '2026-10-12T07:10:00Z']);
     expect(detail.records.every((r) => r.google_pricing_time_mode === 'latest' && !r.comparison_eligible)).toBe(true);
@@ -136,7 +136,7 @@ describe('compact latest observation projection', () => {
     delete entries[2].google_pricing_time_mode;
     writeFileSync(file, entries.map((e) => JSON.stringify(e)).join('\n') + '\n');
     const assets = buildDashboardAssets(path);
-    expect(nativeChangesSchema.parse(JSON.parse(assets.get('catalog/changes/price.json')!)).events).toHaveLength(0);
-    expect(nativeChangesSchema.parse(JSON.parse(assets.get('catalog/changes/rule.json')!)).events).toHaveLength(1);
+    expect(projectedEvents(assets, 'catalog/changes/price.json').events).toHaveLength(0);
+    expect(projectedEvents(assets, 'catalog/changes/rule.json').events).toHaveLength(1);
   });
 });

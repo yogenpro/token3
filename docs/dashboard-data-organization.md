@@ -10,25 +10,33 @@ No database or paid storage is required. Vite generates the projections for deve
 
 ## Navigation
 
-- **Compare prices** remains the default. Its exact models, USD/token calculations, prompt bands, tiers, cloud regions and observed-price charts are unchanged.
-- **Model explorer** separates reviewed canonical models from collected API listings. Each collected row retains its provider and route/flavor context. Equal-looking names do not create canonical aliases. Document labels and cloud SKUs are not counted as API model identities; they are searchable on provider pages.
-- **Providers** covers every collected provider group, including gateways and native-unit platforms. Search/filter by source, access type, record kind, billing basis and pricing state. Detail pages retain source-native billing expressions, scope, metadata, provenance and limitations. Records and provider pages have shareable URL parameters.
-- **Recent changes** separates reviewed comparison events, native amount changes, billing rules, and catalog discoveries/absences/metadata. Discovery dates are not launch dates. Source absence is not proof of discontinuation.
+- **Compare prices** remains the default. USD/token calculations, prompt bands, tiers and regions keep their existing semantics. Billing-source counts distinguish gateways and quote counts; unpublished context fit/account access stay visible. A searchable model picker and six-item local recent-model list fit the expanded catalog. Single-date histories show a compact first-observation snapshot; charts require observations spanning multiple dates. No earlier history is invented.
+- **Model explorer** separates reviewed canonical models from collected API listings. Reviewed models filter by creator/family/billing provider; collected listings filter by source, published modality, billing basis and pricing state. Each collected row retains its provider and route/flavor context. Equal-looking names do not create aliases. Document labels and cloud SKUs are searchable in Providers, not counted as API model identities.
+- **Providers** starts with summaries, then compact source indexes. Search covers every indexed identity, scope label, unit/currency and published modality, not full raw JSON or only displayed rows. API model/route, cloud billing dimension and document evidence detail layouts preserve original conditions, source expressions, metadata and provenance. Full expressions are expandable; complete record evidence loads only on selection/export. URLs preserve provider/record identity.
+- **Recent changes** separates reviewed events from native amounts, billing rules, and catalog discoveries/absences/metadata. Native views start with observation batches, grouped by provider, exact observed timestamp and category. Opening a batch fetches only chunks intersecting the current event page. Explicit label/provider/event searches examine all selected batches with visible loading/failure states. Discovery dates are not launch dates; source absence is not discontinuation.
+- **Coverage** loads only the summary index. Reviewed models/retained and active offers, provider-scoped listings, and mixed native records have different denominators. It shows record kinds, display billing facets, pricing certainty, single-provider/gateway-only comparison depth, unpublished context limits, verified reviewed price events and per-source check status. Counts are derived, never a blanket review percentage or release-date claim.
 - **Methodology** documents collection scope, freshness, calculator limitations and exports.
 
 ## Lazy assets
 
-The comparison landing page requests no native catalog assets. Native views load a small `catalog/index.json`. `catalog/models.json` loads only for collected model listings. A provider detail file loads only after opening that provider; source history loads only when requested or selecting a record. Each native change category has its own lazy file.
+The comparison landing page requests no native assets. Native views load a small `catalog/index.json` (schema 2). Coverage needs no catalog payloads. Models, provider details and history use schema-2 manifests, referencing content-addressed schema-1 chunks; these versions describe public delivery, not a warehouse migration.
 
 Generated public paths:
 
-- `catalog/index.json`
-- `catalog/models.json`
-- `catalog/providers/<provider>.json`
-- `catalog/history/<provider>.json`
-- `catalog/changes/{price,rule,catalog}.json`
+- `catalog/index.json`: provider scope/provenance and independently labeled coverage summaries.
+- `catalog/models.json`: manifest for complete provider-scoped listing indexes.
+- `catalog/providers/<provider>.json`: source notes/provenance, record count, index-chunk and full-evidence-chunk references.
+- `catalog/history/<provider>.json`: exact provider observation batches/counts and event-chunk references.
+- `catalog/changes/{price,rule,catalog}.json`: corresponding category observation-batch manifests.
+- `catalog/chunks/<sha256>.json`: immutable index, evidence, listing or event envelopes, each at most **512 KiB uncompressed**.
 
-Large tables and feeds are paginated. Search and exports operate on all matching records, not just the visible page. The existing global JSON export is explicitly a reviewed-comparison export; native catalogs are exported from provider pages.
+Each reference binds a safe same-origin path, exact SHA-256, UTF-8 byte length and row count. Browser verification requires Web Crypto on HTTPS or localhost; insecure LAN HTTP receives an explicit error, never a verification bypass. Manifests validate completeness; browser loads check bytes, hashes, schemas, counts and duplicate identities before exposing results. At most four chunk requests run concurrently, with per-request timeouts and cancellation of stale searches/selections. Oversized atomic records fail projection explicitly rather than truncating source evidence. Chunk failures remain recoverable errors, never apparent empty/short successful catalogs.
+
+Provider indexes contain exact source-local identities, display scope/billing/pricing facets, currencies/units, published modalities, at most two amount/unit previews (not complete conditions), and evidence pointers. Filtering/search examines the complete index. Full billing/metadata is not duplicated into search payloads; it remains accessible in selected evidence and filtered native exports. Those exports fetch every required evidence chunk and retain every matching record, not just the visible page; failed exports emit no partial file.
+
+Provider history is opt-in, including on a record deep link. Batch paging fetches only intersecting event chunks. Explicit full-history searches and selected-record history searches may fetch many bounded chunks; they show progress and return complete matching results only after all required chunks validate. Category/provider manifests share identical event chunks rather than duplicating whole histories. No retained event is discarded or retroactively reclassified to improve delivery sizes.
+
+The global JSON export remains reviewed-comparison data; native records export separately from provider pages. No warehouse file, reviewed history row, source hash or quote permission is changed by this delivery layer.
 
 ## Review and freshness are independent
 
@@ -50,6 +58,6 @@ Native history is an event timeline, not a mixed-unit line chart. Existing revie
 
 ## Validation
 
-Unit tests cover native decimals and units, missing currency/prices, source evidence, same-provider identity links, public projection fields, unsafe URLs, change classification and all real warehouse projections. Browser tests cover lazy loading, provider filters, native deep links, pagination/exports, broad model listings, separate feeds, retry behavior, mobile overflow and WCAG 2.1 AA checks. Existing calculator/history/branding tests remain active.
+Unit tests cover native amounts/units/unknowns, same-provider identity links, field/URL allowlists, unchanged economic event classification, current Google timestamp reconstruction, all real warehouse projections, separate coverage denominators, immutable UTF-8 chunk bounds/hashes/counts, missing/corrupt/duplicate chunks, oversized records and cross-chunk paging. Browser tests verify a payload-free comparison landing, index-only Coverage, index-before-evidence provider browsing, no automatic history on deep links, batch/event-page downloads, complete filtered exports, full-label history search, retry/no-partial states, directory/recent-model controls, sparse-history snapshots, mobile overflow and WCAG 2.1 AA in both themes. Existing calculator/history/branding tests remain active.
 
-Dashboard deployment remains separately gated and is not enabled by this presentation change.
+Dashboard deployment remains separately authorized and gated: the user subsequently approved this release to Actions-based GitHub Pages. `deploy.yml` is manual-only from `main`, gated by `ENABLE_PAGES=true`, and builds the exact dispatched SHA with the repository base path. Presentation changes, pushes and collection do not authorize or trigger future deployments.

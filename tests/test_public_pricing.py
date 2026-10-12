@@ -17,7 +17,10 @@ TIME = '2026-10-03T23:55:00Z'
 
 class PublicPricingTests(unittest.TestCase):
     def setUp(self):
-        _, self.aliases = catalog()
+        _, reviewed = catalog()
+        # These immutable historical fixtures exercise the original reviewed
+        # scope; current expansion fixtures have their own required-model tests.
+        self.aliases = reviewed.legacy
 
     def parse(self, provider, extension='md', as_of=AS_OF):
         body = (FIXTURES / (provider.__name__.split('.')[-1] + '.' + extension)).read_text()

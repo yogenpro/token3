@@ -1,6 +1,6 @@
-# Collection-only provider expansion
+# Source-native provider expansion
 
-The source warehouse now collects **26 providers**: the original 11 plus the 15 below. This expansion is **collection only**. It does not add canonical aliases, calculator quotes, or cross-provider equivalence. The reviewed dashboard remains at **12 models / 71 offerings across 11 providers**. Google Gemini Developer API and Google Vertex AI remain separate sources and commercial offerings.
+The source warehouse collects **26 provider groups**: the original 11 plus the 15 below. The original expansion was **collection only**. A subsequent [2026-10-11 explicit model review](reviewed-model-review.md) added separately curated Vercel gateway quotes and expanded reviewed coverage to **45 models / 216 offerings across 12 billing providers**. The other 14 expanded sources remain inventory-only; every native row, including Vercel rows, remains comparison-ineligible. Discovery never creates a canonical alias, quote or cross-provider equivalence automatically. Google Gemini Developer API and Google Vertex AI remain separate sources and commercial offerings.
 
 The existing source-native catalog/index and change-only history are reused. A later storage/presentation design can work from the collected evidence; this step does not introduce a database or universal cost schema.
 
@@ -28,7 +28,7 @@ All 15 sources currently work **without additional credentials**. None of their 
 
 ## Capture, identity and retention
 
-- New providers explicitly return `inventory_only=True`. The orchestrator rejects any such collector that tries to publish dashboard observations or retire offerings. Zero reviewed offerings is a successful collection, not an empty-price failure.
+- Fourteen expanded providers explicitly return `inventory_only=True`; the orchestrator rejects any such collector that tries to publish dashboard observations or retire offerings. Zero reviewed offerings is a successful collection, not an empty-price failure. Vercel's separately registered quote adapter requires explicit source bindings and full quote validation; its advertised catalog is not authoritative for retiring old reviewed offers.
 - Source responses are assembled in an internal transport envelope. That envelope is not a new storage design: the persisted records still use the existing source-native schema, `comparison_eligible: false`, and existing revisioned history.
 - Public API lists must be complete. OpenRouter totals/next-page markers are checked. Scaleway validates the whole paginated SKU count, unique SKUs and unchanged totals before selecting AI categories. Bounded response/catalog limits still apply.
 - Document source URLs, headings, tabs, original columns/cells, conditions and prose are retained. MDX region tabs and HTML/Markdown mixed tables do not lose their scope. Native DBU/credit/EUR amount changes retain stable row identities where the source establishes identity; no price-independent mapping is claimed for unlabeled ambiguous occurrences.
@@ -49,7 +49,7 @@ A second live capture left **13 of the 15 new catalogs byte-identical**. OpenRou
 
 Use Python **3.12 recommended; 3.9+ required** with the pinned requirements. `pypdf` is used only to read Snowflake's official consumption table. PDF responses are bounded to 8 MiB, at most 100 pages and 8 MiB of extracted text. The original bytes are hashed before extraction.
 
-Run only this expansion:
+Run only these expanded source groups (Vercel also validates its explicitly reviewed token quotes):
 
 ```bash
 python -m scripts.collect --strict \

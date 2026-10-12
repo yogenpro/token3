@@ -1,16 +1,22 @@
-from .common import fetch_text, markdown_tables, money, observation, parse_or_archive, snapshot
+from .common import fetch_text, markdown_tables, money, observation, parse_or_archive, provider_aliases, snapshot
 from .public_pricing import metadata, require_models, section
 
 SOURCE = "https://developers.openai.com/api/docs/pricing"
 FETCH_URL = SOURCE + ".md"
 ROWS = {"gpt-5.4 (<272K context length)": "gpt-5.4", "gpt-5.4": "gpt-5.4", "gpt-5.4-mini": "gpt-5.4-mini"}
-API_IDS = {"gpt-5.4": "gpt-5.4-2026-03-05", "gpt-5.4-mini": "gpt-5.4-mini-2026-03-17"}
+API_IDS = {"gpt-5.4": "gpt-5.4-2026-03-05", "gpt-5.4-mini": "gpt-5.4-mini-2026-03-17",
+           "gpt-6-astra": "gpt-6-astra", "gpt-6.1-sol": "gpt-6.1-sol", "gpt-6-luna": "gpt-6-luna", "gpt-6-sol": "gpt-6-sol"}
+ROWS.update({model: model for model in API_IDS if model.startswith("gpt-6")})
+LONG_CONTEXT_MODELS = frozenset(("gpt-5.4", "gpt-6-astra", "gpt-6.1-sol", "gpt-6-luna", "gpt-6-sol"))
 HEADER = ["Model", "Short context input", "Short context cached input", "Short context cache writes", "Short context output", "Long context input", "Long context cached input", "Long context cache writes", "Long context output"]
 
 
 def parse(body, aliases):
+    aliases = provider_aliases(aliases, "openai")
     records = []
     standard = section(body, "Standard pricing data", 3)
+    if "Prices per 1M tokens." not in body:
+        raise ValueError("OpenAI pricing token denominator is missing or changed")
     for header, cells in markdown_tables(standard):
         model = ROWS.get(cells[0])
         if model is None or API_IDS[model] not in aliases:
@@ -22,8 +28,8 @@ def parse(body, aliases):
         if short[0] is None or short[3] is None:
             raise ValueError("OpenAI input/output rate is missing")
         if long == [None] * 4:
-            if model == "gpt-5.4":
-                raise ValueError("Known GPT-5.4 long-prompt rates are missing; refusing to extrapolate short pricing")
+            if model in LONG_CONTEXT_MODELS:
+                raise ValueError("Known {} long-prompt rates are missing; refusing to extrapolate short pricing".format(model))
             bands = [(short, 0, None, "standard")]
         else:
             if long[0] is None or long[3] is None or "Short context: ≤272K input tokens. Long context: >272K input tokens." not in body:

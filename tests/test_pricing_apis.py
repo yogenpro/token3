@@ -22,7 +22,10 @@ TIME = "2026-10-03T12:00:00Z"
 
 class PricingAPITests(unittest.TestCase):
     def setUp(self):
-        _, self.aliases = catalog()
+        _, reviewed = catalog()
+        # API transport/fallback fixtures capture the original reviewed scope.
+        # Required current-generation quotes are covered by expansion fixtures.
+        self.aliases = reviewed.legacy
         self.environment = patch.dict(os.environ, {}, clear=True)
         self.environment.start()
         self.addCleanup(self.environment.stop)

@@ -8,11 +8,13 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 
 ### Current scope and operating mode
 
-- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, price history, provenance, and explicitly reviewed exports.
-- **Models and Providers:** a separate provider-scoped model/route/flavor directory and native pricing/rule evidence, including unknown prices, currencies and non-token units. Discovery does not establish model equivalence or make a record calculator-eligible.
-- **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. These are not mixed-unit price charts or vendor launch/delisting announcements.
+- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
+- **Models and Providers:** separate reviewed and provider-scoped directories, with creator/family/provider or modality/billing/pricing-state filters. Lightweight indexes lead to on-demand native evidence, including unknown prices, currencies and non-token units. Discovery never makes a record calculator-eligible.
+- **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. Native history opens as observation batches; event pages load bounded chunks. Explicit full-history searches examine all matching batches, never just the visible page. These are not mixed-unit price charts or launch/delisting announcements.
+- **Coverage:** distinct reviewed-model/active-offer, source-listing and native-record counts, billing/pricing facets, comparison-depth limits and per-source check status. No misleading percentage combines those different denominators.
 - **Operations:** daily collection and CI are active; main-branch CI/collection failures create no-AI issue handoffs for a manually launched local coding agent.
-- **Not enabled:** GitHub Pages deployment and the legacy paid-API self-healing workflow. A subscription worker was considered and deferred; no worker or hosted AI repair/review has been configured.
+- **Publishing:** GitHub Pages is configured for explicitly authorized, manual-only releases from `main`, gated by `ENABLE_PAGES=true`. A push, build or collection does not authorize deployment.
+- **Not enabled:** the legacy paid-API self-healing workflow. A subscription worker was considered and deferred; no worker or hosted AI repair/review has been configured.
 
 Collector health, retained reviewed coverage, native pricing certainty and freshness are independent. Missing prices are not free; a successful recent collection does not mean all records were reviewed. See [the three data layers and dashboard views](docs/dashboard-data-organization.md).
 
@@ -27,7 +29,7 @@ npm ci
 npm run dev
 ```
 
-Open **http://localhost:5173**. Real observations are included, so no collection or Python setup is needed just to view the dashboard.
+Open **http://localhost:5173**. Native chunk verification uses Web Crypto: use localhost or HTTPS, not an insecure LAN HTTP origin. Real observations are included, so no collection or Python setup is needed just to view the dashboard.
 
 To refresh official prices:
 
@@ -61,7 +63,7 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ## What’s built
 
-- Model selector and watchlist for 12 manually curated canonical models, including proprietary OpenAI, Anthropic, and Google releases.
+- Searchable model selector and recent-model navigation for 45 manually curated canonical models, including recent OpenAI/Claude releases and broader Google, Qwen, DeepSeek, GLM, MiniMax, Kimi, Nemotron, Llama and Grok coverage.
 - Current input/output/cache read/cache write comparisons with precision, context, variant, service tier, and region.
 - Per-request, total-workload, and per-million-request cost calculations. Set requests to `1,000,000` for that total.
 - Cheapest estimate for your actual input/output/cache mix; inapplicable prompt-price bands and known context/output limits cannot win.
@@ -77,38 +79,116 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ### Reviewed coverage and collection scope
 
-Reviewed baseline: **12 canonical models / 71 recorded offerings / 11 reviewed providers**.
+Reviewed baseline: **45 canonical models / 216 recorded offerings / 12 reviewed providers**.
 
-These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 71 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation.
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 216 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation.
 
-| Canonical model | Providers with recorded reviewed offerings (including inactive) |
-| --- | --- |
-| GPT-OSS 120B | DeepInfra, Novita, Together AI, Fireworks, Groq, Amazon Bedrock |
-| GPT-OSS 20B | DeepInfra, Novita, Groq, Amazon Bedrock |
-| Llama 3.3 70B Instruct | DeepInfra, Novita, Together AI |
-| Llama 3.1 8B Instruct | DeepInfra, Novita |
-| Qwen3 235B A22B Instruct 2507 | DeepInfra, Novita |
-| GPT-5.4 (2026-03-05) | OpenAI API, Microsoft Foundry (Azure OpenAI) |
-| GPT-5.4 mini (2026-03-17) | OpenAI API, Microsoft Foundry (Azure OpenAI) |
-| Claude Sonnet 4.6 | Anthropic API, Google Vertex AI, Amazon Bedrock |
-| Claude Opus 4.6 | Anthropic API, Google Vertex AI, Amazon Bedrock |
-| Claude Haiku 4.5 (2025-10-01) | Anthropic API, Google Vertex AI, Amazon Bedrock |
-| Gemini 3.8 Flash | Google Gemini API, Google Vertex AI |
-| Gemini 3.5 Flash-Lite | Google Gemini API, Google Vertex AI |
+This is the complete **reviewed canonical model list**, not every model name, route, flavor or SKU in the broader native inventory. Canonical IDs keep versions and variants explicit.
 
-Claude 4.6 releases are labeled legacy, as in Anthropic's model references: they are included for their verifiable cross-cloud coverage, not presented as the newest Claude versions. Proprietary GPT models are compared with Azure; they are not falsely listed on Bedrock or Vertex. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
+| Canonical model | Canonical ID | Providers with recorded reviewed offerings (including inactive) |
+| --- | --- | --- |
+| GPT-OSS 120B | `openai/gpt-oss-120b` | DeepInfra, Novita, Together AI, Fireworks, Groq, Amazon Bedrock |
+| GPT-OSS 20B | `openai/gpt-oss-20b` | DeepInfra, Novita, Groq, Amazon Bedrock |
+| Llama 3.3 70B Instruct | `meta/llama-3.3-70b-instruct` | DeepInfra, Novita, Together AI |
+| Llama 3.1 8B Instruct | `meta/llama-3.1-8b-instruct` | DeepInfra, Novita |
+| Qwen3 235B A22B Instruct 2507 | `qwen/qwen3-235b-a22b-instruct-2507` | DeepInfra, Novita |
+| GPT-5.4 (2026-03-05) | `openai/gpt-5.4` | OpenAI API, Microsoft Foundry (Azure OpenAI) |
+| GPT-5.4 mini (2026-03-17) | `openai/gpt-5.4-mini` | OpenAI API, Microsoft Foundry (Azure OpenAI) |
+| Claude Sonnet 4.6 | `anthropic/claude-sonnet-4.6` | Anthropic API, Google Vertex AI, Amazon Bedrock |
+| Claude Opus 4.6 | `anthropic/claude-opus-4.6` | Anthropic API, Google Vertex AI, Amazon Bedrock |
+| Claude Haiku 4.5 (2025-10-01) | `anthropic/claude-haiku-4.5` | Anthropic API, Google Vertex AI, Amazon Bedrock |
+| Gemini 3.8 Flash | `google/gemini-3.8-flash` | Google Gemini API, Google Vertex AI |
+| Gemini 3.5 Flash-Lite | `google/gemini-3.5-flash-lite` | Google Gemini API, Google Vertex AI |
+| GPT-6 Astra | `openai/gpt-6-astra` | OpenAI API, Vercel AI Gateway |
+| GPT-6.1 Sol | `openai/gpt-6.1-sol` | OpenAI API, Vercel AI Gateway |
+| GPT-6 Luna | `openai/gpt-6-luna` | OpenAI API, Vercel AI Gateway |
+| GPT-6 Sol | `openai/gpt-6-sol` | OpenAI API, Vercel AI Gateway |
+| Claude Opus 5.5 | `anthropic/claude-opus-5.5` | Anthropic API, DeepInfra, Vercel AI Gateway |
+| Claude Sonnet 5.5 | `anthropic/claude-sonnet-5.5` | Anthropic API, DeepInfra, Vercel AI Gateway |
+| Claude Haiku 5.5 | `anthropic/claude-haiku-5.5` | Anthropic API, Vercel AI Gateway |
+| Claude Fable 5 | `anthropic/claude-fable-5` | Anthropic API, DeepInfra, Vercel AI Gateway |
+| Claude Fable 5.1 | `anthropic/claude-fable-5.1` | Anthropic API, Vercel AI Gateway |
+| Claude Mythos 5.1 | `anthropic/claude-mythos-5.1` | Anthropic API |
+| Gemini 3.1 Pro Preview | `google/gemini-3.1-pro-preview` | Google Gemini API, Vercel AI Gateway |
+| Gemma 4 31B IT | `google/gemma-4-31b-it` | DeepInfra, Novita, Vercel AI Gateway |
+| Gemma 4 26B A4B IT | `google/gemma-4-26b-a4b-it` | DeepInfra, Novita, Vercel AI Gateway |
+| Gemma 4 E4B IT | `google/gemma-4-e4b-it` | DeepInfra |
+| Qwen3.8 27B | `qwen/qwen3.8-27b` | DeepInfra, Groq, Novita, Vercel AI Gateway |
+| Qwen3.8 2.4T A95B | `qwen/qwen3.8-2.4t-a95b` | DeepInfra, Novita, Vercel AI Gateway |
+| Qwen3.8 Flash | `qwen/qwen3.8-flash` | DeepInfra, Novita, Vercel AI Gateway |
+| Qwen3.8 Max | `qwen/qwen3.8-max` | DeepInfra, Novita, Vercel AI Gateway |
+| DeepSeek V4.1 Flash | `deepseek/deepseek-v4.1-flash` | DeepInfra, Novita, Vercel AI Gateway |
+| DeepSeek V4 Pro 0813 | `deepseek/deepseek-v4-pro-0813` | DeepInfra, Novita, Vercel AI Gateway |
+| GLM-5.3 | `zai/glm-5.3` | DeepInfra, Novita, Vercel AI Gateway |
+| GLM-5.3 Flash | `zai/glm-5.3-flash` | DeepInfra, Novita, Vercel AI Gateway |
+| GLM-5.3 FlashX | `zai/glm-5.3-flashx` | Vercel AI Gateway |
+| MiniMax M3 | `minimax/minimax-m3` | DeepInfra, Vercel AI Gateway |
+| Kimi K3 | `moonshotai/kimi-k3` | DeepInfra, Novita, Vercel AI Gateway |
+| Kimi K2.7 Code | `moonshotai/kimi-k2.7-code` | DeepInfra, Novita, Vercel AI Gateway |
+| Nemotron 3.5 Lightning | `nvidia/nemotron-3.5-lightning` | DeepInfra, Vercel AI Gateway |
+| Nemotron 3 Ultra 550B A55B | `nvidia/nemotron-3-ultra-550b-a55b` | DeepInfra, Vercel AI Gateway |
+| Nemotron 3 Super 120B A12B | `nvidia/nemotron-3-super-120b-a12b` | DeepInfra, Vercel AI Gateway |
+| Nemotron 3 Nano 30B A3B | `nvidia/nemotron-3-nano-30b-a3b` | DeepInfra, Novita, Vercel AI Gateway |
+| Llama 4 Maverick 17B 128E Instruct | `meta/llama-4-maverick-17b-128e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
+| Llama 4 Scout 17B 16E Instruct | `meta/llama-4-scout-17b-16e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
+| Grok 4.7 | `xai/grok-4.7` | Vercel AI Gateway |
+
+Claude 4.6 releases remain labeled legacy for verifiable historical cross-cloud coverage. GPT-5.4/mini retain their Azure comparisons; newer GPT-6 identities have separately reviewed OpenAI and Vercel quotes, not automatically inferred AWS/Azure/Vertex quotes. Vercel is the billing gateway, **not an asserted upstream supplier**. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
 
 ### Full source-native inventory (separate from comparisons)
 
-Collection scope: **26 provider groups**, including 15 **inventory-only** sources: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. They do not automatically add dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+Collection scope: **26 provider groups**, including 14 **inventory-only** sources: OpenRouter, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. Vercel AI Gateway now has a separate explicitly curated token-quote adapter; its complete native catalog remains comparison-ineligible. Collection never automatically adds dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+
+#### Recent/current-generation models now reviewed
+
+The **2026-10-11** review added **33 canonical identities and 145 first-observed offerings**, without deleting older models or backfilling history. It includes the requested Opus 5.5, Fable 5/5.1, GPT-6.1 Sol, GPT-6 Luna and GPT-6 Astra, plus the additional families/version-specific variants in the complete table above. This is a selected recent/current-generation expansion, **not a claim that every new model or provider route has been reviewed**. A family's newest collected version need not have launched recently; observation dates are not release dates.
+
+`catalog/aliases.yaml` now binds each new identity to explicit **reviewed provider/source IDs**. Recognition of the same model elsewhere is not permission to publish that source's price. For example, Novita's tiered MiniMax M3 pricing and newer cloud meters remain native-only pending their own billing review. Fast/Highspeed, Decisions, Pro, dated versus mutable releases, embeddings, ASR and multimodal-only products are not merged by name. Vercel quotes keep explicit Standard/Flex/Priority prompt bands; Fast, ultrafast, regional and Batch variants stay native-only.
+
+The captured version is **GPT-6 Luna**, not `gpt-6.1-luna`. API pricing is separate from ChatGPT subscription access. Mythos 5.1 is labeled limited availability, and Gemini 3.1 Pro is Preview; a published price does not guarantee account access. See [the review scope, primary evidence and deliberate exclusions](docs/reviewed-model-review.md).
+
+#### All collected provider groups
+
+All **12 reviewed providers** also have native inventory; the other **14 groups are native-inventory-only**. These are billing/source groups, not model creators or inferred upstream suppliers. Google Gemini API means the Gemini Developer API, separate from Vertex AI billing. Microsoft Foundry's reviewed quotes are Azure OpenAI offerings; its native meter inventory has broader scope.
+
+| Provider group | Collector ID | Coverage |
+| --- | --- | --- |
+| Alibaba Cloud Model Studio | `alibaba` | Native inventory only |
+| Anthropic API | `anthropic` | Reviewed comparisons + native inventory |
+| Microsoft Foundry (Azure OpenAI) | `azure` | Reviewed comparisons + native inventory |
+| Amazon Bedrock | `bedrock` | Reviewed comparisons + native inventory |
+| Cloudflare Workers AI | `cloudflare` | Native inventory only |
+| Databricks | `databricks` | Native inventory only |
+| DeepInfra | `deepinfra` | Reviewed comparisons + native inventory |
+| DeepSeek | `deepseek` | Native inventory only |
+| Fireworks | `fireworks` | Reviewed comparisons + native inventory |
+| Google Gemini API | `gemini` | Reviewed comparisons + native inventory |
+| Groq | `groq` | Reviewed comparisons + native inventory |
+| Hugging Face Inference | `huggingface` | Native inventory only |
+| MiniMax | `minimax` | Native inventory only |
+| Nebius Token Factory | `nebius` | Native inventory only |
+| Novita | `novita` | Reviewed comparisons + native inventory |
+| OpenAI API | `openai` | Reviewed comparisons + native inventory |
+| OpenRouter | `openrouter` | Native inventory only |
+| Oracle Cloud Generative AI | `oracle` | Native inventory only |
+| OVHcloud AI Endpoints | `ovhcloud` | Native inventory only |
+| Scaleway Generative APIs | `scaleway` | Native inventory only |
+| Snowflake Cortex | `snowflake` | Native inventory only |
+| Together AI | `together` | Reviewed comparisons + native inventory |
+| Vercel AI Gateway | `vercel` | Reviewed comparisons + native inventory |
+| Google Vertex AI | `vertex` | Reviewed comparisons + native inventory |
+| xAI | `xai` | Native inventory only |
+| Z.ai | `zai` | Native inventory only |
+
+Native model/route/flavor identities can be enumerated in the dashboard's **Models → Collected** directory or `catalog/models.json` public projection. All selected evidence, including non-model meters, SKUs and document rows, is in the per-provider catalogs and **Providers → Export filtered records**. Those are source-scoped listings—not an additional deduplicated canonical model list. Their volatile totals are not the reviewed baseline above.
 
 `data/provider_catalogs/<provider>.json` stores the complete selected catalog as a common source-native record schema: model IDs, meters, SKU dimensions, document rows, native billing rules/expressions, currency, units, regions, tiers, effective dates and relevant metadata. No dashboard alias filter is applied. Numerical monetary amounts are decimal strings; units are only attached when the source establishes them. Complex formulas, conditional schedules, native billing integers, ambiguous units and qualitative prices remain explicit—not guessed into USD/token rates. Document-row IDs are source-local identifiers, not canonical model equivalence. See [the inventory schema and retention policy](docs/data-collection.md).
 
 This is **storage normalization**, not universally comparable cost normalization. Every native row stays `comparison_eligible: false`, even when its amount is structured or it links to a reviewed model. Reviewed comparisons use separately curated offering/price files; discovery never promotes native rows into those files. The Providers view exposes selected public evidence without promoting native rates into the calculator. Sources are scoped listings, not proof of exhaustive commercial availability; existing AWS/Azure regions remain unchanged. Native record/listing counts are evidence counts, not unique-model or comparable-price counts. See [dashboard organization and projection rules](docs/dashboard-data-organization.md).
 
-Known limits remain explicit: OVHcloud currency is unverified; Snowflake PDF cells/table alignment are not curated model-to-rate mappings; gateway listings do not identify unverified supplier endpoints. Lazy loading avoids downloading native assets on the comparison landing page, but an opened provider/history asset can still be large—pagination does not reduce its downloaded bytes.
+Known limits remain explicit: OVHcloud currency is unverified; Snowflake PDF cells/table alignment are not curated model-to-rate mappings; gateway listings do not identify unverified supplier endpoints. The comparison landing page downloads no native assets. Public native data uses schema-2 manifests and immutable SHA-256-addressed chunks capped at **512 KiB uncompressed**. Provider browsing loads compact search indexes, not complete billing payloads; evidence loads on selection/export, and history loads only on request. Pagination limits event-page downloads, while explicit complete exports and full-history searches can still fetch many chunks. Counts, hashes and byte sizes are validated; failures never produce partial successful exports.
 
 `provider_inventory.json` indexes current catalogs. `inventory_history.jsonl` records first discoveries and subsequent meaningful record/billing-condition changes; identical model lists with reordered JSON or changed HTML scripts do not create versions. `collection_checks.jsonl` retains small success/failure check records. Source-row absence is recorded as “no longer listed”, not an inferred vendor delisting. Existing curated CSV observations and all pre-existing raw source files are preserved unchanged; new unchanged daily observations are no longer appended.
 
@@ -127,11 +207,12 @@ With `--archive-lookups`, changed public-document catalogs receive best-effort W
 | Together AI | [List Models API](https://docs.together.ai/reference/models) / [serverless docs fallback](https://docs.together.ai/docs/serverless-models) | API `pricing.input`, `output`, optional `cached_input` in USD/1M for text models; other modality/billing fields remain raw. Exact IDs and published context; no fabricated precision. Requires `TOGETHER_API_KEY`. |
 | Fireworks | [Serverless catalog API](https://github.com/fw-ai/fireconnect/blob/main/packages/setup-cli/lib/fireworks/models.mjs) / [pricing docs fallback](https://docs.fireworks.ai/serverless/pricing) | Complete paginated `/v1/serverless/models` without a coding-only filter. Per-mode input/cache/output SKUs with explicit `1M tokens` units; Standard and Priority quoted, Fast/Spot retained raw. Requires `FIREWORKS_API_KEY`. |
 | Groq | [Supported model Markdown](https://console.groq.com/docs/models.md) | Fetches official machine-readable `.md` rather than HTML. “Contact Sales” entries are excluded, never assigned invented list prices. Models API metadata does not contain prices. |
-| OpenAI API | [Official pricing](https://developers.openai.com/api/docs/pricing) | Official `.md` Standard table; pinned GPT releases, explicit short/long prompt rates, never Batch/Fast rates relabeled Standard. |
-| Anthropic API | [Official pricing](https://platform.claude.com/docs/en/about-claude/pricing) | Base-input/output and distinct cache-read/5-minute cache-write rates. First-party global endpoint. |
+| OpenAI API | [Official pricing](https://developers.openai.com/api/docs/pricing) | Official `.md` Standard table, verified USD/1M denominator; retained pinned GPT-5.4 releases and exact GPT-6 IDs, explicit short/long and cache-write rates, never Batch/Fast rates relabeled Standard. |
+| Anthropic API | [Official pricing](https://platform.claude.com/docs/en/about-claude/pricing) | Base-input/output and distinct cache-read/5-minute cache-write rates; explicit Haiku 5.5 100K bands and Mythos limited availability. First-party global endpoint. |
 | Google Gemini API | [Official paid pricing](https://ai.google.dev/gemini-api/docs/pricing) | Paid Standard/Priority/Flex tables, not free or Batch tiers. Introductory prices selected by UTC date; token-hour cache storage is not a cache token rate. |
 | Google Vertex AI (GCP) | [Cloud Billing Catalog API](https://docs.cloud.google.com/billing/v1/how-tos/catalog-api) + [official pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) | With `GOOGLE_CLOUD_BILLING_API_KEY`, discovers Vertex service and archives every public USD SKU, unit, region and tiered price. Reviewed dashboard quotes retain semantic document tabs: Gemini global/non-global tiers and dated promotions; Claude Global only. No speculative SKU-to-model mapping. |
 | Amazon Bedrock (AWS) | [Official pricing](https://aws.amazon.com/bedrock/pricing/) and public AWS Price List feeds | `AmazonBedrock` and `AmazonBedrockFoundationModels` US East (N. Virginia) catalogs. Explicit USD/1K or USD/1M units; Bedrock Runtime, global/regional Claude quotes, no inferred first-party pricing. |
+| Vercel AI Gateway | [Public model catalog](https://ai-gateway.vercel.sh/v1/models) / [field semantics](https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api) | Explicit source-bound language identities only. USD/token × 1,000,000; half-open integer prompt ranges, separately published Standard/Flex/Priority prices. Default gateway route, not an inferred upstream endpoint; full native rules remain available. |
 | Microsoft Foundry (Azure) | [Public USD retail meters](https://prices.azure.com/api/retail/prices) | Complete East US `Foundry Models` service inventory, including Azure OpenAI and other Azure-metered model families. All published units/capacity/reservation meters are retained natively. Dashboard quotes remain reviewed OpenAI consumption USD/1M groups: Global/US Data Zone and Standard/Priority/long-context; Batch, reservations and provisioned units are not calculator quotes. Marketplace-only partner prices and Foundry Tools are outside this feed. |
 
 Every observation includes the official URL, UTC timestamp, currency, and SHA-256 of its source payload. Multi-feed/page collectors hash the complete assembled JSON response. Sources can change layout: parsers fail closed on ambiguous units, invalid rates, unsupported price tables, or an empty tracked snapshot. Fixture tests cover each parser without making network requests.
@@ -175,9 +256,9 @@ cost_per_million_requests = cost_per_request × 1,000,000
 workload_cost            = cost_per_request × number_of_requests
 ```
 
-Cache-write fees are visible but **not** included; the calculator assumes an already-populated cache. Claude cache-write quotes use a **5-minute TTL**; 1-hour writes are not mixed in. Cache storage per token-hour, grounding, and server-side tool fees are excluded.
+Cache-write fees are visible but **not** included; the calculator assumes an already-populated cache. First-party Anthropic and existing reviewed Claude cloud cache-write quotes use a **5-minute TTL**; 1-hour writes are not mixed in. Other sources' cache-write TTLs are not assumed equivalent when unpublished; quote notes retain that uncertainty. Cache storage per token-hour, grounding, and server-side tool fees are excluded.
 
-Prompt-price bands use the **entire input, including cached tokens**. GPT-5.4 uses short pricing through 272,000 input tokens and long pricing above that. Inapplicable bands have no estimate and cannot win. Known combined context checks include input **plus** output; known output caps are checked separately. Gemini's documented 1,048,576 input / 65,536 output limits are separate and are not fabricated into a combined context window. Unknown cloud endpoint capacities remain explicitly unverified, not assumed unlimited.
+Prompt-price bands use the **entire input, including cached tokens**. GPT-5.4 and the reviewed GPT-6 versions use short pricing through 272,000 input tokens and long pricing above that. Haiku 5.5 splits through/over 100,000; Gemini 3.1 Pro Preview splits through/over 200,000. Gateway intervals use their explicit source boundaries, not copied first-party prices. Inapplicable bands have no estimate and cannot win. Known combined context checks include input **plus** output; known output caps are checked separately. Gemini's documented 1,048,576 input / 65,536 output limits are separate and are not fabricated into a combined context window. Unknown cloud endpoint capacities remain explicitly unverified, not assumed unlimited.
 
 Gemini 3.8 Flash's introductory pricing is observed through December 31, 2026; collectors switch to the explicitly published January 1, 2027 rates on that UTC date, without backfilling future or past observations. There is no latency/quality equivalence claim, tax estimate, negotiated pricing, credit accounting, or inferred batch discount.
 
@@ -185,7 +266,7 @@ Gemini 3.8 Flash's introductory pricing is observed through December 31, 2026; c
 
 ```text
 catalog/models.yaml           canonical models
-catalog/aliases.yaml          exact manually reviewed aliases
+catalog/aliases.yaml          exact manually reviewed aliases and provider/source quote bindings
 providers/*.py                independent official-source parsers
 scripts/normalize.py          canonical IDs, validation, stable offering IDs
 scripts/detect_changes.py     event generation
@@ -224,14 +305,15 @@ Vite publishes an explicit allowlist: the seven reviewed/health files (`models.j
 Generated public native paths (build/dev assets, not committed `catalog/` authority files):
 
 ```text
-catalog/index.json                    lightweight provider/health index
-catalog/models.json                   provider-scoped collected listings
-catalog/providers/<provider>.json     native public detail/rates/rules
-catalog/history/<provider>.json       native source/record history
-catalog/changes/{price,rule,catalog}.json separate native event feeds
+catalog/index.json                    provider + coverage summary (schema 2)
+catalog/models.json                   collected-listing chunk manifest
+catalog/providers/<provider>.json     notes/provenance + index/evidence manifests
+catalog/history/<provider>.json       provider observation-batch manifest
+catalog/changes/{price,rule,catalog}.json category observation-batch manifests
+catalog/chunks/<sha256>.json           immutable bounded index/evidence/event chunks
 ```
 
-The Models, Providers and native Changes views lazy-load these projections. Original warehouse JSON/JSONL, raw or authenticated responses, legacy source archives, credentials and collector scripts are **not** copied wholesale into the public app. Reviewed and native exports remain separate.
+The Coverage view loads only the small summary index. Models, Providers and native Changes lazy-load their manifests and required chunks. Search operates over every indexed identity/scope/unit/currency/modality, not just displayed rows; complete billing expressions and metadata remain in record evidence and complete filtered exports. Chunked delivery changes neither warehouse storage nor historical classification. Original warehouse JSON/JSONL, raw or authenticated responses, legacy source archives, credentials and collector scripts are **not** copied wholesale into the public app. Reviewed and native exports remain separate. See [asset schemas, paging and failure semantics](docs/dashboard-data-organization.md).
 
 There is no application backend or SQL database: versioned files in Git are the data store. Vite's development asset middleware is not a production collection API. `PAGES_BASE_PATH` supports project Pages, user Pages, or another static subdirectory. The static dashboard fetches published files at runtime; Refresh reloads those files and never invokes collectors.
 
@@ -239,8 +321,8 @@ There is no application backend or SQL database: versioned files in Git are the 
 
 Follow [AGENTS.md](AGENTS.md) and keep inventory discovery separate from economic curation:
 
-- **Reviewed model/offer:** explicitly review identity, price basis and scope; edit `catalog/models.yaml` / `catalog/aliases.yaml` only for verified canonical relationships. Do not merge thinking/instruct versions or infer aliases by substring. Update the relevant reviewed parser/normalizer and regression fixtures.
-- **Provider/source collection:** add or extend a collector and register it in `scripts/collect.py`. Reviewed providers use their individual `providers/*.py` modules and `scripts/catalog_inventory.py`; inventory-only sources use `providers/expanded.py` and `scripts/extended_inventory.py`. Native records must remain comparison-ineligible.
+- **Reviewed model/offer:** explicitly review identity, price basis and scope; edit `catalog/models.yaml` / `catalog/aliases.yaml` only for verified canonical relationships. New entries require `reviewed_sources` with exact provider/source IDs; a global identity alias alone never authorizes a quote from another source. Do not merge thinking/instruct versions or infer aliases by substring. Update the relevant reviewed parser/normalizer and regression fixtures.
+- **Provider/source collection:** add or extend a collector and register it in `scripts/collect.py`. Reviewed providers use their individual `providers/*.py` modules and `scripts/catalog_inventory.py`; expanded sources use `providers/expanded.py` and `scripts/extended_inventory.py`, with Vercel's separate explicit quote adapter in `providers/reviewed_inventory.py`. Native records must remain comparison-ineligible.
 - **Presentation:** add provider metadata/color/access labels in `dashboard/src/lib/data.ts` and extend public projection/schema handling only with explicitly whitelisted evidence. Preserve original units, currencies, formulas, conditions and unknowns.
 - **Verification and documentation:** add fixtures/tests, use a provider-scoped strict **dry-run** first, review scope/economic changes, then use a legitimate strict collection for data writes. Update this README and the relevant guides in the same change. Only mark a catalog authoritative when its scope supports absence-based availability detection; source absence alone is not vendor delisting.
 
@@ -264,7 +346,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chrome npm run test:e2e
 ```
 
 ```bash
-PAGES_BASE_PATH=/tokentokentoken/ npm run build
+PAGES_BASE_PATH=/token3/ npm run build
 ```
 
 `dist/` can be deployed to any static host. No secrets are required for the build or dashboard; optional pricing API credentials are collector-only. Fonts are self-hosted with system-font fallbacks; the dashboard makes no third-party runtime requests. Prices and fonts are served locally from the built artifacts.
@@ -279,7 +361,7 @@ The selected production repository is **`yogenpro/token3` (public)**. Collection
 | `ci.yml` | Main-branch push, PR and manual tests/typecheck/build/browser checks. |
 | `failure-issues.yml` | Enabled (`ENABLE_FAILURE_ISSUES=true`); default-branch CI/collection failures only; issue-write permission, no code writes or AI. |
 | `self-heal.yml` | Disabled (`ENABLE_SELF_HEALING=false`); the legacy opt-in API repair/review/merge path is not the selected operating mode. |
-| `deploy.yml` | Manual-only, not enabled; requires separate deployment authorization and `ENABLE_PAGES=true`. |
+| `deploy.yml` | Explicitly authorized manual-only releases from `main`, gated by `ENABLE_PAGES=true`; builds the exact dispatched SHA. |
 | `inspect-fireworks.yml` | Optional manual authenticated catalog-structure diagnostic; no inference or pricing-data mutation. |
 
 Optional Actions secrets are `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, and `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
@@ -300,7 +382,7 @@ gh run list --limit 5
 
 Workflows expect the default branch to be `main`. The collection workflow commits using `GITHUB_TOKEN`; no PAT is baked into the project. Protected branches may require allowing the bot to push or switching to reviewed data PRs. Scheduled Actions are best-effort and may be delayed or disabled after prolonged repository inactivity; dispatch manually if needed.
 
-**Dashboard deployment is intentionally off.** `deploy.yml` is manual-only and additionally requires repository variable `ENABLE_PAGES=true`; Pages must be configured separately before dispatch. Collection does not depend on Pages. GitHub-token data commits do not trigger ordinary push CI workflows, so collector tests run within every collection job.
+**Dashboard deployment remains deliberate and manual-only.** The user authorized publishing the reviewed expansion and data-fit dashboard to GitHub Pages. This installation uses Actions-based Pages at **https://yogenpro.github.io/token3/** and repository variable `ENABLE_PAGES=true`; this gate does not authorize future releases by itself. After CI passes for the intended `main` commit, dispatch `gh workflow run deploy.yml --repo yogenpro/token3 --ref main`. The workflow rejects other branches, checks out the exact dispatch SHA, and builds with `/token3/` as its base path. Verify the run and public assets before reporting success. Collection does not depend on Pages, and neither pushes nor collection trigger deployments. GitHub-token data commits do not trigger ordinary push CI workflows, so collector tests run within every collection job.
 
 The public Pages site may be public even for a private repository depending on your GitHub plan. Check visibility before publishing.
 
@@ -318,6 +400,7 @@ Detailed guides:
 - [Collection schema, provenance, history and retention](docs/data-collection.md)
 - [Expanded provider scopes and known limitations](docs/collection-expansion.md)
 - [Reviewed pricing sources and API capabilities](docs/pricing-sources.md)
+- [Recent-model review, evidence and explicit source bindings](docs/reviewed-model-review.md)
 - [No-AI failure tickets and local-agent usage](docs/ci-failure-tickets.md)
 - [Legacy disabled recovery guardrails and residual risks](docs/self-healing.md)
 - [Original MVP plan (historical)](docs/mvp-plan.md)

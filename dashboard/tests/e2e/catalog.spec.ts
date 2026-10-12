@@ -50,6 +50,7 @@ test('native record deep links preserve unknown currency and source rules', asyn
   await expect(detail).toBeVisible();
   await expect(detail).toContainText('Currency unverified');
   await expect(detail).toContainText('Unreviewed billing · not compared');
+  await detail.getByText('Original billing expressions', { exact: true }).click();
   await expect(detail.locator('.source-json').first()).toContainText('native_rates');
   await expect(page.getByText('Currency is not stated in the selected catalog.', { exact: false })).toBeVisible();
   await page.reload();
@@ -79,6 +80,16 @@ test('catalog filters, pagination, and native export use all matching records', 
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);
   await page.locator('.native-catalog').getByRole('button', { name: 'Next page' }).click();
   await expect(page.locator('.native-catalog .catalog-pagination')).toContainText('Page 2');
+  const completeDownload = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Export filtered records' }).click();
+  const complete = await completeDownload;
+  const completeStream = await complete.createReadStream(); const completeChunks: Buffer[] = [];
+  for await (const chunk of completeStream!) completeChunks.push(Buffer.from(chunk));
+  const all = JSON.parse(Buffer.concat(completeChunks).toString('utf8'));
+  const original = catalog('openrouter').records;
+  expect(all.records.length).toBe(original.length);
+  expect(all.records.map((r: any) => r.id).sort()).toEqual(original.map((r: any) => r.id).sort());
+  expect(all.records.every((r: any) => r.comparison_eligible === false)).toBe(true);
   await page.getByLabel('Search native catalog').fill('gpt-oss-120b');
   await expect(page.locator('.native-catalog .catalog-pagination')).toContainText('Page 1');
   const downloadPromise = page.waitForEvent('download');
@@ -110,6 +121,7 @@ test('native changes separate prices, rules, and source absence', async ({ page 
   await page.goto('/?view=changes&feed=price');
   await expect(page.getByLabel('Search native changes')).toBeVisible();
   await page.getByLabel('Filter native changes by provider').selectOption('openrouter');
+  await page.getByRole('button', { name: /^Open openrouter price observation batch/ }).first().click();
   await expect(page.locator('.native-change').first()).toContainText('Published native amount changed');
   await expect(page.locator('.native-change').first()).toContainText('not a reviewed comparison');
   await page.getByRole('button', { name: 'Billing rules', exact: true }).click();
@@ -118,6 +130,7 @@ test('native changes separate prices, rules, and source absence', async ({ page 
   await page.getByRole('button', { name: 'Catalog changes', exact: true }).click();
   await page.getByLabel('Filter native changes by provider').selectOption('huggingface');
   await page.getByLabel('Search native changes').fill('No longer');
+  await page.getByRole('button', { name: 'Search all observations' }).click();
   await expect(page.locator('.native-change').first()).toContainText('Source absence is not proof');
 });
 
@@ -155,5 +168,6 @@ test('new catalog surfaces pass AA accessibility in both themes and fit mobile',
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   await page.getByRole('button', { name: 'Recent changes', exact: true }).click();
   await page.getByRole('button', { name: 'Native price amounts', exact: true }).click();
+  await page.getByRole('button', { name: /^Open .+ price observation batch/ }).first().click();
   await expect(page.locator('.native-change').first()).toBeVisible(); await audit();
 });

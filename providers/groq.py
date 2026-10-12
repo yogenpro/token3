@@ -1,12 +1,14 @@
 import re
-from .common import HTMLTables, fetch_text, markdown_tables, number, observation, parse_or_archive, snapshot
+from .common import HTMLTables, fetch_text, markdown_tables, number, observation, parse_or_archive, provider_aliases, snapshot
+from .public_pricing import require_models
 
 SOURCE = "https://console.groq.com/docs/models"
 FETCH_URL = SOURCE + ".md"
-IDS = ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant")
+IDS = ("openai/gpt-oss-120b", "openai/gpt-oss-20b", "llama-3.3-70b-versatile", "llama-3.1-8b-instant", "qwen/qwen3.8-27b")
 
 
 def parse(body, aliases):
+    aliases = provider_aliases(aliases, "groq")
     parser = HTMLTables()
     parser.feed(body)
     records = []
@@ -31,6 +33,7 @@ def parse(body, aliases):
 
 
 def parse_markdown(body, aliases):
+    aliases = provider_aliases(aliases, "groq")
     records = []
     for header, cells in markdown_tables(body):
         required = ("MODEL ID", "PRICE PER 1M TOKENS", "CONTEXT WINDOW (TOKENS)")
@@ -55,6 +58,9 @@ def parse_markdown(body, aliases):
             raise ValueError("Groq Markdown context window changed")
         records.append(observation("groq", model_id, number(input_rate.group(1)), number(output_rate.group(1)),
                                    SOURCE, context_window=int(context)))
+    # Historical Contact Sales models remain intentionally excluded. A newly
+    # reviewed public Qwen quote must not silently disappear on layout drift.
+    require_models(records, ("qwen/qwen3.8-27b",), aliases)
     return snapshot(records, body, SOURCE)
 
 

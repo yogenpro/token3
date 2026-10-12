@@ -70,6 +70,11 @@ def fetch_text(url: str, headers=None) -> str:
     return fetch_bytes(url, headers).decode("utf-8")
 
 
+def provider_aliases(aliases, provider):
+    """Scope identity aliases when the reviewed catalog carries permissions."""
+    return aliases.for_provider(provider) if hasattr(aliases, "for_provider") else aliases
+
+
 def snapshot(records, body, source_url, authoritative=False, source_kind=None):
     if not records:
         raise ValueError("No tracked, publicly priced models parsed; refusing an empty snapshot")

@@ -86,7 +86,9 @@ test('explorer and feed filters navigate and distinguish discoveries from cuts',
   await page.goto('/');
   await page.getByRole('button', { name: 'Model explorer', exact: true }).click();
   await page.getByRole('textbox', { name: 'Search models' }).fill('qwen');
-  await expect(page.locator('.explorer-table tbody tr')).toHaveCount(1);
+  const qwen = data.models.filter((m) => m.creator === 'Qwen');
+  await expect(page.locator('.explorer-table tbody tr')).toHaveCount(qwen.length);
+  for (const model of qwen) await expect(page.getByRole('button', { name: `Compare ${model.name}`, exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Compare Qwen3 235B A22B', exact: true }).click();
   await expect(page.getByLabel('SELECT A MODEL')).toHaveValue('qwen/qwen3-235b-a22b-instruct-2507');
   await page.getByRole('button', { name: 'Recent changes', exact: true }).click();

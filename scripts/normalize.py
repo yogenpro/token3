@@ -9,24 +9,69 @@ PRICE_FIELDS = ("input_per_million", "output_per_million", "cache_read_per_milli
 OFFERING_FIELDS = ("model_id", "provider", "provider_model_id", "context_window", "quantization", "service_tier", "region", "variant", "source_url", "min_input_tokens", "max_input_tokens", "max_output_tokens", "pricing_notes")
 
 
+LEGACY_REVIEWED_PROVIDERS = frozenset(("deepinfra", "novita", "together", "fireworks", "groq", "openai", "anthropic", "gemini", "vertex", "bedrock", "azure"))
+# Freeze the exemption to actual historical identities. Omitting source bindings
+# on a future model must not accidentally enroll it as a legacy model.
+LEGACY_REVIEWED_MODELS = frozenset((
+    "openai/gpt-oss-120b", "openai/gpt-oss-20b", "meta/llama-3.3-70b-instruct", "meta/llama-3.1-8b-instruct",
+    "qwen/qwen3-235b-a22b-instruct-2507", "openai/gpt-5.4", "openai/gpt-5.4-mini",
+    "anthropic/claude-sonnet-4.6", "anthropic/claude-opus-4.6", "anthropic/claude-haiku-4.5",
+    "google/gemini-3.8-flash", "google/gemini-3.5-flash-lite",
+))
+
+
+class ReviewedAliases(dict):
+    """Identity aliases are not permission to review every provider's price.
+
+    Historical bindings remain unchanged. New models explicitly enumerate
+    reviewed provider/source IDs; the same ID in another feed stays native-only.
+    """
+    def __init__(self):
+        super().__init__()
+        self.legacy = {}
+        self.sources = {}
+
+    def for_provider(self, provider):
+        result = dict(self.legacy) if provider in LEGACY_REVIEWED_PROVIDERS else {}
+        result.update(self.sources.get(provider, {}))
+        return result
+
+
 def catalog(root=ROOT):
     models = yaml.safe_load((root / "catalog/models.yaml").read_text())["models"]
     ids = {model["id"] for model in models}
     if len(ids) != len(models):
         raise ValueError("Duplicate canonical model IDs")
-    aliases = {}
+    aliases = ReviewedAliases()
     for canonical, entry in yaml.safe_load((root / "catalog/aliases.yaml").read_text()).items():
         if canonical not in ids:
             raise ValueError("Alias points to unknown canonical model {}".format(canonical))
+        if canonical not in LEGACY_REVIEWED_MODELS and not entry.get("reviewed_sources"):
+            raise ValueError("New model identities require explicit reviewed source bindings")
         for alias in entry["aliases"] + [canonical]:
             if alias in aliases and aliases[alias] != canonical:
                 raise ValueError("Ambiguous alias {}".format(alias))
             aliases[alias] = canonical
+            if "reviewed_sources" not in entry:
+                aliases.legacy[alias] = canonical
+        sources = entry.get("reviewed_sources", {})
+        if not isinstance(sources, dict):
+            raise ValueError("Reviewed source bindings must be a provider map")
+        for provider, source_ids in sources.items():
+            if not isinstance(provider, str) or not isinstance(source_ids, list) or not source_ids:
+                raise ValueError("Invalid reviewed source binding")
+            for source_id in source_ids:
+                if not isinstance(source_id, str) or aliases.get(source_id) != canonical:
+                    raise ValueError("Reviewed source ID is not an exact declared alias")
+                aliases.sources.setdefault(provider, {})[source_id] = canonical
+    if ids - set(aliases.values()):
+        raise ValueError("Canonical model has no declared identity/source aliases")
     return models, aliases
 
 
 def normalize(record, aliases, observed_at, source_hash):
-    model_id = aliases.get(record["provider_model_id"])
+    scoped = aliases.for_provider(record["provider"]) if isinstance(aliases, ReviewedAliases) else aliases
+    model_id = scoped.get(record["provider_model_id"])
     if model_id is None:
         raise ValueError("Unknown model alias; add it manually before tracking")
     url = urlparse(record["source_url"])

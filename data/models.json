@@ -115,5 +115,335 @@
     "open_weight": false,
     "description": "A lower-cost stable Gemini model. Flash, preview, and audio-only variants remain separate.",
     "documentation_url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite"
+  },
+  {
+    "id": "openai/gpt-6-astra",
+    "creator": "OpenAI",
+    "name": "GPT-6 Astra",
+    "version": "6 Astra",
+    "family": "GPT",
+    "open_weight": false,
+    "description": "Exact GPT-6 Astra API identity. Sol, Luna, Fast and subscription access are separate products; endpoint capacities remain unverified.",
+    "documentation_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "id": "openai/gpt-6.1-sol",
+    "creator": "OpenAI",
+    "name": "GPT-6.1 Sol",
+    "version": "6.1 Sol",
+    "family": "GPT",
+    "open_weight": false,
+    "description": "GPT-6.1 Sol, not GPT-6 Sol or a GPT-6.1 Luna alias. Standard short/long-prompt prices are separate.",
+    "documentation_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "id": "openai/gpt-6-luna",
+    "creator": "OpenAI",
+    "name": "GPT-6 Luna",
+    "version": "6 Luna",
+    "family": "GPT",
+    "open_weight": false,
+    "description": "Exact GPT-6 Luna API identity. Later versions, Decisions and Fast variants are not merged.",
+    "documentation_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "id": "openai/gpt-6-sol",
+    "creator": "OpenAI",
+    "name": "GPT-6 Sol",
+    "version": "6 Sol",
+    "family": "GPT",
+    "open_weight": false,
+    "description": "The separately priced GPT-6 Sol version, not GPT-6.1 Sol. Retained alongside the newer version.",
+    "documentation_url": "https://developers.openai.com/api/docs/pricing"
+  },
+  {
+    "id": "anthropic/claude-opus-5.5",
+    "creator": "Anthropic",
+    "name": "Claude Opus 5.5",
+    "version": "5.5",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Opus 5.5 standard text pricing. Fast and Batch are not this quote; five-minute cache writes are separate from one-hour writes.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "anthropic/claude-sonnet-5.5",
+    "creator": "Anthropic",
+    "name": "Claude Sonnet 5.5",
+    "version": "5.5",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Sonnet 5.5, kept separate from Sonnet 5 and the retained legacy 4.6 release.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "anthropic/claude-haiku-5.5",
+    "creator": "Anthropic",
+    "name": "Claude Haiku 5.5",
+    "version": "5.5",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Haiku 5.5 has distinct whole-request prices up to 100,000 versus over 100,000 prompt tokens, including cached input.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "anthropic/claude-fable-5",
+    "creator": "Anthropic",
+    "name": "Claude Fable 5",
+    "version": "5",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Fable 5 remains distinct from Fable 5.1, Mythos and Opus; names do not establish interchangeability.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "anthropic/claude-fable-5.1",
+    "creator": "Anthropic",
+    "name": "Claude Fable 5.1",
+    "version": "5.1",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Exact Fable 5.1 identity with separately published cache-read pricing; not a rename of Fable 5 or Mythos.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "anthropic/claude-mythos-5.1",
+    "creator": "Anthropic",
+    "name": "Claude Mythos 5.1",
+    "version": "5.1",
+    "family": "Claude",
+    "open_weight": false,
+    "description": "Limited availability. Public API pricing is not proof that an account can access this model, and it is not Fable 5.1.",
+    "documentation_url": "https://platform.claude.com/docs/en/about-claude/pricing"
+  },
+  {
+    "id": "google/gemini-3.1-pro-preview",
+    "creator": "Google",
+    "name": "Gemini 3.1 Pro Preview",
+    "version": "3.1 Preview",
+    "family": "Gemini",
+    "open_weight": false,
+    "description": "Preview text-token pricing with a 200K prompt boundary. Customtools, Omni, Flash and other previews remain separate.",
+    "documentation_url": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  {
+    "id": "google/gemma-4-31b-it",
+    "creator": "Google",
+    "name": "Gemma 4 31B IT",
+    "version": "4",
+    "family": "Gemma",
+    "open_weight": true,
+    "description": "Exact 31B instruction-tuned weights. Provider precision and endpoint limits remain offering metadata.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "google/gemma-4-26b-a4b-it",
+    "creator": "Google",
+    "name": "Gemma 4 26B A4B IT",
+    "version": "4",
+    "family": "Gemma",
+    "open_weight": true,
+    "description": "The 26B A4B instruction-tuned variant, not Gemma 4 31B or an embedding model.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "google/gemma-4-e4b-it",
+    "creator": "Google",
+    "name": "Gemma 4 E4B IT",
+    "version": "4",
+    "family": "Gemma",
+    "open_weight": true,
+    "description": "The separately identified E4B instruction-tuned model; parameter names are not stripped to infer equivalence.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "qwen/qwen3.8-27b",
+    "creator": "Qwen",
+    "name": "Qwen3.8 27B",
+    "version": "3.8",
+    "family": "Qwen3",
+    "open_weight": true,
+    "description": "The exact 27B Qwen3.8 identity. Other sizes, Omni, Max and hosted Flash remain separate.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "qwen/qwen3.8-2.4t-a95b",
+    "creator": "Qwen",
+    "name": "Qwen3.8 2.4T A95B",
+    "version": "3.8",
+    "family": "Qwen3",
+    "open_weight": true,
+    "description": "Exact 2.4T A95B weights; not Qwen3.8 Max, Max Prime or a date-stripped alias.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "qwen/qwen3.8-flash",
+    "creator": "Qwen",
+    "name": "Qwen3.8 Flash",
+    "version": "3.8",
+    "family": "Qwen3",
+    "open_weight": false,
+    "description": "Hosted Qwen3.8 Flash identity. Omni Flash and other source-native product variants remain separate.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "qwen/qwen3.8-max",
+    "creator": "Qwen",
+    "name": "Qwen3.8 Max",
+    "version": "3.8",
+    "family": "Qwen3",
+    "open_weight": false,
+    "description": "Exact advertised Max identity, not Max Prime or the separately identified dated Max-0902 product.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "deepseek/deepseek-v4.1-flash",
+    "creator": "DeepSeek",
+    "name": "DeepSeek V4.1 Flash",
+    "version": "4.1",
+    "family": "DeepSeek",
+    "open_weight": true,
+    "description": "Exact V4.1 Flash identity. V4 Flash, vision experiments and provider suffix variants are not merged.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "deepseek/deepseek-v4-pro-0813",
+    "creator": "DeepSeek",
+    "name": "DeepSeek V4 Pro 0813",
+    "version": "4 Pro 0813",
+    "family": "DeepSeek",
+    "open_weight": true,
+    "description": "The explicit 0813 Pro release, not an inferred equivalence with a mutable V4 Pro endpoint.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "zai/glm-5.3",
+    "creator": "Z.ai",
+    "name": "GLM-5.3",
+    "version": "5.3",
+    "family": "GLM",
+    "open_weight": true,
+    "description": "Exact GLM-5.3 identity; Flash, FlashX, Fast and subscription Coding Plans are separate.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "zai/glm-5.3-flash",
+    "creator": "Z.ai",
+    "name": "GLM-5.3 Flash",
+    "version": "5.3 Flash",
+    "family": "GLM",
+    "open_weight": true,
+    "description": "The separately priced Flash identity, not GLM-5.3 or the FlashX hosted product.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "zai/glm-5.3-flashx",
+    "creator": "Z.ai",
+    "name": "GLM-5.3 FlashX",
+    "version": "5.3 FlashX",
+    "family": "GLM",
+    "open_weight": false,
+    "description": "Separately identified hosted FlashX product. Its gateway price is not a direct Z.ai quote or Flash equivalence.",
+    "documentation_url": "https://ai-gateway.vercel.sh/v1/models"
+  },
+  {
+    "id": "minimax/minimax-m3",
+    "creator": "MiniMax",
+    "name": "MiniMax M3",
+    "version": "M3",
+    "family": "MiniMax",
+    "open_weight": true,
+    "description": "Exact M3 identity. Text token quotes remain separate from coding subscriptions, other modalities and unreviewed tiered billing.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "moonshotai/kimi-k3",
+    "creator": "Moonshot AI",
+    "name": "Kimi K3",
+    "version": "K3",
+    "family": "Kimi",
+    "open_weight": true,
+    "description": "Exact K3 identity. K3 Fast, provider-suffix products and older Kimi versions are not merged.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "moonshotai/kimi-k2.7-code",
+    "creator": "Moonshot AI",
+    "name": "Kimi K2.7 Code",
+    "version": "K2.7 Code",
+    "family": "Kimi",
+    "open_weight": true,
+    "description": "The distinct Code variant, not base K2.7, K3 or a Highspeed route inferred to be equivalent.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "nvidia/nemotron-3.5-lightning",
+    "creator": "NVIDIA",
+    "name": "Nemotron 3.5 Lightning",
+    "version": "3.5",
+    "family": "Nemotron",
+    "open_weight": true,
+    "description": "Text-generation Lightning identity. ASR, diarization, embeddings and Omni Reasoning are separate products.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "nvidia/nemotron-3-ultra-550b-a55b",
+    "creator": "NVIDIA",
+    "name": "Nemotron 3 Ultra 550B A55B",
+    "version": "3 Ultra",
+    "family": "Nemotron",
+    "open_weight": true,
+    "description": "Exact Ultra weights; BF16 and other published precision choices remain distinct provider offerings.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "nvidia/nemotron-3-super-120b-a12b",
+    "creator": "NVIDIA",
+    "name": "Nemotron 3 Super 120B A12B",
+    "version": "3 Super",
+    "family": "Nemotron",
+    "open_weight": true,
+    "description": "Exact Super text-generation identity, not Ultra, Nano or an inference benchmark.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "nvidia/nemotron-3-nano-30b-a3b",
+    "creator": "NVIDIA",
+    "name": "Nemotron 3 Nano 30B A3B",
+    "version": "3 Nano",
+    "family": "Nemotron",
+    "open_weight": true,
+    "description": "Text-generation Nano identity, not Nano Omni Reasoning, an embedding model or ASR.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "meta/llama-4-maverick-17b-128e-instruct",
+    "creator": "Meta",
+    "name": "Llama 4 Maverick 17B 128E Instruct",
+    "version": "4 Maverick",
+    "family": "Llama",
+    "open_weight": true,
+    "description": "The Maverick instruction-tuned identity. FP8 and Turbo provider offerings remain separate; Scout is not an alias.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "meta/llama-4-scout-17b-16e-instruct",
+    "creator": "Meta",
+    "name": "Llama 4 Scout 17B 16E Instruct",
+    "version": "4 Scout",
+    "family": "Llama",
+    "open_weight": true,
+    "description": "The distinct Scout instruction-tuned identity. Endpoint context and precision must come from each provider.",
+    "documentation_url": "https://api.deepinfra.com/models/list"
+  },
+  {
+    "id": "xai/grok-4.7",
+    "creator": "xAI",
+    "name": "Grok 4.7",
+    "version": "4.7",
+    "family": "Grok",
+    "open_weight": false,
+    "description": "Exact advertised Grok 4.7 text identity. Its reviewed Vercel price is a gateway quote, not direct xAI billing.",
+    "documentation_url": "https://ai-gateway.vercel.sh/v1/models"
   }
 ]

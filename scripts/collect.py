@@ -12,6 +12,7 @@ from pathlib import Path
 from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, groq, novita, openai, together, vertex
 from providers.common import safe_error
 from providers.expanded import INVENTORY_PROVIDERS
+from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
 from .provider_inventory import inventory_document as legacy_inventory_document, prepare_source
@@ -111,7 +112,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
     failures = 0
     secrets = [os.environ.get(key, "") for key in ("TOGETHER_API_KEY", "FIREWORKS_API_KEY", "GOOGLE_CLOUD_BILLING_API_KEY")]
     with ThreadPoolExecutor(max_workers=5) as pool:
-        futures = {pool.submit(PROVIDERS[name].collect, aliases): name for name in selected}
+        futures = {pool.submit(PROVIDERS[name].collect, aliases.for_provider(name)): name for name in selected}
         for future in as_completed(futures):
             name = futures[future]
             previous = statuses.get(name, {})
@@ -119,7 +120,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             check_provenance = {}
             try:
                 result = future.result()
-                if result.inventory_only != (name in INVENTORY_PROVIDERS):
+                if result.inventory_only != (name in INVENTORY_PROVIDERS and name not in REVIEWED_INVENTORY_PROVIDERS):
                     raise ValueError("Collector/dashboard scope mismatch")
                 if result.inventory_only and (result.records or result.authoritative_catalog):
                     raise ValueError("Inventory-only collectors cannot publish or retire dashboard quotes")

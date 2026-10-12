@@ -49,6 +49,8 @@ def claude_token_table(header):
 
 
 def parse(body, aliases, as_of=None):
+    # Identity recognition for another source is not a reviewed Vertex binding.
+    aliases = aliases.for_provider("vertex") if hasattr(aliases, "for_provider") else aliases
     parser = PricingHTML()
     parser.feed(body)
     groups = {}

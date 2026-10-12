@@ -1,10 +1,11 @@
 import json
-from .common import fetch_text, number, observation, parse_or_archive, snapshot
+from .common import fetch_text, number, observation, parse_or_archive, provider_aliases, snapshot
 
 SOURCE = "https://api.novita.ai/v3/openai/models"
 
 
 def parse(body, aliases):
+    aliases = provider_aliases(aliases, "novita")
     payload = json.loads(body)
     models = payload["data"]
     if not isinstance(models, list):
@@ -23,7 +24,10 @@ def parse(body, aliases):
             "novita", model_id,
             number(pricing["prompt"]["price_per_m_decimal"]),
             number(pricing["completion"]["price_per_m_decimal"]), SOURCE,
-            context_window=model.get("context_size"), quantization=model.get("quantization")))
+            cache_read_per_million=number(pricing["input_cache_read"]["price_per_m_decimal"]) if "input_cache_read" in pricing else None,
+            cache_write_per_million=number(pricing["input_cache_write"]["price_per_m_decimal"]) if "input_cache_write" in pricing else None,
+            context_window=model.get("context_size"), quantization=model.get("quantization"),
+            pricing_notes="Novita explicit USD-per-million token decimal fields, not integer billing units. Published cache prices are separate; missing cache prices/TTL remain unverified. Cache writes, tool fees and other modalities are excluded from estimates."))
     return snapshot(records, body, SOURCE, authoritative=True)
 
 

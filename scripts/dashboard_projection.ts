@@ -1,9 +1,11 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import {
-  accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, jsonText, modelListingsSchema, nativeChangesSchema,
-  nativeRecordSchema, pricingState, providerCatalogSchema, scopeLabel,
-  type CatalogProvider, type NativeChange, type NativeRecord,
+  accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
+  modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
+  recordChunkSchema, recordIndexChunkSchema, scopeLabel,
+  type CatalogProvider, type ChunkRef, type EventBatch, type ModelListing, type NativeChange, type NativeRecord,
 } from '../dashboard/src/lib/catalog';
 
 type ObjectValue = Record<string, any>;
@@ -116,6 +118,40 @@ export function classifyRecordChange(before: NativeRecord, after: NativeRecord):
   return changes;
 }
 
+export function projectListing(r: NativeRecord): ModelListing {
+  const m = r.metadata;
+  const array = (value: unknown): string[] => Array.isArray(value) ? value.filter((v) => typeof v === 'string') : [];
+  return { id: r.id, provider: r.provider, native_id: r.native_id, kind: r.kind, label: r.label,
+    reviewed_model_ids: r.reviewed_model_ids, scope_label: scopeLabel(r), pricing_state: pricingState(r), billing_basis: billingBasis(r),
+    modalities: [...new Set([...array(m.input_modalities), ...array((m.architecture as any)?.input_modalities),
+      ...array(m.output_modalities), ...array((m.architecture as any)?.output_modalities), ...array(m.modalities)])] };
+}
+
+// The only persisted outputs are public assets. Warehouse files are never changed.
+// Content-addressed chunks are shared by provider/category history manifests.
+export function chunkRows<T>(rows: T[], field: string, assets: Map<string, string>): ChunkRef[] {
+  const refs: ChunkRef[] = [];
+  let current: T[] = [];
+  let bytes = Buffer.byteLength(JSON.stringify({ schema_version: 1, [field]: [] }));
+  const flush = () => {
+    if (!current.length) return;
+    const body = JSON.stringify({ schema_version: 1, [field]: current });
+    const sha256 = createHash('sha256').update(body).digest('hex');
+    const path = `catalog/chunks/${sha256}.json`;
+    assets.set(path, body);
+    refs.push({ path, sha256, count: current.length, bytes: Buffer.byteLength(body) });
+    current = []; bytes = Buffer.byteLength(JSON.stringify({ schema_version: 1, [field]: [] }));
+  };
+  for (const row of rows) {
+    const size = Buffer.byteLength(JSON.stringify(row));
+    if (size + bytes + (current.length ? 1 : 0) > MAX_CATALOG_CHUNK_BYTES) flush();
+    if (size + bytes > MAX_CATALOG_CHUNK_BYTES) throw new Error('A public record exceeds the bounded chunk size; explicit projection review is required.');
+    bytes += size + (current.length ? 1 : 0); current.push(row);
+  }
+  flush();
+  return refs;
+}
+
 export function buildDashboardAssets(dataDir: string): Map<string, string> {
   const read = (file: string) => JSON.parse(readFileSync(join(dataDir, file), 'utf8')) as any;
   const inventory = read('provider_inventory.json');
@@ -124,7 +160,9 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
   const put = (path: string, value: unknown) => assets.set(path, JSON.stringify(value));
   const providers: CatalogProvider[] = [];
   const recordSources = new Map<string, string>();
-  const listings: any[] = [];
+  const listings: ModelListing[] = [];
+  const kindTotals: Record<string, number> = {}, basisTotals: Record<string, number> = {}, stateTotals: Record<string, number> = {};
+  const count = (counts: Record<string, number>, key: string) => { counts[key] = (counts[key] ?? 0) + 1; };
   for (const p of inventory.providers) {
     if (!/^[a-z0-9_-]+$/.test(p.id) || p.latest_path !== `provider_catalogs/${p.id}.json`) throw new Error('Unsafe provider catalog path');
     const c = read(p.latest_path);
@@ -137,17 +175,10 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
     if (new Set(records.map((r: NativeRecord) => r.id)).size !== records.length) throw new Error('Duplicate native records');
     const kindCounts: Record<string, number> = {};
     for (const r of records) {
-      kindCounts[r.kind] = (kindCounts[r.kind] ?? 0) + 1;
+      count(kindCounts, r.kind); count(kindTotals, r.kind); count(basisTotals, billingBasis(r)); count(stateTotals, pricingState(r));
       recordSources.set(r.id, r.source_url);
-      // Named API entries are listings, not inferred canonical models. Document labels
-      // and cloud SKUs cannot safely stand in for model identities.
-      if (['model', 'provider_route', 'model_flavor'].includes(r.kind)) {
-        const m = r.metadata;
-        listings.push({ id: r.id, provider: r.provider, native_id: r.native_id, kind: r.kind, label: r.label,
-          reviewed_model_ids: r.reviewed_model_ids, scope_label: scopeLabel(r), pricing_state: pricingState(r), billing_basis: billingBasis(r),
-          modalities: [...new Set([...(m.input_modalities as string[] ?? []), ...((m.architecture as any)?.input_modalities ?? []), ...(m.output_modalities as string[] ?? []), ...((m.architecture as any)?.output_modalities ?? [])])],
-        });
-      }
+      // Cloud SKUs and document labels never stand in for canonical model identities.
+      if (['model', 'provider_route', 'model_flavor'].includes(r.kind)) listings.push(projectListing(r));
     }
     providers.push({
       id: p.id, name: p.name, access: accessKind(p.id), record_count: records.length,
@@ -158,8 +189,17 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
       first_seen_at: p.first_seen_at, last_seen_at: p.last_seen_at, changed_at: c.changed_at,
       detail_path: `catalog/providers/${p.id}.json`, history_path: `catalog/history/${p.id}.json`,
     });
-    put(`catalog/providers/${p.id}.json`, providerCatalogSchema.parse({ schema_version: 1, provider: p.id, catalog_sha256: c.catalog_sha256, revision: c.revision,
-      billing_notes: c.billing_notes ?? [], source_evidence: (c.source_evidence ?? []).map((e: any) => ({ source_url: checkedUrl(e.source_url), response_sha256: e.response_sha256 })), records, pricing_observation: observation }));
+    const recordChunks = chunkRows(records.map((r: NativeRecord) => nativeRecordSchema.parse(r)), 'records', assets);
+    const detailPaths = new Map<string, string>();
+    for (const ref of recordChunks) for (const r of recordChunkSchema.parse(JSON.parse(assets.get(ref.path)!)).records) detailPaths.set(r.id, ref.path);
+    const summaries = records.map((r: NativeRecord) => ({ ...projectListing(r), comparison_eligible: false,
+      currencies: [...new Set(r.rates.map((rate) => rate.currency).filter(Boolean))], units: [...new Set(r.rates.map((rate) => rate.unit).filter(Boolean))],
+      rate_count: r.rates.length, rate_preview: r.rates.slice(0, 2), detail_path: detailPaths.get(r.id)! }));
+    // Validate index rows before publishing; previews retain original decimals/units.
+    const validated = recordIndexChunkSchema.parse({ schema_version: 1, records: summaries }).records;
+    put(`catalog/providers/${p.id}.json`, providerCatalogSchema.parse({ schema_version: 2, provider: p.id, catalog_sha256: c.catalog_sha256, revision: c.revision,
+      billing_notes: c.billing_notes ?? [], source_evidence: (c.source_evidence ?? []).map((e: any) => ({ source_url: checkedUrl(e.source_url), response_sha256: e.response_sha256 })),
+      record_count: records.length, index_chunks: chunkRows(validated, 'records', assets), record_chunks: recordChunks, pricing_observation: observation }));
   }
   const providerMap = new Map(providers.map((p) => [p.id, p]));
   const previous = new Map<string, NativeRecord>();
@@ -194,14 +234,36 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
     else if (e.kind === 'record_no_longer_listed') previous.delete(e.record_id);
   }
   events.sort((a, b) => b.observed_at.localeCompare(a.observed_at) || a.id.localeCompare(b.id));
+  const groups = new Map<string, NativeChange[]>();
+  for (const event of nativeChangesSchema.parse({ schema_version: 1, events }).events) {
+    const key = `${event.provider}:${event.observed_at}:${event.category}`;
+    const group = groups.get(key) ?? []; group.push(event); groups.set(key, group);
+  }
+  const batches: EventBatch[] = [...groups].map(([id, selected]) => ({ id, provider: selected[0].provider,
+    observed_at: selected[0].observed_at, category: selected[0].category, event_count: selected.length, chunks: chunkRows(selected, 'events', assets) }));
   const changeCounts: Record<string, number> = {};
   for (const category of ['price', 'rule', 'catalog'] as const) {
-    const selected = events.filter((e) => e.category === category); changeCounts[category] = selected.length;
-    put(`catalog/changes/${category}.json`, nativeChangesSchema.parse({ schema_version: 1, events: selected }));
+    const selected = batches.filter((b) => b.category === category); changeCounts[category] = selected.reduce((n, b) => n + b.event_count, 0);
+    put(`catalog/changes/${category}.json`, historyManifestSchema.parse({ schema_version: 2, event_count: changeCounts[category], batches: selected }));
   }
-  for (const p of providers) put(p.history_path, nativeChangesSchema.parse({ schema_version: 1, events: events.filter((e) => e.provider === p.id) }));
-  put('catalog/index.json', catalogIndexSchema.parse({ schema_version: 1, updated_at: inventory.updated_at,
-    record_count: providers.reduce((sum, p) => sum + p.record_count, 0), providers, change_counts: changeCounts }));
-  put('catalog/models.json', modelListingsSchema.parse({ schema_version: 1, listings: listings.sort((a, b) => a.label.localeCompare(b.label) || a.id.localeCompare(b.id)) }));
+  for (const p of providers) {
+    const selected = batches.filter((b) => b.provider === p.id);
+    put(p.history_path, historyManifestSchema.parse({ schema_version: 2, event_count: selected.reduce((n, b) => n + b.event_count, 0), batches: selected }));
+  }
+  const active = offerings.filter((o: ObjectValue) => o.active);
+  const providerSets = new Map<string, Set<string>>();
+  for (const o of active) { const set = providerSets.get(o.model_id) ?? new Set<string>(); set.add(o.provider); providerSets.set(o.model_id, set); }
+  const coverage = { reviewed_model_count: new Set(offerings.map((o: ObjectValue) => o.model_id)).size,
+    reviewed_offering_count: offerings.length, active_reviewed_offering_count: active.length,
+    reviewed_provider_count: new Set(offerings.map((o: ObjectValue) => o.provider)).size, model_listing_count: listings.length,
+    kind_counts: kindTotals, billing_basis_counts: basisTotals, pricing_state_counts: stateTotals,
+    single_provider_model_count: [...providerSets.values()].filter((set) => set.size === 1).length,
+    gateway_only_model_count: [...providerSets.values()].filter((set) => [...set].every((id) => accessKind(id) === 'Gateway')).length,
+    unknown_context_offering_count: active.filter((o: ObjectValue) => o.context_window == null).length,
+    reviewed_price_change_count: existsSync(join(dataDir, 'changes.json')) ? read('changes.json').filter((e: ObjectValue) => e.kind === 'price_changed').length : 0 };
+  put('catalog/index.json', catalogIndexSchema.parse({ schema_version: 2, updated_at: inventory.updated_at,
+    record_count: providers.reduce((sum, p) => sum + p.record_count, 0), providers, change_counts: changeCounts, coverage }));
+  const sorted = modelListingsSchema.parse({ schema_version: 1, listings: listings.sort((a, b) => a.label.localeCompare(b.label) || a.id.localeCompare(b.id)) }).listings;
+  put('catalog/models.json', modelDirectorySchema.parse({ schema_version: 2, listing_count: sorted.length, chunks: chunkRows(sorted, 'listings', assets) }));
   return assets;
 }

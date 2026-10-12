@@ -1,5 +1,7 @@
 # Recorded official pricing excerpt
 
+Prices per 1M tokens.
+
 ### Standard pricing data
 
 | Model | Short context input | Short context cached input | Short context cache writes | Short context output | Long context input | Long context cached input | Long context cache writes | Long context output |

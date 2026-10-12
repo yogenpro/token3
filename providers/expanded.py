@@ -1,7 +1,7 @@
-"""Collection-only official price sources. No inference calls or model aliases.
+"""Official native sources with a separate, explicitly curated quote adapter.
 
-These sources enrich the source-native inventory; they deliberately do not
-produce dashboard quotes. A gateway catalog is not a direct-provider quote.
+Most sources remain collection-only. Reviewed gateway quotes are never treated
+as direct upstream-provider quotes; the complete native evidence stays separate.
 """
 import hashlib
 import io
@@ -12,6 +12,7 @@ from urllib.parse import urlencode
 
 from .common import Collection, fetch_bytes, fetch_text, safe_error
 from .pricing_api import MAX_CATALOG_BYTES, encode_payload
+from .reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS, reviewed_quotes
 
 ENVELOPE = "token3.inventory-sources.v1"
 SCW_CATEGORIES = ("Generative APIs", "Inference Dedicated")
@@ -141,8 +142,17 @@ class InventoryCollector:
                 payload["coverage"] = "billing_guide_only; model rates unavailable"
         body = encode_payload(payload)
         kind = "api+documentation" if self.adapter != "documents" and docs else "documentation" if self.adapter == "documents" else "api"
-        return Collection([], self.SOURCE, hashlib.sha256(body.encode()).hexdigest(), source_payload=body,
-                          source_urls=urls, source_kind=kind, fallback_reason=fallback, inventory_only=True,
+        reviewed = self.provider in REVIEWED_INVENTORY_PROVIDERS
+        records, parse_error = [], None
+        if reviewed:
+            try:
+                records = reviewed_quotes(self.provider, payload, aliases or {}, self.SOURCE)
+            except Exception as error:
+                # Preserve the complete fetched native source on quote failure.
+                parse_error = safe_error(error)
+        return Collection(records, self.SOURCE, hashlib.sha256(body.encode()).hexdigest(), source_payload=body,
+                          source_urls=urls, source_kind=kind, fallback_reason=fallback, inventory_only=not reviewed,
+                          parse_error=parse_error,
                           source_evidence=[{key:payload['pdf_document'][key] for key in ('source_url', 'response_sha256')}]
                           if 'pdf_document' in payload else None)
 
