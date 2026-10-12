@@ -5,6 +5,74 @@
   "source_kind": "api",
   "records": [
     {
+      "id": "scaleway-01cb2d8d3add175937ede63e",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_input/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - input token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 600000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0006",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - input token - realtime - fr-par",
+        "description": "deepseek-v4.1-flash - input token - realtime - fr-par (0.0006€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-02662deb9ad2f09e84d736fe",
       "provider": "scaleway",
       "native_id": "/ai/generative_apis/consumption/qwen3_6_35b_a3b_output/fr-par",
@@ -736,6 +804,74 @@
       "comparison_eligible": false
     },
     {
+      "id": "scaleway-1834e02cf21a24d2df207d5f",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_input_cached/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - input cached token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 120000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.00012",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - input cached token - realtime - fr-par",
+        "description": "deepseek-v4.1-flash - input cached token - realtime - fr-par (0.00012€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_cached_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-18cd7b414e0df894e9da473c",
       "provider": "scaleway",
       "native_id": "/ai/inference_dedicated/deployment/h100-1/fr-par",
@@ -847,6 +983,67 @@
           }
         },
         "status": "end_of_life"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-1b7a963c3df281a68146bc6a",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/lightonocr_3_0_8b_input/fr-par",
+      "kind": "sku",
+      "label": "lightonocr-3-0.8b - input token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 2200000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0022",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "lightonocr-3-0.8b",
+        "variant": "lightonocr-3-0.8b - input token - realtime - fr-par",
+        "description": "lightonocr-3-0.8b - input token - realtime - fr-par (0.0022€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "provider_name": "Lighton",
+            "reasoning": false,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [],
+            "tasks": [
+              6
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
       },
       "comparison_eligible": false
     },
@@ -1865,6 +2062,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "scaleway-3b4d15a5a90f4d18e78eae4f",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/glm_5_3_input_batch/fr-par",
+      "kind": "sku",
+      "label": "glm-5.3 - input token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 900000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0009",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "glm-5.3",
+        "variant": "glm-5.3 - input token - batch - fr-par",
+        "description": "glm-5.3 - input token - batch - fr-par (0.0009€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "default_reasoning_value": "max",
+            "provider_name": "Zai",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-3e83873fb94d0dfa67799545",
       "provider": "scaleway",
       "native_id": "/ai/inference_dedicated/deployment/h100-2/fr-par",
@@ -1979,6 +2243,74 @@
               "chat",
               "code",
               "vision"
+            ],
+            "token_type": "output_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-4120d0a55d96111d6dc46c7f",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_output_batch/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - output token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 900000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0009",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - output token - batch - fr-par",
+        "description": "deepseek-v4.1-flash - output token - batch - fr-par (0.0009€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
             ],
             "token_type": "output_token"
           }
@@ -2703,6 +3035,74 @@
       "comparison_eligible": false
     },
     {
+      "id": "scaleway-4fca870f0b32dce264913eef",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_input_batch/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - input token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 300000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0003",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - input token - batch - fr-par",
+        "description": "deepseek-v4.1-flash - input token - batch - fr-par (0.0003€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-50382024a8fb3f3fd2a227ad",
       "provider": "scaleway",
       "native_id": "/ai/generative_apis/consumption/mistral_medium_3_5_128b_input/fr-par",
@@ -2977,6 +3377,67 @@
           }
         },
         "status": "end_of_new_features"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-55af34f8fdc20e997ecffa24",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/lightonocr_3_0_8b_input_batch/fr-par",
+      "kind": "sku",
+      "label": "lightonocr-3-0.8b - input token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 1100000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0011",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "lightonocr-3-0.8b",
+        "variant": "lightonocr-3-0.8b - input token - batch - fr-par",
+        "description": "lightonocr-3-0.8b - input token - batch - fr-par (0.0011€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "provider_name": "Lighton",
+            "reasoning": false,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [],
+            "tasks": [
+              6
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
       },
       "comparison_eligible": false
     },
@@ -3651,6 +4112,74 @@
           }
         },
         "status": "general_availability"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-67e27c28f3a8f6a0b0ede03c",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_output/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - output token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 1800000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0018",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - output token - realtime - fr-par",
+        "description": "deepseek-v4.1-flash - output token - realtime - fr-par (0.0018€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "output_token"
+          }
+        },
+        "status": "preview"
       },
       "comparison_eligible": false
     },
@@ -4359,6 +4888,74 @@
       "comparison_eligible": false
     },
     {
+      "id": "scaleway-8413210e3181f5a3e8ee9ebc",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/deepseek_v4_1_flash_input_cached_batch/fr-par",
+      "kind": "sku",
+      "label": "deepseek-v4.1-flash - input cached token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 60000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.00006",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "deepseek-v4.1-flash",
+        "variant": "deepseek-v4.1-flash - input cached token - batch - fr-par",
+        "description": "deepseek-v4.1-flash - input cached token - batch - fr-par (0.00006€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "default_reasoning_value": "high",
+            "provider_name": "Deepseek",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_cached_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-8430fd8c48ca55412cb86ea0",
       "provider": "scaleway",
       "native_id": "/ai/generative_apis/consumption/qwen3_coder_30b_a3b_instruct_output/fr-par",
@@ -4481,6 +5078,73 @@
               "vision"
             ],
             "token_type": "input_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-86ae0b1f9c942c15a1bacea2",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/glm_5_3_output/fr-par",
+      "kind": "sku",
+      "label": "glm-5.3 - output token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 5500000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0055",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "glm-5.3",
+        "variant": "glm-5.3 - output token - realtime - fr-par",
+        "description": "glm-5.3 - output token - realtime - fr-par (0.0055€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "default_reasoning_value": "max",
+            "provider_name": "Zai",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "output_token"
           }
         },
         "status": "preview"
@@ -4674,6 +5338,73 @@
           }
         },
         "status": "end_of_life"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "scaleway-915c0386dbe74460afe15fa4",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/glm_5_3_output_batch/fr-par",
+      "kind": "sku",
+      "label": "glm-5.3 - output token - batch - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 2750000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.00275",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "glm-5.3",
+        "variant": "glm-5.3 - output token - batch - fr-par",
+        "description": "glm-5.3 - output token - batch - fr-par (0.00275€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "batch",
+            "default_reasoning_value": "max",
+            "provider_name": "Zai",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "output_token"
+          }
+        },
+        "status": "preview"
       },
       "comparison_eligible": false
     },
@@ -6798,6 +7529,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "scaleway-e00d7f096a59f8a5d59710db",
+      "provider": "scaleway",
+      "native_id": "/ai/generative_apis/consumption/glm_5_3_input/fr-par",
+      "kind": "sku",
+      "label": "glm-5.3 - input token - realtime - fr-par",
+      "scope": {
+        "locality": {
+          "region": "fr-par"
+        }
+      },
+      "billing": {
+        "rules": {
+          "retail_price": {
+            "currency_code": "EUR",
+            "nanos": 1800000,
+            "units": 0
+          }
+        },
+        "unit_of_measure": {
+          "size": 1000,
+          "unit": "token"
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "retail_price",
+          "amount": "0.0018",
+          "currency": "EUR",
+          "unit": "token",
+          "conditions": {
+            "native_unit_size": 1000
+          }
+        }
+      ],
+      "metadata": {
+        "product": "glm-5.3",
+        "variant": "glm-5.3 - input token - realtime - fr-par",
+        "description": "glm-5.3 - input token - realtime - fr-par (0.0018€ per 1000 token)",
+        "service_category": "AI",
+        "product_category": "Generative APIs",
+        "properties": {
+          "generative_apis": {
+            "consumption_mode": "realtime",
+            "default_reasoning_value": "max",
+            "provider_name": "Zai",
+            "reasoning": true,
+            "supported_apis": [
+              "/v1/chat/completions"
+            ],
+            "supported_reasoning_values": [
+              "low",
+              "high",
+              "max"
+            ],
+            "tasks": [
+              "chat",
+              "code"
+            ],
+            "token_type": "input_token"
+          }
+        },
+        "status": "preview"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "scaleway-e02df88fb8160a7db0cd7c52",
       "provider": "scaleway",
       "native_id": "/ai/generative_apis/consumption/mistral_small_3_1_24b_instruct_2503_output/fr-par",
@@ -7477,9 +8275,9 @@
   "billing_notes": [
     "Complete public SKU pagination, selecting Generative APIs and Inference Dedicated categories. EUR money, native unit sizes and locality are preserved; node prices are not assumed hourly."
   ],
-  "catalog_sha256": "a9ffc5248cec38dfd5dc401f51f15ed79f0665511804f4d97163698ac656990b",
-  "revision": 2,
-  "changed_at": "2026-10-08T16:54:09Z",
+  "catalog_sha256": "b769d6739cce6240135b007a48bdb96904dcb0157707ff3b69b3907f417168d7",
+  "revision": 3,
+  "changed_at": "2026-10-12T15:26:01Z",
   "source_url": "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000",
   "source_urls": [
     "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=1",
@@ -7489,6 +8287,6 @@
     "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=5",
     "https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000&page=6"
   ],
-  "source_sha256": "99941280f03b3b8bcca57463dc7f4af0b5dc402fddb00c1fa52a92de87e0b02b",
+  "source_sha256": "feceea9cd0d5db641dce2b223addcde73be5dc7561a4e2ee9240212bc698da53",
   "archive_reference": null
 }
