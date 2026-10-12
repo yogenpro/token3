@@ -37,6 +37,7 @@ export function SourceHistory({ manifest, version, onProvider, catalog, recordId
   const batchPage = Math.min(page, Math.max(1, Math.ceil(batches.length / 25)));
   const count = batches.reduce((n, b) => n + b.event_count, 0);
   return <>
+    <p className="history-selection">Batches show change-bearing observations, not every collector check or unchanged as-of capture.</p>
     <form className="catalog-toolbar" onSubmit={(e) => { e.preventDefault(); setQuery(search.trim().toLowerCase()); setBatchId(''); setPage(1); }}>
       <label className="search-field"><Search size={16} /><input aria-label="Search native changes" placeholder="Search all retained event labels…" value={search} onChange={(e) => setSearch(e.target.value)} /></label>
       <button className="button" type="submit">Search all observations</button>

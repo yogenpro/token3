@@ -155,6 +155,17 @@ class DocumentationTests(unittest.TestCase):
         self.assertEqual(deploy['permissions'], {'pages': 'write', 'id-token': 'write'})
         self.assertEqual(deploy['environment']['name'], 'github-pages')
 
+    def test_pages_integrity_tests_have_explicit_python_dependencies(self):
+        workflow = yaml.safe_load((ROOT / '.github/workflows/deploy.yml').read_text())
+        steps = workflow['jobs']['build']['steps']
+        setup = next(i for i, step in enumerate(steps) if step.get('uses', '').startswith('actions/setup-python@'))
+        install = next(i for i, step in enumerate(steps) if step.get('run') == 'python -m pip install -r requirements.txt')
+        test = next(i for i, step in enumerate(steps) if step.get('run') == 'npm test')
+        self.assertLess(setup, install)
+        self.assertLess(install, test, 'Cross-language history fixtures must not depend on incidental runner packages.')
+        self.assertEqual(steps[setup]['with']['python-version'], '3.12')
+        self.assertRegex(steps[setup]['uses'], r'^actions/setup-python@[a-f0-9]{40}$')
+
     def test_readme_documents_generated_native_assets_not_just_reviewed_files(self):
         readme = README.read_text()
         self.assertIn('scripts/dashboard_projection.ts', readme)

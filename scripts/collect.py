@@ -16,7 +16,8 @@ from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
 from .provider_inventory import inventory_document as legacy_inventory_document, prepare_source
-from .inventory_storage import history_content, inventory_document, prepare_catalog
+from .inventory_storage import inventory_document, prepare_catalog
+from .native_history import append_history
 from .archive_reference import lookup_reference
 from .catalog_inventory import canonical
 
@@ -203,8 +204,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
     changes = sorted({row["id"]: row for row in changes}.values(), key=lambda row: (row["observed_at"], row["id"]), reverse=True)
     if not dry_run:
         if inventory_events:
-            path = data_dir / "inventory_history.jsonl"
-            atomic_write(path, history_content(path, inventory_events))
+            append_history(data_dir, inventory_events)
         check_path = data_dir / "collection_checks.jsonl"
         before = check_path.read_text() if check_path.exists() else ""
         atomic_write(check_path, before + "".join(canonical(row) + "\n" for row in sorted(checks, key=lambda r:r["provider"])))

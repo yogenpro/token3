@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
+import { readNativeHistory } from './native_history';
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
   modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
@@ -208,15 +209,20 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
   const events: NativeChange[] = [];
   const eventIds = new Set<string>();
   // Replay append-only history in its recorded order, never fabricate earlier states.
-  for (const line of readFileSync(join(dataDir, 'inventory_history.jsonl'), 'utf8').split('\n')) {
-    if (!line.trim()) continue;
-    const e = JSON.parse(line);
+  for (const { event: e, observationOnly } of readNativeHistory(dataDir)) {
     const p = providerMap.get(e.provider);
     if (!p) throw new Error('History references an unknown provider');
     if (eventIds.has(e.id)) throw new Error('Duplicate inventory history event');
     eventIds.add(e.id);
     const before = previous.get(e.record_id);
     const after = e.after ? projectRecord(e.after, p.source_url, offerings, e.google_pricing_time_mode === 'latest') : null;
+    if (observationOnly) {
+      // Explicitly migrated, two-sided request evidence establishes an as-of
+      // observation, not a tariff event. Keep exact state for later replay.
+      if (!before || !after) throw new Error('Observation lacks a prior source record');
+      previous.set(e.record_id, after); everSeen.add(e.record_id);
+      continue;
+    }
     const fields: Array<Pick<NativeChange, 'category' | 'title' | 'details'>> = [];
     if (e.kind === 'billing_notes_changed') {
       fields.push({ category: 'rule', title: notesSeen.has(e.provider) ? 'Billing guide changed' : 'Billing guide first observed', details: [] }); notesSeen.add(e.provider);

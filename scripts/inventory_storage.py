@@ -91,7 +91,7 @@ def prepare_catalog(provider, name, result, observed_at, data_dir, index):
 def inventory_document(rows, observed_at):
     return dict(schema_version=2, updated_at=observed_at, provider_count=len(rows),
                 scope="Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
-                retention="Current normalized catalogs plus change-only JSONL history. New raw responses are transient; pre-existing source archives are preserved unchanged.",
+                retention="Current normalized catalogs plus bounded immutable native-history segments and verified compact observations. Original migration history is archived losslessly. New raw responses are transient; pre-existing source archives are preserved unchanged.",
                 providers=sorted(rows.values(), key=lambda row:row["id"]))
 
 
