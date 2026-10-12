@@ -13,8 +13,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000016",
-          "output": "0.00000064",
+          "input": "0.00000015",
+          "output": "0.0000006",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -25,14 +25,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000016",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000064",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -4998,81 +4998,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-1fe4b49dc333a967f56ac535",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-vl-thinking",
-      "kind": "model",
-      "label": "Qwen3 VL 235B A22B Thinking",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000004",
-          "output": "0.000004"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000004",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000004",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 VL 235B A22B Thinking",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 131072,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "max": 81920,
-            "min": 1,
-            "type": "budget_tokens"
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-20b239d6d20c6ff61dc6aa55",
       "provider": "vercel",
       "native_id": "openai/o3-pro",
@@ -5586,141 +5511,6 @@
             ]
           }
         ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-249ca645e42254b3146e969d",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-coder-plus",
-      "kind": "model",
-      "label": "Qwen3 Coder Plus",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.000001",
-          "input_cache_read": "0.0000002",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.0000002",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.00000036",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000006",
-              "max": 256001,
-              "min": 128001
-            },
-            {
-              "cost": "0.0000012",
-              "min": 256001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.000001",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000018",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000003",
-              "max": 256001,
-              "min": 128001
-            },
-            {
-              "cost": "0.000006",
-              "min": 256001
-            }
-          ],
-          "output": "0.000005",
-          "output_tiers": [
-            {
-              "cost": "0.000005",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.000009",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000015",
-              "max": 256001,
-              "min": 128001
-            },
-            {
-              "cost": "0.00006",
-              "min": 256001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000005",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0000002",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 Coder Plus",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 65536,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
         "zdr": "all",
         "no_training": "all"
       },
@@ -11104,144 +10894,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-4a786732cfc6ace017ee2e3e",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-max",
-      "kind": "model",
-      "label": "Qwen3 Max",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000012",
-          "input_cache_read": "0.00000024",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.00000024",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.00000048",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000006",
-              "min": 128001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.0000012",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000024",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000003",
-              "min": 128001
-            }
-          ],
-          "output": "0.000006",
-          "output_tiers": [
-            {
-              "cost": "0.000006",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.000012",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000015",
-              "min": 128001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000012",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000006",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000024",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 Max",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 262144,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "minimal",
-              "low",
-              "medium",
-              "high",
-              "xhigh",
-              "max"
-            ]
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-4b0e9dc34c0e553307ddabe9",
       "provider": "vercel",
       "native_id": "spacexai/grok-4.20-non-reasoning",
@@ -14917,9 +14569,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000004",
-          "output": "0.0000016",
-          "varies_by_provider": true
+          "input": "0.0000002",
+          "input_cache_read": "0.00000011",
+          "output": "0.00000088"
         },
         "currency": "USD",
         "state": "reported",
@@ -14929,16 +14581,23 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000004",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000016",
+          "amount": "0.00000088",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000011",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -14946,8 +14605,8 @@
         "name": "Qwen3 VL 235B A22B Instruct",
         "owned_by": "alibaba",
         "type": "language",
-        "context_window": 131072,
-        "max_tokens": 129024,
+        "context_window": 262144,
+        "max_tokens": 262144,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -18268,142 +17927,6 @@
               "medium",
               "high"
             ]
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-8274c64c14466d2651781cde",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen-3.6-max-preview",
-      "kind": "model",
-      "label": "Qwen 3.6 Max Preview",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000013",
-          "input_cache_read": "0.00000013",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.00000013",
-              "max": 128000,
-              "min": 0
-            },
-            {
-              "cost": "0.0000002",
-              "min": 128000
-            }
-          ],
-          "input_cache_write": "0.000001625",
-          "input_cache_write_tiers": [
-            {
-              "cost": "0.000001625",
-              "max": 128000,
-              "min": 0
-            },
-            {
-              "cost": "0.0000025",
-              "min": 128000
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.0000013",
-              "max": 128000,
-              "min": 0
-            },
-            {
-              "cost": "0.000002",
-              "min": 128000
-            }
-          ],
-          "output": "0.0000078",
-          "output_tiers": [
-            {
-              "cost": "0.0000078",
-              "max": 128000,
-              "min": 0
-            },
-            {
-              "cost": "0.000012",
-              "min": 128000
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000013",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000078",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000013",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_write",
-          "amount": "0.000001625",
-          "currency": "USD",
-          "unit": "cache-write token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen 3.6 Max Preview",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 240000,
-        "max_tokens": 64000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "max": 131072,
-            "min": 1,
-            "type": "budget_tokens"
           }
         ],
         "zdr": "all",
@@ -22110,58 +21633,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000015",
-          "input_cache_read": "0.0000003",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.0000003",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.00000054",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000009",
-              "min": 128001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.0000015",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000027",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000045",
-              "min": 128001
-            }
-          ],
-          "output": "0.0000075",
-          "output_tiers": [
-            {
-              "cost": "0.0000075",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000135",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000225",
-              "min": 128001
-            }
-          ],
-          "varies_by_provider": true
+          "input": "0.00000022",
+          "input_cache_read": "0.000000022",
+          "output": "0.0000018"
         },
         "currency": "USD",
         "state": "reported",
@@ -22171,21 +21645,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000015",
+          "amount": "0.00000022",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000075",
+          "amount": "0.0000018",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000003",
+          "amount": "0.000000022",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -22196,7 +21670,7 @@
         "owned_by": "alibaba",
         "type": "language",
         "context_window": 262144,
-        "max_tokens": 65536,
+        "max_tokens": 32768,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -23355,81 +22829,6 @@
             "text"
           ]
         },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-9fffb1a8f9d39eacbf5b8b02",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-235b-a22b-thinking",
-      "kind": "model",
-      "label": "Qwen3 VL 235B A22B Thinking",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000004",
-          "output": "0.000004"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000004",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000004",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 VL 235B A22B Thinking",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 131072,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "max": 81920,
-            "min": 1,
-            "type": "budget_tokens"
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -30759,72 +30158,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-d132146ee211eea59b180deb",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-vl-235b-a22b-instruct",
-      "kind": "model",
-      "label": "Qwen3 VL 235B A22B Instruct",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000004",
-          "output": "0.0000016",
-          "varies_by_provider": true
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000004",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000016",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 VL 235B A22B Instruct",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 131072,
-        "max_tokens": 129024,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-d1f25ea67449a597cd7b22cb",
       "provider": "vercel",
       "native_id": "meituan/longcat-2.5-preview",
@@ -33472,128 +32805,6 @@
           ]
         },
         "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-e2eeae0cdfbcf7d3bd7d0563",
-      "provider": "vercel",
-      "native_id": "alibaba/qwen3-max-preview",
-      "kind": "model",
-      "label": "Qwen3 Max Preview",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000012",
-          "input_cache_read": "0.00000024",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.00000024",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.00000048",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.0000006",
-              "min": 128001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.0000012",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000024",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000003",
-              "min": 128001
-            }
-          ],
-          "output": "0.000006",
-          "output_tiers": [
-            {
-              "cost": "0.000006",
-              "max": 32001,
-              "min": 0
-            },
-            {
-              "cost": "0.000012",
-              "max": 128001,
-              "min": 32001
-            },
-            {
-              "cost": "0.000015",
-              "min": 128001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000012",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000006",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000024",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen3 Max Preview",
-        "owned_by": "alibaba",
-        "type": "language",
-        "context_window": 262144,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -37380,13 +36591,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "b8a6b659e47f5720652c6bdad52cbf3a5e18d0b447654cb4ecf76e4ac8dcc4b1",
-  "revision": 6,
-  "changed_at": "2026-10-10T12:32:28Z",
+  "catalog_sha256": "415b0ea1d1ab9e4debf8d5be7be4da0f06154496e3748642c54992b5f6922e77",
+  "revision": 7,
+  "changed_at": "2026-10-12T10:09:43Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "1b37596209a195414ee6abfe7cdf66d7ba98546ef4e31fdf5e0064b3f562a94a",
+  "source_sha256": "b7e5576628c76dd4080de08adb967d2e99fdc8d75dad996e812d90414772ac0f",
   "archive_reference": null
 }

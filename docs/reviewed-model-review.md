@@ -61,3 +61,9 @@ Preservation checks against the pre-expansion dataset established:
 Bounded public-source excerpts in `tests/fixtures/*-reviewed-expansion.*` and their capture-hash manifest test identity permissions, units, cache components, exact boundaries, complete tracked snapshots, failure retention, stable IDs and unchanged historical scope. They are test inputs, never production backfills. Browser checks exercise the actual generated reviewed dataset while native-only discovery isolation remains enforced.
 
 No inference endpoint, paid API recovery, worker provisioning, Pages gate or deployment was enabled by this review.
+
+### Separately authorized publication
+
+On 2026-10-12 the user separately authorized committing, pushing and deploying the local reviewed expansion and data-fit dashboard. Pages remains a manual, main-only release gated by `ENABLE_PAGES=true`; paid recovery and worker provisioning remain disabled. The deployment builds the exact dispatched commit, not an unpinned later checkout of `main`.
+
+Integration preserves the scheduled collection commit and original reviewed/native history. Local provider-scoped refreshes can validate the seven expanded billing sources without replacing retained credential-dependent native catalogs. A local full-source run using missing-key document fallbacks is not equivalent to the hosted API inventory: retain the last-good API snapshots and use the credentialed hosted collection for final full-source validation. Collector success alone does not establish the same source scope or comparison eligibility.
