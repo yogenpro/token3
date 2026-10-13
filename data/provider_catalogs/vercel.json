@@ -969,6 +969,108 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-05a98eae5f013c4cc6d4220e",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-5-batch",
+      "kind": "model",
+      "label": "Claude Opus 5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.000003125",
+          "output": "0.0000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000003125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-06605561b6367ce7df908b2b",
       "provider": "vercel",
       "native_id": "quiverai/arrow-2",
@@ -3422,6 +3524,109 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-148aff4b8bd79d67cc47b46a",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-4.7-batch",
+      "kind": "model",
+      "label": "Claude Opus 4.7 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.000003125",
+          "output": "0.0000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000003125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 4.7 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1584540b97bf5d38ddb223a2",
       "provider": "vercel",
       "native_id": "klingai/kling-v2.5-turbo-t2v",
@@ -4388,6 +4593,99 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-1b4141c7edb0b242d70dfb4a",
+      "provider": "vercel",
+      "native_id": "google/gemini-2.5-flash-lite-batch",
+      "kind": "model",
+      "label": "Gemini 2.5 Flash Lite (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "input_cache_read": "0.00000001",
+          "output": "0.0000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 2.5 Flash Lite (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 65535,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1b7c7395ba46f54f1a23776d",
       "provider": "vercel",
       "native_id": "tencent/hy4-preview",
@@ -4781,6 +5079,99 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-1ce69f2279b76c68637bc30e",
+      "provider": "vercel",
+      "native_id": "google/gemini-2.5-flash-batch",
+      "kind": "model",
+      "label": "Gemini 2.5 Flash (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000015",
+          "input_cache_read": "0.00000003",
+          "output": "0.00000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 2.5 Flash (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1dabb00b682a858b0022ad2e",
       "provider": "vercel",
       "native_id": "deepseek/deepseek-v3.2",
@@ -4857,6 +5248,80 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-1e4ccda329088f38224c4f5f",
+      "provider": "vercel",
+      "native_id": "openai/gpt-4o-batch",
+      "kind": "model",
+      "label": "GPT-4o (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000125",
+          "input_cache_read": "0.000000625",
+          "output": "0.000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000625",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-4o (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 128000,
+        "max_tokens": 16384,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -4993,6 +5458,149 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-1efffe8d1523e72927b791d0",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.6-luna-batch",
+      "kind": "model",
+      "label": "GPT 5.6 Luna (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001",
+          "input_cache_read": "0.00000001",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000001",
+              "max": 272000
+            },
+            {
+              "cost": "0.00000002",
+              "min": 272000
+            }
+          ],
+          "input_cache_write": "0.000000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.000000125",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.00000025",
+              "min": 272000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.0000001",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000002",
+              "min": 272000
+            }
+          ],
+          "output": "0.0000006",
+          "output_tiers": [
+            {
+              "cost": "0.0000006",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000009",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.6 Luna (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -5512,6 +6120,92 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-256f423ee0db76ecbd6d6a86",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.6-flash-batch",
+      "kind": "model",
+      "label": "Gemini 3.6 Flash (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000375",
+          "input_cache_read": "0.0000000375",
+          "output": "0.000001875"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000375",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000001875",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000375",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.6 Flash (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -6774,6 +7468,92 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-2c929435b3167bbf802faf6e",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5-mini-batch",
+      "kind": "model",
+      "label": "GPT-5 mini (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000125",
+          "input_cache_read": "0.0000000125",
+          "output": "0.000001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000125",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-5 mini (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-2d2d6c328de8a64fd32b0bb6",
       "provider": "vercel",
       "native_id": "meta/muse-image-1.0",
@@ -6883,6 +7663,101 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-2e07380054e1a12348adddd6",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-sonnet-5.5-batch",
+      "kind": "model",
+      "label": "Claude Sonnet 5.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000005",
+          "input_cache_write": "0.00000125",
+          "output": "0.000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Sonnet 5.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-2ef201d0f9080bdc3a6688e8",
       "provider": "vercel",
       "native_id": "deepseek/deepseek-v4.1-flash",
@@ -6891,6 +7766,11 @@
       "scope": {},
       "billing": {
         "rules": {
+          "fast": {
+            "input": "0.0000006",
+            "input_cache_read": "0.000000014",
+            "output": "0.0000024"
+          },
           "input": "0.0000003",
           "input_cache_read": "0.000000007",
           "output": "0.0000012",
@@ -7591,6 +8471,107 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-347dc8273c907ea23d13f841",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-4.5-batch",
+      "kind": "model",
+      "label": "Claude Opus 4.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.000003125",
+          "output": "0.0000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000003125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 4.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 200000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-34c53179c96bbef9ac22e791",
       "provider": "vercel",
       "native_id": "zai/glm-5.3-fast",
@@ -7826,6 +8807,98 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-368689e9cc3ced7101daec8c",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.4-nano-batch",
+      "kind": "model",
+      "label": "GPT 5.4 Nano (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001",
+          "input_cache_read": "0.00000001",
+          "output": "0.000000625"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000000625",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.4 Nano (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-372e7e456b0787a22aed102e",
       "provider": "vercel",
       "native_id": "alibaba/qwen3.8-2.4t-a95b",
@@ -7997,6 +9070,125 @@
             "audio"
           ]
         },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-393b1a102d82ac9561b69db5",
+      "provider": "vercel",
+      "native_id": "spacexai/grok-4.3-batch",
+      "kind": "model",
+      "label": "Grok 4.3 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000016",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000016",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000032",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 200001
+            }
+          ],
+          "output": "0.000002",
+          "output_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000016",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Grok 4.3 (Batch)",
+        "owned_by": "spacexai",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -10471,6 +11663,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-46de138d7e55be50aaa9adab",
+      "provider": "vercel",
+      "native_id": "scaledown/scaledown-classify-1",
+      "kind": "model",
+      "label": "Classify-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Classify-1",
+        "owned_by": "scaledown",
+        "type": "evaluation",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-47a207da0c56239a289c217f",
       "provider": "vercel",
       "native_id": "alibaba/wan-v2.6-r2v",
@@ -10565,6 +11812,92 @@
           ]
         },
         "zdr": "some",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-48162f531f205545cda32331",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5-batch",
+      "kind": "model",
+      "label": "GPT-5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000625",
+          "input_cache_read": "0.0000000625",
+          "output": "0.000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000625",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000625",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-5 (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -11147,6 +12480,92 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-4c58056d5164e79f11ef169f",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.7-flash-batch",
+      "kind": "model",
+      "label": "Gemini 3.7 Flash (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000375",
+          "input_cache_read": "0.0000000375",
+          "output": "0.000001875"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000375",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000001875",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000375",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.7 Flash (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 65535,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-4cb72f02abd024316989fe22",
       "provider": "vercel",
       "native_id": "cohere/embed-v4.0",
@@ -11276,6 +12695,124 @@
         ],
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-4d47e8b551b4593902e2ba9e",
+      "provider": "vercel",
+      "native_id": "google/gemini-3-flash-batch",
+      "kind": "model",
+      "label": "Gemini 3 Flash (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000025",
+          "input_cache_read": "0.00000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000005",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000005",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.00000025",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000025",
+              "min": 200001
+            }
+          ],
+          "output": "0.0000015",
+          "output_tiers": [
+            {
+              "cost": "0.0000015",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000015",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3 Flash (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -12115,6 +13652,108 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-535c11c507437f26acffa9f2",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-sonnet-5-batch",
+      "kind": "model",
+      "label": "Claude Sonnet 5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.00000125",
+          "output": "0.000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Sonnet 5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5389c6f3620be60714509079",
       "provider": "vercel",
       "native_id": "bfl/flux-3-video",
@@ -12150,6 +13789,98 @@
         },
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-539a2398707323bbeb9025fe",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.2-batch",
+      "kind": "model",
+      "label": "GPT 5.2 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000875",
+          "input_cache_read": "0.0000000875",
+          "output": "0.000007"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000875",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000007",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000875",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.2 (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -12879,6 +14610,129 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-57ba6c7230ebe69dabe0c20e",
+      "provider": "vercel",
+      "native_id": "spacexai/grok-4.20-reasoning-batch",
+      "kind": "model",
+      "label": "Grok 4.20 Reasoning (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000016",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000016",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000032",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 200001
+            }
+          ],
+          "output": "0.000002",
+          "output_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000016",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Grok 4.20 Reasoning (Batch)",
+        "owned_by": "spacexai",
+        "type": "language",
+        "context_window": 2000000,
+        "max_tokens": 2000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5859f22c46fd7c628a12eeca",
       "provider": "vercel",
       "native_id": "bytedance/seedream-4.0",
@@ -13147,6 +15001,150 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-597811ffa46ad16a55697884",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6-sol-batch",
+      "kind": "model",
+      "label": "GPT-6 Sol (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.0000001",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000002",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.00000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.00000125",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 272001
+            }
+          ],
+          "output": "0.000005",
+          "output_tiers": [
+            {
+              "cost": "0.000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000075",
+              "min": 272001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6 Sol (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5a4c43abc6cfffef8c3f7596",
       "provider": "vercel",
       "native_id": "bytedance/seedance-v1.0-pro-fast",
@@ -13195,6 +15193,151 @@
             "video"
           ]
         },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-5a6217612c653b6824eea228",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.6-terra-batch",
+      "kind": "model",
+      "label": "GPT 5.6 Terra (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.0000001",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000001",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000002",
+              "min": 272000
+            }
+          ],
+          "input_cache_write": "0.00000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.00000125",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 272000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 272000
+            }
+          ],
+          "output": "0.000006",
+          "output_tiers": [
+            {
+              "cost": "0.000006",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000009",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.6 Terra (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -13316,6 +15459,104 @@
           ]
         },
         "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-5b6bfc97b554804a79bbe617",
+      "provider": "vercel",
+      "native_id": "deepseek/deepseek-v4.1-flash-fast",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash Fast",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000006",
+          "input_cache_read": "0.000000014",
+          "output": "0.0000024",
+          "regional": {
+            "us": {
+              "input": "0.0000006",
+              "input_cache_read": "0.000000014",
+              "output": "0.0000024"
+            }
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000024",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000014",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "DeepSeek V4.1 Flash Fast",
+        "owned_by": "deepseek",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 32768,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -13987,6 +16228,108 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-5ff6a2154140fdb8d921f06f",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-4.6-batch",
+      "kind": "model",
+      "label": "Claude Opus 4.6 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.000003125",
+          "output": "0.0000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000003125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 4.6 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -17262,6 +19605,92 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-795cb1cbd505f18f103f86bc",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.5-flash-batch",
+      "kind": "model",
+      "label": "Gemini 3.5 Flash (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000075",
+          "input_cache_read": "0.000000075",
+          "output": "0.0000045"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000075",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000045",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.5 Flash (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-79b7c15ae9f09e2cc8326d79",
       "provider": "vercel",
       "native_id": "voyage/voyage-finance-2",
@@ -17311,6 +19740,252 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-79cc2ac41dbcb9d51fdada01",
+      "provider": "vercel",
+      "native_id": "spacexai/grok-4.20-multi-agent-batch",
+      "kind": "model",
+      "label": "Grok 4.20 Multi-Agent (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000016",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000016",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000032",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 200001
+            }
+          ],
+          "output": "0.000002",
+          "output_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000016",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Grok 4.20 Multi-Agent (Batch)",
+        "owned_by": "spacexai",
+        "type": "language",
+        "context_window": 2000000,
+        "max_tokens": 2000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-79d886daa000803185069f4d",
+      "provider": "vercel",
+      "native_id": "spacexai/grok-4.20-non-reasoning-batch",
+      "kind": "model",
+      "label": "Grok 4.20 Non-Reasoning (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000016",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000016",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000032",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 200001
+            }
+          ],
+          "output": "0.000002",
+          "output_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000016",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Grok 4.20 Non-Reasoning (Batch)",
+        "owned_by": "spacexai",
+        "type": "language",
+        "context_window": 2000000,
+        "max_tokens": 2000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-7a7c58ebe8c79f67bc23941a",
       "provider": "vercel",
       "native_id": "bytedance/seedream-4.5",
@@ -17346,6 +20021,131 @@
             "image"
           ]
         },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-7a913f351e7d4cce537e5c73",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.5-batch",
+      "kind": "model",
+      "label": "GPT 5.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000025",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000005",
+              "min": 272000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.0000025",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000005",
+              "min": 272000
+            }
+          ],
+          "output": "0.000015",
+          "output_tiers": [
+            {
+              "cost": "0.000015",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000225",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000015",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.5 (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -21293,6 +24093,151 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-9756657272325898653d8645",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.6-sol-batch",
+      "kind": "model",
+      "label": "GPT 5.6 Sol (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000002",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000002",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000004",
+              "min": 272000
+            }
+          ],
+          "input_cache_write": "0.0000025",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.0000025",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000005",
+              "min": 272000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 272000
+            }
+          ],
+          "output": "0.00001",
+          "output_tiers": [
+            {
+              "cost": "0.00001",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000015",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.6 Sol (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-99609224dd359f6ccbd32eaf",
       "provider": "vercel",
       "native_id": "perplexity/sonar",
@@ -23201,6 +26146,143 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-a3ad16bbae81277861a6388d",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-sonnet-4.5-batch",
+      "kind": "model",
+      "label": "Claude Sonnet 4.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000015",
+          "input_cache_read": "0.00000015",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000015",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000003",
+              "min": 200001
+            }
+          ],
+          "input_cache_write": "0.000001875",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.000001875",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000375",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.0000015",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000003",
+              "min": 200001
+            }
+          ],
+          "output": "0.0000075",
+          "output_tiers": [
+            {
+              "cost": "0.0000075",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00001125",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000001875",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Sonnet 4.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "min": 1024,
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-a3ba674c3e62cda2c0419362",
       "provider": "vercel",
       "native_id": "minimax/minimax-m3",
@@ -23606,6 +26688,96 @@
               "low",
               "medium",
               "high"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-a62988e77c2b3b20fb70d691",
+      "provider": "vercel",
+      "native_id": "meta/muse-wonder-1.0",
+      "kind": "model",
+      "label": "Muse Wonder",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000004",
+          "input_cache_read": "0.0000002",
+          "output": "0.00002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000004",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Muse Wonder",
+        "owned_by": "meta",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
             ]
           }
         ],
@@ -24143,6 +27315,132 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-a80230748fd8b332bf1cb661",
+      "provider": "vercel",
+      "native_id": "google/gemini-2.5-pro-batch",
+      "kind": "model",
+      "label": "Gemini 2.5 Pro (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000625",
+          "input_cache_read": "0.000000125",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.000000125",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000025",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000000625",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000125",
+              "min": 200001
+            }
+          ],
+          "output": "0.000005",
+          "output_tiers": [
+            {
+              "cost": "0.000005",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000075",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000625",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 2.5 Pro (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 65535,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -25354,6 +28652,92 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-ae0aa22f90ce9e1db9a421ca",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5-nano-batch",
+      "kind": "model",
+      "label": "GPT-5 nano (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000025",
+          "input_cache_read": "0.0000000025",
+          "output": "0.0000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-5 nano (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-aec24aff68d6299b65cc28b5",
       "provider": "vercel",
       "native_id": "mistral/mistral-medium-3.5",
@@ -25685,6 +29069,224 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-afa2805848209c77076dce33",
+      "provider": "vercel",
+      "native_id": "openai/gpt-4o-mini-batch",
+      "kind": "model",
+      "label": "GPT-4o mini (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000075",
+          "input_cache_read": "0.0000000375",
+          "output": "0.0000003"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000375",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-4o mini (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 128000,
+        "max_tokens": 16384,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-afd35a774295cde860c26745",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6-luna-batch",
+      "kind": "model",
+      "label": "GPT-6 Luna (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "input_cache_read": "0.000000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.000000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000001",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.0000000625",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.0000000625",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000000125",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.00000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000001",
+              "min": 272001
+            }
+          ],
+          "output": "0.00000025",
+          "output_tiers": [
+            {
+              "cost": "0.00000025",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000000375",
+              "min": 272001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000000625",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6 Luna (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-afe3dd68924415fba8460dda",
       "provider": "vercel",
       "native_id": "cohere/rerank-v4-pro",
@@ -25890,6 +29492,98 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-b009a56e5cb29e995e1ab4bd",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.4-mini-batch",
+      "kind": "model",
+      "label": "GPT 5.4 Mini (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000375",
+          "input_cache_read": "0.0000000375",
+          "output": "0.00000225"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000375",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000225",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000375",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.4 Mini (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-b1441526131cf2d618a78ce7",
       "provider": "vercel",
       "native_id": "minimax/minimax-m2.1",
@@ -25976,6 +29670,106 @@
         ],
         "zdr": "some",
         "no_training": "some"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-b145489292f79d28a658e217",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.5-pro-batch",
+      "kind": "model",
+      "label": "GPT 5.5 Pro (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000015",
+          "input_tiers": [
+            {
+              "cost": "0.000015",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.00003",
+              "min": 272000
+            }
+          ],
+          "output": "0.00009",
+          "output_tiers": [
+            {
+              "cost": "0.00009",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.000135",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00009",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.5 Pro (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -26429,6 +30223,131 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-b3b933f8ef013c74f4d9883c",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5.4-batch",
+      "kind": "model",
+      "label": "GPT 5.4 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000125",
+          "input_cache_read": "0.000000125",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.000000125",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.00000025",
+              "min": 272000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.00000125",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 272000
+            }
+          ],
+          "output": "0.0000075",
+          "output_tiers": [
+            {
+              "cost": "0.0000075",
+              "max": 272000,
+              "min": 0
+            },
+            {
+              "cost": "0.00001125",
+              "min": 272000
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT 5.4 (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -27405,6 +31324,108 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-ba6440d798711984bc6e2f3b",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-sonnet-4.6-batch",
+      "kind": "model",
+      "label": "Claude Sonnet 4.6 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000015",
+          "input_cache_read": "0.00000015",
+          "input_cache_write": "0.000001875",
+          "output": "0.0000075"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000001875",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Sonnet 4.6 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-bb6039e0627417f90223c6c0",
       "provider": "vercel",
       "native_id": "mistral/mistral-small",
@@ -27480,6 +31501,141 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-bb63c609480e33b42d5b64b0",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6-astra-batch",
+      "kind": "model",
+      "label": "GPT-6 Astra (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000005",
+          "input_cache_read": "0.0000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000005",
+              "max": 272001
+            },
+            {
+              "cost": "0.000001",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.00000625",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.00000625",
+              "max": 272001
+            },
+            {
+              "cost": "0.0000125",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000005",
+              "max": 272001
+            },
+            {
+              "cost": "0.00001",
+              "min": 272001
+            }
+          ],
+          "output": "0.000025",
+          "output_tiers": [
+            {
+              "cost": "0.000025",
+              "max": 272001
+            },
+            {
+              "cost": "0.0000375",
+              "min": 272001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000625",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6 Astra (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-bd4a21cbb03a059c296da0aa",
       "provider": "vercel",
       "native_id": "openai/tts-1",
@@ -27529,6 +31685,166 @@
             "audio"
           ]
         },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-bd804589153dc4856f0110b6",
+      "provider": "vercel",
+      "native_id": "openai/gpt-4.1-nano-batch",
+      "kind": "model",
+      "label": "GPT-4.1 nano (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "input_cache_read": "0.0000000125",
+          "output": "0.0000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000125",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-4.1 nano (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1047576,
+        "max_tokens": 32768,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-bdaf437d6922049783911ae8",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.5-flash-lite-batch",
+      "kind": "model",
+      "label": "Gemini 3.5 Flash Lite (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000015",
+          "input_cache_read": "0.000000015",
+          "output": "0.00000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.5 Flash Lite (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 65000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -27782,6 +32098,149 @@
         },
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-c09444cb34e63418b7065dc4",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-haiku-5.5-batch",
+      "kind": "model",
+      "label": "Claude Haiku 5.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "input_cache_read": "0.000000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.000000005",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.000000025",
+              "min": 100001
+            }
+          ],
+          "input_cache_write": "0.0000000625",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.0000000625",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000003125",
+              "min": 100001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.00000005",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000025",
+              "min": 100001
+            }
+          ],
+          "output": "0.00000025",
+          "output_tiers": [
+            {
+              "cost": "0.00000025",
+              "max": 100001,
+              "min": 0
+            },
+            {
+              "cost": "0.00000125",
+              "min": 100001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000000625",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Haiku 5.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -28692,6 +33151,108 @@
             "video"
           ]
         },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-c6904e67de35ab536e01fc27",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-fable-5-batch",
+      "kind": "model",
+      "label": "Claude Fable 5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000005",
+          "input_cache_read": "0.0000005",
+          "input_cache_write": "0.00000625",
+          "output": "0.000025"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000625",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Fable 5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -30158,6 +34719,109 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-d106458e5dade33f674693d0",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-4.8-batch",
+      "kind": "model",
+      "label": "Claude Opus 4.8 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000025",
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.000003125",
+          "output": "0.0000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000003125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 4.8 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-d1f25ea67449a597cd7b22cb",
       "provider": "vercel",
       "native_id": "meituan/longcat-2.5-preview",
@@ -30664,19 +35328,18 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-d6c50646635b8b3d61d94c03",
+      "id": "vercel-d5a57904fe6bd585d14897fb",
       "provider": "vercel",
-      "native_id": "anthropic/claude-opus-4",
+      "native_id": "anthropic/claude-fable-5.1-batch",
       "kind": "model",
-      "label": "Claude Opus 4",
+      "label": "Claude Fable 5.1 (Batch)",
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.000015",
-          "input_cache_read": "0.0000015",
-          "input_cache_write": "0.00001875",
-          "output": "0.000075",
-          "web_search": "10"
+          "input": "0.000005",
+          "input_cache_read": "0.000000125",
+          "input_cache_write": "0.00000625",
+          "output": "0.000025"
         },
         "currency": "USD",
         "state": "reported",
@@ -30686,39 +35349,39 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000015",
+          "amount": "0.000005",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000075",
+          "amount": "0.000025",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000015",
+          "amount": "0.000000125",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.00001875",
+          "amount": "0.00000625",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
         }
       ],
       "metadata": {
-        "name": "Claude Opus 4",
+        "name": "Claude Fable 5.1 (Batch)",
         "owned_by": "anthropic",
         "type": "language",
-        "context_window": 200000,
-        "max_tokens": 32000,
+        "context_window": 1000000,
+        "max_tokens": 128000,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -30726,11 +35389,11 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning"
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
         ],
         "supported_specifications": [
-          "v2",
-          "v3",
           "v4"
         ],
         "modalities": {
@@ -30748,11 +35411,21 @@
             "type": "toggle"
           },
           {
-            "min": 1024,
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          },
+          {
             "type": "budget_tokens"
           }
         ],
-        "zdr": "all",
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -32678,89 +37351,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-e263a43adc9d09d7f5a7711c",
-      "provider": "vercel",
-      "native_id": "anthropic/claude-3-haiku",
-      "kind": "model",
-      "label": "Claude 3 Haiku",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000025",
-          "input_cache_read": "0.00000003",
-          "input_cache_write": "0.0000003",
-          "output": "0.00000125"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.00000125",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000003",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_write",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "cache-write token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Claude 3 Haiku",
-        "owned_by": "anthropic",
-        "type": "language",
-        "context_window": 200000,
-        "max_tokens": 4096,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-e2cf49de1e2aa0e0c05d884d",
       "provider": "vercel",
       "native_id": "voyage/voyage-3.5",
@@ -33229,6 +37819,91 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-e5481b500c36800a4c1237e4",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.1-flash-lite-batch",
+      "kind": "model",
+      "label": "Gemini 3.1 Flash Lite (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000125",
+          "input_cache_read": "0.000000015",
+          "output": "0.00000075"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.1 Flash Lite (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 65000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-e56149b9eda9e8fd51a450ec",
       "provider": "vercel",
       "native_id": "inclusionai/ling-3.0-flash-vl",
@@ -33306,6 +37981,101 @@
         ],
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-e58cabaf8c3d0ea3db1776b1",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-opus-5.5-batch",
+      "kind": "model",
+      "label": "Claude Opus 5.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.0000025",
+          "output": "0.00001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Opus 5.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -33442,6 +38212,198 @@
           ]
         },
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-e78adf03fb44b395390dd56a",
+      "provider": "vercel",
+      "native_id": "openai/gpt-4.1-mini-batch",
+      "kind": "model",
+      "label": "GPT-4.1 mini (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000002",
+          "input_cache_read": "0.00000005",
+          "output": "0.0000008"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000008",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-4.1 mini (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1047576,
+        "max_tokens": 32768,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-e7ffb474371e6df78528a414",
+      "provider": "vercel",
+      "native_id": "google/gemini-3.1-pro-preview-batch",
+      "kind": "model",
+      "label": "Gemini 3.1 Pro Preview (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.0000002",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000002",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000004",
+              "min": 200001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 200001
+            }
+          ],
+          "output": "0.000006",
+          "output_tiers": [
+            {
+              "cost": "0.000006",
+              "max": 200001,
+              "min": 0
+            },
+            {
+              "cost": "0.000009",
+              "min": 200001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 3.1 Pro Preview (Batch)",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -34885,6 +39847,99 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f258097436661266b6b87454",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-haiku-4.5-batch",
+      "kind": "model",
+      "label": "Claude Haiku 4.5 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000005",
+          "input_cache_read": "0.00000005",
+          "input_cache_write": "0.000000625",
+          "output": "0.0000025"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000000625",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Haiku 4.5 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 200000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "min": 1024,
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f3f746118a1d557d8f47bbf0",
       "provider": "vercel",
       "native_id": "openai/o3-mini",
@@ -35488,6 +40543,220 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-fab5bc295fc8378fbda8830b",
+      "provider": "vercel",
+      "native_id": "openai/gpt-4.1-batch",
+      "kind": "model",
+      "label": "GPT-4.1 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000025",
+          "output": "0.000004"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000004",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-4.1 (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1047576,
+        "max_tokens": 32768,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-fb263a4eeaba81158186ba66",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6.1-sol-batch",
+      "kind": "model",
+      "label": "GPT-6.1 Sol (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000001",
+          "input_cache_read": "0.00000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000001",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.00000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.00000125",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 272001
+            }
+          ],
+          "output": "0.000005",
+          "output_tiers": [
+            {
+              "cost": "0.000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000075",
+              "min": 272001
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6.1 Sol (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -36308,6 +41577,80 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-fd4760bf099b1a284a544c0d",
+      "provider": "vercel",
+      "native_id": "openai/gpt-5-pro-batch",
+      "kind": "model",
+      "label": "GPT-5 pro (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000075",
+          "output": "0.00006"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000075",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-5 pro (Batch)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 400000,
+        "max_tokens": 272000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-fd5e213f8a938e5f7a370033",
       "provider": "vercel",
       "native_id": "voyage/voyage-3-large",
@@ -36591,13 +41934,16 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "415b0ea1d1ab9e4debf8d5be7be4da0f06154496e3748642c54992b5f6922e77",
-  "revision": 7,
-  "changed_at": "2026-10-12T10:09:43Z",
+  "catalog_sha256": "fc9a48db63a0e2872de20d25ac4ae87f4eb44beaa6ea113934b9017eadf2e028",
+  "revision": 8,
+  "changed_at": "2026-10-13T14:12:32Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "b7e5576628c76dd4080de08adb967d2e99fdc8d75dad996e812d90414772ac0f",
-  "archive_reference": null
+  "source_sha256": "f9a07e29c1d373327c2569f0a0d6ad51a216659d50eae9c840698f0ac22c69f1",
+  "archive_reference": {
+    "state": "not_applicable",
+    "reason": "API/feed responses are not public page captures"
+  }
 }

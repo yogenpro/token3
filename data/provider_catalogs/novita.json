@@ -4671,6 +4671,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-9441b3b919c443fe5110fce2",
+      "provider": "novita",
+      "native_id": "stepfun/step-5-preview",
+      "kind": "model",
+      "label": "Step 5 Preview",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 10000,
+              "price_per_m": 10000,
+              "origin_price_per_m_decimal": "1",
+              "price_per_m_decimal": "1"
+            },
+            "completion": {
+              "origin_price_per_m": 27000,
+              "price_per_m": 27000,
+              "origin_price_per_m_decimal": "2.7",
+              "price_per_m_decimal": "2.7"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 1000,
+              "price_per_m": 1000,
+              "origin_price_per_m_decimal": "0.1",
+              "price_per_m_decimal": "0.1"
+            }
+          },
+          "native_input_billing_units": 10000,
+          "native_output_billing_units": 27000,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "2.7",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1000000,
+        "max_output_tokens": 64000,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-94e70829a57703ad285ed3f8",
       "provider": "novita",
       "native_id": "qwen/qwen3.8-27b",
@@ -7866,13 +7957,16 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "fa42d61721826c4458df3530e84a09ab4f936981dd0184043cff1b4adbec1b93",
-  "revision": 4,
-  "changed_at": "2026-10-12T10:09:43Z",
+  "catalog_sha256": "95a420fa46b9dc0852ea8dea57c3870ca6993f42b565112fb0e73d4e703a0318",
+  "revision": 5,
+  "changed_at": "2026-10-13T14:12:32Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "88548bc6caa134d3d5c7c5fd5f29e2cd5f7a0fb9b29486cd5a4ba0ee73089a4c",
-  "archive_reference": null
+  "source_sha256": "48ab027f8fbbda2f29f2ccb2a5cc0e5b78a8d6ff7615dc4f7d8cd2684428fe8c",
+  "archive_reference": {
+    "state": "not_applicable",
+    "reason": "API/feed responses are not public page captures"
+  }
 }
