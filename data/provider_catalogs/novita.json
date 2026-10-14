@@ -1262,16 +1262,63 @@
       "label": "Ling 3.1 Flash",
       "scope": {},
       "billing": {
-        "state": "source_native_or_unpriced",
+        "state": "reported",
         "rules": {
-          "rules": null,
-          "native_input_billing_units": 0,
-          "native_output_billing_units": 0,
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 3000,
+              "price_per_m": 3000,
+              "origin_price_per_m_decimal": "0.3",
+              "price_per_m_decimal": "0.3"
+            },
+            "completion": {
+              "origin_price_per_m": 9000,
+              "price_per_m": 9000,
+              "origin_price_per_m_decimal": "0.9",
+              "price_per_m_decimal": "0.9"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 600,
+              "price_per_m": 600,
+              "origin_price_per_m_decimal": "0.06",
+              "price_per_m_decimal": "0.06"
+            }
+          },
+          "native_input_billing_units": 3000,
+          "native_output_billing_units": 9000,
           "tiered_billing": false,
           "tiered_billing_configs": []
         }
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.9",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
       "metadata": {
         "model_type": "chat",
         "input_modalities": [
@@ -7957,14 +8004,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "95a420fa46b9dc0852ea8dea57c3870ca6993f42b565112fb0e73d4e703a0318",
-  "revision": 5,
-  "changed_at": "2026-10-13T14:12:32Z",
+  "catalog_sha256": "8ec38acfaa53287316e2c37e1e2be3753e6aed62e1d0fa00dc2cf699b2a1c01c",
+  "revision": 6,
+  "changed_at": "2026-10-14T11:52:39Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "48ab027f8fbbda2f29f2ccb2a5cc0e5b78a8d6ff7615dc4f7d8cd2684428fe8c",
+  "source_sha256": "acc4f454b718542639c70d944823c178ff10a82f34a7fc196c93790aa91b8803",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

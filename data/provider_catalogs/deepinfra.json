@@ -11256,6 +11256,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-9f31d1d38e8442c6ccc9c5e8",
+      "provider": "deepinfra",
+      "native_id": "google/embeddinggemma-2",
+      "kind": "model",
+      "label": "google/embeddinggemma-2",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_tokens",
+          "cents_per_input_token": 2e-06
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "embeddings",
+        "max_tokens": 8192,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-9f55b3c102c4d1f81e924c72",
       "provider": "deepinfra",
       "native_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
@@ -17739,6 +17776,48 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-f6fb9043da4c3c48d86759cf",
+      "provider": "deepinfra",
+      "native_id": "Bria/remove_background_guided",
+      "kind": "model",
+      "label": "Bria/remove_background_guided",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "image_units",
+          "cents_per_image_unit": 3.0,
+          "default_width": 0,
+          "default_height": 0,
+          "default_iterations": 0,
+          "default_price_cents": null,
+          "usage_from_cost": false
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_image_unit",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": "provider image unit",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-image",
+        "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-f76b37bff406b48200f3821d",
       "provider": "deepinfra",
       "native_id": "deepseek-ai/DeepSeek-V3",
@@ -18264,14 +18343,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "de86fab4fdfc0d1b086219fa085a09d5257058f862bb885b72b4a0df4edadc56",
-  "revision": 2,
-  "changed_at": "2026-10-09T13:17:30Z",
+  "catalog_sha256": "bc2724532e7c6631e042b07b4e3b754d1cd71c42f2fc9291d5dd0e53bba4cdda",
+  "revision": 3,
+  "changed_at": "2026-10-14T11:52:39Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "74311fd9597f6c338791e70d2dd3bb4f09689e2183a51b572f23abc68013e0ab",
+  "source_sha256": "7e217906ab95fb3df6562b95a3f6fa09c218e7fb70824cb091abc96baeaf57e6",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

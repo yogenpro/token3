@@ -4593,6 +4593,68 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-1ad04ecc8da4496f6909df01",
+      "provider": "vercel",
+      "native_id": "microsoft/mai-image-2.6-flash",
+      "kind": "model",
+      "label": "MAI-Image-2.6-Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "image_dimension_quality_pricing": [
+            {
+              "cost": "0.014",
+              "operation": "web-grounding"
+            }
+          ],
+          "input": "0.00000175",
+          "output": "0.000019"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000175",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000019",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "MAI-Image-2.6-Flash",
+        "owned_by": "microsoft",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1b4141c7edb0b242d70dfb4a",
       "provider": "vercel",
       "native_id": "google/gemini-2.5-flash-lite-batch",
@@ -9785,6 +9847,95 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-3e0b4804488245c7e79e15ad",
+      "provider": "vercel",
+      "native_id": "liquid/lfm2.5-24b-a2b",
+      "kind": "model",
+      "label": "LFM2.5-24B-A2B",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "input_cache_read": "0.000000025",
+          "output": "0.0000007"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000007",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "LFM2.5-24B-A2B",
+        "owned_by": "liquid",
+        "type": "language",
+        "context_window": 128000,
+        "max_tokens": 8200,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-3e18c40ac7175fa654b6483a",
       "provider": "vercel",
       "native_id": "google/gemini-3.5-transcribe-live",
@@ -13324,6 +13475,60 @@
         ],
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-506d3d3709b37d81d81fd1d5",
+      "provider": "vercel",
+      "native_id": "fish-audio/drama-3",
+      "kind": "model",
+      "label": "Drama 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00001",
+          "speech_input_character_cost": "0.00001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "speech_input_character_cost",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "input character",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Drama 3",
+        "owned_by": "fish-audio",
+        "type": "speech",
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "audio"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -17154,8 +17359,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0",
-          "output": "0"
+          "input": "0.0000003",
+          "input_cache_read": "0.00000006",
+          "output": "0.0000009"
         },
         "currency": "USD",
         "state": "reported",
@@ -17165,16 +17371,23 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0",
+          "amount": "0.0000009",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -19235,86 +19448,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-76197a419964391c6c8a4916",
-      "provider": "vercel",
-      "native_id": "inclusionai/ling-3.1-flash-free",
-      "kind": "model",
-      "label": "Ling 3.1 Flash (Free)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0",
-          "output": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Ling 3.1 Flash (Free)",
-        "owned_by": "inclusionai",
-        "type": "language",
-        "context_window": 262144,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-787c5c3cf2d7c739118e6605",
       "provider": "vercel",
       "native_id": "alibaba/qwen3-embedding-4b",
@@ -20439,7 +20572,8 @@
               "low",
               "medium",
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -21401,6 +21535,88 @@
         },
         "zdr": "none",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-894ad6f26be869106a5d9b86",
+      "provider": "vercel",
+      "native_id": "nvidia/nemotron-3.5-lightning-free",
+      "kind": "model",
+      "label": "Nemotron 3.5 Lightning Free",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Nemotron 3.5 Lightning Free",
+        "owned_by": "nvidia",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 65000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -26777,7 +26993,8 @@
               "low",
               "medium",
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -28498,7 +28715,8 @@
               "low",
               "medium",
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -35271,6 +35489,68 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-d54c4d9f48a00bc7c1c8f5fb",
+      "provider": "vercel",
+      "native_id": "microsoft/mai-image-2.6",
+      "kind": "model",
+      "label": "MAI-Image-2.6",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "image_dimension_quality_pricing": [
+            {
+              "cost": "0.014",
+              "operation": "web-grounding"
+            }
+          ],
+          "input": "0.000005",
+          "output": "0.000038"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000038",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "MAI-Image-2.6",
+        "owned_by": "microsoft",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-d565f9998c7fea62fa6e2f90",
       "provider": "vercel",
       "native_id": "google/gemini-embedding-2",
@@ -35645,6 +35925,121 @@
         ],
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-d7cc7c68f1d12d96fd54cf3e",
+      "provider": "vercel",
+      "native_id": "google/gemini-4-argon",
+      "kind": "model",
+      "label": "Gemini 4 Argon",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000001",
+          "maps_search": "14",
+          "output": "0.00001",
+          "regional": {
+            "eu": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "output": "0.000011"
+            },
+            "us": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "output": "0.000011"
+            }
+          },
+          "service_tiers": {
+            "flex": {
+              "input": "0.000001",
+              "input_cache_read": "0.00000005",
+              "output": "0.000005"
+            },
+            "priority": {
+              "input": "0.0000036",
+              "input_cache_read": "0.00000018",
+              "output": "0.000018"
+            }
+          },
+          "web_search": "14"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 4 Argon",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "some",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -41934,14 +42329,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "fc9a48db63a0e2872de20d25ac4ae87f4eb44beaa6ea113934b9017eadf2e028",
-  "revision": 8,
-  "changed_at": "2026-10-13T14:12:32Z",
+  "catalog_sha256": "e69e21f796eb1dee9b012c38051eca431ff7fee358acd30bbf991d88800798cf",
+  "revision": 9,
+  "changed_at": "2026-10-14T11:52:39Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "f9a07e29c1d373327c2569f0a0d6ad51a216659d50eae9c840698f0ac22c69f1",
+  "source_sha256": "443c878ca4fb18a9d48d6e4384f8c66639f5a64a53d7b5e3bec7fe85ecab05d8",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
