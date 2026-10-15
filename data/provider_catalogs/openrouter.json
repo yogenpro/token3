@@ -3862,19 +3862,19 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000005",
-          "input_cache_read": "0.0000001",
-          "input_cache_write": "0.00000125",
+          "completion": "0.00001",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.0000025",
           "overrides": [
             {
-              "completion": "0.0000075",
-              "input_cache_read": "0.0000002",
-              "input_cache_write": "0.0000025",
+              "completion": "0.000015",
+              "input_cache_read": "0.0000004",
+              "input_cache_write": "0.000005",
               "min_prompt_tokens": 272000,
-              "prompt": "0.000002"
+              "prompt": "0.000004"
             }
           ],
-          "prompt": "0.000001",
+          "prompt": "0.000002",
           "web_search": "0.01"
         },
         "currency": "USD",
@@ -3885,28 +3885,28 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000001",
+          "amount": "0.000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000005",
+          "amount": "0.00001",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000001",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.00000125",
+          "amount": "0.0000025",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -6160,8 +6160,8 @@
       "billing": {
         "rules": {
           "completion": "0.0000048",
-          "input_cache_read": "0.000000059",
-          "prompt": "0.000000079"
+          "input_cache_read": "0.000000029",
+          "prompt": "0.00000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -6171,7 +6171,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000079",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -6185,7 +6185,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000059",
+          "amount": "0.000000029",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -9158,8 +9158,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000017",
-          "prompt": "0.000000037"
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000075",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -9169,16 +9170,23 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000037",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000017",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -9201,7 +9209,7 @@
         "top_provider": {
           "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 117964
+          "max_completion_tokens": 65536
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -9447,9 +9455,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000023",
-          "input_cache_read": "0.0000000198",
-          "prompt": "0.00000004"
+          "completion": "0.0000022",
+          "input_cache_read": "0.00000005",
+          "prompt": "0.00000024"
         },
         "currency": "USD",
         "state": "reported",
@@ -9459,21 +9467,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000004",
+          "amount": "0.00000024",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000023",
+          "amount": "0.0000022",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000198",
+          "amount": "0.00000005",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -10581,9 +10589,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000095",
-          "input_cache_read": "0.0000001",
-          "prompt": "0.0000001"
+          "completion": "0.000001",
+          "input_cache_read": "0.00000005",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -10593,21 +10601,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000001",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000095",
+          "amount": "0.000001",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000001",
+          "amount": "0.00000005",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -10634,7 +10642,7 @@
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 235929
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -11875,19 +11883,19 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000005",
-          "input_cache_read": "0.0000001",
-          "input_cache_write": "0.00000125",
+          "completion": "0.00001",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.0000025",
           "overrides": [
             {
-              "completion": "0.0000075",
-              "input_cache_read": "0.0000002",
-              "input_cache_write": "0.0000025",
+              "completion": "0.000015",
+              "input_cache_read": "0.0000004",
+              "input_cache_write": "0.000005",
               "min_prompt_tokens": 272000,
-              "prompt": "0.000002"
+              "prompt": "0.000004"
             }
           ],
-          "prompt": "0.000001",
+          "prompt": "0.000002",
           "web_search": "0.01"
         },
         "currency": "USD",
@@ -11898,28 +11906,28 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000001",
+          "amount": "0.000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000005",
+          "amount": "0.00001",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000001",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.00000125",
+          "amount": "0.0000025",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -13926,13 +13934,17 @@
         "supported_parameters": [
           "frequency_penalty",
           "include_reasoning",
+          "logit_bias",
           "logprobs",
           "max_tokens",
+          "min_p",
           "presence_penalty",
           "reasoning",
           "repetition_penalty",
+          "response_format",
           "seed",
           "stop",
+          "structured_outputs",
           "temperature",
           "tool_choice",
           "tools",
@@ -18163,9 +18175,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000009",
-          "input_cache_read": "0.0000000108",
-          "prompt": "0.000000036"
+          "completion": "0.0000005",
+          "input_cache_read": "0.00000003",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -18175,21 +18187,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000036",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000009",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000108",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -18214,9 +18226,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048576,
+          "context_length": 1048575,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 943717
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -20404,19 +20416,19 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00001",
-          "input_cache_read": "0.0000002",
-          "input_cache_write": "0.0000025",
+          "completion": "0.00002",
+          "input_cache_read": "0.0000004",
+          "input_cache_write": "0.000005",
           "overrides": [
             {
-              "completion": "0.000015",
-              "input_cache_read": "0.0000004",
-              "input_cache_write": "0.000005",
+              "completion": "0.00003",
+              "input_cache_read": "0.0000008",
+              "input_cache_write": "0.00001",
               "min_prompt_tokens": 272000,
-              "prompt": "0.000004"
+              "prompt": "0.000008"
             }
           ],
-          "prompt": "0.000002",
+          "prompt": "0.000004",
           "web_search": "0.01"
         },
         "currency": "USD",
@@ -20427,28 +20439,28 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000002",
+          "amount": "0.000004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00001",
+          "amount": "0.00002",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000002",
+          "amount": "0.0000004",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.0000025",
+          "amount": "0.000005",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -20833,9 +20845,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000891",
+          "completion": "0.00000072",
           "input_cache_read": "0.0000000054",
-          "prompt": "0.00000002016"
+          "prompt": "0.00000002376"
         },
         "currency": "USD",
         "state": "reported",
@@ -20845,14 +20857,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000002016",
+          "amount": "0.00000002376",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000891",
+          "amount": "0.00000072",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -21346,7 +21358,7 @@
       "metadata": {
         "name": "StepFun: Step 5 Preview",
         "canonical_slug": "stepfun/step-5-preview-20261008",
-        "hugging_face_id": null,
+        "hugging_face_id": "stepfun-ai/Step-5-Preview",
         "architecture": {
           "input_modalities": [
             "text",
@@ -21360,7 +21372,7 @@
           ],
           "tokenizer": "Other"
         },
-        "context_length": 1000000,
+        "context_length": 1048576,
         "top_provider": {
           "context_length": 1000000,
           "is_moderated": false,
@@ -21370,15 +21382,22 @@
         "supported_parameters": [
           "frequency_penalty",
           "include_reasoning",
+          "logit_bias",
           "logprobs",
           "max_tokens",
+          "min_p",
+          "presence_penalty",
           "reasoning",
           "reasoning_effort",
+          "repetition_penalty",
           "response_format",
+          "seed",
           "stop",
           "structured_outputs",
           "temperature",
+          "tool_choice",
           "tools",
+          "top_k",
           "top_logprobs",
           "top_p"
         ],
@@ -24438,19 +24457,19 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00001",
-          "input_cache_read": "0.0000002",
-          "input_cache_write": "0.0000025",
+          "completion": "0.00002",
+          "input_cache_read": "0.0000004",
+          "input_cache_write": "0.000005",
           "overrides": [
             {
-              "completion": "0.000015",
-              "input_cache_read": "0.0000004",
-              "input_cache_write": "0.000005",
+              "completion": "0.00003",
+              "input_cache_read": "0.0000008",
+              "input_cache_write": "0.00001",
               "min_prompt_tokens": 272000,
-              "prompt": "0.000004"
+              "prompt": "0.000008"
             }
           ],
-          "prompt": "0.000002",
+          "prompt": "0.000004",
           "web_search": "0.01"
         },
         "currency": "USD",
@@ -24461,28 +24480,28 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000002",
+          "amount": "0.000004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00001",
+          "amount": "0.00002",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000002",
+          "amount": "0.0000004",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.0000025",
+          "amount": "0.000005",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -26103,9 +26122,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000034",
-          "input_cache_read": "0.00000005",
-          "prompt": "0.00000009"
+          "completion": "0.0000004",
+          "prompt": "0.0000002"
         },
         "currency": "USD",
         "state": "reported",
@@ -26115,23 +26133,16 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000009",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000034",
+          "amount": "0.0000004",
           "currency": "USD",
           "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000005",
-          "currency": "USD",
-          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -27242,7 +27253,6 @@
           "frequency_penalty",
           "max_tokens",
           "response_format",
-          "stop",
           "structured_outputs",
           "temperature",
           "tool_choice",
@@ -27719,8 +27729,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000108",
-          "input_cache_read": "0.000000027",
+          "completion": "0.00000095",
+          "input_cache_read": "0.00000003",
           "prompt": "0.00000027"
         },
         "currency": "USD",
@@ -27738,14 +27748,14 @@
         },
         {
           "dimension": "completion",
-          "amount": "0.00000108",
+          "amount": "0.00000095",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000027",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -27768,9 +27778,9 @@
         },
         "context_length": 204800,
         "top_provider": {
-          "context_length": 200000,
+          "context_length": 198000,
           "is_moderated": false,
-          "max_completion_tokens": 128000
+          "max_completion_tokens": 32768
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -28491,7 +28501,7 @@
       "billing": {
         "rules": {
           "completion": "0.0000009",
-          "input_cache_read": "0.0000000108",
+          "input_cache_read": "0.00000001125",
           "prompt": "0.000000036"
         },
         "currency": "USD",
@@ -28516,7 +28526,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000108",
+          "amount": "0.00000001125",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -29338,9 +29348,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000014",
-          "input_cache_read": "0.0000003",
-          "prompt": "0.000000536"
+          "completion": "0.000024",
+          "input_cache_read": "0.00000028",
+          "prompt": "0.00000029"
         },
         "currency": "USD",
         "state": "reported",
@@ -29350,21 +29360,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000536",
+          "amount": "0.00000029",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000014",
+          "amount": "0.000024",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000003",
+          "amount": "0.00000028",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -30377,7 +30387,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-10-15",
         "knowledge_cutoff": "2025-01-31"
       },
       "comparison_eligible": false
@@ -32274,9 +32284,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000418",
-          "input_cache_read": "0.000000247",
-          "prompt": "0.00000133"
+          "completion": "0.000003036",
+          "input_cache_read": "0.0000001794",
+          "prompt": "0.000000966"
         },
         "currency": "USD",
         "state": "reported",
@@ -32286,21 +32296,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000133",
+          "amount": "0.000000966",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000418",
+          "amount": "0.000003036",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000247",
+          "amount": "0.0000001794",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -32323,9 +32333,9 @@
         },
         "context_length": 204800,
         "top_provider": {
-          "context_length": 202745,
+          "context_length": 200000,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 128000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -36226,8 +36236,8 @@
       "billing": {
         "rules": {
           "completion": "0.000015",
-          "input_cache_read": "0.00000032",
-          "prompt": "0.0000007"
+          "input_cache_read": "0.00000028",
+          "prompt": "0.00000045"
         },
         "currency": "USD",
         "state": "reported",
@@ -36237,7 +36247,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000007",
+          "amount": "0.00000045",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -36251,7 +36261,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000032",
+          "amount": "0.00000028",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -36576,8 +36586,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000025",
-          "prompt": "0.00000009375"
+          "completion": "0.0000002",
+          "prompt": "0.000000075"
         },
         "currency": "USD",
         "state": "reported",
@@ -36587,14 +36597,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000009375",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000025",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -36618,7 +36628,7 @@
         },
         "context_length": 256000,
         "top_provider": {
-          "context_length": 256000,
+          "context_length": 128000,
           "is_moderated": false,
           "max_completion_tokens": 16384
         },
@@ -37762,8 +37772,8 @@
       "billing": {
         "rules": {
           "completion": "0.0000044",
-          "input_cache_read": "0.0000000536",
-          "prompt": "0.0000000576"
+          "input_cache_read": "0.0000000223",
+          "prompt": "0.000000024"
         },
         "currency": "USD",
         "state": "reported",
@@ -37773,7 +37783,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000576",
+          "amount": "0.000000024",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -37787,7 +37797,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000536",
+          "amount": "0.0000000223",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -37932,8 +37942,8 @@
       "billing": {
         "rules": {
           "completion": "0.000007",
-          "input_cache_read": "0.000000049",
-          "prompt": "0.00000005"
+          "input_cache_read": "0.000000019",
+          "prompt": "0.00000002"
         },
         "currency": "USD",
         "state": "reported",
@@ -37943,7 +37953,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000005",
+          "amount": "0.00000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -37957,7 +37967,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000049",
+          "amount": "0.000000019",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -38030,9 +38040,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000192",
-          "input_cache_read": "0.00000012",
-          "prompt": "0.0000006"
+          "completion": "0.0000032",
+          "input_cache_read": "0.0000002",
+          "prompt": "0.000001"
         },
         "currency": "USD",
         "state": "reported",
@@ -38042,21 +38052,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000006",
+          "amount": "0.000001",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000192",
+          "amount": "0.0000032",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000012",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -38079,9 +38089,9 @@
         },
         "context_length": 204800,
         "top_provider": {
-          "context_length": 198000,
+          "context_length": 202752,
           "is_moderated": false,
-          "max_completion_tokens": 128000
+          "max_completion_tokens": 131072
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -39427,9 +39437,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000891",
+          "completion": "0.00000072",
           "input_cache_read": "0.0000000054",
-          "prompt": "0.00000002016"
+          "prompt": "0.00000002376"
         },
         "currency": "USD",
         "state": "reported",
@@ -39439,14 +39449,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000002016",
+          "amount": "0.00000002376",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000891",
+          "amount": "0.00000072",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -40813,22 +40823,12 @@
       "billing": {
         "rules": {
           "audio": "0.000002",
-          "completion": "0.000012",
+          "completion": "0.00001",
           "image": "0.000002",
-          "input_audio_cache": "0.0000002",
-          "input_cache_read": "0.0000002",
-          "input_cache_write": "0.000000375",
-          "internal_reasoning": "0.000012",
-          "overrides": [
-            {
-              "audio": "0.000004",
-              "completion": "0.000018",
-              "input_audio_cache": "0.0000004",
-              "input_cache_read": "0.0000004",
-              "min_prompt_tokens": 200000,
-              "prompt": "0.000004"
-            }
-          ],
+          "input_audio_cache": "0.0000001",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.0000001875",
+          "internal_reasoning": "0.00001",
           "prompt": "0.000002",
           "web_search": "0.014"
         },
@@ -40847,21 +40847,21 @@
         },
         {
           "dimension": "completion",
-          "amount": "0.000012",
+          "amount": "0.00001",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000002",
+          "amount": "0.0000001",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.000000375",
+          "amount": "0.0000001875",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -40875,7 +40875,7 @@
         },
         {
           "dimension": "internal_reasoning",
-          "amount": "0.000012",
+          "amount": "0.00001",
           "currency": "USD",
           "unit": "reasoning token",
           "conditions": {}
@@ -42493,6 +42493,7 @@
         "supported_parameters": [
           "frequency_penalty",
           "logit_bias",
+          "logprobs",
           "max_tokens",
           "min_p",
           "presence_penalty",
@@ -42503,6 +42504,7 @@
           "structured_outputs",
           "temperature",
           "top_k",
+          "top_logprobs",
           "top_p"
         ],
         "default_parameters": {},
@@ -43097,13 +43099,13 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "4c8ea45289b2533332d1d49554dde74f750a2efe5fd10a8e4dbe31555f5ea1e0",
-  "revision": 14,
-  "changed_at": "2026-10-14T11:52:39Z",
+  "catalog_sha256": "9dfd29890daa5fa62086f9b6ce3ee013e9e7d4b059213bc444afa7a622e460e0",
+  "revision": 15,
+  "changed_at": "2026-10-15T11:29:48Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "03edc5916150d0c5907d7f0cac9ab9c22b948350e7fcbcdf1ac90df31900a5f2",
+  "source_sha256": "70d0c9955a7545bededf1f1d04a1965000b17bb0faecbe3d739a40b59e4e637d",
   "archive_reference": null
 }

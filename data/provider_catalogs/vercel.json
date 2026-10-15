@@ -18233,10 +18233,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.000000435",
-          "input_cache_read": "0.0000000036",
-          "output": "0.00000087",
-          "varies_by_provider": true
+          "input": "0.0000003045",
+          "input_cache_read": "0.0000000028",
+          "output": "0.000000609"
         },
         "currency": "USD",
         "state": "reported",
@@ -18246,21 +18245,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000000435",
+          "amount": "0.0000003045",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000087",
+          "amount": "0.000000609",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000036",
+          "amount": "0.0000000028",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -18656,17 +18655,17 @@
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.015",
+              "cost_per_second": "0.018",
               "mode": "text_to_video",
               "resolution": "768p"
             },
             {
-              "cost_per_second": "0.045",
+              "cost_per_second": "0.05",
               "mode": "text_to_video",
               "resolution": "1080p"
             },
             {
-              "cost_per_second": "0.045",
+              "cost_per_second": "0.05",
               "mode": "text_to_video",
               "resolution": "2k"
             },
@@ -18676,27 +18675,27 @@
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.015",
+              "cost_per_second": "0.018",
               "mode": "image_to_video",
               "resolution": "768p"
             },
             {
-              "cost_per_second": "0.045",
+              "cost_per_second": "0.05",
               "mode": "image_to_video",
               "resolution": "1080p"
             },
             {
-              "cost_per_second": "0.045",
+              "cost_per_second": "0.05",
               "mode": "image_to_video",
               "resolution": "2k"
             },
             {
-              "cost_per_second": "0.02",
+              "cost_per_second": "0.035",
               "mode": "reference_to_video",
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.03",
+              "cost_per_second": "0.05",
               "mode": "reference_to_video",
               "resolution": "768p"
             },
@@ -40335,6 +40334,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f34a2790d2f4f5087754e747",
+      "provider": "vercel",
+      "native_id": "perplexity/pplx-decider-v1.1-27b",
+      "kind": "model",
+      "label": "Decider V1.1 27B",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000002",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decider V1.1 27B",
+        "owned_by": "perplexity",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f3f746118a1d557d8f47bbf0",
       "provider": "vercel",
       "native_id": "openai/o3-mini",
@@ -42329,14 +42384,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "e69e21f796eb1dee9b012c38051eca431ff7fee358acd30bbf991d88800798cf",
-  "revision": 9,
-  "changed_at": "2026-10-14T11:52:39Z",
+  "catalog_sha256": "82348adcb3dd3910bbc3a1e176f4970ef1ebf3143b26aa0319b6ca4b8e811560",
+  "revision": 10,
+  "changed_at": "2026-10-15T11:29:48Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "443c878ca4fb18a9d48d6e4384f8c66639f5a64a53d7b5e3bec7fe85ecab05d8",
+  "source_sha256": "913d3103f31a979ff6062ee2f37a7c9bc30bdeb82bc7e610556095f3ec06d3c1",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

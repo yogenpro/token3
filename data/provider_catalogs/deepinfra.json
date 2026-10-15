@@ -5933,7 +5933,7 @@
       "metadata": {
         "type": "text-generation",
         "max_tokens": 1048576,
-        "quantization": "fp8"
+        "quantization": "fp4"
       },
       "comparison_eligible": false
     },
@@ -7075,6 +7075,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-60f0292a934f63b66ac3ea26",
+      "provider": "deepinfra",
+      "native_id": "inclusionAI/Ling-3.1-flash",
+      "kind": "model",
+      "label": "inclusionAI/Ling-3.1-flash",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 3e-05,
+          "cents_per_output_token": 9e-05,
+          "rate_per_input_token_cached": 0.2,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.0000009",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 262144,
+        "quantization": "fp4"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-610e9fe2843adb45c056aa7a",
       "provider": "deepinfra",
       "native_id": "openai/gpt-oss-120b-Turbo",
@@ -7354,7 +7407,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
+          "discount": 0.05,
           "discount_ends_at": null,
           "short": null,
           "full": null,
@@ -14519,6 +14572,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-c76de73b49d4d91253bf3a6a",
+      "provider": "deepinfra",
+      "native_id": "stepfun-ai/Step-5-Preview",
+      "kind": "model",
+      "label": "stepfun-ai/Step-5-Preview",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 0.0001,
+          "cents_per_output_token": 0.00027,
+          "rate_per_input_token_cached": 0.05,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.0000027",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 1048576,
+        "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-c794dc2968765dfde6e91b83",
       "provider": "deepinfra",
       "native_id": "Bria/erase",
@@ -18343,14 +18449,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "bc2724532e7c6631e042b07b4e3b754d1cd71c42f2fc9291d5dd0e53bba4cdda",
-  "revision": 3,
-  "changed_at": "2026-10-14T11:52:39Z",
+  "catalog_sha256": "e2bff66d28289cf856931dab2450ce426895aa7ac0fa2c6942eff55a56d8c275",
+  "revision": 4,
+  "changed_at": "2026-10-15T11:29:48Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "7e217906ab95fb3df6562b95a3f6fa09c218e7fb70824cb091abc96baeaf57e6",
+  "source_sha256": "57b2c2094d4f6afc49c709519bc764909bdee6f26433bfb8eb5618bc696f6ed7",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
