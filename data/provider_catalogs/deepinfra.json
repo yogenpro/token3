@@ -1723,6 +1723,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-1475f7b338fa37b32446d2a0",
+      "provider": "deepinfra",
+      "native_id": "nace-ai/drex-v2.0",
+      "kind": "model",
+      "label": "nace-ai/drex-v2.0",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "$0.06 / 1M tokens",
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 6e-06,
+          "cents_per_output_token": 0.0,
+          "rate_per_input_token_cached": null,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "decision",
+        "max_tokens": 131072,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-15bbb678ef3de248288e9d00",
       "provider": "deepinfra",
       "native_id": "black-forest-labs/FLUX-1-dev",
@@ -1951,6 +2004,59 @@
         "type": "text-generation",
         "max_tokens": 262144,
         "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-1865697c511b358edb8b5cd8",
+      "provider": "deepinfra",
+      "native_id": "nace-ai/drex-v1.5",
+      "kind": "model",
+      "label": "nace-ai/drex-v1.5",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "$0.04 / 1M tokens",
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 4e-06,
+          "cents_per_output_token": 0.0,
+          "rate_per_input_token_cached": null,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000004",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "decision",
+        "max_tokens": 131072,
+        "quantization": null
       },
       "comparison_eligible": false
     },
@@ -3675,6 +3781,59 @@
         "type": "embeddings",
         "max_tokens": 32768,
         "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-30982570225d1943332b1c44",
+      "provider": "deepinfra",
+      "native_id": "Cloudflare/clef-flash",
+      "kind": "model",
+      "label": "Cloudflare/clef-flash",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": 0.5,
+          "discount_ends_at": 1792225166,
+          "short": "$0.038 / 1M tokens",
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 3.8e-06,
+          "cents_per_output_token": 0.0,
+          "rate_per_input_token_cached": null,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.000000038",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "decision",
+        "max_tokens": 24576,
+        "quantization": "bfloat16"
       },
       "comparison_eligible": false
     },
@@ -7084,8 +7243,8 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
-          "discount_ends_at": null,
+          "discount": 0.3,
+          "discount_ends_at": 1792172865,
           "short": null,
           "full": null,
           "table": null,
@@ -8029,6 +8188,59 @@
         "type": "embeddings",
         "max_tokens": 512,
         "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-6ecf727f66edb122e6b4658b",
+      "provider": "deepinfra",
+      "native_id": "Cloudflare/clef",
+      "kind": "model",
+      "label": "Cloudflare/clef",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "$0.24 / 1M tokens",
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 2.4e-05,
+          "cents_per_output_token": 0.0,
+          "rate_per_input_token_cached": null,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000024",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "decision",
+        "max_tokens": null,
+        "quantization": "fp8"
       },
       "comparison_eligible": false
     },
@@ -9420,6 +9632,59 @@
         "type": "text-generation",
         "max_tokens": 32768,
         "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-89aba3695b09f91872fd2f53",
+      "provider": "deepinfra",
+      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+      "kind": "model",
+      "label": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 2e-05,
+          "cents_per_output_token": 0.0001,
+          "rate_per_input_token_cached": 0.5,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 262144,
+        "quantization": "fp4"
       },
       "comparison_eligible": false
     },
@@ -14581,7 +14846,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
+          "discount": 0.05,
           "discount_ends_at": null,
           "short": null,
           "full": null,
@@ -18449,14 +18714,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "e2bff66d28289cf856931dab2450ce426895aa7ac0fa2c6942eff55a56d8c275",
-  "revision": 4,
-  "changed_at": "2026-10-15T11:29:48Z",
+  "catalog_sha256": "c361f47d8fcd22f10da3bd35ec0c3a8ceb8666e358625894cf3c2d7bf5a18ebf",
+  "revision": 5,
+  "changed_at": "2026-10-16T11:25:12Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "57b2c2094d4f6afc49c709519bc764909bdee6f26433bfb8eb5618bc696f6ed7",
+  "source_sha256": "3c90645fc2e1477a6ccd101054a2dcdf5c93fca8fe6e100ea505826bb36eb3f9",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -2170,55 +2170,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-0dbf9f67262b6bd393be5621",
-      "provider": "vercel",
-      "native_id": "quiverai/arrow-1.1",
-      "kind": "model",
-      "label": "Arrow 1.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "image_dimension_quality_pricing": [
-            {
-              "cost": "0.2",
-              "operation": "generate"
-            },
-            {
-              "cost": "0.15",
-              "operation": "vectorize"
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "native_rules_only",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [],
-      "metadata": {
-        "name": "Arrow 1.1",
-        "owned_by": "quiverai",
-        "type": "image",
-        "context_window": 131072,
-        "max_tokens": 131072,
-        "supported_specifications": [
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "image"
-          ]
-        },
-        "zdr": "none",
-        "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-0df4e18a50a0c72500982ec7",
       "provider": "vercel",
       "native_id": "minimax/minimax-m2.1-lightning",
@@ -4203,7 +4154,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000004",
+          "input": "0.00000002",
           "output": "0"
         },
         "currency": "USD",
@@ -4214,7 +4165,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000004",
+          "amount": "0.00000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -4336,6 +4287,86 @@
         },
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-192b072a14c69a7ef2e57ff7",
+      "provider": "vercel",
+      "native_id": "stealth/cat-jam",
+      "kind": "model",
+      "label": "Cat Jam",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Cat Jam",
+        "owned_by": "stealth",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -10510,6 +10541,62 @@
         },
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-42886ca82a650465c2d4644d",
+      "provider": "vercel",
+      "native_id": "liquid/d1-ultra",
+      "kind": "model",
+      "label": "Liquid d1 Ultra",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000042",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Liquid d1 Ultra",
+        "owned_by": "liquid",
+        "type": "evaluation",
+        "context_window": 32768,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -18521,6 +18608,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-70c74f48ef0e7ba0a05da28b",
+      "provider": "vercel",
+      "native_id": "typesafe-ai/jev-1.13.0",
+      "kind": "model",
+      "label": "Jev 1.13.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000042",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Jev 1.13.0",
+        "owned_by": "typesafe-ai",
+        "type": "evaluation",
+        "context_window": 32000,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-719f6c828fcc0ca836beb7d8",
       "provider": "vercel",
       "native_id": "anthropic/claude-sonnet-5",
@@ -20868,6 +21011,103 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-82a519f35504ad63afaeadbe",
+      "provider": "vercel",
+      "native_id": "meta/muse-spark-open",
+      "kind": "model",
+      "label": "Muse Spark Open",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000125",
+          "input_cache_read": "0.00000015",
+          "output": "0.00000425",
+          "regional": {
+            "us": {
+              "input": "0.00000125",
+              "input_cache_read": "0.00000015",
+              "output": "0.00000425"
+            }
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000425",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Muse Spark Open",
+        "owned_by": "meta",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "audio",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-82e39ea45f8d172c689c4366",
       "provider": "vercel",
       "native_id": "moonshotai/kimi-k2.7-code",
@@ -20949,15 +21189,6 @@
         "reasoning_options": [
           {
             "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
           }
         ],
         "zdr": "all",
@@ -26582,6 +26813,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-a3f8b8dbab4ba409e9fb92c3",
+      "provider": "vercel",
+      "native_id": "typesafe-ai/jev-1.14.0",
+      "kind": "model",
+      "label": "Jev 1.14.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000042",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Jev 1.14.0",
+        "owned_by": "typesafe-ai",
+        "type": "evaluation",
+        "context_window": 32000,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-a429c9829eca5cf4c6219c59",
       "provider": "vercel",
       "native_id": "google/text-embedding-005",
@@ -27392,145 +27679,6 @@
           }
         ],
         "zdr": "some",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-a7a2f121f35ea943c16eeed2",
-      "provider": "vercel",
-      "native_id": "anthropic/claude-sonnet-4",
-      "kind": "model",
-      "label": "Claude Sonnet 4",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.000003",
-          "input_cache_read": "0.0000003",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.0000003",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000006",
-              "min": 200001
-            }
-          ],
-          "input_cache_write": "0.00000375",
-          "input_cache_write_tiers": [
-            {
-              "cost": "0.00000375",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000075",
-              "min": 200001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.000003",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.000006",
-              "min": 200001
-            }
-          ],
-          "output": "0.000015",
-          "output_tiers": [
-            {
-              "cost": "0.000015",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000225",
-              "min": 200001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.000003",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000015",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_write",
-          "amount": "0.00000375",
-          "currency": "USD",
-          "unit": "cache-write token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Claude Sonnet 4",
-        "owned_by": "anthropic",
-        "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 64000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "min": 1024,
-            "type": "budget_tokens"
-          }
-        ],
-        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -30570,6 +30718,106 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-b50310f8bc3735d015582747",
+      "provider": "vercel",
+      "native_id": "nvidia/nemotron-3.5-super-vl",
+      "kind": "model",
+      "label": "NVIDIA Nemotron 3.5 Super VL",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000002",
+          "input_cache_read": "0.00000004",
+          "output": "0.0000005",
+          "regional": {
+            "us": {
+              "input": "0.0000002",
+              "input_cache_read": "0.00000004",
+              "output": "0.0000005"
+            }
+          },
+          "varies_by_provider": true
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000004",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "NVIDIA Nemotron 3.5 Super VL",
+        "owned_by": "nvidia",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "some",
+        "no_training": "some"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-b5337304eaba76e5223caf91",
       "provider": "vercel",
       "native_id": "google/gemma-4-26b-a4b-it",
@@ -32264,26 +32512,26 @@
       "scope": {},
       "billing": {
         "rules": {
-          "image": "0.024",
+          "image": "0.048",
           "image_dimension_quality_pricing": [
             {
-              "cost": "0.0205",
+              "cost": "0.041",
               "size": "768x768"
             },
             {
-              "cost": "0.024",
+              "cost": "0.048",
               "size": "1024x1024"
             },
             {
-              "cost": "0.035",
+              "cost": "0.07",
               "size": "1536x1536"
             },
             {
-              "cost": "0.05",
+              "cost": "0.1",
               "size": "2048x2048"
             },
             {
-              "cost": "0.3035",
+              "cost": "0.607",
               "size": "4096x4096"
             }
           ]
@@ -33780,9 +34028,10 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.000001",
-          "input_cache_read": "0.00000005",
-          "output": "0.0000027"
+          "input": "0.00000095",
+          "input_cache_read": "0.0000000475",
+          "output": "0.000002565",
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -33792,21 +34041,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000001",
+          "amount": "0.00000095",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000027",
+          "amount": "0.000002565",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000005",
+          "amount": "0.0000000475",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -33816,12 +34065,14 @@
         "name": "Step 5 Preview",
         "owned_by": "stepfun",
         "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 1000000,
+        "context_window": 1048576,
+        "max_tokens": 1048576,
         "supported_parameters": [
           "max_tokens",
           "temperature",
           "stop",
+          "tools",
+          "tool_choice",
           "reasoning",
           "include_reasoning",
           "response_format",
@@ -33835,7 +34086,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -33851,8 +34103,8 @@
             ]
           }
         ],
-        "zdr": "none",
-        "no_training": "none"
+        "zdr": "some",
+        "no_training": "some"
       },
       "comparison_eligible": false
     },
@@ -42226,15 +42478,6 @@
         "reasoning_options": [
           {
             "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
           }
         ],
         "zdr": "all",
@@ -42384,14 +42627,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "82348adcb3dd3910bbc3a1e176f4970ef1ebf3143b26aa0319b6ca4b8e811560",
-  "revision": 10,
-  "changed_at": "2026-10-15T11:29:48Z",
+  "catalog_sha256": "1988fe8e4d145d6383b633626d973a92db8934cfabff59170c0e014e55de4496",
+  "revision": 11,
+  "changed_at": "2026-10-16T11:25:12Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "913d3103f31a979ff6062ee2f37a7c9bc30bdeb82bc7e610556095f3ec06d3c1",
+  "source_sha256": "892a74c5d900c97f0c729d8312647eb2196359ea36bbae20a7ce2ee733a3f3c5",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
