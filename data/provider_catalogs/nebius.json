@@ -804,6 +804,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "nebius-6d10481682bc644a3bb4d9fd",
+      "provider": "nebius",
+      "native_id": "reflection/beam",
+      "kind": "model_flavor",
+      "label": "Reflection Beam 1.0",
+      "scope": {
+        "flavor": "cheap",
+        "region": {
+          "country_code": "US",
+          "name": "us-north1"
+        }
+      },
+      "billing": {
+        "rules": {
+          "input_price_per_million_tokens": 0.25,
+          "output_price_per_million_tokens": 1
+        },
+        "state": "reported",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "input_price_per_million_tokens",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output_price_per_million_tokens",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "model_type": "text2text",
+        "model_name": "Reflection Beam 1.0",
+        "max_model_len": 1048576,
+        "context_window_k": 1048,
+        "quantization": "fp8",
+        "external_provider": false,
+        "tags": [],
+        "use_cases": [
+          "dedicated-endpoint",
+          "text",
+          "code",
+          "function_calling",
+          "reasoning",
+          "responses_api"
+        ],
+        "status": "active",
+        "license": {
+          "name": "Apache 2.0",
+          "type": "",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "vendor": "reflection",
+        "huggingface_url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
+        "size_b": 0
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "nebius-6e1aaf7d0de1139be6c4a7e5",
       "provider": "nebius",
       "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
@@ -1841,13 +1906,13 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "a91f9ff171615e2a7eead071ccaeb1ce66a120367595731c3184021f04362987",
-  "revision": 5,
-  "changed_at": "2026-10-16T11:25:12Z",
+  "catalog_sha256": "fae7f7df8907d483532d73a862bbd6f2ccb4283361ec14a29f66ab6e84681f2e",
+  "revision": 6,
+  "changed_at": "2026-10-17T10:44:24Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "1929df54f713c243e71efce4481add907764f78cffe473ac2d12a3e2a0010610",
+  "source_sha256": "3cdbdc611e023968ef53edc8fe546b4f0734ba99ff1594cc345eceb24efa2b9b",
   "archive_reference": null
 }

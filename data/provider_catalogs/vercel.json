@@ -73,9 +73,13 @@
             "type": "toggle"
           },
           {
-            "max": 38912,
-            "min": 1,
-            "type": "budget_tokens"
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -880,6 +884,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "some",
@@ -1639,7 +1652,8 @@
             "type": "effort",
             "values": [
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -2098,21 +2112,14 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high",
               "xhigh",
               "max"
             ]
-          },
-          {
-            "type": "budget_tokens"
           }
         ],
         "zdr": "none",
@@ -2531,21 +2538,14 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high",
               "xhigh",
               "max"
             ]
-          },
-          {
-            "type": "budget_tokens"
           }
         ],
         "zdr": "none",
@@ -4146,6 +4146,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-17461d2d587ad6c2f996e743",
+      "provider": "vercel",
+      "native_id": "perplexity/pplx-decider-flash-v1.2",
+      "kind": "model",
+      "label": "Decider Flash V1.2 4B",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000001",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decider Flash V1.2 4B",
+        "owned_by": "perplexity",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1871e39e8a9a7e0e7a800ce9",
       "provider": "vercel",
       "native_id": "liquid/d1",
@@ -4853,6 +4909,125 @@
             "values": [
               "none",
               "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-1c42ccdb1ab42d74d1bf3ef2",
+      "provider": "vercel",
+      "native_id": "deepseek/deepseek-v4.1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000015",
+          "input_cache_read": "0.000000003",
+          "output": "0.0000006",
+          "peak_pricing": {
+            "holiday_calendar": "cn",
+            "multiplier": 2,
+            "windows": [
+              {
+                "days_of_week": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "end_minute_utc": 240,
+                "start_minute_utc": 60
+              },
+              {
+                "days_of_week": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "end_minute_utc": 600,
+                "start_minute_utc": 360
+              }
+            ]
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000003",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "DeepSeek V4.1 Flash 1017",
+        "owned_by": "deepseek",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 384000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "high",
+              "max"
             ]
           }
         ],
@@ -6605,9 +6780,6 @@
               "medium",
               "high"
             ]
-          },
-          {
-            "type": "budget_tokens"
           }
         ],
         "zdr": "some",
@@ -6746,6 +6918,7 @@
           {
             "type": "effort",
             "values": [
+              "none",
               "low",
               "medium",
               "high"
@@ -6824,6 +6997,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "some",
@@ -8012,7 +8194,107 @@
             }
           ],
           "regional": {
+            "au": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000055",
+                  "min": 100001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000006875",
+                  "min": 100001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000055",
+                  "min": 100001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 100001
+                }
+              ]
+            },
             "eu": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000055",
+                  "min": 100001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000006875",
+                  "min": 100001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000055",
+                  "min": 100001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 100001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 100001
+                }
+              ]
+            },
+            "jp": {
               "input": "0.00000011",
               "input_cache_read": "0.000000011",
               "input_cache_read_tiers": [
@@ -10429,6 +10711,7 @@
             "values": [
               "none",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -12929,6 +13212,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "none",
@@ -14710,9 +15002,13 @@
             "type": "toggle"
           },
           {
-            "max": 32768,
-            "min": 1,
-            "type": "budget_tokens"
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "some",
@@ -16897,6 +17193,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "some",
@@ -18304,6 +18609,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -18677,6 +18991,12 @@
           "input_cache_write": "0.0000025",
           "output": "0.00001",
           "regional": {
+            "au": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000022",
+              "input_cache_write": "0.00000275",
+              "output": "0.000011"
+            },
             "eu": {
               "input": "0.0000022",
               "input_cache_read": "0.00000022",
@@ -19169,6 +19489,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "none",
@@ -19407,9 +19736,12 @@
             "type": "effort",
             "values": [
               "none",
+              "minimal",
               "low",
               "medium",
-              "high"
+              "high",
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -21189,6 +21521,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -22779,6 +23120,12 @@
           "input_cache_write": "0.0000025",
           "output": "0.00001",
           "regional": {
+            "au": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "input_cache_write": "0.00000275",
+              "output": "0.000011"
+            },
             "eu": {
               "input": "0.0000022",
               "input_cache_read": "0.00000011",
@@ -24347,6 +24694,12 @@
           "input_cache_write": "0.00000625",
           "output": "0.000025",
           "regional": {
+            "au": {
+              "input": "0.0000055",
+              "input_cache_read": "0.00000055",
+              "input_cache_write": "0.000006875",
+              "output": "0.0000275"
+            },
             "eu": {
               "input": "0.0000055",
               "input_cache_read": "0.00000055",
@@ -25833,6 +26186,90 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-9f87cbc74f8a6e2ac75632e2",
+      "provider": "vercel",
+      "native_id": "elorian/glimpse",
+      "kind": "model",
+      "label": "Glimpse",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000006",
+          "input_cache_read": "0.00000006",
+          "output": "0.000003"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000003",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Glimpse",
+        "owned_by": "elorian",
+        "type": "language",
+        "context_window": 220000,
+        "max_tokens": 4096,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-9fce49d720993ad3532047d2",
       "provider": "vercel",
       "native_id": "alibaba/qwen3.8-max",
@@ -26509,6 +26946,7 @@
             "type": "effort",
             "values": [
               "none",
+              "low",
               "medium",
               "high"
             ]
@@ -27309,7 +27747,19 @@
           "input_cache_write": "0.000005",
           "output": "0.00002",
           "regional": {
+            "au": {
+              "input": "0.0000044",
+              "input_cache_read": "0.00000022",
+              "input_cache_write": "0.0000055",
+              "output": "0.000022"
+            },
             "eu": {
+              "input": "0.0000044",
+              "input_cache_read": "0.00000022",
+              "input_cache_write": "0.0000055",
+              "output": "0.000022"
+            },
+            "jp": {
               "input": "0.0000044",
               "input_cache_read": "0.00000022",
               "input_cache_write": "0.0000055",
@@ -27560,6 +28010,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -31132,6 +31591,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "none",
@@ -31249,7 +31717,8 @@
             "type": "effort",
             "values": [
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -31346,12 +31815,8 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "high",
               "max"
@@ -33701,21 +34166,14 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high",
               "xhigh",
               "max"
             ]
-          },
-          {
-            "type": "budget_tokens"
           }
         ],
         "zdr": "none",
@@ -33769,6 +34227,87 @@
         },
         "zdr": "none",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-c7926ad74c61c20ebf08f7f6",
+      "provider": "vercel",
+      "native_id": "reflection/beam",
+      "kind": "model",
+      "label": "Beam 1.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0",
+          "varies_by_provider": true
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Beam 1.0",
+        "owned_by": "reflection",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "some",
+        "no_training": "some"
       },
       "comparison_eligible": false
     },
@@ -34012,6 +34551,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -34028,9 +34576,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000095",
-          "input_cache_read": "0.0000000475",
-          "output": "0.000002565",
+          "input": "0.000001",
+          "input_cache_read": "0.0000001",
+          "output": "0.0000027",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -34041,21 +34589,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000095",
+          "amount": "0.000001",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000002565",
+          "amount": "0.0000027",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000475",
+          "amount": "0.0000001",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -34728,6 +35276,62 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-cc9912ff025a3cee8f8d740b",
+      "provider": "vercel",
+      "native_id": "perplexity/pplx-decider-v1.2",
+      "kind": "model",
+      "label": "Decider V1.2 27B",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000002",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decider V1.2 27B",
+        "owned_by": "perplexity",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -35732,6 +36336,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "none",
@@ -35939,21 +36552,14 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high",
               "xhigh",
               "max"
             ]
-          },
-          {
-            "type": "budget_tokens"
           }
         ],
         "zdr": "none",
@@ -36657,6 +37263,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "some",
@@ -38623,6 +39238,86 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-e567b1962f7bfd9bb91bd99e",
+      "provider": "vercel",
+      "native_id": "reflection/beam-free",
+      "kind": "model",
+      "label": "Beam 1.0 (Free)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Beam 1.0 (Free)",
+        "owned_by": "reflection",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
           }
         ],
         "zdr": "none",
@@ -42041,7 +42736,8 @@
             "type": "effort",
             "values": [
               "high",
-              "xhigh"
+              "xhigh",
+              "max"
             ]
           }
         ],
@@ -42478,6 +43174,15 @@
         "reasoning_options": [
           {
             "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
           }
         ],
         "zdr": "all",
@@ -42627,14 +43332,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "1988fe8e4d145d6383b633626d973a92db8934cfabff59170c0e014e55de4496",
-  "revision": 11,
-  "changed_at": "2026-10-16T11:25:12Z",
+  "catalog_sha256": "292b6f4e37225865ed9251741923a413922a12da9035c5c0be8383c33b17f51c",
+  "revision": 12,
+  "changed_at": "2026-10-17T10:44:24Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "892a74c5d900c97f0c729d8312647eb2196359ea36bbae20a7ce2ee733a3f3c5",
+  "source_sha256": "b59e0582f7a0077838a4759809e2ccae46015b9166f29db68a34d518a4cc51a5",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

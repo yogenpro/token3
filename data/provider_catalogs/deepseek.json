@@ -43,44 +43,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepseek-27603624c6628683d8bf4144",
-      "provider": "deepseek",
-      "native_id": "3d82274b6577d1c3cdb4557b",
-      "kind": "document_row",
-      "label": "MODEL VERSION",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Models & Pricing",
-          "Model Details ​"
-        ],
-        "tabs": [],
-        "headers": [
-          "MODEL",
-          "deepseek-flash (1)",
-          "deepseek-v4-pro"
-        ],
-        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
-      },
-      "billing": {
-        "cells": [
-          "MODEL VERSION",
-          "DeepSeek-V4.1-Flash",
-          "DeepSeek-V4-Pro-0813"
-        ],
-        "columns": [
-          "MODEL",
-          "deepseek-flash (1)",
-          "deepseek-v4-pro"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "deepseek-2eca3f295cd8fa2144ac3a5f",
       "provider": "deepseek",
       "native_id": "5a055d9334807e84588fbefd",
@@ -294,6 +256,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepseek-3c2cfe233ffccf0a6d83f1e0",
+      "provider": "deepseek",
+      "native_id": "42ea64372aa0349d743bfdaa",
+      "kind": "document_row",
+      "label": "MODEL VERSION",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Models & Pricing",
+          "Model Details ​"
+        ],
+        "tabs": [],
+        "headers": [
+          "MODEL",
+          "deepseek-flash (1)",
+          "deepseek-v4-pro"
+        ],
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      "billing": {
+        "cells": [
+          "MODEL VERSION",
+          "DeepSeek-V4.1-Flash-1017",
+          "DeepSeek-V4-Pro-0813"
+        ],
+        "columns": [
+          "MODEL",
+          "deepseek-flash (1)",
+          "deepseek-v4-pro"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "deepseek-47dff32e694678d06ae0de86",
       "provider": "deepseek",
       "native_id": "7497ddc673a657e9a314e95b",
@@ -327,6 +327,56 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepseek-53082c62d6643e92d905f5eb",
+      "provider": "deepseek",
+      "native_id": "433f5c8f30733c9722bcff9c",
+      "kind": "document_row",
+      "label": "Fetch",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Models & Pricing",
+          "Search & Fetch Pricing ​"
+        ],
+        "tabs": [],
+        "headers": [
+          "API",
+          "Unit",
+          "Price"
+        ],
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      "billing": {
+        "cells": [
+          "Fetch",
+          "Per 1,000 successful requests",
+          "$0.75"
+        ],
+        "columns": [
+          "API",
+          "Unit",
+          "Price"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.75",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.75",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -540,6 +590,56 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepseek-b2eb559a12b8f27ee508a033",
+      "provider": "deepseek",
+      "native_id": "f598b70c2bafab25d1b68c36",
+      "kind": "document_row",
+      "label": "Search",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Models & Pricing",
+          "Search & Fetch Pricing ​"
+        ],
+        "tabs": [],
+        "headers": [
+          "API",
+          "Unit",
+          "Price"
+        ],
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      "billing": {
+        "cells": [
+          "Search",
+          "Per 1,000 successful requests",
+          "$0.75"
+        ],
+        "columns": [
+          "API",
+          "Unit",
+          "Price"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.75",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.75",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -905,19 +1005,23 @@
   ],
   "billing_notes": [
     "Official public API model/price table with cache hit/miss, output and model-version conditions. Row/column orientation is source-native, not guessed canonical model equivalence.",
-    "https://api-docs.deepseek.com/quick_start/pricing: (1) Use deepseek-flash as the model name. The legacy names deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted, but the corresponding models have been retired, their requests are served by the DeepSeek-V4.1-Flash model and billed at the Flash price.",
+    "https://api-docs.deepseek.com/quick_start/pricing: (1) Use deepseek-flash as the model name. The legacy names deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted, but the corresponding models have been retired, their requests are served by the DeepSeek-V4.1-Flash-1017 model and billed at the Flash price.",
     "https://api-docs.deepseek.com/quick_start/pricing: (2) Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+    "https://api-docs.deepseek.com/quick_start/pricing: For model usage, the expense = number of tokens × price. Search and Fetch are charged per successful request at the rates above. The corresponding fees will be directly deducted from your topped-up balance or granted balance, with a preference for using the granted balance first when both balances are available.",
+    "https://api-docs.deepseek.com/quick_start/pricing: Model prices are listed in units of per 1M tokens. A token, the smallest unit of text that the model recognizes, can be a word, a number, or even a punctuation mark. We bill model usage based on the total number of input and output tokens by the model.",
+    "https://api-docs.deepseek.com/quick_start/pricing: Note: when you use the DeepSeek API through DeepSeek Harness, Claude Code, or Codex, server-side tool calls already hit the Search and Fetch APIs. These calls are currently free of charge; per-request billing starts at 00:00 Beijing time on November 1, 2026.",
     "https://api-docs.deepseek.com/quick_start/pricing: Product prices may vary and DeepSeek reserves the right to adjust them. We recommend topping up based on your actual usage and regularly checking this page for the most recent pricing information.",
-    "https://api-docs.deepseek.com/quick_start/pricing: The expense = number of tokens × price. The corresponding fees will be directly deducted from your topped-up balance or granted balance, with a preference for using the granted balance first when both balances are available.",
-    "https://api-docs.deepseek.com/quick_start/pricing: The prices listed below are in units of per 1M tokens. A token, the smallest unit of text that the model recognizes, can be a word, a number, or even a punctuation mark. We will bill based on the total number of input and output tokens by the model."
+    "https://api-docs.deepseek.com/quick_start/pricing: Search & Fetch Pricing",
+    "https://api-docs.deepseek.com/quick_start/pricing: Search and Fetch are standalone APIs billed per request.",
+    "https://api-docs.deepseek.com/quick_start/pricing: See the Search & Fetch guide for API usage and complete billing rules."
   ],
-  "catalog_sha256": "cfca4899029a829a29f6e6dbd0f19638faf78db06c44e60d46fc6f28b99d80f3",
-  "revision": 3,
-  "changed_at": "2026-10-09T13:17:30Z",
+  "catalog_sha256": "1a08f3f6dbfdb090e57ee3f85bd280e3d0ea7a77878cb178d542298c701bbe62",
+  "revision": 4,
+  "changed_at": "2026-10-17T10:44:24Z",
   "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
   "source_urls": [
     "https://api-docs.deepseek.com/quick_start/pricing"
   ],
-  "source_sha256": "5c177d08fb22acd33661f3d8ae21eff464ba767080dcb413ce2230dc1507ffce",
+  "source_sha256": "901cdc3047968b1c644573abf15467ce934ed7fbf0f670d683ac4599107abe3c",
   "archive_reference": null
 }
