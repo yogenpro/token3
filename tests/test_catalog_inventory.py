@@ -180,6 +180,13 @@ class FullInventoryTests(unittest.TestCase):
 
 
 class InventoryRetentionTests(unittest.TestCase):
+    def setUp(self):
+        # These legacy adapter/security fixtures intentionally exercise resumed
+        # reviewed collection. The real paused policy has separate retention tests.
+        policy = patch.dict('providers.policy.POLICIES', {}, clear=True)
+        policy.start()
+        self.addCleanup(policy.stop)
+
     def test_unchanged_checks_do_not_append_price_records_or_rewrite_catalogs(self):
         _, aliases = catalog()
         with tempfile.TemporaryDirectory() as directory:

@@ -1,4 +1,4 @@
-import type { Dataset, Offering, Price } from './data';
+import { comparisonsPaused, type Dataset, type Offering, type Price } from './data';
 
 export type Workload = { inputTokens: number; outputTokens: number; cacheHitPercent: number; requests: number };
 export const defaultWorkload: Workload = { inputTokens: 1200, outputTokens: 400, cacheHitPercent: 0, requests: 1_000_000 };
@@ -29,7 +29,7 @@ export function estimateCost(offering: Offering, price: Price, raw: Workload) {
 export type RankedOffering = { offering: Offering; price: Price; cost: ReturnType<typeof estimateCost> };
 export function rankOfferings(dataset: Dataset, modelId: string, workload: Workload, tier = 'standard'): RankedOffering[] {
   const prices = new Map(dataset.prices.map((price) => [price.offering_id, price]));
-  return dataset.offerings.filter((o) => o.active && o.model_id === modelId && (tier === 'all' || o.service_tier === tier))
+  return dataset.offerings.filter((o) => o.active && !comparisonsPaused(o.provider) && o.model_id === modelId && (tier === 'all' || o.service_tier === tier))
     .flatMap((offering) => {
       const price = prices.get(offering.id);
       return price ? [{ offering, price, cost: estimateCost(offering, price, workload) }] : [];

@@ -8,12 +8,12 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 
 ### Current scope and operating mode
 
-- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
+- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. A grouped reviewed-price digest highlights actual quote updates; an expandable model × billing-source workload price map preserves tier, region, variant, freshness and fit uncertainty. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
 - **Models and Providers:** separate reviewed and provider-scoped directories, with creator/family/provider or modality/billing/pricing-state filters. Lightweight indexes lead to on-demand native evidence, including unknown prices, currencies and non-token units. Discovery never makes a record calculator-eligible.
 - **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. Native history opens as observation batches; event pages load bounded chunks. Explicit full-history searches examine all matching batches, never just the visible page. These are not mixed-unit price charts or launch/delisting announcements.
 - **Coverage:** distinct reviewed-model/active-offer, source-listing and native-record counts, billing/pricing facets, comparison-depth limits and per-source check status. No misleading percentage combines those different denominators.
 - **Operations:** daily collection and CI are active; main-branch CI/collection failures create no-AI issue handoffs for a manually launched local coding agent.
-- **Publishing:** GitHub Pages is configured for explicitly authorized, manual-only releases from `main`, gated by `ENABLE_PAGES=true`. A push, build or collection does not authorize deployment.
+- **Publishing:** manual `main` releases remain pinned to the dispatch SHA and gated by `ENABLE_PAGES=true`. A separately gated, data-only post-collection publishing path is implemented for review; `ENABLE_COLLECTION_PUBLISH=false` until explicitly activated after PR approval. It requires successful strict collection, the exact pushed snapshot, full checks, and no unpublished code/configuration/docs changes relative to the last successful Pages release. A push alone never deploys. See [publishing and activation](docs/publishing.md).
 - **Not enabled:** the legacy paid-API self-healing workflow. A subscription worker was considered and deferred; no worker or hosted AI repair/review has been configured.
 
 Collector health, retained reviewed coverage, native pricing certainty and freshness are independent. Missing prices are not free; a successful recent collection does not mean all records were reviewed. See [the three data layers and dashboard views](docs/dashboard-data-organization.md).
@@ -44,7 +44,7 @@ python -m scripts.collect --strict
 
 ### API-first collection
 
-DeepInfra, Novita, Azure and AWS already use structured APIs/price feeds without keys. Together AI and Fireworks now prefer their pricing/catalog APIs when `TOGETHER_API_KEY` and `FIREWORKS_API_KEY` are set. Vertex adds a complete public USD Cloud Billing SKU catalog when `GOOGLE_CLOUD_BILLING_API_KEY` is set; its reviewed dashboard quotes still use the pricing document until SKU-to-offering mapping is curated. Enable the Cloud Billing API and restrict that key to it. This does not access negotiated billing-account prices.
+DeepInfra, Novita, Azure and AWS use structured APIs/price feeds without keys. Fireworks prefers its pricing/catalog API when `FIREWORKS_API_KEY` is set. **Together comparisons are paused**: free document inventory continues, but retained Together quotes cannot enter current calculators, rankings, price-map cells or comparison CSVs. The deposit-gated API is not contacted, even if a local `TOGETHER_API_KEY` exists. No deposit or API spending is authorized. Its API adapter is retained for a separately reviewed future resumption. Vertex adds a complete public USD Cloud Billing SKU catalog when `GOOGLE_CLOUD_BILLING_API_KEY` is set; its reviewed dashboard quotes still use the pricing document until SKU-to-offering mapping is curated. Enable the Cloud Billing API and restrict that key to it. This does not access negotiated billing-account prices.
 
 ```bash
 cp .env.example .env
@@ -55,9 +55,9 @@ set +a
 python -m scripts.collect --strict
 ```
 
-Python does **not** load `.env` automatically. Set the same three names as GitHub repository Actions secrets for hosted collection. `collect.yml` passes them to collection and, on failure, the trusted context-preparation step for exact-value redaction. They are never passed to the issue reporter, frontend, or AI jobs. The separate manual `inspect-fireworks.yml` diagnostic can receive `FIREWORKS_API_KEY` to inspect catalog structure without saving response bodies. Never use `VITE_` variables for secrets: those are bundled into the public app.
+Python does **not** load `.env` automatically. Set `FIREWORKS_API_KEY` and `GOOGLE_CLOUD_BILLING_API_KEY` as GitHub repository Actions secrets for their optional hosted sources. Together's API is paused and its key is not passed to collection. `collect.yml` passes them to collection and, on failure, the trusted context-preparation step for exact-value redaction. They are never passed to the issue reporter, frontend, or AI jobs. The separate manual `inspect-fireworks.yml` diagnostic can receive `FIREWORKS_API_KEY` to inspect catalog structure without saving response bodies. Never use `VITE_` variables for secrets: those are bundled into the public app.
 
-If a key is missing or an API request fails, collection uses the official document and records the reason in `status.json` and `provider_inventory.json` (`source_kind`, `fallback_reason`), as well as the CLI output. A successfully fetched API response with incompatible curated pricing is never silently replaced with guessed prices. Its last good curated prices remain; independently valid full-inventory records can still be retained. New public raw responses are transient diagnostics, not permanent Git snapshots. API requests use headers, never keys in archived URLs; authenticated redirects are rejected. No inference endpoint is called.
+For the active optional Fireworks/Vertex API paths, if a key is missing or an API request fails, collection uses the official document and records the reason in `status.json` and `provider_inventory.json` (`source_kind`, `fallback_reason`), as well as the CLI output. A successfully fetched API response with incompatible curated pricing is never silently replaced with guessed prices. Its last good curated prices remain; independently valid full-inventory records can still be retained. New public raw responses are transient diagnostics, not permanent Git snapshots. API requests use headers, never keys in archived URLs; authenticated redirects are rejected. No inference endpoint is called.
 
 OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list responses do not expose list-price fields. Their official pricing documents remain necessary; model availability APIs and account usage/cost APIs are not substitutes for public price catalogs. See [the source/API capability review](docs/pricing-sources.md).
 
@@ -81,7 +81,7 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 Reviewed baseline: **45 canonical models / 216 recorded offerings / 12 reviewed providers**.
 
-These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 216 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation.
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 216 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
 
 This is the complete **reviewed canonical model list**, not every model name, route, flavor or SKU in the broader native inventory. Canonical IDs keep versions and variants explicit.
 
@@ -204,7 +204,7 @@ With `--archive-lookups`, changed public-document catalogs receive best-effort W
 | --- | --- | --- |
 | DeepInfra | [Public model API](https://api.deepinfra.com/models/list) | Cents/token × 10,000 → USD/1M. Published cache/tier multipliers are retained; precision/context come from API fields. |
 | Novita | [Public model API](https://api.novita.ai/v3/openai/models) | Uses explicit `price_per_m_decimal` USD values, **not** similarly named integer billing-unit fields. |
-| Together AI | [List Models API](https://docs.together.ai/reference/models) / [serverless docs fallback](https://docs.together.ai/docs/serverless-models) | API `pricing.input`, `output`, optional `cached_input` in USD/1M for text models; other modality/billing fields remain raw. Exact IDs and published context; no fabricated precision. Requires `TOGETHER_API_KEY`. |
+| Together AI | [Free serverless docs](https://docs.together.ai/docs/serverless-models) / retained [List Models API adapter](https://docs.together.ai/reference/models) | Currently document-inventory-only; reviewed comparisons paused without deleting historical quotes or claiming vendor unavailability. No API key/deposit required or used. The retained API parser supports explicit USD/1M text rates only if resumption is separately reviewed. |
 | Fireworks | [Serverless catalog API](https://github.com/fw-ai/fireconnect/blob/main/packages/setup-cli/lib/fireworks/models.mjs) / [pricing docs fallback](https://docs.fireworks.ai/serverless/pricing) | Complete paginated `/v1/serverless/models` without a coding-only filter. Per-mode input/cache/output SKUs with explicit `1M tokens` units; Standard and Priority quoted, Fast/Spot retained raw. Requires `FIREWORKS_API_KEY`. |
 | Groq | [Supported model Markdown](https://console.groq.com/docs/models.md) | Fetches official machine-readable `.md` rather than HTML. “Contact Sales” entries are excluded, never assigned invented list prices. Models API metadata does not contain prices. |
 | OpenAI API | [Official pricing](https://developers.openai.com/api/docs/pricing) | Official `.md` Standard table, verified USD/1M denominator; retained pinned GPT-5.4 releases and exact GPT-6 IDs, explicit short/long and cache-write rates, never Batch/Fast rates relabeled Standard. |
@@ -303,7 +303,9 @@ dashboard/src/                static React app
 AGENTS.md                     contributor/agent guardrails and documentation contract
 ```
 
-Vite publishes an explicit allowlist: the seven reviewed/health files (`models.json`, `offerings.json`, `latest_prices.json`, `price_history.json`, `price_history.csv`, `changes.json`, `status.json`) **plus generated public native projections**. `scripts/dashboard_projection.ts` validates and selects public fields without rewriting the warehouse, source hashes, aliases, or reviewed prices.
+Vite also generates `publication.json` with collection time, build time, exact snapshot SHA when supplied, and publication mode. Build time is **not** deployment time or fresh price verification. The dashboard labels both times separately and rejects mismatched snapshots. Pause policies are bundled from `config/provider_policies.json` and included in reviewed JSON exports. No runtime GitHub/provider request is needed.
+
+Vite publishes an explicit allowlist: the seven reviewed/health files (`models.json`, `offerings.json`, `latest_prices.json`, `price_history.json`, `price_history.csv`, `changes.json`, `status.json`) **plus generated public native projections and publication metadata**. `scripts/dashboard_projection.ts` validates and selects public fields without rewriting the warehouse, source hashes, aliases, or reviewed prices.
 
 Generated public native paths (build/dev assets, not committed `catalog/` authority files):
 
@@ -364,10 +366,10 @@ The selected production repository is **`yogenpro/token3` (public)**. Collection
 | `ci.yml` | Main-branch push, PR and manual tests/typecheck/build/browser checks. |
 | `failure-issues.yml` | Enabled (`ENABLE_FAILURE_ISSUES=true`); default-branch CI/collection failures only; issue-write permission, no code writes or AI. |
 | `self-heal.yml` | Disabled (`ENABLE_SELF_HEALING=false`); the legacy opt-in API repair/review/merge path is not the selected operating mode. |
-| `deploy.yml` | Explicitly authorized manual-only releases from `main`, gated by `ENABLE_PAGES=true`; builds the exact dispatched SHA. |
+| `deploy.yml` | Main-only manual releases at the dispatch SHA, plus a reusable post-collection path at the exact pushed SHA. `ENABLE_PAGES=true`; automatic data-only publication additionally requires `ENABLE_COLLECTION_PUBLISH=true` (not yet activated). Unreleased non-data changes require manual release. |
 | `inspect-fireworks.yml` | Optional manual authenticated catalog-structure diagnostic; no inference or pricing-data mutation. |
 
-Optional Actions secrets are `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, and `GOOGLE_CLOUD_BILLING_API_KEY`. Missing keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
+Active optional Actions secrets are `FIREWORKS_API_KEY` and `GOOGLE_CLOUD_BILLING_API_KEY`. Together keeps free document collection with comparisons paused; no Together key or deposit is used. Missing active-source keys use explicit official-document fallbacks; no paid database, R2 bucket or Archive.org credential is required. Configure repository notification preferences to receive failed-run alerts.
 
 **Automatic failure tickets (no AI):** `failure-issues.yml` opens an owner-assigned `ci-failure` issue for failed default-branch CI and scheduled/manual collection runs. Tickets contain exact run/commit/job links, bounded redacted evidence, deterministic troubleshooting guidance, verification criteria, and a local coding-agent handoff. Failed reruns update the same ticket; PR/fork runs, cancellations and the reporter itself are excluded. No worker, model subscription, API key, automatic code changes, merge or deployment is involved. Set `ENABLE_FAILURE_ISSUES=false` to disable; it is otherwise on. See [ticket scope, privacy and local-agent usage](docs/ci-failure-tickets.md).
 
@@ -385,7 +387,7 @@ gh run list --limit 5
 
 Workflows expect the default branch to be `main`. The collection workflow commits using `GITHUB_TOKEN`; no PAT is baked into the project. Protected branches may require allowing the bot to push or switching to reviewed data PRs. Scheduled Actions are best-effort and may be delayed or disabled after prolonged repository inactivity; dispatch manually if needed.
 
-**Dashboard deployment remains deliberate and manual-only.** The user authorized publishing the reviewed expansion and data-fit dashboard to GitHub Pages. This installation uses Actions-based Pages at **https://yogenpro.github.io/token3/** and repository variable `ENABLE_PAGES=true`; this gate does not authorize future releases by itself. After CI passes for the intended `main` commit, dispatch `gh workflow run deploy.yml --repo yogenpro/token3 --ref main`. The workflow rejects other branches, checks out the exact dispatch SHA, and builds with `/token3/` as its base path. The deployment build explicitly installs Python 3.12 and `requirements.txt` for the cross-language history integrity tests; it makes no collection or inference calls. Verify the run and public assets before reporting success. Collection does not depend on Pages, and neither pushes nor collection trigger deployments. GitHub-token data commits do not trigger ordinary push CI workflows, so collector tests run within every collection job.
+**Publishing separates manual code releases from automatic data updates.** Actions-based Pages is at **https://yogenpro.github.io/token3/** with `ENABLE_PAGES=true`. The new automatic path remains off (`ENABLE_COLLECTION_PUBLISH=false`) pending PR review and deliberate activation. A successful strict collection can then call `deploy.yml` with its exact pushed SHA, but only data-only changes since the last successful Pages release qualify. New code/configuration/docs require a separately authorized manual release; missing baselines, superseded snapshots and partial/failed collections do not auto-publish. Manual dispatch remains `gh workflow run deploy.yml --repo yogenpro/token3 --ref main`, pinned to that dispatch SHA. Both paths run Python/TypeScript/documentation tests, a production build and browser/accessibility checks before uploading the static allowlist; no collector credentials or inference calls enter publishing. See [activation and race boundaries](docs/publishing.md). The open Pages gate alone is not permission to release unpublished code. GitHub-token data commits do not trigger ordinary push CI workflows, so collector tests run within every collection job.
 
 The public Pages site may be public even for a private repository depending on your GitHub plan. Check visibility before publishing.
 
@@ -399,6 +401,7 @@ The reviewed baseline and collected-provider count above describe the checked-in
 
 Detailed guides:
 
+- [Publishing, freshness metadata and post-collection activation](docs/publishing.md)
 - [Dashboard views, data layers, projections and change semantics](docs/dashboard-data-organization.md)
 - [Collection schema, provenance, history and retention](docs/data-collection.md)
 - [Expanded provider scopes and known limitations](docs/collection-expansion.md)

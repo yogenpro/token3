@@ -129,6 +129,9 @@ class InventoryCollector:
             body = fetch_text(url)
             if not re.search(r"pric|bill|credit|token|neuron|DBU", body, re.I):
                 raise ValueError("Official document lacks expected billing content")
+            if self.provider == "deepseek":
+                from .deepseek_pricing import parse_models
+                parse_models(body)  # Tool prices alone are not a complete model snapshot.
             docs.append(dict(source_url=url, body=body))
             urls.append(url)
         if docs:

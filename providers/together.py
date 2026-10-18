@@ -1,7 +1,9 @@
+import hashlib
 import json
 import os
 
-from .common import fetch_text, markdown_tables, money, number, observation, parse_or_archive, safe_error, snapshot
+from .common import Collection, fetch_text, markdown_tables, money, number, observation, parse_or_archive, safe_error, snapshot
+from .policy import comparisons_paused
 
 API_URL = "https://api.together.ai/v1/models"
 SOURCE = "https://docs.together.ai/docs/serverless-models"
@@ -51,6 +53,12 @@ def parse_api(body, aliases):
 
 
 def collect(aliases):
+    if comparisons_paused("together"):
+        # This is an operator pause, not a source outage or vendor delisting.
+        # Do not contact the deposit-gated API, even if a key exists locally.
+        body = fetch_text(FETCH_URL)
+        return Collection([], SOURCE, hashlib.sha256(body.encode()).hexdigest(), source_payload=body,
+                          source_urls=[FETCH_URL], source_kind="documentation", inventory_only=True)
     key = os.environ.get("TOGETHER_API_KEY", "").strip()
     reason = "TOGETHER_API_KEY not configured"
     if key:

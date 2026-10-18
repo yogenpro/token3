@@ -1,0 +1,32 @@
+import { useState } from 'react';
+import { ArrowRight, Info } from 'lucide-react';
+import { comparisonsPaused, isStale, providerInfo, type Dataset } from '../lib/data';
+import { comparisonProviders, reviewedChangeGroups, workloadPriceMap } from '../lib/insights';
+import { dateLabel, exactDate, money, offeringLabel, type Workload } from '../lib/pricing';
+
+const fields: Record<string, string> = { input_per_million: 'Input', output_per_million: 'Output', cache_read_per_million: 'Cache read', cache_write_per_million: 'Cache write' };
+export function PriceDigest({ data, onChanges }: { data: Dataset; onChanges: () => void }) {
+  const groups = reviewedChangeGroups(data.changes);
+  return <section className="panel price-digest" aria-labelledby="price-digest-title"><div className="section-heading"><div><div className="eyebrow">OBSERVED, NOT ANNOUNCED</div><h2 id="price-digest-title">What changed?</h2><p>Reviewed quote updates, grouped by offering and observation. Native amounts and billing rules have separate feeds.</p></div><button className="text-link" onClick={onChanges}>All change feeds <ArrowRight size={15} /></button></div>
+    {groups.length ? <div className="digest-grid">{groups.slice(0, 3).map((g) => {
+      const first = g.changes[0], offer = data.offerings.find((o) => o.id === first.offering_id)!;
+      return <article className="digest-card" key={g.id}><h3>{data.models.find((m) => m.id === first.model_id)?.name}</h3><p><strong>{providerInfo(first.provider).name}</strong> · {offer.service_tier} · {offer.region}</p><time dateTime={g.observed_at} title={exactDate(g.observed_at)}>Observed {dateLabel(g.observed_at, true)}</time><dl>{g.changes.map((c) => <div key={c.id}><dt>{fields[c.field ?? ''] ?? c.field}</dt><dd>{typeof c.old === 'number' ? money(c.old) : 'Unpublished'} → <strong>{typeof c.new === 'number' ? money(c.new) : 'Unpublished'}</strong>{c.change_pct !== null && <span> ({c.change_pct > 0 ? '+' : ''}{Number(c.change_pct.toFixed(1))}%)</span>}</dd></div>)}</dl><small>USD per million tokens · {offeringLabel(offer)}</small>{comparisonsPaused(first.provider) && <small>Current comparisons paused; historical event retained.</small>}<a className="text-link" href={offer.source_url} target="_blank" rel="noopener noreferrer">Official billing source ↗</a></article>;
+    })}</div> : <div className="empty-small">No reviewed price changes observed yet. First observations are not price cuts or model launch dates.</div>}
+  </section>;
+}
+
+export function WorkloadHeatmap({ data, workload, tier, onModel }: { data: Dataset; workload: Workload; tier: string; onModel: (id: string) => void }) {
+  const [open, setOpen] = useState(false), [search, setSearch] = useState(''), [region, setRegion] = useState('all');
+  const rows = workloadPriceMap(data, workload, tier, region, search);
+  const providers = comparisonProviders(data, new Set(rows.map((r) => r.model.id)));
+  const regions = [...new Set(data.offerings.filter((o) => o.active && !comparisonsPaused(o.provider)).map((o) => o.region))].sort();
+  return <section className="panel workload-map" aria-labelledby="workload-map-title"><div className="section-heading"><div><h2 id="workload-map-title">Workload price map</h2><p>Across reviewed models: your current token mix, request count and {tier === 'all' ? 'all explicitly selected tiers' : `${tier} tier`}. Colors compare sources within a model, never model quality.</p></div><button className="button" aria-expanded={open} aria-controls="workload-map-content" onClick={() => setOpen(!open)}>{open ? 'Hide price map' : 'Explore price map'}</button></div>
+    {open && <div id="workload-map-content"><div className="catalog-toolbar"><label className="map-search">Filter reviewed price map<input type="search" aria-label="Filter reviewed price map" placeholder="Model, family or creator…" value={search} onChange={(e) => setSearch(e.target.value)} /></label><label>Region scope<select aria-label="Price map region" value={region} onChange={(e) => setRegion(e.target.value)}><option value="all">All regions · lowest applicable quote</option>{regions.map((r) => <option key={r}>{r}</option>)}</select></label></div><p className="map-legend"><span className="map-best-label">Lowest observed estimate</span> is marked in text, not color alone. Each cell keeps its chosen region/tier/variant. “—” means no applicable reviewed quote, not free. Context-unverified and stale quotes stay labeled. Columns show sources with retained active offers for matching models; scroll horizontally for more sources.</p>
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Scrollable workload price map"><table className="price-map-table"><caption className="sr-only">Estimated USD for the selected workload. Lowest applicable quote per billing source, within the selected tier and region scope.</caption><thead><tr><th scope="col">Reviewed model</th>{providers.map((p) => <th scope="col" key={p}>{providerInfo(p).name}</th>)}</tr></thead><tbody>{rows.map(({ model, cells, minimum }) => <tr key={model.id}><th scope="row"><button className="text-link" onClick={() => onModel(model.id)}>{model.name}</button></th>{providers.map((p) => {
+        const values = cells.get(p), row = values?.[0];
+        if (!row) return <td key={p}><span aria-label="No applicable reviewed quote">—</span></td>;
+        const best = minimum !== undefined && Math.abs(row.cost.perRequest - minimum) < 1e-12;
+        return <td key={p} className={best ? 'map-best' : ''}><strong>{money(row.cost.total)}</strong>{best && <small className="map-best-label">Lowest observed</small>}<small>{row.offering.service_tier} · {row.offering.region}</small><small>{offeringLabel(row.offering)}</small>{row.cost.contextUnverified && <small>Context unverified</small>}{row.cost.cacheFallback && <small>Cache price unpublished; input rate used</small>}{isStale(row.price.observed_at) && <small className="map-caution">Stale quote</small>}<time dateTime={row.price.observed_at} title={exactDate(row.price.observed_at)}>{dateLabel(row.price.observed_at)}</time>{values!.length > 1 && <small>{values!.length} applicable quotes; lowest shown</small>}</td>;
+      })}</tr>)}</tbody></table></div>{!rows.length && <p className="empty-small">No matching reviewed models.</p>}<p className="table-note"><Info size={15} />Use the model link for complete quotes, prompt bands and provenance. Estimates exclude cache-write, storage and tool fees. Paused providers and native-only listings cannot win.</p></div>}
+  </section>;
+}

@@ -29,6 +29,11 @@ class PricingAPITests(unittest.TestCase):
         self.environment = patch.dict(os.environ, {}, clear=True)
         self.environment.start()
         self.addCleanup(self.environment.stop)
+        # Exercise retained API adapters in an explicitly resumed test-only policy.
+        # Current no-deposit production behavior is covered in test_collection_policy.
+        self.policy = patch.dict('providers.policy.POLICIES', {}, clear=True)
+        self.policy.start()
+        self.addCleanup(self.policy.stop)
 
     def fixture(self, name):
         return (FIXTURES / name).read_text()

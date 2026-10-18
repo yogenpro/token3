@@ -13,6 +13,7 @@ from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, g
 from providers.common import safe_error
 from providers.expanded import INVENTORY_PROVIDERS
 from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
+from providers.policy import comparisons_paused
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
 from .provider_inventory import inventory_document as legacy_inventory_document, prepare_source
@@ -108,6 +109,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
     response_manifest = []
     checks = []
     inventory_touched = False
+    reviewed_touched = False
     selected = selected or list(PROVIDERS)
     observed_at = utc_now()
     failures = 0
@@ -121,7 +123,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             check_provenance = {}
             try:
                 result = future.result()
-                if result.inventory_only != (name in INVENTORY_PROVIDERS and name not in REVIEWED_INVENTORY_PROVIDERS):
+                if result.inventory_only != (comparisons_paused(name) or (name in INVENTORY_PROVIDERS and name not in REVIEWED_INVENTORY_PROVIDERS)):
                     raise ValueError("Collector/dashboard scope mismatch")
                 if result.inventory_only and (result.records or result.authoritative_catalog):
                     raise ValueError("Inventory-only collectors cannot publish or retire dashboard quotes")
@@ -172,6 +174,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
                 if result.parse_error:
                     raise ValueError("Fetched source retained for debugging; curated parser failed: {}".format(result.parse_error))
                 count = 0 if result.inventory_only else apply_snapshot(name, result, aliases, observed_at, offerings, latest, history, changes)
+                reviewed_touched = reviewed_touched or not result.inventory_only
                 statuses[name] = dict(id=name, name=PROVIDER_NAMES[name], state="ok", last_attempt_at=observed_at,
                                       last_success_at=observed_at, offering_count=count,
                                       source_sha256=result.source_sha256, authoritative_catalog=result.authoritative_catalog, error=None,
@@ -218,7 +221,7 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             document = legacy_inventory_document(source_index, observed_at) if archive_legacy else inventory_document(source_index, observed_at)
             save_json(data_dir / "provider_inventory.json", document)
         save_json(data_dir / "status.json", status)
-        if offerings:
+        if offerings and reviewed_touched:
             save_json(data_dir / "models.json", models)
             save_json(data_dir / "offerings.json", sorted(offerings.values(), key=lambda row: row["id"]))
             save_json(data_dir / "latest_prices.json", sorted(latest.values(), key=lambda row: row["offering_id"]))
