@@ -1632,17 +1632,149 @@
         ]
       },
       "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-fbfafd057121c8c66915436e",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "scope": {
+        "serving_mode": "priority"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.0075",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.375",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "1.5",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.0075",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.375",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "1.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "service_tier": "priority"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-fef3022cac2ff2ffb1dceb55",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "scope": {
+        "serving_mode": "standard"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.006",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.3",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "1.2",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.006",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "1.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "use_cases": [
+          "coding"
+        ]
+      },
+      "comparison_eligible": false
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "a16e8aba0e4c05898186b14680f54de25c85eaa194678744f5a5f6cc1e7dad0d",
-  "revision": 4,
-  "changed_at": "2026-10-16T11:25:12Z",
+  "catalog_sha256": "79eeaf7df84fd785e47518ff417349dfe58eaa61b0afc2a2f8bf538b6d02c3c4",
+  "revision": 5,
+  "changed_at": "2026-10-18T11:05:47Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "c7e073bcf9ba181f3a24674b040c8698dc5281c10cdb6d26783ab70d95c772e1",
+  "source_sha256": "b77b9242d6ebc4b0e3ebb9696123f1209decf3ba3da59c2654abc5f925206e3f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

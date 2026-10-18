@@ -3732,7 +3732,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -4553,7 +4552,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -4926,11 +4924,15 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000015",
-          "input_cache_read": "0.000000003",
-          "output": "0.0000006",
+          "fast": {
+            "input": "0.0000006",
+            "input_cache_read": "0.000000014",
+            "output": "0.0000024"
+          },
+          "input": "0.000000075",
+          "input_cache_read": "0.0000000015",
+          "output": "0.0000003",
           "peak_pricing": {
-            "holiday_calendar": "cn",
             "multiplier": 2,
             "windows": [
               {
@@ -4956,7 +4958,15 @@
                 "start_minute_utc": 360
               }
             ]
-          }
+          },
+          "regional": {
+            "us": {
+              "input": "0.0000003",
+              "input_cache_read": "0.000000007",
+              "output": "0.0000012"
+            }
+          },
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -4966,21 +4976,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000015",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000006",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000003",
+          "amount": "0.0000000015",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -5031,8 +5041,8 @@
             ]
           }
         ],
-        "zdr": "none",
-        "no_training": "none"
+        "zdr": "some",
+        "no_training": "some"
       },
       "comparison_eligible": false
     },
@@ -8046,9 +8056,36 @@
             "input_cache_read": "0.000000014",
             "output": "0.0000024"
           },
-          "input": "0.0000003",
-          "input_cache_read": "0.000000007",
-          "output": "0.0000012",
+          "input": "0.000000075",
+          "input_cache_read": "0.0000000015",
+          "output": "0.0000003",
+          "peak_pricing": {
+            "multiplier": 2,
+            "windows": [
+              {
+                "days_of_week": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "end_minute_utc": 240,
+                "start_minute_utc": 60
+              },
+              {
+                "days_of_week": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "end_minute_utc": 600,
+                "start_minute_utc": 360
+              }
+            ]
+          },
           "regional": {
             "us": {
               "input": "0.0000003",
@@ -8066,21 +8103,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000003",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000012",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000007",
+          "amount": "0.0000000015",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -8090,8 +8127,8 @@
         "name": "DeepSeek V4.1 Flash",
         "owned_by": "deepseek",
         "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 32768,
+        "context_window": 1000000,
+        "max_tokens": 384000,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -8517,7 +8554,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -10345,7 +10381,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -10399,7 +10434,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -10959,7 +10993,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -12271,7 +12304,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -12333,6 +12365,104 @@
           ]
         },
         "zdr": "some",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-480f0e2379ba562859720b39",
+      "provider": "vercel",
+      "native_id": "deepseek/deepseek-v4.1-flash-1017-fast",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017 Fast",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000006",
+          "input_cache_read": "0.000000014",
+          "output": "0.0000024",
+          "regional": {
+            "us": {
+              "input": "0.0000006",
+              "input_cache_read": "0.000000014",
+              "output": "0.0000024"
+            }
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000024",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000014",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "DeepSeek V4.1 Flash 1017 Fast",
+        "owned_by": "deepseek",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 262144,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -14168,7 +14298,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -14359,7 +14488,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -15769,7 +15897,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -16370,7 +16497,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -16977,7 +17103,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -19397,7 +19522,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -19904,7 +20028,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -21190,7 +21313,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -22092,7 +22214,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -22626,7 +22747,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -22959,7 +23079,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -23480,7 +23599,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -24135,7 +24253,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -26757,7 +26874,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -26772,6 +26888,68 @@
         },
         "zdr": "none",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-a1e59dd18b24367d832d8b67",
+      "provider": "vercel",
+      "native_id": "bfl/flux-3-image-klein",
+      "kind": "model",
+      "label": "FLUX 3 Image Klein",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "image": "0.009",
+          "image_dimension_quality_pricing": [
+            {
+              "cost": "0.008",
+              "size": "768x768"
+            },
+            {
+              "cost": "0.009",
+              "size": "1024x1024"
+            },
+            {
+              "cost": "0.011",
+              "size": "1536x1536"
+            },
+            {
+              "cost": "0.014",
+              "size": "2048x2048"
+            },
+            {
+              "cost": "0.036",
+              "size": "4096x4096"
+            }
+          ]
+        },
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "FLUX 3 Image Klein",
+        "owned_by": "bfl",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -27487,7 +27665,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -32042,7 +32219,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -33014,7 +33190,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -35027,7 +35202,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -36091,7 +36265,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -36144,7 +36317,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -36243,7 +36415,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -38839,7 +39010,6 @@
         "context_window": 0,
         "max_tokens": 0,
         "supported_specifications": [
-          "v2",
           "v3",
           "v4"
         ],
@@ -41281,62 +41451,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-f34a2790d2f4f5087754e747",
-      "provider": "vercel",
-      "native_id": "perplexity/pplx-decider-v1.1-27b",
-      "kind": "model",
-      "label": "Decider V1.1 27B",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000002",
-          "output": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000002",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Decider V1.1 27B",
-        "owned_by": "perplexity",
-        "type": "evaluation",
-        "context_window": 262144,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-f3f746118a1d557d8f47bbf0",
       "provider": "vercel",
       "native_id": "openai/o3-mini",
@@ -43332,14 +43446,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "292b6f4e37225865ed9251741923a413922a12da9035c5c0be8383c33b17f51c",
-  "revision": 12,
-  "changed_at": "2026-10-17T10:44:24Z",
+  "catalog_sha256": "e21ff6920f06fecc80314747baad9c7b0bb09b7797e4ff1fbd4b64635fc1b21a",
+  "revision": 13,
+  "changed_at": "2026-10-18T11:05:47Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "b59e0582f7a0077838a4759809e2ccae46015b9166f29db68a34d518a4cc51a5",
+  "source_sha256": "35493df037f9daeab38ff94cfc74a5d4a4f19c212aedc4a1b6a3b167c87e40b3",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

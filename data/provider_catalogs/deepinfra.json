@@ -7243,8 +7243,8 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
-          "discount_ends_at": null,
+          "discount": 0.3,
+          "discount_ends_at": 1792460123,
           "short": null,
           "full": null,
           "table": null,
@@ -13210,6 +13210,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-b36d1b30f5c6aa9ff5339b01",
+      "provider": "deepinfra",
+      "native_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "kind": "model",
+      "label": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": 0.51,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 2e-05,
+          "cents_per_output_token": 6e-05,
+          "rate_per_input_token_cached": 0.03,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": 1.5,
+          "rate_per_service_tier_flex": 0.8,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.0000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 1048576,
+        "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-b3c1cb63bb7125d4ad855b15",
       "provider": "deepinfra",
       "native_id": "zai-org/GLM-5.2",
@@ -18714,14 +18767,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "510d9f9c8b99d54e8a13d3aab09e87756653796c038006304b8910e85ae6d35e",
-  "revision": 6,
-  "changed_at": "2026-10-17T10:44:24Z",
+  "catalog_sha256": "0db5d87ec87591b75697777977145a2af40ff7c249eed76a927f8a7e65d6afa5",
+  "revision": 7,
+  "changed_at": "2026-10-18T11:05:47Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "79fbe0ebdedf9bc24cbece737566bbf432f24d80bfaa5b2d7a5703e74473a9b3",
+  "source_sha256": "800732d48ca11991877345ff36c7cac7774b02f56e8ddc3ee524adfbfee3c898",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
