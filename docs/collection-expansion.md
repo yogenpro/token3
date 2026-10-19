@@ -60,4 +60,4 @@ python -m scripts.collect --strict \
   --provider minimax --provider deepseek
 ```
 
-The normal scheduled command selects all **26** providers automatically. Health distinguishes inventory-only collection from reviewed quotes, and limited optional-source coverage is visible. A separate, review-pending data-only publication path can follow successful strict collection after deliberate activation; it is off (`ENABLE_COLLECTION_PUBLISH=false`). This is not permission to publish new code or partial data. See [publishing](publishing.md).
+The normal scheduled command selects all **26** providers automatically. Health distinguishes inventory-only collection from reviewed quotes, and limited optional-source coverage is visible. The user approved a separate data-only publication path after PR #2's initial manual release verifies, using `ENABLE_COLLECTION_PUBLISH=true`. It follows successful strict collection and remains bounded by the published code baseline. This is not permission to publish new code or partial data. See [publishing](publishing.md).

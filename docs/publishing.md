@@ -1,11 +1,12 @@
 # Publishing snapshots after collection
 
-## Authorization and current gates
+## Authorization and gate policy
 
-The user requested automatic static-site updates after successful collection, but
-chose **a PR for review**, not immediate merge, release or gate activation.
-`ENABLE_PAGES=true` remains configured. The new `ENABLE_COLLECTION_PUBLISH` gate
-is **off/unset (false)** until review and deliberate activation. Self-healing stays
+After reviewing PR #2, the user approved its merge and initial manual release,
+and explicitly approved automatic data-only publishing after that release verifies.
+The authorized publishing settings are `ENABLE_PAGES=true` and
+`ENABLE_COLLECTION_PUBLISH=true`. Apply the latter only after initial-release
+verification, following the activation sequence below. Self-healing stays
 `ENABLE_SELF_HEALING=false`; no paid service, deposit, worker or inference is used.
 
 Code/configuration/documentation releases remain explicitly authorized manual
@@ -62,7 +63,8 @@ runtime provider/GitHub API calls. Per-offer stale/failed labels remain independ
 
 ## Activation after review
 
-Do not execute these steps merely because this guide or PR exists:
+The user has authorized this initial release and data-only activation. Follow the
+sequence below; the guide alone is not authorization for unrelated future releases:
 
 1. Review and merge the PR after CI passes.
 2. Obtain/confirm authorization for the initial manual code release. Dispatch
