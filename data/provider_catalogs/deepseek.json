@@ -707,6 +707,99 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepseek-c3e6a0e197eb4fd869a34a48",
+      "provider": "deepseek",
+      "native_id": "deepseek-flash",
+      "kind": "model",
+      "label": "DeepSeek-V4.1-Flash-1017",
+      "scope": {
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      "billing": {
+        "rules": {
+          "model_version": "DeepSeek-V4.1-Flash-1017",
+          "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full."
+        },
+        "state": "conditional_time_of_use",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "cache_read",
+          "amount": "0.003",
+          "currency": "USD",
+          "unit": "1M cached input tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        },
+        {
+          "dimension": "cache_read",
+          "amount": "0.006",
+          "currency": "USD",
+          "unit": "1M cached input tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        },
+        {
+          "dimension": "input",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        },
+        {
+          "dimension": "input",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        },
+        {
+          "dimension": "output",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        },
+        {
+          "dimension": "output",
+          "amount": "1.2",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4.1-Flash-1017"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "deepseek-flash",
+        "model_name": "DeepSeek-V4.1-Flash-1017",
+        "context_length": "1M",
+        "max_output_tokens": "MAXIMUM: 384K"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepseek-c829ea5a70673bd89570aed1",
       "provider": "deepseek",
       "native_id": "69252ae20609d330637a3664",
@@ -741,6 +834,99 @@
       },
       "rates": [],
       "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepseek-cb818f3f4120cfcd59920c41",
+      "provider": "deepseek",
+      "native_id": "deepseek-v4-pro",
+      "kind": "model",
+      "label": "DeepSeek-V4-Pro-0813",
+      "scope": {
+        "source_url": "https://api-docs.deepseek.com/quick_start/pricing"
+      },
+      "billing": {
+        "rules": {
+          "model_version": "DeepSeek-V4-Pro-0813",
+          "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full."
+        },
+        "state": "conditional_time_of_use",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "cache_read",
+          "amount": "0.022",
+          "currency": "USD",
+          "unit": "1M cached input tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        },
+        {
+          "dimension": "cache_read",
+          "amount": "0.044",
+          "currency": "USD",
+          "unit": "1M cached input tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        },
+        {
+          "dimension": "input",
+          "amount": "0.66",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        },
+        {
+          "dimension": "input",
+          "amount": "1.32",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        },
+        {
+          "dimension": "output",
+          "amount": "1.98",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {
+            "time_of_use": "OFF-PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        },
+        {
+          "dimension": "output",
+          "amount": "3.96",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {
+            "time_of_use": "PEAK",
+            "peak_schedule": "Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays. All other hours are off-peak, including weekends and Chinese public holidays in full.",
+            "model_version": "DeepSeek-V4-Pro-0813"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "deepseek-v4-pro",
+        "model_name": "DeepSeek-V4-Pro-0813",
+        "context_length": "1M",
+        "max_output_tokens": "MAXIMUM: 384K"
+      },
       "comparison_eligible": false
     },
     {
@@ -1015,9 +1201,9 @@
     "https://api-docs.deepseek.com/quick_start/pricing: Search and Fetch are standalone APIs billed per request.",
     "https://api-docs.deepseek.com/quick_start/pricing: See the Search & Fetch guide for API usage and complete billing rules."
   ],
-  "catalog_sha256": "1a08f3f6dbfdb090e57ee3f85bd280e3d0ea7a77878cb178d542298c701bbe62",
-  "revision": 4,
-  "changed_at": "2026-10-17T10:44:24Z",
+  "catalog_sha256": "c5e4fe9ef24437d0fcff808079240f391f81a1732937a86cf3f6e4e93ac9fd66",
+  "revision": 5,
+  "changed_at": "2026-10-19T00:45:25Z",
   "source_url": "https://api-docs.deepseek.com/quick_start/pricing",
   "source_urls": [
     "https://api-docs.deepseek.com/quick_start/pricing"
