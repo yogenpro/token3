@@ -4,12 +4,15 @@ import { fileURLToPath } from 'node:url';
 import { readFileSync, statSync } from 'node:fs';
 import { buildDashboardAssets } from './scripts/dashboard_projection';
 import { historyVersionPath } from './scripts/native_history';
+import { publicationMetadata } from './scripts/publication';
 
 const dataDir = fileURLToPath(new URL('./data', import.meta.url));
 // Publish only normalized outputs; never expose collector response bodies.
 const files = ['models.json', 'offerings.json', 'latest_prices.json', 'price_history.json', 'price_history.csv', 'changes.json', 'status.json'];
 let projected: Map<string, string>;
 let projectionVersion = '';
+const sessionStartedAt = new Date().toISOString();
+const publication = (development = false) => JSON.stringify(publicationMetadata(JSON.parse(readFileSync(`${dataDir}/status.json`, 'utf8')).last_run_at, process.env, development ? sessionStartedAt : new Date().toISOString(), development));
 function catalogAssets() {
   const version = ['provider_inventory.json', historyVersionPath(dataDir), 'offerings.json'].map((file) => statSync(`${dataDir}/${file}`).mtimeMs).join(':');
   if (!projected || version !== projectionVersion) {
@@ -32,9 +35,9 @@ export default defineConfig({
           const base = server.config.base;
           const pathname = req.url?.split('?')[0] ?? '';
           const file = pathname.startsWith(base) ? pathname.slice(base.length) : '';
-          if (!files.includes(file) && !file.startsWith('catalog/')) return next();
+          if (!files.includes(file) && file !== 'publication.json' && !file.startsWith('catalog/')) return next();
           try {
-            const source = files.includes(file) ? readFileSync(`${dataDir}/${file}`) : catalogAssets().get(file);
+            const source = file === 'publication.json' ? publication(true) : files.includes(file) ? readFileSync(`${dataDir}/${file}`) : catalogAssets().get(file);
             if (source === undefined) return next();
             res.setHeader('Content-Type', file.endsWith('.csv') ? 'text/csv; charset=utf-8' : 'application/json');
             res.setHeader('Cache-Control', 'no-cache');
@@ -46,6 +49,7 @@ export default defineConfig({
         });
       },
       generateBundle() {
+        this.emitFile({ type: 'asset', fileName: 'publication.json', source: publication() });
         for (const file of files) {
           this.emitFile({ type: 'asset', fileName: file, source: readFileSync(`${dataDir}/${file}`) });
         }

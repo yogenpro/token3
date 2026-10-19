@@ -8,7 +8,7 @@ Collection should prefer official structured rate catalogs. A model-list API tha
 | --- | --- | --- | --- |
 | DeepInfra | `GET https://api.deepinfra.com/models/list`, including original pricing objects | Already API-based, complete returned catalog retained | None |
 | Novita | `GET https://api.novita.ai/v3/openai/models`, including decimal prices and units | Already API-based, complete returned catalog retained | None for this public listing |
-| Together AI | `GET https://api.together.ai/v1/models` with `pricing` objects | API-first; official serverless Markdown fallback | `TOGETHER_API_KEY` |
+| Together AI | Retained `GET https://api.together.ai/v1/models` adapter with `pricing` objects | **Comparisons paused**; free serverless document inventory only, no deposit-gated API call | None in current mode; API resumption requires separate review |
 | Fireworks | `GET https://api.fireworks.ai/v1/serverless/models`, with per-mode `pricing` SKUs | API-first, complete pagination, no use-case filter; official pricing Markdown fallback | `FIREWORKS_API_KEY` |
 | Groq | Documented `/openai/v1/models` schema has IDs/metadata, no list prices | Official `/docs/models.md`; HTML no longer needed for normal collection | No key for pricing document |
 | OpenAI API | Documented `/models` response has model metadata, no list prices | Official pricing `.md` tables | No key for pricing document |
@@ -50,7 +50,15 @@ The collector now uses `serviceName eq 'Foundry Models' and armRegionName eq 'ea
 
 The [List Models API reference](https://docs.together.ai/reference/models) explicitly describes model metadata **including pricing**. Text models expose `pricing.input`, `pricing.output`, and optional `pricing.cached_input`. The [official serverless catalog](https://docs.together.ai/docs/serverless/models) identifies USD-per-million text-token units.
 
-The collector fetches the entire response for all model types, then retains its source-native pricing records in the full inventory (not a permanent authenticated raw-response archive). Only reviewed text model IDs enter the existing dashboard. Hourly, base, fine-tuning and non-text fields are not relabeled as text-token prices. Missing cache rates remain unknown. Because authentication can affect visibility, absence in this response does not automatically retire an existing offering.
+**Current operating decision:** the user declined the API deposit. `config/provider_policies.json` pauses reviewed comparisons while retaining free document inventory. No authenticated request is made even if a local key exists. Old quotes/history and active flags remain retained, not treated as fresh/current comparisons or vendor delistings.
+
+If separately resumed, the retained API adapter fetches the entire response for all model types, then retains its source-native pricing records in the full inventory (not a permanent authenticated raw-response archive). Only reviewed text model IDs enter the existing dashboard. Hourly, base, fine-tuning and non-text fields are not relabeled as text-token prices. Missing cache rates remain unknown. Because authentication can affect visibility, absence in this response does not automatically retire an existing offering.
+
+### DeepSeek official API evidence
+
+The [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) is collected separately from all gateways. Its transposed model table is now validated for completeness and aligned into additional native model records; original rows remain. Six explicit cache-hit/cache-miss/output rates retain peak/off-peak conditions, exact served versions, UTC windows and the Chinese-public-holiday exception. No time-of-use rate enters reviewed calculators without separate support/review.
+
+Evidence review on **2026-10-18** found Flash input/output rates of USD 0.15/0.60 off-peak and 0.30/1.20 peak per million tokens, matching our retained October 6 capture. The October 17 capture changed the served version to `DeepSeek-V4.1-Flash-1017` and added Search/Fetch rows. The October 18 Vercel reduction is a gateway quote, not evidence of a direct DeepSeek tariff reduction. These are dated findings, not permanent prices. No missing historical cut is fabricated or backfilled. Tool-only/partial snapshots now fail rather than replacing complete model evidence.
 
 ### Fireworks
 

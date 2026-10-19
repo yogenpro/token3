@@ -139,28 +139,46 @@ class DocumentationTests(unittest.TestCase):
                 for gate in gates:
                     self.assertIn(gate, readme, 'Document new activation gates in the same change.')
 
-    def test_pages_deployment_is_manual_main_only_and_uses_exact_dispatch_sha(self):
+    def test_pages_deployment_is_main_only_and_pins_manually_or_from_successful_collection(self):
         workflow = yaml.safe_load((ROOT / '.github/workflows/deploy.yml').read_text())
-        # PyYAML's YAML 1.1 parser treats the GitHub Actions `on` key as True.
-        triggers = workflow.get('on', workflow.get(True))
-        self.assertEqual(set(triggers), {'workflow_dispatch'})
+        triggers = workflow.get('on', workflow.get(True))  # PyYAML YAML 1.1 `on`.
+        self.assertEqual(set(triggers), {'workflow_dispatch', 'workflow_call'})
+        self.assertTrue(triggers['workflow_call']['inputs']['collection_sha']['required'])
+        resolve = workflow['jobs']['resolve']
+        self.assertEqual(resolve['if'], "github.ref == 'refs/heads/main' && vars.ENABLE_PAGES == 'true' && (inputs.collection_sha == '' || vars.ENABLE_COLLECTION_PUBLISH == 'true')")
+        controller = next(s for s in resolve['steps'] if s.get('uses', '').startswith('actions/checkout@'))
+        self.assertEqual(controller['with']['ref'], '${{ github.sha }}')
+        self.assertIs(controller['with']['persist-credentials'], False)
+        self.assertNotIn('pages', resolve['permissions'])
         build = workflow['jobs']['build']
-        self.assertEqual(build['if'], "github.ref == 'refs/heads/main' && vars.ENABLE_PAGES == 'true'")
-        checkout = next(step for step in build['steps'] if step.get('uses', '').startswith('actions/checkout@'))
-        self.assertEqual(checkout['with']['ref'], '${{ github.sha }}')
+        self.assertEqual(build['needs'], 'resolve')
+        self.assertEqual(build['if'], "needs.resolve.outputs.publish == 'true'")
+        checkout = next(s for s in build['steps'] if s.get('uses', '').startswith('actions/checkout@'))
+        self.assertEqual(checkout['with']['ref'], '${{ needs.resolve.outputs.sha }}')
         self.assertIs(checkout['with']['persist-credentials'], False)
         self.assertNotIn('id-token', build['permissions'])
         deploy = workflow['jobs']['deploy']
-        self.assertEqual(deploy['needs'], 'build')
+        self.assertEqual(deploy['needs'], ['resolve', 'build'])
         self.assertEqual(deploy['permissions'], {'pages': 'write', 'id-token': 'write'})
         self.assertEqual(deploy['environment']['name'], 'github-pages')
+        collection = yaml.safe_load((ROOT / '.github/workflows/collect.yml').read_text())
+        publish = collection['jobs']['publish']
+        self.assertEqual(publish['needs'], 'collect')
+        self.assertIn("needs.collect.result == 'success'", publish['if'])
+        self.assertIn("vars.ENABLE_COLLECTION_PUBLISH == 'true'", publish['if'])
+        self.assertEqual(publish['with']['collection_sha'], '${{ needs.collect.outputs.snapshot_sha }}')
+        self.assertNotIn('secrets', publish)
+        collect = collection['jobs']['collect']
+        self.assertEqual(collect['steps'][-1]['name'], 'Surface collector failures')
+        commit = next(s for s in collect['steps'] if s.get('id') == 'commit')
+        self.assertLess(commit['run'].index('git push'), commit['run'].index('sha=$(git rev-parse HEAD)'))
 
     def test_pages_integrity_tests_have_explicit_python_dependencies(self):
         workflow = yaml.safe_load((ROOT / '.github/workflows/deploy.yml').read_text())
         steps = workflow['jobs']['build']['steps']
         setup = next(i for i, step in enumerate(steps) if step.get('uses', '').startswith('actions/setup-python@'))
         install = next(i for i, step in enumerate(steps) if step.get('run') == 'python -m pip install -r requirements.txt')
-        test = next(i for i, step in enumerate(steps) if step.get('run') == 'npm test')
+        test = next(i for i, step in enumerate(steps) if step.get('run') == 'npm run check')
         self.assertLess(setup, install)
         self.assertLess(install, test, 'Cross-language history fixtures must not depend on incidental runner packages.')
         self.assertEqual(steps[setup]['with']['python-version'], '3.12')

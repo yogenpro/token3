@@ -1,4 +1,8 @@
 import { z } from 'zod';
+import policyConfig from '../../../config/provider_policies.json' with { type: 'json' };
+
+export const providerPolicies: Record<string, { comparisons: 'paused'; collection: 'documents_only'; reason: string }> = z.record(z.string(), z.object({ comparisons: z.literal('paused'), collection: z.literal('documents_only'), reason: z.string().min(1) })).parse(policyConfig);
+export function comparisonsPaused(provider: string) { return providerPolicies[provider]?.comparisons === 'paused'; }
 
 const url = z.url().refine((value) => /^https?:\/\//.test(value), 'Source must be an HTTP(S) URL');
 const timestamp = z.iso.datetime();
@@ -38,10 +42,19 @@ const statusSchema = z.object({
   schema_version: z.literal(1), last_run_at: timestamp, first_observed_at: timestamp.nullable(),
   observation_count: z.number().int().nonnegative(), providers: z.array(providerSchema),
 });
+export const publicationSchema = z.object({
+  schema_version: z.literal(1), built_at: timestamp, data_collected_at: timestamp,
+  commit_sha: z.string().regex(/^[a-f0-9]{40}$/).nullable(),
+  mode: z.enum(['development', 'manual', 'automatic', 'build']),
+});
 export const datasetSchema = z.object({
+  publication: publicationSchema.optional(),
   models: z.array(modelSchema), offerings: z.array(offeringSchema), prices: z.array(priceSchema),
   history: z.array(priceSchema), changes: z.array(changeSchema), status: statusSchema,
 }).superRefine((data, ctx) => {
+  if (data.publication && data.publication.data_collected_at !== data.status.last_run_at) {
+    ctx.addIssue({ code: 'custom', message: 'Publication metadata and collected snapshot differ. Refresh the published files.' });
+  }
   const models = new Set(data.models.map((m) => m.id));
   const offerings = new Set(data.offerings.map((o) => o.id));
   const prices = new Set(data.prices.map((p) => p.offering_id));
@@ -66,14 +79,14 @@ export type Dataset = z.infer<typeof datasetSchema>;
 export type ProviderStatus = z.infer<typeof providerSchema>;
 
 export async function loadDataset(): Promise<Dataset> {
-  const files = ['models.json', 'offerings.json', 'latest_prices.json', 'price_history.json', 'changes.json', 'status.json'];
+  const files = ['models.json', 'offerings.json', 'latest_prices.json', 'price_history.json', 'changes.json', 'status.json', 'publication.json'];
   const result = await Promise.all(files.map(async (file) => {
     const response = await fetch(`${import.meta.env.BASE_URL}${file}`, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
     if (!response.ok) throw new Error(`Unable to load ${file} (HTTP ${response.status}).`);
     return response.json();
   }));
-  const [models, offerings, prices, history, changes, status] = result;
-  return datasetSchema.parse({ models, offerings, prices, history, changes, status });
+  const [models, offerings, prices, history, changes, status, publication] = result;
+  return datasetSchema.parse({ models, offerings, prices, history, changes, status, publication });
 }
 
 export const providers: Record<string, { name: string; color: string; initials: string }> = {

@@ -279,6 +279,15 @@ def normalize_extended(provider, payload):
             identity = {key:record[key] for key in ("provider", "native_id", "kind", "scope")}
             record["id"] = provider + "-" + digest(identity)[:24]
         records.extend(docs)
+        if provider == "deepseek":
+            from providers.deepseek_pricing import parse_models
+            for model in parse_models(body):
+                records.append(entry(provider, model["native_id"], "model", model["version"],
+                    {"source_url": url},
+                    {"rules": {"model_version": model["version"], "peak_schedule": model["schedule"]},
+                     "state": "conditional_time_of_use", "currency": "USD"},
+                    {"source_model_id": model["native_id"], "model_name": model["version"],
+                     "context_length": model["context"], "max_output_tokens": model["output"]}, model["rates"]))
         notes.extend(url + ": " + line for line in prose)
     pdf = payload.get("pdf_document")
     if pdf is not None:

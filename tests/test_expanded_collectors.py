@@ -14,6 +14,8 @@ from scripts.catalog_inventory import canonical, normalize_inventory
 from scripts.collect import PROVIDERS, run
 
 FIXTURES = json.loads((Path(__file__).parent / 'fixtures/expanded-pricing.json').read_text())
+# Keep the old reduced archive unchanged; completeness needs actual model-price evidence.
+FIXTURES['deepseek']['documents'][0]['body'] = (Path(__file__).parent / 'fixtures/deepseek-pricing.html').read_text()
 
 
 def collection(provider, payload=None, fallback=None):

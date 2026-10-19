@@ -25,6 +25,8 @@ jobs:
     timeout-minutes: 20
     permissions:
       contents: write
+    outputs:
+      snapshot_sha: ${{ steps.commit.outputs.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -40,7 +42,6 @@ jobs:
         id: collect
         continue-on-error: true
         env:
-          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
           FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
           GOOGLE_CLOUD_BILLING_API_KEY: ${{ secrets.GOOGLE_CLOUD_BILLING_API_KEY }}
         run: python -m scripts.collect --strict --archive-lookups --response-dir "$RUNNER_TEMP/pricing-responses"
@@ -51,7 +52,6 @@ jobs:
         if: steps.collect.outcome == 'failure'
         env:
           # Exact-value redaction before persisting diagnostics; never pass these to the issue job.
-          TOGETHER_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
           FIREWORKS_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
           GOOGLE_CLOUD_BILLING_API_KEY: ${{ secrets.GOOGLE_CLOUD_BILLING_API_KEY }}
         run: python -m scripts.self_heal collect-context --directory "$RUNNER_TEMP/recovery-context"
@@ -73,6 +73,7 @@ jobs:
           if-no-files-found: ignore
           compression-level: 0
       - name: Commit pricing changes and collection health
+        id: commit
         if: always() && !cancelled() && (steps.collect.outcome == 'success' || steps.collect.outcome == 'failure')
         env:
           GH_TOKEN: ${{ github.token }}
@@ -88,8 +89,22 @@ jobs:
             git pull --rebase origin "$DEFAULT_BRANCH"
             git push origin "HEAD:$DEFAULT_BRANCH"
           fi
+          # Rebase may change the commit ID. Publish only this exact pushed tree.
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Surface collector failures
         if: steps.collect.outcome == 'failure'
         run: |
           echo '::error::At least one collector failed. Last good prices and failure status were retained in data/status.json.'
           exit 1
+
+  publish:
+    needs: collect
+    if: needs.collect.result == 'success' && github.ref == 'refs/heads/main' && vars.ENABLE_PAGES == 'true' && vars.ENABLE_COLLECTION_PUBLISH == 'true'
+    permissions:
+      contents: read
+      deployments: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+    with:
+      collection_sha: ${{ needs.collect.outputs.snapshot_sha }}
