@@ -4346,86 +4346,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-192b072a14c69a7ef2e57ff7",
-      "provider": "vercel",
-      "native_id": "stealth/cat-jam",
-      "kind": "model",
-      "label": "Cat Jam",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0",
-          "output": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Cat Jam",
-        "owned_by": "stealth",
-        "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 131072,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "low",
-              "medium",
-              "high",
-              "xhigh",
-              "max"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-19500cbb51cb27c05ff0f325",
       "provider": "vercel",
       "native_id": "meta/muse-spark-1.2-contributor",
@@ -4961,9 +4881,9 @@
           },
           "regional": {
             "us": {
-              "input": "0.0000003",
-              "input_cache_read": "0.000000007",
-              "output": "0.0000012"
+              "input": "0.00000045",
+              "input_cache_read": "0.000000009",
+              "output": "0.0000018"
             }
           },
           "varies_by_provider": true
@@ -8088,9 +8008,9 @@
           },
           "regional": {
             "us": {
-              "input": "0.00000045",
-              "input_cache_read": "0.000000009",
-              "output": "0.0000018"
+              "input": "0.0000003",
+              "input_cache_read": "0.000000007",
+              "output": "0.0000012"
             }
           },
           "varies_by_provider": true
@@ -8128,7 +8048,7 @@
         "owned_by": "deepseek",
         "type": "language",
         "context_window": 1048576,
-        "max_tokens": 1048576,
+        "max_tokens": 32768,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -8148,7 +8068,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -27534,6 +27455,93 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-a46ed81b22e4cf3019a5cba5",
+      "provider": "vercel",
+      "native_id": "inception/mercury-3",
+      "kind": "model",
+      "label": "Mercury 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001",
+          "input_cache_read": "0.00000001",
+          "output": "0.00000035"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000035",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mercury 3",
+        "owned_by": "inception",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "instant",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-a4c5d40250ff541725abaa17",
       "provider": "vercel",
       "native_id": "recraft/recraft-v4-pro",
@@ -43527,14 +43535,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "4072b6982e7cc7bdcd9d4a5b4eb0581a884d56e3229f9522910e931ed279fd56",
-  "revision": 15,
-  "changed_at": "2026-10-19T13:16:18Z",
+  "catalog_sha256": "a79bffbf5e9fc1d095c2ba98824d1a83ee2d9b2f1f94d72ad26c4c03750615b2",
+  "revision": 16,
+  "changed_at": "2026-10-20T11:37:10Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "3d05b1705f301cd12b3c6c7fdad32f9179459e8dc07edf94698bf98a3068d794",
+  "source_sha256": "855aad2ad945c569e1ee7285dce70d36d65a97d944356123823b3dc4f9725512",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
