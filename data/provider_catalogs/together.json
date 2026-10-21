@@ -5747,21 +5747,21 @@
   "billing_notes": [
     "* **Default pricing:** The listed price is the rate for one megapixel at the default number of steps.",
     "* Price per MP = the value in the **Price** column.",
+    "> Prices for models billed by `image` are estimates, not rates. These models pass through the provider's own per-request charge, which varies with the resolution, quality, and other parameters you send. Models billed by `megapixel` use the [formula below](#per-megapixel-cost-formula). For more details, see [How image models bill](/docs/serverless/overview#how-image-models-bill).",
     "Cost = MP × Price per MP × (Steps ÷ Default Steps)",
     "For rate limits and pricing, see the [Serverless overview](/docs/serverless/overview).",
     "Gemini 3 Pro Image's cost tracks the resolution you request. The catalog above quotes the 1K and 2K estimate of about $0.134 per image. At 4K it is about $0.24 per image.",
-    "Prices for models billed by `image` are estimates, not rates. These models pass through the provider's own per-request charge, which varies with the resolution, quality, and other parameters you send. Models billed by `megapixel` use the [formula below](#per-megapixel-cost-formula). For more details, see [How image models bill](/docs/serverless/overview#how-image-models-bill).",
     "Resolution dominates that formula. At $0.04 per megapixel, a 1024×1024 image (1.05 MP) costs about $0.042, while a 4096×4096 image (16.8 MP) costs about $0.67.",
     "Serverless models are the fastest way to run inference on Together. You call any supported model through a shared per-token API, with no provisioning, no replicas to size, and no minimum cost. Pay only for the tokens you process.",
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed."
   ],
-  "catalog_sha256": "93a6b3c7187058caa4113e6978857250f4e9591121c7e0d31f46630ad32239a9",
-  "revision": 9,
-  "changed_at": "2026-10-20T11:37:10Z",
+  "catalog_sha256": "00d623b333bba59f71caa4132c7c35f98e6af9ba8109832d2977f22a9dbd2df9",
+  "revision": 10,
+  "changed_at": "2026-10-21T11:49:35Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "e5abce7018c900754b39c78ef51ebde3f203b0cebd3882670d81dc06fd01452c",
+  "source_sha256": "43912332b8580bcbfcd40d7e80c53a7496dec1d2e67842e955449a0f2a3058b4",
   "archive_reference": null
 }

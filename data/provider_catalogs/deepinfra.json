@@ -168,7 +168,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -342,7 +343,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -453,7 +455,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -686,7 +689,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.00012
+          "cents_per_input_token": 0.00012,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -994,6 +998,44 @@
         "type": "text-generation",
         "max_tokens": 1048576,
         "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-0860e342aefbda2b1d048009",
+      "provider": "deepinfra",
+      "native_id": "nvidia/Nemotron-3.5-Embed-8B-BF16",
+      "kind": "model",
+      "label": "nvidia/Nemotron-3.5-Embed-8B-BF16",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_tokens",
+          "cents_per_input_token": 3.5e-06,
+          "cents_per_image_token": 7.000000000000001e-06
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.000000035",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "embeddings",
+        "max_tokens": 32768,
+        "quantization": "fp16"
       },
       "comparison_eligible": false
     },
@@ -1463,7 +1505,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 3.5e-06
+          "cents_per_input_token": 3.5e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -1595,7 +1638,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 2.5e-06
+          "cents_per_input_token": 2.5e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -2917,7 +2961,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -3488,7 +3533,8 @@
           "full": "1120 tokens per input image, with output image costs scaling by resolution: 747 tokens ($0.045) for 512 (roughly 0.25MP), 1120 tokens ($0.067) for 1K (roughly 1MP), 1680 tokens ($0.101) for 2K (roughly 4MP), and 2520 tokens ($0.151) for 4K (roughly 16MP)",
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.006
+          "cents_per_input_token": 0.006,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -3763,7 +3809,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 4e-06
+          "cents_per_input_token": 4e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -5716,7 +5763,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -5938,7 +5986,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -6381,7 +6430,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -6418,7 +6468,8 @@
           "full": "$4.7/M with video, $7.7/M without for 480p and 780p; $5.1/M with video, $8.4/M without for 1080p",
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.00047
+          "cents_per_input_token": 0.00047,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -6732,6 +6783,48 @@
         {
           "dimension": "cents_per_image_unit",
           "amount": "0.099",
+          "currency": "USD",
+          "unit": "provider image unit",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-image",
+        "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-5990363e3f9fc458f1035e48",
+      "provider": "deepinfra",
+      "native_id": "Bria/fibo-2.0",
+      "kind": "model",
+      "label": "Bria/fibo-2.0",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "image_units",
+          "cents_per_image_unit": 4.0,
+          "default_width": 0,
+          "default_height": 0,
+          "default_iterations": 0,
+          "default_price_cents": null,
+          "usage_from_cost": false
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_image_unit",
+          "amount": "0.04",
           "currency": "USD",
           "unit": "provider image unit",
           "conditions": {
@@ -7106,7 +7199,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -7461,7 +7555,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 2e-06
+          "cents_per_input_token": 2e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -7498,7 +7593,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -7535,7 +7631,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -8170,7 +8267,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -8298,6 +8396,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-70506e271ed502ac31ba5dad",
+      "provider": "deepinfra",
+      "native_id": "nvidia/Nemotron-3.5-Embed-1B-BF16",
+      "kind": "model",
+      "label": "nvidia/Nemotron-3.5-Embed-1B-BF16",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_tokens",
+          "cents_per_input_token": 1.5e-06,
+          "cents_per_image_token": 3.5000000000000004e-06
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.000000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "embeddings",
+        "max_tokens": 32768,
+        "quantization": "fp16"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-718fee3c822c107cb0277b88",
       "provider": "deepinfra",
       "native_id": "stepfun-ai/Step-3.5-Flash",
@@ -8366,7 +8502,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -8588,7 +8725,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -8752,7 +8890,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -8789,7 +8928,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -9254,7 +9394,8 @@
           "full": "560 tokens per input image, with output image costs scaling by resolution: 1120 tokens ($0.134) for 1K and 2K (roughly 1MP and 4MP), and 2000 tokens ($0.24) for 4K (roughly 16MP)",
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.012
+          "cents_per_input_token": 0.012,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -11642,7 +11783,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 2e-06
+          "cents_per_input_token": 2e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -12083,8 +12225,8 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": 0.5,
-          "discount_ends_at": 1792540799,
+          "discount": null,
+          "discount_ends_at": null,
           "short": null,
           "full": null,
           "table": null,
@@ -12195,7 +12337,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -12624,7 +12767,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-06
+          "cents_per_input_token": 5e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -13800,7 +13944,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -14456,7 +14601,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -14535,7 +14681,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -14868,7 +15015,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -15053,7 +15201,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -15624,7 +15773,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -15699,6 +15849,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-d2164b4b9b1dc38b35ff3f66",
+      "provider": "deepinfra",
+      "native_id": "nvidia/Nemotron-3.5-Rerank-8B-BF16",
+      "kind": "model",
+      "label": "nvidia/Nemotron-3.5-Rerank-8B-BF16",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_tokens",
+          "cents_per_input_token": 5e-06,
+          "cents_per_image_token": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "reranker",
+        "max_tokens": 32768,
+        "quantization": "fp16"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-d21c05c0d84ea2d472ea7f3c",
       "provider": "deepinfra",
       "native_id": "nvidia/Nemotron-3-Embed-1B-BF16",
@@ -15714,7 +15902,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1.5e-06
+          "cents_per_input_token": 1.5e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -16059,7 +16248,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -16398,7 +16588,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -16435,7 +16626,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -16721,7 +16913,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 2e-07
+          "cents_per_input_token": 2e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -16758,7 +16951,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -17191,7 +17385,8 @@
           "full": "560 tokens per input image, with output image costs scaling by resolution: 1120 tokens ($0.134) for 1K and 2K (roughly 1MP and 4MP), and 2000 tokens ($0.24) for 4K (roughly 16MP)",
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.012
+          "cents_per_input_token": 0.012,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -17355,7 +17550,7 @@
       ],
       "metadata": {
         "type": "text-generation",
-        "max_tokens": 163840,
+        "max_tokens": null,
         "quantization": "fp4"
       },
       "comparison_eligible": false
@@ -18231,7 +18426,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 1e-06
+          "cents_per_input_token": 1e-06,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -18522,7 +18718,8 @@
           "full": "1120 tokens ($0.034) per output image at the single supported 1K resolution (roughly 1MP)",
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 0.003
+          "cents_per_input_token": 0.003,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -18760,7 +18957,8 @@
           "full": null,
           "table": null,
           "type": "input_tokens",
-          "cents_per_input_token": 5e-07
+          "cents_per_input_token": 5e-07,
+          "cents_per_image_token": null
         }
       },
       "rates": [
@@ -18820,14 +19018,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "7d1a008dd0c7013456c9de9946474ae0f5fa43e89162402b0c4842e01d47906b",
-  "revision": 10,
-  "changed_at": "2026-10-20T11:37:10Z",
+  "catalog_sha256": "9f673ed4273d7afa47ffeed0c34d6aaf0d88bc2717c0c8e09c4ac4e680599653",
+  "revision": 11,
+  "changed_at": "2026-10-21T11:49:35Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "f6858a3a9e3ee51672e8f597976628f6025a7c9856301851635b3e8a4ef13a9d",
+  "source_sha256": "39ce890732fd63ffae1a6294ea9d741c86d7b5ef0afdf10ab1573c92cf1594fb",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

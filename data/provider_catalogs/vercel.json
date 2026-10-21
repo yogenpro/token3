@@ -4975,9 +4975,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000068",
-          "input_cache_read": "0.00000007",
-          "output": "0.00000209"
+          "input": "0.00000136",
+          "input_cache_read": "0.00000014",
+          "output": "0.00000418"
         },
         "currency": "USD",
         "state": "reported",
@@ -4987,21 +4987,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000068",
+          "amount": "0.00000136",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000209",
+          "amount": "0.00000418",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000007",
+          "amount": "0.00000014",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -6100,7 +6100,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "video"
           ],
           "output": [
             "text"
@@ -8703,6 +8704,68 @@
           ],
           "output": [
             "image"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-334c796291ff3ae559185cf0",
+      "provider": "vercel",
+      "native_id": "scaledown/scaledown-summarize-1",
+      "kind": "model",
+      "label": "Summarize-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Summarize-1",
+        "owned_by": "scaledown",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
           ]
         },
         "zdr": "none",
@@ -17751,6 +17814,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-651fbbf2c3944185f152de8a",
+      "provider": "vercel",
+      "native_id": "mistral/voxtral-mini-transcribe-3",
+      "kind": "model",
+      "label": "Voxtral Mini Transcribe 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "transcription_duration_cost_per_second": "0.00005834"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "transcription_duration_cost_per_second",
+          "amount": "0.00005834",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Voxtral Mini Transcribe 3",
+        "owned_by": "mistral",
+        "type": "transcription",
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-66ef8541601d065de726f28d",
       "provider": "vercel",
       "native_id": "topaz/wonder-3.5",
@@ -25871,6 +25989,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-9e6524bf058774736b979bfa",
+      "provider": "vercel",
+      "native_id": "mistral/voxtral-mini-tts-3",
+      "kind": "model",
+      "label": "Voxtral TTS 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000016",
+          "speech_input_character_cost": "0.000016"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000016",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "speech_input_character_cost",
+          "amount": "0.000016",
+          "currency": "USD",
+          "unit": "input character",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Voxtral TTS 3",
+        "owned_by": "mistral",
+        "type": "speech",
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "audio"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-9e916b7374e32441bfd64947",
       "provider": "vercel",
       "native_id": "anthropic/claude-sonnet-4.6",
@@ -30078,6 +30251,70 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-aee48263979daeda825af75b",
+      "provider": "vercel",
+      "native_id": "scaledown/scaledown-extract-1",
+      "kind": "model",
+      "label": "Extract-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Extract-1",
+        "owned_by": "scaledown",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-afa2805848209c77076dce33",
       "provider": "vercel",
       "native_id": "openai/gpt-4o-mini-batch",
@@ -30938,10 +31175,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000014",
-          "input_cache_read": "0.0000000028",
-          "output": "0.00000028",
-          "varies_by_provider": true
+          "input": "0.000000119",
+          "input_cache_read": "0.0000000025",
+          "output": "0.000000238"
         },
         "currency": "USD",
         "state": "reported",
@@ -30951,21 +31187,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000014",
+          "amount": "0.000000119",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000028",
+          "amount": "0.000000238",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000028",
+          "amount": "0.0000000025",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -41625,6 +41861,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f52c62eba7dad01cc3597568",
+      "provider": "vercel",
+      "native_id": "mistral/voxtral-small-transcribe-3",
+      "kind": "model",
+      "label": "Voxtral Small Transcribe 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "transcription_duration_cost_per_second": "0.00006667"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "transcription_duration_cost_per_second",
+          "amount": "0.00006667",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Voxtral Small Transcribe 3",
+        "owned_by": "mistral",
+        "type": "transcription",
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f670f845c2bb03a8df8b8cd3",
       "provider": "vercel",
       "native_id": "openai/gpt-5.6-luna-fast",
@@ -43535,14 +43826,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "a79bffbf5e9fc1d095c2ba98824d1a83ee2d9b2f1f94d72ad26c4c03750615b2",
-  "revision": 16,
-  "changed_at": "2026-10-20T11:37:10Z",
+  "catalog_sha256": "f8dfd6bbde196b4292cd2a5b1bb4f1fef9d89d33f1eea3c7b168157115b85f80",
+  "revision": 17,
+  "changed_at": "2026-10-21T11:49:35Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "855aad2ad945c569e1ee7285dce70d36d65a97d944356123823b3dc4f9725512",
+  "source_sha256": "89522219af1582a92b9ad4d8f9ad467e6a24c066da2b5176f12e6a810790d99f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
