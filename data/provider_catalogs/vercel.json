@@ -177,86 +177,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-027284bc48c009732535efdd",
-      "provider": "vercel",
-      "native_id": "spacexai/grok-voice-think-fast-1.0",
-      "kind": "model",
-      "label": "Grok Voice Think Fast 1.0",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "realtime_client_message_cost": "0.004",
-          "realtime_session_duration_cost_per_second": "0.000834"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "realtime_session_duration_cost_per_second",
-          "amount": "0.000834",
-          "currency": "USD",
-          "unit": "second",
-          "conditions": {}
-        },
-        {
-          "dimension": "realtime_client_message_cost",
-          "amount": "0.004",
-          "currency": "USD",
-          "unit": "message",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Grok Voice Think Fast 1.0",
-        "owned_by": "spacexai",
-        "type": "realtime",
-        "context_window": 0,
-        "max_tokens": 0,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "audio"
-          ],
-          "output": [
-            "text",
-            "audio"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-02875ec510709b2bd98510bb",
       "provider": "vercel",
       "native_id": "spacexai/grok-4.1-fast-reasoning",
@@ -8516,7 +8436,8 @@
       "billing": {
         "rules": {
           "input": "0.00000014",
-          "output": "0.0000004"
+          "output": "0.0000004",
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -8666,6 +8587,88 @@
           }
         ],
         "zdr": "some",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-313b9bb294d3f398c8f81a9e",
+      "provider": "vercel",
+      "native_id": "spacexai/grok-voice-3.0",
+      "kind": "model",
+      "label": "Grok Voice 3.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "realtime_client_message_cost": "0.004",
+          "realtime_session_duration_cost_per_second": "0.001334"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "realtime_session_duration_cost_per_second",
+          "amount": "0.001334",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        },
+        {
+          "dimension": "realtime_client_message_cost",
+          "amount": "0.004",
+          "currency": "USD",
+          "unit": "message",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Grok Voice 3.0",
+        "owned_by": "spacexai",
+        "type": "realtime",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "audio"
+          ],
+          "output": [
+            "text",
+            "audio"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -12256,6 +12259,55 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-476b99d7fc9c4d64be8b19e1",
+      "provider": "vercel",
+      "native_id": "cohere/rerank-v5-fast",
+      "kind": "model",
+      "label": "Cohere Rerank 5 Fast",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Cohere Rerank 5 Fast",
+        "owned_by": "cohere",
+        "type": "reranking",
+        "context_window": 32768,
+        "max_tokens": 32768,
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-47a207da0c56239a289c217f",
       "provider": "vercel",
       "native_id": "alibaba/wan-v2.6-r2v",
@@ -13196,6 +13248,61 @@
           }
         ],
         "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-4ca7dccecea6788d2b4b56fe",
+      "provider": "vercel",
+      "native_id": "baseten/elephant-1",
+      "kind": "model",
+      "label": "Elephant-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Elephant-1",
+        "owned_by": "baseten",
+        "type": "evaluation",
+        "context_window": 16384,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -28231,6 +28338,7 @@
       "billing": {
         "rules": {
           "input": "0.00000025",
+          "input_cache_read": "0.00000006",
           "output": "0.0000008"
         },
         "currency": "USD",
@@ -28251,6 +28359,13 @@
           "amount": "0.0000008",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -32980,6 +33095,55 @@
             ]
           }
         ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-bd0ebba3f2ad078326d3db5d",
+      "provider": "vercel",
+      "native_id": "cohere/rerank-v5-pro",
+      "kind": "model",
+      "label": "Cohere Rerank 5 Pro",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Cohere Rerank 5 Pro",
+        "owned_by": "cohere",
+        "type": "reranking",
+        "context_window": 32768,
+        "max_tokens": 32768,
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "zdr": "none",
         "no_training": "all"
       },
@@ -42213,6 +42377,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f8d5a1143829f7d70816feed",
+      "provider": "vercel",
+      "native_id": "baseten/mammoth-1",
+      "kind": "model",
+      "label": "Mammoth-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mammoth-1",
+        "owned_by": "baseten",
+        "type": "evaluation",
+        "context_window": 16384,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f90b0e2ef6a3fedff37d1325",
       "provider": "vercel",
       "native_id": "recraft/recraft-v4.1",
@@ -43826,14 +44045,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "f8dfd6bbde196b4292cd2a5b1bb4f1fef9d89d33f1eea3c7b168157115b85f80",
-  "revision": 17,
-  "changed_at": "2026-10-21T11:49:35Z",
+  "catalog_sha256": "d9453f9117d4baf189f43a5610479c483fe2ed1a212e473180f4665c7678e17a",
+  "revision": 18,
+  "changed_at": "2026-10-22T02:23:40Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "89522219af1582a92b9ad4d8f9ad467e6a24c066da2b5176f12e6a810790d99f",
+  "source_sha256": "02fe3b1baead530414b912e75cad1d9d1bad8560dd1d022685b27d3dc96ff823",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

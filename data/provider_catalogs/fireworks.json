@@ -157,6 +157,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-236767860be800fc3dd10a85",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/glm-5p3",
+      "kind": "model",
+      "label": "GLM-5.3",
+      "scope": {
+        "serving_mode": "spot"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.182",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.98",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "3.08",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.182",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.98",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "3.08",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/glm-5p3-spot",
+        "use_cases": [
+          "coding"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-2587632c3721ced334ab2663",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/qwen3-reranker-8b",
@@ -192,6 +259,74 @@
           "embeddings"
         ],
         "context_length": 40960
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-398f4e4e149fd359e22ccfe5",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/kimi-k3",
+      "kind": "model",
+      "label": "Kimi K3",
+      "scope": {
+        "serving_mode": "spot"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.21",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "10.5",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "2.1",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.21",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "10.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "2.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/kimi-k3-spot",
+        "use_cases": [
+          "coding"
+        ]
       },
       "comparison_eligible": false
     },
@@ -661,6 +796,70 @@
           "text"
         ],
         "context_length": 1048576
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-74182e607c299ab58cbb007c",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4-flash",
+      "kind": "model",
+      "label": "DeepSeek-V4-Flash",
+      "scope": {
+        "serving_mode": "spot"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.021",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.105",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.21",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.021",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.105",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.21",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/spot-deepseek-v4-flash"
       },
       "comparison_eligible": false
     },
@@ -1220,6 +1419,74 @@
         "aliases": [
           "accounts/fireworks/routers/glm-fast-latest"
         ],
+        "use_cases": [
+          "coding"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-d5728cec1406fc5e5cf923ca",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4p1-flash",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash",
+      "scope": {
+        "serving_mode": "spot"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.0042",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.21",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.84",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.0042",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.21",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.84",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/deepseek-v4p1-flash-spot",
         "use_cases": [
           "coding"
         ]
@@ -1832,14 +2099,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "ac37cb418767444249b9fa5b0c9ed9a36d86ef36ed87f8200ce03587589a5ea4",
-  "revision": 7,
-  "changed_at": "2026-10-20T11:37:10Z",
+  "catalog_sha256": "6e7781f0e663804cdd86debb66233752ce80eaa8c1a1b89f9219397b76b72816",
+  "revision": 8,
+  "changed_at": "2026-10-22T02:23:40Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "7c192eb684bdfe1e879ac0035c5e038cd9438eca24b1afef601847b44fdc4a65",
+  "source_sha256": "14ea232ae0a0c5123b176ec52a41c405ec3389c23d51cef532f4e238acb177f8",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
