@@ -67,3 +67,13 @@ No inference endpoint, paid API recovery, worker provisioning, Pages gate or dep
 On 2026-10-12 the user separately authorized committing, pushing and deploying the local reviewed expansion and data-fit dashboard. Pages remains a manual, main-only release gated by `ENABLE_PAGES=true`; paid recovery and worker provisioning remain disabled. The deployment builds the exact dispatched commit, not an unpinned later checkout of `main`.
 
 Integration preserves the scheduled collection commit and original reviewed/native history. Local provider-scoped refreshes can validate the seven expanded billing sources without replacing retained credential-dependent native catalogs. A local full-source run using missing-key document fallbacks is not equivalent to the hosted API inventory: retain the last-good API snapshots and use the credentialed hosted collection for final full-source validation. Collector success alone does not establish the same source scope or comparison eligibility.
+
+## OpenAI table and cache-write scope review — 2026-10-22
+
+Issue #3 reproduced a change to the official Standard Markdown table: reordered price columns, explicit 30m/12h write columns, and a separate compact table for GPT-5.4 mini. The fetched body matched the failed run's source SHA-256 `129d6019819379a6f30edc0811d4631ddb085dcd4b3b1d0012a945cd1af1bfbf`. This was not an outage or permission problem, and the last-good reviewed quotes were correctly retained.
+
+The user explicitly approved using **30-minute retention for current labelled OpenAI cache-write quotes**, with 12-hour rates native-only. This is a reviewed current-scope decision, not an assertion that the older unqualified cache-write column established a 30-minute TTL. No historical TTL is backfilled, and matching amounts alone are not treated as proof of historical equivalence.
+
+All 11 existing OpenAI offering IDs, selected amounts, currency, per-million denominator, global/Standard scope, 272,000/272,001 bands and known/unverified capacities remain unchanged. The new quote notes expose the current 30-minute condition; original CSV/JSON observations, provenance and native history are not rewritten. No aliases, canonical models, additional tiers or 12-hour comparison offerings are introduced. Cache-write fees remain outside workload estimates.
+
+The issue fix is verified with immutable legacy fixtures, a new bounded public-source excerpt and a provider-scoped strict dry-run. Actual data/health updates must come from a legitimate complete strict collection after review/merge. Publishing the parser change still requires a separately authorized manual code release; the data-only publishing gate is not permission to deploy new code.
