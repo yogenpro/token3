@@ -11,7 +11,7 @@ Collection should prefer official structured rate catalogs. A model-list API tha
 | Together AI | Retained `GET https://api.together.ai/v1/models` adapter with `pricing` objects | **Comparisons paused**; free serverless document inventory only, no deposit-gated API call | None in current mode; API resumption requires separate review |
 | Fireworks | `GET https://api.fireworks.ai/v1/serverless/models`, with per-mode `pricing` SKUs | API-first, complete pagination, no use-case filter; official pricing Markdown fallback | `FIREWORKS_API_KEY` |
 | Groq | Documented `/openai/v1/models` schema has IDs/metadata, no list prices | Official `/docs/models.md`; HTML no longer needed for normal collection | No key for pricing document |
-| OpenAI API | Documented `/models` response has model metadata, no list prices | Official pricing `.md` tables | No key for pricing document |
+| OpenAI API | Documented `/models` response has model metadata, no list prices | Official Standard `.md` tables; validated legacy, split-retention and compact layouts. Current labelled writes use the explicitly reviewed 30m scope; 12h stays native-only | No key for pricing document |
 | Anthropic API | Documented `/v1/models` response has capabilities/token limits, no list prices | Official pricing `.md` tables | No key for pricing document |
 | Google Gemini API | Documented `models.list`/`Model` resource has capabilities/token limits, no list prices | Official Gemini Developer API pricing `.md.txt` | No key for pricing document |
 | Google Vertex AI | Cloud Billing Catalog API `v1/services` and `v1/services/{id}/skus` | Complete USD SKU inventory with a key, plus pricing document for existing reviewed dashboard quotes; document-only fallback | `GOOGLE_CLOUD_BILLING_API_KEY` |
@@ -28,6 +28,14 @@ The 15 additional source groups use selected public pricing catalogs/documents w
 The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identities while preserving the original coverage. Source permission is explicit in `catalog/aliases.yaml`; a model alias present globally is not a price binding for every source. Newer AWS/Vertex/Foundry meters and unsupported source variants remain native-only.
 
 ## API details and limits
+
+### OpenAI Standard table and cache-write scope
+
+The [official pricing Markdown](https://developers.openai.com/api/docs/pricing.md) now reorders input/output/cache columns, separates 30-minute and 12-hour writes, and lists GPT-5.4 mini in a compact input/output/cached-input table. The 2026-10-21 failed capture and the 2026-10-22 investigation fetched the same body SHA-256: `129d6019819379a6f30edc0811d4631ddb085dcd4b3b1d0012a945cd1af1bfbf`.
+
+The parser accepts only complete, distinct named columns from the three reviewed layouts. Standard's own preceding/in-section USD-per-million basis is required; a denominator in Batch cannot supply missing Standard evidence. Malformed/duplicate tracked rows, unknown/duplicate headers, missing known long-context prices and changed 272K boundaries fail closed. Exact source IDs, global region, Standard tier and known/unverified capacities remain unchanged; the compact table cannot erase a known long-prompt schedule.
+
+The user explicitly approved **current 30-minute cache-write scope** during issue #3 investigation. All 11 retained quote identities and input/output/cache-read/selected-write amounts match this source interpretation. The equal amounts do **not** prove historical TTL equivalence: original unqualified write observations remain retention-unverified. Current quote notes state 30-minute retention; 12-hour components stay native-only and are never selected as a fallback or because they are cheaper. Cache writes remain excluded from workload estimates. Missing writes stay unknown (`null`), not free. No historical observations, prices or source hashes are rewritten; see [the dated scope review](reviewed-model-review.md).
 
 ### Vercel AI Gateway
 
