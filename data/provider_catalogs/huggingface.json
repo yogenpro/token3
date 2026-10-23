@@ -1954,9 +1954,10 @@
       ],
       "metadata": {
         "status": "live",
+        "context_length": 131072,
         "is_free": false,
         "supports_tools": false,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -2072,35 +2073,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-2e838b87522bf7c0cd73425f",
-      "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.5",
-      "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.5",
-      "scope": {
-        "upstream_provider": "featherless-ai"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-2f5ed2a87fb2d46222aeddc3",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-4.6",
@@ -2193,37 +2165,6 @@
           "input_modalities": [
             "text",
             "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-30432072ec0101ff361009ad",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-4.5",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-4.5",
-      "scope": {
-        "upstream_provider": "zai-org"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": true,
-        "architecture": {
-          "input_modalities": [
-            "text"
           ],
           "output_modalities": [
             "text"
@@ -2425,7 +2366,7 @@
         "status": "live",
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -3508,9 +3449,10 @@
       ],
       "metadata": {
         "status": "live",
+        "context_length": 32000,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -3850,7 +3792,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -4410,56 +4352,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-5c9ead5a9d5141028c282460",
-      "provider": "huggingface",
-      "native_id": "MiniMaxAI/MiniMax-M2.7",
-      "kind": "provider_route",
-      "label": "MiniMaxAI/MiniMax-M2.7",
-      "scope": {
-        "upstream_provider": "deepinfra"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.25,
-          "output": 1
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.25",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 196608,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-5d4cc95950be4eb8fd07ebb6",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.5-397B-A17B",
@@ -4496,7 +4388,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -5026,7 +4918,7 @@
         "status": "live",
         "context_length": 262144,
         "is_free": false,
-        "supports_tools": true,
+        "supports_tools": false,
         "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
@@ -5799,56 +5691,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-7aed20e526f67ede49a48ad4",
-      "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.5",
-      "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.5",
-      "scope": {
-        "upstream_provider": "novita"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.168,
-          "output": 0.336
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.168",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.336",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-7b304edcfe4f49f9628c9567",
       "provider": "huggingface",
       "native_id": "bfbb9088ca5ef3c9e2440b46",
@@ -6026,37 +5868,6 @@
         "supports_tools": true,
         "supports_structured_output": true,
         "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-7d8d0af9dc0af41a4a87d9e3",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-4.7-Flash",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-4.7-Flash",
-      "scope": {
-        "upstream_provider": "zai-org"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": true,
         "architecture": {
           "input_modalities": [
             "text"
@@ -6278,37 +6089,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-816ab32135656406b929b42a",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-4.6-FP8",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-4.6-FP8",
-      "scope": {
-        "upstream_provider": "zai-org"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": true,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-81fd960268d36a0325ad4429",
       "provider": "huggingface",
       "native_id": "stepfun-ai/Step-3.7-Flash",
@@ -6351,6 +6131,37 @@
           "input_modalities": [
             "text",
             "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-83bfa0f008418f5e96855c1b",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-5.1-FP8",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-5.1-FP8",
+      "scope": {
+        "upstream_provider": "zai-org"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -7106,56 +6917,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-90ca18ff5a9e049f5d2dd0b0",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-R1",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-R1",
-      "scope": {
-        "upstream_provider": "novita"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.7,
-          "output": 2.5
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.7",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "2.5",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 64000,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-933e71e567f72b5d74b9c7b1",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3-Flash",
@@ -7320,9 +7081,10 @@
       ],
       "metadata": {
         "status": "live",
+        "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -7605,7 +7367,7 @@
         "context_length": 131072,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -8144,6 +7906,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-a7cf4cf59b2ab5439ddfd0df",
+      "provider": "huggingface",
+      "native_id": "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+      "kind": "provider_route",
+      "label": "aisingapore/Qwen-SEA-LION-v4.5-27B-IT",
+      "scope": {
+        "upstream_provider": "publicai"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.2,
+          "output": 0.4
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-a7f5fec9619358aaf531fd3f",
       "provider": "huggingface",
       "native_id": "CohereLabs/tiny-aya-global",
@@ -8461,7 +8274,7 @@
         "status": "live",
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": true,
         "architecture": {
           "input_modalities": [
@@ -9291,7 +9104,7 @@
         "context_length": 32768,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -9383,6 +9196,38 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-c4271144eb2dba13c69ff828",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.6V-Flash",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.6V-Flash",
+      "scope": {
+        "upstream_provider": "zai-org"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -9487,7 +9332,7 @@
         "context_length": 524288,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -9542,57 +9387,6 @@
         "architecture": {
           "input_modalities": [
             "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-ca09092804826c3c6269a562",
-      "provider": "huggingface",
-      "native_id": "MiniMaxAI/MiniMax-M3",
-      "kind": "provider_route",
-      "label": "MiniMaxAI/MiniMax-M3",
-      "scope": {
-        "upstream_provider": "deepinfra"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.28,
-          "output": 1.1
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.1",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 524288,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
           ],
           "output_modalities": [
             "text"
@@ -9788,7 +9582,7 @@
         "context_length": 131072,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -11209,6 +11003,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-e8c85f915a6b90c516e8c0d6",
+      "provider": "huggingface",
+      "native_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "kind": "provider_route",
+      "label": "meta-llama/Llama-3.3-70B-Instruct",
+      "scope": {
+        "upstream_provider": "novita"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.135,
+          "output": 0.4
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.135",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 12288,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-e92122274fc3a2cd51c464b0",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.8-27B",
@@ -11528,6 +11372,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-f0aa48e5d6428eb696e60a79",
+      "provider": "huggingface",
+      "native_id": "BSC-LT/ALIA-40b-instruct-2606",
+      "kind": "provider_route",
+      "label": "BSC-LT/ALIA-40b-instruct-2606",
+      "scope": {
+        "upstream_provider": "publicai"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.3,
+          "output": 0.6
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 65536,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-f0bc71af1aeb3bed65d71cb1",
       "provider": "huggingface",
       "native_id": "inclusionAI/Ling-3.0-flash",
@@ -11569,6 +11463,57 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-f0ecc2c0b93572084c4b834b",
+      "provider": "huggingface",
+      "native_id": "google/gemma-4-31B-it",
+      "kind": "provider_route",
+      "label": "google/gemma-4-31B-it",
+      "scope": {
+        "upstream_provider": "novita"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.14,
+          "output": 0.4
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -11724,7 +11669,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -11760,56 +11705,6 @@
           "input_modalities": [
             "text",
             "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-f687c467efaabdc7d9433149",
-      "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.5-Pro",
-      "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.5-Pro",
-      "scope": {
-        "upstream_provider": "novita"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.522,
-          "output": 1.044
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.522",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.044",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
           ],
           "output_modalities": [
             "text"
@@ -12015,7 +11910,7 @@
         "context_length": 163840,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -12317,14 +12212,14 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "590e459fd92c38e99aa1adf233a1f6c764b1b54e5f316abb9a92682661c69104",
-  "revision": 25,
-  "changed_at": "2026-10-22T11:53:11Z",
+  "catalog_sha256": "22ca913c2747f2f686492568c62e4d308950bfa41071af8dfecec93266bedba5",
+  "revision": 26,
+  "changed_at": "2026-10-23T11:39:47Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "bbc3b24bbe55723634f6d531166d483455692dccdb20f3cfae913f3abe5969e9",
+  "source_sha256": "21a5a60e5d6b9bfe8d14d492acd2590d3376f62339a72ac53e07948549d0910d",
   "archive_reference": null
 }

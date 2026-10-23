@@ -485,98 +485,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-0facfd4d9bacb5e8d707709b",
-      "provider": "novita",
-      "native_id": "xiaomimimo/mimo-v2.5",
-      "kind": "model",
-      "label": "Xiaomi MiMo V2.5",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 1680,
-              "price_per_m": 1680,
-              "origin_price_per_m_decimal": "0.168",
-              "price_per_m_decimal": "0.168"
-            },
-            "completion": {
-              "origin_price_per_m": 3360,
-              "price_per_m": 3360,
-              "origin_price_per_m_decimal": "0.336",
-              "price_per_m_decimal": "0.336"
-            },
-            "input_cache_read": {
-              "origin_price_per_m": 34,
-              "price_per_m": 34,
-              "origin_price_per_m_decimal": "0.0034",
-              "price_per_m_decimal": "0.0034"
-            }
-          },
-          "native_input_billing_units": 1680,
-          "native_output_billing_units": 3360,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.168",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.336",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0034",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text",
-          "image",
-          "video"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 1048576,
-        "max_output_tokens": 131072,
-        "status": 1,
-        "features": [
-          "serverless",
-          "function-calling",
-          "structured-outputs",
-          "reasoning"
-        ],
-        "endpoints": [
-          "completions",
-          "chat/completions",
-          "anthropic"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-10bee0310ad66dddf9e3d330",
       "provider": "novita",
       "native_id": "zai-org/glm-5.3-flash",
@@ -4539,96 +4447,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-8d91b832c949ef58473bae87",
-      "provider": "novita",
-      "native_id": "xiaomimimo/mimo-v2.5-pro",
-      "kind": "model",
-      "label": "Xiaomi MiMo V2.5 Pro",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 5220,
-              "price_per_m": 5220,
-              "origin_price_per_m_decimal": "0.522",
-              "price_per_m_decimal": "0.522"
-            },
-            "completion": {
-              "origin_price_per_m": 10440,
-              "price_per_m": 10440,
-              "origin_price_per_m_decimal": "1.044",
-              "price_per_m_decimal": "1.044"
-            },
-            "input_cache_read": {
-              "origin_price_per_m": 43,
-              "price_per_m": 43,
-              "origin_price_per_m_decimal": "0.0043",
-              "price_per_m_decimal": "0.0043"
-            }
-          },
-          "native_input_billing_units": 5220,
-          "native_output_billing_units": 10440,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.522",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "1.044",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0043",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 1048576,
-        "max_output_tokens": 131072,
-        "status": 1,
-        "features": [
-          "serverless",
-          "function-calling",
-          "structured-outputs",
-          "reasoning"
-        ],
-        "endpoints": [
-          "completions",
-          "chat/completions",
-          "anthropic"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-90c899dccd49bc5f2b32d923",
       "provider": "novita",
       "native_id": "minimax/minimax-m2.7-highspeed",
@@ -7411,16 +7229,63 @@
       "label": "MiniMax M3.1 Flash",
       "scope": {},
       "billing": {
-        "state": "source_native_or_unpriced",
+        "state": "reported",
         "rules": {
-          "rules": null,
-          "native_input_billing_units": 0,
-          "native_output_billing_units": 0,
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 1500,
+              "price_per_m": 1500,
+              "origin_price_per_m_decimal": "0.15",
+              "price_per_m_decimal": "0.15"
+            },
+            "completion": {
+              "origin_price_per_m": 6000,
+              "price_per_m": 6000,
+              "origin_price_per_m_decimal": "0.6",
+              "price_per_m_decimal": "0.6"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 150,
+              "price_per_m": 150,
+              "origin_price_per_m_decimal": "0.015",
+              "price_per_m_decimal": "0.015"
+            }
+          },
+          "native_input_billing_units": 1500,
+          "native_output_billing_units": 6000,
           "tiered_billing": false,
           "tiered_billing_configs": []
         }
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.015",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
       "metadata": {
         "model_type": "chat",
         "input_modalities": [
@@ -8140,14 +8005,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "9e38404d989e9831e407a759b25772187068fe0e347f8101c1d7b47ce64e9f0e",
-  "revision": 8,
-  "changed_at": "2026-10-22T11:53:11Z",
+  "catalog_sha256": "247cb2d0e9cc00f42a7257b7692680865a6d278d4eaff272ad47b0b6009e44c7",
+  "revision": 9,
+  "changed_at": "2026-10-23T11:39:47Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "acd28ab96b56f2284b2992d55e1529e24a2f084bd4f0d12458c559ffc9ff21e7",
+  "source_sha256": "672735344cf8ac7b79a0c200451c81089bda4f3253114fa234f4571e6f04d492",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
