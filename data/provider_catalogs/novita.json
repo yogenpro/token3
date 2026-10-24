@@ -5529,6 +5529,98 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-b64708f16cf2716b1e468de0",
+      "provider": "novita",
+      "native_id": "moonshotai/kimi-k3.1-pro-highspeed",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro Highspeed",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 40000,
+              "price_per_m": 40000,
+              "origin_price_per_m_decimal": "4",
+              "price_per_m_decimal": "4"
+            },
+            "completion": {
+              "origin_price_per_m": 200000,
+              "price_per_m": 200000,
+              "origin_price_per_m_decimal": "20",
+              "price_per_m_decimal": "20"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 2000,
+              "price_per_m": 2000,
+              "origin_price_per_m_decimal": "0.2",
+              "price_per_m_decimal": "0.2"
+            }
+          },
+          "native_input_billing_units": 40000,
+          "native_output_billing_units": 200000,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "20",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1048576,
+        "max_output_tokens": 1048576,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-ba8341266abc248b6c45e615",
       "provider": "novita",
       "native_id": "mindai/macaron-v1-venti",
@@ -6101,6 +6193,98 @@
         "endpoints": [
           "chat/completions",
           "anthropic"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "novita-c1db0784b47b847fc142ad08",
+      "provider": "novita",
+      "native_id": "moonshotai/kimi-k3.1-pro",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "completion": {
+              "origin_price_per_m": 100000,
+              "price_per_m": 100000,
+              "origin_price_per_m_decimal": "10",
+              "price_per_m_decimal": "10"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 2000,
+              "price_per_m": 2000,
+              "origin_price_per_m_decimal": "0.2",
+              "price_per_m_decimal": "0.2"
+            }
+          },
+          "native_input_billing_units": 20000,
+          "native_output_billing_units": 100000,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1048576,
+        "max_output_tokens": 1048576,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
         ]
       },
       "comparison_eligible": false
@@ -8005,14 +8189,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "247cb2d0e9cc00f42a7257b7692680865a6d278d4eaff272ad47b0b6009e44c7",
-  "revision": 9,
-  "changed_at": "2026-10-23T11:39:47Z",
+  "catalog_sha256": "b0ab2e44b74e407f3d8ee15b757779fc51b4ddd2465e90d7265beb1e322c801e",
+  "revision": 10,
+  "changed_at": "2026-10-24T11:00:42Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "672735344cf8ac7b79a0c200451c81089bda4f3253114fa234f4571e6f04d492",
+  "source_sha256": "aa8ae6b2a63d6828581e5af31cc8b247eed265b4babb605fdefe94e4873a7de3",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

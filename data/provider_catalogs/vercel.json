@@ -8968,6 +8968,101 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-361808d7102794d903b0c8b4",
+      "provider": "vercel",
+      "native_id": "moonshotai/kimi-k3.1-pro-highspeed",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro Highspeed",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000004",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.000004",
+          "output": "0.00002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000004",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000004",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Kimi K3.1 Pro Highspeed",
+        "owned_by": "moonshotai",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-3623f7c68fff38b91e241b89",
       "provider": "vercel",
       "native_id": "openai/gpt-4o-transcribe",
@@ -36981,6 +37076,101 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-d80fedc0dbbe7d89e8c88a99",
+      "provider": "vercel",
+      "native_id": "moonshotai/kimi-k3.1-pro",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.000002",
+          "output": "0.00001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Kimi K3.1 Pro",
+        "owned_by": "moonshotai",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-d8bd0bd13fed3bd6afbaf2c5",
       "provider": "vercel",
       "native_id": "mistral/codestral-embed",
@@ -43436,14 +43626,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "db29052490b49848e4963225d51f9ac311cae2319e1d6f2ee89f4eea71345f43",
-  "revision": 19,
-  "changed_at": "2026-10-23T11:39:47Z",
+  "catalog_sha256": "b088ae7dd34412618a79abcd0c63a7cfab0e1efd55a34d46c71fa28dd0868557",
+  "revision": 20,
+  "changed_at": "2026-10-24T11:00:42Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "8fbac309916457f64b60604cbad05d4be35a46f0a1d622e81a6599d518ed65ea",
+  "source_sha256": "828ea8b11d80970253ca7d2d1efda29f16e6fc8c0912e742768579ef45c7f64f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

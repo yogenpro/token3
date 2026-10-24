@@ -3841,7 +3841,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
+          "discount": 0.5,
           "discount_ends_at": null,
           "short": "$0.038 / 1M tokens",
           "full": null,
@@ -3880,7 +3880,7 @@
       "metadata": {
         "type": "decision",
         "max_tokens": 24576,
-        "quantization": "bfloat16"
+        "quantization": "fp8"
       },
       "comparison_eligible": false
     },
@@ -7663,7 +7663,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": 0.05,
+          "discount": 0.35,
           "discount_ends_at": null,
           "short": null,
           "full": null,
@@ -8779,43 +8779,6 @@
       ],
       "metadata": {
         "type": "text-to-video",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "deepinfra-7b7cd461a01eaead89ade673",
-      "provider": "deepinfra",
-      "native_id": "Zyphra/Zonos-v0.1-transformer",
-      "kind": "model",
-      "label": "Zyphra/Zonos-v0.1-transformer",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "input_character_length",
-          "cents_per_input_chars": 0.0007
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_input_chars",
-          "amount": "0.000007",
-          "currency": "USD",
-          "unit": "input character",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-speech",
         "max_tokens": null,
         "quantization": null
       },
@@ -10785,48 +10748,6 @@
         "type": "text-generation",
         "max_tokens": 4096,
         "quantization": "fp16"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "deepinfra-940d9f89e7f06054378dd49e",
-      "provider": "deepinfra",
-      "native_id": "deepseek-ai/Janus-Pro-1B",
-      "kind": "model",
-      "label": "deepseek-ai/Janus-Pro-1B",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "image_units",
-          "cents_per_image_unit": 0.05,
-          "default_width": 0,
-          "default_height": 0,
-          "default_iterations": 0,
-          "default_price_cents": null,
-          "usage_from_cost": false
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_image_unit",
-          "amount": "0.0005",
-          "currency": "USD",
-          "unit": "provider image unit",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-image",
-        "max_tokens": null,
-        "quantization": null
       },
       "comparison_eligible": false
     },
@@ -14884,43 +14805,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepinfra-c3fcb722110536332fc92f07",
-      "provider": "deepinfra",
-      "native_id": "Zyphra/Zonos-v0.1-hybrid",
-      "kind": "model",
-      "label": "Zyphra/Zonos-v0.1-hybrid",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "input_character_length",
-          "cents_per_input_chars": 0.0007
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_input_chars",
-          "amount": "0.000007",
-          "currency": "USD",
-          "unit": "input character",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-speech",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "deepinfra-c566a67e351942dddd9d6463",
       "provider": "deepinfra",
       "native_id": "Bria/video_mask_by_prompt",
@@ -17461,48 +17345,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepinfra-e8f0f21e3d3bb11bd7fdbbf5",
-      "provider": "deepinfra",
-      "native_id": "deepseek-ai/Janus-Pro-7B",
-      "kind": "model",
-      "label": "deepseek-ai/Janus-Pro-7B",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "image_units",
-          "cents_per_image_unit": 0.2,
-          "default_width": 0,
-          "default_height": 0,
-          "default_iterations": 0,
-          "default_price_cents": null,
-          "usage_from_cost": false
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_image_unit",
-          "amount": "0.002",
-          "currency": "USD",
-          "unit": "provider image unit",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-image",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "deepinfra-ea8daecf1595d16c86e706a4",
       "provider": "deepinfra",
       "native_id": "deepseek-ai/DeepSeek-V3.2",
@@ -19018,14 +18860,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "58029d81c1c8d769354e9dc261fcd228e7033eb8f54a51a74962c62bb51c9724",
-  "revision": 12,
-  "changed_at": "2026-10-22T02:23:40Z",
+  "catalog_sha256": "638bfba4678ee1084272295bedbcf4bd945393dd602809c1edebcc43e7f82f19",
+  "revision": 13,
+  "changed_at": "2026-10-24T11:00:42Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "5ee6d16681aff561095022076a9eb12132ad42cf63e5c83a9e9f6a5d27afaea8",
+  "source_sha256": "a2df1fdd21cb809d5cf848a4400edfdf9ccc8a909403cea9388c9b69f234b4cf",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
