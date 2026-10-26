@@ -224,6 +224,255 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-0300915cd055d3f4fdd96e96",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6.1-terra-fast",
+      "kind": "model",
+      "label": "GPT-6.1 Terra (Fast)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000001",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.0000001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000002",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.0000025",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.0000025",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000005",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000002",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000004",
+              "min": 272001
+            }
+          ],
+          "output": "0.00001",
+          "output_tiers": [
+            {
+              "cost": "0.00001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000015",
+              "min": 272001
+            }
+          ],
+          "regional": {
+            "eu": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000022",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.00000275",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.00000275",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000055",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000022",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000044",
+                  "min": 272001
+                }
+              ],
+              "output": "0.000011",
+              "output_tiers": [
+                {
+                  "cost": "0.000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000165",
+                  "min": 272001
+                }
+              ]
+            },
+            "us": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000022",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.00000275",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.00000275",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000055",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000022",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000044",
+                  "min": 272001
+                }
+              ],
+              "output": "0.000011",
+              "output_tiers": [
+                {
+                  "cost": "0.000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000165",
+                  "min": 272001
+                }
+              ]
+            }
+          },
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6.1 Terra (Fast)",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-0374e269a097534b81681c76",
       "provider": "vercel",
       "native_id": "openai/gpt-5.6-terra",
@@ -8885,6 +9134,429 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-35a618fbcb8482c93cdbcb90",
+      "provider": "vercel",
+      "native_id": "openai/gpt-6.1-terra",
+      "kind": "model",
+      "label": "GPT-6.1 Terra",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "fast": {
+            "input": "0.000002",
+            "input_cache_read": "0.0000001",
+            "input_cache_read_tiers": [
+              {
+                "cost": "0.0000001",
+                "max": 272001,
+                "min": 0
+              },
+              {
+                "cost": "0.0000002",
+                "min": 272001
+              }
+            ],
+            "input_cache_write": "0.0000025",
+            "input_cache_write_tiers": [
+              {
+                "cost": "0.0000025",
+                "max": 272001,
+                "min": 0
+              },
+              {
+                "cost": "0.000005",
+                "min": 272001
+              }
+            ],
+            "input_tiers": [
+              {
+                "cost": "0.000002",
+                "max": 272001,
+                "min": 0
+              },
+              {
+                "cost": "0.000004",
+                "min": 272001
+              }
+            ],
+            "output": "0.00001",
+            "output_tiers": [
+              {
+                "cost": "0.00001",
+                "max": 272001,
+                "min": 0
+              },
+              {
+                "cost": "0.000015",
+                "min": 272001
+              }
+            ]
+          },
+          "input": "0.000001",
+          "input_cache_read": "0.00000005",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000001",
+              "min": 272001
+            }
+          ],
+          "input_cache_write": "0.00000125",
+          "input_cache_write_tiers": [
+            {
+              "cost": "0.00000125",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000025",
+              "min": 272001
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.000001",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.000002",
+              "min": 272001
+            }
+          ],
+          "output": "0.000005",
+          "output_tiers": [
+            {
+              "cost": "0.000005",
+              "max": 272001,
+              "min": 0
+            },
+            {
+              "cost": "0.0000075",
+              "min": 272001
+            }
+          ],
+          "regional": {
+            "eu": {
+              "fast": {
+                "input": "0.0000022",
+                "input_cache_read": "0.00000011",
+                "input_cache_read_tiers": [
+                  {
+                    "cost": "0.00000011",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.00000022",
+                    "min": 272001
+                  }
+                ],
+                "input_cache_write": "0.00000275",
+                "input_cache_write_tiers": [
+                  {
+                    "cost": "0.00000275",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000055",
+                    "min": 272001
+                  }
+                ],
+                "input_tiers": [
+                  {
+                    "cost": "0.0000022",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000044",
+                    "min": 272001
+                  }
+                ],
+                "output": "0.000011",
+                "output_tiers": [
+                  {
+                    "cost": "0.000011",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000165",
+                    "min": 272001
+                  }
+                ]
+              },
+              "input": "0.0000011",
+              "input_cache_read": "0.000000055",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000011",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.000001375",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000022",
+                  "min": 272001
+                }
+              ],
+              "output": "0.0000055",
+              "output_tiers": [
+                {
+                  "cost": "0.0000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000825",
+                  "min": 272001
+                }
+              ]
+            },
+            "us": {
+              "fast": {
+                "input": "0.0000022",
+                "input_cache_read": "0.00000011",
+                "input_cache_read_tiers": [
+                  {
+                    "cost": "0.00000011",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.00000022",
+                    "min": 272001
+                  }
+                ],
+                "input_cache_write": "0.00000275",
+                "input_cache_write_tiers": [
+                  {
+                    "cost": "0.00000275",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000055",
+                    "min": 272001
+                  }
+                ],
+                "input_tiers": [
+                  {
+                    "cost": "0.0000022",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000044",
+                    "min": 272001
+                  }
+                ],
+                "output": "0.000011",
+                "output_tiers": [
+                  {
+                    "cost": "0.000011",
+                    "max": 272001,
+                    "min": 0
+                  },
+                  {
+                    "cost": "0.0000165",
+                    "min": 272001
+                  }
+                ]
+              },
+              "input": "0.0000011",
+              "input_cache_read": "0.000000055",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000011",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.000001375",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000275",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000022",
+                  "min": 272001
+                }
+              ],
+              "output": "0.0000055",
+              "output_tiers": [
+                {
+                  "cost": "0.0000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000825",
+                  "min": 272001
+                }
+              ]
+            }
+          },
+          "service_tiers": {
+            "flex": {
+              "input": "0.0000005",
+              "input_cache_read": "0.000000025",
+              "long_context": {
+                "input": "0.000001",
+                "input_cache_read": "0.00000005",
+                "output": "0.00000375",
+                "threshold": 272001
+              },
+              "output": "0.0000025"
+            },
+            "priority": {
+              "input": "0.000002",
+              "input_cache_read": "0.0000001",
+              "long_context": {
+                "input": "0.000004",
+                "input_cache_read": "0.0000002",
+                "output": "0.000015",
+                "threshold": 272001
+              },
+              "output": "0.00001"
+            }
+          },
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-6.1 Terra",
+        "owned_by": "openai",
+        "type": "language",
+        "context_window": 1050000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-36011e955caad48bfb4c8916",
       "provider": "vercel",
       "native_id": "amazon/nova-pro",
@@ -14984,6 +15656,46 @@
               "min": 200001
             }
           ],
+          "regional": {
+            "us": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000055",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000011",
+                  "min": 200001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000022",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000044",
+                  "min": 200001
+                }
+              ],
+              "output": "0.0000066",
+              "output_tiers": [
+                {
+                  "cost": "0.0000066",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000132",
+                  "min": 200001
+                }
+              ]
+            }
+          },
           "service_tiers": {
             "priority": {
               "input": "0.000004",
@@ -19064,7 +19776,12 @@
       "billing": {
         "rules": {
           "input": "0.000000042",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.000000042"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -19349,7 +20066,15 @@
           "input": "0.0000025",
           "input_cache_read": "0.0000005",
           "input_cache_write": "0.000003125",
-          "output": "0.0000075"
+          "output": "0.0000075",
+          "regional": {
+            "us": {
+              "input": "0.0000025",
+              "input_cache_read": "0.0000005",
+              "input_cache_write": "0.000003125",
+              "output": "0.0000075"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -26318,7 +27043,15 @@
         "rules": {
           "input": "0.000002",
           "input_cache_read": "0.00000025",
-          "output": "0.000006"
+          "output": "0.000006",
+          "regional": {
+            "us": {
+              "input": "0.000002",
+              "input_cache_read": "0.00000025",
+              "input_cache_write": "0.0000025",
+              "output": "0.000006"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -27359,7 +28092,12 @@
       "billing": {
         "rules": {
           "input": "0.000000042",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.000000042"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -37629,6 +38367,46 @@
               "min": 200001
             }
           ],
+          "regional": {
+            "us": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000055",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000011",
+                  "min": 200001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000022",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000044",
+                  "min": 200001
+                }
+              ],
+              "output": "0.0000066",
+              "output_tiers": [
+                {
+                  "cost": "0.0000066",
+                  "max": 200001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000132",
+                  "min": 200001
+                }
+              ]
+            }
+          },
           "service_tiers": {
             "priority": {
               "input": "0.000004",
@@ -42148,7 +42926,15 @@
           "input": "0.00000015",
           "input_cache_read": "0.000000016",
           "input_cache_write": "0.0000002",
-          "output": "0.00000047"
+          "output": "0.00000047",
+          "regional": {
+            "us": {
+              "input": "0.00000015",
+              "input_cache_read": "0.000000016",
+              "input_cache_write": "0.0000002",
+              "output": "0.00000047"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -43626,14 +44412,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "b088ae7dd34412618a79abcd0c63a7cfab0e1efd55a34d46c71fa28dd0868557",
-  "revision": 20,
-  "changed_at": "2026-10-24T11:00:42Z",
+  "catalog_sha256": "11153dfbcb4c823e1ca2ad6dc6e3d96bfe4a333cee056683408d35b4fb8b043b",
+  "revision": 21,
+  "changed_at": "2026-10-26T22:27:26Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "828ea8b11d80970253ca7d2d1efda29f16e6fc8c0912e742768579ef45c7f64f",
+  "source_sha256": "36e26d37862a78f7dba0318dabe8ff243b453430053abb1d929f25918ab59b45",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

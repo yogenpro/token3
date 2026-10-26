@@ -2942,6 +2942,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-425c38a76f23d74233f499bc",
+      "provider": "huggingface",
+      "native_id": "moonshotai/Kimi-K2.6",
+      "kind": "provider_route",
+      "label": "moonshotai/Kimi-K2.6",
+      "scope": {
+        "upstream_provider": "novita"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.8,
+          "output": 3.4
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.8",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "3.4",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-426a2c4d44ca2db1e3617370",
       "provider": "huggingface",
       "native_id": "stepfun-ai/Step-3.5-Flash",
@@ -4182,6 +4233,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-5d717cf46f38eaa49769c99f",
+      "provider": "huggingface",
+      "native_id": "moonshotai/Kimi-K2-Instruct-0905",
+      "kind": "provider_route",
+      "label": "moonshotai/Kimi-K2-Instruct-0905",
+      "scope": {
+        "upstream_provider": "novita"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.6,
+          "output": 2.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-5e05df3601d92bb9be3ece4e",
       "provider": "huggingface",
       "native_id": "deepseek-ai/DeepSeek-V4-Pro",
@@ -4319,57 +4420,6 @@
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-5f95bf4594b600089021e07f",
-      "provider": "huggingface",
-      "native_id": "Qwen/Qwen3.8-27B",
-      "kind": "provider_route",
-      "label": "Qwen/Qwen3.8-27B",
-      "scope": {
-        "upstream_provider": "cerebras"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.99,
-          "output": 1.49
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.99",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.49",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 65536,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -6405,7 +6455,7 @@
         "context_length": 32768,
         "is_free": false,
         "supports_tools": false,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -7717,6 +7767,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-a5e288b86767738ba7f6c45d",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-5.3-Flash",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-5.3-Flash",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.15,
+          "output": 0.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-a7a3360747d980229f0ed325",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3",
@@ -8999,6 +9100,38 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-c4271144eb2dba13c69ff828",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.6V-Flash",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.6V-Flash",
+      "scope": {
+        "upstream_provider": "zai-org"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -11983,14 +12116,17 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "17d4e42074ce6d0cb045aa01f1652d6eda5c8a6a475e0affb244ec253ca3874d",
-  "revision": 30,
-  "changed_at": "2026-10-26T21:48:20Z",
+  "catalog_sha256": "987e9f049e2334d39c632a0e6475cd24320e52a16dbe5bbececa8ed00c819b00",
+  "revision": 31,
+  "changed_at": "2026-10-26T22:27:26Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "f7cd7f95939503f845f606b42225e033652bdaf7572066a3bd559636087eaaf3",
-  "archive_reference": null
+  "source_sha256": "e5041967b800b0fdd5117dd0ae6a8eaf8fa4acd1e6b230c3beab8fd52d2e5120",
+  "archive_reference": {
+    "state": "not_applicable",
+    "reason": "API/feed responses are not public page captures"
+  }
 }

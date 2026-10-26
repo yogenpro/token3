@@ -1105,6 +1105,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-8da941d73f9669ed885fc5cb",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/minimax-m3p1-flash",
+      "kind": "model",
+      "label": "MiniMax M3.1 Flash",
+      "scope": {
+        "serving_mode": "standard"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.015",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.15",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.6",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.015",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "use_cases": [
+          "coding"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-9f928a095ca75405d209be80",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/qwen3p8-max",
@@ -2167,14 +2234,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "53788db977e6764de9e64d237dc17aa0258bb6efbb484e1cff5304f5e8ce0619",
-  "revision": 9,
-  "changed_at": "2026-10-23T11:39:47Z",
+  "catalog_sha256": "96b73d6262e28f111bea787e7eca13aa3b400ec9159e897b3797ed912871abc7",
+  "revision": 10,
+  "changed_at": "2026-10-26T22:27:26Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "d35716cdbabf584adfe3983d4cb99a26189b92c471f1198304ef3ea735947bc4",
+  "source_sha256": "10cc307cd1cd6e7eacbc33586bac6fd18014c15a96956700e1f37707edd7fb3e",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
