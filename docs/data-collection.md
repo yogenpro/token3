@@ -35,6 +35,7 @@ Do not rank unreviewed records by their numerical components: those components m
 | `data/price_history.json` | Derived mirror for the dashboard |
 | `data/latest_prices.json`, `offerings.json`, `status.json` | Freshness/current curated state; updated independently of price history |
 | `data/provider_sources/` | Existing legacy source archive, preserved unchanged; no new scheduled raw snapshots |
+| `data/historical_evidence/` | Separately authorized retrospective public evidence, native assertions and coverage; offline imports only, with exact-byte sources, bounded immutable segments and an atomic manifest; excluded from public assets |
 
 Source records disappearing from a catalog are `record_no_longer_listed`, **not** proof of a vendor delisting. Only previously reviewed authoritative public catalogs drive the dashboard's absence-based removal policy.
 
@@ -65,7 +66,7 @@ The first successful collection against an existing schema-1 catalog uses its re
 
 `python -m scripts.collect --response-dir /tmp/pricing-responses` writes gzip public-source collector inputs plus a small provenance manifest. These are not committed. Authenticated Together/Fireworks/Vertex catalog responses are deliberately excluded from public artifacts; configured credential echoes are rejected before persistence.
 
-Hosted collection places responses under `RUNNER_TEMP` and uploads them as Actions artifacts with **7-day retention**. This bounds raw-response storage and avoids permanently growing Git with HTML bundles or reordered API bodies. No R2 bucket, paid database or Git LFS is necessary for launch. Existing legacy files remain only because prior observations/data must be preserved.
+Hosted collection places responses under `RUNNER_TEMP` and uploads them as Actions artifacts with **7-day retention**. This bounds raw-response storage and avoids permanently growing Git with HTML bundles or reordered API bodies. No R2 bucket, paid database or Git LFS is necessary for launch. Existing legacy files remain because prior observations/data must be preserved. The separately authorized historical evidence ledger is an explicit exception for selected public historical captures; it does not change scheduled collection's temporary-response policy or admit authenticated responses.
 
 ## Archive.org references
 
@@ -87,3 +88,7 @@ References are optional provenance, not a claim of guaranteed permanent third-pa
 - Dashboard Pages uses main-only manual releases at the dispatch SHA and a separately gated reusable path after successful strict collection. `ENABLE_PAGES=true`; the user approved `ENABLE_COLLECTION_PUBLISH=true` after verification of PR #2's initial manual release. Automatic releases must be data-only relative to the last published code baseline and use the exact pushed SHA, with full tests/build/browser checks. New code requires explicit manual release; partial collection never auto-publishes. See [publishing](publishing.md).
 
 Original inventory/check files are not copied wholesale into the dashboard. Validated [read-only public native projections](dashboard-data-organization.md) select permitted records, history and observation provenance into schema-2 manifests and SHA-256-addressed chunks capped at 512 KiB uncompressed. Indexes, evidence and observation-batch/event pages load separately; explicit full exports/searches remain complete. This delivery change never rewrites storage/history or promotes native rates. It respects verified observation-only annotations created by the separate authorized warehouse migration, while retaining conservative classification for unmarked legacy events. Reviewed calculators still use their separate curated files. The collection job does not call inference APIs, perform routing, or access negotiated billing-account pricing.
+
+## Historical backfill research
+
+The [historical source map](history-backfill.md) covers discovery options for all 26 indexed groups, including historical-only SKUs. The authorized [historical evidence ledger](historical-evidence-ledger.md) retains selected public evidence across all 26 groups in a separate warehouse, with offline import, exact-byte recovery, native assertions, explicit dates and source-bounded coverage. [The dated expansion report](historical-ledger-expansion.md) records partial retrieval and unresolved lookups; indexed entries are not recovered prices. Manual discovery stages public evidence separately from daily collection. The original ledger remains outside live production history; its authorized read-only historical projection publishes selected fields separately from current catalogs and comparisons. Current collectors must not backdate new observations or treat recovered records as reviewed quotes. The existing preservation and no-fabrication rules remain in force.

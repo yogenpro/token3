@@ -11,6 +11,7 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 - **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. A grouped reviewed-price digest highlights actual quote updates; an expandable model × billing-source workload price map preserves tier, region, variant, freshness and fit uncertainty. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
 - **Models and Providers:** separate reviewed and provider-scoped directories, with creator/family/provider or modality/billing/pricing-state filters. Lightweight indexes lead to on-demand native evidence, including unknown prices, currencies and non-token units. Discovery never makes a record calculator-eligible.
 - **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. Native history opens as observation batches; event pages load bounded chunks. Explicit full-history searches examine all matching batches, never just the visible page. These are not mixed-unit price charts or launch/delisting announcements.
+- **Historical evidence:** search recovered model IDs, SKUs, document rows and PDF pages across all 26 groups. Inspect source captures, original expressions, provenance, distinct dates and partial-coverage checks; export the complete filtered historical selection separately. Unreviewed historical evidence does not enter current comparisons.
 - **Coverage:** distinct reviewed-model/active-offer, source-listing and native-record counts, billing/pricing facets, comparison-depth limits and per-source check status. No misleading percentage combines those different denominators.
 - **Operations:** daily collection and CI are active; main-branch CI/collection failures create no-AI issue handoffs for a manually launched local coding agent.
 - **Publishing:** manual `main` releases remain pinned to the dispatch SHA and gated by `ENABLE_PAGES=true`. The user approved PR #2's initial release and automatic data-only updates with `ENABLE_COLLECTION_PUBLISH=true`, activated only after verifying that release. It requires successful strict collection, the exact pushed snapshot, full checks, and no unpublished code/configuration/docs changes relative to the last successful Pages release. A push alone never deploys. See [publishing and activation](docs/publishing.md).
@@ -25,11 +26,14 @@ For development and coding-agent work, start with [AGENTS.md](AGENTS.md). [Docum
 Requires Node.js 22.12+ (Node 24 recommended), Python 3.9+ (3.12 recommended), and npm.
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate           # Windows: .venv\Scripts\activate
+python -m pip install -r requirements.txt
 npm ci
 npm run dev
 ```
 
-Open **http://localhost:5173**. Native chunk verification uses Web Crypto: use localhost or HTTPS, not an insecure LAN HTTP origin. Real observations are included, so no collection or Python setup is needed just to view the dashboard.
+Open **http://localhost:5173**. Native chunk verification uses Web Crypto: use localhost or HTTPS, not an insecure LAN HTTP origin. Real observations and historical evidence are included; no collection is required. Local development/builds now verify the historical ledger with Python and the existing pinned PDF dependency. Before `npm run dev`, create/activate `.venv` and install `requirements.txt` using the commands below. Visitors to the published static site need no Python or credentials.
 
 To refresh official prices:
 
@@ -57,7 +61,7 @@ python -m scripts.collect --strict
 
 Python does **not** load `.env` automatically. Set `FIREWORKS_API_KEY` and `GOOGLE_CLOUD_BILLING_API_KEY` as GitHub repository Actions secrets for their optional hosted sources. Together's API is paused and its key is not passed to collection. `collect.yml` passes them to collection and, on failure, the trusted context-preparation step for exact-value redaction. They are never passed to the issue reporter, frontend, or AI jobs. The separate manual `inspect-fireworks.yml` diagnostic can receive `FIREWORKS_API_KEY` to inspect catalog structure without saving response bodies. Never use `VITE_` variables for secrets: those are bundled into the public app.
 
-For the active optional Fireworks/Vertex API paths, if a key is missing or an API request fails, collection uses the official document and records the reason in `status.json` and `provider_inventory.json` (`source_kind`, `fallback_reason`), as well as the CLI output. A successfully fetched API response with incompatible curated pricing is never silently replaced with guessed prices. Its last good curated prices remain; independently valid full-inventory records can still be retained. New public raw responses are transient diagnostics, not permanent Git snapshots. API requests use headers, never keys in archived URLs; authenticated redirects are rejected. No inference endpoint is called.
+For the active optional Fireworks/Vertex API paths, if a key is missing or an API request fails, collection uses the official document and records the reason in `status.json` and `provider_inventory.json` (`source_kind`, `fallback_reason`), as well as the CLI output. A successfully fetched API response with incompatible curated pricing is never silently replaced with guessed prices. Its last good curated prices remain; independently valid full-inventory records can still be retained. Ordinary collection's new public raw responses are transient diagnostics, not permanent Git snapshots. The separately authorized historical ledger retains selected public historical evidence as described below. API requests use headers, never keys in archived URLs; authenticated redirects are rejected. No inference endpoint is called.
 
 OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list responses do not expose list-price fields. Their official pricing documents remain necessary; model availability APIs and account usage/cost APIs are not substitutes for public price catalogs. See [the source/API capability review](docs/pricing-sources.md).
 
@@ -136,6 +140,12 @@ This is the complete **reviewed canonical model list**, not every model name, ro
 Claude 4.6 releases remain labeled legacy for verifiable historical cross-cloud coverage. GPT-5.4/mini retain their Azure comparisons; newer GPT-6 identities have separately reviewed OpenAI and Vercel quotes, not automatically inferred AWS/Azure/Vertex quotes. Vercel is the billing gateway, **not an asserted upstream supplier**. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
+
+[Historical backfill research](docs/history-backfill.md) maps evidence options across all 26 indexed provider groups, including past SKUs and historical-only models. Historical discovery is broader than today's reviewed model list, and archive coverage does not establish continuous price history.
+
+The [AWS and DeepInfra follow-up](docs/aws-deepinfra-history-research.md) records deeper version/archive recovery, historical identity rosters and price-difference candidates, with explicit gaps and original billing units. These remain research evidence outside the public catalogs and calculators.
+
+The [historical evidence ledger](docs/historical-evidence-ledger.md) retains selected public evidence across **all 26 indexed provider groups**, including historical-only identifiers and retirement documents independently of reviewed aliases. Exact source bytes, native assertions and source-bounded coverage live in `data/historical_evidence/`, with immutable SHA-256-addressed gzip assets capped at 16 MiB uncompressed and an ordered atomic manifest. A separate, explicit discovery command stages bounded public downloads; offline import/verification preserves separate retrieval, archive, publication and reported-effective dates. Corrections append references without erasing evidence. Coverage is partial: [the dated expansion report](docs/historical-ledger-expansion.md) separates indexed entries, recovered captures, assertions and unresolved lookups. The authorized [Historical evidence view](docs/dashboard-data-organization.md#historical-public-projection) publishes selected read-only fields through validated, lazy chunks. Raw source bytes, warehouse manifests/segments and arbitrary metadata stay outside the app. Historical evidence remains outside reviewed quotes, live observations and comparison charts. Verify it with `python -m scripts.historical_ledger verify`.
 
 ### Full source-native inventory (separate from comparisons)
 

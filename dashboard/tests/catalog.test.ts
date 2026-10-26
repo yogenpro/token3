@@ -130,6 +130,6 @@ describe('read-only static projections', () => {
   });
   it('never exposes source archive or authenticated response assets', () => {
     expect([...assets.keys()].every((path) => /^catalog\//.test(path))).toBe(true);
-    expect([...assets.keys()].some((path) => /provider_sources|responses|\.jsonl/.test(path))).toBe(false);
+    expect([...assets.keys()].some((path) => /provider_sources|historical_evidence|responses|\.jsonl|\.bin\.gz/.test(path))).toBe(false);
   });
 });

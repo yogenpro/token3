@@ -153,7 +153,7 @@ export function summarySearch(record: ModelListing & { units?: string[]; currenc
     ...record.modalities, ...(record.units ?? []), ...(record.currencies ?? [])].join(' ').toLowerCase();
 }
 export async function loadCatalogAsset<T>(path: string, schema: z.ZodType<T>, signal?: AbortSignal): Promise<T> {
-  if (!/^catalog\/(?:index|models|changes\/(?:price|rule|catalog)|providers\/[a-z0-9_-]+|history\/[a-z0-9_-]+)\.json$/.test(path)) throw new Error('Invalid catalog asset path.');
+  if (!/^catalog\/(?:index|models|changes\/(?:price|rule|catalog)|providers\/[a-z0-9_-]+|history\/[a-z0-9_-]+|historical\/[a-z0-9_-]+)\.json$/.test(path)) throw new Error('Invalid catalog asset path.');
   const response = await fetch(`${import.meta.env.BASE_URL}${path}`, { cache: 'no-store', signal: signal ?? AbortSignal.timeout(15000) });
   if (!response.ok) throw new Error(`Unable to load catalog (HTTP ${response.status}). Please retry.`);
   return schema.parse(await response.json());
