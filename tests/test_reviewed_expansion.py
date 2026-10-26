@@ -44,7 +44,7 @@ class ReviewedExpansionTests(unittest.TestCase):
         self.assertEqual(len(set(self.aliases.legacy.values())), 12)
         added = {m['id'] for m in self.models} - set(self.aliases.legacy.values())
         self.assertEqual(len(added), 33)
-        self.assertEqual({v for source in self.aliases.sources.values() for v in source.values()}, added)
+        self.assertEqual({v for source in self.aliases.sources.values() for v in source.values()} - set(self.aliases.legacy.values()), added)
         self.assertTrue(set(self.aliases.sources) <= set(PROVIDERS))
         self.assertNotIn('gpt-6.1-luna', self.aliases)
         self.assertNotEqual(self.aliases['gpt-6-sol'], self.aliases['gpt-6.1-sol'])
@@ -69,7 +69,7 @@ class ReviewedExpansionTests(unittest.TestCase):
     def test_an_identity_does_not_authorize_other_provider_quotes(self):
         self.assertIn('minimax/minimax-m3', self.aliases)
         self.assertNotIn('minimax/minimax-m3', self.aliases.for_provider('novita'))
-        self.assertEqual(self.aliases.for_provider('openrouter'), {})
+        self.assertNotIn('minimax/minimax-m3', self.aliases.for_provider('openrouter'))
         with self.assertRaises(ValueError):
             normalize(observation('novita', 'minimax/minimax-m3', 0.1, 0.2, novita.SOURCE), self.aliases, TIME, HASH)
         with self.assertRaises(ValueError):

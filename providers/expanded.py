@@ -1,7 +1,8 @@
 """Official native sources with a separate, explicitly curated quote adapter.
 
-Most sources remain collection-only. Reviewed gateway quotes are never treated
-as direct upstream-provider quotes; the complete native evidence stays separate.
+Selected prices have separately reviewed adapters and exact source bindings.
+Gateway quotes are never treated as direct upstream-provider quotes; the
+complete native evidence stays separate and comparison-ineligible.
 """
 import hashlib
 import io
@@ -111,6 +112,7 @@ class InventoryCollector:
     documents: tuple = ()
     scope_note: str = ""
     pdf_url: str = ""
+    fetch_source: str = ""
 
     def collect(self, aliases=None):
         payload = dict(format=ENVELOPE, adapter=self.adapter, scope_note=self.scope_note)
@@ -126,16 +128,25 @@ class InventoryCollector:
             urls = [self.SOURCE]
         docs = []
         for url in self.documents or ((self.SOURCE,) if self.adapter == "documents" else ()):
-            body = fetch_text(url)
+            retrieval_url = self.fetch_source if url == self.SOURCE and self.fetch_source else url
+            body = fetch_text(retrieval_url)
             if not re.search(r"pric|bill|credit|token|neuron|DBU", body, re.I):
                 raise ValueError("Official document lacks expected billing content")
             if self.provider == "deepseek":
                 from .deepseek_pricing import parse_models
                 parse_models(body)  # Tool prices alone are not a complete model snapshot.
             docs.append(dict(source_url=url, body=body))
+            if retrieval_url != url:
+                docs[-1]["retrieval_url"] = retrieval_url
             urls.append(url)
         if docs:
             payload["documents"] = docs
+        if self.provider == "ovhcloud":
+            # Price cards are a separately reviewed quote source, not a table
+            # pretending to expand the source-native API catalog's currency.
+            url = "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
+            payload["reviewed_price_cards"] = dict(source_url=url, body=fetch_text(url))
+            urls.append(url)
         if self.pdf_url:
             try:
                 payload["pdf_document"] = _snowflake_pdf(self.pdf_url)
@@ -144,12 +155,12 @@ class InventoryCollector:
                 fallback = "Model-rate consumption PDF unavailable; billing-guide coverage only. " + safe_error(error)
                 payload["coverage"] = "billing_guide_only; model rates unavailable"
         body = encode_payload(payload)
-        kind = "api+documentation" if self.adapter != "documents" and docs else "documentation" if self.adapter == "documents" else "api"
+        kind = "api+documentation" if self.adapter != "documents" and (docs or "reviewed_price_cards" in payload) else "documentation" if self.adapter == "documents" else "api"
         reviewed = self.provider in REVIEWED_INVENTORY_PROVIDERS
         records, parse_error = [], None
         if reviewed:
             try:
-                records = reviewed_quotes(self.provider, payload, aliases or {}, self.SOURCE)
+                records = reviewed_quotes(self.provider, payload, aliases or {}, self.fetch_source or self.SOURCE)
             except Exception as error:
                 # Preserve the complete fetched native source on quote failure.
                 parse_error = safe_error(error)
@@ -193,5 +204,6 @@ INVENTORY_PROVIDERS = {
     "minimax": InventoryCollector("minimax", "MiniMax", "https://platform.minimax.io/docs/guides/pricing-paygo.md",
         scope_note="International pay-as-you-go API prices across published modalities. Subscription/Token Plans and Chinese-region billing are separate products; discounts and prompt bands remain native expressions."),
     "deepseek": InventoryCollector("deepseek", "DeepSeek", "https://api-docs.deepseek.com/quick_start/pricing",
+        fetch_source="https://api-docs.deepseek.com/quick_start/pricing/",
         scope_note="Official public API model/price table with cache hit/miss, output and model-version conditions. Row/column orientation is source-native, not guessed canonical model equivalence."),
 }

@@ -3,15 +3,15 @@ import { readFileSync } from 'node:fs';
 
 const status = JSON.parse(readFileSync(new URL('../../../data/status.json', import.meta.url), 'utf8'));
 
-test('collection-only providers are visible without inventing comparisons', async ({ page }) => {
+test('paused document-only collection stays visible without re-enabling Together comparisons', async ({ page }) => {
   await page.goto('/?view=methodology');
-  const row = page.locator('.collector-table tbody tr').filter({ hasText: 'OpenRouter' });
+  const row = page.locator('.collector-table tbody tr').filter({ hasText: 'Together AI' });
   await expect(row).toHaveCount(1);
   await expect(row).toContainText('Inventory only');
-  await expect(row.locator('td').nth(3)).toHaveText('0');
-  await expect(row.getByRole('link', { name: 'Official source' })).toHaveAttribute('href', 'https://openrouter.ai/api/v1/models');
+  await expect(row.locator('td').nth(3)).toHaveText('Comparisons paused · docs inventory only');
+  await expect(row.getByRole('link', { name: 'Official source' })).toHaveAttribute('href', status.providers.find((p: { id: string }) => p.id === 'together').source_url);
   await page.goto('/');
-  await expect(page.locator('.provider-cell strong').getByText('OpenRouter', { exact: true })).toHaveCount(0);
+  await expect(page.locator('.provider-cell strong').getByText('Together AI', { exact: true })).toHaveCount(0);
 });
 
 test('an unavailable optional consumption table is visibly limited, not full coverage', async ({ page }) => {

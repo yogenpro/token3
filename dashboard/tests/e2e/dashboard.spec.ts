@@ -49,7 +49,16 @@ test('model and tier controls change the table without merging variants', async 
   await expect(page.getByTestId('offering-row')).toHaveCount(rankOfferings(data, 'meta/llama-3.1-8b-instruct', defaultWorkload, 'all').length);
   await page.getByRole('spinbutton', { name: 'Input tokens per request' }).fill('999999');
   await expect(page.getByText('Exceeds context limit').first()).toBeVisible();
-  await expect(page.getByText('Lowest estimate', { exact: true })).toHaveCount(0);
+  const eligible = rankOfferings(data, 'meta/llama-3.1-8b-instruct', { ...defaultWorkload, inputTokens: 999999 }, 'all').filter((r) => r.cost.eligible);
+  // Newly reviewed sources can publish a price without a verified capacity.
+  // Known small endpoints still fail; only explicitly unverified fits remain.
+  expect(eligible.every((r) => r.cost.contextUnverified)).toBe(true);
+  if (eligible.length) {
+    await expect(page.locator('.comparison-certainty')).toContainText('Lowest estimate has an unverified context limit.');
+    for (const winner of await page.locator('.best-row').all()) await expect(winner).toContainText('Fit unverified');
+  } else {
+    await expect(page.getByText('Lowest estimate', { exact: true })).toHaveCount(0);
+  }
 });
 
 test('downloads comparison CSV with source and observation timestamp', async ({ page }) => {

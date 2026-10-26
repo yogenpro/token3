@@ -2,7 +2,7 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, CirclePlus, Info, Minus, Refr
 import { useState } from 'react';
 import type { Change, Dataset } from '../lib/data';
 import { providerInfo } from '../lib/data';
-import { dateLabel, exactDate, money, tokens } from '../lib/pricing';
+import { dateLabel, exactDate, money, tokens, quoteUnit, type QuoteUnit } from '../lib/pricing';
 import type { CatalogIndex, ChangeCategory } from '../lib/catalog';
 import { NativeChanges } from './NativeChanges';
 
@@ -21,9 +21,9 @@ function title(change: Change) {
   if (change.new === null) return `${field} price no longer published`;
   return `${field} price ${movement(change) === 'cut' ? 'decreased' : 'increased'}`;
 }
-function changeValue(value: Change['old'], change: Change) {
+function changeValue(value: Change['old'], change: Change, unit: QuoteUnit) {
   if (value === null) return '—';
-  if (change.kind === 'price_changed' && typeof value === 'number') return money(value);
+  if (change.kind === 'price_changed' && typeof value === 'number') return money(value, false, unit);
   if (change.field === 'context_window' && typeof value === 'number') return tokens(value);
   return String(value);
 }
@@ -36,7 +36,7 @@ export function ChangeItem({ change, data, compact = false }: { change: Change; 
     <div className={`change-icon ${direction}`}><Icon size={17} /></div>
     <div className="change-content"><div className="change-top"><strong>{providerInfo(change.provider).name}</strong><time dateTime={change.observed_at} title={exactDate(change.observed_at)}>{dateLabel(change.observed_at)}</time></div>
       <p>{title(change)}</p><div className="change-model">{model.name}{!compact && ` · ${offering.service_tier}${offering.variant !== 'standard' ? ` · ${offering.variant}` : ''}${offering.region !== 'unspecified' ? ` · ${offering.region}` : ''}`}</div>
-      {change.field && <div className={`change-values ${direction}`}><span>{changeValue(change.old, change)}</span><ArrowRight size={13} /><strong>{changeValue(change.new, change)}</strong>{change.change_pct !== null && <span className="change-pct">{change.change_pct > 0 ? '+' : ''}{Number(change.change_pct.toFixed(1))}%</span>}</div>}
+      {change.field && <div className={`change-values ${direction}`}><span>{changeValue(change.old, change, quoteUnit(offering))}</span><ArrowRight size={13} /><strong>{changeValue(change.new, change, quoteUnit(offering))}</strong>{change.change_pct !== null && <span className="change-pct">{change.change_pct > 0 ? '+' : ''}{Number(change.change_pct.toFixed(1))}%</span>}</div>}
       {!compact && change.kind === 'offering_added' && <p className="change-explanation">First seen in our dataset, not a claim about the provider’s launch date.</p>}
       {!compact && <a className="text-link" href={offering.source_url} target="_blank" rel="noopener noreferrer">Official source <ArrowUpRight size={13} /></a>}
     </div>

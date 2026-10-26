@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Download, ExternalLink, Info, Moon, RefreshCw, Sun } from 'lucide-react';
 import { isStale, loadDataset, providerPolicies, type Dataset } from './lib/data';
-import { dateLabel, defaultWorkload, downloadFile, normalizeWorkload, type Workload } from './lib/pricing';
+import { dateLabel, defaultWorkload, downloadFile, normalizeWorkload, type Workload, type QuoteUnit } from './lib/pricing';
 import { Compare } from './components/Compare';
 import { ChangesView } from './components/Changes';
 import { Explorer } from './components/Explorer';
@@ -23,7 +23,10 @@ function initialState() {
     if (params.has(param)) workload[key] = Number(params.get(param));
   }
   const tier = params.get('tier');
-  return { view: (['compare', 'models', 'providers', 'changes', 'historical', 'coverage', 'methodology'].includes(view ?? '') ? view : 'compare') as View, model: params.get('model') ?? 'openai/gpt-oss-120b', workload: normalizeWorkload(workload), tier: ['standard', 'priority', 'flex', 'all'].includes(tier ?? '') ? tier! : 'standard', provider: params.get('provider') ?? '', record: params.get('record') ?? '', directory: params.get('directory') === 'collected' ? 'collected' : 'reviewed', feed: ['price', 'rule', 'catalog'].includes(params.get('feed') ?? '') ? params.get('feed')! : 'reviewed' };
+  const unit = params.get('unit');
+  const quoteUnit = (['USD', 'EUR', 'DBU', 'AI_CREDIT'].includes(unit ?? '') ? unit : 'USD') as QuoteUnit;
+  const period = params.get('period') === 'off-peak' ? 'off-peak' : 'peak';
+  return { quoteUnit, period, view: (['compare', 'models', 'providers', 'changes', 'historical', 'coverage', 'methodology'].includes(view ?? '') ? view : 'compare') as View, model: params.get('model') ?? 'openai/gpt-oss-120b', workload: normalizeWorkload(workload), tier: ['standard', 'priority', 'flex', 'all'].includes(tier ?? '') ? tier! : 'standard', provider: params.get('provider') ?? '', record: params.get('record') ?? '', directory: params.get('directory') === 'collected' ? 'collected' : 'reviewed', feed: ['price', 'rule', 'catalog'].includes(params.get('feed') ?? '') ? params.get('feed')! : 'reviewed' };
 }
 function initialTheme() {
   try {
@@ -46,6 +49,8 @@ export function App() {
   const [directory, setDirectory] = useState(initial.directory);
   const [feed, setFeed] = useState(initial.feed);
   const [tier, setTier] = useState(initial.tier);
+  const [unit, setUnit] = useState<QuoteUnit>(initial.quoteUnit);
+  const [period, setPeriod] = useState(initial.period);
   const [workload, setWorkload] = useState<Workload>(initial.workload);
   const [theme, setTheme] = useState(initialTheme);
   const request = useRef(0);
@@ -81,9 +86,11 @@ export function App() {
     if (view === 'models' && directory !== 'reviewed') params.set('directory', directory);
     if (view === 'changes' && feed !== 'reviewed') params.set('feed', feed);
     if (tier !== 'standard') params.set('tier', tier);
+    if (unit !== 'USD') params.set('unit', unit);
+    if (period !== 'peak') params.set('period', period);
     for (const [param, key] of [['input', 'inputTokens'], ['output', 'outputTokens'], ['cache', 'cacheHitPercent'], ['requests', 'requests']] as const) if (workload[key] !== defaultWorkload[key]) params.set(param, String(workload[key]));
     window.history.replaceState(null, '', `${window.location.pathname}?${params}${window.location.hash}`);
-  }, [modelId, view, workload, tier, providerId, recordId, directory, feed]);
+  }, [modelId, view, workload, tier, unit, period, providerId, recordId, directory, feed]);
   const selectModel = (id: string) => { setModelId(id); setView('compare'); setTier('standard'); };
   const openProvider = (id: string, record = '') => { setProviderId(id); setRecordId(record); setView('providers'); };
   const selectView = (next: View) => {
@@ -99,7 +106,7 @@ export function App() {
       {!data ? refreshing ? <div className="loading-state" role="status"><div className="skeleton skeleton-title" /><div className="skeleton skeleton-subtitle" /><div className="skeleton skeleton-selector" /><div className="stat-grid">{[1, 2, 3, 4].map((n) => <div className="skeleton skeleton-card" key={n} />)}</div><div className="skeleton skeleton-table" /><span className="sr-only">Loading official pricing observations…</span></div> : <div className="empty-state"><Info size={32} /><h1>The dataset isn’t ready yet.</h1><p>Generate official observations locally with <code>python3 -m scripts.collect</code>, then refresh this page.</p><button className="button primary" onClick={() => void refresh()}>Try again</button></div> : <>
         <PublicationStatus data={data} />
         {failed > 0 && <div className="notice warning"><Info size={17} /><span>Some collectors have failed or are more than 48 hours old. Last known prices are retained, not silently treated as fresh.</span><button onClick={() => setView('methodology')}>Check sources</button></div>}
-        {view === 'compare' && model && <Compare data={data} model={model} onModel={selectModel} tier={tier} onTier={setTier} workload={workload} onWorkload={setWorkload} onChanges={() => setView('changes')} onMethodology={() => setView('methodology')} onProvider={openProvider} />}
+        {view === 'compare' && model && <Compare unit={unit} onUnit={setUnit} period={period} onPeriod={setPeriod} data={data} model={model} onModel={selectModel} tier={tier} onTier={setTier} workload={workload} onWorkload={setWorkload} onChanges={() => setView('changes')} onMethodology={() => setView('methodology')} onProvider={openProvider} />}
         {['models', 'providers', 'changes', 'coverage'].includes(view) && <AssetNotice loading={catalog.loading} error={catalog.error} retry={catalog.retry} />}
         {view === 'models' && <Explorer data={data} onModel={selectModel} catalog={catalog.data} directory={directory} onDirectory={setDirectory} onProvider={openProvider} />}
         {view === 'providers' && catalog.data && <Providers data={data} catalog={catalog.data} providerId={providerId} recordId={recordId} onProvider={openProvider} onModel={selectModel} />}

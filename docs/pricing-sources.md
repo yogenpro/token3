@@ -2,7 +2,7 @@
 
 Collection should prefer official structured rate catalogs. A model-list API that only returns IDs/capabilities is not a pricing API, and a usage/cost API reports incurred account charges rather than current public list rates. A gateway quote is labeled as that gateway's billing price, never substituted for an originating provider's direct quote. Native discovery remains separate from explicit reviewed source bindings.
 
-## Source strategy for all 12 reviewed billing providers
+## Original quote sources and Vercel
 
 | Provider | Structured pricing source | Current strategy | Credentials |
 | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ This is an API capability review, not a claim of exhaustive commercial coverage.
 
 ## Source-native expansion and separate quote review
 
-The 15 additional source groups use selected public pricing catalogs/documents with no new credentials: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. All enrich the native warehouse; 14 remain inventory-only. Vercel now also has a separately curated token-quote adapter. Native records still never enter comparisons directly. See [all source URLs, native units, scope boundaries and operational caveats](collection-expansion.md). Google Gemini Developer API and Vertex AI remain separate pricing sources.
+The 15 additional source groups use selected public pricing catalogs/documents with no new credentials: OpenRouter, Vercel AI Gateway, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. All enrich the native warehouse; selected scopes across all fifteen now have separately curated quote adapters. The [2026-10-26 review](provider-comparison-expansion.md) documents exact bindings and isolated USD/EUR/DBU/AI Credit bases. Native records still never enter comparisons directly. See [all source URLs, native units, scope boundaries and operational caveats](collection-expansion.md). Google Gemini Developer API and Vertex AI remain separate pricing sources.
 
 The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identities while preserving the original coverage. Source permission is explicit in `catalog/aliases.yaml`; a model alias present globally is not a price binding for every source. Newer AWS/Vertex/Foundry meters and unsupported source variants remain native-only.
 
@@ -64,7 +64,7 @@ If separately resumed, the retained API adapter fetches the entire response for 
 
 ### DeepSeek official API evidence
 
-The [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) is collected separately from all gateways. Its transposed model table is now validated for completeness and aligned into additional native model records; original rows remain. Six explicit cache-hit/cache-miss/output rates retain peak/off-peak conditions, exact served versions, UTC windows and the Chinese-public-holiday exception. No time-of-use rate enters reviewed calculators without separate support/review.
+The [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) is collected separately from all gateways. Its transposed model table is now validated for completeness and aligned into additional native model records; original rows remain. Six explicit cache-hit/cache-miss/output rates retain peak/off-peak conditions, exact served versions, UTC windows and the Chinese-public-holiday exception. The separate 2026-10-26 review adds explicit peak/off-peak scenario quotes, with exact served versions and schedule validation. It does not infer current applicability or rewrite history. Retrieval now uses the working [canonical trailing-slash URL](https://api-docs.deepseek.com/quick_start/pricing/), preserving the historic native document identity.
 
 Evidence review on **2026-10-18** found Flash input/output rates of USD 0.15/0.60 off-peak and 0.30/1.20 peak per million tokens, matching our retained October 6 capture. The October 17 capture changed the served version to `DeepSeek-V4.1-Flash-1017` and added Search/Fetch rows. The October 18 Vercel reduction is a gateway quote, not evidence of a direct DeepSeek tariff reduction. These are dated findings, not permanent prices. No missing historical cut is fabricated or backfilled. Tool-only/partial snapshots now fail rather than replacing complete model evidence.
 
