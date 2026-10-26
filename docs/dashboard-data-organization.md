@@ -8,6 +8,8 @@
 
 No database or paid storage is required. Vite generates the projections for development and production builds; they are derived assets, not new authoritative history files. The asset allowlist does not publish raw responses, authenticated source archives, credentials, collector scripts or JSONL warehouse logs. Provider metadata is explicitly selected rather than copying entire transport responses.
 
+The separate [historical evidence ledger](historical-evidence-ledger.md) belongs to the warehouse layer. The authorized Historical evidence view reads it through a dedicated whitelisted projection, described below. Its original source assets, manifest and segments are never copied into public assets. Retrospective assertions do not enter current model listings, reviewed exports or price charts.
+
 ## Navigation
 
 - **Compare prices** remains the default. USD/token calculations, prompt bands, tiers and regions keep their existing semantics. Billing-source counts distinguish gateways and quote counts; unpublished context fit/account access stay visible. A searchable model picker and six-item local recent-model list fit the expanded catalog. Single-date histories show a compact first-observation snapshot; charts require observations spanning multiple dates. No earlier history is invented. A reviewed digest groups rate-component events by offering/check; one quote update is not three announcements. The expandable workload price map covers all matching reviewed models, chooses the lowest applicable quote per billing source within the selected tier/region scope, exposes that quote's variant/scope, and labels stale, cache-fallback and context-unverified values. Missing cells are unknown/inapplicable, not free; colors compare within a model, never model quality.
@@ -15,6 +17,7 @@ No database or paid storage is required. Vite generates the projections for deve
 - **Providers** starts with summaries, then compact source indexes. Search covers every indexed identity, scope label, unit/currency and published modality, not full raw JSON or only displayed rows. API model/route, cloud billing dimension and document evidence detail layouts preserve original conditions, source expressions, metadata and provenance. Full expressions are expandable; complete record evidence loads only on selection/export. URLs preserve provider/record identity.
 - **Recent changes** separates reviewed events from native amounts, billing rules, and catalog discoveries/absences/metadata. Native views start with observation batches, grouped by provider, exact observed timestamp and category. Opening a batch fetches only chunks intersecting the current event page. Explicit label/provider/event searches examine all selected batches with visible loading/failure states. Discovery dates are not launch dates; source absence is not discontinuation.
 - **Coverage** loads only the summary index. Reviewed models/retained and active offers, provider-scoped listings, and mixed native records have different denominators. It shows record kinds, display billing facets, pricing certainty, single-provider/gateway-only comparison depth, unpublished context limits, verified reviewed price events and per-source check status. Counts are derived, never a blanket review percentage or release-date claim.
+- **Historical evidence** has its own summary-only provider overview, provider-scoped search indexes and on-demand historical expressions. Capture/lookup states, original scopes, dates and correction references remain separate from current collector health and reviewed prices. Provider/assertion deep links use `view=historical&provider=...&record=...`.
 - **Methodology** documents collection scope, freshness, calculator limitations and exports.
 
 Together comparisons are intentionally paused by the shared `config/provider_policies.json` operating policy. Current rankings, model directory prices, comparison CSVs and workload-map cells exclude its quotes; retained active flags, reviewed baseline and historical timelines are not rewritten. Coverage/provider pages label the pause separately from collector health and vendor availability. JSON reviewed exports include the pause policy.
@@ -47,6 +50,59 @@ The global JSON export remains reviewed-comparison data; native records export s
 A current collector does not imply reviewed pricing. Native views show separate pricing, review and freshness labels. Original currencies and decimal amounts are preserved; no automatic FX, DBU/credit/neuron-to-dollar conversion or denominator conversion is performed. Missing or unknown prices do not become zero.
 
 OVHcloud explicitly shows unverified currency. Snowflake PDF page text explicitly remains unreviewed table evidence. Unaligned document cells are shown in source order, not assigned invented column/model relationships. Gateway offers identify commercial access without inventing supplier endpoints.
+
+## Historical public projection
+
+`scripts/historical_projection.py` first verifies the entire ledger, including exact
+source hashes, archive/index witnesses and reproducible extraction. It emits only
+explicitly selected capture provenance, assertion identity/scope/expressions,
+lookup states and append-only corrections. Model metadata uses a field allowlist;
+arbitrary responses/transport receipts, disk paths, raw bodies and credentials are
+excluded. Nested credential fields or credential-bearing selected URLs fail the
+projection. AWS decimals/units, native pricing objects, unknowns, document cells,
+scope conditions and unaligned PDF text preserve their source meanings. This
+projection grants no quote review or alias permission.
+
+`buildHistoricalAssets` in `scripts/dashboard_projection.ts` runs that offline
+verification with `python3` from `PATH`, then validates the public schemas in
+`dashboard/src/lib/historical.ts`. Vite publishes:
+
+- `catalog/historical/index.json`: small schema-2 overview, ledger snapshot hash,
+  provider names, separately counted captures/assertions/lookup checks, retained
+  archive spans and interpretation-state totals.
+- `catalog/historical/<provider>.json`: schema-2 manifest, selected capture
+  provenance, corrections and exact index/evidence/check chunk references.
+- `catalog/chunks/<sha256>.json`: schema-1 historical index, evidence or lookup
+  envelopes, sharing the existing 512 KiB byte/hash/count validation and bounded
+  concurrency. These are projections, not warehouse JSONL or raw source files.
+
+The comparison landing and Coverage never request historical assets. The historical
+overview downloads its summary only; choosing a provider loads its complete compact
+assertion index. Search covers every indexed native ID, label and identity scope,
+not raw response bodies or just a visible page. Type/capture/date filters preserve
+ledger order; archive, publication, retrieval and reported-effective date bases
+are explicit. Unknown dates are excluded only by an active date bound. A selected
+assertion loads only its evidence chunk and shows all date meanings separately.
+Captures with zero assertions remain inspectable. Lookup checks load only on request.
+
+Historical exports load every matching evidence chunk with progress/cancellation,
+validate selected identities and include capture provenance and relevant correction
+references. Errors produce no partial file. Historical JSON remains separate from
+native current catalogs and reviewed comparison exports. No common-denominator
+prices, inferred tariff intervals, retirement claims or historical line charts
+are generated. A Snowflake document dated 2021 does not date later AI SKUs to 2021.
+
+Development/builds require the existing Python requirements even without running
+collectors. Development verifies/projects before serving, rather than making the
+first browser request wait on reconstruction; Playwright allows 120 seconds for
+that startup. Published visitors still fetch only static files. The source manifest
+mtime participates in development cache invalidation; projection never mutates it.
+
+Local validation for this historical release on 2026-10-26 passed 102 frontend
+tests, 297 Python tests, TypeScript, the production build and all 52 Playwright
+tests, including both themes, mobile layout, complete exports and corrupt-chunk
+recovery. Projection left every historical warehouse byte unchanged. These local
+results are separate from hosted CI and deployment verification.
 
 ## Native history classification
 

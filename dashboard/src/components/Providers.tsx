@@ -106,7 +106,7 @@ function ProviderDetail({ data, provider, version, recordId, onProvider, onModel
         </tr>)}</tbody></table></div>
         {!filtered.length && <div className="empty-state"><h3>No matching source records</h3><p>Try another search, record type, or billing basis.</p></div>}<Pager page={pageNumber} total={filtered.length} onPage={setPage} />
       </section>}
-      <section className="panel provider-history"><div className="section-heading"><div><h2>Observed source history</h2><p>{recordId ? 'Find retained events for this record on request.' : 'Observation batches first; individual event pages load on demand.'} No historical backfill.</p></div><button className="button" aria-expanded={historyOpen} onClick={() => setHistoryOpen(!historyOpen)}>{historyOpen ? 'Hide source history' : 'Load source history'}</button></div>
+      <section className="panel provider-history"><div className="section-heading"><div><h2>Observed source history</h2><p>{recordId ? 'Find retained events for this record on request.' : 'Observation batches first; individual event pages load on demand.'} Daily observations only; recovered history is separate.</p><a className="text-link" href={`?view=historical&provider=${provider.id}`}>Explore recovered historical evidence <ArrowUpRight size={13} /></a></div><button className="button" aria-expanded={historyOpen} onClick={() => setHistoryOpen(!historyOpen)}>{historyOpen ? 'Hide source history' : 'Load source history'}</button></div>
         {historyOpen && <><AssetNotice loading={history.loading} error={history.error} retry={history.retry} />{history.data && <SourceHistory manifest={history.data} version={version} recordId={recordId} providerOnly onProvider={onProvider} />}</>}
       </section>
     </>}

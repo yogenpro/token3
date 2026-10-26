@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "policy": "historical-public-profiles-v1",
+  "providers": {
+    "alibaba": {
+      "sources": [
+        {
+          "url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://www.alibabacloud.com/help/en/dashscope/developer-reference/model-pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "anthropic": {
+      "sources": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+          "format": "document",
+          "allow_current_document": true
+        }
+      ]
+    },
+    "azure": {
+      "sources": [
+        {
+          "url": "https://prices.azure.com/api/retail/prices?$filter=serviceName eq 'Foundry Models' and armRegionName eq 'eastus'",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/legacy-models",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/retired-models",
+          "format": "document",
+          "allow_current_document": true
+        }
+      ]
+    },
+    "cloudflare": {
+      "sources": [
+        {
+          "url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "databricks": {
+      "sources": [
+        {
+          "url": "https://www.databricks.com/product/pricing/foundation-model-serving",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://www.databricks.com/product/pricing/proprietary-foundation-model-serving",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "deepseek": {
+      "sources": [
+        {
+          "url": "https://api-docs.deepseek.com/quick_start/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "fireworks": {
+      "sources": [
+        {
+          "url": "https://docs.fireworks.ai/serverless/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://fireworks.ai/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "gemini": {
+      "sources": [
+        {
+          "url": "https://ai.google.dev/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "groq": {
+      "sources": [
+        {
+          "url": "https://console.groq.com/docs/models",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "huggingface": {
+      "sources": [
+        {
+          "url": "https://huggingface.co/docs/inference-providers/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://router.huggingface.co/v1/models",
+          "format": "models",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "minimax": {
+      "sources": [
+        {
+          "url": "https://platform.minimax.io/docs/guides/pricing-paygo",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://platform.minimax.io/docs/pricing/overview",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "nebius": {
+      "sources": [
+        {
+          "url": "https://nebius.com/ai-studio",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "novita": {
+      "sources": [
+        {
+          "url": "https://api.novita.ai/v3/openai/models",
+          "format": "models",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://novita.ai/models",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "openai": {
+      "sources": [
+        {
+          "url": "https://platform.openai.com/docs/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://developers.openai.com/api/docs/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://developers.openai.com/api/docs/deprecations",
+          "format": "document",
+          "allow_current_document": true
+        }
+      ]
+    },
+    "openrouter": {
+      "sources": [
+        {
+          "url": "https://openrouter.ai/api/v1/models",
+          "format": "models",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "oracle": {
+      "sources": [
+        {
+          "url": "https://www.oracle.com/artificial-intelligence/generative-ai/pricing/",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://docs.oracle.com/en-us/iaas/Content/generative-ai/deprecating-on-demand.htm",
+          "format": "document",
+          "allow_current_document": true
+        }
+      ]
+    },
+    "ovhcloud": {
+      "sources": [
+        {
+          "url": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
+          "format": "models",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "scaleway": {
+      "sources": [
+        {
+          "url": "https://www.scaleway.com/en/pricing/model-as-a-service/",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "snowflake": {
+      "sources": [
+        {
+          "url": "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf",
+          "format": "pdf",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "together": {
+      "sources": [
+        {
+          "url": "https://together.ai/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://www.together.ai/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://docs.together.ai/docs/serverless-models",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "vercel": {
+      "sources": [
+        {
+          "url": "https://vercel.com/docs/ai-gateway/pricing",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://ai-gateway.vercel.sh/v1/models",
+          "format": "models",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "vertex": {
+      "sources": [
+        {
+          "url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "xai": {
+      "sources": [
+        {
+          "url": "https://docs.x.ai/docs/models",
+          "format": "document",
+          "allow_current_document": false
+        },
+        {
+          "url": "https://docs.x.ai/developers/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    },
+    "zai": {
+      "sources": [
+        {
+          "url": "https://docs.z.ai/guides/overview/pricing",
+          "format": "document",
+          "allow_current_document": false
+        }
+      ]
+    }
+  }
+}

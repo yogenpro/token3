@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Activity, ArrowUpRight, ChartNoAxesCombined, CircleHelp, Grid2X2, Building2, Layers, Search, ShieldCheck } from 'lucide-react';
+import { Activity, Archive, ArrowUpRight, ChartNoAxesCombined, CircleHelp, Grid2X2, Building2, Layers, Search, ShieldCheck } from 'lucide-react';
 import type { Model } from '../lib/data';
 import { Brand, ModelMark } from './UI';
-export type View = 'compare' | 'models' | 'providers' | 'changes' | 'coverage' | 'methodology';
+export type View = 'compare' | 'models' | 'providers' | 'changes' | 'historical' | 'coverage' | 'methodology';
 const navigation = [
   { id: 'compare', label: 'Compare prices', icon: ChartNoAxesCombined },
   { id: 'models', label: 'Model explorer', icon: Grid2X2 },
   { id: 'providers', label: 'Providers', icon: Building2 },
   { id: 'changes', label: 'Recent changes', icon: Activity },
+  { id: 'historical', label: 'Historical evidence', icon: Archive },
   { id: 'coverage', label: 'Coverage', icon: Layers },
   { id: 'methodology', label: 'Methodology', icon: CircleHelp },
 ] as const;

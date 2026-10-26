@@ -1,6 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { historicalCaptureSchema, historicalEvidenceSchema, historicalCheckSchema, historicalIndexSchema, historicalIndexChunkSchema, historicalEvidenceChunkSchema, historicalManifestSchema, historicalCheckChunkSchema } from '../dashboard/src/lib/historical';
 import { readNativeHistory } from './native_history';
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
@@ -11,6 +14,51 @@ import {
 
 type ObjectValue = Record<string, any>;
 const same = (a: unknown, b: unknown): boolean => stable(a) === stable(b);
+
+/** Python verifies the complete ledger before selecting the public field allowlist.
+ * Only these projections enter Vite. Raw source/warehouse files never do. */
+export function buildHistoricalAssets(dataDir: string): Map<string, string> {
+  const payload = JSON.parse(execFileSync('python3', ['-m', 'scripts.historical_projection', '--ledger-dir', join(dataDir, 'historical_evidence')], {
+    cwd: fileURLToPath(new URL('..', import.meta.url)), maxBuffer: 256 * 1024 * 1024, timeout: 180000,
+  }).toString('utf8'));
+  const assets = new Map<string, string>();
+  const inventory = JSON.parse(readFileSync(join(dataDir, 'provider_inventory.json'), 'utf8'));
+  const captures = payload.captures.map((c: unknown) => historicalCaptureSchema.parse(c));
+  const records = payload.assertions.map((r: unknown) => historicalEvidenceSchema.parse(r));
+  const checks = payload.checks.map((r: unknown) => historicalCheckSchema.parse(r));
+  const ids = new Set(inventory.providers.map((p: ObjectValue) => p.id));
+  if ([...captures, ...records, ...checks].some((r) => !ids.has(r.provider))) throw new Error('Historical provider is not in the published source directory');
+  const frequencies = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((k) => [k, values.filter((v) => v === k).length]));
+  const providers = inventory.providers.map((provider: ObjectValue) => {
+    const selected = records.filter((r: ObjectValue) => r.provider === provider.id);
+    const source = captures.filter((c: ObjectValue) => c.provider === provider.id);
+    const failed = checks.filter((c: ObjectValue) => c.provider === provider.id);
+    if (!source.length) throw new Error('Historical provider has no retained public capture');
+    const evidence_chunks = chunkRows(selected, 'records', assets);
+    const paths = new Map<string, string>();
+    for (const ref of evidence_chunks) for (const r of historicalEvidenceChunkSchema.parse(JSON.parse(assets.get(ref.path)!)).records) paths.set(r.id, ref.path);
+    const summaries = selected.map((r: ObjectValue) => { const { evidence: _, source_pointer: __, extractor: ___, ...summary } = r; return { ...summary, detail_path: paths.get(r.id) }; });
+    const detail_path = `catalog/historical/${provider.id}.json`;
+    const assertionIds = new Set(selected.map((r: ObjectValue) => r.id));
+    const manifest = historicalManifestSchema.parse({ schema_version: 2, snapshot_sha256: payload.snapshot_sha256, provider: provider.id, captures: source,
+      assertion_count: selected.length, check_count: failed.length, index_chunks: chunkRows(summaries, 'records', assets), evidence_chunks,
+      check_chunks: chunkRows(failed, 'records', assets), corrections: payload.corrections.filter((c: ObjectValue) => assertionIds.has(c.assertion_id)) });
+    assets.set(detail_path, JSON.stringify(manifest));
+    const dates = source.map((c: ObjectValue) => c.archive_capture_at).filter(Boolean).sort();
+    return { id: provider.id, name: provider.name, capture_count: source.length, assertion_count: selected.length, check_count: failed.length,
+      archive_from: dates[0] ?? null, archive_to: dates.at(-1) ?? null, retrieved_through: source.map((c: ObjectValue) => c.retrieved_at).sort().at(-1),
+      states: frequencies(source.map((c: ObjectValue) => c.state)), check_states: frequencies(failed.map((c: ObjectValue) => c.state)), detail_path };
+  });
+  assets.set('catalog/historical/index.json', JSON.stringify(historicalIndexSchema.parse({ schema_version: 2, snapshot_sha256: payload.snapshot_sha256,
+    capture_count: captures.length, assertion_count: records.length, check_count: checks.length, providers })));
+  for (const [path, body] of assets) if (path.startsWith('catalog/chunks/')) {
+    const value = JSON.parse(body);
+    if (value.records[0]?.evidence) historicalEvidenceChunkSchema.parse(value);
+    else if (value.records[0]?.detail_path) historicalIndexChunkSchema.parse(value);
+    else historicalCheckChunkSchema.parse(value);
+  }
+  return assets;
+}
 function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
   if (value && typeof value === 'object') return `{${Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => `${JSON.stringify(k)}:${stable(v)}`).join(',')}}`;

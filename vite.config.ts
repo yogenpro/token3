@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, statSync } from 'node:fs';
-import { buildDashboardAssets } from './scripts/dashboard_projection';
+import { buildDashboardAssets, buildHistoricalAssets } from './scripts/dashboard_projection';
 import { historyVersionPath } from './scripts/native_history';
 import { publicationMetadata } from './scripts/publication';
 
@@ -14,9 +14,10 @@ let projectionVersion = '';
 const sessionStartedAt = new Date().toISOString();
 const publication = (development = false) => JSON.stringify(publicationMetadata(JSON.parse(readFileSync(`${dataDir}/status.json`, 'utf8')).last_run_at, process.env, development ? sessionStartedAt : new Date().toISOString(), development));
 function catalogAssets() {
-  const version = ['provider_inventory.json', historyVersionPath(dataDir), 'offerings.json'].map((file) => statSync(`${dataDir}/${file}`).mtimeMs).join(':');
+  const version = ['provider_inventory.json', historyVersionPath(dataDir), 'offerings.json', 'historical_evidence/manifest.json'].map((file) => statSync(`${dataDir}/${file}`).mtimeMs).join(':');
   if (!projected || version !== projectionVersion) {
     projected = buildDashboardAssets(dataDir);
+    for (const [path, body] of buildHistoricalAssets(dataDir)) projected.set(path, body);
     projectionVersion = version;
   }
   return projected;
@@ -31,6 +32,9 @@ export default defineConfig({
     {
       name: 'normalized-dataset',
       configureServer(server) {
+        // Verify/project once before serving, so first browser requests never
+        // wait on a full ledger reconstruction and hit their request timeout.
+        catalogAssets();
         server.middlewares.use((req, res, next) => {
           const base = server.config.base;
           const pathname = req.url?.split('?')[0] ?? '';

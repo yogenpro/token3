@@ -1,0 +1,1098 @@
+{
+  "schema": 1,
+  "research_only": true,
+  "audit_started_at": "2026-10-26T06:56:54.270416+00:00",
+  "method": "Bounded exact-URL CDX probes. No collapse; no price or availability inference. No authenticated requests.",
+  "providers": [
+    {
+      "provider": "alibaba",
+      "seed_url": "https://www.alibabacloud.com/help/en/model-studio/model-pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.alibabacloud.com%2Fhelp%2Fen%2Fmodel-studio%2Fmodel-pricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:56:59.787319+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "a4ca45e612fd9a82d21223bc7e6acba194a221557282d167ac216c2201a01c9b",
+      "response_bytes": 5342,
+      "status": "index_entries_found",
+      "returned_capture_count": 38,
+      "limit_reached": false,
+      "earliest_returned": "20260116072901",
+      "latest_returned": "20261019105346",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "anthropic",
+      "seed_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.anthropic.com%2Fen%2Fdocs%2Fabout-claude%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:56:59.775666+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "7105590ab6904d4cfbff3ecb6c6fec3b1517fe4fc907ca26f6d8c5215317e8bd",
+      "response_bytes": 3597,
+      "status": "index_entries_found",
+      "returned_capture_count": 27,
+      "limit_reached": false,
+      "earliest_returned": "20250512021553",
+      "latest_returned": "20250916142058",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "azure",
+      "seed_url": "https://prices.azure.com/api/retail/prices?$filter=serviceName eq 'Foundry Models' and armRegionName eq 'eastus'",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fprices.azure.com%2Fapi%2Fretail%2Fprices%3F%24filter%3DserviceName+eq+%27Foundry+Models%27+and+armRegionName+eq+%27eastus%27&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:01.106801+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "response_bytes": 3,
+      "status": "no_index_entries_returned",
+      "returned_capture_count": 0,
+      "limit_reached": false,
+      "earliest_returned": null,
+      "latest_returned": null,
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "bedrock",
+      "seed_url": "https://aws.amazon.com/bedrock/pricing/",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Faws.amazon.com%2Fbedrock%2Fpricing%2F&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:00.175059+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "3bb7472a2d2e71c55fd0b926d8847d74481731f14b485dadb401fe1910df822e",
+      "response_bytes": 154976,
+      "status": "index_entries_found",
+      "returned_capture_count": 1347,
+      "limit_reached": false,
+      "earliest_returned": "20230929185514",
+      "latest_returned": "20261024004025",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "cloudflare",
+      "seed_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdevelopers.cloudflare.com%2Fworkers-ai%2Fplatform%2Fpricing%2F&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:00.357526+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "0d607d3e0c87aae27e19118576903045b8a2130f9e0ceb0b7b1224ac346ae6d3",
+      "response_bytes": 13990,
+      "status": "index_entries_found",
+      "returned_capture_count": 101,
+      "limit_reached": false,
+      "earliest_returned": "20240301221344",
+      "latest_returned": "20261026055728",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "databricks",
+      "seed_url": "https://www.databricks.com/product/pricing/foundation-model-serving",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.databricks.com%2Fproduct%2Fpricing%2Ffoundation-model-serving&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:00.618683+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "99b80f62fe093915eaa6ea0143a18bac19ac049107da3a678af2180e358ee7c3",
+      "response_bytes": 4064,
+      "status": "index_entries_found",
+      "returned_capture_count": 28,
+      "limit_reached": false,
+      "earliest_returned": "20240415144813",
+      "latest_returned": "20260829102226",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "deepinfra",
+      "seed_url": "https://api.deepinfra.com/models/list",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fapi.deepinfra.com%2Fmodels%2Flist&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:00.881229+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "49d0aa43d10de5970a73e719f3d0bd6248f23ff93abea3001c0bb6c087ffc948",
+      "response_bytes": 3780,
+      "status": "index_entries_found",
+      "returned_capture_count": 31,
+      "limit_reached": false,
+      "earliest_returned": "20240618165458",
+      "latest_returned": "20261019090757",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "deepseek",
+      "seed_url": "https://api-docs.deepseek.com/quick_start/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fapi-docs.deepseek.com%2Fquick_start%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:01.156375+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "1632518b725983d4685fc7bab7669047ec3e12dcc7f0d197fa47696a951fca0d",
+      "response_bytes": 36689,
+      "status": "index_entries_found",
+      "returned_capture_count": 292,
+      "limit_reached": false,
+      "earliest_returned": "20241107075055",
+      "latest_returned": "20261026044137",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "fireworks",
+      "seed_url": "https://docs.fireworks.ai/serverless/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.fireworks.ai%2Fserverless%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:01.284915+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "305837c82c0502a1e856776ddc543a9b033e2b780cf8d092d81886f04e7100c0",
+      "response_bytes": 2220,
+      "status": "index_entries_found",
+      "returned_capture_count": 18,
+      "limit_reached": false,
+      "earliest_returned": "20260507222823",
+      "latest_returned": "20261016190343",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "gemini",
+      "seed_url": "https://ai.google.dev/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fai.google.dev%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:03.931067+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "56618c7a109c1e2523341acffe72d77f91df497df0a2bd177ec340a6e109f728",
+      "response_bytes": 22005,
+      "status": "index_entries_found",
+      "returned_capture_count": 209,
+      "limit_reached": false,
+      "earliest_returned": "20231213151604",
+      "latest_returned": "20250216224902",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "groq",
+      "seed_url": "https://console.groq.com/docs/models",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fconsole.groq.com%2Fdocs%2Fmodels&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:01.612790+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "296242522909fafbea640e895f1326bbfa8ec89d314ea720815b0d91a0e65e49",
+      "response_bytes": 26156,
+      "status": "index_entries_found",
+      "returned_capture_count": 233,
+      "limit_reached": false,
+      "earliest_returned": "20240301024447",
+      "latest_returned": "20261025195511",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "huggingface",
+      "seed_url": "https://huggingface.co/docs/inference-providers/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fhuggingface.co%2Fdocs%2Finference-providers%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:01.823510+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "5fa111859587e68b5376771614b902ce97f5eaeba696e7918cfc9db5fca7d037",
+      "response_bytes": 6217,
+      "status": "index_entries_found",
+      "returned_capture_count": 47,
+      "limit_reached": false,
+      "earliest_returned": "20250401155300",
+      "latest_returned": "20261012214905",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "minimax",
+      "seed_url": "https://platform.minimax.io/docs/guides/pricing-paygo",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fplatform.minimax.io%2Fdocs%2Fguides%2Fpricing-paygo&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:02.019651+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "ff7ad2e1fbea9a4172ff1011316443d53f40447997fc412b0d9892011d8d2829",
+      "response_bytes": 4833,
+      "status": "index_entries_found",
+      "returned_capture_count": 37,
+      "limit_reached": false,
+      "earliest_returned": "20260213062719",
+      "latest_returned": "20261011190509",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "nebius",
+      "seed_url": "https://nebius.com/ai-studio",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fnebius.com%2Fai-studio&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:02.255192+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "ef820bc8867993232dbc29db4fcd477f6e7319a75cbcae17684903f49f6ab1dc",
+      "response_bytes": 788,
+      "status": "index_entries_found",
+      "returned_capture_count": 7,
+      "limit_reached": false,
+      "earliest_returned": "20250404224430",
+      "latest_returned": "20251017044706",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "novita",
+      "seed_url": "https://api.novita.ai/v3/openai/models",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fapi.novita.ai%2Fv3%2Fopenai%2Fmodels&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:02.394602+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "ce4e7982245db36d16663e9f7820512ad12f3b3c6ac2bc0a5840b81e488478a7",
+      "response_bytes": 181,
+      "status": "index_entries_found",
+      "returned_capture_count": 1,
+      "limit_reached": false,
+      "earliest_returned": "20250217174535",
+      "latest_returned": "20250217174535",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "openai",
+      "seed_url": "https://platform.openai.com/docs/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fplatform.openai.com%2Fdocs%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:03.279723+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "34a4230558a2a0263c3c941bf3d8210ebc86b0325411d4696cfeac4816010481",
+      "response_bytes": 14332,
+      "status": "index_entries_found",
+      "returned_capture_count": 123,
+      "limit_reached": false,
+      "earliest_returned": "20230209215458",
+      "latest_returned": "20260207123851",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "openrouter",
+      "seed_url": "https://openrouter.ai/api/v1/models",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fopenrouter.ai%2Fapi%2Fv1%2Fmodels&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:03.490130+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "4cce4dc2252e6ac815f9fe05a1e88a72380099aa72ca2d3f0eb8124afeb23650",
+      "response_bytes": 27436,
+      "status": "index_entries_found",
+      "returned_capture_count": 232,
+      "limit_reached": false,
+      "earliest_returned": "20230726091203",
+      "latest_returned": "20261025203002",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "oracle",
+      "seed_url": "https://www.oracle.com/artificial-intelligence/generative-ai/pricing/",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.oracle.com%2Fartificial-intelligence%2Fgenerative-ai%2Fpricing%2F&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:06.000573+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "response_bytes": 3,
+      "status": "no_index_entries_returned",
+      "returned_capture_count": 0,
+      "limit_reached": false,
+      "earliest_returned": null,
+      "latest_returned": null,
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "ovhcloud",
+      "seed_url": "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.ovhcloud.com%2Fen%2Fpublic-cloud%2Fai-endpoints%2Fcatalog%2F&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:06.857823+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "dfc531fb28e92ff66cc8cec1aa01ebd1a623dea559df296b2780b94c25d41af0",
+      "response_bytes": 7662,
+      "status": "index_entries_found",
+      "returned_capture_count": 55,
+      "limit_reached": false,
+      "earliest_returned": "20251107153730",
+      "latest_returned": "20261011222131",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "scaleway",
+      "seed_url": "https://www.scaleway.com/en/pricing/model-as-a-service/",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.scaleway.com%2Fen%2Fpricing%2Fmodel-as-a-service%2F&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+      "retrieved_at": "2026-10-26T06:57:07.822720+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "response_sha256": "0a375e888a6b4047349fd80e682952ba47ea5f0620b0bc029efeb4f6ae838b91",
+      "response_bytes": 4121,
+      "status": "index_entries_found",
+      "returned_capture_count": 31,
+      "limit_reached": false,
+      "earliest_returned": "20250130113000",
+      "latest_returned": "20261022185714",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory"
+    },
+    {
+      "provider": "snowflake",
+      "seed_url": "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.snowflake.com%2Flegal-files%2FCreditConsumptionTable.pdf&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:12.275888+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "4e2be35e9678382a3b025f7d87bc88c516ec79682dd8319484b96d15edf1c5f7",
+      "response_bytes": 11885,
+      "returned_capture_count": 81,
+      "limit_reached": false,
+      "earliest_returned": "20210424095211",
+      "latest_returned": "20261012232620",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "snowflake",
+        "seed_url": "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.snowflake.com%2Flegal-files%2FCreditConsumptionTable.pdf&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.878634+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    },
+    {
+      "provider": "together",
+      "seed_url": "https://www.together.ai/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.together.ai%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:04.314877+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "7b659d1e2248a1336fbaccf20ac3a30e7f89d903b929441cbae0b914c365566d",
+      "response_bytes": 25066,
+      "returned_capture_count": 234,
+      "limit_reached": false,
+      "earliest_returned": "20230714223608",
+      "latest_returned": "20261025040728",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "together",
+        "seed_url": "https://www.together.ai/pricing",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.together.ai%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.899164+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    },
+    {
+      "provider": "vercel",
+      "seed_url": "https://vercel.com/docs/ai-gateway/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fvercel.com%2Fdocs%2Fai-gateway%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:04.544193+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "17dd7103bed99dc23c82e88c5d7d55b79a859f57748adb8256b36df9730d4697",
+      "response_bytes": 5060,
+      "returned_capture_count": 42,
+      "limit_reached": false,
+      "earliest_returned": "20250628153301",
+      "latest_returned": "20261020064717",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "vercel",
+        "seed_url": "https://vercel.com/docs/ai-gateway/pricing",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fvercel.com%2Fdocs%2Fai-gateway%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.920618+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    },
+    {
+      "provider": "vertex",
+      "seed_url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fcloud.google.com%2Fvertex-ai%2Fgenerative-ai%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:09.336054+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "14b0232bcc41d854eddd6a5a9cd77d6e40d1f8ba2cb7c353993f960594ee33ad",
+      "response_bytes": 25011,
+      "returned_capture_count": 189,
+      "limit_reached": false,
+      "earliest_returned": "20240310083052",
+      "latest_returned": "20260422063712",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "vertex",
+        "seed_url": "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fcloud.google.com%2Fvertex-ai%2Fgenerative-ai%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.941286+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    },
+    {
+      "provider": "xai",
+      "seed_url": "https://docs.x.ai/docs/models",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.x.ai%2Fdocs%2Fmodels&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:09.604550+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "ddd1a3f3187a102e6d402efc8b3de0b81736afd11c4e65307293ac78dd91a985",
+      "response_bytes": 8419,
+      "returned_capture_count": 79,
+      "limit_reached": false,
+      "earliest_returned": "20250121223625",
+      "latest_returned": "20260204041847",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "xai",
+        "seed_url": "https://docs.x.ai/docs/models",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.x.ai%2Fdocs%2Fmodels&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.962963+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    },
+    {
+      "provider": "zai",
+      "seed_url": "https://docs.z.ai/guides/overview/pricing",
+      "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.z.ai%2Fguides%2Foverview%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065804",
+      "retrieved_at": "2026-10-26T06:58:13.056653+00:00",
+      "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+      "limit": 5001,
+      "replay_status": "not_checked",
+      "status": "index_entries_found",
+      "curl_exit_code": 7,
+      "response_sha256": "cb5e7e02958a91ac81a27a4187a9ca5f6ef86879acce6e1096b0f16d37275b8d",
+      "response_bytes": 10590,
+      "returned_capture_count": 90,
+      "limit_reached": false,
+      "earliest_returned": "20250728145000",
+      "latest_returned": "20261025113512",
+      "completeness": "not_established; exact URL probe, not provider-wide inventory",
+      "previous_attempt": {
+        "provider": "zai",
+        "seed_url": "https://docs.z.ai/guides/overview/pricing",
+        "query_url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fdocs.z.ai%2Fguides%2Foverview%2Fpricing&matchType=exact&output=json&filter=statuscode%3A200&fl=timestamp%2Coriginal%2Cmimetype%2Cstatuscode%2Cdigest&limit=5001&to=20261026065654",
+        "retrieved_at": "2026-10-26T06:57:06.983820+00:00",
+        "scope": "one exact URL; HTTP 200 index entries only; replay not validated",
+        "limit": 5001,
+        "replay_status": "not_checked",
+        "status": "request_failed",
+        "curl_exit_code": 7
+      }
+    }
+  ],
+  "research_date_local": "2026-10-25",
+  "research_timezone": "America/Los_Angeles",
+  "production_imported": false,
+  "limitations": [
+    "One seed URL per provider, not exhaustive URL history or provider-wide coverage.",
+    "CDX timestamps describe index entries; only the explicitly sampled replay was validated.",
+    "Counts are captures, not prices, SKUs, models, changes, or consecutive daily coverage.",
+    "An empty query is not evidence that no historical prices or models exist.",
+    "Raw source bodies were fetched into temporary local files, not committed or published.",
+    "Research extracts are not durable warehouse imports; future imports need retained exact-byte evidence and reconstruction checks."
+  ],
+  "source_witnesses": {
+    "aws_bedrock_index": {
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/index.json",
+      "retrieved_at": "2026-10-26T06:55:16.192166+00:00",
+      "body_sha256": "d9d295e1b15b3eaf48d7c7323fbadfbdc6a956fde6557d268aafa4dae4f01bbd",
+      "body_bytes": 9113,
+      "body_retention": "temporary local research download; not committed"
+    },
+    "aws_foundation_index": {
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrockFoundationModels/index.json",
+      "retrieved_at": "2026-10-26T06:57:22.195292+00:00",
+      "body_sha256": "d25e9a40f6ca822ad3823f779ce96b0146a8ed809bab79c00a44adf25a0163b8",
+      "body_bytes": 1187,
+      "body_retention": "temporary local research download; not committed"
+    },
+    "aws_bedrock_20230928": {
+      "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/20230928150907/us-east-1/index.json",
+      "retrieved_at": "2026-10-26T06:55:59.473328+00:00",
+      "body_sha256": "cf1b4b5baaa59a9bfe99928fb63de2b1dc8b5769614dca473cf261b9fafa9515",
+      "body_bytes": 27823,
+      "body_retention": "temporary local research download; not committed"
+    },
+    "deepinfra_20240618": {
+      "source_url": "https://web.archive.org/web/20240618165458id_/https://api.deepinfra.com/models/list",
+      "retrieved_at": "2026-10-26T06:55:59.062928+00:00",
+      "body_sha256": "0b2c5af11b615efe4a3297b39fad4e32021ec100b51da95fd4a2450224838a15",
+      "body_bytes": 99797,
+      "body_retention": "temporary local research download; not committed",
+      "archive_timestamp": "20240618165458",
+      "cdx_sha1_base32": "5WWN5WO3C37JA3HG7ZTIDFG3PYSET2J5",
+      "replay_digest_matches_cdx": true
+    },
+    "openai_deprecations": {
+      "source_url": "https://developers.openai.com/api/docs/deprecations.md",
+      "retrieved_at": "2026-10-26T06:57:21.946886+00:00",
+      "body_sha256": "b5d1cafefc8a491f2c095d77359a6ca185498baa5f65a66bac1cb722e188855f",
+      "body_bytes": 42211,
+      "body_retention": "temporary local research download; not committed"
+    },
+    "gemini_announcement": {
+      "source_url": "https://developers.googleblog.com/en/gemini-15-flash-8b-is-now-generally-available-for-use/",
+      "retrieved_at": "2026-10-26T06:57:22.604625+00:00",
+      "body_sha256": "cc4fa0d97aecf3728886f1d23d435bf0c988d25583676cf9ab979146942790f0",
+      "body_bytes": 42436,
+      "body_retention": "temporary local research download; not committed"
+    }
+  },
+  "aws_versions": {
+    "AmazonBedrock": {
+      "version_count": 37,
+      "versions": {
+        "20230928150907": {
+          "versionEffectiveBeginDate": "2023-09-28T00:00:00Z",
+          "versionEffectiveEndDate": "2023-10-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20230928150907/index.json"
+        },
+        "20231020005353": {
+          "versionEffectiveBeginDate": "2023-10-01T00:00:00Z",
+          "versionEffectiveEndDate": "2023-11-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20231020005353/index.json"
+        },
+        "20231128195208": {
+          "versionEffectiveBeginDate": "2023-11-01T00:00:00Z",
+          "versionEffectiveEndDate": "2023-11-29T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20231128195208/index.json"
+        },
+        "20231221223942": {
+          "versionEffectiveBeginDate": "2023-11-29T00:00:00Z",
+          "versionEffectiveEndDate": "2024-02-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20231221223942/index.json"
+        },
+        "20240313022259": {
+          "versionEffectiveBeginDate": "2024-02-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-03-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240313022259/index.json"
+        },
+        "20240319192807": {
+          "versionEffectiveBeginDate": "2024-03-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-04-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240319192807/index.json"
+        },
+        "20240423222737": {
+          "versionEffectiveBeginDate": "2024-04-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-05-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240423222737/index.json"
+        },
+        "20240529225846": {
+          "versionEffectiveBeginDate": "2024-05-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-06-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240529225846/index.json"
+        },
+        "20240619214054": {
+          "versionEffectiveBeginDate": "2024-06-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-07-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240619214054/index.json"
+        },
+        "20240801182800": {
+          "versionEffectiveBeginDate": "2024-07-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-08-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240801182800/index.json"
+        },
+        "20240906161209": {
+          "versionEffectiveBeginDate": "2024-08-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-09-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240906161209/index.json"
+        },
+        "20240925173857": {
+          "versionEffectiveBeginDate": "2024-09-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-10-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20240925173857/index.json"
+        },
+        "20241028183924": {
+          "versionEffectiveBeginDate": "2024-10-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-11-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20241028183924/index.json"
+        },
+        "20241201191632": {
+          "versionEffectiveBeginDate": "2024-11-01T00:00:00Z",
+          "versionEffectiveEndDate": "2024-12-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20241201191632/index.json"
+        },
+        "20250109155921": {
+          "versionEffectiveBeginDate": "2024-12-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-01-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250109155921/index.json"
+        },
+        "20250201173643": {
+          "versionEffectiveBeginDate": "2025-01-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-02-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250201173643/index.json"
+        },
+        "20250301001739": {
+          "versionEffectiveBeginDate": "2025-02-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-03-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250301001739/index.json"
+        },
+        "20250327134630": {
+          "versionEffectiveBeginDate": "2025-03-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-04-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250327134630/index.json"
+        },
+        "20250502183321": {
+          "versionEffectiveBeginDate": "2025-04-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-05-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250502183321/index.json"
+        },
+        "20250521150903": {
+          "versionEffectiveBeginDate": "2025-05-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-06-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250521150903/index.json"
+        },
+        "20250627234939": {
+          "versionEffectiveBeginDate": "2025-06-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-07-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250627234939/index.json"
+        },
+        "20250804203903": {
+          "versionEffectiveBeginDate": "2025-07-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-08-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250804203903/index.json"
+        },
+        "20250829202233": {
+          "versionEffectiveBeginDate": "2025-08-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-09-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250829202233/index.json"
+        },
+        "20250926191349": {
+          "versionEffectiveBeginDate": "2025-09-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-10-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20250926191349/index.json"
+        },
+        "20251030003751": {
+          "versionEffectiveBeginDate": "2025-10-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-11-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20251030003751/index.json"
+        },
+        "20251128182851": {
+          "versionEffectiveBeginDate": "2025-11-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-12-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20251128182851/index.json"
+        },
+        "20251223190155": {
+          "versionEffectiveBeginDate": "2025-12-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-01-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20251223190155/index.json"
+        },
+        "20260128220111": {
+          "versionEffectiveBeginDate": "2026-01-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-02-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260128220111/index.json"
+        },
+        "20260313162108": {
+          "versionEffectiveBeginDate": "2026-02-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-03-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260313162108/index.json"
+        },
+        "20260326230352": {
+          "versionEffectiveBeginDate": "2026-03-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-04-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260326230352/index.json"
+        },
+        "20260504235304": {
+          "versionEffectiveBeginDate": "2026-04-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-05-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260504235304/index.json"
+        },
+        "20260603142155": {
+          "versionEffectiveBeginDate": "2026-05-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-06-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260603142155/index.json"
+        },
+        "20260619225109": {
+          "versionEffectiveBeginDate": "2026-06-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-07-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260619225109/index.json"
+        },
+        "20260804165549": {
+          "versionEffectiveBeginDate": "2026-07-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-08-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260804165549/index.json"
+        },
+        "20260915152020": {
+          "versionEffectiveBeginDate": "2026-08-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-09-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260915152020/index.json"
+        },
+        "20260930230255": {
+          "versionEffectiveBeginDate": "2026-09-01T00:00:00Z",
+          "versionEffectiveEndDate": "2026-10-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20260930230255/index.json"
+        },
+        "20261016210806": {
+          "versionEffectiveBeginDate": "2026-10-01T00:00:00Z",
+          "versionEffectiveEndDate": "",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrock/20261016210806/index.json"
+        }
+      }
+    },
+    "AmazonBedrockFoundationModels": {
+      "version_count": 3,
+      "versions": {
+        "20251127020656": {
+          "versionEffectiveBeginDate": "2024-04-01T00:00:00Z",
+          "versionEffectiveEndDate": "2025-03-06T19:24:06Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrockFoundationModels/20251127020656/index.json"
+        },
+        "20260922164418": {
+          "versionEffectiveBeginDate": "2025-03-06T19:24:06Z",
+          "versionEffectiveEndDate": "2026-07-01T00:00:00Z",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrockFoundationModels/20260922164418/index.json"
+        },
+        "20261012084008": {
+          "versionEffectiveBeginDate": "2026-07-01T00:00:00Z",
+          "versionEffectiveEndDate": "",
+          "offerVersionUrl": "/offers/v1.0/aws/AmazonBedrockFoundationModels/20261012084008/index.json"
+        }
+      }
+    }
+  },
+  "samples": [
+    {
+      "provider": "bedrock",
+      "native_id": "9XHSKPBV6R8E4FUY",
+      "evidence_kind": "official_historical_price_list",
+      "witness": "aws_bedrock_20230928",
+      "product_attributes": {
+        "servicecode": "AmazonBedrock",
+        "location": "US East (N. Virginia)",
+        "locationType": "AWS Region",
+        "usagetype": "USE1-TitanTextG1-Lite-input-tokens",
+        "operation": "",
+        "feature": "On-demand Inference",
+        "inferenceType": "Input tokens",
+        "regionCode": "us-east-1",
+        "servicename": "Amazon Bedrock",
+        "titanModel": "Titan Text G1 Lite"
+      },
+      "source_version": "20230928150907",
+      "publication_date": "2023-09-28T15:09:07Z",
+      "term_effective_date": "2023-09-28T00:00:00Z",
+      "price_dimension": {
+        "rateCode": "9XHSKPBV6R8E4FUY.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0003 per 1K tokens for TitanTextG1-Lite-input-tokens in US East (N. Virginia)",
+        "beginRange": "0",
+        "endRange": "Inf",
+        "unit": "1K tokens",
+        "pricePerUnit": {
+          "USD": "0.0003000000"
+        },
+        "appliesTo": []
+      },
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "bedrock",
+      "native_id": "RBJWS42PM5UET2HZ",
+      "evidence_kind": "official_historical_price_list",
+      "witness": "aws_bedrock_20230928",
+      "product_attributes": {
+        "servicecode": "AmazonBedrock",
+        "location": "US East (N. Virginia)",
+        "locationType": "AWS Region",
+        "usagetype": "USE1-TitanTextG1-Lite-output-tokens",
+        "operation": "",
+        "feature": "On-demand Inference",
+        "inferenceType": "Output tokens",
+        "regionCode": "us-east-1",
+        "servicename": "Amazon Bedrock",
+        "titanModel": "Titan Text G1 Lite"
+      },
+      "source_version": "20230928150907",
+      "publication_date": "2023-09-28T15:09:07Z",
+      "term_effective_date": "2023-09-28T00:00:00Z",
+      "price_dimension": {
+        "rateCode": "RBJWS42PM5UET2HZ.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0004 per 1K tokens for TitanTextG1-Lite-output-tokens in US East (N. Virginia)",
+        "beginRange": "0",
+        "endRange": "Inf",
+        "unit": "1K tokens",
+        "pricePerUnit": {
+          "USD": "0.0004000000"
+        },
+        "appliesTo": []
+      },
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "bedrock",
+      "native_id": "WK92UTYU8723FP82",
+      "evidence_kind": "official_historical_price_list",
+      "witness": "aws_bedrock_20230928",
+      "product_attributes": {
+        "servicecode": "AmazonBedrock",
+        "location": "US East (N. Virginia)",
+        "locationType": "AWS Region",
+        "usagetype": "USE1-TitanTextG1-Express-input-tokens",
+        "operation": "",
+        "feature": "On-demand Inference",
+        "inferenceType": "Input tokens",
+        "regionCode": "us-east-1",
+        "servicename": "Amazon Bedrock",
+        "titanModel": "Titan Text G1 Express"
+      },
+      "source_version": "20230928150907",
+      "publication_date": "2023-09-28T15:09:07Z",
+      "term_effective_date": "2023-09-28T00:00:00Z",
+      "price_dimension": {
+        "rateCode": "WK92UTYU8723FP82.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0013 per 1K tokens for TitanTextG1-Express-input-tokens in US East (N. Virginia)",
+        "beginRange": "0",
+        "endRange": "Inf",
+        "unit": "1K tokens",
+        "pricePerUnit": {
+          "USD": "0.0013000000"
+        },
+        "appliesTo": []
+      },
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "bedrock",
+      "native_id": "GSRHBBD5A5TVQ7CC",
+      "evidence_kind": "official_historical_price_list",
+      "witness": "aws_bedrock_20230928",
+      "product_attributes": {
+        "servicecode": "AmazonBedrock",
+        "location": "US East (N. Virginia)",
+        "locationType": "AWS Region",
+        "usagetype": "USE1-TitanTextG1-Express-output-tokens",
+        "operation": "",
+        "feature": "On-demand Inference",
+        "inferenceType": "Output tokens",
+        "regionCode": "us-east-1",
+        "servicename": "Amazon Bedrock",
+        "titanModel": "Titan Text G1 Express"
+      },
+      "source_version": "20230928150907",
+      "publication_date": "2023-09-28T15:09:07Z",
+      "term_effective_date": "2023-09-28T00:00:00Z",
+      "price_dimension": {
+        "rateCode": "GSRHBBD5A5TVQ7CC.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0017 per 1K tokens for TitanTextG1-Express-output-tokens in US East (N. Virginia)",
+        "beginRange": "0",
+        "endRange": "Inf",
+        "unit": "1K tokens",
+        "pricePerUnit": {
+          "USD": "0.0017000000"
+        },
+        "appliesTo": []
+      },
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "bedrock",
+      "native_id": "RS4JPUWRVXVJCUCE",
+      "evidence_kind": "official_historical_price_list",
+      "witness": "aws_bedrock_20230928",
+      "product_attributes": {
+        "servicecode": "AmazonBedrock",
+        "location": "US East (N. Virginia)",
+        "locationType": "AWS Region",
+        "usagetype": "USE1-TitanEmbeddingsG1-Text-input-tokens",
+        "operation": "",
+        "feature": "On-demand Inference",
+        "inferenceType": "Input tokens",
+        "regionCode": "us-east-1",
+        "servicename": "Amazon Bedrock",
+        "titanModel": "Titan Embeddings G1 Text"
+      },
+      "source_version": "20230928150907",
+      "publication_date": "2023-09-28T15:09:07Z",
+      "term_effective_date": "2023-09-28T00:00:00Z",
+      "price_dimension": {
+        "rateCode": "RS4JPUWRVXVJCUCE.JRTCKXETXF.6YS6EN2CT7",
+        "description": "$0.0001 per 1K tokens for TitanEmbeddingsG1-Text-input-tokens in US East (N. Virginia)",
+        "beginRange": "0",
+        "endRange": "Inf",
+        "unit": "1K tokens",
+        "pricePerUnit": {
+          "USD": "0.0001000000"
+        },
+        "appliesTo": []
+      },
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "deepinfra",
+      "native_id": "meta-llama/Llama-2-7b-chat-hf",
+      "evidence_kind": "archived_catalog_capture",
+      "witness": "deepinfra_20240618",
+      "archive_capture_at": "2024-06-18T16:54:58Z",
+      "effective_at": null,
+      "source_fields": {
+        "type": "text-generation",
+        "pricing": {
+          "cents_per_input_token": "7e-06",
+          "cents_per_output_token": "7e-06",
+          "type": "tokens"
+        },
+        "max_tokens": 4096,
+        "deprecated": 1718309480,
+        "replaced_by": "meta-llama/Meta-Llama-3-8B-Instruct",
+        "quantization": "fp16"
+      },
+      "currency": null,
+      "currency_note": "Replay uses cents fields without a currency code; no USD conversion asserted.",
+      "lifecycle_note": "Retain deprecated/replaced_by as published; timestamp semantics not independently verified.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "deepinfra",
+      "native_id": "meta-llama/Llama-2-70b-chat-hf",
+      "evidence_kind": "archived_catalog_capture",
+      "witness": "deepinfra_20240618",
+      "archive_capture_at": "2024-06-18T16:54:58Z",
+      "effective_at": null,
+      "source_fields": {
+        "type": "text-generation",
+        "pricing": {
+          "cents_per_input_token": "6.4e-05",
+          "cents_per_output_token": "8e-05",
+          "type": "tokens"
+        },
+        "max_tokens": 4096,
+        "deprecated": 1718309527,
+        "replaced_by": "meta-llama/Meta-Llama-3-70B-Instruct",
+        "quantization": "fp16"
+      },
+      "currency": null,
+      "currency_note": "Replay uses cents fields without a currency code; no USD conversion asserted.",
+      "lifecycle_note": "Retain deprecated/replaced_by as published; timestamp semantics not independently verified.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "deepinfra",
+      "native_id": "meta-llama/Meta-Llama-3-8B-Instruct",
+      "evidence_kind": "archived_catalog_capture",
+      "witness": "deepinfra_20240618",
+      "archive_capture_at": "2024-06-18T16:54:58Z",
+      "effective_at": null,
+      "source_fields": {
+        "type": "text-generation",
+        "pricing": {
+          "cents_per_input_token": "8e-06",
+          "cents_per_output_token": "8e-06",
+          "type": "tokens"
+        },
+        "max_tokens": 8192,
+        "deprecated": null,
+        "replaced_by": null,
+        "quantization": "bfloat16"
+      },
+      "currency": null,
+      "currency_note": "Replay uses cents fields without a currency code; no USD conversion asserted.",
+      "lifecycle_note": "Retain deprecated/replaced_by as published; timestamp semantics not independently verified.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "deepinfra",
+      "native_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "evidence_kind": "archived_catalog_capture",
+      "witness": "deepinfra_20240618",
+      "archive_capture_at": "2024-06-18T16:54:58Z",
+      "effective_at": null,
+      "source_fields": {
+        "type": "text-generation",
+        "pricing": {
+          "cents_per_input_token": "2.4e-05",
+          "cents_per_output_token": "2.4e-05",
+          "type": "tokens"
+        },
+        "max_tokens": 32768,
+        "deprecated": null,
+        "replaced_by": null,
+        "quantization": "bfloat16"
+      },
+      "currency": null,
+      "currency_note": "Replay uses cents fields without a currency code; no USD conversion asserted.",
+      "lifecycle_note": "Retain deprecated/replaced_by as published; timestamp semantics not independently verified.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "openai",
+      "native_id": "gpt-4-32k-0613",
+      "evidence_kind": "retrospective_official_deprecation_table",
+      "witness": "openai_deprecations",
+      "announcement_date": "2024-06-06",
+      "source_reported_shutdown_date": "2025-06-06",
+      "input": "60.00",
+      "output": "120",
+      "unit": "1M tokens",
+      "currency": "USD",
+      "effective_at": null,
+      "date_note": "Historical price reported retrospectively; announcement/shutdown dates do not establish tariff start or entire validity interval.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    },
+    {
+      "provider": "gemini",
+      "native_id": "gemini-1.5-flash-8b",
+      "evidence_kind": "official_dated_announcement",
+      "witness": "gemini_announcement",
+      "announcement_date": "2024-10-03",
+      "source_reported_billing_start_date": "2024-10-14",
+      "input": "0.0375",
+      "output": "0.15",
+      "cached_prompt_tokens": "0.01",
+      "unit": "1M tokens",
+      "currency": "USD",
+      "prompt_scope": "<128K; preserve strict boundary as written",
+      "cache_write": null,
+      "date_note": "Billing start is a source-stated date without timezone, not an inferred midnight UTC instant.",
+      "comparison_eligible": false,
+      "review_status": "research_only"
+    }
+  ]
+}
