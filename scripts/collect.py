@@ -46,6 +46,7 @@ def read_history(path):
     with path.open(newline="") as handle:
         rows = list(csv.DictReader(handle))
     for row in rows:
+        row["currency"] = row["currency"] or None
         for field in PRICE_FIELDS:
             row[field] = float(row[field]) if row[field] != "" else None
     return rows

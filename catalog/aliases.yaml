@@ -2,27 +2,66 @@
 # Turbo is kept as an explicit offering variant; known precision comes from the source.
 openai/gpt-oss-120b:
   aliases:
+    - "gpt-oss-120b"
+    - "GPT-OSS-120B"
+    - "B112004"
+    - "@cf/openai/gpt-oss-120b"
     - openai/gpt-oss-120b
     - openai/gpt-oss-120b-Turbo
     - accounts/fireworks/models/gpt-oss-120b
     - openai.gpt-oss-120b-1:0
+  legacy_aliases: ["openai/gpt-oss-120b", "openai/gpt-oss-120b-Turbo", "accounts/fireworks/models/gpt-oss-120b", "openai.gpt-oss-120b-1:0"]
+  reviewed_sources:
+    ovhcloud: ["gpt-oss-120b"]
+    scaleway: ["gpt-oss-120b"]
+    databricks: ["GPT-OSS-120B"]
+    oracle: ["B112004"]
+    cloudflare: ["@cf/openai/gpt-oss-120b"]
+    nebius: ["openai/gpt-oss-120b"]
+    huggingface: ["openai/gpt-oss-120b"]
+    openrouter: ["openai/gpt-oss-120b"]
 openai/gpt-oss-20b:
   aliases:
+    - "gpt-oss-20b"
+    - "GPT-OSS-20B"
+    - "B112006"
+    - "@cf/openai/gpt-oss-20b"
     - openai/gpt-oss-20b
     - openai/gpt-oss-20b-Turbo
     - openai.gpt-oss-20b-1:0
+  legacy_aliases: ["openai/gpt-oss-20b", "openai/gpt-oss-20b-Turbo", "openai.gpt-oss-20b-1:0"]
+  reviewed_sources:
+    ovhcloud: ["gpt-oss-20b"]
+    databricks: ["GPT-OSS-20B"]
+    oracle: ["B112006"]
+    cloudflare: ["@cf/openai/gpt-oss-20b"]
+    openrouter: ["openai/gpt-oss-20b"]
 meta/llama-3.3-70b-instruct:
   aliases:
+    - "Llama 3.3 70B"
+    - "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
     - meta-llama/Llama-3.3-70B-Instruct
     - meta-llama/Llama-3.3-70B-Instruct-Turbo
     - meta-llama/llama-3.3-70b-instruct
     - llama-3.3-70b-versatile
+  legacy_aliases: ["meta-llama/Llama-3.3-70B-Instruct", "meta-llama/Llama-3.3-70B-Instruct-Turbo", "meta-llama/llama-3.3-70b-instruct", "llama-3.3-70b-versatile", "meta/llama-3.3-70b-instruct"]
+  reviewed_sources:
+    databricks: ["Llama 3.3 70B"]
+    cloudflare: ["@cf/meta/llama-3.3-70b-instruct-fp8-fast"]
+    openrouter: ["meta-llama/llama-3.3-70b-instruct"]
 meta/llama-3.1-8b-instruct:
   aliases:
+    - "Llama 3.1 8B"
+    - "@cf/meta/llama-3.1-8b-instruct-fp8"
+    - "@cf/meta/llama-3.1-8b-instruct"
     - meta-llama/Meta-Llama-3.1-8B-Instruct
     - meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
     - meta-llama/llama-3.1-8b-instruct
     - llama-3.1-8b-instant
+  legacy_aliases: ["meta-llama/Meta-Llama-3.1-8B-Instruct", "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo", "meta-llama/llama-3.1-8b-instruct", "llama-3.1-8b-instant", "meta/llama-3.1-8b-instruct"]
+  reviewed_sources:
+    databricks: ["Llama 3.1 8B"]
+    cloudflare: ["@cf/meta/llama-3.1-8b-instruct", "@cf/meta/llama-3.1-8b-instruct-fp8"]
 qwen/qwen3-235b-a22b-instruct-2507:
   aliases:
     - Qwen/Qwen3-235B-A22B-Instruct-2507
@@ -83,6 +122,7 @@ openai/gpt-6-sol:
 anthropic/claude-opus-5.5:
   aliases: [claude-opus-5-5, anthropic/claude-opus-5-5, anthropic/claude-opus-5.5]
   reviewed_sources:
+    snowflake: ["claude-opus-5-5"]
     anthropic: [claude-opus-5-5]
     deepinfra: [anthropic/claude-opus-5-5]
     vercel: [anthropic/claude-opus-5.5]
@@ -134,8 +174,11 @@ google/gemma-4-e4b-it:
   reviewed_sources:
     deepinfra: [google/gemma-4-E4B-it]
 qwen/qwen3.8-27b:
-  aliases: [Qwen/Qwen3.8-27B, qwen/qwen3.8-27b, alibaba/qwen3.8-27b]
+  aliases: [Qwen/Qwen3.8-27B, qwen/qwen3.8-27b, alibaba/qwen3.8-27b, "@cf/qwen/qwen3.8-27b"]
   reviewed_sources:
+    cloudflare: ["@cf/qwen/qwen3.8-27b"]
+    nebius: ["Qwen/Qwen3.8-27B"]
+    huggingface: ["Qwen/Qwen3.8-27B"]
     deepinfra: [Qwen/Qwen3.8-27B]
     novita: [qwen/qwen3.8-27b]
     groq: [qwen/qwen3.8-27b]
@@ -159,41 +202,58 @@ qwen/qwen3.8-max:
     novita: [qwen/qwen3.8-max]
     vercel: [alibaba/qwen3.8-max]
 deepseek/deepseek-v4.1-flash:
-  aliases: [deepseek-ai/DeepSeek-V4.1-Flash, deepseek/deepseek-v4.1-flash]
+  aliases: [deepseek-ai/DeepSeek-V4.1-Flash, deepseek/deepseek-v4.1-flash, "deepseek-flash"]
   reviewed_sources:
+    deepseek: ["deepseek-flash"]
     deepinfra: [deepseek-ai/DeepSeek-V4.1-Flash]
     novita: [deepseek/deepseek-v4.1-flash]
     vercel: [deepseek/deepseek-v4.1-flash]
 deepseek/deepseek-v4-pro-0813:
-  aliases: [deepseek-ai/DeepSeek-V4-Pro-0813, deepseek/deepseek-v4-pro-0813]
+  aliases: [deepseek-ai/DeepSeek-V4-Pro-0813, deepseek/deepseek-v4-pro-0813, "deepseek-v4-pro"]
   reviewed_sources:
+    deepseek: ["deepseek-v4-pro"]
+    nebius: ["deepseek-ai/DeepSeek-V4-Pro-0813"]
+    huggingface: ["deepseek-ai/DeepSeek-V4-Pro-0813"]
     deepinfra: [deepseek-ai/DeepSeek-V4-Pro-0813]
     novita: [deepseek/deepseek-v4-pro-0813]
     vercel: [deepseek/deepseek-v4-pro-0813]
 zai/glm-5.3:
-  aliases: [zai-org/GLM-5.3, zai-org/glm-5.3, zai/glm-5.3]
+  aliases: [zai-org/GLM-5.3, zai-org/glm-5.3, zai/glm-5.3, "@cf/zai-org/glm-5.3", "glm-5.3", "GLM-5.3"]
   reviewed_sources:
+    snowflake: ["glm-5.3"]
+    zai: ["GLM-5.3"]
+    alibaba: ["glm-5.3"]
+    cloudflare: ["@cf/zai-org/glm-5.3"]
+    nebius: ["zai-org/GLM-5.3"]
+    huggingface: ["zai-org/GLM-5.3"]
     deepinfra: [zai-org/GLM-5.3]
     novita: [zai-org/glm-5.3]
     vercel: [zai/glm-5.3]
 zai/glm-5.3-flash:
-  aliases: [zai-org/GLM-5.3-Flash, zai-org/glm-5.3-flash, zai/glm-5.3-flash]
+  aliases: [zai-org/GLM-5.3-Flash, zai-org/glm-5.3-flash, zai/glm-5.3-flash, "@cf/zai-org/glm-5.3-flash", "GLM-5.3-Flash"]
   reviewed_sources:
+    zai: ["GLM-5.3-Flash"]
+    cloudflare: ["@cf/zai-org/glm-5.3-flash"]
+    nebius: ["zai-org/GLM-5.3-Flash"]
+    huggingface: ["zai-org/GLM-5.3-Flash"]
     deepinfra: [zai-org/GLM-5.3-Flash]
     novita: [zai-org/glm-5.3-flash]
     vercel: [zai/glm-5.3-flash]
 zai/glm-5.3-flashx:
-  aliases: [zai/glm-5.3-flashx]
+  aliases: [zai/glm-5.3-flashx, "GLM-5.3-FlashX"]
   reviewed_sources:
+    zai: ["GLM-5.3-FlashX"]
     vercel: [zai/glm-5.3-flashx]
 minimax/minimax-m3:
-  aliases: [MiniMaxAI/MiniMax-M3, minimax/minimax-m3]
+  aliases: [MiniMaxAI/MiniMax-M3, minimax/minimax-m3, "MiniMax-M3"]
   reviewed_sources:
+    minimax: ["MiniMax-M3"]
     deepinfra: [MiniMaxAI/MiniMax-M3]
     vercel: [minimax/minimax-m3]
 moonshotai/kimi-k3:
-  aliases: [moonshotai/Kimi-K3, moonshotai/kimi-k3]
+  aliases: [moonshotai/Kimi-K3, moonshotai/kimi-k3, "kimi-k3"]
   reviewed_sources:
+    snowflake: ["kimi-k3"]
     deepinfra: [moonshotai/Kimi-K3]
     novita: [moonshotai/kimi-k3]
     vercel: [moonshotai/kimi-k3]
@@ -237,6 +297,7 @@ meta/llama-4-scout-17b-16e-instruct:
     novita: [meta-llama/llama-4-scout-17b-16e-instruct]
     vercel: [meta/llama-4-scout]
 xai/grok-4.7:
-  aliases: [spacexai/grok-4.7]
+  aliases: [spacexai/grok-4.7, "grok-4.7"]
   reviewed_sources:
+    xai: ["grok-4.7"]
     vercel: [spacexai/grok-4.7]

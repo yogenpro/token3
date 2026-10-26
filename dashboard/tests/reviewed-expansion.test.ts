@@ -60,9 +60,10 @@ describe('explicit recent-model comparison expansion', () => {
   it('does not invent cloud, direct-creator, dynamic-route or unsupported tiered quotes', () => {
     for (const provider of ['azure', 'bedrock', 'vertex'])
       expect(data.offerings.some((o) => o.model_id === 'openai/gpt-6-astra' && o.provider === provider)).toBe(false);
-    expect(data.offerings.some((o) => o.provider === 'openrouter')).toBe(false);
+    expect(new Set(data.offerings.filter((o) => o.provider === 'openrouter').map((o) => o.provider_model_id)))
+      .toEqual(new Set(['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta-llama/llama-3.3-70b-instruct']));
     expect(data.offerings.some((o) => o.provider === 'novita' && o.model_id === 'minimax/minimax-m3')).toBe(false);
-    expect(new Set(data.offerings.filter((o) => o.model_id === 'xai/grok-4.7').map((o) => o.provider))).toEqual(new Set(['vercel']));
+    expect(new Set(data.offerings.filter((o) => o.model_id === 'xai/grok-4.7').map((o) => o.provider))).toEqual(new Set(['vercel', 'xai']));
     expect(data.models.find((m) => m.id === 'anthropic/claude-mythos-5.1')?.description).toContain('Limited availability');
   });
 });

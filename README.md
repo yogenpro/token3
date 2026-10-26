@@ -8,7 +8,7 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 
 ### Current scope and operating mode
 
-- **Compare:** reviewed model/offer identities only, with workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. A grouped reviewed-price digest highlights actual quote updates; an expandable model × billing-source workload price map preserves tier, region, variant, freshness and fit uncertainty. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
+- **Compare:** reviewed model/offer identities only, with separate USD/EUR/DBU/AI Credit views, workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. A grouped reviewed-price digest highlights actual quote updates; an expandable model × billing-source workload price map preserves tier, region, variant, freshness and fit uncertainty. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
 - **Models and Providers:** separate reviewed and provider-scoped directories, with creator/family/provider or modality/billing/pricing-state filters. Lightweight indexes lead to on-demand native evidence, including unknown prices, currencies and non-token units. Discovery never makes a record calculator-eligible.
 - **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. Native history opens as observation batches; event pages load bounded chunks. Explicit full-history searches examine all matching batches, never just the visible page. These are not mixed-unit price charts or launch/delisting announcements.
 - **Historical evidence:** search recovered model IDs, SKUs, document rows and PDF pages across all 26 groups. Inspect source captures, original expressions, provenance, distinct dates and partial-coverage checks; export the complete filtered historical selection separately. Unreviewed historical evidence does not enter current comparisons.
@@ -71,7 +71,7 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 - Current input/output/cache read/cache write comparisons with precision, context, variant, service tier, and region.
 - Per-request, total-workload, and per-million-request cost calculations. Set requests to `1,000,000` for that total.
 - Cheapest estimate for your actual input/output/cache mix; inapplicable prompt-price bands and known context/output limits cannot win.
-- Standard/priority/flex/all-tier filters, sortable prices and estimates, expandable provenance, and comparison CSV export.
+- Standard/priority/flex/all-tier filters, separate USD/EUR/DBU/AI Credit comparison bases, explicit DeepSeek peak/off-peak scenarios, sortable prices and estimates, expandable provenance, and correctly labeled comparison CSV export.
 - Input/output/cache-read history with stepped lines, date ranges, provider toggles, and an exact-observations table.
 - Separate reviewed-price, native-amount, billing-rule, and catalog change feeds; source absence never implies discontinuation.
 - Provider-native exploration across all 26 groups: search/filter, original billing rules/units, source scope, provenance, record details, lazy history, and filtered JSON exports.
@@ -83,31 +83,31 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ### Reviewed coverage and collection scope
 
-Reviewed baseline: **45 canonical models / 216 recorded offerings / 12 reviewed providers**.
+Reviewed baseline: **45 canonical models / 263 recorded offerings / 26 reviewed providers**.
 
-These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 216 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 263 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
 
 This is the complete **reviewed canonical model list**, not every model name, route, flavor or SKU in the broader native inventory. Canonical IDs keep versions and variants explicit.
 
 | Canonical model | Canonical ID | Providers with recorded reviewed offerings (including inactive) |
 | --- | --- | --- |
-| GPT-OSS 120B | `openai/gpt-oss-120b` | DeepInfra, Novita, Together AI, Fireworks, Groq, Amazon Bedrock |
-| GPT-OSS 20B | `openai/gpt-oss-20b` | DeepInfra, Novita, Groq, Amazon Bedrock |
-| Llama 3.3 70B Instruct | `meta/llama-3.3-70b-instruct` | DeepInfra, Novita, Together AI |
-| Llama 3.1 8B Instruct | `meta/llama-3.1-8b-instruct` | DeepInfra, Novita |
+| GPT-OSS 120B | `openai/gpt-oss-120b` | Amazon Bedrock, Cloudflare Workers AI, Databricks, DeepInfra, Fireworks, Groq, Hugging Face Inference, Nebius Token Factory, Novita, OVHcloud AI Endpoints, OpenRouter, Oracle Cloud Generative AI, Scaleway Generative APIs, Together AI |
+| GPT-OSS 20B | `openai/gpt-oss-20b` | Amazon Bedrock, Cloudflare Workers AI, Databricks, DeepInfra, Groq, Novita, OVHcloud AI Endpoints, OpenRouter, Oracle Cloud Generative AI |
+| Llama 3.3 70B Instruct | `meta/llama-3.3-70b-instruct` | Cloudflare Workers AI, Databricks, DeepInfra, Novita, OpenRouter, Together AI |
+| Llama 3.1 8B Instruct | `meta/llama-3.1-8b-instruct` | Cloudflare Workers AI, Databricks, DeepInfra, Novita |
 | Qwen3 235B A22B Instruct 2507 | `qwen/qwen3-235b-a22b-instruct-2507` | DeepInfra, Novita |
-| GPT-5.4 (2026-03-05) | `openai/gpt-5.4` | OpenAI API, Microsoft Foundry (Azure OpenAI) |
-| GPT-5.4 mini (2026-03-17) | `openai/gpt-5.4-mini` | OpenAI API, Microsoft Foundry (Azure OpenAI) |
-| Claude Sonnet 4.6 | `anthropic/claude-sonnet-4.6` | Anthropic API, Google Vertex AI, Amazon Bedrock |
-| Claude Opus 4.6 | `anthropic/claude-opus-4.6` | Anthropic API, Google Vertex AI, Amazon Bedrock |
-| Claude Haiku 4.5 (2025-10-01) | `anthropic/claude-haiku-4.5` | Anthropic API, Google Vertex AI, Amazon Bedrock |
+| GPT-5.4 (2026-03-05) | `openai/gpt-5.4` | Microsoft Foundry (Azure OpenAI), OpenAI API |
+| GPT-5.4 mini (2026-03-17) | `openai/gpt-5.4-mini` | Microsoft Foundry (Azure OpenAI), OpenAI API |
+| Claude Sonnet 4.6 | `anthropic/claude-sonnet-4.6` | Amazon Bedrock, Anthropic API, Google Vertex AI |
+| Claude Opus 4.6 | `anthropic/claude-opus-4.6` | Amazon Bedrock, Anthropic API, Google Vertex AI |
+| Claude Haiku 4.5 (2025-10-01) | `anthropic/claude-haiku-4.5` | Amazon Bedrock, Anthropic API, Google Vertex AI |
 | Gemini 3.8 Flash | `google/gemini-3.8-flash` | Google Gemini API, Google Vertex AI |
 | Gemini 3.5 Flash-Lite | `google/gemini-3.5-flash-lite` | Google Gemini API, Google Vertex AI |
 | GPT-6 Astra | `openai/gpt-6-astra` | OpenAI API, Vercel AI Gateway |
 | GPT-6.1 Sol | `openai/gpt-6.1-sol` | OpenAI API, Vercel AI Gateway |
 | GPT-6 Luna | `openai/gpt-6-luna` | OpenAI API, Vercel AI Gateway |
 | GPT-6 Sol | `openai/gpt-6-sol` | OpenAI API, Vercel AI Gateway |
-| Claude Opus 5.5 | `anthropic/claude-opus-5.5` | Anthropic API, DeepInfra, Vercel AI Gateway |
+| Claude Opus 5.5 | `anthropic/claude-opus-5.5` | Anthropic API, DeepInfra, Snowflake Cortex, Vercel AI Gateway |
 | Claude Sonnet 5.5 | `anthropic/claude-sonnet-5.5` | Anthropic API, DeepInfra, Vercel AI Gateway |
 | Claude Haiku 5.5 | `anthropic/claude-haiku-5.5` | Anthropic API, Vercel AI Gateway |
 | Claude Fable 5 | `anthropic/claude-fable-5` | Anthropic API, DeepInfra, Vercel AI Gateway |
@@ -117,17 +117,17 @@ This is the complete **reviewed canonical model list**, not every model name, ro
 | Gemma 4 31B IT | `google/gemma-4-31b-it` | DeepInfra, Novita, Vercel AI Gateway |
 | Gemma 4 26B A4B IT | `google/gemma-4-26b-a4b-it` | DeepInfra, Novita, Vercel AI Gateway |
 | Gemma 4 E4B IT | `google/gemma-4-e4b-it` | DeepInfra |
-| Qwen3.8 27B | `qwen/qwen3.8-27b` | DeepInfra, Groq, Novita, Vercel AI Gateway |
+| Qwen3.8 27B | `qwen/qwen3.8-27b` | Cloudflare Workers AI, DeepInfra, Groq, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway |
 | Qwen3.8 2.4T A95B | `qwen/qwen3.8-2.4t-a95b` | DeepInfra, Novita, Vercel AI Gateway |
 | Qwen3.8 Flash | `qwen/qwen3.8-flash` | DeepInfra, Novita, Vercel AI Gateway |
 | Qwen3.8 Max | `qwen/qwen3.8-max` | DeepInfra, Novita, Vercel AI Gateway |
-| DeepSeek V4.1 Flash | `deepseek/deepseek-v4.1-flash` | DeepInfra, Novita, Vercel AI Gateway |
-| DeepSeek V4 Pro 0813 | `deepseek/deepseek-v4-pro-0813` | DeepInfra, Novita, Vercel AI Gateway |
-| GLM-5.3 | `zai/glm-5.3` | DeepInfra, Novita, Vercel AI Gateway |
-| GLM-5.3 Flash | `zai/glm-5.3-flash` | DeepInfra, Novita, Vercel AI Gateway |
-| GLM-5.3 FlashX | `zai/glm-5.3-flashx` | Vercel AI Gateway |
-| MiniMax M3 | `minimax/minimax-m3` | DeepInfra, Vercel AI Gateway |
-| Kimi K3 | `moonshotai/kimi-k3` | DeepInfra, Novita, Vercel AI Gateway |
+| DeepSeek V4.1 Flash | `deepseek/deepseek-v4.1-flash` | DeepInfra, DeepSeek, Novita, Vercel AI Gateway |
+| DeepSeek V4 Pro 0813 | `deepseek/deepseek-v4-pro-0813` | DeepInfra, DeepSeek, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway |
+| GLM-5.3 | `zai/glm-5.3` | Alibaba Cloud Model Studio, Cloudflare Workers AI, DeepInfra, Hugging Face Inference, Nebius Token Factory, Novita, Snowflake Cortex, Vercel AI Gateway, Z.ai |
+| GLM-5.3 Flash | `zai/glm-5.3-flash` | Cloudflare Workers AI, DeepInfra, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway, Z.ai |
+| GLM-5.3 FlashX | `zai/glm-5.3-flashx` | Vercel AI Gateway, Z.ai |
+| MiniMax M3 | `minimax/minimax-m3` | DeepInfra, MiniMax, Vercel AI Gateway |
+| Kimi K3 | `moonshotai/kimi-k3` | DeepInfra, Novita, Snowflake Cortex, Vercel AI Gateway |
 | Kimi K2.7 Code | `moonshotai/kimi-k2.7-code` | DeepInfra, Novita, Vercel AI Gateway |
 | Nemotron 3.5 Lightning | `nvidia/nemotron-3.5-lightning` | DeepInfra, Vercel AI Gateway |
 | Nemotron 3 Ultra 550B A55B | `nvidia/nemotron-3-ultra-550b-a55b` | DeepInfra, Vercel AI Gateway |
@@ -135,7 +135,7 @@ This is the complete **reviewed canonical model list**, not every model name, ro
 | Nemotron 3 Nano 30B A3B | `nvidia/nemotron-3-nano-30b-a3b` | DeepInfra, Novita, Vercel AI Gateway |
 | Llama 4 Maverick 17B 128E Instruct | `meta/llama-4-maverick-17b-128e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
 | Llama 4 Scout 17B 16E Instruct | `meta/llama-4-scout-17b-16e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
-| Grok 4.7 | `xai/grok-4.7` | Vercel AI Gateway |
+| Grok 4.7 | `xai/grok-4.7` | Vercel AI Gateway, xAI |
 
 Claude 4.6 releases remain labeled legacy for verifiable historical cross-cloud coverage. GPT-5.4/mini retain their Azure comparisons; newer GPT-6 identities have separately reviewed OpenAI and Vercel quotes, not automatically inferred AWS/Azure/Vertex quotes. Vercel is the billing gateway, **not an asserted upstream supplier**. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
@@ -149,7 +149,7 @@ The [historical evidence ledger](docs/historical-evidence-ledger.md) retains sel
 
 ### Full source-native inventory (separate from comparisons)
 
-Collection scope: **26 provider groups**, including 14 **inventory-only** sources: OpenRouter, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. Vercel AI Gateway now has a separate explicitly curated token-quote adapter; its complete native catalog remains comparison-ineligible. Collection never automatically adds dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+Collection scope: **26 provider groups**, with separately reviewed selections across all 26, including the fourteen previously inventory-only sources. The [2026-10-26 provider review](docs/provider-comparison-expansion.md) added 47 quotes across OpenRouter, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. Compare separates USD, EUR, Databricks DBUs and Snowflake AI Credits, with no assumed FX or credit conversion. DeepSeek has an explicit peak/off-peak scenario selector. Complete native catalogs remain comparison-ineligible. Collection never automatically adds dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
 
 #### Recent/current-generation models now reviewed
 
@@ -161,36 +161,36 @@ The captured version is **GPT-6 Luna**, not `gpt-6.1-luna`. API pricing is separ
 
 #### All collected provider groups
 
-All **12 reviewed providers** also have native inventory; the other **14 groups are native-inventory-only**. These are billing/source groups, not model creators or inferred upstream suppliers. Google Gemini API means the Gemini Developer API, separate from Vertex AI billing. Microsoft Foundry's reviewed quotes are Azure OpenAI offerings; its native meter inventory has broader scope.
+All **26 provider groups** now have selected retained reviewed offerings and native inventory. Together’s current comparisons remain paused. Review is at the exact model/billing-scope level; unselected native records stay outside Compare. These are billing/source groups, not model creators or inferred upstream suppliers. Google Gemini API means the Gemini Developer API, separate from Vertex AI billing. Microsoft Foundry's reviewed quotes are Azure OpenAI offerings; its native meter inventory has broader scope.
 
 | Provider group | Collector ID | Coverage |
 | --- | --- | --- |
-| Alibaba Cloud Model Studio | `alibaba` | Native inventory only |
+| Alibaba Cloud Model Studio | `alibaba` | Reviewed comparisons + native inventory |
 | Anthropic API | `anthropic` | Reviewed comparisons + native inventory |
 | Microsoft Foundry (Azure OpenAI) | `azure` | Reviewed comparisons + native inventory |
 | Amazon Bedrock | `bedrock` | Reviewed comparisons + native inventory |
-| Cloudflare Workers AI | `cloudflare` | Native inventory only |
-| Databricks | `databricks` | Native inventory only |
+| Cloudflare Workers AI | `cloudflare` | Reviewed comparisons + native inventory |
+| Databricks | `databricks` | Reviewed comparisons + native inventory |
 | DeepInfra | `deepinfra` | Reviewed comparisons + native inventory |
-| DeepSeek | `deepseek` | Native inventory only |
+| DeepSeek | `deepseek` | Reviewed comparisons + native inventory |
 | Fireworks | `fireworks` | Reviewed comparisons + native inventory |
 | Google Gemini API | `gemini` | Reviewed comparisons + native inventory |
 | Groq | `groq` | Reviewed comparisons + native inventory |
-| Hugging Face Inference | `huggingface` | Native inventory only |
-| MiniMax | `minimax` | Native inventory only |
-| Nebius Token Factory | `nebius` | Native inventory only |
+| Hugging Face Inference | `huggingface` | Reviewed comparisons + native inventory |
+| MiniMax | `minimax` | Reviewed comparisons + native inventory |
+| Nebius Token Factory | `nebius` | Reviewed comparisons + native inventory |
 | Novita | `novita` | Reviewed comparisons + native inventory |
 | OpenAI API | `openai` | Reviewed comparisons + native inventory |
-| OpenRouter | `openrouter` | Native inventory only |
-| Oracle Cloud Generative AI | `oracle` | Native inventory only |
-| OVHcloud AI Endpoints | `ovhcloud` | Native inventory only |
-| Scaleway Generative APIs | `scaleway` | Native inventory only |
-| Snowflake Cortex | `snowflake` | Native inventory only |
+| OpenRouter | `openrouter` | Reviewed comparisons + native inventory |
+| Oracle Cloud Generative AI | `oracle` | Reviewed comparisons + native inventory |
+| OVHcloud AI Endpoints | `ovhcloud` | Reviewed comparisons + native inventory |
+| Scaleway Generative APIs | `scaleway` | Reviewed comparisons + native inventory |
+| Snowflake Cortex | `snowflake` | Reviewed comparisons + native inventory |
 | Together AI | `together` | Reviewed comparisons + native inventory |
 | Vercel AI Gateway | `vercel` | Reviewed comparisons + native inventory |
 | Google Vertex AI | `vertex` | Reviewed comparisons + native inventory |
-| xAI | `xai` | Native inventory only |
-| Z.ai | `zai` | Native inventory only |
+| xAI | `xai` | Reviewed comparisons + native inventory |
+| Z.ai | `zai` | Reviewed comparisons + native inventory |
 
 Native model/route/flavor identities can be enumerated in the dashboard's **Models → Collected** directory or `catalog/models.json` public projection. All selected evidence, including non-model meters, SKUs and document rows, is in the per-provider catalogs and **Providers → Export filtered records**. Those are source-scoped listings—not an additional deduplicated canonical model list. Their volatile totals are not the reviewed baseline above.
 
@@ -250,7 +250,7 @@ Do not run concurrent collectors on the same directory. Unix runs also use a fil
 
 ## Calculation assumptions
 
-`input tokens` includes the cached portion. For USD-per-million rates:
+`input tokens` includes the cached portion. For per-million rates within the selected USD/EUR/DBU/AI Credit billing basis:
 
 ```text
 cached_input   = input_tokens × cache_hit_percent / 100
@@ -283,7 +283,7 @@ scripts/detect_changes.py     event generation
 scripts/collect.py            collection + storage + failure handling
 scripts/catalog_inventory.py  source-native catalog adaptation
 scripts/inventory_retention.py semantic state versus compact source observations
-scripts/extended_inventory.py inventory-only source adaptation
+scripts/extended_inventory.py source-native inventory adaptation
 scripts/dashboard_projection.ts validated read-only public native projections
 scripts/ci_failure_issue.py   trusted no-AI issue handoff controller
 

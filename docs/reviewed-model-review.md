@@ -41,6 +41,8 @@ Vercel's Fast, ultrafast, regional and Batch pricing, as well as non-language mo
 
 ## Deliberate remaining gaps
 
+These were the October 11 boundaries. The [October 26 provider review](provider-comparison-expansion.md) supersedes provider-wide inventory-only status with selected exact bindings and separate billing bases; unreviewed records and variants remain outside Compare.
+
 - Newer AWS/Vertex/Foundry records are still native evidence unless their exact billing meters, endpoint region, tier, prompt bands and cache conditions have separately reviewed bindings. This expansion does not change existing cloud scope or transplant first-party prices into cloud quotes.
 - OpenRouter remains inventory-only; no supplier endpoint or dynamic routing price was inferred. Vercel review does not enroll another gateway automatically.
 - Novita's MiniMax M3 tier table remains unsupported for comparisons; its full evidence is preserved. Other unreviewed source variants and modalities are not silently skipped into an equivalent cheap base model.

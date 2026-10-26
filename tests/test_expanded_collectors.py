@@ -224,7 +224,8 @@ class ExpandedRequestTests(unittest.TestCase):
         body = FIXTURES['snowflake']['documents'][0]['body']
         with patch('providers.expanded.fetch_text', return_value=body), patch('providers.expanded._snowflake_pdf', side_effect=RuntimeError('HTTP 403')):
             result = collector.collect()
-        self.assertTrue(result.inventory_only)
+        self.assertFalse(result.inventory_only)
+        self.assertIsNotNone(result.parse_error)  # Native fallback cannot refresh reviewed quotes.
         self.assertIn('billing-guide coverage only', result.fallback_reason)
         self.assertEqual(result.records, [])
         self.assertIn('model rates unavailable', result.source_payload)
@@ -240,6 +241,11 @@ class ExpandedRequestTests(unittest.TestCase):
 
 
 class InventoryOnlyRetentionTests(unittest.TestCase):
+    def setUp(self):
+        # Exercise the inventory-only trust boundary independently of current
+        # enrollments; OpenRouter now has a separately reviewed quote adapter.
+        self.enterContext(patch('scripts.collect.REVIEWED_INVENTORY_PROVIDERS', frozenset(('vercel',))))
+
     def test_inventory_only_bootstrap_success_and_unchanged_retry_do_not_create_quotes(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

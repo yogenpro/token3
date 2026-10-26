@@ -7,7 +7,9 @@ regional, batch and non-token charges remain in the complete native inventory.
 from .common import number, observation, provider_aliases
 from .public_pricing import require_models, unique_records
 
-REVIEWED_INVENTORY_PROVIDERS = frozenset(("vercel",))
+from .comparison_expansion import PROVIDERS as EXPANDED_COMPARISON_PROVIDERS
+
+REVIEWED_INVENTORY_PROVIDERS = frozenset(("vercel",)) | EXPANDED_COMPARISON_PROVIDERS
 TOKEN_FIELDS = ("input", "output", "input_cache_read", "input_cache_write")
 
 
@@ -117,4 +119,7 @@ def reviewed_quotes(provider, payload, aliases, source):
     aliases = provider_aliases(aliases, provider)
     if provider == "vercel":
         return vercel_quotes(payload, aliases, source)
+    if provider in EXPANDED_COMPARISON_PROVIDERS:
+        from .comparison_expansion import expanded_quotes
+        return expanded_quotes(provider, payload, aliases, source)
     raise ValueError("Provider has no separately reviewed native-source adapter")

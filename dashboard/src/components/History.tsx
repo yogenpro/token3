@@ -3,16 +3,17 @@ import { ChartNoAxesCombined, Info } from 'lucide-react';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import type { Dataset, Model, Price } from '../lib/data';
 import { providerColor, providerInfo } from '../lib/data';
-import { dateLabel, exactDate, historyRows, inputBandLabel, money } from '../lib/pricing';
+import { dateLabel, exactDate, historyRows, inputBandLabel, money as formatMoney, quoteUnit, unitLabel, type QuoteUnit } from '../lib/pricing';
 
 type Metric = keyof Pick<Price, 'input_per_million' | 'output_per_million' | 'cache_read_per_million'>;
 const metrics: [Metric, string][] = [['input_per_million', 'Input'], ['output_per_million', 'Output'], ['cache_read_per_million', 'Cache read']];
-export function History({ data, model, tier }: { data: Dataset; model: Model; tier: string }) {
+export function History({ data, model, tier, unit = 'USD', period = 'peak' }: { data: Dataset; model: Model; tier: string; unit?: QuoteUnit; period?: string }) {
+  const money = (value: number) => formatMoney(value, false, unit);
   const [metric, setMetric] = useState<Metric>('input_per_million');
   const [days, setDays] = useState(30);
   const [hidden, setHidden] = useState<string[]>([]);
-  useEffect(() => { setHidden([]); }, [model.id, tier]);
-  const offerings = useMemo(() => data.offerings.filter((o) => o.model_id === model.id && (tier === 'all' || o.service_tier === tier)), [data, model.id, tier]);
+  useEffect(() => { setHidden([]); }, [model.id, tier, unit, period]);
+  const offerings = useMemo(() => data.offerings.filter((o) => o.model_id === model.id && quoteUnit(o) === unit && (o.provider !== 'deepseek' || o.variant === period) && (tier === 'all' || o.service_tier === tier)), [data, model.id, tier, unit, period]);
   const rows = useMemo(() => historyRows(data.history, offerings, metric, days), [data.history, offerings, metric, days]);
   const providerIds = [...new Set(offerings.map((o) => o.provider))];
   const visible = offerings.filter((o) => !hidden.includes(o.provider));
@@ -24,13 +25,13 @@ export function History({ data, model, tier }: { data: Dataset; model: Model; ti
   const snapshotValues = rows.flatMap((r) => visible.map((o) => r[o.id]).filter((v): v is number => typeof v === 'number'));
   const observationIds = new Set(offerings.map((o) => o.id));
   const observations = data.history.filter((p) => observationIds.has(p.offering_id) && (days === 0 || new Date(p.observed_at).getTime() >= Date.now() - days * 86400000));
-  return <section className="panel history-panel"><div className="section-heading"><div><div className="eyebrow">THE LONG VIEW</div><h2>Price history <span className="heading-unit">USD / 1M tokens</span></h2></div><select aria-label="History date range" className="compact-select" value={days} onChange={(e) => setDays(Number(e.target.value))}><option value={7}>Last 7 days</option><option value={30}>Last 30 days</option><option value={90}>Last 90 days</option><option value={0}>All time</option></select></div>
+  return <section className="panel history-panel"><div className="section-heading"><div><div className="eyebrow">THE LONG VIEW</div><h2>Price history <span className="heading-unit">{unitLabel(unit)} / 1M tokens</span></h2></div><select aria-label="History date range" className="compact-select" value={days} onChange={(e) => setDays(Number(e.target.value))}><option value={7}>Last 7 days</option><option value={30}>Last 30 days</option><option value={90}>Last 90 days</option><option value={0}>All time</option></select></div>
     <div className="history-controls"><div className="segments" role="group" aria-label="History price metric">{metrics.map(([key, name]) => <button key={key} onClick={() => setMetric(key)} className={metric === key ? 'active' : ''}>{name}</button>)}</div><span className="history-observations">{uniqueDays} {uniqueDays === 1 ? 'day' : 'days'} observed</span></div>
     {hasValues && uniqueDays < 2 ? <div className="first-observation" role="region" aria-label={`First observed price snapshot for ${model.name}`}><Info size={22} /><div><strong>First observed {dateLabel(new Date(first).toISOString())}</strong><p>One observed date, not a price trend. No earlier prices are backfilled.</p><span className="snapshot-price">{money(Math.min(...snapshotValues))}{Math.max(...snapshotValues) !== Math.min(...snapshotValues) ? ` – ${money(Math.max(...snapshotValues))}` : ''} <small>/ 1M tokens · {metrics.find(([key]) => key === metric)?.[1].toLowerCase()}</small></span><p>Tier, region and prompt-band differences remain in the exact observations below.</p></div></div> : hasValues ? <div className="chart-container" role="img" aria-label={`${metrics.find(([key]) => key === metric)?.[1]} price history for ${model.name}. ${uniqueDays} observed days. A table of exact observations is available below.`}><ResponsiveContainer width="100%" height={260}>
       <LineChart data={rows} margin={{ top: 20, right: 24, left: -8, bottom: 10 }} accessibilityLayer>
         <CartesianGrid strokeDasharray="3 5" vertical={false} stroke="var(--chart-grid)" />
         <XAxis dataKey="timestamp" type="number" domain={first === last ? [first - 43200000, last + 43200000] : [first, last]} ticks={rows.length < 6 ? rows.map((r) => r.timestamp!) : undefined} tickFormatter={(t: number) => dateLabel(new Date(t).toISOString())} tick={{ fontSize: 'var(--text-xs)', fill: 'var(--muted)' }} axisLine={false} tickLine={false} minTickGap={40} />
-        <YAxis domain={[0, 'auto']} tickFormatter={(v: number) => `$${Number(v.toFixed(3))}`} tick={{ fontSize: 'var(--text-xs)', fill: 'var(--muted)' }} axisLine={false} tickLine={false} width={70} />
+        <YAxis domain={[0, 'auto']} tickFormatter={(v: number) => money(v)} tick={{ fontSize: 'var(--text-xs)', fill: 'var(--muted)' }} axisLine={false} tickLine={false} width={70} />
         <Tooltip contentStyle={{ borderRadius: 10, border: '1px solid var(--border)', background: 'var(--surface)', color: 'var(--text)', fontSize: 'var(--text-sm)', boxShadow: '0 8px 24px #16234512' }} labelFormatter={(timestamp) => exactDate(new Date(Number(timestamp)).toISOString())} formatter={(value, name) => [money(Number(value)), label(String(name))]} />
         {visible.map((o) => <Line key={o.id} dataKey={o.id} name={o.id} type="stepAfter" stroke={providerColor(o.provider)} strokeWidth={2.4} strokeDasharray={o.variant !== 'standard' || o.service_tier !== 'standard' ? '5 4' : undefined} dot={rows.length < 20 ? { r: 4, strokeWidth: 2, fill: 'var(--surface)' } : false} activeDot={{ r: 6 }} connectNulls={false} isAnimationActive={false} />)}
       </LineChart>

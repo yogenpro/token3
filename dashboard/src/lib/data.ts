@@ -19,11 +19,12 @@ const offeringSchema = z.object({
   source_url: url, active: z.boolean(), first_observed_at: timestamp, last_seen_at: timestamp,
   min_input_tokens: z.number().int().nonnegative().optional(), max_input_tokens: z.number().int().nonnegative().nullable().optional(),
   max_output_tokens: z.number().int().nonnegative().nullable().optional(), pricing_notes: z.string().optional(),
+  quote_unit: z.enum(['USD', 'EUR', 'DBU', 'AI_CREDIT']).optional(),
 }).refine((o) => o.max_input_tokens == null || o.max_input_tokens >= (o.min_input_tokens ?? 0), 'Invalid input pricing band');
 const priceSchema = z.object({
   offering_id: z.string(), observed_at: timestamp, input_per_million: rate, output_per_million: rate,
   cache_read_per_million: rate.nullable(), cache_write_per_million: rate.nullable(),
-  currency: z.literal('USD'), source_url: url, source_sha256: z.string(),
+  currency: z.enum(['USD', 'EUR']).nullable(), source_url: url, source_sha256: z.string(),
 });
 const changeSchema = z.object({
   id: z.string(), kind: z.enum(['offering_added', 'offering_removed', 'offering_restored', 'offering_updated', 'price_changed']),
@@ -68,6 +69,13 @@ export const datasetSchema = z.object({
   }
   if (data.history.length !== data.status.observation_count) {
     ctx.addIssue({ code: 'custom', message: 'Observation count does not match history' });
+  }
+  const offers = new Map(data.offerings.map((o) => [o.id, o]));
+  for (const p of [...data.prices, ...data.history]) {
+    const unit = offers.get(p.offering_id)?.quote_unit ?? 'USD';
+    if (p.currency !== (unit === 'USD' || unit === 'EUR' ? unit : null)) {
+      ctx.addIssue({ code: 'custom', message: 'Quote currency and billing basis disagree' });
+    }
   }
 });
 
