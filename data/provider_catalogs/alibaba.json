@@ -431,10 +431,10 @@
       "billing": {
         "cells": [
           "qwen3.8-omni-flash-realtime",
-          "0.212",
-          "0.848",
-          "0.636",
-          "1.696"
+          "\\$0.212",
+          "\\$0.848",
+          "\\$0.636",
+          "\\$1.696"
         ],
         "columns": [
           "Model ID",
@@ -446,7 +446,52 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "Input: text/images/video:0",
+          "amount": "0.212",
+          "currency": "USD",
+          "unit": "/images",
+          "conditions": {
+            "source_expression": "\\$0.212",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Input: audio:0",
+          "amount": "0.848",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.848",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output: text:0",
+          "amount": "0.636",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.636",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output: audio:0",
+          "amount": "1.696",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.696",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -1389,53 +1434,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "alibaba-06e359ab290064e8a755c2da",
-      "provider": "alibaba",
-      "native_id": "569fd21e5d07e4eef90ff127",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 28,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "Japan (Tokyo)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "Global",
-          "USD 0.113",
-          "USD 0.014",
-          "USD 0.382"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "alibaba-07058bad890473222826964f",
       "provider": "alibaba",
       "native_id": "abd29dfe05ead72cb2aeb56f",
@@ -1512,6 +1510,79 @@
           "unit": null,
           "conditions": {
             "source_expression": "\\$2.25",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-078f011c6b02b3a740a3f575",
+      "provider": "alibaba",
+      "native_id": "5d3d19abe0302e07f6c5fec6",
+      "kind": "document_row",
+      "label": "glm-5.3",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - third-party models <span id=\"9d81c3caebvd7\" />",
+          "GLM <span id=\"631908b1c86q1\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "Model ID",
+          "Deployment scope",
+          "Mode",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens) > Chain of thought and answer"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "glm-5.3",
+          "US",
+          "Non-Thinking and Thinking modes",
+          "flat-rate pricing",
+          "\\$1.400",
+          "\\$4.4"
+        ],
+        "columns": [
+          "Model ID",
+          "Deployment scope",
+          "Mode",
+          "Input tokens per request",
+          "Input price (per 1 million tokens)",
+          "Output price (per 1 million tokens) > Chain of thought and answer"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input price (per 1 million tokens):0",
+          "amount": "1.4",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.400",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output price (per 1 million tokens) > Chain of thought and answer:0",
+          "amount": "4.4",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$4.4",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -5372,10 +5443,10 @@
       "billing": {
         "cells": [
           "qwen3.8-omni-flash-realtime",
-          "0.23",
-          "0.93",
-          "0.70",
-          "1.87",
+          "\\$0.23",
+          "\\$0.93",
+          "\\$0.70",
+          "\\$1.87",
           "1 million tokens"
         ],
         "columns": [
@@ -5389,7 +5460,52 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "Input: text/images/video:0",
+          "amount": "0.23",
+          "currency": "USD",
+          "unit": "/images",
+          "conditions": {
+            "source_expression": "\\$0.23",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Input: audio:0",
+          "amount": "0.93",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.93",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output: text:0",
+          "amount": "0.7",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$0.70",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output: audio:0",
+          "amount": "1.87",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.87",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -6248,6 +6364,87 @@
           "conditions": {
             "source_expression": "Busy hours: \\$1.131 Idle hours: \\$0.565",
             "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-18eede041fc4925017fc46bb",
+      "provider": "alibaba",
+      "native_id": "569fd21e5d07e4eef90ff127",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 30,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "US (Virginia)"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "Global",
+          "\\$0.113",
+          "\\$0.014",
+          "\\$0.382"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.113",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.113",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.014",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.382",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.382",
+            "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
@@ -13275,53 +13472,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "alibaba-349e5e39f1af945b38ade21e",
-      "provider": "alibaba",
-      "native_id": "67737152cbcf56dd2e2fb191",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 24,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "China (Beijing)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "Chinese mainland",
-          "USD 0.113",
-          "USD 0.014",
-          "USD 0.382"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -24834,6 +24984,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-695d018a3e473e46bf613dbd",
+      "provider": "alibaba",
+      "native_id": "569fd21e5d07e4eef90ff127",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 29,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "Germany (Frankfurt)"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "Global",
+          "\\$0.113",
+          "\\$0.014",
+          "\\$0.382"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.113",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.113",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.014",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.382",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.382",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-6960986eb39a94dc4c448b38",
       "provider": "alibaba",
       "native_id": "6f0900f8f6ae89e02b4cd015",
@@ -34367,6 +34598,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-8e90f7fdf694e84b984e9e15",
+      "provider": "alibaba",
+      "native_id": "569fd21e5d07e4eef90ff127",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 28,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "Japan (Tokyo)"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "Global",
+          "\\$0.113",
+          "\\$0.014",
+          "\\$0.382"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.113",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.113",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.014",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.382",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.382",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-8e958c8e0ba03fa27761ae39",
       "provider": "alibaba",
       "native_id": "41bfbd8e986162deef164f8d",
@@ -38111,53 +38423,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "alibaba-9bbc613931d6f4f8b7f2f287",
-      "provider": "alibaba",
-      "native_id": "569fd21e5d07e4eef90ff127",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 30,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "US (Virginia)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "Global",
-          "USD 0.113",
-          "USD 0.014",
-          "USD 0.382"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "alibaba-9bcf4b3b880debfd258387c1",
       "provider": "alibaba",
       "native_id": "57084920e693c6d85386cebd",
@@ -38552,6 +38817,87 @@
           "unit": "/second",
           "conditions": {
             "source_expression": "\\$0.165026/second",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-9d6ab831ac16770bd22c887e",
+      "provider": "alibaba",
+      "native_id": "67737152cbcf56dd2e2fb191",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 24,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "China (Beijing)"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "Chinese mainland",
+          "\\$0.113",
+          "\\$0.014",
+          "\\$0.382"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.113",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.113",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.014",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.382",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.382",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -40628,53 +40974,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "alibaba-a3f6ddc39dc1cc891657077c",
-      "provider": "alibaba",
-      "native_id": "569fd21e5d07e4eef90ff127",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 29,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "Germany (Frankfurt)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "Global",
-          "USD 0.113",
-          "USD 0.014",
-          "USD 0.382"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "alibaba-a44a7e97f5c835c81a04f519",
       "provider": "alibaba",
       "native_id": "ce77e1d15d485f9334fa0866",
@@ -42144,53 +42443,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "alibaba-ac2ead5808dd019e271212ac",
-      "provider": "alibaba",
-      "native_id": "569fd21e5d07e4eef90ff127",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 27,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "China (Hong Kong)"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "Global",
-          "USD 0.113",
-          "USD 0.014",
-          "USD 0.382"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "alibaba-acd425ce2b58aee1def9912e",
       "provider": "alibaba",
       "native_id": "1f3708e5495bbbc87c02a21e",
@@ -42680,53 +42932,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "alibaba-ae09ddd3f7e5c6864a8cd6da",
-      "provider": "alibaba",
-      "native_id": "be3b32e1a56140aaa2668394",
-      "kind": "document_row",
-      "label": "`qwen3.8-omni-flash`",
-      "scope": {
-        "table": 21,
-        "headings": [
-          "Model inference pricing",
-          "Text generation - Qwen <span id=\"52500fd0880my\" />",
-          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
-        ],
-        "tabs": [
-          "Singapore"
-        ],
-        "headers": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`qwen3.8-omni-flash`",
-          "International",
-          "USD 0.15",
-          "USD 0.016",
-          "USD 0.47"
-        ],
-        "columns": [
-          "Model ID",
-          "Deployment scope",
-          "Input price (per million tokens)",
-          "Cache-hit input price (per million tokens)",
-          "Output price (per million tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -59832,6 +60037,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-ebbc3f8f442611bea3afaf3c",
+      "provider": "alibaba",
+      "native_id": "be3b32e1a56140aaa2668394",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 21,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "Singapore"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "International",
+          "\\$0.15",
+          "\\$0.016",
+          "\\$0.47"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.15",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.016",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.016",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.47",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.47",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-ebbef416cb9e2b4fa4eee87c",
       "provider": "alibaba",
       "native_id": "9c3c7efa95215c252349b0b4",
@@ -61182,6 +61468,87 @@
           "conditions": {
             "source_expression": "\\$3.851",
             "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-f178d2677a596725b8d8884d",
+      "provider": "alibaba",
+      "native_id": "569fd21e5d07e4eef90ff127",
+      "kind": "document_row",
+      "label": "`qwen3.8-omni-flash`",
+      "scope": {
+        "table": 27,
+        "headings": [
+          "Model inference pricing",
+          "Text generation - Qwen <span id=\"52500fd0880my\" />",
+          "Qwen-Omni <span id=\"ea2cc071fdn3e\" />"
+        ],
+        "tabs": [
+          "China (Hong Kong)"
+        ],
+        "headers": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`qwen3.8-omni-flash`",
+          "Global",
+          "\\$0.113",
+          "\\$0.014",
+          "\\$0.382"
+        ],
+        "columns": [
+          "**Model ID**",
+          "**Deployment scope**",
+          "**Input price (per million tokens)**",
+          "**Cache-hit input price (per million tokens)**",
+          "**Output price (per million tokens)**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input price (per million tokens)**:0",
+          "amount": "0.113",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.113",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Cache-hit input price (per million tokens)**:0",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.014",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output price (per million tokens)**:0",
+          "amount": "0.382",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.382",
+            "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
@@ -64282,6 +64649,7 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.688",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.689",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.7",
+    "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.70",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.717",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.775",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.78",
@@ -64597,13 +64965,17 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: You are not charged for input. You are charged for output based on the total duration of successfully generated videos (in seconds) .",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: flat-rate pricing"
   ],
-  "catalog_sha256": "b728f8fa75cf57c55584697387fd8c3be004e4c01b2cc6fe4186315a611dc490",
-  "revision": 9,
-  "changed_at": "2026-10-22T11:53:11Z",
+  "catalog_sha256": "235b5b3c8ac31251e70e7d9acbbdea1a5035b3d6525c7b1db9f785e5a6249feb",
+  "revision": 10,
+  "changed_at": "2026-10-27T12:12:10Z",
   "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
   "source_urls": [
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
   ],
-  "source_sha256": "b13335ac60f9a8765e4dc3c1507e52896ee5424ba63fdc0cbaaf2578164d4923",
-  "archive_reference": null
+  "source_sha256": "654cfab998fb333a6e25d2ab5e03c9b0ab73193e03610155a517bd625d73b191",
+  "archive_reference": {
+    "state": "unavailable",
+    "target_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
+    "checked_at": "2026-10-27T12:12:10Z"
+  }
 }

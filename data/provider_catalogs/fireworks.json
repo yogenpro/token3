@@ -1172,6 +1172,70 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-9479444c10c94c9fb747603b",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/rune",
+      "kind": "model",
+      "label": "Rune 26B-A4B",
+      "scope": {
+        "serving_mode": "standard"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.0084",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.042",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.0084",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.042",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 262144,
+        "usage_identifier": "accounts/fireworks/routers/rune"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-9f928a095ca75405d209be80",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/qwen3p8-max",
@@ -2234,14 +2298,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "96b73d6262e28f111bea787e7eca13aa3b400ec9159e897b3797ed912871abc7",
-  "revision": 10,
-  "changed_at": "2026-10-26T22:27:26Z",
+  "catalog_sha256": "a9afaef4162daa8a652cec8d61a9fb248d3985a6fd854c4a7d42bd2f3584cea1",
+  "revision": 11,
+  "changed_at": "2026-10-27T12:12:10Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "10cc307cd1cd6e7eacbc33586bac6fd18014c15a96956700e1f37707edd7fb3e",
+  "source_sha256": "813c7162467b98be3d2f5c810caa599f3c5f7e65490b827d1ded2ecae9d42e9f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
