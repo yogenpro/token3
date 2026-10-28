@@ -5,70 +5,13 @@
   "source_kind": "documentation",
   "records": [
     {
-      "id": "together-01f58c35143da5bade16484d",
+      "id": "together-07f49c9371c913bd8fa5d2be",
       "provider": "together",
-      "native_id": "c49d7ffe943b37a1c85ea91b",
+      "native_id": "a35632988730c875fbc78e0b",
       "kind": "document_row",
-      "label": "ByteDance",
+      "label": "Cartesia",
       "scope": {
         "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "ByteDance",
-          "Seedance 2.0",
-          "ByteDance/Seedance-2.0",
-          "$0.16",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.16",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.16",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ByteDance/Seedance-2.0"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-0ab0b92f6ad675e772a9e30c",
-      "provider": "together",
-      "native_id": "8fcf8e611c5680c092b8e1d4",
-      "kind": "document_row",
-      "label": "NVIDIA",
-      "scope": {
-        "table": 6,
         "headings": [
           "Available models",
           "Audio models"
@@ -84,11 +27,11 @@
       },
       "billing": {
         "cells": [
-          "NVIDIA",
-          "Speech-to-Text",
-          "NVIDIA Nemotron 3.5 ASR Streaming 0.6B",
-          "nvidia/nemotron-3.5-asr-streaming-0.6b",
-          "$0.0015 per audio min"
+          "Cartesia",
+          "Text-to-Speech",
+          "Cartesia Sonic 2",
+          "cartesia/sonic-2",
+          "$65.00 per 1M chars"
         ],
         "columns": [
           "Organization",
@@ -103,18 +46,18 @@
       "rates": [
         {
           "dimension": "Pricing:0",
-          "amount": "0.0015",
+          "amount": "65",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0015 per audio min",
+            "source_expression": "$65.00 per 1M chars",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "nvidia/nemotron-3.5-asr-streaming-0.6b"
+        "source_model_id": "cartesia/sonic-2"
       },
       "comparison_eligible": false
     },
@@ -213,70 +156,73 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-0f4f72283459d3d5e4179d54",
+      "id": "together-10b44cd1bb80d25e12b6523a",
       "provider": "together",
-      "native_id": "9d5c6d344142836565001d0b",
+      "native_id": "66f8026fbef42643d06b5cc8",
       "kind": "document_row",
-      "label": "NVIDIA",
+      "label": "Google",
       "scope": {
-        "table": 6,
+        "table": 2,
         "headings": [
           "Available models",
-          "Audio models"
+          "Image models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
-          "Modality",
           "Model name",
           "Model string for API",
-          "Pricing"
+          "Unit",
+          "Price",
+          "Output per $1"
         ]
       },
       "billing": {
         "cells": [
-          "NVIDIA",
-          "Speech-to-Text",
-          "NVIDIA Nemotron 3 ASR Streaming 0.6B",
-          "nvidia/nemotron-3-asr-streaming-0.6b",
-          "$0.0015 per audio min"
+          "Google",
+          "Flash Image 2.5 (Nano Banana)",
+          "google/flash-image-2.5",
+          "`image`",
+          "$0.039+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "26 images"
         ],
         "columns": [
           "Organization",
-          "Modality",
           "Model name",
           "Model string for API",
-          "Pricing"
+          "Unit",
+          "Price",
+          "Output per $1"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Pricing:0",
-          "amount": "0.0015",
+          "dimension": "Price:0",
+          "amount": "0.039",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0015 per audio min",
+            "source_expression": "$0.039+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "nvidia/nemotron-3-asr-streaming-0.6b"
+        "source_model_id": "google/flash-image-2.5"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-107f3df94933ab3766538a12",
+      "id": "together-119e0acb8f17e30a914ee9c3",
       "provider": "together",
-      "native_id": "ff92830cf8638d6d89fa9027",
+      "native_id": "24759f49615abff9f7b5ac69",
       "kind": "document_row",
-      "label": "Alibaba",
+      "label": "PixVerse",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -292,11 +238,11 @@
       },
       "billing": {
         "cells": [
-          "Alibaba",
-          "HappyHorse 1.0 R2V",
-          "alibaba/happyhorse-1.0-r2v",
-          "$0.24",
-          "-"
+          "PixVerse",
+          "PixVerse v5",
+          "pixverse/pixverse-v5",
+          "$0.30",
+          "1080p / 5s"
         ],
         "columns": [
           "Organization",
@@ -311,18 +257,78 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.24",
+          "amount": "0.3",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.24",
+            "source_expression": "$0.30",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "alibaba/happyhorse-1.0-r2v"
+        "source_model_id": "pixverse/pixverse-v5"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-11ca4285072b7505660006fe",
+      "provider": "together",
+      "native_id": "65ed12fe830111a46ae2e69b",
+      "kind": "document_row",
+      "label": "OpenAI",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "OpenAI",
+          "GPT Image 1.5",
+          "openai/gpt-image-1.5",
+          "`image`",
+          "$0.034+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "29 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.034",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.034+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "openai/gpt-image-1.5"
       },
       "comparison_eligible": false
     },
@@ -493,6 +499,77 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-139ac0f8604c74d347b3fb01",
+      "provider": "together",
+      "native_id": "e72197a0d40c9cf10f8468a6",
+      "kind": "document_row",
+      "label": "Moonshot",
+      "scope": {
+        "table": 3,
+        "headings": [
+          "Available models",
+          "Vision models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Moonshot",
+          "Kimi K3",
+          "moonshotai/Kimi-K3",
+          "1048576",
+          "$3.00",
+          "$15.00"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "3",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$3.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$15.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "moonshotai/Kimi-K3"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-14d51d6fcf81e9536edddde8",
       "provider": "together",
       "native_id": "635fa635d50664bece225478",
@@ -553,123 +630,191 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-1c31d5c13ddb0d25558ec6ac",
+      "id": "together-168018b0a0a0ac62f5d22d3b",
       "provider": "together",
-      "native_id": "dcf31ec92e255f8e021ef546",
+      "native_id": "48491d3d4a2d316d68fd160b",
       "kind": "document_row",
-      "label": "Black Forest Labs",
+      "label": "Wan-AI",
       "scope": {
-        "table": 3,
+        "table": 4,
         "headings": [
           "Available models",
-          "Image models"
+          "Video models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Price per video",
+          "Resolution / duration"
         ]
       },
       "billing": {
         "cells": [
-          "Black Forest Labs",
-          "FLUX.2 \\[flex]",
-          "black-forest-labs/FLUX.2-flex",
-          "`image`",
-          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "33 images"
+          "Wan-AI",
+          "Wan 2.7 I2V",
+          "Wan-AI/wan2.7-i2v",
+          "$0.10",
+          "-"
         ],
         "columns": [
           "Organization",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Price per video",
+          "Resolution / duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price:0",
-          "amount": "0.03",
+          "dimension": "Price per video:0",
+          "amount": "0.1",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.10",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.2-flex"
+        "source_model_id": "Wan-AI/wan2.7-i2v"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-1c775564415df631b0f342a2",
+      "id": "together-17d0407514f16ba680c4c358",
       "provider": "together",
-      "native_id": "1471777970e312545b87775e",
+      "native_id": "7dc7615b030a7fd03aaef717",
       "kind": "document_row",
-      "label": "OpenAI",
+      "label": "Wan-AI",
       "scope": {
-        "table": 3,
+        "table": 4,
         "headings": [
           "Available models",
-          "Image models"
+          "Video models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Price per video",
+          "Resolution / duration"
         ]
       },
       "billing": {
         "cells": [
-          "OpenAI",
-          "GPT Image 2",
-          "openai/gpt-image-2",
-          "`image`",
-          "$0.053+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "19 images"
+          "Wan-AI",
+          "Wan 2.7 R2V",
+          "Wan-AI/wan2.7-r2v",
+          "$0.10",
+          "-"
         ],
         "columns": [
           "Organization",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Price per video",
+          "Resolution / duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price:0",
-          "amount": "0.053",
+          "dimension": "Price per video:0",
+          "amount": "0.1",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.053+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.10",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "openai/gpt-image-2"
+        "source_model_id": "Wan-AI/wan2.7-r2v"
       },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-1ad0a9e665e108d7601aeffc",
+      "provider": "together",
+      "native_id": "1ba5de7a33b7c0675a0e0ef4",
+      "kind": "document_row",
+      "label": "GLM-5.3 Flash (US-only)",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Available models",
+          "US-only inference"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "GLM-5.3 Flash (US-only)",
+          "$0.1875",
+          "$0.0375",
+          "$0.625"
+        ],
+        "columns": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input:0",
+          "amount": "0.1875",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.1875",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input:0",
+          "amount": "0.0375",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0375",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output:0",
+          "amount": "0.625",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.625",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
       "comparison_eligible": false
     },
     {
@@ -767,59 +912,59 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-1e584afaa1463fdc856de547",
+      "id": "together-1fb772fa4ee394d513c7d9d2",
       "provider": "together",
-      "native_id": "df57aebe97050b1681e1d3fb",
+      "native_id": "ac8c1a24a15fa2fdd63f6e07",
       "kind": "document_row",
-      "label": "PixVerse",
+      "label": "Cartesia",
       "scope": {
         "table": 5,
         "headings": [
           "Available models",
-          "Video models"
+          "Audio models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ]
       },
       "billing": {
         "cells": [
-          "PixVerse",
-          "PixVerse v6",
-          "pixverse/pixverse-v6",
-          "$0.09",
-          "-"
+          "Cartesia",
+          "Text-to-Speech",
+          "Cartesia Sonic",
+          "cartesia/sonic",
+          "$65.00 per 1M chars"
         ],
         "columns": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price per video:0",
-          "amount": "0.09",
+          "dimension": "Pricing:0",
+          "amount": "65",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.09",
+            "source_expression": "$65.00 per 1M chars",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "pixverse/pixverse-v6"
+        "source_model_id": "cartesia/sonic"
       },
       "comparison_eligible": false
     },
@@ -1012,70 +1157,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-21ac5f024bd57f1cc23163d8",
+      "id": "together-210737791c8063397cca71ef",
       "provider": "together",
-      "native_id": "eb77f1636164a9873c649c58",
+      "native_id": "4b27bb39ca07418609a837dd",
       "kind": "document_row",
-      "label": "NVIDIA",
+      "label": "ByteDance",
       "scope": {
-        "table": 6,
-        "headings": [
-          "Available models",
-          "Audio models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "NVIDIA",
-          "Speech-to-Text",
-          "Parakeet TDT 0.6B v3",
-          "nvidia/parakeet-tdt-0.6b-v3",
-          "$0.0015 per audio min"
-        ],
-        "columns": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Pricing:0",
-          "amount": "0.0015",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.0015 per audio min",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "nvidia/parakeet-tdt-0.6b-v3"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-21e962bd0ac85ca5e9a29fd3",
-      "provider": "together",
-      "native_id": "0143d7f4dc59be120d47a305",
-      "kind": "document_row",
-      "label": "Qwen",
-      "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -1092,12 +1180,12 @@
       },
       "billing": {
         "cells": [
-          "Qwen",
-          "Qwen Image",
-          "Qwen/Qwen-Image",
+          "ByteDance",
+          "Seedream 5.0 Lite",
+          "ByteDance/Seedream-5.0-lite",
           "`image`",
-          "$0.0058+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "172 images"
+          "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "29 images"
         ],
         "columns": [
           "Organization",
@@ -1113,29 +1201,29 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.0058",
+          "amount": "0.035",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0058+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Qwen/Qwen-Image"
+        "source_model_id": "ByteDance/Seedream-5.0-lite"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-251bffe55cf539ff279413b3",
+      "id": "together-21b2bdc30521792c8a9e5094",
       "provider": "together",
-      "native_id": "253f7e635eab621af739a73a",
+      "native_id": "92b90070f1ea8dd1666cebc7",
       "kind": "document_row",
-      "label": "Cartesia",
+      "label": "Canopy Labs",
       "scope": {
-        "table": 6,
+        "table": 5,
         "headings": [
           "Available models",
           "Audio models"
@@ -1151,11 +1239,11 @@
       },
       "billing": {
         "cells": [
-          "Cartesia",
+          "Canopy Labs",
           "Text-to-Speech",
-          "Cartesia Sonic 3",
-          "cartesia/sonic-3",
-          "$65.00 per 1M chars"
+          "Orpheus 3B",
+          "canopylabs/orpheus-3b-0.1-ft",
+          "$15.00 per 1M chars"
         ],
         "columns": [
           "Organization",
@@ -1170,138 +1258,18 @@
       "rates": [
         {
           "dimension": "Pricing:0",
-          "amount": "65",
+          "amount": "15",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$65.00 per 1M chars",
+            "source_expression": "$15.00 per 1M chars",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "cartesia/sonic-3"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-287bfefcb115263472c29353",
-      "provider": "together",
-      "native_id": "27e489210dfea3198c2a2730",
-      "kind": "document_row",
-      "label": "Pruna AI",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Pruna AI",
-          "P-Image-Ideogram",
-          "prunaai/p-image-ideogram",
-          "`image`",
-          "$0.00225+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "444 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.00225",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.00225+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "prunaai/p-image-ideogram"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-291f37114ada770b5c945ec0",
-      "provider": "together",
-      "native_id": "9e508922aad81a44d5752a92",
-      "kind": "document_row",
-      "label": "Stability AI",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Stability AI",
-          "SD XL",
-          "stabilityai/stable-diffusion-xl-base-1.0",
-          "`image`",
-          "$0.0019+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "526 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.0019",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.0019+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "stabilityai/stable-diffusion-xl-base-1.0"
+        "source_model_id": "canopylabs/orpheus-3b-0.1-ft"
       },
       "comparison_eligible": false
     },
@@ -1400,80 +1368,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-2cafec2576420968a837e2ab",
-      "provider": "together",
-      "native_id": "a114e901bbc9580d489c4960",
-      "kind": "document_row",
-      "label": "GLM-5.3 Flash (Canada-only)",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Available models",
-          "Canada-only inference"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "GLM-5.3 Flash (Canada-only)",
-          "$0.1875",
-          "$0.0375",
-          "$0.625"
-        ],
-        "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input:0",
-          "amount": "0.1875",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.1875",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.0375",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.0375",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "0.625",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.625",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "together-30d179af410600b2fda2e390",
       "provider": "together",
       "native_id": "ab709e03da0346daca8d61ba",
@@ -1548,13 +1442,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-32c69b6a2c09b71f8435899f",
+      "id": "together-32ecd26c458446f238b15717",
       "provider": "together",
-      "native_id": "6c48a3956ceb7fa8ce6779e8",
+      "native_id": "257e7955d8659a7219b2c0f3",
       "kind": "document_row",
-      "label": "RunDiffusion",
+      "label": "ByteDance",
       "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -1571,12 +1465,12 @@
       },
       "billing": {
         "cells": [
-          "RunDiffusion",
-          "Juggernaut Lightning Flux",
-          "Rundiffusion/Juggernaut-Lightning-Flux",
+          "ByteDance",
+          "Seedream 4.0",
+          "ByteDance-Seed/Seedream-4.0",
           "`image`",
-          "$0.0017+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "588 images"
+          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "33 images"
         ],
         "columns": [
           "Organization",
@@ -1592,29 +1486,86 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.0017",
+          "amount": "0.03",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0017+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Rundiffusion/Juggernaut-Lightning-Flux"
+        "source_model_id": "ByteDance-Seed/Seedream-4.0"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-379411df44126e82c3e2614f",
+      "id": "together-32f034f5969fcb90bfcbf853",
+      "provider": "together",
+      "native_id": "23cc4d5d4d91d5c4a002033d",
+      "kind": "document_row",
+      "label": "Alibaba",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Alibaba",
+          "HappyHorse 1.1 T2V",
+          "alibaba/happyhorse-1.1-t2v",
+          "$0.14",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.14",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "alibaba/happyhorse-1.1-t2v"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-3320b423f4f370d9782c6e78",
       "provider": "together",
       "native_id": "9fb33c05cbf34e04e60aae0e",
       "kind": "document_row",
       "label": "ByteDance",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -1665,13 +1616,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-384b32a1303a1c706da17682",
+      "id": "together-39963afbbefb0795cc2fbbbc",
       "provider": "together",
-      "native_id": "a50b9ec68cb2c541dc999190",
+      "native_id": "27fdfc795edbfd790c726773",
       "kind": "document_row",
-      "label": "MiniMax",
+      "label": "Alibaba",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -1687,11 +1638,11 @@
       },
       "billing": {
         "cells": [
-          "MiniMax",
-          "MiniMax H3",
-          "MiniMaxAI/MiniMax-H3",
-          "$0.1391",
-          "2k / 1s"
+          "Alibaba",
+          "HappyHorse 1.0 I2V",
+          "alibaba/happyhorse-1.0-i2v",
+          "$0.24",
+          "-"
         ],
         "columns": [
           "Organization",
@@ -1706,29 +1657,29 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.1391",
+          "amount": "0.24",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.1391",
+            "source_expression": "$0.24",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "MiniMaxAI/MiniMax-H3"
+        "source_model_id": "alibaba/happyhorse-1.0-i2v"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-3ff5d5d59a13b539b01abb0f",
+      "id": "together-3c0de49c7ad1f5a28a7de9b4",
       "provider": "together",
       "native_id": "a597d423cd94e886c71d31f9",
       "kind": "document_row",
       "label": "Black Forest Labs",
       "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -1778,6 +1729,126 @@
       ],
       "metadata": {
         "source_model_id": "black-forest-labs/FLUX.2-max"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-3d71300d3cda4ac8c02e45c3",
+      "provider": "together",
+      "native_id": "548a0d78d50b55eaa69d7aca",
+      "kind": "document_row",
+      "label": "Google",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Google",
+          "Gemini 3 Pro Image (Nano Banana Pro)",
+          "google/gemini-3-pro-image",
+          "`image`",
+          "$0.134 at 1K or 2K ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "7.5 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.134",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.134 at 1K or 2K ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "google/gemini-3-pro-image"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-3e217de0c616a5764559b320",
+      "provider": "together",
+      "native_id": "18b5dfb616941c6b96e7a8f6",
+      "kind": "document_row",
+      "label": "Black Forest Labs",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Black Forest Labs",
+          "Flux.1 Kontext \\[max]",
+          "black-forest-labs/FLUX.1-kontext-max",
+          "`megapixel`",
+          "$0.08",
+          "12 megapixels"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.08",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.08",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "black-forest-labs/FLUX.1-kontext-max"
       },
       "comparison_eligible": false
     },
@@ -2042,70 +2113,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-431d29e676cd4b293fbdc597",
+      "id": "together-492f9d446aebb4e20126cc27",
       "provider": "together",
-      "native_id": "7dc7615b030a7fd03aaef717",
+      "native_id": "27e489210dfea3198c2a2730",
       "kind": "document_row",
-      "label": "Wan-AI",
+      "label": "Pruna AI",
       "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Wan-AI",
-          "Wan 2.7 R2V",
-          "Wan-AI/wan2.7-r2v",
-          "$0.10",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.10",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "Wan-AI/wan2.7-r2v"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-46b67fe49f4612be9d05f343",
-      "provider": "together",
-      "native_id": "548a0d78d50b55eaa69d7aca",
-      "kind": "document_row",
-      "label": "Google",
-      "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -2122,12 +2136,12 @@
       },
       "billing": {
         "cells": [
-          "Google",
-          "Gemini 3 Pro Image (Nano Banana Pro)",
-          "google/gemini-3-pro-image",
+          "Pruna AI",
+          "P-Image-Ideogram",
+          "prunaai/p-image-ideogram",
           "`image`",
-          "$0.134 at 1K or 2K ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "7.5 images"
+          "$0.00225+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "444 images"
         ],
         "columns": [
           "Organization",
@@ -2143,29 +2157,29 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.134",
+          "amount": "0.00225",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.134 at 1K or 2K ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.00225+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "google/gemini-3-pro-image"
+        "source_model_id": "prunaai/p-image-ideogram"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-4bd2ea26dd3f4935cdba27f8",
+      "id": "together-495244c127ce6249c91091c1",
       "provider": "together",
-      "native_id": "f9f6da691a2259729fa8a266",
+      "native_id": "a50b9ec68cb2c541dc999190",
       "kind": "document_row",
-      "label": "Google",
+      "label": "MiniMax",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -2181,11 +2195,11 @@
       },
       "billing": {
         "cells": [
-          "Google",
-          "Veo 3.1 Lite",
-          "google/veo-3.1-lite",
-          "$0.05",
-          "-"
+          "MiniMax",
+          "MiniMax H3",
+          "MiniMaxAI/MiniMax-H3",
+          "$0.1391",
+          "2k / 1s"
         ],
         "columns": [
           "Organization",
@@ -2200,18 +2214,18 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.05",
+          "amount": "0.1391",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.05",
+            "source_expression": "$0.1391",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "google/veo-3.1-lite"
+        "source_model_id": "MiniMaxAI/MiniMax-H3"
       },
       "comparison_eligible": false
     },
@@ -2393,73 +2407,70 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-5433f498e6d1fc277fb492aa",
+      "id": "together-563fec208de2974b24e077b9",
       "provider": "together",
-      "native_id": "66f8026fbef42643d06b5cc8",
+      "native_id": "9d5c6d344142836565001d0b",
       "kind": "document_row",
-      "label": "Google",
+      "label": "NVIDIA",
       "scope": {
-        "table": 3,
+        "table": 5,
         "headings": [
           "Available models",
-          "Image models"
+          "Audio models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Pricing"
         ]
       },
       "billing": {
         "cells": [
-          "Google",
-          "Flash Image 2.5 (Nano Banana)",
-          "google/flash-image-2.5",
-          "`image`",
-          "$0.039+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "26 images"
+          "NVIDIA",
+          "Speech-to-Text",
+          "NVIDIA Nemotron 3 ASR Streaming 0.6B",
+          "nvidia/nemotron-3-asr-streaming-0.6b",
+          "$0.0015 per audio min"
         ],
         "columns": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
+          "Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price:0",
-          "amount": "0.039",
+          "dimension": "Pricing:0",
+          "amount": "0.0015",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.039+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.0015 per audio min",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "google/flash-image-2.5"
+        "source_model_id": "nvidia/nemotron-3-asr-streaming-0.6b"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-576f566d56f183499e45d39e",
+      "id": "together-5768881bdce7db3740ebcbf2",
       "provider": "together",
-      "native_id": "e72197a0d40c9cf10f8468a6",
+      "native_id": "90b29e4afe461138d155653b",
       "kind": "document_row",
-      "label": "Moonshot",
+      "label": "Qwen",
       "scope": {
-        "table": 4,
+        "table": 3,
         "headings": [
           "Available models",
           "Vision models"
@@ -2476,12 +2487,12 @@
       },
       "billing": {
         "cells": [
-          "Moonshot",
-          "Kimi K3",
-          "moonshotai/Kimi-K3",
-          "1048576",
-          "$3.00",
-          "$15.00"
+          "Qwen",
+          "Qwen3.5 9B",
+          "Qwen/Qwen3.5-9B",
+          "262144",
+          "$0.17",
+          "$0.25"
         ],
         "columns": [
           "Organization",
@@ -2497,29 +2508,29 @@
       "rates": [
         {
           "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "3",
+          "amount": "0.17",
           "currency": "USD",
           "unit": "per 1M tokens",
           "conditions": {
-            "source_expression": "$3.00",
+            "source_expression": "$0.17",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
         },
         {
           "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "15",
+          "amount": "0.25",
           "currency": "USD",
           "unit": "per 1M tokens",
           "conditions": {
-            "source_expression": "$15.00",
+            "source_expression": "$0.25",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "moonshotai/Kimi-K3"
+        "source_model_id": "Qwen/Qwen3.5-9B"
       },
       "comparison_eligible": false
     },
@@ -2598,378 +2609,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-5b70275bc9ac2314250863a0",
-      "provider": "together",
-      "native_id": "22df3a00aff60c8cd5f1eae8",
-      "kind": "document_row",
-      "label": "Vidu",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Vidu",
-          "Vidu Q3",
-          "vidu/vidu-q3",
-          "$0.0975",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.0975",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.0975",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "vidu/vidu-q3"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-5dee499d48ce817d501e690c",
-      "provider": "together",
-      "native_id": "b597dc51793d35505ba59bb6",
-      "kind": "document_row",
-      "label": "Google",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Google",
-          "Veo 3.1",
-          "google/veo-3.1",
-          "$0.08",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.08",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.08",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "google/veo-3.1"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-5ebfb5c758dfaca40fcf7125",
-      "provider": "together",
-      "native_id": "9a9ff7f30ff927f2063c728d",
-      "kind": "document_row",
-      "label": "GLM-5.2 (US-only)",
-      "scope": {
-        "table": 1,
-        "headings": [
-          "Available models",
-          "US-only inference"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "GLM-5.2 (US-only)",
-          "$1.75",
-          "$0.325",
-          "$5.50"
-        ],
-        "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input:0",
-          "amount": "1.75",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$1.75",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.325",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.325",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "5.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$5.50",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-5fb1fbae819f300e951f9498",
-      "provider": "together",
-      "native_id": "58446f5202114c07335a2983",
-      "kind": "document_row",
-      "label": "Wan-AI",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Wan-AI",
-          "Wan 2.6 Image",
-          "Wan-AI/Wan2.6-image",
-          "`image`",
-          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "33 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.03",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "Wan-AI/Wan2.6-image"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-60b25a2227323bf31a089f5a",
-      "provider": "together",
-      "native_id": "4b27bb39ca07418609a837dd",
-      "kind": "document_row",
-      "label": "ByteDance",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "ByteDance",
-          "Seedream 5.0 Lite",
-          "ByteDance/Seedream-5.0-lite",
-          "`image`",
-          "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "29 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.035",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ByteDance/Seedream-5.0-lite"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-6133532120e14f3ba82157d2",
-      "provider": "together",
-      "native_id": "99438db8c696c6301ee8c5f2",
-      "kind": "document_row",
-      "label": "Alibaba",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Alibaba",
-          "HappyHorse 1.0 T2V",
-          "alibaba/happyhorse-1.0-t2v",
-          "$0.24",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.24",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.24",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "alibaba/happyhorse-1.0-t2v"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-68f817eb3237f37f82f91262",
+      "id": "together-5aaf81cad862b2109e0f5a35",
       "provider": "together",
       "native_id": "73166773c2c8ccfbe14b372c",
       "kind": "document_row",
       "label": "Google",
       "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -3023,87 +2669,141 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-6c2dd4aa83f649248ee05671",
+      "id": "together-5c64f248c90b56a2e72b2b11",
       "provider": "together",
-      "native_id": "58e29ed39aa10692c130bd5d",
+      "native_id": "3eb846f91b989c338ddb9854",
       "kind": "document_row",
-      "label": "GLM-5.3 (Canada-only)",
+      "label": "MiniMax",
       "scope": {
-        "table": 2,
+        "table": 4,
         "headings": [
           "Available models",
-          "Canada-only inference"
+          "Video models"
         ],
         "tabs": [],
         "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ]
       },
       "billing": {
         "cells": [
-          "GLM-5.3 (Canada-only)",
-          "$1.75",
-          "$0.325",
-          "$5.50"
+          "MiniMax",
+          "MiniMax 01 Director",
+          "minimax/video-01-director",
+          "$0.28",
+          "720p / 5s"
         ],
         "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Input:0",
-          "amount": "1.75",
+          "dimension": "Price per video:0",
+          "amount": "0.28",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$1.75",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.325",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.325",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "5.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$5.50",
+            "source_expression": "$0.28",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
-      "metadata": {},
+      "metadata": {
+        "source_model_id": "minimax/video-01-director"
+      },
       "comparison_eligible": false
     },
     {
-      "id": "together-700e9fd0af72c889903196f0",
+      "id": "together-5d9efc0e0e3cb9c9e542e3b7",
       "provider": "together",
-      "native_id": "2b832db969282e02b5a6c04c",
+      "native_id": "8bb30b77433630eb81efa7a0",
       "kind": "document_row",
-      "label": "ByteDance",
+      "label": "NVIDIA",
       "scope": {
         "table": 3,
+        "headings": [
+          "Available models",
+          "Vision models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "NVIDIA",
+          "NVIDIA Nemotron 3.5 Super VL",
+          "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+          "262144",
+          "$0.15",
+          "$0.50"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.15",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.50",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-619813bbdca826c89a8a4911",
+      "provider": "together",
+      "native_id": "8a2fc7c55abbcdd307c886fc",
+      "kind": "document_row",
+      "label": "Black Forest Labs",
+      "scope": {
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -3120,12 +2820,12 @@
       },
       "billing": {
         "cells": [
-          "ByteDance",
-          "Seedream 3.0",
-          "ByteDance-Seed/Seedream-3.0",
+          "Black Forest Labs",
+          "FLUX.2 \\[dev]",
+          "black-forest-labs/FLUX.2-dev",
           "`image`",
-          "$0.018+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "56 images"
+          "$0.0154+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "65 images"
         ],
         "columns": [
           "Organization",
@@ -3141,29 +2841,103 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.018",
+          "amount": "0.0154",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.018+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.0154+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "ByteDance-Seed/Seedream-3.0"
+        "source_model_id": "black-forest-labs/FLUX.2-dev"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-71a53ea09bb95f514a4449be",
+      "id": "together-6510e1fe2e7931d4bc9a9f0e",
       "provider": "together",
-      "native_id": "53e03dab03fc131430ba8be7",
+      "native_id": "63d8c8aef84531bdbadab02b",
       "kind": "document_row",
-      "label": "Kokoro",
+      "label": "MiniMax M3.1 Flash (US-only)",
       "scope": {
-        "table": 6,
+        "table": 1,
+        "headings": [
+          "Available models",
+          "US-only inference"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "MiniMax M3.1 Flash (US-only)",
+          "$0.1875",
+          "$0.01875",
+          "$0.75"
+        ],
+        "columns": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input:0",
+          "amount": "0.1875",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.1875",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input:0",
+          "amount": "0.01875",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.01875",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output:0",
+          "amount": "0.75",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.75",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-66c7a5e589481528bde697cb",
+      "provider": "together",
+      "native_id": "8fcf8e611c5680c092b8e1d4",
+      "kind": "document_row",
+      "label": "NVIDIA",
+      "scope": {
+        "table": 5,
         "headings": [
           "Available models",
           "Audio models"
@@ -3179,11 +2953,11 @@
       },
       "billing": {
         "cells": [
-          "Kokoro",
-          "Text-to-Speech",
-          "Kokoro",
-          "hexgrad/Kokoro-82M",
-          "$4.00 per 1M chars"
+          "NVIDIA",
+          "Speech-to-Text",
+          "NVIDIA Nemotron 3.5 ASR Streaming 0.6B",
+          "nvidia/nemotron-3.5-asr-streaming-0.6b",
+          "$0.0015 per audio min"
         ],
         "columns": [
           "Organization",
@@ -3198,18 +2972,135 @@
       "rates": [
         {
           "dimension": "Pricing:0",
-          "amount": "4",
+          "amount": "0.0015",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$4.00 per 1M chars",
+            "source_expression": "$0.0015 per audio min",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "hexgrad/Kokoro-82M"
+        "source_model_id": "nvidia/nemotron-3.5-asr-streaming-0.6b"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-6a8a0ca6159ac1654374a7b3",
+      "provider": "together",
+      "native_id": "3bc94ed33155d81edf07c547",
+      "kind": "document_row",
+      "label": "Ideogram",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Ideogram",
+          "Ideogram 4.0",
+          "ideogram/ideogram-4.0",
+          "`image`",
+          "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "17 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "ideogram/ideogram-4.0"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-718472e82995ce7e7dbbae7e",
+      "provider": "together",
+      "native_id": "df57aebe97050b1681e1d3fb",
+      "kind": "document_row",
+      "label": "PixVerse",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "PixVerse",
+          "PixVerse v6",
+          "pixverse/pixverse-v6",
+          "$0.09",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.09",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.09",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "pixverse/pixverse-v6"
       },
       "comparison_eligible": false
     },
@@ -3285,63 +3176,6 @@
         }
       ],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-72b2dff010c505b9f48cee97",
-      "provider": "together",
-      "native_id": "3eb846f91b989c338ddb9854",
-      "kind": "document_row",
-      "label": "MiniMax",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "MiniMax",
-          "MiniMax 01 Director",
-          "minimax/video-01-director",
-          "$0.28",
-          "720p / 5s"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.28",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "minimax/video-01-director"
-      },
       "comparison_eligible": false
     },
     {
@@ -3439,13 +3273,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-77e9be6b864e15cf2d0252ad",
+      "id": "together-7578fd3fcd259431733795c0",
       "provider": "together",
-      "native_id": "ccbd6bab19d8c07495ad75e1",
+      "native_id": "dcf31ec92e255f8e021ef546",
       "kind": "document_row",
-      "label": "Qwen",
+      "label": "Black Forest Labs",
       "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -3462,12 +3296,12 @@
       },
       "billing": {
         "cells": [
-          "Qwen",
-          "Qwen Image 2.0",
-          "Qwen/Qwen-Image-2.0",
+          "Black Forest Labs",
+          "FLUX.2 \\[flex]",
+          "black-forest-labs/FLUX.2-flex",
           "`image`",
-          "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "29 images"
+          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "33 images"
         ],
         "columns": [
           "Organization",
@@ -3483,317 +3317,86 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.035",
+          "amount": "0.03",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Qwen/Qwen-Image-2.0"
+        "source_model_id": "black-forest-labs/FLUX.2-flex"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-7a307352a51b5f9c1200ba5c",
+      "id": "together-7cfc7f607bbdca4cdf281675",
       "provider": "together",
-      "native_id": "24759f49615abff9f7b5ac69",
+      "native_id": "53e03dab03fc131430ba8be7",
       "kind": "document_row",
-      "label": "PixVerse",
+      "label": "Kokoro",
       "scope": {
         "table": 5,
         "headings": [
           "Available models",
-          "Video models"
+          "Audio models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ]
       },
       "billing": {
         "cells": [
-          "PixVerse",
-          "PixVerse v5",
-          "pixverse/pixverse-v5",
-          "$0.30",
-          "1080p / 5s"
+          "Kokoro",
+          "Text-to-Speech",
+          "Kokoro",
+          "hexgrad/Kokoro-82M",
+          "$4.00 per 1M chars"
         ],
         "columns": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price per video:0",
-          "amount": "0.3",
+          "dimension": "Pricing:0",
+          "amount": "4",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.30",
+            "source_expression": "$4.00 per 1M chars",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "pixverse/pixverse-v5"
+        "source_model_id": "hexgrad/Kokoro-82M"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-7df35ca4fa444d43c6f6c528",
-      "provider": "together",
-      "native_id": "3bc94ed33155d81edf07c547",
-      "kind": "document_row",
-      "label": "Ideogram",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Ideogram",
-          "Ideogram 4.0",
-          "ideogram/ideogram-4.0",
-          "`image`",
-          "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "17 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.06",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ideogram/ideogram-4.0"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-82dd0a9d08d1dbe5a776a498",
-      "provider": "together",
-      "native_id": "23cc4d5d4d91d5c4a002033d",
-      "kind": "document_row",
-      "label": "Alibaba",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Alibaba",
-          "HappyHorse 1.1 T2V",
-          "alibaba/happyhorse-1.1-t2v",
-          "$0.14",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.14",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.14",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "alibaba/happyhorse-1.1-t2v"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-85780155f73ba89da64203e9",
-      "provider": "together",
-      "native_id": "34766224878df255c98fabbe",
-      "kind": "document_row",
-      "label": "Alibaba",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Alibaba",
-          "HappyHorse 1.1 R2V",
-          "alibaba/happyhorse-1.1-r2v",
-          "$0.14",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.14",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.14",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "alibaba/happyhorse-1.1-r2v"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-869fd4783fdaae1db5ecec81",
-      "provider": "together",
-      "native_id": "2021d76676eb294be720de5b",
-      "kind": "document_row",
-      "label": "Vidu",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Vidu",
-          "Vidu Q1",
-          "vidu/vidu-q1",
-          "$0.22",
-          "1080p / 5s"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.22",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.22",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "vidu/vidu-q1"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-8702922f34248aa81b9e5af3",
+      "id": "together-7f518dceae1704e3187fd4f0",
       "provider": "together",
       "native_id": "a3246e102df8360d53a62d50",
       "kind": "document_row",
       "label": "Alibaba",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -3840,6 +3443,126 @@
       ],
       "metadata": {
         "source_model_id": "alibaba/happyhorse-1.1-i2v"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-8102e621e29f086e21e31252",
+      "provider": "together",
+      "native_id": "8e95bcc0b5586f6d05b51c49",
+      "kind": "document_row",
+      "label": "Ideogram",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Ideogram",
+          "Ideogram 3.0",
+          "ideogram/ideogram-3.0",
+          "`image`",
+          "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "17 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "ideogram/ideogram-3.0"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-8661250fad7e12ac4a642a89",
+      "provider": "together",
+      "native_id": "1877892ceeedab357e50197f",
+      "kind": "document_row",
+      "label": "Google",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Google",
+          "Gemini 3.1 Flash Image (Nano Banana 2)",
+          "google/flash-image-3.1",
+          "`image`",
+          "$0.04657 at 512×512 ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "21 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.04657",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.04657 at 512×512 ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "google/flash-image-3.1"
       },
       "comparison_eligible": false
     },
@@ -4012,13 +3735,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-93fe16c677278765cc585ca5",
+      "id": "together-8a451a0d062c4e2351416fa2",
       "provider": "together",
-      "native_id": "6fb19288fdfe919e30923c55",
+      "native_id": "a952f9fa86089ac1bef8193b",
       "kind": "document_row",
       "label": "ByteDance",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -4035,10 +3758,10 @@
       "billing": {
         "cells": [
           "ByteDance",
-          "Seedance 2.5",
-          "ByteDance/Seedance-2.5",
-          "$0.115",
-          "-"
+          "Seedance 1.0 Lite",
+          "ByteDance/Seedance-1.0-lite",
+          "$0.143",
+          "720p / 5s"
         ],
         "columns": [
           "Organization",
@@ -4053,18 +3776,78 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.115",
+          "amount": "0.143",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.115",
+            "source_expression": "$0.143",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "ByteDance/Seedance-2.5"
+        "source_model_id": "ByteDance/Seedance-1.0-lite"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-90630754d745ee6319d82137",
+      "provider": "together",
+      "native_id": "470e2e0077e4a1877b216dab",
+      "kind": "document_row",
+      "label": "Black Forest Labs",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Black Forest Labs",
+          "FLUX.2 \\[pro]",
+          "black-forest-labs/FLUX.2-pro",
+          "`image`",
+          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "33 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "black-forest-labs/FLUX.2-pro"
       },
       "comparison_eligible": false
     },
@@ -4152,13 +3935,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-9a6cbb7afebad8bdf11ee0d9",
+      "id": "together-97572dee78a1f300b6720acc",
       "provider": "together",
-      "native_id": "48491d3d4a2d316d68fd160b",
+      "native_id": "5abd0ae741c245d854e39b69",
       "kind": "document_row",
       "label": "Wan-AI",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -4175,8 +3958,8 @@
       "billing": {
         "cells": [
           "Wan-AI",
-          "Wan 2.7 I2V",
-          "Wan-AI/wan2.7-i2v",
+          "Wan 2.7 T2V",
+          "Wan-AI/wan2.7-t2v",
           "$0.10",
           "-"
         ],
@@ -4204,266 +3987,135 @@
         }
       ],
       "metadata": {
-        "source_model_id": "Wan-AI/wan2.7-i2v"
+        "source_model_id": "Wan-AI/wan2.7-t2v"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-9bb6cadb1cd733ff86f26af4",
+      "id": "together-9922e704f02ac0150624a76d",
       "provider": "together",
-      "native_id": "a35632988730c875fbc78e0b",
+      "native_id": "4c70467ef7a72700fa91ec63",
       "kind": "document_row",
-      "label": "Cartesia",
-      "scope": {
-        "table": 6,
-        "headings": [
-          "Available models",
-          "Audio models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Cartesia",
-          "Text-to-Speech",
-          "Cartesia Sonic 2",
-          "cartesia/sonic-2",
-          "$65.00 per 1M chars"
-        ],
-        "columns": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Pricing:0",
-          "amount": "65",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$65.00 per 1M chars",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "cartesia/sonic-2"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-a09c34d95713865efaeca371",
-      "provider": "together",
-      "native_id": "257e7955d8659a7219b2c0f3",
-      "kind": "document_row",
-      "label": "ByteDance",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "ByteDance",
-          "Seedream 4.0",
-          "ByteDance-Seed/Seedream-4.0",
-          "`image`",
-          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "33 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.03",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ByteDance-Seed/Seedream-4.0"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-a3d6d7f0bffc140ce3db7e82",
-      "provider": "together",
-      "native_id": "65ed12fe830111a46ae2e69b",
-      "kind": "document_row",
-      "label": "OpenAI",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "OpenAI",
-          "GPT Image 1.5",
-          "openai/gpt-image-1.5",
-          "`image`",
-          "$0.034+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "29 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.034",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.034+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "openai/gpt-image-1.5"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-a4ec22f0025d525636f9d0cd",
-      "provider": "together",
-      "native_id": "90b29e4afe461138d155653b",
-      "kind": "document_row",
-      "label": "Qwen",
+      "label": "Vidu",
       "scope": {
         "table": 4,
         "headings": [
           "Available models",
-          "Vision models"
+          "Video models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
           "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)"
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ]
       },
       "billing": {
         "cells": [
-          "Qwen",
-          "Qwen3.5 9B",
-          "Qwen/Qwen3.5-9B",
-          "262144",
-          "$0.17",
-          "$0.25"
+          "Vidu",
+          "Vidu Q3 Turbo",
+          "vidu/vidu-q3-turbo",
+          "$0.195",
+          "-"
         ],
         "columns": [
           "Organization",
           "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)"
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "0.17",
+          "dimension": "Price per video:0",
+          "amount": "0.195",
           "currency": "USD",
-          "unit": "per 1M tokens",
+          "unit": null,
           "conditions": {
-            "source_expression": "$0.17",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "0.25",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.25",
-            "unit_verified": true,
+            "source_expression": "$0.195",
+            "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Qwen/Qwen3.5-9B"
+        "source_model_id": "vidu/vidu-q3-turbo"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-a7cfdce4aeaf2c05dbce5fab",
+      "id": "together-9df47456440464e723f748ad",
       "provider": "together",
-      "native_id": "27fdfc795edbfd790c726773",
+      "native_id": "9e508922aad81a44d5752a92",
+      "kind": "document_row",
+      "label": "Stability AI",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Stability AI",
+          "SD XL",
+          "stabilityai/stable-diffusion-xl-base-1.0",
+          "`image`",
+          "$0.0019+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "526 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.0019",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0019+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "stabilityai/stable-diffusion-xl-base-1.0"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-a0d4582756488c2914443799",
+      "provider": "together",
+      "native_id": "99438db8c696c6301ee8c5f2",
       "kind": "document_row",
       "label": "Alibaba",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -4480,8 +4132,8 @@
       "billing": {
         "cells": [
           "Alibaba",
-          "HappyHorse 1.0 I2V",
-          "alibaba/happyhorse-1.0-i2v",
+          "HappyHorse 1.0 T2V",
+          "alibaba/happyhorse-1.0-t2v",
           "$0.24",
           "-"
         ],
@@ -4509,7 +4161,121 @@
         }
       ],
       "metadata": {
-        "source_model_id": "alibaba/happyhorse-1.0-i2v"
+        "source_model_id": "alibaba/happyhorse-1.0-t2v"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-a5288a6a18297f61922a757e",
+      "provider": "together",
+      "native_id": "ff92830cf8638d6d89fa9027",
+      "kind": "document_row",
+      "label": "Alibaba",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Alibaba",
+          "HappyHorse 1.0 R2V",
+          "alibaba/happyhorse-1.0-r2v",
+          "$0.24",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.24",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.24",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "alibaba/happyhorse-1.0-r2v"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-a7fd775e816a8f58f7c9ab59",
+      "provider": "together",
+      "native_id": "253f7e635eab621af739a73a",
+      "kind": "document_row",
+      "label": "Cartesia",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Available models",
+          "Audio models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Cartesia",
+          "Text-to-Speech",
+          "Cartesia Sonic 3",
+          "cartesia/sonic-3",
+          "$65.00 per 1M chars"
+        ],
+        "columns": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Pricing:0",
+          "amount": "65",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$65.00 per 1M chars",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "cartesia/sonic-3"
       },
       "comparison_eligible": false
     },
@@ -4608,149 +4374,15 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-aea284f0ed926b7a839d6a0a",
+      "id": "together-baf6e6d48c3fbf80c8f1e7cd",
       "provider": "together",
-      "native_id": "8e95bcc0b5586f6d05b51c49",
+      "native_id": "ccbd6bab19d8c07495ad75e1",
       "kind": "document_row",
-      "label": "Ideogram",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Ideogram",
-          "Ideogram 3.0",
-          "ideogram/ideogram-3.0",
-          "`image`",
-          "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "17 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.06",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.06+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ideogram/ideogram-3.0"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-b4eb2d4ab403666d1934b3ab",
-      "provider": "together",
-      "native_id": "882b29173e6c04a840fc4674",
-      "kind": "document_row",
-      "label": "GLM-5.2 (Canada-only)",
+      "label": "Qwen",
       "scope": {
         "table": 2,
         "headings": [
           "Available models",
-          "Canada-only inference"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "GLM-5.2 (Canada-only)",
-          "$1.75",
-          "$0.325",
-          "$5.50"
-        ],
-        "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input:0",
-          "amount": "1.75",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$1.75",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.325",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.325",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "5.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$5.50",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-b5a2ec9b078a32f14abf5dd1",
-      "provider": "together",
-      "native_id": "e557e7ed83c320371c716599",
-      "kind": "document_row",
-      "label": "Black Forest Labs",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
           "Image models"
         ],
         "tabs": [],
@@ -4765,129 +4397,12 @@
       },
       "billing": {
         "cells": [
-          "Black Forest Labs",
-          "Flux1.1 \\[pro]",
-          "black-forest-labs/FLUX.1.1-pro",
-          "`megapixel`",
-          "$0.04",
-          "25 megapixels"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.04",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.04",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.1.1-pro"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-b76e6d364d3329cd2de85020",
-      "provider": "together",
-      "native_id": "ac8c1a24a15fa2fdd63f6e07",
-      "kind": "document_row",
-      "label": "Cartesia",
-      "scope": {
-        "table": 6,
-        "headings": [
-          "Available models",
-          "Audio models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Cartesia",
-          "Text-to-Speech",
-          "Cartesia Sonic",
-          "cartesia/sonic",
-          "$65.00 per 1M chars"
-        ],
-        "columns": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Pricing:0",
-          "amount": "65",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$65.00 per 1M chars",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "cartesia/sonic"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-b81c9481c5b5a845692c9cd1",
-      "provider": "together",
-      "native_id": "8a2fc7c55abbcdd307c886fc",
-      "kind": "document_row",
-      "label": "Black Forest Labs",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Black Forest Labs",
-          "FLUX.2 \\[dev]",
-          "black-forest-labs/FLUX.2-dev",
+          "Qwen",
+          "Qwen Image 2.0",
+          "Qwen/Qwen-Image-2.0",
           "`image`",
-          "$0.0154+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "65 images"
+          "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "29 images"
         ],
         "columns": [
           "Organization",
@@ -4903,153 +4418,19 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.0154",
+          "amount": "0.035",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0154+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.035+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.2-dev"
+        "source_model_id": "Qwen/Qwen-Image-2.0"
       },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-ba697b4ca73fc2030aa87662",
-      "provider": "together",
-      "native_id": "18b5dfb616941c6b96e7a8f6",
-      "kind": "document_row",
-      "label": "Black Forest Labs",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Black Forest Labs",
-          "Flux.1 Kontext \\[max]",
-          "black-forest-labs/FLUX.1-kontext-max",
-          "`megapixel`",
-          "$0.08",
-          "12 megapixels"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.08",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.08",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.1-kontext-max"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-bb617ae79698b31ca47a70ac",
-      "provider": "together",
-      "native_id": "b9c7d2077e5170986a14ca43",
-      "kind": "document_row",
-      "label": "DeepSeek V4 Pro 0813 (Canada-only)",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Available models",
-          "Canada-only inference"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "DeepSeek V4 Pro 0813 (Canada-only)",
-          "$1.65",
-          "$0.1625",
-          "$4.95"
-        ],
-        "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input:0",
-          "amount": "1.65",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$1.65",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.1625",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.1625",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "4.95",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$4.95",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
       "comparison_eligible": false
     },
     {
@@ -5124,6 +4505,183 @@
         }
       ],
       "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-bd7402124689fe034f3761f7",
+      "provider": "together",
+      "native_id": "f9f6da691a2259729fa8a266",
+      "kind": "document_row",
+      "label": "Google",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Google",
+          "Veo 3.1 Lite",
+          "google/veo-3.1-lite",
+          "$0.05",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.05",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "google/veo-3.1-lite"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-c21ed61bd2276573b9007208",
+      "provider": "together",
+      "native_id": "2b832db969282e02b5a6c04c",
+      "kind": "document_row",
+      "label": "ByteDance",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "ByteDance",
+          "Seedream 3.0",
+          "ByteDance-Seed/Seedream-3.0",
+          "`image`",
+          "$0.018+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "56 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.018",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.018+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "ByteDance-Seed/Seedream-3.0"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-c251ec35650089abfeb09880",
+      "provider": "together",
+      "native_id": "e557e7ed83c320371c716599",
+      "kind": "document_row",
+      "label": "Black Forest Labs",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Black Forest Labs",
+          "Flux1.1 \\[pro]",
+          "black-forest-labs/FLUX.1.1-pro",
+          "`megapixel`",
+          "$0.04",
+          "25 megapixels"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.04",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.04",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "black-forest-labs/FLUX.1.1-pro"
+      },
       "comparison_eligible": false
     },
     {
@@ -5221,127 +4779,70 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-c603685fdd716ac31f4b931d",
+      "id": "together-c545e2ef5fb2aee7d9c7d704",
       "provider": "together",
-      "native_id": "a952f9fa86089ac1bef8193b",
+      "native_id": "eb77f1636164a9873c649c58",
       "kind": "document_row",
-      "label": "ByteDance",
+      "label": "NVIDIA",
       "scope": {
         "table": 5,
         "headings": [
           "Available models",
-          "Video models"
+          "Audio models"
         ],
         "tabs": [],
         "headers": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ]
       },
       "billing": {
         "cells": [
-          "ByteDance",
-          "Seedance 1.0 Lite",
-          "ByteDance/Seedance-1.0-lite",
-          "$0.143",
-          "720p / 5s"
+          "NVIDIA",
+          "Speech-to-Text",
+          "Parakeet TDT 0.6B v3",
+          "nvidia/parakeet-tdt-0.6b-v3",
+          "$0.0015 per audio min"
         ],
         "columns": [
           "Organization",
+          "Modality",
           "Model name",
           "Model string for API",
-          "Price per video",
-          "Resolution / duration"
+          "Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Price per video:0",
-          "amount": "0.143",
+          "dimension": "Pricing:0",
+          "amount": "0.0015",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.143",
+            "source_expression": "$0.0015 per audio min",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "ByteDance/Seedance-1.0-lite"
+        "source_model_id": "nvidia/parakeet-tdt-0.6b-v3"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-c8581bf210f284b4a693d07a",
+      "id": "together-c8b90431ba9f385565400705",
       "provider": "together",
-      "native_id": "5e4a086e10a51d7861d7b0be",
+      "native_id": "a3b5dc062af8668f683ae310",
       "kind": "document_row",
-      "label": "MiniMax",
+      "label": "Black Forest Labs",
       "scope": {
-        "table": 5,
-        "headings": [
-          "Available models",
-          "Video models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "MiniMax",
-          "MiniMax Hailuo 02",
-          "minimax/hailuo-02",
-          "$0.49",
-          "768p / 10s"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Price per video",
-          "Resolution / duration"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per video:0",
-          "amount": "0.49",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.49",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "minimax/hailuo-02"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-ccd8122ffed78431fd5f6d8f",
-      "provider": "together",
-      "native_id": "1877892ceeedab357e50197f",
-      "kind": "document_row",
-      "label": "Google",
-      "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -5358,12 +4859,12 @@
       },
       "billing": {
         "cells": [
-          "Google",
-          "Gemini 3.1 Flash Image (Nano Banana 2)",
-          "google/flash-image-3.1",
-          "`image`",
-          "$0.04657 at 512×512 ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "21 images"
+          "Black Forest Labs",
+          "Flux.1 Kontext \\[pro]",
+          "black-forest-labs/FLUX.1-kontext-pro",
+          "`megapixel`",
+          "$0.04",
+          "25 megapixels"
         ],
         "columns": [
           "Organization",
@@ -5379,29 +4880,29 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.04657",
+          "amount": "0.04",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.04657 at 512×512 ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.04",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "google/flash-image-3.1"
+        "source_model_id": "black-forest-labs/FLUX.1-kontext-pro"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-ce9259ba396ffd2f68208332",
+      "id": "together-cc4c8b566b6df08d68ec3fb9",
       "provider": "together",
-      "native_id": "5abd0ae741c245d854e39b69",
+      "native_id": "22df3a00aff60c8cd5f1eae8",
       "kind": "document_row",
-      "label": "Wan-AI",
+      "label": "Vidu",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -5417,10 +4918,10 @@
       },
       "billing": {
         "cells": [
-          "Wan-AI",
-          "Wan 2.7 T2V",
-          "Wan-AI/wan2.7-t2v",
-          "$0.10",
+          "Vidu",
+          "Vidu Q3",
+          "vidu/vidu-q3",
+          "$0.0975",
           "-"
         ],
         "columns": [
@@ -5436,18 +4937,78 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.1",
+          "amount": "0.0975",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.10",
+            "source_expression": "$0.0975",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Wan-AI/wan2.7-t2v"
+        "source_model_id": "vidu/vidu-q3"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-cc8f31e26905c5f145918049",
+      "provider": "together",
+      "native_id": "58446f5202114c07335a2983",
+      "kind": "document_row",
+      "label": "Wan-AI",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Wan-AI",
+          "Wan 2.6 Image",
+          "Wan-AI/Wan2.6-image",
+          "`image`",
+          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "33 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Wan-AI/Wan2.6-image"
       },
       "comparison_eligible": false
     },
@@ -5546,13 +5107,184 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-d44faad3e2a9716c0dfa6b57",
+      "id": "together-cfd81d443190d22baf88a0b5",
       "provider": "together",
-      "native_id": "7845403cc1f3c634f4453869",
+      "native_id": "34bc36b9103d70c8c948228e",
       "kind": "document_row",
-      "label": "RunDiffusion",
+      "label": "PixVerse",
       "scope": {
-        "table": 3,
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "PixVerse",
+          "PixVerse v5.6",
+          "pixverse/pixverse-v5.6",
+          "$0.1326",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.1326",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.1326",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "pixverse/pixverse-v5.6"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-d1d315d5ef5d6b17c089c3ad",
+      "provider": "together",
+      "native_id": "715f707b2a4c276015950f5d",
+      "kind": "document_row",
+      "label": "Black Forest Labs",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Black Forest Labs",
+          "FLUX 3",
+          "black-forest-labs/FLUX-3",
+          "$0.17",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.17",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.17",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "black-forest-labs/FLUX-3"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-d6406d05b0be8438f3f6ff7d",
+      "provider": "together",
+      "native_id": "34766224878df255c98fabbe",
+      "kind": "document_row",
+      "label": "Alibaba",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Alibaba",
+          "HappyHorse 1.1 R2V",
+          "alibaba/happyhorse-1.1-r2v",
+          "$0.14",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.14",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "alibaba/happyhorse-1.1-r2v"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-d7a7ae996a0b87c12b629834",
+      "provider": "together",
+      "native_id": "baa628f286958c2d5cb24274",
+      "kind": "document_row",
+      "label": "Qwen",
+      "scope": {
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -5569,12 +5301,12 @@
       },
       "billing": {
         "cells": [
-          "RunDiffusion",
-          "Juggernaut Pro Flux",
-          "RunDiffusion/Juggernaut-pro-flux",
+          "Qwen",
+          "Qwen Image 2.0 Pro",
+          "Qwen/Qwen-Image-2.0-Pro",
           "`image`",
-          "$0.0049+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "204 images"
+          "$0.075+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "13 images"
         ],
         "columns": [
           "Organization",
@@ -5590,93 +5322,19 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.0049",
+          "amount": "0.075",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.0049+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.075+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "RunDiffusion/Juggernaut-pro-flux"
+        "source_model_id": "Qwen/Qwen-Image-2.0-Pro"
       },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-d4ce88c555e5104d12ed3bcb",
-      "provider": "together",
-      "native_id": "4fee00b61cc54594565f276b",
-      "kind": "document_row",
-      "label": "MiniMax M3 (US-only)",
-      "scope": {
-        "table": 1,
-        "headings": [
-          "Available models",
-          "US-only inference"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "MiniMax M3 (US-only)",
-          "$0.375",
-          "$0.075",
-          "$1.50"
-        ],
-        "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input:0",
-          "amount": "0.375",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.375",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.075",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.075",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "1.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$1.50",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
       "comparison_eligible": false
     },
     {
@@ -5774,261 +5432,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-dae6580bfc2c3c61d8b1c833",
+      "id": "together-e07401d30d662b17039d7b96",
       "provider": "together",
-      "native_id": "a3b5dc062af8668f683ae310",
+      "native_id": "5e4a086e10a51d7861d7b0be",
       "kind": "document_row",
-      "label": "Black Forest Labs",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Black Forest Labs",
-          "Flux.1 Kontext \\[pro]",
-          "black-forest-labs/FLUX.1-kontext-pro",
-          "`megapixel`",
-          "$0.04",
-          "25 megapixels"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.04",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.04",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.1-kontext-pro"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-db1d713edc6044b53770cf5a",
-      "provider": "together",
-      "native_id": "8bb30b77433630eb81efa7a0",
-      "kind": "document_row",
-      "label": "NVIDIA",
+      "label": "MiniMax",
       "scope": {
         "table": 4,
-        "headings": [
-          "Available models",
-          "Vision models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "NVIDIA",
-          "NVIDIA Nemotron 3.5 Super VL",
-          "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
-          "262144",
-          "$0.15",
-          "$0.50"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.15",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.50",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-dc6da874178bfb62fd42ce65",
-      "provider": "together",
-      "native_id": "470e2e0077e4a1877b216dab",
-      "kind": "document_row",
-      "label": "Black Forest Labs",
-      "scope": {
-        "table": 3,
-        "headings": [
-          "Available models",
-          "Image models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Black Forest Labs",
-          "FLUX.2 \\[pro]",
-          "black-forest-labs/FLUX.2-pro",
-          "`image`",
-          "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "33 images"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "Model string for API",
-          "Unit",
-          "Price",
-          "Output per $1"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.03",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.03+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "black-forest-labs/FLUX.2-pro"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-e8257035f2c055978f7121ef",
-      "provider": "together",
-      "native_id": "92b90070f1ea8dd1666cebc7",
-      "kind": "document_row",
-      "label": "Canopy Labs",
-      "scope": {
-        "table": 6,
-        "headings": [
-          "Available models",
-          "Audio models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Canopy Labs",
-          "Text-to-Speech",
-          "Orpheus 3B",
-          "canopylabs/orpheus-3b-0.1-ft",
-          "$15.00 per 1M chars"
-        ],
-        "columns": [
-          "Organization",
-          "Modality",
-          "Model name",
-          "Model string for API",
-          "Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Pricing:0",
-          "amount": "15",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$15.00 per 1M chars",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "canopylabs/orpheus-3b-0.1-ft"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "together-eb0c8fe34f885526100ec6db",
-      "provider": "together",
-      "native_id": "34bc36b9103d70c8c948228e",
-      "kind": "document_row",
-      "label": "PixVerse",
-      "scope": {
-        "table": 5,
         "headings": [
           "Available models",
           "Video models"
@@ -6044,10 +5454,67 @@
       },
       "billing": {
         "cells": [
-          "PixVerse",
-          "PixVerse v5.6",
-          "pixverse/pixverse-v5.6",
-          "$0.1326",
+          "MiniMax",
+          "MiniMax Hailuo 02",
+          "minimax/hailuo-02",
+          "$0.49",
+          "768p / 10s"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price per video:0",
+          "amount": "0.49",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.49",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "minimax/hailuo-02"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-e496b6bc5a5eb23617265114",
+      "provider": "together",
+      "native_id": "6fb19288fdfe919e30923c55",
+      "kind": "document_row",
+      "label": "ByteDance",
+      "scope": {
+        "table": 4,
+        "headings": [
+          "Available models",
+          "Video models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "ByteDance",
+          "Seedance 2.5",
+          "ByteDance/Seedance-2.5",
+          "$0.115",
           "-"
         ],
         "columns": [
@@ -6063,29 +5530,89 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.1326",
+          "amount": "0.115",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.1326",
+            "source_expression": "$0.115",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "pixverse/pixverse-v5.6"
+        "source_model_id": "ByteDance/Seedance-2.5"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-f0d04d29fd8c31b5637cc0a0",
+      "id": "together-e4af3c48c388cd911c4fdaef",
       "provider": "together",
-      "native_id": "baa628f286958c2d5cb24274",
+      "native_id": "7845403cc1f3c634f4453869",
+      "kind": "document_row",
+      "label": "RunDiffusion",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "RunDiffusion",
+          "Juggernaut Pro Flux",
+          "RunDiffusion/Juggernaut-pro-flux",
+          "`image`",
+          "$0.0049+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "204 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.0049",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0049+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "RunDiffusion/Juggernaut-pro-flux"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-e5fe9a596f40002af907d2d2",
+      "provider": "together",
+      "native_id": "0143d7f4dc59be120d47a305",
       "kind": "document_row",
       "label": "Qwen",
       "scope": {
-        "table": 3,
+        "table": 2,
         "headings": [
           "Available models",
           "Image models"
@@ -6103,11 +5630,11 @@
       "billing": {
         "cells": [
           "Qwen",
-          "Qwen Image 2.0 Pro",
-          "Qwen/Qwen-Image-2.0-Pro",
+          "Qwen Image",
+          "Qwen/Qwen-Image",
           "`image`",
-          "$0.075+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
-          "13 images"
+          "$0.0058+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "172 images"
         ],
         "columns": [
           "Organization",
@@ -6123,103 +5650,86 @@
       "rates": [
         {
           "dimension": "Price:0",
-          "amount": "0.075",
+          "amount": "0.0058",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.075+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "source_expression": "$0.0058+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "Qwen/Qwen-Image-2.0-Pro"
+        "source_model_id": "Qwen/Qwen-Image"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-f65d4edbb2da6b34675d4ff6",
+      "id": "together-e97c0b541606856dc2cdf479",
       "provider": "together",
-      "native_id": "e600ad34f12b516dcb929265",
+      "native_id": "b597dc51793d35505ba59bb6",
       "kind": "document_row",
-      "label": "DeepSeek V4.1 Flash (Canada-only)",
+      "label": "Google",
       "scope": {
-        "table": 2,
+        "table": 4,
         "headings": [
           "Available models",
-          "Canada-only inference"
+          "Video models"
         ],
         "tabs": [],
         "headers": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ]
       },
       "billing": {
         "cells": [
-          "DeepSeek V4.1 Flash (Canada-only)",
-          "$0.375",
-          "$0.0075",
-          "$1.50"
+          "Google",
+          "Veo 3.1",
+          "google/veo-3.1",
+          "$0.08",
+          "-"
         ],
         "columns": [
-          "Model",
-          "Input",
-          "Cached input",
-          "Output"
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Price per video",
+          "Resolution / duration"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "Input:0",
-          "amount": "0.375",
+          "dimension": "Price per video:0",
+          "amount": "0.08",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.375",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input:0",
-          "amount": "0.0075",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$0.0075",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output:0",
-          "amount": "1.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "$1.50",
+            "source_expression": "$0.08",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
-      "metadata": {},
+      "metadata": {
+        "source_model_id": "google/veo-3.1"
+      },
       "comparison_eligible": false
     },
     {
-      "id": "together-f99fe0222976d18e0bbe7c19",
+      "id": "together-f1614de31d3cc11d6f782e3f",
       "provider": "together",
-      "native_id": "4c70467ef7a72700fa91ec63",
+      "native_id": "2021d76676eb294be720de5b",
       "kind": "document_row",
       "label": "Vidu",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -6236,10 +5746,10 @@
       "billing": {
         "cells": [
           "Vidu",
-          "Vidu Q3 Turbo",
-          "vidu/vidu-q3-turbo",
-          "$0.195",
-          "-"
+          "Vidu Q1",
+          "vidu/vidu-q1",
+          "$0.22",
+          "1080p / 5s"
         ],
         "columns": [
           "Organization",
@@ -6254,29 +5764,29 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.195",
+          "amount": "0.22",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.195",
+            "source_expression": "$0.22",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "vidu/vidu-q3-turbo"
+        "source_model_id": "vidu/vidu-q1"
       },
       "comparison_eligible": false
     },
     {
-      "id": "together-f9a455cf25eed3c2fa09dbfa",
+      "id": "together-f6c85a3af8ea3f034a549733",
       "provider": "together",
-      "native_id": "715f707b2a4c276015950f5d",
+      "native_id": "c49d7ffe943b37a1c85ea91b",
       "kind": "document_row",
-      "label": "Black Forest Labs",
+      "label": "ByteDance",
       "scope": {
-        "table": 5,
+        "table": 4,
         "headings": [
           "Available models",
           "Video models"
@@ -6292,10 +5802,10 @@
       },
       "billing": {
         "cells": [
-          "Black Forest Labs",
-          "FLUX 3",
-          "black-forest-labs/FLUX-3",
-          "$0.17",
+          "ByteDance",
+          "Seedance 2.0",
+          "ByteDance/Seedance-2.0",
+          "$0.16",
           "-"
         ],
         "columns": [
@@ -6311,18 +5821,138 @@
       "rates": [
         {
           "dimension": "Price per video:0",
-          "amount": "0.17",
+          "amount": "0.16",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "$0.17",
+            "source_expression": "$0.16",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
       "metadata": {
-        "source_model_id": "black-forest-labs/FLUX-3"
+        "source_model_id": "ByteDance/Seedance-2.0"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-f8fcbd9063030325cb5c0947",
+      "provider": "together",
+      "native_id": "1471777970e312545b87775e",
+      "kind": "document_row",
+      "label": "OpenAI",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "OpenAI",
+          "GPT Image 2",
+          "openai/gpt-image-2",
+          "`image`",
+          "$0.053+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "19 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.053",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.053+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "openai/gpt-image-2"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-fc274696a25f747b7ae0b301",
+      "provider": "together",
+      "native_id": "6c48a3956ceb7fa8ce6779e8",
+      "kind": "document_row",
+      "label": "RunDiffusion",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Available models",
+          "Image models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "RunDiffusion",
+          "Juggernaut Lightning Flux",
+          "Rundiffusion/Juggernaut-Lightning-Flux",
+          "`image`",
+          "$0.0017+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+          "588 images"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "Model string for API",
+          "Unit",
+          "Price",
+          "Output per $1"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price:0",
+          "amount": "0.0017",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0017+ ([varies](https://docs.together.ai/docs/serverless/overview.md#how-image-models-bill))",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Rundiffusion/Juggernaut-Lightning-Flux"
       },
       "comparison_eligible": false
     },
@@ -6420,16 +6050,15 @@
     "Resolution dominates that formula. At $0.04 per megapixel, a 1024×1024 image (1.05 MP) costs about $0.042, while a 4096×4096 image (16.8 MP) costs about $0.67.",
     "Serverless models are the fastest way to run inference on Together. You call any supported model through a shared per-token API, with no provisioning, no replicas to size, and no minimum cost. Pay only for the tokens you process.",
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
-    "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in Canada for requests sent to `ca-api.together.ai`. These requests cost 1.25× standard serverless rates (a 25% premium) for input, cached input, and output tokens. All prices are in USD per 1M tokens.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "8ce1c8c14697967e1fbd7c1185c7e716e69303f7016eb9e0320ba2ec970254ae",
-  "revision": 14,
-  "changed_at": "2026-10-26T22:27:26Z",
+  "catalog_sha256": "6a6d2163af4e07cba3adf141390d2c182dd016ed2b51db42bd2a72f84d0010b4",
+  "revision": 15,
+  "changed_at": "2026-10-28T12:55:48Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "90f7e6f10f8bec6119c944bf6c5e33fbd45547be4daba8d44368a33a7b50cc77",
+  "source_sha256": "30a22bf0f9d0c5df3d63e3303ade799ac4ac4206b3b6819bd29e1fdc37b2c45a",
   "archive_reference": null
 }

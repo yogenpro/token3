@@ -19,6 +19,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.04,
           "input_price_per_million_tokens": 0.1,
           "output_price_per_million_tokens": 0.3
         },
@@ -690,6 +691,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.13,
           "input_price_per_million_tokens": 0.658,
           "output_price_per_million_tokens": 1.11
         },
@@ -755,6 +757,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.2,
           "input_price_per_million_tokens": 1,
           "output_price_per_million_tokens": 3
         },
@@ -866,7 +869,7 @@
           "context_and_rag",
           "responses_api"
         ],
-        "status": "active",
+        "status": "error",
         "license": {
           "name": "Kimi K3 License",
           "type": "",
@@ -1101,6 +1104,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.26,
           "input_price_per_million_tokens": 1.4,
           "output_price_per_million_tokens": 4.4
         },
@@ -1172,6 +1176,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.14,
           "input_price_per_million_tokens": 1.75,
           "output_price_per_million_tokens": 3.5
         },
@@ -1380,6 +1385,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.1,
           "input_price_per_million_tokens": 0.15,
           "output_price_per_million_tokens": 0.6
         },
@@ -1450,6 +1456,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.012,
           "input_price_per_million_tokens": 0.06,
           "output_price_per_million_tokens": 0.24
         },
@@ -1720,6 +1727,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.03,
           "input_price_per_million_tokens": 0.06,
           "output_price_per_million_tokens": 0.24
         },
@@ -1749,14 +1757,9 @@
         "context_window_k": 1024,
         "quantization": "bf16",
         "external_provider": false,
-        "tags": [
-          "1M context",
-          "reasoning",
-          "code",
-          "function calling",
-          "MTP"
-        ],
+        "tags": [],
         "use_cases": [
+          "dedicated-endpoint",
           "text",
           "reasoning",
           "function_calling",
@@ -1772,7 +1775,7 @@
         },
         "vendor": "nvidia",
         "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
-        "size_b": 30
+        "size_b": 0
       },
       "comparison_eligible": false
     },
@@ -1928,6 +1931,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.1,
           "input_price_per_million_tokens": 0.1,
           "output_price_per_million_tokens": 0.3
         },
@@ -1998,6 +2002,7 @@
       },
       "billing": {
         "rules": {
+          "input_cached_price_per_million_tokens": 0.05,
           "input_price_per_million_tokens": 0.2,
           "output_price_per_million_tokens": 0.6
         },
@@ -2057,14 +2062,14 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "e025fe3c0d819972758425776d018af5defc12956e9f863bda7034ea5d5103d4",
-  "revision": 12,
-  "changed_at": "2026-10-27T12:12:10Z",
+  "catalog_sha256": "9192893aa28f23f049ca0efd649384c9488eacd143fda5272d2a056d117ca1ab",
+  "revision": 13,
+  "changed_at": "2026-10-28T12:55:48Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "3c4ebcdee7b294d20487aecb848cf182104451c066ad18c07963ad440e04e768",
+  "source_sha256": "10d61a0ac29e33b9fe508bff9b2e53d0ccac35fc0f18d6cd1cdabacd03c48c7a",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
