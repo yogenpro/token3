@@ -5,12 +5,14 @@ import { readFileSync, statSync } from 'node:fs';
 import { buildDashboardAssets, buildHistoricalAssets } from './scripts/dashboard_projection';
 import { historyVersionPath } from './scripts/native_history';
 import { publicationMetadata } from './scripts/publication';
+import { projectRoot, recordBuild } from './scripts/prepared_projection';
 
 const dataDir = fileURLToPath(new URL('./data', import.meta.url));
 // Publish only normalized outputs; never expose collector response bodies.
 const files = ['models.json', 'offerings.json', 'latest_prices.json', 'price_history.json', 'price_history.csv', 'changes.json', 'status.json'];
 let projected: Map<string, string>;
 let projectionVersion = '';
+let buildBase = '/';
 const sessionStartedAt = new Date().toISOString();
 const publication = (development = false) => JSON.stringify(publicationMetadata(JSON.parse(readFileSync(`${dataDir}/status.json`, 'utf8')).last_run_at, process.env, development ? sessionStartedAt : new Date().toISOString(), development));
 function catalogAssets() {
@@ -31,6 +33,7 @@ export default defineConfig({
     react(),
     {
       name: 'normalized-dataset',
+      configResolved(config) { buildBase = config.base; },
       configureServer(server) {
         // Verify/project once before serving, so first browser requests never
         // wait on a full ledger reconstruction and hit their request timeout.
@@ -63,6 +66,7 @@ export default defineConfig({
         if (bytes > 1_000_000_000) throw new Error('Static site exceeds the GitHub Pages 1 GB limit. Preserve the data and review its delivery format before publishing.');
         for (const [fileName, source] of datasets) this.emitFile({ type: 'asset', fileName, source });
       },
+      writeBundle() { recordBuild(projectRoot, buildBase, process.env.TOKEN3_PROJECTION_INPUT_SHA); },
     },
   ],
   build: {

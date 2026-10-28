@@ -4,13 +4,13 @@ import { readFileSync } from 'node:fs';
 const status = JSON.parse(readFileSync(new URL('../../../data/status.json', import.meta.url), 'utf8'));
 
 test('paused document-only collection stays visible without re-enabling Together comparisons', async ({ page }) => {
-  await page.goto('/?view=methodology');
+  await page.goto('./?view=methodology');
   const row = page.locator('.collector-table tbody tr').filter({ hasText: 'Together AI' });
   await expect(row).toHaveCount(1);
   await expect(row).toContainText('Inventory only');
   await expect(row.locator('td').nth(3)).toHaveText('Comparisons paused · docs inventory only');
   await expect(row.getByRole('link', { name: 'Official source' })).toHaveAttribute('href', status.providers.find((p: { id: string }) => p.id === 'together').source_url);
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.locator('.provider-cell strong').getByText('Together AI', { exact: true })).toHaveCount(0);
 });
 
@@ -23,7 +23,7 @@ test('an unavailable optional consumption table is visibly limited, not full cov
   provider.collection_scope = 'inventory_only';
   provider.fallback_reason = 'Model-rate PDF unavailable; billing-guide coverage only.';
   await page.route('**/status.json', (route) => route.fulfill({ json: limited }));
-  await page.goto('/?view=methodology');
+  await page.goto('./?view=methodology');
   const row = page.locator('.collector-table tbody tr').filter({ hasText: 'Snowflake Cortex' });
   await expect(row).toContainText('Limited source');
   await expect(row).toContainText('billing-guide coverage only');

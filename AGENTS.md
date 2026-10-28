@@ -62,6 +62,7 @@ See [failure-ticket scope/privacy](docs/ci-failure-tickets.md) and [legacy recov
 - Make the smallest correct change, add a regression test for code bugs, and preserve unrelated work. Do not fix CI by skipping tests, weakening strictness, overwriting golden evidence, fabricating status or deleting checks/lockfiles.
 - For an issue handoff, provide a reviewed PR with verification results unless the user explicitly authorizes another publishing action. Do not auto-merge, enable AI recovery, provision infrastructure or deploy Pages.
 - Use deterministic fixture/unit tests first. For a parser fix, use a provider-scoped strict **dry-run**; after review/merge, deliberately dispatch and verify a complete strict collection. Never run concurrent collectors against one data directory or use production collection just to refresh documentation.
+- Full checks may reuse verified public projections only within the same invocation, bound to the exact commit, actual input bytes and tool versions, with complete serialized schema/hash/reference checks. Never restore this scratch cache across runs or publish its receipts. Browser checks verify and serve the current production artifact at its actual base path. PDF text reuse never bypasses a capture's source/digest/index witness verification.
 - Typical local setup/checks:
 
   ```bash

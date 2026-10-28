@@ -352,13 +352,29 @@ npm run test:e2e             # real-browser flows, downloads, failures, mobile, 
 npm run preview             # serves the production build on :4173
 ```
 
-For `npm run check`, first activate a Python virtual environment with `requirements.txt` installed; npm invokes `python3` from `PATH`. `npm test` runs frontend unit tests, `npm run test:collectors` runs the Python suites, and `npm run build` runs TypeScript checking and the Vite production build. Install Chromium before browser checks; hosted CI also installs its system dependencies.
+For `npm run check`, first activate a Python virtual environment with `requirements.txt` installed; npm invokes `python3` from `PATH`. `npm test` runs frontend unit tests, `npm run test:collectors` runs the Python suites, and `npm run build` runs TypeScript checking and the Vite production build. Install Chromium before browser checks; hosted CI also installs its system dependencies. Node's built-in TypeScript stripping runs the check/browser entrypoints; no additional runner dependency is required.
 
-Full checks reconstruct the expanded historical corpus. CI and Pages build jobs
-allow 75 minutes for three full projections (unit tests, production build and
-browser-server startup), plus dependency setup and browser/accessibility checks.
-The historical verifier and server/test setup retain separate 15- and 20-minute
-bounds. Publishing gates and authorization requirements are unchanged.
+`npm run check` reconstructs the complete historical corpus once. Tests generate
+verified native/historical public assets in a temporary directory; the production
+build reuses them only within that invocation, after checking the exact commit,
+actual input bytes, tool versions, output hashes, complete schemas and references.
+Changed inputs or corrupt assets fail the check. Scratch files are deleted when
+it exits; no projection cache is restored across CI runs. Standalone `npm test`,
+`npm run build` and development still verify their own inputs.
+
+`npm run test:e2e` serves the existing production `dist/` with Vite preview, using
+its actual `PAGES_BASE_PATH` (including project Pages subdirectories). Run
+`npm run check` or `npm run build` first. A private build receipt under
+`node_modules/.cache/token3/` binds source inputs, the base path and every output
+file; missing/stale/modified builds are rejected before browser startup. That
+receipt and projection scratch files never enter `dist/`. Identical historical
+PDFs reuse bounded in-memory page text keyed by source hash and extractor/parser
+versions; each capture still verifies its own archive witness and digest.
+
+CI and Pages retain the approved 75-minute ceiling. The historical verifier and
+full-corpus test setup retain their separate 15- and 20-minute bounds; preview
+startup has a one-minute bound. Publishing gates and authorization requirements
+are unchanged.
 
 Browser screenshots and failure traces go to ignored `test-results/`. Browser checks include WCAG 2.1 AA automated accessibility checks. Unit tests cover cost arithmetic, missing prices, scope/units/identity safety, atomicity/history, parser regressions, native projections/exports/change classification, retained coverage versus health, and automation provenance/redaction/deduplication. Documentation tests check local links, advertised npm commands, retained coverage counts and documented workflow gates. These run inside `npm run check` and collection preflight without an external service.
 

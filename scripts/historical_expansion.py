@@ -8,6 +8,7 @@ import hashlib
 import io
 import json
 import re
+from collections import OrderedDict
 from datetime import timezone
 from html.parser import HTMLParser
 from functools import lru_cache
@@ -19,6 +20,36 @@ from .historical_sources import archive_time, decoded, json_source, timestamp
 EXTRACTOR = "historical-native-v2"
 MAX_TEXT = 8 * 1024 * 1024
 TEXT_CHUNK = 16384
+PDF_EXTRACTOR = "pypdf-6.19.0"
+PDF_CACHE_BYTES = 64 * 1024 * 1024
+PDF_CACHE_ENTRIES = 128
+_pdf_cache = OrderedDict()
+
+
+def pdf_pages(content):
+    """Reuse immutable page text only after each capture's witness verification.
+
+    Nothing is persisted. Exact source SHA-256, versioned historical extractor
+    and pinned PDF parser identify entries; byte and entry caps bound memory.
+    """
+    import pypdf
+    if "pypdf-" + pypdf.__version__ != PDF_EXTRACTOR:
+        raise ValueError("Historical PDF parser version differs from its recorded extractor")
+    key = (hashlib.sha256(content).digest(), EXTRACTOR, PDF_EXTRACTOR)
+    if key in _pdf_cache:
+        _pdf_cache.move_to_end(key)
+        return _pdf_cache[key][0]
+    reader = pypdf.PdfReader(io.BytesIO(content), strict=True)
+    pages = None if reader.is_encrypted or len(reader.pages) > 100 else tuple(page.extract_text() or "" for page in reader.pages)
+    size = sum(len(text.encode()) for text in pages) if pages is not None else 0
+    if size > MAX_TEXT:
+        raise ValueError("Historical PDF extraction exceeds text cap")
+    if size <= PDF_CACHE_BYTES:
+        while _pdf_cache and (len(_pdf_cache) >= PDF_CACHE_ENTRIES or sum(item[1] for item in _pdf_cache.values()) + size > PDF_CACHE_BYTES):
+            _pdf_cache.popitem(last=False)
+        if PDF_CACHE_ENTRIES > 0:
+            _pdf_cache[key] = (pages, size)
+    return pages
 
 
 @lru_cache(maxsize=64)
@@ -416,17 +447,13 @@ def extract(capture, raw, context):
             if not content.startswith(b"%PDF-"):
                 coverage = dict(state="unsupported_pdf_body", scope="body retained; no PDF rates asserted")
             else:
-                from pypdf import PdfReader
-                reader = PdfReader(io.BytesIO(content), strict=True)
-                if reader.is_encrypted or len(reader.pages) > 100:
+                pages = pdf_pages(content)
+                if pages is None:
                     coverage = dict(state="unparsed_pdf_limit", scope="encrypted or over 100 pages; no partial extraction asserted")
                 else:
-                    pages = [page.extract_text() or "" for page in reader.pages]
-                    if sum(len(t.encode()) for t in pages) > MAX_TEXT:
-                        raise ValueError("Historical PDF extraction exceeds text cap")
                     for i, text in enumerate(pages):
                         emit("page/" + str(i + 1), "historical_pdf_page", dict(page=i + 1),
-                             dict(text=text, extraction="pypdf-6.19.0", alignment_verified=False), dict(source_url=capture["source_url"], page=i + 1))
+                             dict(text=text, extraction=PDF_EXTRACTOR, alignment_verified=False), dict(source_url=capture["source_url"], page=i + 1))
                     coverage = dict(state="pdf_text_only", pages=len(pages), scope="unaligned page text; not model-to-rate mappings or credits-to-currency conversion")
         else:
             try:

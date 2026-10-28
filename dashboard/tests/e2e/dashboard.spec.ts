@@ -9,7 +9,7 @@ const data = datasetSchema.parse({ models: read('models'), offerings: read('offe
 test('loads official offerings, metadata, sources, and an honest first-day chart', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByRole('heading', { name: 'Same model. Different price.' })).toBeVisible();
   const rows = rankOfferings(data, 'openai/gpt-oss-120b', defaultWorkload);
   await expect(page.getByTestId('offering-row')).toHaveCount(rows.length);
@@ -26,7 +26,7 @@ test('loads official offerings, metadata, sources, and an honest first-day chart
 });
 
 test('recalculates totals and keeps the workload in a shareable URL', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByRole('spinbutton', { name: 'Input tokens per request' }).fill('2000');
   await page.getByRole('spinbutton', { name: 'Output tokens per request' }).fill('1000');
   await page.getByRole('spinbutton', { name: 'Number of requests' }).fill('10000');
@@ -40,7 +40,7 @@ test('recalculates totals and keeps the workload in a shareable URL', async ({ p
 });
 
 test('model and tier controls change the table without merging variants', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByLabel('SELECT A MODEL').selectOption('meta/llama-3.1-8b-instruct');
   await expect(page.getByTestId('offering-row')).toHaveCount(rankOfferings(data, 'meta/llama-3.1-8b-instruct', defaultWorkload).length);
   await page.getByLabel('Service tier').selectOption('priority');
@@ -62,7 +62,7 @@ test('model and tier controls change the table without merging variants', async 
 });
 
 test('downloads comparison CSV with source and observation timestamp', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   const downloaded = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export comparison as CSV' }).click();
@@ -77,7 +77,7 @@ test('downloads comparison CSV with source and observation timestamp', async ({ 
 });
 
 test('history metric and provider toggles work', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByRole('button', { name: 'Cache read', exact: true }).click();
   await expect(page.locator('.history-controls button.active')).toHaveText('Cache read');
   await page.locator('.chart-legend').getByRole('button', { name: 'Fireworks' }).click();
@@ -92,7 +92,7 @@ test('history metric and provider toggles work', async ({ page }) => {
 });
 
 test('explorer and feed filters navigate and distinguish discoveries from cuts', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByRole('button', { name: 'Model explorer', exact: true }).click();
   await page.getByRole('textbox', { name: 'Search models' }).fill('qwen');
   const qwen = data.models.filter((m) => m.creator === 'Qwen');
@@ -118,7 +118,7 @@ test('shows multiple failed collectors explicitly', async ({ page }) => {
     next.providers[1].state = 'error'; next.providers[1].error = 'Second source unavailable';
     await route.fulfill({ json: next });
   });
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByText('Some collectors have failed', { exact: false })).toBeVisible();
   await page.getByRole('button', { name: 'Check sources' }).click();
   const first = page.locator('.collector-table tbody tr').filter({ has: page.getByText(data.status.providers[0].name, { exact: true }) });
@@ -131,7 +131,7 @@ test('shows multiple failed collectors explicitly', async ({ page }) => {
 
 test('shows a recoverable error for a missing dataset', async ({ page }) => {
   await page.route('**/offerings.json', (route) => route.fulfill({ status: 503, body: 'Unavailable' }));
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByRole('alert')).toContainText('Unable to load offerings.json');
   await page.unroute('**/offerings.json');
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
@@ -139,7 +139,7 @@ test('shows a recoverable error for a missing dataset', async ({ page }) => {
 });
 
 test('theme toggle persists and refresh only checks the published dataset', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByRole('button', { name: 'Switch to dark theme' }).click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await page.reload();
@@ -152,7 +152,7 @@ test('theme toggle persists and refresh only checks the published dataset', asyn
 
 test('mobile layout stays within the viewport and all views remain accessible', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
   expect(overflow).toBe(false);
@@ -173,7 +173,7 @@ test('multi-day history and price cut/increase feeds work with test-only observa
   await page.route('**/changes.json', (route) => route.fulfill({ json: events }));
   await page.route('**/status.json', (route) => route.fulfill({ json: { ...data.status, observation_count: history.length } }));
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('./');
   await page.getByLabel('History date range').selectOption('0');
   // Newly added providers may have only one real observation (a dot, not a
   // nonzero-length path). Assert the deliberately multi-day fixture series.
@@ -192,7 +192,7 @@ test('multi-day history and price cut/increase feeds work with test-only observa
 
 test('core views pass automated WCAG 2.1 AA checks in light and dark themes', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   const audit = async () => {
     const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();

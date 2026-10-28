@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { encodeCatalogChunk, decodeCatalogChunk } from './catalog_chunk_codec';
 import { historicalCaptureSchema, historicalEvidenceSchema, historicalCheckSchema, historicalIndexSchema, historicalIndexChunkSchema, historicalEvidenceChunkSchema, historicalManifestSchema, historicalCheckChunkSchema } from '../dashboard/src/lib/historical';
 import { readNativeHistory } from './native_history';
+import { checkedProjection } from './prepared_projection';
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
   modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
@@ -69,6 +70,9 @@ export function readHistoricalProjection(path: string): ObjectValue {
 /** Python verifies the complete ledger before selecting the public field allowlist.
  * Only these projections enter Vite. Raw source/warehouse files never do. */
 export function buildHistoricalAssets(dataDir: string): Map<string, string> {
+  return checkedProjection('historical', dataDir, () => projectHistoricalAssets(dataDir), (assets) => validateProjectionAssets('historical', assets));
+}
+function projectHistoricalAssets(dataDir: string): Map<string, string> {
   const directory = mkdtempSync(join(tmpdir(), 'token3-historical-projection-'));
   let payload: ObjectValue;
   try {
@@ -264,6 +268,9 @@ export function chunkRows<T>(rows: T[], field: string, assets: Map<string, strin
 }
 
 export function buildDashboardAssets(dataDir: string): Map<string, string> {
+  return checkedProjection('native', dataDir, () => projectDashboardAssets(dataDir), (assets) => validateProjectionAssets('native', assets));
+}
+function projectDashboardAssets(dataDir: string): Map<string, string> {
   const read = (file: string) => JSON.parse(readFileSync(join(dataDir, file), 'utf8')) as any;
   const inventory = read('provider_inventory.json');
   const offerings = read('offerings.json');
@@ -382,4 +389,58 @@ export function buildDashboardAssets(dataDir: string): Map<string, string> {
   const sorted = modelListingsSchema.parse({ schema_version: 1, listings: listings.sort((a, b) => a.label.localeCompare(b.label) || a.id.localeCompare(b.id)) }).listings;
   put('catalog/models.json', modelDirectorySchema.parse({ schema_version: 2, listing_count: sorted.length, chunks: chunkRows(sorted, 'listings', assets) }));
   return assets;
+}
+
+/** Recheck every serialized schema, reference, byte count and hash on reuse. */
+export function validateProjectionAssets(kind: 'native' | 'historical', assets: Map<string, string>): void {
+  const expected = new Set<string>();
+  const json = (path: string): ObjectValue => {
+    expected.add(path);
+    const body = assets.get(path);
+    if (body === undefined) throw new Error('Incomplete prepared catalog');
+    return JSON.parse(body);
+  };
+  const chunks = (refs: ChunkRef[], schema: z.ZodTypeAny, field: string) => {
+    const ids = new Set<string>();
+    for (const ref of refs) {
+      expected.add(ref.path);
+      const body = assets.get(ref.path);
+      if (body === undefined || Buffer.byteLength(body) !== ref.bytes || createHash('sha256').update(body).digest('hex') !== ref.sha256) throw new Error('Prepared catalog chunk hash/bytes differ');
+      const value = schema.parse(decodeCatalogChunk(body)) as ObjectValue;
+      if (value[field].length !== ref.count) throw new Error('Prepared catalog chunk count differs');
+      for (const row of value[field]) {
+        if (ids.has(row.id)) throw new Error('Duplicate prepared catalog record');
+        ids.add(row.id);
+      }
+    }
+    return ids;
+  };
+  if (kind === 'historical') {
+    const index = historicalIndexSchema.parse(json('catalog/historical/index.json'));
+    for (const provider of index.providers) {
+      const manifest = historicalManifestSchema.parse(json(provider.detail_path));
+      if (manifest.provider !== provider.id || manifest.snapshot_sha256 !== index.snapshot_sha256 || manifest.captures.length !== provider.capture_count ||
+        manifest.assertion_count !== provider.assertion_count || manifest.check_count !== provider.check_count) throw new Error('Prepared historical overview differs');
+      const summaries = chunks(manifest.index_chunks, historicalIndexChunkSchema, 'records');
+      const evidence = chunks(manifest.evidence_chunks, historicalEvidenceChunkSchema, 'records');
+      chunks(manifest.check_chunks, historicalCheckChunkSchema, 'records');
+      if (summaries.size !== evidence.size || [...summaries].some((id) => !evidence.has(id))) throw new Error('Incomplete prepared historical evidence');
+    }
+  } else {
+    const index = catalogIndexSchema.parse(json('catalog/index.json'));
+    const models = modelDirectorySchema.parse(json('catalog/models.json'));
+    chunks(models.chunks, modelListingsSchema, 'listings');
+    for (const provider of index.providers) {
+      const manifest = providerCatalogSchema.parse(json(provider.detail_path));
+      if (manifest.provider !== provider.id || manifest.record_count !== provider.record_count) throw new Error('Prepared provider overview differs');
+      const summaries = chunks(manifest.index_chunks, recordIndexChunkSchema, 'records');
+      const evidence = chunks(manifest.record_chunks, recordChunkSchema, 'records');
+      if (summaries.size !== evidence.size || [...summaries].some((id) => !evidence.has(id))) throw new Error('Incomplete prepared native evidence');
+    }
+    for (const path of [...index.providers.map((p) => p.history_path), ...['price', 'rule', 'catalog'].map((c) => `catalog/changes/${c}.json`)]) {
+      const manifest = historyManifestSchema.parse(json(path));
+      chunks(manifest.batches.flatMap((b) => b.chunks), nativeChangesSchema, 'events');
+    }
+  }
+  if (expected.size !== assets.size || [...assets.keys()].some((path) => !expected.has(path))) throw new Error('Unexpected prepared catalog asset');
 }
