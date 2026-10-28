@@ -53,7 +53,7 @@ def public_source(url, provider):
 
 
 def validate_capture(capture):
-    if capture.get("source_kind") in ("archive_index_v2", "archived_native_v2", "public_document_v2"):
+    if capture.get("source_kind") in ("archive_index_v2", "archived_native_v2", "public_document_v2", "arquivo_index_v3", "arquivo_native_v3", "commoncrawl_index_v4", "commoncrawl_native_v4"):
         from .historical_expansion import validate_capture as validate_v2
         return validate_v2(capture)
     kind, provider = capture["source_kind"], capture["provider"]
@@ -207,7 +207,7 @@ class Tables(HTMLParser):
 
 def extract(capture, raw, context):
     """Return assertion payloads and coverage, reproducible from retained bytes only."""
-    if capture.get("source_kind") in ("archive_index_v2", "archived_native_v2", "public_document_v2"):
+    if capture.get("source_kind") in ("archive_index_v2", "archived_native_v2", "public_document_v2", "arquivo_index_v3", "arquivo_native_v3", "commoncrawl_index_v4", "commoncrawl_native_v4"):
         from .historical_expansion import extract as extract_v2
         return extract_v2(capture, raw, context)
     validate_capture(capture)
@@ -328,7 +328,12 @@ def extract(capture, raw, context):
         if urlsplit(capture["source_url"]).path.rstrip("/") not in ("/pricing", "/models"):
             raise ValueError("DeepInfra HTML source differs")
         parser = Tables()
-        parser.feed(decoded(raw).decode("utf-8"))
+        try:
+            text = decoded(raw).decode("utf-8")
+        except UnicodeError:
+            text = None
+        if text is not None:
+            parser.feed(text)
         parser.close()
         if parser.table is not None or parser.row is not None or parser.cell is not None:
             raise ValueError("Incomplete historical table")
@@ -344,8 +349,8 @@ def extract(capture, raw, context):
                 emit(mid, "deepinfra_table_row", dict(table=ti, row=ri),
                      dict(headers=table[0], cells=cells, alignment_verified=len(cells) == len(table[0])),
                      dict(source_url=capture["source_url"], identity_basis="explicit_model_link" if linked else "document_local"))
-        coverage = dict(state="tables_only" if parser.tables else "no_structured_tables", tables=len(parser.tables),
-                        scope="visible table rows only; scripts and narrative retained in exact source bytes")
+        coverage = dict(state="unparsed_text_encoding" if text is None else "tables_only" if parser.tables else "no_structured_tables", tables=len(parser.tables),
+                        scope="exact bytes retained; encoding not guessed" if text is None else "visible table rows only; scripts and narrative retained in exact source bytes")
     coverage.update(kind="coverage", capture_id=capture["id"], provider=capture["provider"], extractor=EXTRACTOR,
                     assertion_count=len(assertions), comparison_eligible=False)
     return assertions, coverage

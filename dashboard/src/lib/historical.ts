@@ -6,7 +6,7 @@ const digest = z.string().regex(/^[a-f0-9]{64}$/);
 const time = z.string().refine((s) => /T/.test(s) && Number.isFinite(Date.parse(s)), 'Invalid evidence timestamp');
 const url = z.url().refine((s) => {
   const u = new URL(s);
-  return ['http:', 'https:'].includes(u.protocol) && !u.username && !u.password && ![...u.searchParams.keys()].some((k) => /key|token|secret|signature|credential|authorization/i.test(k));
+  return ['http:', 'https:'].includes(u.protocol) && !u.username && !u.password && ![...u.searchParams.keys()].some((k) => !['pagetoken', 'page_token', '$skiptoken'].includes(k.toLowerCase()) && /key|token|secret|signature|credential|authorization/i.test(k));
 });
 const object = z.record(z.string(), z.unknown());
 export const historicalCaptureSchema = z.object({

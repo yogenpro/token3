@@ -7,20 +7,24 @@ import { buildHistoricalAssets } from '../../scripts/dashboard_projection';
 import { historicalEvidenceChunkSchema, historicalIndexChunkSchema, historicalIndexSchema, historicalManifestSchema,
   matchingEvidence, validateHistoricalIndex } from '../src/lib/historical';
 import { MAX_CATALOG_CHUNK_BYTES } from '../src/lib/catalog';
+import { decodeCatalogChunk } from '../../scripts/catalog_chunk_codec';
 
 const dataDir = fileURLToPath(new URL('../../data', import.meta.url));
 const warehouse = join(dataDir, 'historical_evidence');
 const fingerprint = () => Object.fromEntries(['manifest.json', ...['sources', 'segments'].flatMap((dir) => readdirSync(join(warehouse, dir)).map((p) => `${dir}/${p}`))]
   .map((p) => [p, createHash('sha256').update(readFileSync(join(warehouse, p))).digest('hex')]));
 let assets: Map<string, string>, before: ReturnType<typeof fingerprint>;
-beforeAll(() => { before = fingerprint(); assets = buildHistoricalAssets(dataDir); }, 120000);
+// Allow the bounded 15-minute verifier plus full-corpus chunk/schema validation.
+// Every source, assertion and persisted public chunk is still checked.
+beforeAll(() => { before = fingerprint(); assets = buildHistoricalAssets(dataDir); }, 1200000);
 
 describe('read-only public historical evidence', () => {
   it('preserves every warehouse byte while publishing only selected JSON assets', () => {
     expect(fingerprint()).toEqual(before);
     expect([...assets.keys()].every((p) => /^catalog\/(historical\/[a-z0-9_-]+|chunks\/[a-f0-9]{64})\.json$/.test(p))).toBe(true);
-    expect([...assets.values()].some((s) => /"(?:raw|body_path|previous_attempts|collector_only|reviewed_model_ids)"\s*:/.test(s))).toBe(false);
-  });
+    expect([...assets].some(([p, body]) => /"(?:raw|body_path|previous_attempts|collector_only|reviewed_model_ids)"\s*:/.test(
+      p.startsWith('catalog/chunks/') ? JSON.stringify(decodeCatalogChunk(body)) : body))).toBe(false);
+  }, 60000);
   it('keeps the overview small and counts assertions separately from captures and lookup checks', () => {
     const text = assets.get('catalog/historical/index.json')!;
     const index = historicalIndexSchema.parse(JSON.parse(text));
@@ -36,10 +40,10 @@ describe('read-only public historical evidence', () => {
     let total = 0;
     for (const p of index.providers) {
       const manifest = historicalManifestSchema.parse(JSON.parse(assets.get(p.detail_path)!));
-      const rows = manifest.index_chunks.flatMap((c) => historicalIndexChunkSchema.parse(JSON.parse(assets.get(c.path)!)).records);
+      const rows = manifest.index_chunks.flatMap((c) => historicalIndexChunkSchema.parse(decodeCatalogChunk(assets.get(c.path)!)).records);
       expect(validateHistoricalIndex(rows, manifest)).toBe(true);
       expect(manifest.snapshot_sha256).toBe(index.snapshot_sha256);
-      const values = new Map(manifest.evidence_chunks.flatMap((c) => historicalEvidenceChunkSchema.parse(JSON.parse(assets.get(c.path)!)).records).map((r) => [r.id, r]));
+      const values = new Map(manifest.evidence_chunks.flatMap((c) => historicalEvidenceChunkSchema.parse(decodeCatalogChunk(assets.get(c.path)!)).records).map((r) => [r.id, r]));
       expect(rows.every((r) => matchingEvidence(values.get(r.id)!, r) && !r.comparison_eligible)).toBe(true);
       total += rows.length;
       expect(historicalManifestSchema.safeParse({ ...manifest, assertion_count: manifest.assertion_count + 1 }).success).toBe(false);
@@ -50,10 +54,10 @@ describe('read-only public historical evidence', () => {
       expect(Buffer.byteLength(body)).toBeLessThanOrEqual(MAX_CATALOG_CHUNK_BYTES);
       expect(path).toBe(`catalog/chunks/${createHash('sha256').update(body).digest('hex')}.json`);
     }
-  });
+  }, 180000);
   it('does not merge archive, retrieval and reported effective dates or infer unknown rates', () => {
     const manifest = historicalManifestSchema.parse(JSON.parse(assets.get('catalog/historical/deepinfra.json')!));
-    const records = manifest.evidence_chunks.flatMap((r) => historicalEvidenceChunkSchema.parse(JSON.parse(assets.get(r.path)!)).records);
+    const records = manifest.evidence_chunks.flatMap((r) => historicalEvidenceChunkSchema.parse(decodeCatalogChunk(assets.get(r.path)!)).records);
     expect(records.every((r) => r.source_reported_effective_at === null)).toBe(true);
     expect(manifest.captures.some((c) => c.archive_capture_at && c.archive_capture_at !== c.retrieved_at)).toBe(true);
     expect(records.some((r) => r.evidence.pricing)).toBe(true);

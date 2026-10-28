@@ -6,6 +6,7 @@ or absence-based retirement. V1 extraction stays unchanged for its existing rows
 import base64
 import hashlib
 import io
+import json
 import re
 from datetime import timezone
 from html.parser import HTMLParser
@@ -70,6 +71,12 @@ def same_target(a, b, provider):
 
 
 def validate_capture(capture):
+    if capture['source_kind'] in {'commoncrawl_index_v4', 'commoncrawl_native_v4'}:
+        from .historical_commoncrawl import validate_capture as validate_commoncrawl
+        return validate_commoncrawl(capture)
+    if capture['source_kind'] in {'arquivo_index_v3', 'arquivo_native_v3'}:
+        from .historical_arquivo import validate_capture as validate_arquivo
+        return validate_arquivo(capture)
     provider, kind, scope = capture["provider"], capture["source_kind"], capture["request_scope"]
     if kind not in DOCUMENT_KINDS or scope.get("profile") != PROFILE:
         raise ValueError("Unsupported expansion source kind/profile")
@@ -187,6 +194,28 @@ class Document(HTMLParser):
             self.flush()
 
 
+class RoleDocument(Document):
+    """Read explicitly opted-in DIV tables using their declared ARIA structure."""
+    def __init__(self):
+        super().__init__()
+        self.div_tags = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "div":
+            tag = {"table": "table", "rowgroup": "tbody", "row": "tr", "cell": "td",
+                   "columnheader": "th", "rowheader": "th"}.get(dict(attrs).get("role"), tag)
+            self.div_tags.append(tag)
+        super().handle_starttag(tag, attrs)
+
+    def handle_endtag(self, tag):
+        if tag == "div":
+            if not self.div_tags:
+                self.ambiguous = True
+                return
+            tag = self.div_tags.pop()
+        super().handle_endtag(tag)
+
+
 def markdown(text):
     tables, blocks, headings, current = [], [], [], None
     fenced = False
@@ -236,7 +265,17 @@ def extract(capture, raw, context):
             assertion_type=assertion_type, native_id=native_id, identity_scope=scope, source_pointer=pointer,
             source_record=value, source_reported_effective_at=None, review_status="unreviewed_historical", comparison_eligible=False))
 
-    if kind == "archive_index_v2":
+    if kind == 'commoncrawl_index_v4':
+        from .historical_commoncrawl import index_entries as commoncrawl_entries
+        rows = commoncrawl_entries(capture, raw)
+        coverage = dict(state='index_only', returned_entries=len(rows),
+                        scope='selected successful source URL entries in one retained Common Crawl CDX block; not a full archive query')
+    elif kind == 'arquivo_index_v3':
+        from .historical_arquivo import verify_index
+        rows = verify_index(capture, raw)
+        coverage = dict(state='index_only', returned_entries=len(rows), entry_cap=5001, cap_reached=len(rows) >= 5001,
+                        scope='one exact Arquivo.pt source URL; indexed is not replayed or priced')
+    elif kind == "archive_index_v2":
         data = json_source(raw)
         if not isinstance(data, list) or (data and data[0] != ["timestamp", "original", "mimetype", "statuscode", "digest"]):
             raise ValueError("Invalid expansion archive index")
@@ -250,7 +289,19 @@ def extract(capture, raw, context):
         coverage = dict(state="index_only", returned_entries=max(0, len(data) - 1), entry_cap=5001,
                         cap_reached=len(data) - 1 >= 5001, scope="one exact source URL; indexed is not replayed or priced")
     else:
-        if kind == "archived_native_v2":
+        if kind == 'commoncrawl_native_v4':
+            from .historical_commoncrawl import verify_witness, truncation
+            original_raw = raw
+            raw = verify_witness(capture, raw, context)
+            partial = truncation(original_raw)
+            if partial:
+                return [], dict(kind='coverage', capture_id=capture['id'], provider=provider, extractor=EXTRACTOR,
+                    state='truncated_archived_response', truncation_reason=partial, assertion_count=0, comparison_eligible=False,
+                    scope='exact truncated WARC retained and digest-verified; incomplete source is not parsed as a complete pricing document')
+        elif kind == 'arquivo_native_v3':
+            from .historical_arquivo import verify_witness
+            verify_witness(capture, raw, context)
+        elif kind == "archived_native_v2":
             index = context.get(capture["request_scope"]["index_capture_id"])
             if index is None or index[0]["provider"] != provider or index[0]["source_kind"] != "archive_index_v2":
                 raise ValueError("Expansion capture lacks its provider's retained index")
@@ -262,7 +313,60 @@ def extract(capture, raw, context):
                 raise ValueError("Expansion replay digest/index witness differs")
         spec = source_spec(capture["source_url"], provider)
         content = decoded(raw)
-        if spec["format"] == "models":
+        if spec['format'] == 'deepinfra':
+            payload = json_source(raw)
+            if not isinstance(payload, list) or not payload:
+                raise ValueError('Historical DeepInfra API lacks its public model list')
+            ids = set()
+            for i, model in enumerate(payload):
+                if not isinstance(model, dict) or model.get('private') or model.get('is_private') or model.get('is_public') is False:
+                    raise ValueError('Malformed/private historical DeepInfra model')
+                mid = model.get('model_name')
+                if not isinstance(mid, str) or not mid or mid in ids:
+                    raise ValueError('Invalid/duplicate DeepInfra model ID')
+                ids.add(mid)
+                emit(mid, 'deepinfra_model', [i], model, {})
+            coverage = dict(state='native_inventory_evidence', returned_entries=len(payload), scope='returned public archive model list; no absence-based retirement')
+        elif spec["format"] == "oracle":
+            payload = json_source(raw)
+            items = payload.get('items') if isinstance(payload, dict) else None
+            if not isinstance(items, list):
+                raise ValueError('Oracle historical source lacks its items array')
+            ids = set()
+            for i, item in enumerate(items):
+                if not isinstance(item, dict):
+                    raise ValueError('Malformed historical Oracle product')
+                if 'generative ai' not in str(item.get('serviceCategory', '')).lower():
+                    continue
+                mid = item.get('partNumber')
+                if not isinstance(mid, str) or not mid or mid in ids or item.get('private'):
+                    raise ValueError('Invalid/duplicate historical Oracle part number')
+                ids.add(mid)
+                emit(mid, 'historical_oracle_sku', ['items', i], item,
+                     dict(source_url=capture['source_url'], identity_basis='explicit_part_number'))
+            coverage = dict(state='native_inventory_evidence', returned_entries=len(items), selected_entries=len(ids),
+                            scope='archived Oracle Generative AI service categories only; exact metrics/currencies retained; no absence-based retirement or catalog completeness claim')
+        elif spec["format"] == "nebius":
+            payload = json_source(raw)
+            if not isinstance(payload, list):
+                raise ValueError('Historical Nebius public models response is not an array')
+            ids = set()
+            for i, model in enumerate(payload):
+                if not isinstance(model, dict) or not isinstance(model.get('flavors'), list) or model.get('private'):
+                    raise ValueError('Malformed/private historical Nebius model')
+                for fi, flavor in enumerate(model['flavors']):
+                    if not isinstance(flavor, dict) or flavor.get('private'):
+                        raise ValueError('Malformed/private historical Nebius flavor')
+                    mid = flavor.get('model_id')
+                    identity = (mid, flavor.get('label'), json.dumps(flavor.get('regions'), sort_keys=True), flavor.get('quantization'))
+                    if not isinstance(mid, str) or not mid or identity in ids:
+                        raise ValueError('Invalid/duplicate historical Nebius flavor')
+                    ids.add(identity)
+                    emit(mid, 'historical_nebius_flavor', [i, 'flavors', fi], dict(model=model, flavor=flavor),
+                         dict(source_url=capture['source_url'], identity_basis='explicit_model_flavor', flavor=flavor.get('label'), regions=flavor.get('regions')))
+            coverage = dict(state='native_inventory_evidence', returned_entries=len(payload),
+                            scope='archived public model/flavor response; exact IDs, regions and per-million-token fields; currency/effective intervals not inferred')
+        elif spec["format"] == "models":
             try:
                 payload = json_source(raw)
             except (ValueError, UnicodeError):
@@ -333,11 +437,11 @@ def extract(capture, raw, context):
                 coverage = dict(state="unparsed_text_encoding", scope="exact bytes retained; encoding not guessed")
             else:
                 if re.search(r"<(?:!doctype|html|body|main|div|table|script)\b", text[:10000], re.I):
-                    parser = Document()
+                    parser = RoleDocument() if spec.get("html_table_roles") else Document()
                     parser.feed(text)
                     parser.close()
                     parser.flush()
-                    ambiguous = parser.ambiguous or parser.table is not None or parser.row is not None or parser.cell is not None
+                    ambiguous = parser.ambiguous or parser.table is not None or parser.row is not None or parser.cell is not None or bool(getattr(parser, "div_tags", []))
                     tables, blocks = ([] if ambiguous else parser.tables), parser.blocks
                 else:
                     tables, blocks = markdown(text)
@@ -345,18 +449,30 @@ def extract(capture, raw, context):
                 if sum(len(b["text"].encode()) for b in blocks) > MAX_TEXT:
                     raise ValueError("Historical visible text exceeds cap")
                 for ti, table in enumerate(tables):
+                    section = spec.get("section_text_contains")
+                    if section and section.casefold() not in " ".join(table["headings"]).casefold() and not any(
+                            section.casefold() in cell["text"].casefold() for row in table["rows"] for cell in row):
+                        continue
                     rows = table["rows"]
                     if not rows:
                         continue
                     for ri, cells in enumerate(rows[1:], 1):
                         mid, basis = document_identity(rows[0], cells, ti, ri)
+                        unit_context = {}
+                        if spec.get("html_table_roles"):
+                            units = [b["text"] for b in blocks if re.fullmatch(r"Prices shown are per 1 million tokens\.", b["text"])]
+                            if len(set(units)) == 1:
+                                unit_context["unit_context"] = units[0]
                         emit(mid, "historical_document_row", dict(table=ti, row=ri),
-                             dict(headers=rows[0], cells=cells, alignment_verified=len(cells) == len(rows[0])),
+                             dict(headers=rows[0], cells=cells, alignment_verified=len(cells) == len(rows[0]), **unit_context),
                              dict(source_url=capture["source_url"], headings=table["headings"], identity_basis=basis))
                 # Keep complete context without producing hundreds of boilerplate
                 # assertions for adjacent DIV/P/LI fragments under the same heading.
                 grouped = []
                 for bi, block in enumerate(blocks):
+                    section = spec.get("section_text_contains")
+                    if section and section.casefold() not in (" ".join(block["headings"]) + " " + block["text"]).casefold():
+                        continue
                     scope = (block["headings"], block.get("fenced_code", False))
                     if grouped and (grouped[-1]["headings"], grouped[-1]["fenced_code"]) == scope:
                         grouped[-1]["text"] += "\n" + block["text"]

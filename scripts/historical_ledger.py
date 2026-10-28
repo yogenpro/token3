@@ -151,7 +151,13 @@ def validate_rows(rows, source_reader):
                 expected[item["id"]] = item
                 expected_order.append(item["id"])
         elif kind == "coverage" and row.get("capture_id") is None:
-            if row.get("provenance") == "historical_discovery_v2":
+            if row.get('provenance') == 'historical_discovery_v4':
+                from .historical_commoncrawl import validate_check
+                validate_check(row, context)
+            elif row.get('provenance') == 'historical_discovery_v3':
+                from .historical_arquivo import validate_check
+                validate_check(row, context)
+            elif row.get("provenance") == "historical_discovery_v2":
                 from .historical_expansion import validate_check
                 validate_check(row, context)
             else:
@@ -216,6 +222,17 @@ def read_ledger(root=DEFAULT_ROOT, manifest=None):
     if manifest["counts"] != counts or any(type(v) is not int for v in manifest["counts"].values()):
         raise ValueError("Historical manifest totals differ")
     return manifest, rows
+
+
+def read_snapshot(root=DEFAULT_ROOT):
+    """Bind validated rows to the exact manifest bytes read before reconstruction."""
+    root = Path(root).absolute()
+    path = _safe_path(root, "manifest.json")
+    if path.stat().st_size > MAX_MANIFEST_BYTES:
+        raise ValueError("Historical manifest exceeds cap")
+    raw = path.read_bytes()
+    manifest, rows = read_ledger(root, manifest=json_source(raw))
+    return manifest, rows, sha(raw)
 
 
 @contextlib.contextmanager

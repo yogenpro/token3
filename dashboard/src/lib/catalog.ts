@@ -9,6 +9,12 @@ const sourceUrl = z.url().refine((s) => {
 const object = z.record(z.string(), z.unknown());
 const time = z.iso.datetime();
 export const MAX_CATALOG_CHUNK_BYTES = 512 * 1024;
+export const compressedChunkSchema = z.object({
+  encoding: z.literal('gzip-base64-v1'),
+  uncompressed_bytes: z.number().int().positive().max(MAX_CATALOG_CHUNK_BYTES),
+  content_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  data: z.string().min(4).max(MAX_CATALOG_CHUNK_BYTES).regex(/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/),
+}).strict();
 export const recordKinds = ['model', 'provider_route', 'model_flavor', 'document_row', 'document_page', 'meter', 'sku', 'sku_dimension'] as const;
 export const accessKinds = ['Direct API', 'Gateway', 'Managed cloud', 'Platform'] as const;
 export const billingBases = ['Tokens', 'Images', 'Audio / video', 'Requests', 'Compute', 'Storage / memory', 'Capacity', 'Credits / native units', 'Mixed', 'Other', 'Unknown'] as const;
@@ -161,11 +167,60 @@ export async function loadCatalogAsset<T>(path: string, schema: z.ZodType<T>, si
 export async function loadCatalogChunk<T>(ref: ChunkRef, schema: z.ZodType<T>, signal?: AbortSignal): Promise<T> {
   chunkRefSchema.parse(ref);
   if (!globalThis.crypto?.subtle) throw new Error('Native chunk verification requires HTTPS or localhost. Unverified data was not loaded.');
-  const response = await fetch(`${import.meta.env.BASE_URL}${ref.path}`, { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000) });
+  const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000);
+  const response = await fetch(`${import.meta.env.BASE_URL}${ref.path}`, { signal: requestSignal });
   if (!response.ok) throw new Error(`Unable to load catalog chunk (HTTP ${response.status}). Please retry.`);
-  const bytes = new Uint8Array(await response.arrayBuffer());
-  if (bytes.byteLength !== ref.bytes || bytes.byteLength > MAX_CATALOG_CHUNK_BYTES) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+  const wireReader = response.body?.getReader();
+  if (!wireReader) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+  const wireParts: Uint8Array[] = []; let wireSize = 0;
+  try {
+    while (true) {
+      requestSignal.throwIfAborted();
+      const next = await wireReader.read();
+      if (next.done) break;
+      wireSize += next.value.byteLength;
+      if (wireSize > ref.bytes || wireSize > MAX_CATALOG_CHUNK_BYTES) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+      wireParts.push(next.value);
+    }
+  } finally { await wireReader.cancel().catch(() => {}); }
+  if (wireSize !== ref.bytes) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
+  const bytes = new Uint8Array(wireSize); let wireOffset = 0;
+  for (const part of wireParts) { bytes.set(part, wireOffset); wireOffset += part.byteLength; }
   const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map((b) => b.toString(16).padStart(2, '0')).join('');
   if (hash !== ref.sha256) throw new Error('Catalog chunk and manifest differ. Refresh the published dataset.');
-  return schema.parse(JSON.parse(new TextDecoder().decode(bytes)));
+  let value: unknown = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
+  if (value && typeof value === 'object' && 'encoding' in value) {
+    const encoded = compressedChunkSchema.parse(value);
+    if (typeof DecompressionStream === 'undefined') throw new Error('This browser cannot read the archived dataset. Use an up-to-date browser and retry.');
+    const binary = atob(encoded.data);
+    if (btoa(binary) !== encoded.data) throw new Error('Invalid catalog chunk encoding.');
+    const compressed = Uint8Array.from(binary, (c) => c.charCodeAt(0));
+    let offset = 0;
+    const source = new ReadableStream<BufferSource>({ pull(controller) {
+      if (offset === compressed.length) { controller.close(); return; }
+      const end = Math.min(offset + 1024, compressed.length);
+      controller.enqueue(compressed.slice(offset, end)); offset = end;
+    } });
+    const reader = source.pipeThrough(new DecompressionStream('gzip')).getReader();
+    const parts: Uint8Array[] = []; let size = 0;
+    try {
+      while (true) {
+        requestSignal.throwIfAborted();
+        const next = await reader.read();
+        if (next.done) break;
+        size += next.value.byteLength;
+        if (size > encoded.uncompressed_bytes || size > MAX_CATALOG_CHUNK_BYTES) throw new Error('Catalog chunk exceeds its decoded size limit.');
+        parts.push(next.value);
+      }
+    } finally { await reader.cancel().catch(() => {}); }
+    if (size !== encoded.uncompressed_bytes) throw new Error('Decoded catalog chunk size differs.');
+    const decoded = new Uint8Array(size); let at = 0;
+    for (const part of parts) { decoded.set(part, at); at += part.byteLength; }
+    const contentHash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', decoded))].map((b) => b.toString(16).padStart(2, '0')).join('');
+    if (contentHash !== encoded.content_sha256) throw new Error('Decoded catalog chunk hash differs.');
+    requestSignal.throwIfAborted();
+    value = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(decoded));
+  }
+  requestSignal.throwIfAborted();
+  return schema.parse(value);
 }
