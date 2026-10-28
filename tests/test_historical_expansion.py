@@ -13,7 +13,7 @@ from unittest.mock import patch
 from scripts.historical_profiles import PROFILE, profiles, source_spec
 from scripts.historical_sources import archive_time
 from scripts.historical_ledger import ingest, read_ledger, record_discovery_failure
-from scripts.discover_historical_evidence import Discovery, adopt_results
+from scripts.discover_historical_evidence import Discovery, adopt_results, replay_receipt, replay_receipt_path, save, digest
 
 
 def batch(provider, body, url=None):
@@ -38,10 +38,10 @@ class ExpansionTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "ledger"
 
-    def test_profiles_cover_exactly_remaining_tracked_providers(self):
+    def test_profiles_cover_tracked_providers_with_bedrock_native_versions(self):
         data = json.loads((Path(__file__).resolve().parents[1] / "data/provider_inventory.json").read_bytes())
-        self.assertEqual(set(profiles()) | {"bedrock", "deepinfra"}, {p["id"] for p in data["providers"]})
-        self.assertEqual(len(profiles()), 24)
+        self.assertEqual(set(profiles()) | {"bedrock"}, {p["id"] for p in data["providers"]})
+        self.assertEqual(len(profiles()), 25)
         for provider, profile in profiles().items():
             for source in profile["sources"]:
                 self.assertEqual(source_spec(source["url"], provider), source)
@@ -184,6 +184,26 @@ class ExpansionTests(unittest.TestCase):
         self.assertNotIn("retrieved_at", receipt)
         self.assertFalse(self.root.exists())
 
+    def test_same_replay_timestamp_different_digests_have_independent_receipts(self):
+        stage = Path(self.temp.name) / "stage"
+        discovery = Discovery(stage, 0, 0)
+        url = "https://web.archive.org/web/20240417000000id_/https://groq.com/pricing/"
+        first, second = b'first archived body', b'second archived body'
+        expected = [base64.b32encode(hashlib.sha1(raw).digest()).decode() for raw in (first, second)]
+        body_path, body_sha = discovery.blob(first)
+        legacy = dict(state="retrieved", body_path=body_path, body_sha256=body_sha, attempts=4)
+        save(stage / 'requests' / (digest(('groq\n' + url).encode()) + '.json'), legacy)
+        # A valid legacy receipt cannot satisfy another digest at this timestamp,
+        # even when its retry count would otherwise stop requests.
+        receipt = discovery.fetch('groq', url, 'second', expected=expected[1])
+        self.assertEqual(receipt['state'], 'budget_deferred')
+        self.assertEqual(replay_receipt(stage, 'groq', url, expected[0]), legacy)
+        body_path, body_sha = discovery.blob(second)
+        other = dict(state="retrieved", body_path=body_path, body_sha256=body_sha)
+        save(replay_receipt_path(stage, 'groq', url, expected[1]), other)
+        self.assertEqual(replay_receipt(stage, 'groq', url, expected[1]), other)
+        self.assertEqual(replay_receipt(stage, 'groq', url, expected[0]), legacy)
+
     def test_pdf_page_text_is_not_an_aligned_rate_table(self):
         from pypdf import PdfWriter
         writer = PdfWriter()
@@ -196,6 +216,67 @@ class ExpansionTests(unittest.TestCase):
         self.assertFalse(page["source_record"]["alignment_verified"])
         self.assertNotIn("currency", page)
         self.assertEqual(rows[-1]["state"], "pdf_text_only")
+
+    def test_old_nebius_aria_table_retains_units_and_blank_identity_cells(self):
+        from scripts.historical_price_coverage import price_evidence
+        body = b'''<html><h1>AI Studio pricing</h1><p>Prices shown are per 1 million tokens.</p>
+<div role="table"><div role="rowgroup"><div role="row"><div role="cell">Model</div><div role="cell">Flavor</div><div role="cell">Input</div><div role="cell">Output</div></div>
+<div role="row"><div role="cell">Exact/old-model</div><div role="cell">fast</div><div role="cell">$0.03</div><div role="cell">$0.09</div></div>
+<div role="row"><div role="cell"></div><div role="cell">base</div><div role="cell">$0.02</div><div role="cell">-</div></div></div></div></html>'''
+        ingest(self.root, batch('nebius', body, 'https://nebius.com/prices-ai-studio'))
+        _, rows = read_ledger(self.root)
+        evidence = [r for r in rows if r.get('assertion_type') == 'historical_document_row']
+        self.assertEqual(len(evidence), 2)
+        self.assertEqual(evidence[1]['source_record']['cells'][0]['text'], '')
+        self.assertEqual(evidence[1]['source_record']['cells'][3]['text'], '-')
+        self.assertEqual(evidence[0]['source_record']['unit_context'], 'Prices shown are per 1 million tokens.')
+        self.assertEqual(price_evidence(evidence[0]), 'document_price_candidate')
+        self.assertFalse(evidence[0]['comparison_eligible'])
+
+    def test_general_oracle_price_list_is_scoped_to_generative_ai(self):
+        body = b'''<html><h1>OCI Price List</h1><h2>Compute</h2><table><tr><th>Product</th><th>Price</th></tr><tr><td>Compute SKU</td><td>1.20</td></tr></table>
+<h2>Generative AI</h2><table><tr><th>Product</th><th>Price</th></tr><tr><td>Large Meta</td><td>0.015</td></tr></table></html>'''
+        ingest(self.root, batch('oracle', body, 'https://www.oracle.com/cloud/price-list/'))
+        _, rows = read_ledger(self.root)
+        evidence = [r for r in rows if r.get('assertion_type') == 'historical_document_row']
+        self.assertEqual(len(evidence), 1)
+        self.assertEqual(evidence[0]['source_pointer'], dict(table=1, row=1))
+        self.assertEqual(evidence[0]['source_record']['cells'][0]['text'], 'Large Meta')
+
+    def test_oracle_api_preserves_sku_metric_currency_and_unpriced_values(self):
+        from scripts.historical_projection import project
+        from scripts.historical_price_coverage import price_evidence
+        item = dict(partNumber='B108077', displayName='Historical model', metricName='10,000 Transactions',
+                    serviceCategory='OCI Generative AI - Models', currencyCodeLocalizations=[dict(currencyCode='USD', prices=[dict(model='PAY_AS_YOU_GO', value='0.0156')])])
+        body = json.dumps(dict(items=[dict(partNumber='compute', serviceCategory='Compute'), item])).encode()
+        url = 'https://apexapps.oracle.com/pls/apex/cetools/api/v1/products/?currencyCode=USD'
+        ingest(self.root, batch('oracle', body, url))
+        _, rows = read_ledger(self.root)
+        evidence = next(r for r in rows if r.get('assertion_type') == 'historical_oracle_sku')
+        self.assertEqual(evidence['native_id'], 'B108077')
+        self.assertEqual(evidence['source_pointer'], ['items', 1])
+        self.assertEqual(price_evidence(evidence), 'structured_native')
+        public = project(self.root)['assertions'][0]
+        self.assertEqual(public['evidence']['metricName'], '10,000 Transactions')
+        self.assertEqual(public['evidence']['currencyCodeLocalizations'][0]['prices'][0]['value'], '0.0156')
+        self.assertFalse(public['comparison_eligible'])
+        with self.assertRaises(ValueError):
+            ingest(Path(self.temp.name) / 'duplicate', batch('oracle', json.dumps(dict(items=[item, item])).encode(), url))
+
+    def test_nebius_public_flavors_do_not_collapse_or_publish_throughput(self):
+        from scripts.historical_projection import project
+        flavors = [dict(model_id='exact/old', label=name, regions=[dict(name=region)], input_price_per_million_tokens='0.03',
+                        output_price_per_million_tokens=None, tokens_per_second=123) for name, region in [('fast', 'eu'), ('cheap', 'us')]]
+        body = json.dumps([dict(name='Old model', flavors=flavors, created_at='2024-01-01', quality=99)]).encode()
+        url = 'https://tokenfactory.nebius.com/api/public/models_info'
+        ingest(self.root, batch('nebius', body, url))
+        evidence = project(self.root)['assertions']
+        self.assertEqual(len(evidence), 2)
+        self.assertEqual({r['identity_scope']['flavor'] for r in evidence}, {'fast', 'cheap'})
+        self.assertTrue(all(r['native_id'] == 'exact/old' and not r['comparison_eligible'] for r in evidence))
+        self.assertNotIn('tokens_per_second', json.dumps(evidence))
+        self.assertNotIn('quality', json.dumps(evidence))
+        self.assertIsNone(evidence[0]['source_reported_effective_at'])
 
     def test_empty_indexes_are_evidence_not_vendor_absence(self):
         descriptors = batch("azure", b'<p>retired model evidence</p>', "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/retired-models")[:1]

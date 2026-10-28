@@ -4,12 +4,13 @@ Writes portable import files and a coverage report. Never fetches, changes live
 data, promotes quotes, or silently converts rejected sources into empty catalogs.
 """
 import argparse
+import base64
 from collections import Counter
 import hashlib
 import json
 from pathlib import Path
 
-from .discover_historical_evidence import metadata, now, save
+from .discover_historical_evidence import metadata, now, save, replay_receipt
 from .historical_ledger import asset, canonical, record
 from .historical_profiles import PROFILE, archive_query, profiles
 from .historical_sources import archive_time, extract
@@ -84,10 +85,13 @@ def prepare(stage):
         stats[index["provider"]]["indexed"] += len(index["rows"])
     for job in plan["jobs"]:
         replay = "https://web.archive.org/web/{}id_/{}".format(job["stamp"], job["url"])
-        path = stage / "requests" / (hashlib.sha256((job["provider"] + "\n" + replay).encode()).hexdigest() + ".json")
-        receipt = json.loads(path.read_bytes()) if path.exists() else dict(state="budget_deferred")
+        receipt = replay_receipt(stage, job["provider"], replay, job["digest"])
         if receipt["state"] != "retrieved":
             failure(job["provider"], replay, job["url"], receipt, job=job)
+            continue
+        raw = _body(stage / receipt["body_path"], receipt["body_sha256"])
+        if base64.b32encode(hashlib.sha1(raw).digest()).decode() != job["digest"]:
+            failure(job["provider"], replay, job["url"], receipt, "digest_mismatch", job)
             continue
         stats[job["provider"]]["retrieved"] += 1
         meta = metadata(job["provider"], "archived_native_v2", job["url"], receipt["retrieved_at"],

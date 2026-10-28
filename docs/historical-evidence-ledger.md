@@ -15,6 +15,15 @@ extractors now cover all 26 indexed groups. Historical-only identifiers do not n
 reviewed aliases. Coverage remains partial. Adding another source requires its own
 public-source boundary and reconstruction tests, not an alias or price conversion.
 
+The [subsequent recovery](historical-target-recovery.md) also supports independently
+witnessed Arquivo.pt indexes/replays and exact public Common Crawl CDX/WARC byte
+ranges. Their archive namespaces, source URLs and dates remain distinct. WARC
+containers and payload digests are verified before extraction; archive-truncated
+responses retain their bytes/state with zero pricing assertions. Public projections
+can include validated storage/retrieval URLs and byte ranges, but never the raw
+index, HTTP headers, WARC, source-response bytes or warehouse assets. Human image
+transcriptions and licensed community datasets remain separate attributed research.
+
 ## What is retained
 
 The **initial 2026-10-26 import** had 99 captures, 22,194 assertions and 100 coverage
@@ -131,6 +140,11 @@ python -m scripts.import_historical_evidence --input /path/to/sources.json --dry
 
 # Explicitly append that validated batch to the ledger.
 python -m scripts.import_historical_evidence --input /path/to/sources.json --apply
+
+# Combine staged manifests in order into one atomic append, retaining index labels.
+# Each manifest remains capped at 4 MiB; at most 16 inputs are accepted.
+python -m scripts.import_historical_evidence \
+  --input /path/to/first/sources.json --input /path/to/second/sources.json --apply
 ```
 
 Both modules accept `--ledger-dir /path/to/isolated-ledger`. Preview creates and

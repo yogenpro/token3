@@ -266,6 +266,55 @@ class HistoricalLedgerTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "hash/bytes"):
             from_input(path)
 
+    def test_cli_combines_bounded_inputs_with_cross_manifest_index_witnesses(self):
+        from scripts.import_historical_evidence import main
+        directory = Path(self.temp.name)
+        inputs = []
+        for number, descriptor in enumerate(archives()):
+            body = directory / ('body-' + str(number))
+            body.write_bytes(descriptor['body'])
+            path = directory / ('input-' + str(number) + '.json')
+            path.write_bytes(wire(dict(schema_version=1, sources=[dict(label=descriptor['label'],
+                metadata=descriptor['metadata'], body_path=body.name, body_sha256=ledger.sha(descriptor['body']))])))
+            inputs.extend(['--input', str(path)])
+        with patch('sys.argv', ['import_historical_evidence', *inputs, '--ledger-dir', str(self.root), '--apply']):
+            main()
+        manifest, rows = ledger.read_ledger(self.root)
+        self.assertEqual(manifest['counts']['capture'], len(archives()))
+        self.assertTrue(any(r.get('assertion_type') == 'deepinfra_model' for r in rows))
+
+    def test_snapshot_digest_is_bound_before_reconstruction(self):
+        ledger.ingest(self.root, archives())
+        path = self.root / 'manifest.json'
+        original = path.read_bytes()
+        read = ledger.read_ledger
+
+        def changing_manifest(root, manifest=None):
+            result = read(root, manifest=manifest)
+            path.write_bytes(original + b' ')
+            return result
+
+        with patch.object(ledger, 'read_ledger', side_effect=changing_manifest):
+            manifest, rows, snapshot_sha256 = ledger.read_snapshot(self.root)
+        self.assertEqual(snapshot_sha256, ledger.sha(original))
+        self.assertNotEqual(snapshot_sha256, ledger.sha(path.read_bytes()))
+        self.assertEqual(len(rows), sum(manifest['counts'].values()))
+
+    def test_opaque_html_encoding_retains_bytes_without_asserting_prices(self):
+        descriptors = archives(html='unparsed transport placeholder')
+        raw = b'\xa5opaque encoded archive'
+        digest = base64.b32encode(hashlib.sha1(raw).digest()).decode()
+        index = json.loads(descriptors[0]['body'])
+        index[1][4] = digest
+        descriptors[0]['body'] = wire(index)
+        descriptors[1]['body'] = raw
+        descriptors[1]['metadata']['archive_digest'] = digest
+        ledger.ingest(self.root, descriptors)
+        manifest, rows = ledger.read_ledger(self.root)
+        self.assertEqual(manifest['counts']['assertion'], 0)
+        self.assertEqual(rows[-1]['state'], 'unparsed_text_encoding')
+        self.assertEqual(ledger.read_asset(self.root, rows[-2]['raw'], 'sources'), raw)
+
     def test_cli_inspection_and_exact_restore_never_overwrite_output(self):
         descriptors = archives(compressed=True)
         ledger.ingest(self.root, descriptors)
