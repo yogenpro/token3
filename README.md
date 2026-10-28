@@ -355,8 +355,10 @@ npm run preview             # serves the production build on :4173
 For `npm run check`, first activate a Python virtual environment with `requirements.txt` installed; npm invokes `python3` from `PATH`. `npm test` runs frontend unit tests, `npm run test:collectors` runs the Python suites, and `npm run build` runs TypeScript checking and the Vite production build. Install Chromium before browser checks; hosted CI also installs its system dependencies.
 
 Full checks reconstruct the expanded historical corpus. CI and Pages build jobs
-allow 45 minutes; the historical verifier and server/test setup retain separate
-15- and 20-minute bounds. Publishing gates and authorization requirements are unchanged.
+allow 75 minutes for three full projections (unit tests, production build and
+browser-server startup), plus dependency setup and browser/accessibility checks.
+The historical verifier and server/test setup retain separate 15- and 20-minute
+bounds. Publishing gates and authorization requirements are unchanged.
 
 Browser screenshots and failure traces go to ignored `test-results/`. Browser checks include WCAG 2.1 AA automated accessibility checks. Unit tests cover cost arithmetic, missing prices, scope/units/identity safety, atomicity/history, parser regressions, native projections/exports/change classification, retained coverage versus health, and automation provenance/redaction/deduplication. Documentation tests check local links, advertised npm commands, retained coverage counts and documented workflow gates. These run inside `npm run check` and collection preflight without an external service.
 

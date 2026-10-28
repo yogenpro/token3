@@ -184,6 +184,22 @@ class DocumentationTests(unittest.TestCase):
         self.assertEqual(steps[setup]['with']['python-version'], '3.12')
         self.assertRegex(steps[setup]['uses'], r'^actions/setup-python@[a-f0-9]{40}$')
 
+    def test_full_check_jobs_budget_all_three_historical_projections(self):
+        delivery = (ROOT / 'dashboard/tests/historical-delivery.test.ts').read_text()
+        setup_ms = int(re.search(r'beforeAll\(.*?, (\d+)\);', delivery)[1])
+        browser_ms = int(re.search(r'timeout:\s*(\d+)', (ROOT / 'playwright.config.ts').read_text())[1])
+        verifier_ms = int(re.search(r'timeout:\s*(\d+)', (ROOT / 'scripts/dashboard_projection.ts').read_text())[1])
+        self.assertGreaterEqual(setup_ms, verifier_ms)
+        self.assertGreaterEqual(browser_ms, verifier_ms)
+        # Unit setup and production build each project the corpus; the browser
+        # server projects it again. Leave 15 minutes for installs and other checks.
+        required_ms = 2 * setup_ms + browser_ms + 15 * 60 * 1000
+        for filename, job_name in [('ci.yml', 'check'), ('deploy.yml', 'build')]:
+            with self.subTest(workflow=filename):
+                job = yaml.safe_load((ROOT / '.github/workflows' / filename).read_text())['jobs'][job_name]
+                self.assertGreaterEqual(job['timeout-minutes'] * 60 * 1000, required_ms,
+                                        'The job must budget repeated projections, not just one verifier.')
+
     def test_readme_documents_generated_native_assets_not_just_reviewed_files(self):
         readme = README.read_text()
         self.assertIn('scripts/dashboard_projection.ts', readme)
