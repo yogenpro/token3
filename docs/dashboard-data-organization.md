@@ -63,6 +63,12 @@ projection. AWS decimals/units, native pricing objects, unknowns, document cells
 scope conditions and unaligned PDF text preserve their source meanings. This
 projection grants no quote review or alias permission.
 
+Historical OVHcloud catalogs also preserve the explicitly selected
+`metadata.usage_information` pricing, rate-limit and status fields. Other metadata,
+inference endpoints and performance measurements are excluded. Nested native
+amounts retain their original units and unknown currency; their presence grants
+no retrospective comparison permission.
+
 `buildHistoricalAssets` in `scripts/dashboard_projection.ts` runs that offline
 verification with `python3` from `PATH`, then validates the public schemas in
 `dashboard/src/lib/historical.ts`. Vite publishes:
@@ -75,6 +81,26 @@ verification with `python3` from `PATH`, then validates the public schemas in
 - `catalog/chunks/<sha256>.json`: schema-1 historical index, evidence or lookup
   envelopes, sharing the existing 512 KiB byte/hash/count validation and bounded
   concurrency. These are projections, not warehouse JSONL or raw source files.
+
+Historical chunks may wrap their original schema-1 JSON in a versioned
+`gzip-base64-v1` JSON envelope when it reduces wire size. The existing `.json`
+path and manifest SHA-256/byte count bind the complete encoded envelope. It adds
+the original uncompressed byte count and SHA-256; both wire and decoded data are
+capped at 512 KiB. The browser checks the wire hash, validates the envelope,
+streams bounded gzip decoding, checks the decoded hash/bytes, then validates all
+original record schemas/counts. Plain chunks remain supported. Bad gzip, altered
+decoded hashes, oversized expansion and incomplete records fail visibly without
+partial catalogs or exports. Compression preserves every selected field and ID;
+it does not publish raw warehouse/source archives. Build verification and privacy
+tests inspect decoded fields as well as the encoded asset bytes.
+
+This avoids growing the static artifact beyond
+[GitHub Pages' published-site limit](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits)
+as historical evidence expands. It adds no backend, paid storage or dependency;
+the build uses Node's gzip codec and the browser uses `DecompressionStream`.
+The production build rejects an emitted site above 1,000,000,000 bytes; it never
+trims evidence or exports to fit the limit. Publishing still requires its existing
+code-release authorization and exact-SHA gates.
 
 The comparison landing and Coverage never request historical assets. The historical
 overview downloads its summary only; choosing a provider loads its complete compact
@@ -94,9 +120,24 @@ are generated. A Snowflake document dated 2021 does not date later AI SKUs to 20
 
 Development/builds require the existing Python requirements even without running
 collectors. Development verifies/projects before serving, rather than making the
-first browser request wait on reconstruction; Playwright allows 120 seconds for
-that startup. Published visitors still fetch only static files. The source manifest
+first browser request wait on reconstruction. The expanded archive corpus uses a
+private record-at-a-time build bridge rather than one enormous stdout JSON string;
+each bridge record is capped at 1 MiB and complete counts/schemas are checked.
+The bridge is deleted after use and never published. Public JSON chunks retain
+their existing 512 KiB cap, hash checks and complete index/evidence validation.
+The verifier has a 15-minute bound; Playwright/server and full-corpus test setup
+allow 20 minutes including schema/chunk validation. Vitest's
+internal server does not redundantly prepare browser assets before its dedicated
+full-corpus projection test. Published visitors still fetch only static files. The source manifest
 mtime participates in development cache invalidation; projection never mutates it.
+The full index/evidence binding test has its own three-minute bound while retaining
+all assertions. CI and Pages build jobs allow 45 minutes for complete tests,
+production builds, browser startup and accessibility checks. These resource bounds
+do not change release gates, permissions or source/economic validation.
+
+The full-corpus warehouse-byte/privacy check has a bounded 60-second allowance for
+hashing every source and inspecting every decoded public chunk. Its assertions
+are unchanged; the decoded privacy inspection remains complete after compression.
 
 Local validation for this historical release on 2026-10-26 passed 102 frontend
 tests, 297 Python tests, TypeScript, the production build and all 52 Playwright

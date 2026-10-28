@@ -1,0 +1,469 @@
+{
+  "schema_version": 1,
+  "profile": "historical-public-profiles-v1",
+  "prepared_at": "2026-10-27T00:24:50.507042+00:00",
+  "providers": {
+    "alibaba": {
+      "indexed": 38,
+      "retrieved": 17,
+      "accepted": 19,
+      "assertions": 21581,
+      "kinds": {
+        "historical_document_row": 17133,
+        "historical_document_text": 4448
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 17
+      },
+      "earliest_archive": "2026-01-16T07:29:01+00:00",
+      "latest_archive": "2026-10-19T10:53:46+00:00",
+      "unresolved_transport_failed": 21
+    },
+    "anthropic": {
+      "indexed": 652,
+      "retrieved": 48,
+      "accepted": 52,
+      "assertions": 2708,
+      "kinds": {
+        "historical_document_row": 1463,
+        "historical_document_text": 1245
+      },
+      "states": {
+        "index_only": 3,
+        "document_evidence": 49
+      },
+      "earliest_archive": "2025-05-12T02:15:53+00:00",
+      "latest_archive": "2026-10-24T14:39:15+00:00",
+      "unresolved_transport_failed": 25,
+      "unresolved_budget_deferred": 575
+    },
+    "azure": {
+      "indexed": 19,
+      "retrieved": 12,
+      "accepted": 16,
+      "assertions": 806,
+      "kinds": {
+        "historical_document_row": 579,
+        "historical_document_text": 227
+      },
+      "states": {
+        "index_only": 3,
+        "document_evidence": 13
+      },
+      "earliest_archive": "2023-08-08T10:36:07+00:00",
+      "latest_archive": "2026-09-29T09:11:35+00:00",
+      "unresolved_transport_failed": 7
+    },
+    "cloudflare": {
+      "indexed": 101,
+      "retrieved": 47,
+      "accepted": 48,
+      "assertions": 2194,
+      "kinds": {
+        "historical_document_text": 517,
+        "historical_document_row": 1677
+      },
+      "states": {
+        "index_only": 1,
+        "document_text_only_ambiguous_tables": 11,
+        "document_evidence": 36
+      },
+      "earliest_archive": "2024-03-01T22:13:44+00:00",
+      "latest_archive": "2026-10-26T05:57:28+00:00",
+      "unresolved_transport_failed": 25,
+      "unresolved_digest_mismatch": 1,
+      "unresolved_budget_deferred": 28
+    },
+    "databricks": {
+      "indexed": 35,
+      "retrieved": 15,
+      "accepted": 17,
+      "assertions": 408,
+      "kinds": {
+        "historical_document_row": 318,
+        "historical_document_text": 90
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 15
+      },
+      "earliest_archive": "2024-04-15T14:48:13+00:00",
+      "latest_archive": "2026-08-29T10:22:26+00:00",
+      "unresolved_transport_failed": 20
+    },
+    "deepseek": {
+      "indexed": 292,
+      "retrieved": 44,
+      "accepted": 45,
+      "assertions": 472,
+      "kinds": {
+        "historical_document_row": 296,
+        "historical_document_text": 176
+      },
+      "states": {
+        "index_only": 1,
+        "document_evidence": 44
+      },
+      "earliest_archive": "2024-11-07T07:50:55+00:00",
+      "latest_archive": "2026-10-26T04:41:37+00:00",
+      "unresolved_transport_failed": 26,
+      "unresolved_digest_mismatch": 3,
+      "unresolved_budget_deferred": 219
+    },
+    "fireworks": {
+      "indexed": 184,
+      "retrieved": 47,
+      "accepted": 49,
+      "assertions": 1831,
+      "kinds": {
+        "historical_document_row": 1242,
+        "historical_document_text": 589
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 47
+      },
+      "earliest_archive": "2024-01-24T15:48:35+00:00",
+      "latest_archive": "2026-10-17T05:34:21+00:00",
+      "unresolved_transport_failed": 26,
+      "unresolved_budget_deferred": 109
+    },
+    "gemini": {
+      "indexed": 905,
+      "retrieved": 43,
+      "accepted": 41,
+      "assertions": 761,
+      "kinds": {
+        "historical_document_text": 358,
+        "historical_document_row": 403
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 39
+      },
+      "earliest_archive": "2023-12-13T15:16:04+00:00",
+      "latest_archive": "2026-10-24T23:19:50+00:00",
+      "unresolved_extractor_rejected": 4,
+      "unresolved_transport_failed": 29,
+      "unresolved_digest_mismatch": 1,
+      "unresolved_budget_deferred": 820
+    },
+    "groq": {
+      "indexed": 233,
+      "retrieved": 48,
+      "accepted": 49,
+      "assertions": 1043,
+      "kinds": {
+        "historical_document_text": 289,
+        "historical_document_row": 754
+      },
+      "states": {
+        "index_only": 1,
+        "document_evidence": 48
+      },
+      "earliest_archive": "2024-03-01T02:44:47+00:00",
+      "latest_archive": "2026-10-25T19:55:11+00:00",
+      "unresolved_transport_failed": 25,
+      "unresolved_budget_deferred": 160
+    },
+    "huggingface": {
+      "indexed": 61,
+      "retrieved": 32,
+      "accepted": 34,
+      "assertions": 2036,
+      "kinds": {
+        "historical_document_row": 247,
+        "historical_document_text": 258,
+        "historical_provider_route": 1531
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 27,
+        "complete_returned_snapshot": 5
+      },
+      "earliest_archive": "2025-04-01T15:53:00+00:00",
+      "latest_archive": "2026-10-12T21:49:05+00:00",
+      "unresolved_transport_failed": 28,
+      "unresolved_digest_mismatch": 1
+    },
+    "minimax": {
+      "indexed": 119,
+      "retrieved": 46,
+      "accepted": 48,
+      "assertions": 698,
+      "kinds": {
+        "historical_document_text": 286,
+        "historical_document_row": 412
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 29,
+        "unparsed_text_encoding": 17
+      },
+      "earliest_archive": "2025-12-03T12:08:42+00:00",
+      "latest_archive": "2026-10-21T17:20:17+00:00",
+      "unresolved_transport_failed": 27,
+      "unresolved_budget_deferred": 46
+    },
+    "nebius": {
+      "indexed": 7,
+      "retrieved": 7,
+      "accepted": 8,
+      "assertions": 210,
+      "kinds": {
+        "historical_document_text": 210
+      },
+      "states": {
+        "index_only": 1,
+        "document_evidence": 7
+      },
+      "earliest_archive": "2025-04-04T22:44:30+00:00",
+      "latest_archive": "2025-10-17T04:47:06+00:00"
+    },
+    "novita": {
+      "indexed": 55,
+      "retrieved": 26,
+      "accepted": 28,
+      "assertions": 167,
+      "kinds": {
+        "historical_document_text": 132,
+        "historical_native_model": 35
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 25,
+        "complete_returned_snapshot": 1
+      },
+      "earliest_archive": "2025-01-22T06:33:39+00:00",
+      "latest_archive": "2026-09-16T10:24:31+00:00",
+      "unresolved_transport_failed": 27,
+      "unresolved_digest_mismatch": 2
+    },
+    "openai": {
+      "indexed": 455,
+      "retrieved": 45,
+      "accepted": 49,
+      "assertions": 686,
+      "kinds": {
+        "historical_document_text": 354,
+        "historical_document_row": 332
+      },
+      "states": {
+        "index_only": 3,
+        "document_evidence": 46
+      },
+      "earliest_archive": "2023-02-09T21:54:58+00:00",
+      "latest_archive": "2026-10-26T03:32:24+00:00",
+      "unresolved_transport_failed": 26,
+      "unresolved_digest_mismatch": 2,
+      "unresolved_budget_deferred": 374
+    },
+    "openrouter": {
+      "indexed": 232,
+      "retrieved": 46,
+      "accepted": 47,
+      "assertions": 11567,
+      "kinds": {
+        "historical_native_model": 11567
+      },
+      "states": {
+        "index_only": 1,
+        "complete_returned_snapshot": 43,
+        "unparsed_or_incomplete_catalog": 3
+      },
+      "earliest_archive": "2023-07-26T09:12:03+00:00",
+      "latest_archive": "2026-10-25T20:30:02+00:00",
+      "unresolved_transport_failed": 27,
+      "unresolved_budget_deferred": 159
+    },
+    "oracle": {
+      "indexed": 3,
+      "retrieved": 3,
+      "accepted": 6,
+      "assertions": 202,
+      "kinds": {
+        "historical_document_row": 182,
+        "historical_document_text": 20
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 4
+      },
+      "earliest_archive": "2026-04-23T03:51:35+00:00",
+      "latest_archive": "2026-09-23T14:46:03+00:00"
+    },
+    "ovhcloud": {
+      "indexed": 65,
+      "retrieved": 36,
+      "accepted": 38,
+      "assertions": 1026,
+      "kinds": {
+        "historical_document_text": 836,
+        "historical_native_model": 190
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 28,
+        "complete_returned_snapshot": 8
+      },
+      "earliest_archive": "2025-11-07T15:37:30+00:00",
+      "latest_archive": "2026-10-17T15:20:07+00:00",
+      "unresolved_transport_failed": 26,
+      "unresolved_digest_mismatch": 2
+    },
+    "scaleway": {
+      "indexed": 31,
+      "retrieved": 12,
+      "accepted": 13,
+      "assertions": 476,
+      "kinds": {
+        "historical_document_row": 416,
+        "historical_document_text": 60
+      },
+      "states": {
+        "index_only": 1,
+        "document_evidence": 12
+      },
+      "earliest_archive": "2025-01-30T11:30:00+00:00",
+      "latest_archive": "2026-10-22T18:57:14+00:00",
+      "unresolved_transport_failed": 19
+    },
+    "snowflake": {
+      "indexed": 81,
+      "retrieved": 48,
+      "accepted": 49,
+      "assertions": 789,
+      "kinds": {
+        "historical_pdf_page": 789
+      },
+      "states": {
+        "index_only": 1,
+        "pdf_text_only": 48
+      },
+      "earliest_archive": "2021-04-24T09:52:11+00:00",
+      "latest_archive": "2026-10-12T23:26:20+00:00",
+      "unresolved_transport_failed": 25,
+      "unresolved_budget_deferred": 8
+    },
+    "together": {
+      "indexed": 524,
+      "retrieved": 47,
+      "accepted": 50,
+      "assertions": 2150,
+      "kinds": {
+        "historical_document_text": 1181,
+        "historical_document_row": 969
+      },
+      "states": {
+        "index_only": 3,
+        "document_evidence": 47
+      },
+      "earliest_archive": "2023-07-14T22:36:08+00:00",
+      "latest_archive": "2026-10-25T04:07:28+00:00",
+      "unresolved_transport_failed": 26,
+      "unresolved_budget_deferred": 217
+    },
+    "vercel": {
+      "indexed": 113,
+      "retrieved": 48,
+      "accepted": 50,
+      "assertions": 8723,
+      "kinds": {
+        "historical_document_text": 262,
+        "historical_native_model": 8419,
+        "historical_document_row": 42
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 16,
+        "complete_returned_snapshot": 32
+      },
+      "earliest_archive": "2025-06-28T15:33:01+00:00",
+      "latest_archive": "2026-10-24T10:37:01+00:00",
+      "unresolved_transport_failed": 25,
+      "unresolved_budget_deferred": 40
+    },
+    "vertex": {
+      "indexed": 189,
+      "retrieved": 48,
+      "accepted": 49,
+      "assertions": 4118,
+      "kinds": {
+        "historical_document_text": 1224,
+        "historical_document_row": 2894
+      },
+      "states": {
+        "index_only": 1,
+        "document_text_only_ambiguous_tables": 11,
+        "document_evidence": 37
+      },
+      "earliest_archive": "2024-03-10T08:30:52+00:00",
+      "latest_archive": "2026-04-22T06:37:12+00:00",
+      "unresolved_transport_failed": 24,
+      "unresolved_digest_mismatch": 1,
+      "unresolved_budget_deferred": 116
+    },
+    "xai": {
+      "indexed": 187,
+      "retrieved": 48,
+      "accepted": 50,
+      "assertions": 794,
+      "kinds": {
+        "historical_document_text": 419,
+        "historical_document_row": 375
+      },
+      "states": {
+        "index_only": 2,
+        "document_evidence": 48
+      },
+      "earliest_archive": "2025-01-21T22:36:25+00:00",
+      "latest_archive": "2026-10-22T23:47:42+00:00",
+      "unresolved_transport_failed": 24,
+      "unresolved_redirect_denied": 1,
+      "unresolved_budget_deferred": 114
+    },
+    "zai": {
+      "indexed": 90,
+      "retrieved": 45,
+      "accepted": 46,
+      "assertions": 2164,
+      "kinds": {
+        "historical_document_row": 1357,
+        "historical_document_text": 807
+      },
+      "states": {
+        "index_only": 1,
+        "document_evidence": 45
+      },
+      "earliest_archive": "2025-07-28T14:50:00+00:00",
+      "latest_archive": "2026-10-25T11:35:12+00:00",
+      "unresolved_transport_failed": 24,
+      "unresolved_digest_mismatch": 2,
+      "unresolved_redirect_denied": 2,
+      "unresolved_budget_deferred": 17
+    }
+  },
+  "planned_replays": 4410,
+  "accepted_captures": 901,
+  "unresolved_checks": 3556,
+  "states": {
+    "extractor_rejected": 4,
+    "transport_failed": 532,
+    "digest_mismatch": 15,
+    "redirect_denied": 3,
+    "budget_deferred": 3002
+  },
+  "coverage_note": "Selected source URLs only. Indexed, retrieved, parsed, priced and reviewed are separate; gaps are not delistings.",
+  "research_day": "2026-10-26",
+  "research_day_zone": "America/Los_Angeles",
+  "retained_ledger_counts": {
+    "assertion": 89804,
+    "capture": 1000,
+    "correction": 0,
+    "coverage": 5157
+  },
+  "new_captures": 562,
+  "new_assertions": 36791,
+  "retained_lookup_note": "Old lookup checks are retained. This staged report describes the latest selected replay status; successful captures resolve older failed/deferred targets without deleting their original checks."
+}

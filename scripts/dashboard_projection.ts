@@ -1,8 +1,11 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, openSync, readSync, closeSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { z } from 'zod';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { encodeCatalogChunk, decodeCatalogChunk } from './catalog_chunk_codec';
 import { historicalCaptureSchema, historicalEvidenceSchema, historicalCheckSchema, historicalIndexSchema, historicalIndexChunkSchema, historicalEvidenceChunkSchema, historicalManifestSchema, historicalCheckChunkSchema } from '../dashboard/src/lib/historical';
 import { readNativeHistory } from './native_history';
 import {
@@ -15,17 +18,71 @@ import {
 type ObjectValue = Record<string, any>;
 const same = (a: unknown, b: unknown): boolean => stable(a) === stable(b);
 
+/** Consume the private build bridge without constructing a corpus-sized string. */
+function* projectionLines(path: string): Generator<string> {
+  const fd = openSync(path, 'r'), buffer = Buffer.alloc(1024 * 1024);
+  let pending = Buffer.alloc(0);
+  try {
+    let bytes: number;
+    while ((bytes = readSync(fd, buffer, 0, buffer.length, null))) {
+      pending = Buffer.concat([pending, buffer.subarray(0, bytes)]);
+      let start = 0, end: number;
+      while ((end = pending.indexOf(10, start)) !== -1) {
+        if (end - start > 1024 * 1024) throw new Error('Historical bridge record exceeds cap');
+        yield pending.subarray(start, end).toString('utf8');
+        start = end + 1;
+      }
+      pending = Buffer.from(pending.subarray(start));
+      if (pending.length > 1024 * 1024) throw new Error('Historical bridge record exceeds cap');
+    }
+    if (pending.length) throw new Error('Incomplete historical projection bridge');
+  } finally { closeSync(fd); }
+}
+
+const projectionMetadataSchema = z.object({ schema_version: z.literal(1), snapshot_sha256: z.string().regex(/^[a-f0-9]{64}$/),
+  counts: z.object({ captures: z.number().int().nonnegative(), assertions: z.number().int().nonnegative(), checks: z.number().int().nonnegative(), corrections: z.number().int().nonnegative() }).strict(),
+}).strict();
+
+export function readHistoricalProjection(path: string): ObjectValue {
+  const result: ObjectValue = { captures: [], assertions: [], checks: [], corrections: [] };
+  const schemas = { capture: historicalCaptureSchema, assertion: historicalEvidenceSchema, check: historicalCheckSchema,
+    correction: historicalManifestSchema.shape.corrections.element };
+  const fields = { capture: 'captures', assertion: 'assertions', check: 'checks', correction: 'corrections' } as const;
+  let metadata: z.infer<typeof projectionMetadataSchema> | undefined;
+  for (const line of projectionLines(path)) {
+    const row = JSON.parse(line);
+    if (!row || Object.keys(row).sort().join(',') !== 'kind,value') throw new Error('Invalid historical bridge envelope');
+    if (!metadata) {
+      if (row.kind !== 'metadata') throw new Error('Historical bridge metadata must be first');
+      metadata = projectionMetadataSchema.parse(row.value);
+    } else {
+      if (!Object.hasOwn(fields, row.kind)) throw new Error('Unexpected historical bridge kind');
+      const kind = row.kind as keyof typeof fields;
+      result[fields[kind]].push(schemas[kind].parse(row.value));
+    }
+  }
+  if (!metadata || Object.entries(metadata.counts).some(([key, count]) => result[key].length !== count)) throw new Error('Incomplete historical projection counts');
+  result.snapshot_sha256 = metadata.snapshot_sha256;
+  return result;
+}
+
 /** Python verifies the complete ledger before selecting the public field allowlist.
  * Only these projections enter Vite. Raw source/warehouse files never do. */
 export function buildHistoricalAssets(dataDir: string): Map<string, string> {
-  const payload = JSON.parse(execFileSync('python3', ['-m', 'scripts.historical_projection', '--ledger-dir', join(dataDir, 'historical_evidence')], {
-    cwd: fileURLToPath(new URL('..', import.meta.url)), maxBuffer: 256 * 1024 * 1024, timeout: 180000,
-  }).toString('utf8'));
+  const directory = mkdtempSync(join(tmpdir(), 'token3-historical-projection-'));
+  let payload: ObjectValue;
+  try {
+    const path = join(directory, 'projection.jsonl');
+    execFileSync('python3', ['-m', 'scripts.historical_projection', '--ledger-dir', join(dataDir, 'historical_evidence'), '--output', path], {
+      cwd: fileURLToPath(new URL('..', import.meta.url)), maxBuffer: 1024 * 1024, timeout: 900000,
+    });
+    payload = readHistoricalProjection(path);
+  } finally { rmSync(directory, { recursive: true, force: true }); }
   const assets = new Map<string, string>();
   const inventory = JSON.parse(readFileSync(join(dataDir, 'provider_inventory.json'), 'utf8'));
-  const captures = payload.captures.map((c: unknown) => historicalCaptureSchema.parse(c));
-  const records = payload.assertions.map((r: unknown) => historicalEvidenceSchema.parse(r));
-  const checks = payload.checks.map((r: unknown) => historicalCheckSchema.parse(r));
+  const captures = payload.captures;
+  const records = payload.assertions;
+  const checks = payload.checks;
   const ids = new Set(inventory.providers.map((p: ObjectValue) => p.id));
   if ([...captures, ...records, ...checks].some((r) => !ids.has(r.provider))) throw new Error('Historical provider is not in the published source directory');
   const frequencies = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((k) => [k, values.filter((v) => v === k).length]));
@@ -34,15 +91,19 @@ export function buildHistoricalAssets(dataDir: string): Map<string, string> {
     const source = captures.filter((c: ObjectValue) => c.provider === provider.id);
     const failed = checks.filter((c: ObjectValue) => c.provider === provider.id);
     if (!source.length) throw new Error('Historical provider has no retained public capture');
-    const evidence_chunks = chunkRows(selected, 'records', assets);
+    const evidence_chunks = chunkRows(selected, 'records', assets, true);
     const paths = new Map<string, string>();
-    for (const ref of evidence_chunks) for (const r of historicalEvidenceChunkSchema.parse(JSON.parse(assets.get(ref.path)!)).records) paths.set(r.id, ref.path);
+    let offset = 0;
+    for (const ref of evidence_chunks) {
+      for (const r of selected.slice(offset, offset + ref.count)) paths.set(r.id, ref.path);
+      offset += ref.count;
+    }
     const summaries = selected.map((r: ObjectValue) => { const { evidence: _, source_pointer: __, extractor: ___, ...summary } = r; return { ...summary, detail_path: paths.get(r.id) }; });
     const detail_path = `catalog/historical/${provider.id}.json`;
     const assertionIds = new Set(selected.map((r: ObjectValue) => r.id));
     const manifest = historicalManifestSchema.parse({ schema_version: 2, snapshot_sha256: payload.snapshot_sha256, provider: provider.id, captures: source,
-      assertion_count: selected.length, check_count: failed.length, index_chunks: chunkRows(summaries, 'records', assets), evidence_chunks,
-      check_chunks: chunkRows(failed, 'records', assets), corrections: payload.corrections.filter((c: ObjectValue) => assertionIds.has(c.assertion_id)) });
+      assertion_count: selected.length, check_count: failed.length, index_chunks: chunkRows(summaries, 'records', assets, true), evidence_chunks,
+      check_chunks: chunkRows(failed, 'records', assets, true), corrections: payload.corrections.filter((c: ObjectValue) => assertionIds.has(c.assertion_id)) });
     assets.set(detail_path, JSON.stringify(manifest));
     const dates = source.map((c: ObjectValue) => c.archive_capture_at).filter(Boolean).sort();
     return { id: provider.id, name: provider.name, capture_count: source.length, assertion_count: selected.length, check_count: failed.length,
@@ -52,7 +113,7 @@ export function buildHistoricalAssets(dataDir: string): Map<string, string> {
   assets.set('catalog/historical/index.json', JSON.stringify(historicalIndexSchema.parse({ schema_version: 2, snapshot_sha256: payload.snapshot_sha256,
     capture_count: captures.length, assertion_count: records.length, check_count: checks.length, providers })));
   for (const [path, body] of assets) if (path.startsWith('catalog/chunks/')) {
-    const value = JSON.parse(body);
+    const value = decodeCatalogChunk(body) as ObjectValue;
     if (value.records[0]?.evidence) historicalEvidenceChunkSchema.parse(value);
     else if (value.records[0]?.detail_path) historicalIndexChunkSchema.parse(value);
     else historicalCheckChunkSchema.parse(value);
@@ -178,13 +239,14 @@ export function projectListing(r: NativeRecord): ModelListing {
 
 // The only persisted outputs are public assets. Warehouse files are never changed.
 // Content-addressed chunks are shared by provider/category history manifests.
-export function chunkRows<T>(rows: T[], field: string, assets: Map<string, string>): ChunkRef[] {
+export function chunkRows<T>(rows: T[], field: string, assets: Map<string, string>, compress = false): ChunkRef[] {
   const refs: ChunkRef[] = [];
   let current: T[] = [];
   let bytes = Buffer.byteLength(JSON.stringify({ schema_version: 1, [field]: [] }));
   const flush = () => {
     if (!current.length) return;
-    const body = JSON.stringify({ schema_version: 1, [field]: current });
+    const plain = JSON.stringify({ schema_version: 1, [field]: current });
+    const body = compress ? encodeCatalogChunk(plain) : plain;
     const sha256 = createHash('sha256').update(body).digest('hex');
     const path = `catalog/chunks/${sha256}.json`;
     assets.set(path, body);

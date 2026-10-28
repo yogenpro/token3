@@ -34,7 +34,10 @@ export default defineConfig({
       configureServer(server) {
         // Verify/project once before serving, so first browser requests never
         // wait on a full ledger reconstruction and hit their request timeout.
-        catalogAssets();
+        // Vitest has its own complete real-corpus projection test. Preparing
+        // browser assets for its internal Vite server duplicates that expensive
+        // verification before the suite even starts as the archive grows.
+        if (server.config.mode !== 'test') catalogAssets();
         server.middlewares.use((req, res, next) => {
           const base = server.config.base;
           const pathname = req.url?.split('?')[0] ?? '';
@@ -52,12 +55,13 @@ export default defineConfig({
           }
         });
       },
-      generateBundle() {
-        this.emitFile({ type: 'asset', fileName: 'publication.json', source: publication() });
-        for (const file of files) {
-          this.emitFile({ type: 'asset', fileName: file, source: readFileSync(`${dataDir}/${file}`) });
-        }
-        for (const [fileName, source] of catalogAssets()) this.emitFile({ type: 'asset', fileName, source });
+      generateBundle(_options, bundle) {
+        const datasets: Array<[string, string | Uint8Array]> = [['publication.json', publication()],
+          ...files.map((file): [string, Uint8Array] => [file, readFileSync(`${dataDir}/${file}`)]), ...catalogAssets()];
+        const bytes = datasets.reduce((n, [, source]) => n + Buffer.byteLength(source), 0) +
+          Object.values(bundle).reduce((n, entry) => n + Buffer.byteLength(entry.type === 'asset' ? entry.source : entry.code), 0);
+        if (bytes > 1_000_000_000) throw new Error('Static site exceeds the GitHub Pages 1 GB limit. Preserve the data and review its delivery format before publishing.');
+        for (const [fileName, source] of datasets) this.emitFile({ type: 'asset', fileName, source });
       },
     },
   ],

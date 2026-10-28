@@ -5,11 +5,27 @@ import tempfile
 import unittest
 
 from scripts.historical_ledger import ingest, record_discovery_failure
-from scripts.historical_projection import project, project_assertion, public_url
+from scripts.historical_projection import project, project_assertion, public_url, write_projection
 from test_historical_ledger import archives, aws
+from test_historical_expansion import batch
 
 
 class HistoricalProjectionTests(unittest.TestCase):
+    def test_private_record_bridge_preserves_complete_projected_values(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / 'ledger'
+            ingest(root, archives())
+            payload = project(root)
+            path = Path(directory) / 'projection.jsonl'
+            write_projection(path, payload)
+            rows = [json.loads(line) for line in path.read_text().splitlines()]
+            self.assertEqual(rows[0]['value']['snapshot_sha256'], payload['snapshot_sha256'])
+            for kind, key in [('capture', 'captures'), ('assertion', 'assertions'), ('check', 'checks'), ('correction', 'corrections')]:
+                self.assertEqual([r['value'] for r in rows if r['kind'] == kind], payload[key])
+                self.assertEqual(rows[0]['value']['counts'][key], len(payload[key]))
+            with self.assertRaises(FileExistsError):
+                write_projection(path, payload)
+
     def test_whitelist_drops_arbitrary_model_metadata_and_transport_details(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -39,6 +55,7 @@ class HistoricalProjectionTests(unittest.TestCase):
         for url in ["https://example.com/?api_key=fixture", "https://user:pass@example.com/", "javascript:alert(1)"]:
             with self.assertRaises(ValueError):
                 public_url(url)
+        self.assertEqual(public_url('https://example.com/catalog?pageToken=NTAw'), 'https://example.com/catalog?pageToken=NTAw')
         with tempfile.TemporaryDirectory() as directory:
             ingest(Path(directory), archives([[dict(model_name="old/model", pricing=dict(api_key="fixture"))]]))
             with self.assertRaisesRegex(ValueError, "Credential"):
@@ -59,3 +76,14 @@ class HistoricalProjectionTests(unittest.TestCase):
             self.assertIsNone(check["checked_at"])
             self.assertEqual(check["checked_date"], "2026-10-25")
             self.assertEqual(check["recorded_at"], "2026-10-26T10:00:00Z")
+
+    def test_ovh_nested_pricing_is_selected_without_publishing_endpoints_or_inventing_currency(self):
+        model = dict(id="past/model", metadata=dict(api_base_url="https://private.example/inference", usage_information=dict(
+            pricing=[dict(price="0.09", price_unit="million_input_tokens")], avg_throughtput=2, status="live")))
+        with tempfile.TemporaryDirectory() as directory:
+            ingest(Path(directory), batch("ovhcloud", json.dumps(dict(data=[model])).encode(), "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2"))
+            evidence = project(Path(directory))["assertions"][0]["evidence"]
+            self.assertEqual(evidence["metadata"]["usage_information"]["pricing"], model["metadata"]["usage_information"]["pricing"])
+            self.assertNotIn("private.example", json.dumps(evidence))
+            self.assertNotIn("avg_throughtput", json.dumps(evidence))
+            self.assertNotIn("currency", json.dumps(evidence))

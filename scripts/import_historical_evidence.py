@@ -88,7 +88,7 @@ def from_research_probe(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     inputs = parser.add_mutually_exclusive_group(required=True)
-    inputs.add_argument("--input", type=Path, help="Portable schema-1 source-descriptor manifest")
+    inputs.add_argument("--input", type=Path, action="append", help="Portable schema-1 source-descriptor manifest; repeat for one atomic batch")
     inputs.add_argument("--research-probe", type=Path, help="Import the dated AWS/DeepInfra research staging receipts")
     parser.add_argument("--ledger-dir", type=Path, default=DEFAULT_ROOT)
     parser.add_argument("--checks", type=Path, help="Bounded explicit discovery-check rows, committed atomically with the batch")
@@ -96,7 +96,9 @@ def main():
     mode.add_argument("--apply", action="store_true")
     mode.add_argument("--dry-run", action="store_true", help="Default: validate in an isolated temporary ledger")
     args = parser.parse_args()
-    descriptors = from_input(args.input) if args.input else from_research_probe(args.research_probe)
+    if args.input and len(args.input) > 16:
+        parser.error("At most 16 bounded source manifests may form one batch")
+    descriptors = [source for path in args.input for source in from_input(path)] if args.input else from_research_probe(args.research_probe)
     checks = None
     if args.checks:
         if args.checks.stat().st_size > 4 * 1024 * 1024:

@@ -15,6 +15,7 @@ export default defineConfig({
     command: 'npm run dev -- --port 4173 --strictPort',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
-    timeout: 120000,
+    // Match complete archive reconstruction plus public chunk/schema preparation.
+    timeout: 1200000,
   },
 });

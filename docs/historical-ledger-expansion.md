@@ -9,7 +9,8 @@ or public projection is changed.
 
 The [machine-readable coverage report](research/historical-expansion-2026-10-26.json)
 records the exact preparation time, interpretation states and gaps by provider.
-The [versioned source profiles](../config/historical_sources.json) select 43 URLs.
+The initial [versioned source profiles](../config/historical_sources.json) selected 43 URLs;
+the later [target recovery](historical-target-recovery.md) adds former pricing URLs.
 Their retained archive indexes yield 4,410 replay candidates after deduplicating
 identical provider/timestamp/original-URL/digest entries across indexes. Those
 entries are archive references, not 4,410 models or price changes.

@@ -29,6 +29,28 @@ def digest(body):
     return hashlib.sha256(body).hexdigest()
 
 
+def replay_receipt_path(stage, provider, url, expected):
+    """A CDX target includes its digest; one timestamp can have several bodies."""
+    return stage / "requests" / (digest((provider + "\n" + url + "\n" + expected).encode()) + ".json")
+
+
+def replay_receipt(stage, provider, url, expected):
+    path = replay_receipt_path(stage, provider, url, expected)
+    if not path.exists():
+        # Legacy checkpoints used only the replay URL. The caller must still
+        # verify the selected target's digest before extraction.
+        path = stage / "requests" / (digest((provider + "\n" + url).encode()) + ".json")
+    return json.loads(path.read_bytes()) if path.exists() else dict(state="budget_deferred")
+
+
+def _body_for_receipt(stage, receipt):
+    from .import_historical_evidence import _body
+    path = stage / receipt["body_path"]
+    if path.resolve().parent != (stage / "bodies").resolve():
+        raise ValueError("Resumed historical body is outside staging")
+    return _body(path, receipt["body_sha256"], receipt.get("body_bytes"))
+
+
 def save(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=path.parent, suffix=".tmp", delete=False) as handle:
@@ -62,10 +84,12 @@ def adopt_results(stage, path):
         job = jobs[row["index"]]
         source_spec(job["url"], job["provider"])
         replay = "https://web.archive.org/web/{}id_/{}".format(job["stamp"], job["url"])
-        receipt_path = stage / "requests" / (digest((job["provider"] + "\n" + replay).encode()) + ".json")
-        old = json.loads(receipt_path.read_bytes()) if receipt_path.exists() else {}
+        receipt_path = replay_receipt_path(stage, job["provider"], replay, job["digest"])
+        old = replay_receipt(stage, job["provider"], replay, job["digest"])
         if old.get("state") == "retrieved":
-            continue
+            raw = _body_for_receipt(stage, old)
+            if base64.b32encode(hashlib.sha1(raw).digest()).decode() == job["digest"]:
+                continue
         receipt = dict(provider=job["provider"], url=replay, label=job["label"], checked_at=row["retrieved_at"],
             attempts=old.get("attempts", 0) + 1, http_status=row["http_status"] or None, curl_exit_code=row["exit_code"],
             previous_attempts=old.get("previous_attempts", []) + ([{k:v for k,v in old.items() if k != "previous_attempts"}] if old else []))
@@ -110,18 +134,17 @@ class Discovery:
 
     def fetch(self, provider, url, label, expected=None, live=False):
         job = digest((provider + "\n" + url).encode())
-        receipt_path = self.stage / "requests" / (job + ".json")
-        if receipt_path.exists():
-            old = json.loads(receipt_path.read_bytes())
+        receipt_path = replay_receipt_path(self.stage, provider, url, expected) if expected else self.stage / "requests" / (job + ".json")
+        old = replay_receipt(self.stage, provider, url, expected) if expected else json.loads(receipt_path.read_bytes()) if receipt_path.exists() else {}
+        if old:
             if old["state"] == "retrieved":
-                path = self.stage / old["body_path"]
-                if path.is_file() and digest(path.read_bytes()) == old["body_sha256"]:
+                raw = _body_for_receipt(self.stage, old)
+                if not expected or base64.b32encode(hashlib.sha1(raw).digest()).decode() == expected:
                     return old
-                raise ValueError("Resumed historical body is missing or corrupt")
             # Connection/DNS failures can be execution-environment failures, not vendor outages.
             # Keep every attempt and use short resumable batches rather than unbounded retries.
             limit = 4 if old.get("curl_exit_code") in (6, 7) else 2
-            if old.get("attempts", 0) >= limit and old["state"] != "budget_deferred":
+            if old.get("attempts", 0) >= limit and old["state"] not in {"budget_deferred", "retrieved"}:
                 return old
         else:
             old = {}

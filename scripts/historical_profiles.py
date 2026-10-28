@@ -7,7 +7,7 @@ from urllib.parse import parse_qsl, parse_qs, urlsplit
 
 CONFIG = Path(__file__).resolve().parents[1] / "config" / "historical_sources.json"
 PROFILE = "historical-public-profiles-v1"
-DOCUMENT_KINDS = {"archive_index_v2", "archived_native_v2", "public_document_v2"}
+DOCUMENT_KINDS = {"archive_index_v2", "archived_native_v2", "public_document_v2", "arquivo_index_v3", "arquivo_native_v3", "commoncrawl_index_v4", "commoncrawl_native_v4"}
 
 
 @lru_cache(maxsize=1)
