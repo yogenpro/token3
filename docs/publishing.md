@@ -32,7 +32,11 @@ and a later collection cannot silently release previously unpublished code.
    API work is bounded and metadata/API failures fail closed.
 4. The build checks out that exact resolved SHA, installs pinned-lockfile npm and
    Python requirements, runs `npm run check` (including production build), then
-   browser/accessibility checks. Publishing receives no collector keys. Only the
+   browser/accessibility checks. The build job allows 75 minutes for three complete
+   historical projections (unit tests, production build and browser-server startup),
+   dependency setup and the remaining checks. Each verifier retains its 15-minute
+   bound; full-corpus test setup and browser-server startup retain 20-minute bounds.
+   Publishing receives no collector keys. Only the
    static reviewed allowlist, small build metadata and validated native projections
    enter the Pages artifact; never warehouse archives, proofs or raw responses.
 5. The deploy job depends on successful resolution and build. It alone gets an

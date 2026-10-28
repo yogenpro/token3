@@ -46,7 +46,8 @@ jobs:
     needs: resolve
     if: needs.resolve.outputs.publish == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # Budget three full historical projections (unit tests, build, browser server).
+    timeout-minutes: 75
     permissions:
       contents: read
       pages: write

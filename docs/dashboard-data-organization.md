@@ -131,8 +131,9 @@ internal server does not redundantly prepare browser assets before its dedicated
 full-corpus projection test. Published visitors still fetch only static files. The source manifest
 mtime participates in development cache invalidation; projection never mutates it.
 The full index/evidence binding test has its own three-minute bound while retaining
-all assertions. CI and Pages build jobs allow 45 minutes for complete tests,
-production builds, browser startup and accessibility checks. These resource bounds
+all assertions. CI and Pages build jobs allow 75 minutes: three 20-minute projection
+budgets for unit tests, the production build and browser-server startup, plus
+15 minutes for dependency setup, other checks and artifact preparation. These resource bounds
 do not change release gates, permissions or source/economic validation.
 
 The full-corpus warehouse-byte/privacy check has a bounded 60-second allowance for
