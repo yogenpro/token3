@@ -14,7 +14,7 @@ async function audit(page: import('@playwright/test').Page) {
 test('freshness, grouped digest and explicit Together pause need no native assets', async ({ page }) => {
   const native: string[] = [];
   page.on('request', (r) => { if (r.url().includes('/catalog/')) native.push(r.url()); });
-  await page.goto('/');
+  await page.goto('./');
   const freshness = page.getByRole('region', { name: 'Published snapshot freshness' });
   await expect(freshness.getByText('Collected through', { exact: true })).toBeVisible();
   await expect(freshness.locator('time').first()).toHaveAttribute('datetime', data.status.last_run_at);
@@ -27,7 +27,7 @@ test('freshness, grouped digest and explicit Together pause need no native asset
 });
 
 test('workload map searches all reviewed models, recalculates and remains accessible on mobile/dark', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await page.getByRole('button', { name: 'Explore price map', exact: true }).click();
   await page.getByRole('searchbox', { name: 'Filter reviewed price map' }).fill('DeepSeek V4.1 Flash');
   await expect(page.locator('.price-map-table tbody tr')).toHaveCount(1);
@@ -51,7 +51,7 @@ test('workload map searches all reviewed models, recalculates and remains access
 
 test('mismatched publication metadata fails closed and can be retried', async ({ page }) => {
   await page.route('**/publication.json', (route) => route.fulfill({ json: { schema_version: 1, built_at: '2026-10-19T00:00:00Z', data_collected_at: '2026-10-01T00:00:00Z', commit_sha: null, mode: 'build' } }));
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByRole('alert')).toBeVisible();
   await expect(page.getByTestId('offering-row')).toHaveCount(0);
   await page.unroute('**/publication.json');
@@ -60,7 +60,7 @@ test('mismatched publication metadata fails closed and can be retried', async ({
 });
 
 test('DeepSeek official evidence stays separate from gateway comparisons', async ({ page }) => {
-  await page.goto('/?view=providers&provider=deepseek');
+  await page.goto('./?view=providers&provider=deepseek');
   await expect(page.getByText('Official DeepSeek API evidence, separate from gateway quotes.', { exact: false })).toBeVisible();
   await expect(page.locator('.native-table tbody tr').first()).toBeVisible();
   await expect(page.locator('.native-table')).toContainText('Not compared');

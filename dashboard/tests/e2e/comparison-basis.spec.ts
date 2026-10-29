@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 test('Compare keeps EUR, DBU and AI Credit views separate with shareable URLs', async ({ page }) => {
   const nativeRequests: string[] = [];
   page.on('request', (r) => { if (r.url().includes('/catalog/')) nativeRequests.push(r.url()); });
-  await page.goto('/?model=openai/gpt-oss-120b');
+  await page.goto('./?model=openai/gpt-oss-120b');
   await expect(page.getByLabel('Billing basis')).toHaveValue('USD');
   await expect(page.locator('.comparison-table')).toContainText('OpenRouter');
   await expect(page.locator('.comparison-table')).not.toContainText('Databricks');
@@ -27,7 +27,7 @@ test('Compare keeps EUR, DBU and AI Credit views separate with shareable URLs', 
   await expect(page.locator('.comparison-table')).toContainText('DBU');
   await expect(page.locator('.comparison-table')).not.toContainText('$');
   expect(nativeRequests).toEqual([]);
-  await page.goto('/?model=zai%2Fglm-5.3&unit=AI_CREDIT');
+  await page.goto('./?model=zai%2Fglm-5.3&unit=AI_CREDIT');
   await expect(page.getByLabel('Billing basis')).toHaveValue('AI_CREDIT');
   await expect(page.locator('.comparison-table')).toContainText('Snowflake');
   await expect(page.locator('.comparison-table')).toContainText('AI Credits');
@@ -36,7 +36,7 @@ test('Compare keeps EUR, DBU and AI Credit views separate with shareable URLs', 
 });
 
 test('DeepSeek uses the selected scenario and keeps the UTC/holiday conditions', async ({ page }) => {
-  await page.goto('/?model=deepseek%2Fdeepseek-v4.1-flash');
+  await page.goto('./?model=deepseek%2Fdeepseek-v4.1-flash');
   const row = page.getByTestId('offering-row').filter({ hasText: 'DeepSeek' });
   await expect(row).toHaveCount(1);
   await expect(row).toContainText('peak UTC schedule');
@@ -52,7 +52,7 @@ test('DeepSeek uses the selected scenario and keeps the UTC/holiday conditions',
 
 test('billing-basis controls remain accessible on mobile and in dark mode', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/?model=openai%2Fgpt-oss-120b&unit=EUR');
+  await page.goto('./?model=openai%2Fgpt-oss-120b&unit=EUR');
   await expect(page.locator('.comparison-table')).toContainText('€');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const audit = async () => {

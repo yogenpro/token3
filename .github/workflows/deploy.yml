@@ -46,7 +46,7 @@ jobs:
     needs: resolve
     if: needs.resolve.outputs.publish == 'true'
     runs-on: ubuntu-latest
-    # Budget three full historical projections (unit tests, build, browser server).
+    # Retain the approved ceiling; one verified projection is reused within check.
     timeout-minutes: 75
     permissions:
       contents: read
@@ -83,8 +83,8 @@ jobs:
         run: npm run check
       - run: npx playwright install --with-deps chromium
       - name: Check browser flows and accessibility
-        # Browser routes use /; the tested production build above keeps Pages' base.
-        run: PAGES_BASE_PATH=/ npm run test:e2e
+        # Test the exact production artifact under its actual Pages base path.
+        run: npm run test:e2e
       - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:

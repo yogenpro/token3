@@ -1,10 +1,11 @@
+import { sitePathname } from './paths';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 test('historical overview loads only summary metadata and all provider groups', async ({ page }) => {
   const paths: string[] = [];
-  page.on('request', (r) => { const path = new URL(r.url()).pathname; if (path.includes('/catalog/')) paths.push(path); });
-  await page.goto('/?view=historical');
+  page.on('request', (r) => { const path = sitePathname(r.url()); if (path.includes('/catalog/')) paths.push(path); });
+  await page.goto('./?view=historical');
   await expect(page.locator('.provider-card')).toHaveCount(26);
   expect([...new Set(paths.filter((p) => p.includes('historical/')))]).toEqual(['/catalog/historical/index.json']);
   expect(paths.some((p) => p.includes('/chunks/'))).toBe(false);
@@ -16,7 +17,7 @@ test('historical overview loads only summary metadata and all provider groups', 
 });
 
 test('historical IDs, dates, expressions and provenance survive deep links', async ({ page }) => {
-  await page.goto('/?view=historical&provider=deepinfra');
+  await page.goto('./?view=historical&provider=deepinfra');
   await expect(page.locator('.historical-records tbody tr')).toHaveCount(25);
   await page.getByLabel('Search historical assertions').fill('llama');
   await page.locator('.historical-records tbody tr').first().getByRole('button').click();
@@ -38,7 +39,7 @@ test('historical IDs, dates, expressions and provenance survive deep links', asy
 });
 
 test('historical exports cover the entire filtered index and retain capture provenance', async ({ page }) => {
-  await page.goto('/?view=historical&provider=openrouter');
+  await page.goto('./?view=historical&provider=openrouter');
   await expect(page.locator('.historical-records tbody tr')).toHaveCount(25);
   await page.getByLabel('Search historical assertions').fill('llama');
   await expect(page.locator('.historical-records tbody tr').first()).toContainText(/llama/i);
@@ -60,7 +61,7 @@ test('historical exports cover the entire filtered index and retain capture prov
 test('corrupt historical chunks fail visibly, retry completely and do not become empty results', async ({ page }) => {
   let blocked = true;
   await page.route('**/catalog/chunks/*.json', (route) => blocked ? route.fulfill({ json: { schema_version: 1, records: [] } }) : route.continue());
-  await page.goto('/?view=historical&provider=openrouter');
+  await page.goto('./?view=historical&provider=openrouter');
   await expect(page.getByRole('alert')).toContainText('Catalog chunk and manifest differ');
   await expect(page.getByRole('heading', { name: 'No matching historical assertions' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Export filtered historical evidence', exact: true })).toHaveCount(0);
@@ -76,7 +77,7 @@ test('historical views are accessible in both themes and fit mobile', async ({ p
     const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     expect(result.violations.map((v) => ({ id: v.id, targets: v.nodes.map((n) => n.target) }))).toEqual([]);
   };
-  await page.goto('/?view=historical');
+  await page.goto('./?view=historical');
   await expect(page.locator('.provider-card')).toHaveCount(26); await audit();
   await page.getByRole('button', { name: 'Switch to dark theme' }).click(); await audit();
   await page.getByRole('button', { name: 'Historical evidence for Amazon Bedrock' }).click();

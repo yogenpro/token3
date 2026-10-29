@@ -8,7 +8,7 @@ const catalog = (id: string) => JSON.parse(readFileSync(new URL(`../../../data/p
 test('the comparison landing page does not download the warehouse', async ({ page }) => {
   const assets: string[] = [];
   page.on('request', (request) => { if (new URL(request.url()).pathname.includes('/catalog/')) assets.push(request.url()); });
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   expect(assets).toEqual([]);
   await page.getByRole('button', { name: 'Providers', exact: true }).click();
@@ -18,7 +18,7 @@ test('the comparison landing page does not download the warehouse', async ({ pag
 });
 
 test('reviewed offers expose commercial access and link to their native provider catalog', async ({ page }) => {
-  await page.goto('/?model=openai/gpt-5.4');
+  await page.goto('./?model=openai/gpt-5.4');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   await expect(page.locator('.comparison-access').filter({ hasText: 'Cloud access' }).first()).toBeVisible();
   await expect(page.locator('.comparison-access').filter({ hasText: 'Direct API access' }).first()).toBeVisible();
@@ -30,7 +30,7 @@ test('reviewed offers expose commercial access and link to their native provider
 });
 
 test('provider search and access filters separate gateway offers', async ({ page }) => {
-  await page.goto('/?view=providers');
+  await page.goto('./?view=providers');
   await expect(page.locator('.provider-card')).toHaveCount(inventory.provider_count);
   await page.getByLabel('Filter providers by access type').selectOption('Gateway');
   await expect(page.locator('.provider-card')).toHaveCount(3);
@@ -45,7 +45,7 @@ test('provider search and access filters separate gateway offers', async ({ page
 
 test('native record deep links preserve unknown currency and source rules', async ({ page }) => {
   const record = catalog('ovhcloud').records[0];
-  await page.goto(`/?view=providers&provider=ovhcloud&record=${record.id}`);
+  await page.goto(`./?view=providers&provider=ovhcloud&record=${record.id}`);
   const detail = page.getByRole('region', { name: 'Selected source record' });
   await expect(detail).toBeVisible();
   await expect(detail).toContainText('Currency unverified');
@@ -66,7 +66,7 @@ test('Google source-time warnings stay separate from collector health and tariff
       default_effective_time: '2026-10-10T07:00:00Z', record_count: 2, older_than_documented_window_count: 2, exceptions: {} };
     await route.fulfill({ response, json: detail });
   });
-  await page.goto('/?view=providers&provider=vertex');
+  await page.goto('./?view=providers&provider=vertex');
   const warning = page.getByRole('note', { name: 'Google source-time provenance' });
   await expect(warning).toContainText('2 SKU timestamps are older');
   await expect(warning).toContainText('not a new tariff or a freshness guarantee');
@@ -76,7 +76,7 @@ test('Google source-time warnings stay separate from collector health and tariff
 });
 
 test('catalog filters, pagination, and native export use all matching records', async ({ page }) => {
-  await page.goto('/?view=providers&provider=openrouter');
+  await page.goto('./?view=providers&provider=openrouter');
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);
   await page.locator('.native-catalog').getByRole('button', { name: 'Next page' }).click();
   await expect(page.locator('.native-catalog .catalog-pagination')).toContainText('Page 2');
@@ -105,7 +105,7 @@ test('catalog filters, pagination, and native export use all matching records', 
 });
 
 test('collected models stay provider-scoped and navigate to source evidence', async ({ page }) => {
-  await page.goto('/?view=models&directory=collected');
+  await page.goto('./?view=models&directory=collected');
   await expect(page.getByLabel('Search collected models')).toBeVisible();
   await page.getByLabel('Filter collected models by provider').selectOption('huggingface');
   await page.getByLabel('Search collected models').fill('gpt-oss-120b');
@@ -118,7 +118,7 @@ test('collected models stay provider-scoped and navigate to source evidence', as
 });
 
 test('native changes separate prices, rules, and source absence', async ({ page }) => {
-  await page.goto('/?view=changes&feed=price');
+  await page.goto('./?view=changes&feed=price');
   await expect(page.getByLabel('Search native changes')).toBeVisible();
   await page.getByLabel('Filter native changes by provider').selectOption('openrouter');
   await page.getByRole('button', { name: /^Open openrouter price observation batch/ }).first().click();
@@ -137,7 +137,7 @@ test('native changes separate prices, rules, and source absence', async ({ page 
 test('lazy asset failures are recoverable and never erase reviewed quotes', async ({ page }) => {
   let blocked = true;
   await page.route('**/catalog/providers/openrouter.json', (route) => blocked ? route.fulfill({ status: 503, body: '{}' }) : route.continue());
-  await page.goto('/?view=providers&provider=openrouter');
+  await page.goto('./?view=providers&provider=openrouter');
   await expect(page.getByRole('alert')).toContainText('Unable to load catalog');
   blocked = false;
   await page.getByRole('button', { name: 'Retry catalog' }).click();
@@ -151,7 +151,7 @@ test('new catalog surfaces pass AA accessibility in both themes and fit mobile',
     const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
     expect(result.violations.map((v) => ({ id: v.id, impact: v.impact, targets: v.nodes.map((n) => n.target) }))).toEqual([]);
   };
-  await page.goto('/?view=providers');
+  await page.goto('./?view=providers');
   await expect(page.locator('.provider-card')).toHaveCount(inventory.provider_count);
   await audit();
   await page.getByRole('button', { name: 'Switch to dark theme' }).click(); await audit();

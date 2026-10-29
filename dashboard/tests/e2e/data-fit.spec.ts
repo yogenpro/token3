@@ -1,3 +1,4 @@
+import { sitePathname } from './paths';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
@@ -16,8 +17,8 @@ const audit = async (page: import('@playwright/test').Page) => {
 
 test('coverage uses separate denominators and downloads only the small native index', async ({ page }) => {
   const requested: string[] = [];
-  page.on('request', (r) => { if (r.url().includes('/catalog/')) requested.push(new URL(r.url()).pathname); });
-  await page.goto('/?view=coverage');
+  page.on('request', (r) => { if (r.url().includes('/catalog/')) requested.push(sitePathname(r.url())); });
+  await page.goto('./?view=coverage');
   await expect(page.getByRole('heading', { name: 'Coverage, without the guesswork.' })).toBeVisible();
   await expect(page.locator('.coverage-card')).toHaveCount(3);
   await expect(page.locator('.coverage-card').first()).toContainText(`${models.length} canonical models`);
@@ -33,11 +34,11 @@ test('coverage uses separate denominators and downloads only the small native in
 });
 
 test('large provider browsing loads indexes, then one bounded evidence chunk, never history automatically', async ({ page }) => {
-  const response = await page.request.get('/catalog/providers/vertex.json');
+  const response = await page.request.get('./catalog/providers/vertex.json');
   const header = await response.json();
   const requested: string[] = [];
-  page.on('request', (r) => { if (r.url().includes('/catalog/')) requested.push(new URL(r.url()).pathname.slice(1)); });
-  await page.goto('/?view=providers&provider=vertex');
+  page.on('request', (r) => { if (r.url().includes('/catalog/')) requested.push(sitePathname(r.url()).slice(1)); });
+  await page.goto('./?view=providers&provider=vertex');
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);
   expect(header.record_chunks.every((r: { path: string }) => !requested.includes(r.path))).toBe(true);
   expect(requested).not.toContain('catalog/history/vertex.json');
@@ -51,7 +52,7 @@ test('large provider browsing loads indexes, then one bounded evidence chunk, ne
 test('large history opens as batches and an event page loads only intersecting chunks', async ({ page }) => {
   // Verified timestamp-only rule copies are no longer a large event feed. Use
   // the largest real catalog batch; do not fabricate events or relax paging.
-  const response = await page.request.get('/catalog/changes/catalog.json');
+  const response = await page.request.get('./catalog/changes/catalog.json');
   const manifest = await response.json();
   const batch = manifest.batches.filter((b: { provider: string }) => b.provider === 'vertex')
     .sort((a: { event_count: number }, b: { event_count: number }) => b.event_count - a.event_count)[0];
@@ -59,8 +60,8 @@ test('large history opens as batches and an event page loads only intersecting c
   expect(batch.chunks.length).toBeGreaterThan(2);
   const expectedChunks = pageChunks(batch.chunks, 1).refs.map((r) => r.path);
   const requested: string[] = [];
-  page.on('request', (r) => { if (r.url().includes('/catalog/chunks/')) requested.push(new URL(r.url()).pathname.slice(1)); });
-  await page.goto('/?view=changes&feed=catalog');
+  page.on('request', (r) => { if (r.url().includes('/catalog/chunks/')) requested.push(sitePathname(r.url()).slice(1)); });
+  await page.goto('./?view=changes&feed=catalog');
   await expect(page.locator('.history-batch').first()).toBeVisible();
   expect(requested).toEqual([]);
   await page.getByLabel('Filter native changes by provider').selectOption('vertex');
@@ -78,18 +79,18 @@ test('the native rule feed excludes verified as-of copies without exposing wareh
     if (entry.observationOnly) observationEvents.add(`native-${entry.event.id}-rule`);
   }
   expect(observationEvents.size).toBeGreaterThan(0);
-  const response = await page.request.get('/catalog/changes/rule.json');
+  const response = await page.request.get('./catalog/changes/rule.json');
   const manifest = await response.json();
   let count = 0;
   for (const batch of manifest.batches) for (const ref of batch.chunks) {
-    const chunk = await (await page.request.get(`/${ref.path}`)).json();
+    const chunk = await (await page.request.get(`./${ref.path}`)).json();
     for (const event of chunk.events) expect(observationEvents.has(event.id)).toBe(false);
     count += chunk.events.length;
   }
   expect(count).toBe(manifest.event_count);
   const requested: string[] = [];
-  page.on('request', (r) => requested.push(new URL(r.url()).pathname));
-  await page.goto('/?view=changes&feed=rule');
+  page.on('request', (r) => requested.push(sitePathname(r.url())));
+  await page.goto('./?view=changes&feed=rule');
   await expect(page.getByText('Original observations are retained in the warehouse', { exact: false })).toBeVisible();
   await expect(page.getByText('Batches show change-bearing observations', { exact: false })).toBeVisible();
   expect(requested.some((p) => /inventory_history|\/archive\/|\/proofs\//.test(p))).toBe(false);
@@ -97,7 +98,7 @@ test('the native rule feed excludes verified as-of copies without exposing wareh
 });
 
 test('directories filter current coverage and the sidebar keeps a small honest recent list', async ({ page }) => {
-  await page.goto('/?view=models');
+  await page.goto('./?view=models');
   await page.getByLabel('Filter reviewed models by creator').selectOption('Qwen');
   await expect(page.locator('.explorer-table tbody tr')).toHaveCount(models.filter((m) => m.creator === 'Qwen').length);
   await page.getByLabel('Filter reviewed models by family').selectOption('Qwen3');
@@ -115,7 +116,7 @@ test('directories filter current coverage and the sidebar keeps a small honest r
 });
 
 test('one-day histories use a compact snapshot and comparison certainty stays visible', async ({ page }) => {
-  await page.goto('/?model=anthropic%2Fclaude-fable-5.1');
+  await page.goto('./?model=anthropic%2Fclaude-fable-5.1');
   await expect(page.getByRole('region', { name: 'First observed price snapshot for Claude Fable 5.1' })).toBeVisible();
   await expect(page.locator('.history-panel .chart-container')).toHaveCount(0);
   await expect(page.locator('.comparison-certainty')).toContainText('Reviewed USD/token quotes');
@@ -128,14 +129,14 @@ test('one-day histories use a compact snapshot and comparison certainty stays vi
 });
 
 test('a corrupt index chunk is recoverable and cannot become a shorter catalog or partial export', async ({ page }) => {
-  const response = await page.request.get('/catalog/providers/openrouter.json');
+  const response = await page.request.get('./catalog/providers/openrouter.json');
   const header = await response.json();
   let corrupt = true;
   await page.route(`**/${header.index_chunks[0].path}`, async (route) => {
     const response = await route.fetch();
     await route.fulfill({ response, body: corrupt ? (await response.text()).replace('label', 'tampered-label') : await response.text() });
   });
-  await page.goto('/?view=providers&provider=openrouter');
+  await page.goto('./?view=providers&provider=openrouter');
   await expect(page.getByRole('alert')).toContainText('Catalog chunk and manifest differ');
   await expect(page.locator('.native-table')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Export filtered records' })).toHaveCount(0);

@@ -12,7 +12,7 @@ const models = [
 ] as const;
 
 test('all new models have real native and cloud comparisons, not open-weight badges', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   for (const [id, providers] of models) {
     await page.getByLabel('SELECT A MODEL').selectOption(id);
     await expect(page.locator('.model-meta')).toContainText('Proprietary');
@@ -29,7 +29,7 @@ test('all new models have real native and cloud comparisons, not open-weight bad
 });
 
 test('long prompts and fully cached prompts cannot win at a short-context price', async ({ page }) => {
-  await page.goto('/?model=openai%2Fgpt-5.4');
+  await page.goto('./?model=openai%2Fgpt-5.4');
   await page.getByRole('spinbutton', { name: 'Input tokens per request' }).fill('300000');
   await page.getByRole('spinbutton', { name: 'Number of requests' }).fill('1');
   await page.getByRole('slider', { name: 'Cache hit rate' }).fill('100');
@@ -43,7 +43,7 @@ test('long prompts and fully cached prompts cannot win at a short-context price'
 
 test('mobile proprietary comparisons stay readable and accessible', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/?model=google%2Fgemini-3.8-flash');
+  await page.goto('./?model=google%2Fgemini-3.8-flash');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.getByLabel('Service tier').selectOption('priority');

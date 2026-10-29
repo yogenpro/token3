@@ -125,16 +125,42 @@ private record-at-a-time build bridge rather than one enormous stdout JSON strin
 each bridge record is capped at 1 MiB and complete counts/schemas are checked.
 The bridge is deleted after use and never published. Public JSON chunks retain
 their existing 512 KiB cap, hash checks and complete index/evidence validation.
-The verifier has a 15-minute bound; Playwright/server and full-corpus test setup
-allow 20 minutes including schema/chunk validation. Vitest's
+The verifier has a 15-minute bound; full-corpus test setup allows 20 minutes
+including schema/chunk validation. Vitest's
 internal server does not redundantly prepare browser assets before its dedicated
 full-corpus projection test. Published visitors still fetch only static files. The source manifest
 mtime participates in development cache invalidation; projection never mutates it.
 The full index/evidence binding test has its own three-minute bound while retaining
-all assertions. CI and Pages build jobs allow 75 minutes: three 20-minute projection
-budgets for unit tests, the production build and browser-server startup, plus
-15 minutes for dependency setup, other checks and artifact preparation. These resource bounds
-do not change release gates, permissions or source/economic validation.
+all assertions. CI and Pages build jobs retain the approved 75-minute ceiling;
+preview startup has a one-minute bound. These resource bounds do not change
+release gates, permissions or source/economic validation.
+
+`scripts/check.ts` gives one check invocation a fresh temporary directory and an
+input fingerprint covering its Git commit, actual source/data/configuration/test
+bytes (including ledger sources, segments and migration proofs), Node/Python
+versions and installed PDF parser version. Native and historical integration tests
+generate public assets through their original complete validators. The build may
+reuse those same assets through `scripts/prepared_projection.ts`, which rechecks
+the fingerprint before/after use and checks serialized paths, hashes, bytes,
+schemas, complete references/counts and index/evidence identity sets. A changed
+input or damaged/incomplete cache fails the run. Fixture projections keep their
+independent generation. Standalone tests/builds/development do not use this cache.
+Only public JSON projections and a private receipt enter the temporary directory;
+it is deleted on exit and never restored from another run or published.
+
+`scripts/browser_tests.ts` verifies a private production-build receipt under
+`node_modules/.cache/token3/`, including the current input fingerprint and every
+`dist/` path, byte count and hash. It then starts Vite preview with the recorded
+base path. Playwright exercises that exact artifact under `/` or its actual Pages
+subdirectory, without generating data again. Missing/stale/changed output fails
+before browser startup. The receipt stays outside the public output.
+
+Historical PDF extraction caches only immutable page-text tuples in memory,
+bounded to 128 entries and 64 MiB of UTF-8 text. Exact source SHA-256, the historical
+extractor version and pinned PDF parser version identify each entry. Every capture
+still verifies source bytes, archive/index membership, digest and dates before
+using cached text; assertion IDs and provenance are reconstructed per capture.
+Parser-version drift fails closed; failures and oversized text are not cached.
 
 The full-corpus warehouse-byte/privacy check has a bounded 60-second allowance for
 hashing every source and inspecting every decoded public chunk. Its assertions

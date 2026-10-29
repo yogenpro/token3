@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 for (const width of [1440, 390, 320]) {
   test(`Token³ branding and readable typography at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto('/');
+    await page.goto('./');
     await expect(page.getByTestId('offering-row').first()).toBeVisible();
     await expect(page).toHaveTitle('TokenTokenToken (Token³) — LLM inference price watch');
     await expect(page.locator('.brand small')).toHaveText('TokenTokenToken');
@@ -27,7 +27,7 @@ for (const width of [1440, 390, 320]) {
 }
 
 test('rebranded dataset and history exports use the new site name', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   const fullExport = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export data', exact: true }).click();
@@ -40,7 +40,7 @@ test('rebranded dataset and history exports use the new site name', async ({ pag
 
 test('preserves existing theme preferences after the rename', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('token-ledger-theme', 'dark'));
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   expect(await page.evaluate(() => localStorage.getItem('tokentokentoken-theme'))).toBe('dark');

@@ -11,7 +11,7 @@ const selected = [
 ];
 
 test('requested models and additional recent families have reviewed comparisons', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('./');
   await expect(page.getByLabel('SELECT A MODEL').locator('option')).toHaveCount(45);
   for (const id of selected) {
     await page.getByLabel('SELECT A MODEL').selectOption(id);
@@ -26,7 +26,7 @@ test('requested models and additional recent families have reviewed comparisons'
 });
 
 test('Haiku 5.5 fully cached requests use the correct 100K prompt band', async ({ page }) => {
-  await page.goto('/?model=anthropic%2Fclaude-haiku-5.5');
+  await page.goto('./?model=anthropic%2Fclaude-haiku-5.5');
   await page.getByRole('spinbutton', { name: 'Number of requests' }).fill('1');
   await page.getByRole('spinbutton', { name: 'Output tokens per request' }).fill('0');
   await page.getByRole('slider', { name: 'Cache hit rate' }).fill('100');
@@ -39,7 +39,7 @@ test('Haiku 5.5 fully cached requests use the correct 100K prompt band', async (
 });
 
 test('gateway prices stay gateway-labeled and preserve service tiers and scope', async ({ page }) => {
-  await page.goto('/?model=openai%2Fgpt-6.1-sol');
+  await page.goto('./?model=openai%2Fgpt-6.1-sol');
   const gateway = page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' });
   await expect(gateway.first()).toContainText('Gateway access');
   await gateway.first().getByRole('button', { name: 'Details for Vercel AI Gateway' }).click();
@@ -55,13 +55,13 @@ test('gateway prices stay gateway-labeled and preserve service tiers and scope',
 
 test('recent-model comparisons and reviewed explorer stay accessible on mobile', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/?model=anthropic%2Fclaude-fable-5.1');
+  await page.goto('./?model=anthropic%2Fclaude-fable-5.1');
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
   expect(result.violations.map((v) => ({ id: v.id, targets: v.nodes.map((n) => n.target) }))).toEqual([]);
   await page.screenshot({ path: 'test-results/recent-model-mobile.png', fullPage: true });
-  await page.goto('/?view=models');
+  await page.goto('./?view=models');
   await page.getByRole('textbox', { name: 'Search models', exact: true }).fill('Kimi');
   await expect(page.getByRole('button', { name: 'Compare Kimi K3', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Compare Kimi K2.7 Code', exact: true })).toBeVisible();
