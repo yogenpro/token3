@@ -109,7 +109,43 @@ class PublicPricingTests(unittest.TestCase):
                 patch('providers.vertex.fetch_text', return_value=self.mixed_vertex_body()):
             collected = vertex.collect(self.aliases)
         self.assertIsNone(collected.parse_error)
-        self.assertEqual(collected.records, new.records)
+        self.assertEqual(collected.records, [dict(r, source_url=vertex.PARTNER_SOURCE if r["provider_model_id"].startswith("claude-") else vertex.SOURCE) for r in new.records])
+
+    def test_vertex_split_documents_preserve_quotes_and_both_native_sources(self):
+        legacy = (FIXTURES / 'vertex.html').read_text()
+        primary = legacy.partition('<button id="tab-61"')[0]
+        partner = (FIXTURES / 'vertex-partner-global.html').read_text()
+        old = self.parse(vertex, 'html')
+        with patch.dict('os.environ', {'GOOGLE_CLOUD_BILLING_API_KEY': ''}), \
+                patch('providers.vertex.fetch_text', side_effect=[primary, partner]) as fetch:
+            result = vertex.collect(self.aliases)
+        self.assertIsNone(result.parse_error)
+        self.assertEqual([c.args[0] for c in fetch.call_args_list], [vertex.SOURCE, vertex.PARTNER_SOURCE])
+        self.assertEqual(result.source_urls, [vertex.SOURCE, vertex.PARTNER_SOURCE])
+        expected = [dict(r, source_url=vertex.PARTNER_SOURCE if r['provider_model_id'].startswith('claude-')
+                         else vertex.SOURCE) for r in old.records]
+        self.assertEqual(result.records, expected)
+        self.assertEqual([normalize(r, self.aliases, TIME, result.source_sha256)[0]['id'] for r in result.records],
+                         [normalize(r, self.aliases, TIME, old.source_sha256)[0]['id'] for r in old.records])
+        payload = json.loads(result.source_payload)
+        self.assertEqual(payload['curated_pricing_document']['body'], primary)
+        self.assertEqual(payload['partner_pricing_document']['body'], partner)
+        native, _ = normalize_inventory('vertex', result.source_payload, result.source_kind)
+        primary_native, _ = normalize_inventory('vertex', primary, 'documentation')
+        partner_native, _ = normalize_inventory('vertex', partner, 'documentation')
+        self.assertEqual(len(native['records']), len(primary_native['records']) + len(partner_native['records']))
+        self.assertTrue(all(r['comparison_eligible'] is False for r in native['records']))
+
+    def test_vertex_split_partner_failure_retains_primary_and_fails_closed(self):
+        primary = (FIXTURES / 'vertex.html').read_text()
+        for partner in [RuntimeError('partner unavailable'), '<html>missing table</html>']:
+            with self.subTest(partner=partner), \
+                    patch.dict('os.environ', {'GOOGLE_CLOUD_BILLING_API_KEY': ''}), \
+                    patch('providers.vertex.fetch_text', side_effect=[primary, partner]):
+                result = vertex.collect(self.aliases)
+            self.assertTrue(result.parse_error)
+            self.assertEqual(result.records, [])
+            self.assertEqual(json.loads(result.source_payload)['curated_pricing_document']['body'], primary)
 
     def test_vertex_mixed_table_keeps_asymmetric_200k_bands(self):
         body = self.mixed_vertex_body()

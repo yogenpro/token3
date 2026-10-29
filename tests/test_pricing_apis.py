@@ -13,6 +13,7 @@ from providers import fireworks, google_billing, groq, together, vertex
 from providers.common import _NoCredentialRedirect, fetch_text
 from providers.pricing_api import fetch_pages
 from scripts.collect import read_history, run
+from scripts.catalog_inventory import normalize_inventory
 from scripts.normalize import catalog, normalize
 from scripts.provider_inventory import prepare_source
 
@@ -236,7 +237,7 @@ class PricingAPITests(unittest.TestCase):
             result = vertex.collect(self.aliases)
         self.assertEqual(result.source_kind, "api+documentation")
         self.assertEqual(len(result.records), 15)
-        self.assertTrue(all(r["source_url"] == vertex.SOURCE for r in result.records))
+        self.assertTrue(all(r["source_url"] == (vertex.PARTNER_SOURCE if r["provider_model_id"].startswith("claude-") else vertex.SOURCE) for r in result.records))
         payload = json.loads(result.source_payload)
         self.assertEqual(payload["cloud_billing_catalog"]["catalog"]["skus"], skus["skus"])
         with tempfile.TemporaryDirectory() as directory:
@@ -244,6 +245,29 @@ class PricingAPITests(unittest.TestCase):
         self.assertEqual(row["payload_record_count"], 1)
         self.assertGreater(artifact["table_count"], 0)
         self.assertEqual(hashlib.sha256(result.source_payload.encode()).hexdigest(), result.source_sha256)
+
+    def test_vertex_split_documents_keep_api_skus_when_partner_is_missing(self):
+        os.environ["GOOGLE_CLOUD_BILLING_API_KEY"] = "fixture-secret"
+        service, skus = self.vertex_catalog_fixture()
+        api_payload = dict(service=service, catalog=skus, currency="USD")
+        urls = ["https://cloudbilling.googleapis.com/v1/services/FIXTURE-SERVICE/skus"]
+        primary = self.fixture("vertex.html").partition('<button id="tab-61"')[0]
+        for partner in [self.fixture("vertex-partner-global.html"), RuntimeError("partner unavailable")]:
+            with self.subTest(partner_available=isinstance(partner, str)), \
+                    patch("providers.vertex.vertex_catalog", return_value=(api_payload, urls, urls[0])), \
+                    patch("providers.vertex.fetch_text", side_effect=[primary, partner]):
+                result = vertex.collect(self.aliases)
+            native, _ = normalize_inventory("vertex", result.source_payload, result.source_kind)
+            self.assertTrue(any(r["kind"] == "sku" for r in native["records"]))
+            self.assertTrue(any(r["kind"] == "document_row" for r in native["records"]))
+            if isinstance(partner, str):
+                self.assertIsNone(result.parse_error)
+                self.assertEqual(len(result.records), 15)
+                self.assertEqual(result.source_urls, urls + [vertex.SOURCE, vertex.PARTNER_SOURCE])
+            else:
+                self.assertTrue(result.parse_error)
+                self.assertEqual(result.records, [])
+                self.assertEqual(result.source_urls, urls + [vertex.SOURCE])
 
     def test_vertex_api_fetch_failure_has_an_explicit_redacted_fallback(self):
         os.environ["GOOGLE_CLOUD_BILLING_API_KEY"] = "fixture-secret"

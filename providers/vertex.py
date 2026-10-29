@@ -1,5 +1,6 @@
 """Vertex AI: Cloud Billing SKU inventory plus reviewed document-based quotes."""
 import hashlib
+import json
 import os
 import re
 
@@ -9,6 +10,7 @@ from .pricing_api import encode_payload
 from .public_pricing import CLAUDE_NAMES, GEMINI_NAMES, PricingHTML, gemini_vertex_label, require_models, unique_records
 
 SOURCE = "https://cloud.google.com/vertex-ai/generative-ai/pricing"
+PARTNER_SOURCE = "https://cloud.google.com/model-garden/partner-models/pricing"
 REGIONS = {"Global": "global", "us-east 5": "us-east5", "us-east5": "us-east5", "europe-west 1": "europe-west1", "europe-west1": "europe-west1", "asia-southeast1": "asia-southeast1", "asia-east1": "asia-east1"}
 CLAUDE_IDS = {"claude-sonnet-4-6": "claude-sonnet-4-6", "claude-opus-4-6": "claude-opus-4-6", "claude-haiku-4-5-20251001": "claude-haiku-4-5@20251001"}
 
@@ -48,18 +50,26 @@ def claude_token_table(header):
     return boundaries in (reviewed, reviewed + [("short", "100"), ("long", "100")])
 
 
-def parse(body, aliases, as_of=None):
+def parse(body, aliases, as_of=None, partner_body=None):
     # Identity recognition for another source is not a reviewed Vertex binding.
     aliases = aliases.for_provider("vertex") if hasattr(aliases, "for_provider") else aliases
     parser = PricingHTML()
     parser.feed(body)
+    tables = [(table, SOURCE) for table in parser.tables]
+    if partner_body is not None:
+        partner = PricingHTML()
+        partner.feed(partner_body)
+        tables += [(table, PARTNER_SOURCE) for table in partner.tables]
     groups = {}
-    for table in parser.tables:
+    for table, source in tables:
         if not table["rows"]:
             continue
         header = table["rows"][0]
         gemini = len(header) == 7 and header[:3] == ["Model", "Type", "Region"] and "1M tokens" in header[3]
         claude = claude_token_table(header)
+        if partner_body is not None:
+            gemini = gemini and source == SOURCE
+            claude = claude and source == PARTNER_SOURCE
         if not gemini and not claude:
             continue
         # Ignore structurally similar tables for untracked models/products.
@@ -112,19 +122,19 @@ def parse(body, aliases, as_of=None):
                 if kind is None:  # batch, 1h writes, and reserved capacity are not standard requests
                     continue
                 rates = [money(c, optional=True) for c in cells[2:4]]
-            values = groups.setdefault((current_model, tier, region), {})
+            values = groups.setdefault((current_model, tier, region, source), {})
             if kind in values and values[kind] != rates:
                 raise ValueError("Conflicting Vertex price cells for {} / {} / {} / {}: {} vs {}".format(current_model, tier, region, kind, values[kind], rates))
             values[kind] = rates
             if gemini and kind == "input":
                 values["cache"] = cache
     records = []
-    for (model, tier, region), rates in groups.items():
+    for (model, tier, region, source), rates in groups.items():
         for values, minimum, maximum in bands(rates):
             google = model.startswith("gemini-")
             if google:
                 maximum = min(maximum, 1048576) if maximum is not None else 1048576
-            records.append(observation("vertex", model, values["input"], values["output"], SOURCE,
+            records.append(observation("vertex", model, values["input"], values["output"], source,
                 cache_read_per_million=values.get("cache"), cache_write_per_million=values.get("write"),
                 region=region, service_tier=tier, min_input_tokens=minimum, max_input_tokens=maximum,
                 max_output_tokens=65536 if google else None,
@@ -135,7 +145,42 @@ def parse(body, aliases, as_of=None):
                     "Dated introductory rows are selected by UTC collection date.")))
     expected = list(GEMINI_NAMES.values()) + list(CLAUDE_IDS.values())
     require_models(records, expected, aliases)
-    return snapshot(unique_records(records), body, SOURCE)
+    result = snapshot(unique_records(records), body, SOURCE)
+    if partner_body is not None:
+        result.source_payload = document_payload(body, partner_body)
+        result.source_sha256 = hashlib.sha256(result.source_payload.encode("utf-8")).hexdigest()
+        result.source_urls = [SOURCE, PARTNER_SOURCE]
+    return result
+
+
+def document_payload(body, partner_body):
+    payload = {"curated_pricing_document": {"url": SOURCE, "body": body},
+               "partner_pricing_document": {"url": PARTNER_SOURCE, "body": partner_body}}
+    return encode_payload(payload)
+
+
+def collect_documents(aliases):
+    # Fetch independently so a missing partner page retains primary evidence,
+    # while the complete reviewed snapshot still fails closed.
+    documents, errors = [], []
+    for url in (SOURCE, PARTNER_SOURCE):
+        try:
+            documents.append(fetch_text(url))
+        except Exception as exc:
+            documents.append(None)
+            errors.append(safe_error(exc))
+    body, partner_body = documents
+    if errors:
+        payload = document_payload(body, partner_body)
+        return Collection([], SOURCE, hashlib.sha256(payload.encode("utf-8")).hexdigest(), source_payload=payload,
+                          parse_error="Curated pricing document unavailable: " + "; ".join(errors),
+                          source_urls=[url for url, document in zip((SOURCE, PARTNER_SOURCE), documents) if document is not None])
+    result = parse_or_archive(body, SOURCE, parse, aliases, partner_body=partner_body)
+    # Keep both exact fetched documents even on a curated parser error.
+    result.source_payload = document_payload(body, partner_body)
+    result.source_sha256 = hashlib.sha256(result.source_payload.encode("utf-8")).hexdigest()
+    result.source_urls = [SOURCE, PARTNER_SOURCE]
+    return result
 
 
 def collect(aliases):
@@ -150,22 +195,17 @@ def collect(aliases):
             # SKU names do not by themselves establish model/context/tier
             # equivalence. Keep existing reviewed quotes until that mapping is
             # curated; never silently relabel Gemini Developer API prices.
-            document = None
-            try:
-                document = fetch_text(SOURCE)
-            except Exception as exc:
-                result = Collection([], sku_url, "", parse_error="Curated pricing document unavailable: " + safe_error(exc, [key]))
-            else:
-                result = parse_or_archive(document, SOURCE, parse, aliases)
-            body = encode_payload({"cloud_billing_catalog": catalog_payload,
-                                   "curated_pricing_document": {"url": SOURCE, "body": document}})
+            result = collect_documents(aliases)
+            documents = json.loads(result.source_payload)
+            documents["cloud_billing_catalog"] = catalog_payload
+            body = encode_payload(documents)
             result.source_payload = body
             result.source_sha256 = hashlib.sha256(body.encode("utf-8")).hexdigest()
             result.source_url = sku_url
-            result.source_urls = urls + ([SOURCE] if document is not None else [])
+            result.source_urls = urls + result.source_urls
             result.source_kind = "api+documentation"
             return result
-    result = parse_or_archive(fetch_text(SOURCE), SOURCE, parse, aliases)
+    result = collect_documents(aliases)
     result.source_kind = "documentation"
     result.fallback_reason = reason
     return result

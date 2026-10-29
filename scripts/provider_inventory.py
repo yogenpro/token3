@@ -93,9 +93,11 @@ def _payload_format(body):
                 raise ValueError("Invalid JSON number: {}".format(value))
             payload = json.loads(body, parse_constant=reject_constant)
             tables = []
-            document = payload.get("curated_pricing_document") if isinstance(payload, dict) else None
-            if isinstance(document, dict) and isinstance(document.get("body"), str):
-                _, _, tables = _payload_format(document["body"])
+            for field in ("curated_pricing_document", "partner_pricing_document"):
+                document = payload.get(field) if isinstance(payload, dict) else None
+                if isinstance(document, dict) and isinstance(document.get("body"), str):
+                    _, _, document_tables = _payload_format(document["body"])
+                    tables += document_tables
             return "json", payload, tables
         except (json.JSONDecodeError, ValueError):
             pass

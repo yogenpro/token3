@@ -365,12 +365,14 @@ def normalize_inventory(provider, body, source_kind, source_urls=None, observed_
             records = _models(provider, payload)
         elif provider == "azure": records = _azure(payload)
         elif provider == "bedrock": records = _bedrock(payload)
-        elif provider == "vertex" and "cloud_billing_catalog" in payload:
-            records = _google(payload)
-            document = payload.get("curated_pricing_document", {}).get("body")
-            if document:
-                docs, notes = _document(provider, document)
-                records += docs
+        elif provider == "vertex" and ("cloud_billing_catalog" in payload or "curated_pricing_document" in payload):
+            records = _google(payload) if "cloud_billing_catalog" in payload else []
+            for field in ("curated_pricing_document", "partner_pricing_document"):
+                document = payload.get(field, {}).get("body")
+                if document:
+                    docs, document_notes = _document(provider, document)
+                    records += docs
+                    notes += document_notes
         else:
             raise ValueError("Unknown full-catalog JSON schema for " + provider)
     else:
