@@ -4685,100 +4685,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-c41a2215561b185da48e3360",
-      "provider": "together",
-      "native_id": "e34072753309f669d9ea591b",
-      "kind": "document_row",
-      "label": "Minimax",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Available models",
-          "Chat models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Minimax",
-          "Minimax M3.1 Flash",
-          "MiniMaxAI/MiniMax-M3.1-Flash",
-          "1048576",
-          "$0.15",
-          "$0.015",
-          "$0.60",
-          "NVFP4",
-          "Yes",
-          "Yes"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.15",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input pricing (per 1M tokens):0",
-          "amount": "0.015",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.015",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "0.6",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.60",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "MiniMaxAI/MiniMax-M3.1-Flash"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "together-c545e2ef5fb2aee7d9c7d704",
       "provider": "together",
       "native_id": "eb77f1636164a9873c649c58",
@@ -5780,6 +5686,100 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-f29e71defc1c2927d012726c",
+      "provider": "together",
+      "native_id": "fb7b607b96df33a13b5783d7",
+      "kind": "document_row",
+      "label": "MiniMax",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Available models",
+          "Chat models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "MiniMax",
+          "MiniMax M3.1 Flash",
+          "MiniMaxAI/MiniMax-M3.1-Flash",
+          "1048576",
+          "$0.15",
+          "$0.015",
+          "$0.60",
+          "NVFP4",
+          "Yes",
+          "Yes"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.15",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input pricing (per 1M tokens):0",
+          "amount": "0.015",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.015",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.60",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "MiniMaxAI/MiniMax-M3.1-Flash"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-f6c85a3af8ea3f034a549733",
       "provider": "together",
       "native_id": "c49d7ffe943b37a1c85ea91b",
@@ -6052,13 +6052,13 @@
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "6a6d2163af4e07cba3adf141390d2c182dd016ed2b51db42bd2a72f84d0010b4",
-  "revision": 15,
-  "changed_at": "2026-10-28T12:55:48Z",
+  "catalog_sha256": "4c7667d8596899f3683722729ff1ff34ba4d23be9e62e1cba873db8faa8cf505",
+  "revision": 16,
+  "changed_at": "2026-10-29T13:02:13Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "30a22bf0f9d0c5df3d63e3303ade799ac4ac4206b3b6819bd29e1fdc37b2c45a",
+  "source_sha256": "1bb98e15092737ca46c438b1217ab28e9a739db867c61229d0078a7839d0fc98",
   "archive_reference": null
 }

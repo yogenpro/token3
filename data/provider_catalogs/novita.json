@@ -1167,7 +1167,7 @@
       "provider": "novita",
       "native_id": "inclusionai/ling-3.1-flash",
       "kind": "model",
-      "label": "Ling 3.1 Flash",
+      "label": "Ling 3.1 Flash 1019",
       "scope": {},
       "billing": {
         "state": "reported",
@@ -7766,78 +7766,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-e08847421de1b1179c0fbbe5",
-      "provider": "novita",
-      "native_id": "baidu/ernie-4.5-21B-a3b",
-      "kind": "model",
-      "label": "ERNIE 4.5 21B A3B",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 700,
-              "price_per_m": 700,
-              "origin_price_per_m_decimal": "0.07",
-              "price_per_m_decimal": "0.07"
-            },
-            "completion": {
-              "origin_price_per_m": 2800,
-              "price_per_m": 2800,
-              "origin_price_per_m_decimal": "0.28",
-              "price_per_m_decimal": "0.28"
-            }
-          },
-          "native_input_billing_units": 700,
-          "native_output_billing_units": 2800,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.07",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 120000,
-        "max_output_tokens": 8000,
-        "status": 1,
-        "features": [
-          "function-calling",
-          "serverless"
-        ],
-        "endpoints": [
-          "chat/completions",
-          "completions"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-e5cac87ec9839c216ee50899",
       "provider": "novita",
       "native_id": "moonshotai/kimi-k2.5",
@@ -8367,14 +8295,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "41a7ef2b0824eccfe4a82efc03a479856e34b3f442ea8fbb52b962fea6f952f9",
-  "revision": 12,
-  "changed_at": "2026-10-28T12:55:48Z",
+  "catalog_sha256": "1eff60b8bee474fe90bcecec3c0f2df1bd221f7fc1586d834dc40e083f671462",
+  "revision": 13,
+  "changed_at": "2026-10-29T13:02:13Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "e19ad45c52dc04bf70826b498e96840ed380a0dc307102fe28444b0ad230d5c3",
+  "source_sha256": "712ac9740d4071fa19c1d3f9f5da37aaf4cfb2f9f84f63e3b96d653e7cc485d0",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -174,43 +174,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-0309dc050e935447b12fba78",
-      "provider": "gemini",
-      "native_id": "69b901f61a0ef4e579e40031",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 84,
-        "headings": [
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](https://ai.google.dev/gemini-api/terms)",
-          "[No](https://ai.google.dev/gemini-api/terms)"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-032f24ab5c6bb485018d055e",
       "provider": "gemini",
       "native_id": "73d057ac58a037159c82f222",
@@ -522,6 +485,65 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-055d961f777cf608fdec725e",
+      "provider": "gemini",
+      "native_id": "31e4fa740cfb0e19c92288c8",
+      "kind": "document_row",
+      "label": "[Google Search](https://ai.google.dev/gemini-api/docs/google-search#pricing)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Google Search](https://ai.google.dev/gemini-api/docs/google-search#pricing)",
+          "500 RPD free (limit shared for Flash and Flash-Lite). Not available for Pro.",
+          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "35",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-05a7cbaf8186e600c853f144",
       "provider": "gemini",
       "native_id": "9a57ca08ca0a8b4f7907e50f",
@@ -544,7 +566,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -561,7 +583,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -848,7 +870,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -865,7 +887,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -994,7 +1016,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -1011,7 +1033,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -1091,55 +1113,6 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-0c75feac4b24233a0479d431",
-      "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 84,
-        "headings": [
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -1253,6 +1226,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-0e18f5fe967f82f01cbc4fd8",
+      "provider": "gemini",
+      "native_id": "69b901f61a0ef4e579e40031",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-0ea612683d4f29f0dee39690",
       "provider": "gemini",
       "native_id": "7c1f5aebbf4366bd862bf236",
@@ -1315,6 +1325,55 @@
           "unit": "/ 1,000,000 tokens per hour",
           "conditions": {
             "source_expression": "$0.09 (text / image / video) $0.18 (audio) $1.80 / 1,000,000 tokens per hour (storage price)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-0f8e3de696386d43c582eb55",
+      "provider": "gemini",
+      "native_id": "d3421e445db03957e93b89df",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Embedding",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Not available",
+          "$0.075"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.075",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.075",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -1508,6 +1567,139 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-1285c0a416b90e656c3fdb0a",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-128a0d52276309a5ef898522",
+      "provider": "gemini",
+      "native_id": "69b901f61a0ef4e579e40031",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-12ce0dc751fa711b4c0ce4ac",
+      "provider": "gemini",
+      "native_id": "69b901f61a0ef4e579e40031",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-131047c1820d7a676ba904de",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -1608,88 +1800,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$6.00, prompts \\<= 200k tokens $9.00, prompts \\> 200k",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-137bd90c7b192a80ebaf7ac6",
-      "provider": "gemini",
-      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Not available",
-          "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.05",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:2",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:3",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -1807,7 +1917,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -1824,12 +1934,48 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-15549901d2a64756a82103c9",
+      "provider": "gemini",
+      "native_id": "ca5e7ece05ed76760904717b",
+      "kind": "document_row",
+      "label": "[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent)",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](https://ai.google.dev/gemini-api/docs/agents#pricing)).",
+          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
+        ],
+        "columns": [
+          "",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -2468,6 +2614,65 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-1f915621d87d70681bb98037",
+      "provider": "gemini",
+      "native_id": "fb5712fdc96f8a41023e7b63",
+      "kind": "document_row",
+      "label": "[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding#pricing-and-rate-limits)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding#pricing-and-rate-limits)",
+          "500 RPD Not available for Pro.",
+          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "25",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-1f91957b744e5e5f9df1cae7",
       "provider": "gemini",
       "native_id": "5b4987748d9ff57d8238bc05",
@@ -2697,42 +2902,6 @@
           "Used to improve our products",
           "[Yes](https://ai.google.dev/gemini-api/terms)",
           "[No](https://ai.google.dev/gemini-api/terms)"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-22140aa2461e0a7e3d043d34",
-      "provider": "gemini",
-      "native_id": "9fc92723ef6edb5cf1ac9a04",
-      "kind": "document_row",
-      "label": "[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)",
-          "Not available",
-          "Charged as regular tokens per model pricing (e.g., standard [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash) pricing)."
         ],
         "columns": [
           "",
@@ -3132,7 +3301,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -3149,7 +3318,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -4451,42 +4620,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-325a0c4950ae95ab647acdb0",
-      "provider": "gemini",
-      "native_id": "d430d607e98f8743ad629b74",
-      "kind": "document_row",
-      "label": "[Gemini Deep Research agent](https://ai.google.dev/gemini-api/docs/deep-research)",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Gemini Deep Research agent](https://ai.google.dev/gemini-api/docs/deep-research)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops.",
-          "Tool usage fees apply per existing pricing structure, maintaining standard distinctions for Search Grounding (retrieved tokens excluded) versus Url_context / File Search (retrieved tokens included in all other tools)."
-        ],
-        "columns": [
-          "",
-          "Model",
-          "Tools"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-3330668279199b4805b009a7",
       "provider": "gemini",
       "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
@@ -4678,7 +4811,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -4695,56 +4828,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-34befa901532716d7ab7eae1",
-      "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -4794,6 +4878,54 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$20.00 (audio)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-36a1683d455827fd8efaa0b3",
+      "provider": "gemini",
+      "native_id": "cfc9617d0881b541f8594fc5",
+      "kind": "document_row",
+      "label": "[File search](https://ai.google.dev/gemini-api/docs/file-search#pricing)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[File search](https://ai.google.dev/gemini-api/docs/file-search#pricing)",
+          "Free of charge",
+          "Charged for embeddings at [Gemini Embedding](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "Charged for embeddings at [Gemini Embedding](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -4911,42 +5043,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-37a0f52e2a13fa26c4f5cc4a",
-      "provider": "gemini",
-      "native_id": "a3581c34de2097d8c44a1f32",
-      "kind": "document_row",
-      "label": "[Managed agents in Gemini API](https://ai.google.dev/gemini-api/docs/agents)",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Managed agents in Gemini API](https://ai.google.dev/gemini-api/docs/agents)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](https://ai.google.dev/gemini-api/docs/agents#pricing)).",
-          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
-        ],
-        "columns": [
-          "",
-          "Model",
-          "Tools"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-381c84c95c0c71845c1c9c37",
       "provider": "gemini",
       "native_id": "69b901f61a0ef4e579e40031",
@@ -5006,7 +5102,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -5023,7 +5119,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -5227,7 +5323,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -5244,7 +5340,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -5324,88 +5420,6 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-3c1b7d959aedfc44a7e1ddb1",
-      "provider": "gemini",
-      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Not available",
-          "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.2",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:2",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:3",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -5519,6 +5533,55 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-3d4a1d66bdd8b0e15f25c4ca",
+      "provider": "gemini",
+      "native_id": "754168fbb133736d1e8bd524",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-3fb63a2c3a61d238f86f1c62",
       "provider": "gemini",
       "native_id": "69b901f61a0ef4e579e40031",
@@ -5552,6 +5615,66 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-3fec00fe1ace3db1740391a9",
+      "provider": "gemini",
+      "native_id": "5b4987748d9ff57d8238bc05",
+      "kind": "document_row",
+      "label": "Output price (including thinking tokens)",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price (including thinking tokens)",
+          "Not available",
+          "$2.50 through December 31, 2026. $5.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.50 through December 31, 2026. $5.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.50 through December 31, 2026. $5.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -5746,42 +5869,6 @@
         "cells": [
           "Used to improve our products",
           "Not available",
-          "[No](https://ai.google.dev/gemini-api/terms)"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-412fff9871a2fc874bd4df9d",
-      "provider": "gemini",
-      "native_id": "69b901f61a0ef4e579e40031",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](https://ai.google.dev/gemini-api/terms)",
           "[No](https://ai.google.dev/gemini-api/terms)"
         ],
         "columns": [
@@ -6014,6 +6101,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-451fdb207130e6fff40eecd8",
+      "provider": "gemini",
+      "native_id": "afcf4794d283171bf0e37964",
+      "kind": "document_row",
+      "label": "Output price (including thinking tokens)",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price (including thinking tokens)",
+          "Free of charge",
+          "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-458bef94d2dd6c4ca1f1ecaf",
       "provider": "gemini",
       "native_id": "749f322a9d0b90b59e87ebb8",
@@ -6036,7 +6183,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -6053,7 +6200,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -6462,6 +6609,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-4c80a25421d4331b80d21139",
+      "provider": "gemini",
+      "native_id": "b5e3cc85eaaff0b9455aa0ad",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-4c9d196e4634f4ccce0ce1c8",
       "provider": "gemini",
       "native_id": "9a57ca08ca0a8b4f7907e50f",
@@ -6484,7 +6667,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -6501,7 +6684,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -6533,7 +6716,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -6550,7 +6733,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -6960,6 +7143,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-51834490b4ec7a27bf4719d9",
+      "provider": "gemini",
+      "native_id": "50bdeb9efd8f09e2657ad27b",
+      "kind": "document_row",
+      "label": "[URL context](https://ai.google.dev/gemini-api/docs/url-context#limitations)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[URL context](https://ai.google.dev/gemini-api/docs/url-context#limitations)",
+          "Free of charge",
+          "Charged as input tokens per model pricing."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-51e53e7df579b90cdaeef313",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -7016,42 +7235,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-520761c448e1bd82979f41f5",
-      "provider": "gemini",
-      "native_id": "a26fda9ac228a8add6c99658",
-      "kind": "document_row",
-      "label": "Tuning price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Tuning price",
-          "Not available",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -7235,7 +7418,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -7252,7 +7435,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -7310,15 +7493,16 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-57818fcee4d2a9216326c920",
+      "id": "gemini-55cf2ac6fcd0fc15c26cd4f0",
       "provider": "gemini",
-      "native_id": "50bdeb9efd8f09e2657ad27b",
+      "native_id": "69b901f61a0ef4e579e40031",
       "kind": "document_row",
-      "label": "[URL context](https://ai.google.dev/gemini-api/docs/url-context#limitations)",
+      "label": "Used to improve our products",
       "scope": {
         "table": 86,
         "headings": [
-          "Pricing for tools"
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
         ],
         "tabs": [],
         "headers": [
@@ -7329,9 +7513,9 @@
       },
       "billing": {
         "cells": [
-          "[URL context](https://ai.google.dev/gemini-api/docs/url-context#limitations)",
-          "Free of charge",
-          "Charged as input tokens per model pricing."
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
         ],
         "columns": [
           "",
@@ -7342,54 +7526,6 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-596c0e6f5c8a7dd060d5f999",
-      "provider": "gemini",
-      "native_id": "cfc9617d0881b541f8594fc5",
-      "kind": "document_row",
-      "label": "[File search](https://ai.google.dev/gemini-api/docs/file-search#pricing)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[File search](https://ai.google.dev/gemini-api/docs/file-search#pricing)",
-          "Free of charge",
-          "Charged for [embeddings](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2) at $0.15 / 1M tokens. Retrieved document tokens charged as regular tokens per model pricing."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "/ 1M tokens",
-          "conditions": {
-            "source_expression": "Charged for [embeddings](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2) at $0.15 / 1M tokens. Retrieved document tokens charged as regular tokens per model pricing.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -7730,7 +7866,7 @@
         "cells": [
           "Grounding with Google Web and Image Search^\\*\\*^",
           "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -7747,7 +7883,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -8021,6 +8157,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-603413be46bd27530b19d5a8",
+      "provider": "gemini",
+      "native_id": "69b901f61a0ef4e579e40031",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 82,
+        "headings": [
+          "Gemini Embedding",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-6044398c77c515f41e6224ff",
       "provider": "gemini",
       "native_id": "dea2b99ff6f05697ec602c0c",
@@ -8107,6 +8280,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-611c233e1da8c5b313e4923a",
+      "provider": "gemini",
+      "native_id": "69b901f61a0ef4e579e40031",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Embedding",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](https://ai.google.dev/gemini-api/terms)",
+          "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-612f865d39b832ebf6ca8ca6",
       "provider": "gemini",
       "native_id": "75eca2ad04f03c6e157f712e",
@@ -8140,6 +8350,66 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-6151b0748996a8cccad1e555",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -8368,7 +8638,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Supported",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -8385,7 +8655,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -8586,42 +8856,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-66a240106206a6524920ff26",
-      "provider": "gemini",
-      "native_id": "b5e3cc85eaaff0b9455aa0ad",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -9136,6 +9370,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-722d293aa3b15d9cae4d8181",
+      "provider": "gemini",
+      "native_id": "9fc92723ef6edb5cf1ac9a04",
+      "kind": "document_row",
+      "label": "[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Computer use](https://ai.google.dev/gemini-api/docs/computer-use)",
+          "Not available",
+          "Charged as regular tokens per model pricing (e.g., standard [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash) pricing)."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-7281439ad02fc7f2ef41d244",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -9327,6 +9597,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-7439c8d25c90d6ea99ab89d5",
+      "provider": "gemini",
+      "native_id": "a3581c34de2097d8c44a1f32",
+      "kind": "document_row",
+      "label": "[Managed agents in Gemini API](https://ai.google.dev/gemini-api/docs/agents)",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Managed agents in Gemini API](https://ai.google.dev/gemini-api/docs/agents)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](https://ai.google.dev/gemini-api/docs/agents#pricing)).",
+          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
+        ],
+        "columns": [
+          "",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-745e31be1bbd431a44aa75e0",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -9367,66 +9673,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$1.00 (text)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-74cb25bcf9a592547b084b4b",
-      "provider": "gemini",
-      "native_id": "5b4987748d9ff57d8238bc05",
-      "kind": "document_row",
-      "label": "Output price (including thinking tokens)",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price (including thinking tokens)",
-          "Not available",
-          "$2.50 through December 31, 2026. $5.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "2.5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$2.50 through December 31, 2026. $5.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$2.50 through December 31, 2026. $5.00 starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -9618,6 +9864,55 @@
           "unit": "/ image",
           "conditions": {
             "source_expression": "$0.15 (text / image / video / audio)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-78a8575bf5243fc2235587b8",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 82,
+        "headings": [
+          "Gemini Embedding",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$0.15"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.15",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -10571,6 +10866,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-830e8dffa984ec71980ff363",
+      "provider": "gemini",
+      "native_id": "03fc037cea182290fad1e64d",
+      "kind": "document_row",
+      "label": "Output price",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price",
+          "Free of charge",
+          "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-836bf909844e3120e0d4b6f7",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -10713,7 +11068,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -10730,7 +11085,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -10871,42 +11226,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-86f689cd7c22fa15a393c601",
-      "provider": "gemini",
-      "native_id": "c6fd7c3f313abc8fa23132bd",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-88c5817adcadb13d51b0e707",
       "provider": "gemini",
       "native_id": "b325349e3b42ccb5ef556076",
@@ -11012,91 +11331,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-89fa18507fe6178758fcf2ef",
-      "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-8b38fe889d51f0b6493e2498",
-      "provider": "gemini",
-      "native_id": "ca5e7ece05ed76760904717b",
-      "kind": "document_row",
-      "label": "[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent)",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](https://ai.google.dev/gemini-api/docs/agents#pricing)).",
-          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
-        ],
-        "columns": [
-          "",
-          "Model",
-          "Tools"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -11305,7 +11539,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -11322,7 +11556,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -11792,42 +12026,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-9552aec1d491c5c1e3eb07a1",
-      "provider": "gemini",
-      "native_id": "a94e2bb2a0018ed9b2f49509",
-      "kind": "document_row",
-      "label": "Context caching (storage)",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching (storage)",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-95e59cdee750c42d94c4cc5f",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -11884,6 +12082,42 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-95fc2e0504d26558f24cfe1f",
+      "provider": "gemini",
+      "native_id": "d430d607e98f8743ad629b74",
+      "kind": "document_row",
+      "label": "[Gemini Deep Research agent](https://ai.google.dev/gemini-api/docs/deep-research)",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Gemini Deep Research agent](https://ai.google.dev/gemini-api/docs/deep-research)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops.",
+          "Tool usage fees apply per existing pricing structure, maintaining standard distinctions for Search Grounding (retrieved tokens excluded) versus Url_context / File Search (retrieved tokens included in all other tools)."
+        ],
+        "columns": [
+          "",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -12008,7 +12242,7 @@
         "cells": [
           "Grounding with Google Search^\\*\\*\\*^",
           "Not available^\\*\\*\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -12025,7 +12259,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -12275,6 +12509,42 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-9b992a9685e2ea76e86db1d6",
+      "provider": "gemini",
+      "native_id": "e52df457e400c0606cd8dcc4",
+      "kind": "document_row",
+      "label": "[Code execution](https://ai.google.dev/gemini-api/docs/code-execution#billing)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Code execution](https://ai.google.dev/gemini-api/docs/code-execution#billing)",
+          "Free of charge",
+          "Code execution is billed at the standard token rates for the selected model. Costs are determined solely by the tool's usage, no charges are accrued for the session runtime. The generated code and execution results are billed as **Output tokens** when created, and as **Input tokens** when the model uses them as part of its iterative reasoning process."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -12627,6 +12897,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-9da3a434566dba7552bd6355",
+      "provider": "gemini",
+      "native_id": "0802311c6ebe88a5bb51543d",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "Not available"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-9dd6e51192f7c3c3af27c245",
       "provider": "gemini",
       "native_id": "b325349e3b42ccb5ef556076",
@@ -12735,7 +13041,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -12752,7 +13058,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -12784,7 +13090,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -12801,7 +13107,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -13095,7 +13401,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -13112,7 +13418,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -13621,7 +13927,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -13638,7 +13944,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -14066,6 +14372,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-af8724a58d0965e6ecea8bb2",
+      "provider": "gemini",
+      "native_id": "a9e9adb8d6302dad866f5714",
+      "kind": "document_row",
+      "label": "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)",
+          "Not available",
+          "Same as [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview) pricing"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-b00d92961c75496e9c8d1244",
       "provider": "gemini",
       "native_id": "85c77bf782418c3f36c9cc1b",
@@ -14184,7 +14526,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -14201,109 +14543,12 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b14e18391f88da052ce89b2f",
-      "provider": "gemini",
-      "native_id": "03fc037cea182290fad1e64d",
-      "kind": "document_row",
-      "label": "Output price",
-      "scope": {
-        "table": 84,
-        "headings": [
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price",
-          "Free of charge",
-          "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "10",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b29a5b7accfcc39feac685b0",
-      "provider": "gemini",
-      "native_id": "69b901f61a0ef4e579e40031",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](https://ai.google.dev/gemini-api/terms)",
-          "[No](https://ai.google.dev/gemini-api/terms)"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -14450,66 +14695,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-b6b27797cf8a006fad02c4db",
-      "provider": "gemini",
-      "native_id": "62c245bb279244ed79e32741",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-b716d608b3f2a06b97725f95",
       "provider": "gemini",
       "native_id": "75eca2ad04f03c6e157f712e",
@@ -14621,42 +14806,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-b75e3cb55d1e3e025e980cf4",
-      "provider": "gemini",
-      "native_id": "0f371b9ee77421e5a6bea3b2",
-      "kind": "document_row",
-      "label": "Output price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-b7c9f351d4e2cfe3d43000f5",
       "provider": "gemini",
       "native_id": "7c1f5aebbf4366bd862bf236",
@@ -14730,65 +14879,6 @@
           "unit": "/ 1,000,000 tokens per hour",
           "conditions": {
             "source_expression": "$0.135 through December 31, 2026. $0.27 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b84e8d9bf475de7077b6ebf4",
-      "provider": "gemini",
-      "native_id": "31e4fa740cfb0e19c92288c8",
-      "kind": "document_row",
-      "label": "[Google Search](https://ai.google.dev/gemini-api/docs/google-search#pricing)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Google Search](https://ai.google.dev/gemini-api/docs/google-search#pricing)",
-          "500 RPD free (limit shared for Flash and Flash-Lite). Not available for Pro.",
-          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "35",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -14886,101 +14976,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$3.60 through November 30, 2026. $7.20 starting December 1, 2026.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b9baf4cd418a5d1c0cc11b47",
-      "provider": "gemini",
-      "native_id": "a9e9adb8d6302dad866f5714",
-      "kind": "document_row",
-      "label": "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview)",
-          "Not available",
-          "Same as [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview) pricing"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b9ee701f137362cda9aa2b68",
-      "provider": "gemini",
-      "native_id": "fb5712fdc96f8a41023e7b63",
-      "kind": "document_row",
-      "label": "[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding#pricing-and-rate-limits)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding#pricing-and-rate-limits)",
-          "500 RPD Not available for Pro.",
-          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "25",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -15270,6 +15265,88 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$5.00, prompts \\<= 200k tokens $7.50, prompts \\> 200k",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-bccdd6190eeb112ba839ef04",
+      "provider": "gemini",
+      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Not available",
+          "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:2",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:3",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. $0.10 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -16057,7 +16134,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -16074,7 +16151,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -16397,66 +16474,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-cdd657a912e867cb1247a079",
-      "provider": "gemini",
-      "native_id": "d3421e445db03957e93b89df",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Not available",
-          "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-d0f060be81077487de25c767",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -16639,6 +16656,66 @@
           "unit": "/ 1,000,000 tokens per hour",
           "conditions": {
             "source_expression": "$0.0125 (text / image / video) $0.025 (audio) $0.50 / 1,000,000 tokens per hour (storage price)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-d2118f73dfe0151cf6e15527",
+      "provider": "gemini",
+      "native_id": "d3421e445db03957e93b89df",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Not available",
+          "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. $1.00 (text / image / video / audio) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -16914,7 +16991,7 @@
         "cells": [
           "Grounding with Google Search^\\*\\*\\*^",
           "Not available^\\*\\*\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -16931,7 +17008,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -16986,6 +17063,42 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-d9faedb036e9525b73fff0dc",
+      "provider": "gemini",
+      "native_id": "c6fd7c3f313abc8fa23132bd",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -17767,6 +17880,55 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-e0b2beaceb90c2dcf20c4a48",
+      "provider": "gemini",
+      "native_id": "754168fbb133736d1e8bd524",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-e0c639338035c8838280b923",
       "provider": "gemini",
       "native_id": "69b901f61a0ef4e579e40031",
@@ -17976,6 +18138,55 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-e3b224be7b3a334ef4902c83",
+      "provider": "gemini",
+      "native_id": "754168fbb133736d1e8bd524",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-e45677f02157024785e3f851",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -18130,6 +18341,42 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-e4e7070c8968e83fa3cd4d18",
+      "provider": "gemini",
+      "native_id": "0f371b9ee77421e5a6bea3b2",
+      "kind": "document_row",
+      "label": "Output price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -18302,7 +18549,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -18319,7 +18566,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -18558,42 +18805,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-e8a68cee4de307e2f40ee00d",
-      "provider": "gemini",
-      "native_id": "0802311c6ebe88a5bb51543d",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "Not available"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-e8c69d8e74ad549bda996b70",
       "provider": "gemini",
       "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
@@ -18724,6 +18935,88 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-ea176e07459d3d70195495d7",
+      "provider": "gemini",
+      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Not available",
+          "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:2",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:3",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. $0.20 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -19027,7 +19320,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -19044,48 +19337,12 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-f032ad8af5950ecb18da69f8",
-      "provider": "gemini",
-      "native_id": "e52df457e400c0606cd8dcc4",
-      "kind": "document_row",
-      "label": "[Code execution](https://ai.google.dev/gemini-api/docs/code-execution#billing)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Code execution](https://ai.google.dev/gemini-api/docs/code-execution#billing)",
-          "Free of charge",
-          "Code execution is billed at the standard token rates for the selected model. Costs are determined solely by the tool's usage, no charges are accrued for the session runtime. The generated code and execution results are billed as **Output tokens** when created, and as **Input tokens** when the model uses them as part of its iterative reasoning process."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -19385,7 +19642,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -19402,7 +19659,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -19479,6 +19736,42 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-f2ea63007404710de6fc0c29",
+      "provider": "gemini",
+      "native_id": "a94e2bb2a0018ed9b2f49509",
+      "kind": "document_row",
+      "label": "Context caching (storage)",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching (storage)",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -19565,43 +19858,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-f3c9c4cf4d669748722e2c3d",
-      "provider": "gemini",
-      "native_id": "69b901f61a0ef4e579e40031",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](https://ai.google.dev/gemini-api/terms)",
-          "[No](https://ai.google.dev/gemini-api/terms)"
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -19819,6 +20075,42 @@
           "Used to improve our products",
           "[Yes](https://ai.google.dev/gemini-api/terms)",
           "[No](https://ai.google.dev/gemini-api/terms)"
+        ],
+        "columns": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-f649a7e90a761b48f6b702d5",
+      "provider": "gemini",
+      "native_id": "a26fda9ac228a8add6c99658",
+      "kind": "document_row",
+      "label": "Tuning price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Tuning price",
+          "Not available",
+          "Not available"
         ],
         "columns": [
           "",
@@ -20275,66 +20567,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-f9451655df1019203fae85fc",
-      "provider": "gemini",
-      "native_id": "afcf4794d283171bf0e37964",
-      "kind": "document_row",
-      "label": "Output price (including thinking tokens)",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price (including thinking tokens)",
-          "Free of charge",
-          "$5.00 through December 31, 2026. $10.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "10",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-fa0fe30ff30b903608d6d0fc",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -20502,7 +20734,7 @@
         "cells": [
           "Grounding with Google Search^\\*^",
           "Not available^\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -20519,7 +20751,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -20569,66 +20801,6 @@
           "unit": "per image",
           "conditions": {
             "source_expression": "$0.0195 per image\\*",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-fc372961f5d3c7461cb6d51e",
-      "provider": "gemini",
-      "native_id": "62c245bb279244ed79e32741",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 84,
-        "headings": [
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027."
-        ],
-        "columns": [
-          "",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. $2.00 (text / image / video / audio) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -20911,7 +21083,7 @@
         "cells": [
           "Grounding with Google Web and Image Search^\\*\\*^",
           "Not available^\\*\\*\\*^",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding."
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "",
@@ -20928,7 +21100,7 @@
           "currency": "USD",
           "unit": "per 1,000 requests",
           "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding.",
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests for text and image-based grounding (subject to a [daily cap](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -21188,6 +21360,7 @@
     "(2048x2048px) consume 1680 tokens and are equivalent to $0.0504 per image.",
     "- **Agentic video understanding:** When using agentic video understanding, token usage is variable based on the content loaded by the model rather than full video length. This typically results in up to 88% fewer input tokens for long-form video, though token counts depend on query complexity and dynamic sampling depth (which may exceed 1 FPS for detailed visual segments). See [Agentic video understanding](https://ai.google.dev/gemini-api/docs/video-understanding#agentic-video-understanding).",
     "- **Document token billing:** Tokens for the `DOCUMENT` modality (for example, PDFs) are billed at the image token rate. In API responses, these tokens appear under the `DOCUMENT` modality within `promptTokensDetails`.",
+    "- **Search Grounding rate limits:** On the Gemini Developer API, Grounding with Google Search on Gemini 3 and newer models is subject to a default daily rate limit of 1,500 requests per day (RPD) per project across all paid tiers, resetting daily at midnight Pacific Time. For high-volume production workloads requiring higher daily limits, consider using [Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/grounding/grounding-with-google-search#considerations), which provides a default quota of 1,000,000 search queries per day.",
     "- Google AI Studio usage is free of charge in all [available",
     "- If you are using [dynamic retrieval](https://ai.google.dev/gemini-api/docs/google-search) to optimize costs, only requests that contain at least one grounding support URL from the web in their response are charged for Grounding with Google Search. Costs for Gemini always apply. Rate limits are subject to change.",
     "- Prices may differ from the prices listed here and the prices offered on Gemini Enterprise Agent Platform. For Gemini Enterprise Agent Platform prices, see the [Gemini Enterprise Agent Platform pricing",
@@ -21241,20 +21414,20 @@
     "to $0.067 per image. Output images at 2K (2048x2048px) consume 1680 tokens and",
     "tokens and are equivalent to $0.0336 per image. Output images at 2K"
   ],
-  "catalog_sha256": "69587fe3cd6369f50ed7068d0b88f01c67e7431671f913d6656267a33b0ad058",
-  "revision": 10,
-  "changed_at": "2026-10-27T12:12:10Z",
+  "catalog_sha256": "35e1b1dd13927d354b755043847c4d05c29a12d3b31fcc3c8245253dee900d10",
+  "revision": 11,
+  "changed_at": "2026-10-29T13:02:13Z",
   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
   "source_urls": [
     "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
   ],
-  "source_sha256": "8a2595b73ba34926513237d55befbbb5430b4c178c5ae44063012e71212dd466",
+  "source_sha256": "f3faa6bcd39e31374709e1024d51e0fa5d636ba7049106e2b96aab185b9f8b4e",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
     "url": "https://web.archive.org/web/20261004194537/https://ai.google.dev/gemini-api/docs/pricing.md.txt",
     "capture_at": "2026-10-04T19:45:37Z",
-    "checked_at": "2026-10-27T12:12:10Z",
+    "checked_at": "2026-10-29T13:02:13Z",
     "verification": null
   }
 }

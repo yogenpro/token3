@@ -8434,6 +8434,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-7123306433cb0b46fbbc3a98",
+      "provider": "deepinfra",
+      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "kind": "model",
+      "label": "nvidia/NVIDIA-Nemotron-3.5-Transcribe-30B-A4B",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_length",
+          "cents_per_input_sec": 0.00333333
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_sec",
+          "amount": "0.0000333333",
+          "currency": "USD",
+          "unit": "input second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "automatic-speech-recognition",
+        "max_tokens": null,
+        "quantization": "bfloat16"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-718fee3c822c107cb0277b88",
       "provider": "deepinfra",
       "native_id": "stepfun-ai/Step-3.5-Flash",
@@ -18860,14 +18897,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "1e9c85cf3c126231cbdeab74be6b04ab0d2dc86074ff0b136010ae10a06bccd2",
-  "revision": 18,
-  "changed_at": "2026-10-28T12:55:48Z",
+  "catalog_sha256": "95fe06abda93a528f0b180faa2096b542ad7ec9f2f256442c3c8b98d826c299b",
+  "revision": 19,
+  "changed_at": "2026-10-29T13:02:13Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "1ed0cfa122a9ccaec91fb3a5394747b24e069778864eb4066eb5b5f7dd5df08f",
+  "source_sha256": "bf3b047a19e73446e468fd99d4bb7f717b5eee4ecaf43b3aed1d33dd4baee0c3",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -20293,6 +20293,104 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-70773979b1c2f314564560bc",
+      "provider": "vercel",
+      "native_id": "particle/particle-1",
+      "kind": "model",
+      "label": "Particle-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000125",
+          "input_cache_read": "0.000000015",
+          "output": "0.0000005",
+          "peak_pricing": {
+            "multiplier": 2,
+            "windows": [
+              {
+                "end_minute_utc": 30,
+                "start_minute_utc": 480
+              }
+            ]
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000125",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Particle-1",
+        "owned_by": "particle",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-70c74f48ef0e7ba0a05da28b",
       "provider": "vercel",
       "native_id": "typesafe-ai/jev-1.13.0",
@@ -29927,14 +30025,14 @@
             "input_cache_read": "0.00000021",
             "output": "0.0000066"
           },
-          "input": "0.0000012",
-          "input_cache_read": "0.0000002",
-          "output": "0.000004",
+          "input": "0.0000014",
+          "input_cache_read": "0.00000014",
+          "output": "0.0000044",
           "regional": {
             "us": {
-              "input": "0.0000021",
-              "input_cache_read": "0.00000039",
-              "output": "0.0000066"
+              "input": "0.0000014",
+              "input_cache_read": "0.00000014",
+              "output": "0.0000044"
             }
           },
           "varies_by_provider": true
@@ -29947,21 +30045,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000012",
+          "amount": "0.0000014",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000004",
+          "amount": "0.0000044",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000002",
+          "amount": "0.00000014",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -29972,7 +30070,7 @@
         "owned_by": "zai",
         "type": "language",
         "context_window": 1000000,
-        "max_tokens": 262144,
+        "max_tokens": 1000000,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -38628,7 +38726,12 @@
       "billing": {
         "rules": {
           "input": "0.000000042",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.000000042"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -45404,14 +45507,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "1ae26eb7177defc52f45a786b0c372462c8900bbb81d313cac8608f20d095a6a",
-  "revision": 23,
-  "changed_at": "2026-10-28T12:55:48Z",
+  "catalog_sha256": "e093b557dc6dcb3fbc264a7649ab4f5eb0132824830a71e4655ef455772a447e",
+  "revision": 24,
+  "changed_at": "2026-10-29T13:02:13Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "57aecfc02412cf08728227d6f81d7308f8790e9dd47beae6ef6379b14e557703",
+  "source_sha256": "381f0aff571b4bfa369e81747313ee934a50897b941ab43f3f61d7b28a7ed27a",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
