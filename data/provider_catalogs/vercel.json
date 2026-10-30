@@ -88,6 +88,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-01c459caad4e906f35193524",
+      "provider": "vercel",
+      "native_id": "baseten/joey-1",
+      "kind": "model",
+      "label": "Joey-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000001",
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.00000001"
+            }
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Joey-1",
+        "owned_by": "baseten",
+        "type": "evaluation",
+        "context_window": 16384,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-024b4822e847fbde36ea0c54",
       "provider": "vercel",
       "native_id": "minimax/minimax-m2.7-highspeed",
@@ -4980,41 +5040,14 @@
             "input_cache_read": "0.000000014",
             "output": "0.0000024"
           },
-          "input": "0.000000075",
-          "input_cache_read": "0.0000000015",
-          "output": "0.0000003",
-          "peak_pricing": {
-            "multiplier": 2,
-            "windows": [
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 240,
-                "start_minute_utc": 60
-              },
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 600,
-                "start_minute_utc": 360
-              }
-            ]
-          },
+          "input": "0.0000003",
+          "input_cache_read": "0.000000007",
+          "output": "0.0000012",
           "regional": {
             "us": {
-              "input": "0.00000045",
-              "input_cache_read": "0.000000009",
-              "output": "0.0000018"
+              "input": "0.0000003",
+              "input_cache_read": "0.000000007",
+              "output": "0.0000012"
             }
           },
           "varies_by_provider": true
@@ -5027,21 +5060,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000000075",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000003",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000015",
+          "amount": "0.000000007",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -5052,7 +5085,7 @@
         "owned_by": "deepseek",
         "type": "language",
         "context_window": 1048576,
-        "max_tokens": 1048576,
+        "max_tokens": 262144,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -8146,36 +8179,9 @@
             "input_cache_read": "0.000000014",
             "output": "0.0000024"
           },
-          "input": "0.000000075",
-          "input_cache_read": "0.0000000015",
-          "output": "0.0000003",
-          "peak_pricing": {
-            "multiplier": 2,
-            "windows": [
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 240,
-                "start_minute_utc": 60
-              },
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 600,
-                "start_minute_utc": 360
-              }
-            ]
-          },
+          "input": "0.0000003",
+          "input_cache_read": "0.000000007",
+          "output": "0.0000012",
           "regional": {
             "us": {
               "input": "0.0000003",
@@ -8193,21 +8199,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000000075",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000003",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000015",
+          "amount": "0.000000007",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -20644,6 +20650,54 @@
             {
               "cost_per_second": "0.09",
               "mode": "reference_to_video",
+              "resolution": "2k"
+            },
+            {
+              "cost_per_second": "0.045",
+              "duration_over_seconds": 15,
+              "mode": "text_to_video",
+              "resolution": "480p"
+            },
+            {
+              "cost_per_second": "0.075",
+              "duration_over_seconds": 15,
+              "mode": "text_to_video",
+              "resolution": "768p"
+            },
+            {
+              "cost_per_second": "0.105",
+              "duration_over_seconds": 15,
+              "mode": "text_to_video",
+              "resolution": "1080p"
+            },
+            {
+              "cost_per_second": "0.105",
+              "duration_over_seconds": 15,
+              "mode": "text_to_video",
+              "resolution": "2k"
+            },
+            {
+              "cost_per_second": "0.045",
+              "duration_over_seconds": 15,
+              "mode": "image_to_video",
+              "resolution": "480p"
+            },
+            {
+              "cost_per_second": "0.075",
+              "duration_over_seconds": 15,
+              "mode": "image_to_video",
+              "resolution": "768p"
+            },
+            {
+              "cost_per_second": "0.105",
+              "duration_over_seconds": 15,
+              "mode": "image_to_video",
+              "resolution": "1080p"
+            },
+            {
+              "cost_per_second": "0.105",
+              "duration_over_seconds": 15,
+              "mode": "image_to_video",
               "resolution": "2k"
             }
           ]
@@ -45507,14 +45561,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "6d3a0288a7802ca76747af46edc9591b63d1ca1bcd3c2bdb2aceeedff032a549",
-  "revision": 25,
-  "changed_at": "2026-10-29T19:32:19Z",
+  "catalog_sha256": "826f9198e2cbc8be754020445b07943f04eeda201be0cc19e238cee5ec3beb6a",
+  "revision": 26,
+  "changed_at": "2026-10-30T12:56:27Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "3ca9d7e77a6fcc71ffd3b946a3b03085df97a1ab7ccb8a2b63ca75bd53b2aa3f",
+  "source_sha256": "c2851d6ec706ad80b1ecab0ffc613ed289107d6a8c93da078ced8d0629bdb196",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
