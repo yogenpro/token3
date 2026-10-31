@@ -818,100 +818,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-1cd44d31ee4cddd657795551",
-      "provider": "together",
-      "native_id": "c83282baf13659948220ec1a",
-      "kind": "document_row",
-      "label": "Qwen",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Available models",
-          "Chat models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Qwen",
-          "Qwen3.8-2.4T-A95B",
-          "Qwen/Qwen3.8-2.4T-A95B",
-          "-",
-          "$2.00",
-          "$0.50",
-          "$6.00",
-          "FP4",
-          "Yes",
-          "Yes"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$2.00",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Cached input pricing (per 1M tokens):0",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.50",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "6",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$6.00",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "Qwen/Qwen3.8-2.4T-A95B"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "together-1fb772fa4ee394d513c7d9d2",
       "provider": "together",
       "native_id": "ac8c1a24a15fa2fdd63f6e07",
@@ -3792,6 +3698,51 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-8a7583155415020c35e78f37",
+      "provider": "together",
+      "native_id": "8c76e0c81e27d399ee4f6f48",
+      "kind": "document_row",
+      "label": "Qwen",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Available models",
+          "Audio models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Qwen",
+          "Text-to-Speech",
+          "Qwen3 TTS 12Hz 1.7B CustomVoice",
+          "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+          "-"
+        ],
+        "columns": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-90630754d745ee6319d82137",
       "provider": "together",
       "native_id": "470e2e0077e4a1877b216dab",
@@ -5572,6 +5523,63 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-e63c7e1a056682320083eb01",
+      "provider": "together",
+      "native_id": "7a34ab0efb1f7b4769121b85",
+      "kind": "document_row",
+      "label": "OpenAI",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Available models",
+          "Audio models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "OpenAI",
+          "Speech-to-Text",
+          "Whisper large-v3",
+          "openai/whisper-large-v3",
+          "$0.0015 per audio min"
+        ],
+        "columns": [
+          "Organization",
+          "Modality",
+          "Model name",
+          "Model string for API",
+          "Pricing"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Pricing:0",
+          "amount": "0.0015",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0015 per audio min",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "openai/whisper-large-v3"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-e97c0b541606856dc2cdf479",
       "provider": "together",
       "native_id": "b597dc51793d35505ba59bb6",
@@ -6052,13 +6060,13 @@
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "4c7667d8596899f3683722729ff1ff34ba4d23be9e62e1cba873db8faa8cf505",
-  "revision": 16,
-  "changed_at": "2026-10-29T13:02:13Z",
+  "catalog_sha256": "ab34ee0467b97a9e36fe808bc6eb397bdc879a04575565ed1a34c41f1a90a07e",
+  "revision": 17,
+  "changed_at": "2026-10-31T12:30:19Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "1bb98e15092737ca46c438b1217ab28e9a739db867c61229d0078a7839d0fc98",
+  "source_sha256": "fab2097cf24ba081e0ffa98fa2720f7b7df89816fc65e09384e947b598a048ac",
   "archive_reference": null
 }

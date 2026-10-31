@@ -11080,6 +11080,86 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-3ecd8fc276032d814ef972ab",
+      "provider": "vercel",
+      "native_id": "inclusionai/ling-3.1-flash-1019",
+      "kind": "model",
+      "label": "Ling 3.1 Flash 1019",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Ling 3.1 Flash 1019",
+        "owned_by": "inclusionai",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 262144,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-3fbdd86ed0d099f54e2666e5",
       "provider": "vercel",
       "native_id": "alibaba/wan-v2.6-r2v-flash",
@@ -16452,7 +16532,7 @@
             ]
           }
         ],
-        "zdr": "none",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -17187,77 +17267,6 @@
         ],
         "zdr": "none",
         "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-5b4fae620dd9529a2665e36c",
-      "provider": "vercel",
-      "native_id": "poolside/laguna-s-2.1-free",
-      "kind": "model",
-      "label": "Laguna S 2.1 Free",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0",
-          "output": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Laguna S 2.1 Free",
-        "owned_by": "poolside",
-        "type": "language",
-        "context_window": 256000,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -20318,6 +20327,13 @@
                 "start_minute_utc": 480
               }
             ]
+          },
+          "regional": {
+            "us": {
+              "input": "0.000000125",
+              "input_cache_read": "0.000000015",
+              "output": "0.0000005"
+            }
           }
         },
         "currency": "USD",
@@ -29570,96 +29586,6 @@
         ],
         "zdr": "all",
         "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-a640e0702e60c089de95ef4f",
-      "provider": "vercel",
-      "native_id": "arcee-ai/trinity-large-thinking",
-      "kind": "model",
-      "label": "Trinity Large Thinking",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000025",
-          "input_cache_read": "0.00000006",
-          "output": "0.0000008"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000008",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000006",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Trinity Large Thinking",
-        "owned_by": "arcee-ai",
-        "type": "language",
-        "context_window": 262100,
-        "max_tokens": 80000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -45561,14 +45487,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "826f9198e2cbc8be754020445b07943f04eeda201be0cc19e238cee5ec3beb6a",
-  "revision": 26,
-  "changed_at": "2026-10-30T12:56:27Z",
+  "catalog_sha256": "20a8fa7dffb0a7e676b9e433a4cbcf9d089fbd4df923b742a6a9ac8f8d93e04b",
+  "revision": 27,
+  "changed_at": "2026-10-31T12:30:19Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "c2851d6ec706ad80b1ecab0ffc613ed289107d6a8c93da078ced8d0629bdb196",
+  "source_sha256": "f4f5ee0c6306ff7ed92106f7adcfbbaa09cd8e1633f6641cf913b547f5c692e2",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
