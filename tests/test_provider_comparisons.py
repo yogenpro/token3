@@ -90,6 +90,18 @@ class ProviderComparisonTests(unittest.TestCase):
         body['documents'][0]['body'] = body['documents'][0]['body'].replace('512k', '256k')
         with self.assertRaises(ValueError): self.quotes('minimax', body)
 
+    def test_minimax_quoted_tabs_preserve_reviewed_quotes(self):
+        payload = fixture('minimax-tabs')
+        self.assertEqual(self.quotes('minimax', payload), self.quotes('minimax'))
+        original = payload['documents'][0]['body']
+        for old, new in [('> [tab] Standard', '> [tab] Unknown'),
+                         ('> [tab] Priority', '> [tab] Standard'),
+                         ('512k', '256k'), ('M tokens', 'K tokens'),
+                         ('~~\\$0.60~~ \\$0.30', '~~\\$0.60~~ \\$0.20')]:
+            with self.subTest(change=(old, new)), self.assertRaises(ValueError):
+                payload['documents'][0]['body'] = original.replace(old, new)
+                self.quotes('minimax', payload)
+
     def test_deepseek_requires_reviewed_served_version_and_schedule(self):
         rows = self.quotes('deepseek')
         self.assertEqual(len({r['region'] for r in rows}), 2)
