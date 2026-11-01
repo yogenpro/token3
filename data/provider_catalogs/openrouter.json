@@ -2305,90 +2305,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000022",
-          "overrides": [
-            {
-              "completion": "0.00000198",
-              "input_cache_read": "0.000000022",
-              "prompt": "0.00000066",
-              "utc_days": [
-                "saturday",
-                "sunday"
-              ]
-            },
-            {
-              "completion": "0.00000198",
-              "input_cache_read": "0.000000022",
-              "prompt": "0.00000066",
-              "utc_days": [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday"
-              ],
-              "utc_end": 100,
-              "utc_start": 0
-            },
-            {
-              "completion": "0.00000396",
-              "input_cache_read": "0.000000044",
-              "prompt": "0.00000132",
-              "utc_days": [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday"
-              ],
-              "utc_end": 400,
-              "utc_start": 100
-            },
-            {
-              "completion": "0.00000198",
-              "input_cache_read": "0.000000022",
-              "prompt": "0.00000066",
-              "utc_days": [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday"
-              ],
-              "utc_end": 600,
-              "utc_start": 400
-            },
-            {
-              "completion": "0.00000396",
-              "input_cache_read": "0.000000044",
-              "prompt": "0.00000132",
-              "utc_days": [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday"
-              ],
-              "utc_end": 1000,
-              "utc_start": 600
-            },
-            {
-              "completion": "0.00000198",
-              "input_cache_read": "0.000000022",
-              "prompt": "0.00000066",
-              "utc_days": [
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday"
-              ],
-              "utc_end": 0,
-              "utc_start": 1000
-            }
-          ],
-          "prompt": "0.00000066"
+          "completion": "0.000004",
+          "input_cache_read": "0.00000011",
+          "prompt": "0.000000115"
         },
         "currency": "USD",
         "state": "reported",
@@ -2398,21 +2317,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000066",
+          "amount": "0.000000115",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000198",
+          "amount": "0.000004",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000022",
+          "amount": "0.00000011",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -2437,7 +2356,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 393216
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -2819,83 +2738,6 @@
         ],
         "default_parameters": {},
         "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-122f98830438d905f1d0e89c",
-      "provider": "openrouter",
-      "native_id": "poolside/laguna-xs-2.1",
-      "kind": "model",
-      "label": "Poolside: Laguna XS 2.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.00000012",
-          "input_cache_read": "0.00000003",
-          "prompt": "0.00000006"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.00000006",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.00000012",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000003",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Poolside: Laguna XS 2.1",
-        "canonical_slug": "poolside/laguna-xs-2.1-20260625",
-        "hugging_face_id": "poolside/Laguna-XS-2.1",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 32768
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "temperature",
-          "tool_choice",
-          "tools"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-10-31",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -5964,9 +5806,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000014",
-          "input_cache_read": "0.0000000689",
-          "prompt": "0.0000000699"
+          "completion": "0.0000036",
+          "input_cache_read": "0.000000076",
+          "prompt": "0.00000008"
         },
         "currency": "USD",
         "state": "reported",
@@ -5976,21 +5818,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000699",
+          "amount": "0.00000008",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000014",
+          "amount": "0.0000036",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000689",
+          "amount": "0.000000076",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -6307,9 +6149,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000009",
-          "input_cache_read": "0.000000009",
-          "prompt": "0.000000018"
+          "completion": "0.00000013",
+          "input_cache_read": "0.00000003",
+          "prompt": "0.00000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -6319,21 +6161,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000018",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000009",
+          "amount": "0.00000013",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000009",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -6358,7 +6200,7 @@
         "top_provider": {
           "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 32768
+          "max_completion_tokens": 117964
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -8934,9 +8776,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000075",
-          "prompt": "0.00000015"
+          "completion": "0.000000061",
+          "prompt": "0.000000017"
         },
         "currency": "USD",
         "state": "reported",
@@ -8946,23 +8787,16 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.000000017",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.000000061",
           "currency": "USD",
           "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000075",
-          "currency": "USD",
-          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -9306,9 +9140,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000023",
-          "input_cache_read": "0.00000002",
-          "prompt": "0.00000004"
+          "completion": "0.000001875",
+          "input_cache_read": "0.0000000375",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -9318,21 +9152,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000004",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000023",
+          "amount": "0.000001875",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000002",
+          "amount": "0.0000000375",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -17984,9 +17818,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000001479",
-          "input_cache_read": "0.0000000163",
-          "prompt": "0.0000000163"
+          "completion": "0.0000000923",
+          "input_cache_read": "0.0000000285",
+          "prompt": "0.0000000285"
         },
         "currency": "USD",
         "state": "reported",
@@ -17996,21 +17830,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000163",
+          "amount": "0.0000000285",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000001479",
+          "amount": "0.0000000923",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000163",
+          "amount": "0.0000000285",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -20010,75 +19844,6 @@
           "top_p": 0.9
         },
         "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-80698bb630f6a49daa4c9b2c",
-      "provider": "openrouter",
-      "native_id": "poolside/laguna-xs-2.1:free",
-      "kind": "model",
-      "label": "Poolside: Laguna XS 2.1 (free)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0",
-          "prompt": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Poolside: Laguna XS 2.1 (free)",
-        "canonical_slug": "poolside/laguna-xs-2.1-20260625",
-        "hugging_face_id": "poolside/Laguna-XS-2.1",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 32768
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "temperature",
-          "tool_choice",
-          "tools"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-10-31",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -25262,75 +25027,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "openrouter-9d564c0866f27d5bdf3adf5b",
-      "provider": "openrouter",
-      "native_id": "poolside/laguna-s-2.1:free",
-      "kind": "model",
-      "label": "Poolside: Laguna S 2.1 (free)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0",
-          "prompt": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Poolside: Laguna S 2.1 (free)",
-        "canonical_slug": "poolside/laguna-s-2.1-20260720",
-        "hugging_face_id": "poolside/Laguna-S-2.1",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 32768
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "temperature",
-          "tool_choice",
-          "tools"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-10-31",
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "openrouter-9e8e2421f7af29f1c41270b8",
       "provider": "openrouter",
       "native_id": "relace/relace-search",
@@ -28489,9 +28185,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000001479",
-          "input_cache_read": "0.0000000163",
-          "prompt": "0.0000000163"
+          "completion": "0.0000000923",
+          "input_cache_read": "0.0000000285",
+          "prompt": "0.0000000285"
         },
         "currency": "USD",
         "state": "reported",
@@ -28501,21 +28197,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000163",
+          "amount": "0.0000000285",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000001479",
+          "amount": "0.0000000923",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000163",
+          "amount": "0.0000000285",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -28945,9 +28641,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000198",
-          "input_cache_read": "0.000000099",
-          "prompt": "0.00000054"
+          "completion": "0.0000022",
+          "input_cache_read": "0.00000011",
+          "prompt": "0.0000006"
         },
         "currency": "USD",
         "state": "reported",
@@ -28957,21 +28653,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000054",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000198",
+          "amount": "0.0000022",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000099",
+          "amount": "0.00000011",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -28994,7 +28690,7 @@
         },
         "context_length": 204800,
         "top_provider": {
-          "context_length": 204800,
+          "context_length": 202752,
           "is_moderated": false,
           "max_completion_tokens": 131072
         },
@@ -29027,7 +28723,7 @@
           "top_k": null,
           "top_p": 0.95
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-31",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -29541,83 +29237,6 @@
           "top_p": 0.95
         },
         "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-aeaa75fc575ce412571d6ded",
-      "provider": "openrouter",
-      "native_id": "poolside/laguna-s-2.1",
-      "kind": "model",
-      "label": "Poolside: Laguna S 2.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.00000018",
-          "input_cache_read": "0.000000009",
-          "prompt": "0.00000009"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.00000009",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.00000018",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000009",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Poolside: Laguna S 2.1",
-        "canonical_slug": "poolside/laguna-s-2.1-20260720",
-        "hugging_face_id": "poolside/Laguna-S-2.1",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 1048576,
-        "top_provider": {
-          "context_length": 1048576,
-          "is_moderated": false,
-          "max_completion_tokens": 131072
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "temperature",
-          "tool_choice",
-          "tools"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-10-31",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -33361,9 +32980,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000017292",
-          "input_cache_read": "0.000000001834",
-          "prompt": "0.00000005764"
+          "completion": "0.0000003",
+          "input_cache_read": "0.000000035",
+          "prompt": "0.0000000434"
         },
         "currency": "USD",
         "state": "reported",
@@ -33373,21 +32992,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000005764",
+          "amount": "0.0000000434",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000017292",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001834",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -33412,7 +33031,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -38922,9 +38541,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000144",
-          "input_cache_read": "0.000000013",
-          "prompt": "0.0000000141"
+          "completion": "0.0000005",
+          "input_cache_read": "0.000000005",
+          "prompt": "0.000000035"
         },
         "currency": "USD",
         "state": "reported",
@@ -38934,21 +38553,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000141",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000144",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000013",
+          "amount": "0.000000005",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -42689,14 +42308,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "81317e0e6a447f3f4bc3beb4629cad414df2d257fb997e6bef1e184df08d8ed3",
-  "revision": 36,
-  "changed_at": "2026-10-31T12:30:19Z",
+  "catalog_sha256": "a47aa11d1f4099203c3c231f3bf76d317be736c0ac31a432295cd2a0b1eabc8c",
+  "revision": 37,
+  "changed_at": "2026-11-01T13:25:33Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "60cd3a9b62d9a0cd8e8400293f53bd8c53017ae9cfd92beedc00cf80c733d84f",
+  "source_sha256": "43c654102b856426dd2fb3e3122a1c04f5ee3853fa8d95219506657ff7f96b98",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
