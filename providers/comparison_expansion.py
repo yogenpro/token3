@@ -157,6 +157,10 @@ def document_quotes(provider, payload, aliases, source):
             raise ValueError("Incomplete xAI prompt schedule")
     elif provider == "minimax":
         llm = section(body, "LLM")
+        # Mintlify tabs quote their contents; normalize presentation only.
+        llm = re.sub(r"(?m)^> ?", "", llm)
+        llm = re.sub(r"(?m)^\[tab\] (Standard|Priority)(\\\*)?$",
+                     lambda m: "**" + m[1] + "**" + (m[2] or ""), llm)
         headers_expected = ["**Model**", "**Input** \\$ / M tokens", "**Output** \\$ / M tokens", "**Prompt caching Read** \\$ / M tokens"]
         for tier, start, stop in (("standard", "**Standard**", "**Priority**"), ("priority", "**Priority**", "\\* Priority provides")):
             if llm.count(start) != 1 or stop not in llm:
