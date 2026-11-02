@@ -332,6 +332,8 @@ catalog/chunks/<sha256>.json           immutable bounded index/evidence/event ch
 
 The Coverage view loads only the small summary index. Models, Providers and native Changes lazy-load their manifests and required chunks. Search operates over every indexed identity/scope/unit/currency/modality, not just displayed rows; complete billing expressions and metadata remain in record evidence and complete filtered exports. Public chunked delivery changes neither warehouse storage nor historical classification. The separate, explicitly authorized [warehouse compaction](docs/native-history-compaction.md) supplies verified observation-only annotations to the read-only projector; it does not discard original observations. Original warehouse JSON/JSONL, raw or authenticated responses, legacy source archives, credentials and collector scripts are **not** copied wholesale into the public app. Reviewed and native exports remain separate. See [asset schemas, paging and failure semantics](docs/dashboard-data-organization.md).
 
+Real-data projection tests enforce a **128 KiB uncompressed performance budget** for every native provider/category history manifest, allowing retained batch references to grow. Immutable data chunks retain their separate **512 KiB** limit and integrity checks.
+
 There is no application backend or SQL database: versioned files in Git are the data store. Vite's development asset middleware is not a production collection API. `PAGES_BASE_PATH` supports project Pages, user Pages, or another static subdirectory. The static dashboard fetches published files at runtime; Refresh reloads those files and never invokes collectors.
 
 ### Add a model or provider

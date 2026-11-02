@@ -117,8 +117,14 @@ describe('read-only static projections', () => {
   it('bounds every immutable chunk and publishes small history manifests instead of full feeds', () => {
     for (const [path, body] of assets) if (path.startsWith('catalog/chunks/')) expect(Buffer.byteLength(body)).toBeLessThanOrEqual(MAX_CATALOG_CHUNK_BYTES);
     expect(Buffer.byteLength(assets.get('catalog/providers/vertex.json')!)).toBeLessThan(60000);
-    expect(Buffer.byteLength(assets.get('catalog/history/vertex.json')!)).toBeLessThan(60000);
-    expect(Buffer.byteLength(assets.get('catalog/changes/rule.json')!)).toBeLessThan(60000);
+    // Batch references grow with retained observations. This performance budget
+    // is separate from the hard 512 KiB limit on each immutable data chunk.
+    const historyManifestBudgetBytes = 128 * 1024;
+    const manifests = [...assets].filter(([path]) => /^catalog\/(history\/[^/]+|changes\/(price|rule|catalog))\.json$/.test(path));
+    expect(manifests).toHaveLength(inventory.provider_count + 3);
+    for (const [path, body] of manifests) {
+      expect(Buffer.byteLength(body), path).toBeLessThanOrEqual(historyManifestBudgetBytes);
+    }
   });
   it('coverage counts use separate denominators and retain inactive offers', () => {
     const { coverage } = catalogIndexSchema.parse(JSON.parse(assets.get('catalog/index.json')!));
