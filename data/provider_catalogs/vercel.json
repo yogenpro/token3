@@ -16748,6 +16748,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-592d5f798394ff0c1538aa7f",
+      "provider": "vercel",
+      "native_id": "meituan/longcat-2.5",
+      "kind": "model",
+      "label": "LongCat 2.5",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000003",
+          "input_cache_read": "0.000000006",
+          "output": "0.0000012"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000012",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000006",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "LongCat 2.5",
+        "owned_by": "meituan",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5939ab09b0e2a4320e9a4e9b",
       "provider": "vercel",
       "native_id": "anthropic/claude-opus-4.7",
@@ -20554,62 +20645,62 @@
         "rules": {
           "video_duration_pricing": [
             {
-              "cost_per_second": "0.02",
+              "cost_per_second": "0.01",
               "mode": "text_to_video",
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.036",
+              "cost_per_second": "0.018",
               "mode": "text_to_video",
               "resolution": "768p"
             },
             {
-              "cost_per_second": "0.1",
+              "cost_per_second": "0.05",
               "mode": "text_to_video",
               "resolution": "1080p"
             },
             {
-              "cost_per_second": "0.1",
+              "cost_per_second": "0.05",
               "mode": "text_to_video",
               "resolution": "2k"
             },
             {
-              "cost_per_second": "0.02",
+              "cost_per_second": "0.01",
               "mode": "image_to_video",
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.036",
+              "cost_per_second": "0.018",
               "mode": "image_to_video",
               "resolution": "768p"
             },
             {
-              "cost_per_second": "0.1",
+              "cost_per_second": "0.05",
               "mode": "image_to_video",
               "resolution": "1080p"
             },
             {
-              "cost_per_second": "0.1",
+              "cost_per_second": "0.05",
               "mode": "image_to_video",
               "resolution": "2k"
             },
             {
-              "cost_per_second": "0.07",
+              "cost_per_second": "0.035",
               "mode": "reference_to_video",
               "resolution": "480p"
             },
             {
-              "cost_per_second": "0.1",
+              "cost_per_second": "0.05",
               "mode": "reference_to_video",
               "resolution": "768p"
             },
             {
-              "cost_per_second": "0.18",
+              "cost_per_second": "0.09",
               "mode": "reference_to_video",
               "resolution": "1080p"
             },
             {
-              "cost_per_second": "0.18",
+              "cost_per_second": "0.09",
               "mode": "reference_to_video",
               "resolution": "2k"
             },
@@ -37639,88 +37730,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-d1f25ea67449a597cd7b22cb",
-      "provider": "vercel",
-      "native_id": "meituan/longcat-2.5-preview",
-      "kind": "model",
-      "label": "LongCat 2.5 Preview",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.0000003",
-          "input_cache_read": "0.000000006",
-          "output": "0.0000012"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000012",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000006",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "LongCat 2.5 Preview",
-        "owned_by": "meituan",
-        "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 131072,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-d23faf09b1ecb21e2a50d766",
       "provider": "vercel",
       "native_id": "spacexai/grok-imagine-image-2.0",
@@ -41387,6 +41396,93 @@
         ],
         "zdr": "none",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-e5e1f771a1968faaaa60936b",
+      "provider": "vercel",
+      "native_id": "zai/glm-5.3-flashx-legal",
+      "kind": "model",
+      "label": "GLM 5.3 FlashX Legal",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000037",
+          "input_cache_read": "0.000000075",
+          "output": "0.00000125"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000037",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GLM 5.3 FlashX Legal",
+        "owned_by": "zai",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 131072,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -45432,14 +45528,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "c7cec8e9cbd6909851eb233e1a4561ffafa7ea1755a76d035dacfba57651f0cf",
-  "revision": 28,
-  "changed_at": "2026-11-01T13:25:33Z",
+  "catalog_sha256": "04f2e0c16e9dc7777c0a97e48bfcbc4843097891418b804730eb5c2865ec753f",
+  "revision": 29,
+  "changed_at": "2026-11-02T15:53:09Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "7a9c4efadd479960659cbad9b92a5c3b670bca2cb3b8d08352dab06d44f386e6",
+  "source_sha256": "1090a0ff891b4b9cd6f5b47f25a4b169c9b362cf1e8a6d895d3bcc1c0e09f2ce",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

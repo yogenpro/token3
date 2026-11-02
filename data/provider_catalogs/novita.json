@@ -2204,6 +2204,12 @@
               "price_per_m": 160,
               "origin_price_per_m_decimal": "0.016",
               "price_per_m_decimal": "0.016"
+            },
+            "input_cache_write": {
+              "origin_price_per_m": 2000,
+              "price_per_m": 2000,
+              "origin_price_per_m_decimal": "0.2",
+              "price_per_m_decimal": "0.2"
             }
           },
           "native_input_billing_units": 1500,
@@ -2234,6 +2240,15 @@
         {
           "dimension": "input_cache_read",
           "amount": "0.016",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.2",
           "currency": "USD",
           "unit": "1M tokens",
           "conditions": {
@@ -8310,14 +8325,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "b0f75f4de147eff82aa876c14221c9d36a4a85bc212b7d32a6cdff44424737d4",
-  "revision": 14,
-  "changed_at": "2026-10-30T12:56:27Z",
+  "catalog_sha256": "e49ae5547b7386222f114a30af3fbb3f3e631355418b2bfb94d7c7328ddc9016",
+  "revision": 15,
+  "changed_at": "2026-11-02T15:53:09Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "bc8ef80fb9d6293cf83515fb51a594733cb549d581d2a01572698a72902e5456",
+  "source_sha256": "f7d074ec382b7980ce205d6aa470e4b08aa85e76aab42768be04c27b2380ef2c",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

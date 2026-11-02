@@ -574,9 +574,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000225",
-          "input_cache_read": "0.0000000375",
-          "prompt": "0.0000000675"
+          "completion": "0.000000255",
+          "input_cache_read": "0.000000043",
+          "prompt": "0.000000085"
         },
         "currency": "USD",
         "state": "reported",
@@ -586,21 +586,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000675",
+          "amount": "0.000000085",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000225",
+          "amount": "0.000000255",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000375",
+          "amount": "0.000000043",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -627,7 +627,7 @@
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
-          "max_completion_tokens": 235929
+          "max_completion_tokens": 32768
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -4340,6 +4340,93 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-1a9da3dd856d0e24d482f734",
+      "provider": "openrouter",
+      "native_id": "z-ai/glm-5.3-flashx-legal",
+      "kind": "model",
+      "label": "Z.ai: GLM 5.3 FlashX Legal",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.00000125",
+          "input_cache_read": "0.000000075",
+          "prompt": "0.00000037"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000037",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000125",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Z.ai: GLM 5.3 FlashX Legal",
+        "canonical_slug": "z-ai/glm-5.3-flashx-legal-20261102",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+video->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other"
+        },
+        "context_length": 1048576,
+        "top_provider": {
+          "context_length": 1048576,
+          "is_moderated": false,
+          "max_completion_tokens": 131072
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": 1,
+          "top_p": 0.95
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-1b8c14fdc4b08f480f3a6fa0",
       "provider": "openrouter",
       "native_id": "qwen/qwen3.5-plus-02-15",
@@ -7145,7 +7232,7 @@
       "billing": {
         "rules": {
           "completion": "0.00000125",
-          "input_cache_read": "0.00000009",
+          "input_cache_read": "0.000000075",
           "prompt": "0.00000037"
         },
         "currency": "USD",
@@ -7170,7 +7257,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000009",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -8776,8 +8863,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000061",
-          "prompt": "0.000000017"
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000075",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -8787,16 +8875,23 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000017",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000061",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -9189,7 +9284,7 @@
           ],
           "tokenizer": "Qwen"
         },
-        "context_length": 1000000,
+        "context_length": 1024000,
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
@@ -15948,82 +16043,6 @@
         "default_parameters": {},
         "expiration_date": null,
         "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-65f5a9c265723be17ec700a3",
-      "provider": "openrouter",
-      "native_id": "nousresearch/hermes-3-llama-3.1-405b",
-      "kind": "model",
-      "label": "Nous: Hermes 3 405B Instruct",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.000001",
-          "prompt": "0.000001"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Nous: Hermes 3 405B Instruct",
-        "canonical_slug": "nousresearch/hermes-3-llama-3.1-405b",
-        "hugging_face_id": "NousResearch/Hermes-3-Llama-3.1-405B",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": "chatml",
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Llama3"
-        },
-        "context_length": 131072,
-        "top_provider": {
-          "context_length": 131072,
-          "is_moderated": false,
-          "max_completion_tokens": 16384
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-11-02",
-        "knowledge_cutoff": "2023-12-31"
       },
       "comparison_eligible": false
     },
@@ -22909,8 +22928,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000033",
-          "prompt": "0.00000005"
+          "completion": "0.000000335",
+          "prompt": "0.0000000509"
         },
         "currency": "USD",
         "state": "reported",
@@ -22920,14 +22939,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000005",
+          "amount": "0.0000000509",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000033",
+          "amount": "0.000000335",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -22950,9 +22969,9 @@
         },
         "context_length": 131072,
         "top_provider": {
-          "context_length": 131072,
+          "context_length": 80000,
           "is_moderated": false,
-          "max_completion_tokens": 117964
+          "max_completion_tokens": 72000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -25403,8 +25422,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000015",
+          "completion": "0.0000003",
+          "input_cache_read": "0.0000000075",
           "overrides": [
             {
               "completion": "0.0000003",
@@ -25421,7 +25440,7 @@
               "utc_start": 100
             }
           ],
-          "prompt": "0.00000015"
+          "prompt": "0.000000075"
         },
         "currency": "USD",
         "state": "reported",
@@ -25431,21 +25450,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000015",
+          "amount": "0.0000000075",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -25765,6 +25784,7 @@
           "include_reasoning",
           "logit_bias",
           "logprobs",
+          "max_completion_tokens",
           "max_tokens",
           "min_p",
           "presence_penalty",
@@ -28385,81 +28405,6 @@
         },
         "expiration_date": null,
         "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-aaff79ad3d273a9998793771",
-      "provider": "openrouter",
-      "native_id": "nousresearch/hermes-3-llama-3.1-70b",
-      "kind": "model",
-      "label": "Nous: Hermes 3 70B Instruct",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.0000007",
-          "prompt": "0.0000007"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.0000007",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.0000007",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Nous: Hermes 3 70B Instruct",
-        "canonical_slug": "nousresearch/hermes-3-llama-3.1-70b",
-        "hugging_face_id": "NousResearch/Hermes-3-Llama-3.1-70B",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": "chatml",
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Llama3"
-        },
-        "context_length": 131072,
-        "top_provider": {
-          "context_length": 131072,
-          "is_moderated": false,
-          "max_completion_tokens": 16384
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-11-02",
-        "knowledge_cutoff": "2023-12-31"
       },
       "comparison_eligible": false
     },
@@ -32982,7 +32927,7 @@
         "rules": {
           "completion": "0.0000003",
           "input_cache_read": "0.000000035",
-          "prompt": "0.0000000434"
+          "prompt": "0.000000059"
         },
         "currency": "USD",
         "state": "reported",
@@ -32992,7 +32937,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000434",
+          "amount": "0.000000059",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -38803,7 +38748,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -42308,14 +42253,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "a47aa11d1f4099203c3c231f3bf76d317be736c0ac31a432295cd2a0b1eabc8c",
-  "revision": 37,
-  "changed_at": "2026-11-01T13:25:33Z",
+  "catalog_sha256": "78b6bcecfe6ae9272a51fdd43e64a2ae19cf368991451ab2230537cdf0019644",
+  "revision": 38,
+  "changed_at": "2026-11-02T15:53:09Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "43c654102b856426dd2fb3e3122a1c04f5ee3853fa8d95219506657ff7f96b98",
+  "source_sha256": "ef0578c503e9b85ec76da4ef8bdaa51e98de12cd90cca1d10d1e2f3a1d381d83",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
