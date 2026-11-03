@@ -1000,6 +1000,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-81d55fe0b5904d7700f8b8f5",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "scope": {
+        "serving_mode": "ultrafast"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.048",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "2.4",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "9.6",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.048",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "2.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "9.6",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-ultrafast"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-81d8ccc79cfcb8a8c6bfedac",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/glm-5p2",
@@ -2363,14 +2428,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "db345cc467e52cdc4107da84e824cccb17aeb10feea4ca1a507978d884e833ee",
-  "revision": 13,
-  "changed_at": "2026-10-29T13:02:13Z",
+  "catalog_sha256": "78a49e4cb08c3241e77e5fa6ca79df3d822fea9c049640fcfd5fdb4fa3c5eece",
+  "revision": 14,
+  "changed_at": "2026-11-03T14:15:48Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "87fdeaf4f4818da9078103d998bafcdc56b3501b528a7806b884d0c4e360e57c",
+  "source_sha256": "2bcb265a8b387fee531f6573b8e7ac9e5582471d3ba2d69695de0e9b1365d43e",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
