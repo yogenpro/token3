@@ -12,7 +12,7 @@ const selected = [
 
 test('requested models and additional recent families have reviewed comparisons', async ({ page }) => {
   await page.goto('./');
-  await expect(page.getByLabel('SELECT A MODEL').locator('option')).toHaveCount(45);
+  await expect(page.getByLabel('SELECT A MODEL').locator('option')).toHaveCount(103);
   for (const id of selected) {
     await page.getByLabel('SELECT A MODEL').selectOption(id);
     await expect(page.getByTestId('offering-row').first()).toBeVisible();
@@ -23,6 +23,19 @@ test('requested models and additional recent families have reviewed comparisons'
   await page.getByLabel('SELECT A MODEL').selectOption('anthropic/claude-mythos-5.1');
   await expect(page.locator('.model-description')).toContainText('Limited availability');
   await expect(page.locator('.provider-cell strong').getByText('Anthropic API', { exact: true })).toBeVisible();
+});
+
+test('new direct sources expose reviewed prices without downloading native catalogs', async ({ page }) => {
+  const nativeRequests: string[] = [];
+  page.on('request', (request) => { if (request.url().includes('/catalog/')) nativeRequests.push(request.url()); });
+  await page.goto('./');
+  for (const [model, provider] of [['mistral/mistral-large-4', 'Mistral API'], ['meta/muse-spark-1.3', 'Meta Model API'], ['moonshotai/kimi-k2.6', 'Moonshot AI']]) {
+    await page.getByLabel('SELECT A MODEL').selectOption(model);
+    await expect(page.getByTestId('offering-row').first()).toBeVisible();
+    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
+  }
+  expect(nativeRequests).toEqual([]);
+  expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
 });
 
 test('Haiku 5.5 fully cached requests use the correct 100K prompt band', async ({ page }) => {

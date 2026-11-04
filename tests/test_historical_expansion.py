@@ -38,9 +38,13 @@ class ExpansionTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "ledger"
 
-    def test_profiles_cover_tracked_providers_with_bedrock_native_versions(self):
-        data = json.loads((Path(__file__).resolve().parents[1] / "data/provider_inventory.json").read_bytes())
-        self.assertEqual(set(profiles()) | {"bedrock"}, {p["id"] for p in data["providers"]})
+    def test_profiles_cover_published_history_with_bedrock_native_versions(self):
+        root = Path(__file__).resolve().parents[1]
+        data = json.loads((root / "data/provider_inventory.json").read_bytes())
+        scope = json.loads((root / "config/historical_publication.json").read_bytes())["providers"]
+        self.assertEqual(set(profiles()) | {"bedrock"}, set(scope))
+        self.assertEqual(len(scope), len(set(scope)))
+        self.assertTrue(set(scope) <= {p["id"] for p in data["providers"]})
         self.assertEqual(len(profiles()), 25)
         for provider, profile in profiles().items():
             for source in profile["sources"]:
