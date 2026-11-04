@@ -50,7 +50,7 @@ describe('the real normalized dataset', () => {
   it('keeps the original open models and only explicitly reviewed offerings', () => {
     const original = ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta/llama-3.3-70b-instruct', 'meta/llama-3.1-8b-instruct', 'qwen/qwen3-235b-a22b-instruct-2507'];
     for (const id of original) expect(data.models.find((m) => m.id === id)).toMatchObject({ open_weight: true });
-    expect(data.models.filter((m) => m.open_weight)).toHaveLength(23);
+    expect(data.models.filter((m) => m.open_weight)).toHaveLength(33);
     for (const o of data.offerings) expect(data.models.some((m) => m.id === o.model_id)).toBe(true);
   });
   it('compares standard tiers by default and keeps variants separate', () => {
