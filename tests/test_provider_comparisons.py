@@ -143,10 +143,13 @@ class ProviderComparisonTests(unittest.TestCase):
         collector = INVENTORY_PROVIDERS['openrouter']
         body = fixture('openrouter')['catalog']
         body['total_count'] = len(body['data'])  # Complete bounded replay, not the full live endpoint.
-        with tempfile.TemporaryDirectory() as directory:
+        # Replay this dated fixture with its exact reviewed source bindings.
+        # A complete three-model fixture is not today's expanded catalog.
+        with tempfile.TemporaryDirectory() as directory, patch('scripts.collect.catalog', return_value=(catalog()[0], self.aliases)):
             root = Path(directory)
             with patch('providers.expanded.fetch_text', return_value=json.dumps(body)):
                 self.assertEqual(run(root, ['openrouter'], strict=True), 0)
+            self.assertEqual(len(json.loads((root / 'offerings.json').read_text())), 3)
             before = {name: (root / name).read_bytes() for name in ('offerings.json', 'latest_prices.json', 'price_history.csv')}
             body['data'][0]['pricing']['request'] = '.01'
             with patch('providers.expanded.fetch_text', return_value=json.dumps(body)):

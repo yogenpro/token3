@@ -263,8 +263,11 @@ def normalize_extended(provider, payload):
     elif adapter == "ovhcloud": records = _ovhcloud(payload.get("catalog"))
     elif adapter == "oracle": records = _oracle(payload.get("catalog") or {})
     elif adapter == "scaleway": records = _scaleway(payload.get("catalog") or {})
-    elif adapter != "documents": raise ValueError("Unknown collection-only catalog adapter")
-    if adapter not in ("documents", provider):
+    elif adapter in ("cerebras", "castform"):
+        from .public_inventory import public_feed
+        records = public_feed(provider, payload.get("catalog"), payload.get("documents", []))
+    elif adapter not in ("documents", "public_documents"): raise ValueError("Unknown collection-only catalog adapter")
+    if adapter not in ("documents", "public_documents", provider):
         raise ValueError("Catalog adapter/provider identity mismatch")
     documents = payload.get("documents", [])
     if not isinstance(documents, list):
@@ -273,14 +276,71 @@ def normalize_extended(provider, payload):
         url, body = document.get("source_url"), document.get("body")
         if not isinstance(url, str) or not isinstance(body, str) or not body:
             raise ValueError("Source document lacks its URL/body")
+        original = body
+        if provider == "perplexity":
+            from .public_inventory import unquote_tabs
+            body = unquote_tabs(body)
         docs, prose = _document(provider, _mixed_document(body), html_parser=_MixedHTML, identity_builder=_document_identity)
+        public_document = adapter in ("public_documents", "cerebras", "castform")
+        if public_document:
+            from .public_inventory import document_page
+            # Tables alone can lose surrounding schedules, access rules,
+            # rounding, plan conditions or currency witnesses. Retain a bounded
+            # text context record as well, without interpreting it as a quote.
+            context = document_page(provider, original, url)
+            if not original.lstrip().startswith("<"):
+                prose = context["billing"]["text"].splitlines()
+            if docs:
+                docs.append(context)
         if not docs:
-            raise ValueError("Selected pricing document has no source-native table rows")
+            if not public_document:
+                raise ValueError("Selected pricing document has no source-native table rows")
+            docs = [context]
+        transposed_models = []
+        if public_document and provider == "typesafe":
+            for row in docs:
+                cells = row["billing"].get("cells", [])
+                columns = row["billing"].get("columns", [])
+                if not cells or cells[0] != "Model ID" or len(cells) != len(columns):
+                    continue
+                for column, value in enumerate(cells[1:], 1):
+                    match = re.fullmatch(r"`(jev-[0-9]+\.[0-9]+\.[0-9]+)`", value)
+                    if not match:
+                        raise ValueError("TypeSafe transposed model ID changed")
+                    fields = {r["billing"]["cells"][0]: r["billing"]["cells"][column] for r in docs
+                              if r["scope"].get("table") == row["scope"].get("table")
+                              and len(r["billing"].get("cells", [])) == len(columns)}
+                    transposed_models.append(entry(provider, match[1], "model", columns[column],
+                        {"source_url": url, "billing_product": "typed_decision"},
+                        {"rules": fields, "interpretation": "Explicit transposed model ID and original column fields; currency, limits and rates remain unparsed."},
+                        {"source_model_id": match[1]}))
         for record in docs:
+            if public_document:
+                # A dollar symbol or a neighboring section is not a currency
+                # or denominator witness for each document cell. The full
+                # expressions/context remain native; structured rates are only
+                # emitted by the separately validated public-feed adapters.
+                record["rates"] = []
+                record["billing"]["interpretation"] = "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+                columns = record["billing"].get("columns", [])
+                cells = record["billing"].get("cells", [])
+                if len(columns) == len(cells):
+                    fields = dict(zip(columns, cells))
+                    candidate = fields.get("Model ID", "")
+                    # These reviewed document schemas put literal API IDs in
+                    # code spans; human model/creator labels are not endpoints.
+                    if not candidate and provider in ("cohere", "perplexity", "stepfun"):
+                        value = fields.get("Model Name" if provider == "cohere" else "Model", "")
+                        if re.fullmatch(r"`[^`]+`", value):
+                            candidate = value
+                    candidate = candidate.strip("`")
+                    if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._:/@+-]*", candidate):
+                        record["metadata"]["source_model_id"] = candidate
             record["scope"]["source_url"] = url
             identity = {key:record[key] for key in ("provider", "native_id", "kind", "scope")}
             record["id"] = provider + "-" + digest(identity)[:24]
         records.extend(docs)
+        records.extend(transposed_models)
         if provider == "deepseek":
             from providers.deepseek_pricing import parse_models
             for model in parse_models(body):

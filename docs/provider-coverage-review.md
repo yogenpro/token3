@@ -1,5 +1,7 @@
 # Provider coverage review — 2026-11-04
 
+This records the first bounded November review. The subsequent [provider/model expansion](provider-model-expansion.md) contains the current retained baseline and additional sources; the counts below describe this earlier review.
+
 The current-source review found three missing direct billing sources and substantial
 reviewed-model gaps. Mistral API, Meta Model API and Moonshot AI now join collection.
 The official-source review adds **58 canonical identities and 84 first-observed

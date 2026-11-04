@@ -85,6 +85,26 @@ readable and may leave harmless unreferenced staged assets; these are not publis
 Legacy JSONL reading and bounded writing remain supported for older/small fixture
 directories, but cannot silently grow a monolith beyond 16 MiB.
 
+## Parallel collection reconciliation
+
+The 2026-11-04 coverage merge encountered 39 gateway event IDs reused by two
+independent collection branches. IDs derive from provider/revision/record and
+therefore cannot distinguish those parallel captures. The current ledger retains
+the complete published production manifest as its unchanged prefix. The complete
+pre-merge branch manifest is retained byte-for-byte, with its SHA-256, source
+commit and production manifest, in
+`data/inventory_history/branch_archives/76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d.json`.
+All original addressed segments remain unchanged. Replaying that archived manifest
+reconstructs all 86,930 original branch events with their original IDs, times,
+values and provenance; no collision is renamed or discarded. The 1,575 original
+new-source events are also appended unchanged to the current ledger. Gateway fork
+events remain in the archive, while subsequent current gateway observations come
+from legitimate collection against the published state. The archive is outside
+public projections and does not establish another tariff or historical backfill.
+The production archive/reconstruction tests validate both original manifests,
+the production prefix and exact imported rows. This is merge reconciliation,
+without changing the existing compaction classification or duplicate-ID guard.
+
 ## Commands
 
 Use the normal project Python environment on a Unix system supporting `flock`;

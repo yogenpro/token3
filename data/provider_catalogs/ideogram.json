@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "parser_version": 1,
+  "provider": "ideogram",
+  "source_kind": "documentation",
+  "records": [
+    {
+      "id": "ideogram-0d6330becd2a7df7778cd92c",
+      "provider": "ideogram",
+      "native_id": "7f2a4db08197bf96f1586d79",
+      "kind": "document_row",
+      "label": "`GET /v1/generations/{generation_id}`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`GET /v1/generations/{generation_id}`",
+          "`GET /v2/generations/{generation_id}`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-24cd3187ad7a237c0cf42ea5",
+      "provider": "ideogram",
+      "native_id": "a23e38d7a2f2be300f12260d",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v3/generate`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v3/generate`",
+          "`POST /v2/image/generate/ideogram-3`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-28e5f96cad629963a2ec65bc",
+      "provider": "ideogram",
+      "native_id": "badcfaa38748845631bc85f1",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v3/replace-background`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v3/replace-background`",
+          "`POST /v2/image/replace-background/ideogram-3`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-3349c45060c846b17d6cdf54",
+      "provider": "ideogram",
+      "native_id": "https://developer.ideogram.ai/ideogram-api/api-overview",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "text": "This page is for version v2 (default).\nFor other versions, use one of these documentation indexes:\n- v2 (default): https://developer.ideogram.ai/v2/llms.txt\n- v1: https://developer.ideogram.ai/v1/llms.txt\nFor clean Markdown of any page, append .md to the page URL.\nFor a complete documentation index, see https://developer.ideogram.ai/llms.txt.\nFor AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://developer.ideogram.ai/_mcp/server.\nOverview of the Ideogram API v2 — precise image editing with Ideogram 4.5, generation, video, and where to start.\nThe Ideogram API brings Ideogram's image and video models into your product. Every v2 endpoint follows one pattern, POST /v2/{content}/{action}/{model}, so the model you call is always in the URL: for example /v2/image/generate/ideogram-4-5.\nIdeogram 4.5: the most precise edit model\nTell Ideogram 4.5 what to change and it leaves everything else alone. With Precise Edit (/v2/api-reference/images/precise-edit/ideogram-4-5), pixels the edit doesn't touch are copied exactly from your image, and the result comes back at your image's own width and height.\nTargeted edits\nChange a colour, material, or detail and keep the rest of the image untouched. Add a mask to limit the edit to one area.\nConsistent across edits\nChain edit after edit with minimal drift: shape, texture, and colour hold steady from one turn to the next.\nGuided by references\nAdd up to four reference_images to steer the edit with a product, a material, or a style.\n*Original, then \"Change the product's colour and finish to slate-blue knit\", then two edits later with a gum sole and a pale lilac backdrop. The shoes keep their exact shape and position throughout.*\n![](/_fern-files/_img/3ab860bf2397ba02f3539f9f20b1ea5b8f25463195ba4bda1ce80836d0f610ac.webp)\n![](/_fern-files/_img/c1881492a1074bc19ae5f5d9ce2fbeb6b3140ef9d3beb304540f1a16551f750b.webp)\n![](/_fern-files/_img/cd1cd4f72cbf471cb9a808670ce3692760b0ae24332d15e4899ff371d06cd1a0.webp)\nWhat you can build\nGenerate (/v2/api-reference/images/generate/ideogram-4-5)\nCreate images from a prompt with Ideogram 4.5 and 4.0, known for prompt fidelity and crisp typography, or with GPT Image and Nano Banana.\nRemix and inpaint (/v2/api-reference/images/remix/ideogram-4)\nTransform an existing image with a prompt, or repaint just the masked region.\nUpscale (/v2/api-reference/images/upscale/auto)\nEnlarge images with Topaz and Nano Banana Pro, or let Ideogram pick the model.\nBackgrounds (/v2/api-reference/images/remove-background/ideogram-1)\nRemove a background for a transparent cutout, or replace it with a generated scene.\nVideo (/v2/api-reference/video/generate/seedance-2-5-text-to-video)\nGenerate video from text, a first frame, or reference images with Seedance, MiniMax H3, and Kling.\nTools (/v2/api-reference/tools/ad-resizer)\nReady-made workflows for ads and commerce: resize, localize, recolour, and swap materials.\nQuickstart\nCreate an API key by following the Setup guide (/v2/ideogram-api/api-setup). Then generate an image with Ideogram 4.5 and make a precise edit to it. Image endpoints return results directly; image URLs expire, so download anything you want to keep.\nPython\nTypeScript\ncURL\nLong-running requests\nVideo and tool endpoints always run asynchronously, and any image endpoint does too when you set async or supply a webhook_url. They return a generation_id straight away: poll GET /v2/generations/{generation_id} (/v2/api-reference/generations/get-generation) until status is completed or failed, or receive the result at your webhook (/v2/ideogram-api/webhooks).\nMoving from v1\nThe v1 API keeps working, and its reference stays available under v1 in the version switcher. Each v1 endpoint has a v2 equivalent with the model in the path; request fields differ in places (for example, v1's text_prompt is v2's prompt), so check each endpoint's reference.\nEnterprise scale\nThe Ideogram API serves thousands of API customers generating millions of images daily. If you need more than the default rate limit of 10 in-flight requests, contact us at *partnership@ideogram.ai (mailto:partnership@ideogram.ai)* and we'll help fit your needs.",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-4f287706037f817998a7e5c0",
+      "provider": "ideogram",
+      "native_id": "67ffb1cf92e6a88a0a0027db",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v3/inpaint`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v3/inpaint`",
+          "`POST /v2/image/inpaint/ideogram-3`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-51225af622c2948c105f65be",
+      "provider": "ideogram",
+      "native_id": "4cf5cf7f45f70884761176ee",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v4/remix`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v4/remix`",
+          "`POST /v2/image/remix/ideogram-4`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-922f1669c6455313fbec878a",
+      "provider": "ideogram",
+      "native_id": "debe7d0b974e0116ca360eab",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v3/remix`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v3/remix`",
+          "`POST /v2/image/remix/ideogram-3`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-9b52cac4b1d75cd6e7a6c90a",
+      "provider": "ideogram",
+      "native_id": "a9095652bcae81ef00ac0aaf",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v4/describe`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v4/describe`",
+          "`POST /v2/image/describe/ideogram-4`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-a51876b7508c80fd92632f60",
+      "provider": "ideogram",
+      "native_id": "ce5a90fc8f8ff75a25e59c4c",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v3/reframe`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v3/reframe`",
+          "`POST /v2/image/reframe/ideogram-3`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-cc51b45ae68ef2f1d76ff8c3",
+      "provider": "ideogram",
+      "native_id": "afa4a58a09038c9d87c3f9ec",
+      "kind": "document_row",
+      "label": "`POST /v1/remove-background`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/remove-background`",
+          "`POST /v2/image/remove-background/ideogram-1`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "ideogram-f7eaeb50f39220743010cda1",
+      "provider": "ideogram",
+      "native_id": "57f7c96699076cf66d87a2f8",
+      "kind": "document_row",
+      "label": "`POST /v1/ideogram-v4/generate`",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Precisely edit an image: only the change you describe",
+          "Moving from v1"
+        ],
+        "tabs": [],
+        "headers": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview"
+      },
+      "billing": {
+        "cells": [
+          "`POST /v1/ideogram-v4/generate`",
+          "`POST /v2/image/generate/ideogram-4`"
+        ],
+        "columns": [
+          "v1 endpoint",
+          "v2 endpoint"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    }
+  ],
+  "billing_notes": [
+    "Public API model/capability documentation and linked API billing information. Image resolution, rendering modes and consumer-plan credits do not establish text-token prices.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: ![](/_fern-files/_img/3ab860bf2397ba02f3539f9f20b1ea5b8f25463195ba4bda1ce80836d0f610ac.webp)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: ![](/_fern-files/_img/c1881492a1074bc19ae5f5d9ce2fbeb6b3140ef9d3beb304540f1a16551f750b.webp)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: ![](/_fern-files/_img/cd1cd4f72cbf471cb9a808670ce3692760b0ae24332d15e4899ff371d06cd1a0.webp)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: *Original, then \"Change the product's colour and finish to slate-blue knit\", then two edits later with a gum sole and a pale lilac backdrop. The shoes keep their exact shape and position throughout.*",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: - v1: https://developer.ideogram.ai/v1/llms.txt",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: - v2 (default): https://developer.ideogram.ai/v2/llms.txt",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Add up to four reference_images to steer the edit with a product, a material, or a style.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Backgrounds (/v2/api-reference/images/remove-background/ideogram-1)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Chain edit after edit with minimal drift: shape, texture, and colour hold steady from one turn to the next.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Change a colour, material, or detail and keep the rest of the image untouched. Add a mask to limit the edit to one area.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Consistent across edits",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Create an API key by following the Setup guide (/v2/ideogram-api/api-setup). Then generate an image with Ideogram 4.5 and make a precise edit to it. Image endpoints return results directly; image URLs expire, so download anything you want to keep.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Create images from a prompt with Ideogram 4.5 and 4.0, known for prompt fidelity and crisp typography, or with GPT Image and Nano Banana.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Enlarge images with Topaz and Nano Banana Pro, or let Ideogram pick the model.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Enterprise scale",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: For AI client integration (Claude Code, Cursor, etc.), connect to the MCP server at https://developer.ideogram.ai/_mcp/server.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: For a complete documentation index, see https://developer.ideogram.ai/llms.txt.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: For clean Markdown of any page, append .md to the page URL.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: For other versions, use one of these documentation indexes:",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Generate (/v2/api-reference/images/generate/ideogram-4-5)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Generate video from text, a first frame, or reference images with Seedance, MiniMax H3, and Kling.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Guided by references",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Ideogram 4.5: the most precise edit model",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Long-running requests",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Moving from v1",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Overview of the Ideogram API v2 — precise image editing with Ideogram 4.5, generation, video, and where to start.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Python",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Quickstart",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Ready-made workflows for ads and commerce: resize, localize, recolour, and swap materials.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Remix and inpaint (/v2/api-reference/images/remix/ideogram-4)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Remove a background for a transparent cutout, or replace it with a generated scene.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Targeted edits",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Tell Ideogram 4.5 what to change and it leaves everything else alone. With Precise Edit (/v2/api-reference/images/precise-edit/ideogram-4-5), pixels the edit doesn't touch are copied exactly from your image, and the result comes back at your image's own width and height.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: The Ideogram API brings Ideogram's image and video models into your product. Every v2 endpoint follows one pattern, POST /v2/{content}/{action}/{model}, so the model you call is always in the URL: for example /v2/image/generate/ideogram-4-5.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: The Ideogram API serves thousands of API customers generating millions of images daily. If you need more than the default rate limit of 10 in-flight requests, contact us at *partnership@ideogram.ai (mailto:partnership@ideogram.ai)* and we'll help fit your needs.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: The v1 API keeps working, and its reference stays available under v1 in the version switcher. Each v1 endpoint has a v2 equivalent with the model in the path; request fields differ in places (for example, v1's text_prompt is v2's prompt), so check each endpoint's reference.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: This page is for version v2 (default).",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Tools (/v2/api-reference/tools/ad-resizer)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Transform an existing image with a prompt, or repaint just the masked region.",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: TypeScript",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Upscale (/v2/api-reference/images/upscale/auto)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Video (/v2/api-reference/video/generate/seedance-2-5-text-to-video)",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: Video and tool endpoints always run asynchronously, and any image endpoint does too when you set async or supply a webhook_url. They return a generation_id straight away: poll GET /v2/generations/{generation_id} (/v2/api-reference/generations/get-generation) until status is completed or failed, or receive the result at your webhook (/v2/ideogram-api/webhooks).",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: What you can build",
+    "https://developer.ideogram.ai/ideogram-api/api-overview: cURL"
+  ],
+  "catalog_sha256": "1e851a54a4218b690674d128638347edbc54094510ffee34778e87588fb996a8",
+  "revision": 3,
+  "changed_at": "2026-11-04T11:39:11Z",
+  "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview",
+  "source_urls": [
+    "https://developer.ideogram.ai/ideogram-api/api-overview"
+  ],
+  "source_sha256": "0f8d3a241efc597a29f329686db2d84ccc39b367ceeeb5851a13a70afd32bded",
+  "archive_reference": null
+}

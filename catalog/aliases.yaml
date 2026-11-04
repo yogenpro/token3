@@ -2,24 +2,38 @@
 # Turbo is kept as an explicit offering variant; known precision comes from the source.
 openai/gpt-oss-120b:
   aliases:
-    - "gpt-oss-120b"
-    - "GPT-OSS-120B"
-    - "B112004"
-    - "@cf/openai/gpt-oss-120b"
-    - openai/gpt-oss-120b
-    - openai/gpt-oss-120b-Turbo
-    - accounts/fireworks/models/gpt-oss-120b
-    - openai.gpt-oss-120b-1:0
-  legacy_aliases: ["openai/gpt-oss-120b", "openai/gpt-oss-120b-Turbo", "accounts/fireworks/models/gpt-oss-120b", "openai.gpt-oss-120b-1:0"]
+  - gpt-oss-120b
+  - GPT-OSS-120B
+  - B112004
+  - '@cf/openai/gpt-oss-120b'
+  - openai/gpt-oss-120b
+  - openai/gpt-oss-120b-Turbo
+  - accounts/fireworks/models/gpt-oss-120b
+  - openai.gpt-oss-120b-1:0
+  legacy_aliases:
+  - openai/gpt-oss-120b
+  - openai/gpt-oss-120b-Turbo
+  - accounts/fireworks/models/gpt-oss-120b
+  - openai.gpt-oss-120b-1:0
   reviewed_sources:
-    ovhcloud: ["gpt-oss-120b"]
-    scaleway: ["gpt-oss-120b"]
-    databricks: ["GPT-OSS-120B"]
-    oracle: ["B112004"]
-    cloudflare: ["@cf/openai/gpt-oss-120b"]
-    nebius: ["openai/gpt-oss-120b"]
-    huggingface: ["openai/gpt-oss-120b"]
-    openrouter: ["openai/gpt-oss-120b"]
+    ovhcloud:
+    - gpt-oss-120b
+    scaleway:
+    - gpt-oss-120b
+    databricks:
+    - GPT-OSS-120B
+    oracle:
+    - B112004
+    cloudflare:
+    - '@cf/openai/gpt-oss-120b'
+    nebius:
+    - openai/gpt-oss-120b
+    huggingface:
+    - openai/gpt-oss-120b
+    openrouter:
+    - openai/gpt-oss-120b
+    cerebras:
+    - gpt-oss-120b
 openai/gpt-oss-20b:
   aliases:
     - "gpt-oss-20b"
@@ -69,12 +83,18 @@ qwen/qwen3-235b-a22b-instruct-2507:
     - Qwen/Qwen3-235B-A22B-Instruct-2507-tput
 openai/gpt-5.4:
   aliases:
+  - gpt-5.4
+  - gpt-5.4-2026-03-05
+  reviewed_sources:
+    castform:
     - gpt-5.4
-    - gpt-5.4-2026-03-05
 openai/gpt-5.4-mini:
   aliases:
+  - gpt-5.4-mini
+  - gpt-5.4-mini-2026-03-17
+  reviewed_sources:
+    castform:
     - gpt-5.4-mini
-    - gpt-5.4-mini-2026-03-17
 anthropic/claude-sonnet-4.6:
   aliases:
     - claude-sonnet-4-6
@@ -164,26 +184,50 @@ google/gemma-4-31b-it:
     novita: [google/gemma-4-31b-it]
     vercel: [google/gemma-4-31b-it]
 google/gemma-4-26b-a4b-it:
-  aliases: [google/gemma-4-26B-A4B-it, google/gemma-4-26b-a4b-it]
+  aliases:
+  - google/gemma-4-26B-A4B-it
+  - google/gemma-4-26b-a4b-it
+  - gemma-4-26b-a4b-it
   reviewed_sources:
-    deepinfra: [google/gemma-4-26B-A4B-it]
-    novita: [google/gemma-4-26b-a4b-it]
-    vercel: [google/gemma-4-26b-a4b-it]
+    deepinfra:
+    - google/gemma-4-26B-A4B-it
+    novita:
+    - google/gemma-4-26b-a4b-it
+    vercel:
+    - google/gemma-4-26b-a4b-it
+    castform:
+    - gemma-4-26b-a4b-it
 google/gemma-4-e4b-it:
   aliases: [google/gemma-4-E4B-it]
   reviewed_sources:
     deepinfra: [google/gemma-4-E4B-it]
 qwen/qwen3.8-27b:
-  aliases: [Qwen/Qwen3.8-27B, qwen/qwen3.8-27b, alibaba/qwen3.8-27b, "@cf/qwen/qwen3.8-27b", qwen3.8-27b]
+  aliases:
+  - Qwen/Qwen3.8-27B
+  - qwen/qwen3.8-27b
+  - alibaba/qwen3.8-27b
+  - '@cf/qwen/qwen3.8-27b'
+  - qwen3.8-27b
+  - qwen-3.8-27b
   reviewed_sources:
-    cloudflare: ["@cf/qwen/qwen3.8-27b"]
-    nebius: ["Qwen/Qwen3.8-27B"]
-    huggingface: ["Qwen/Qwen3.8-27B"]
-    deepinfra: [Qwen/Qwen3.8-27B]
-    novita: [qwen/qwen3.8-27b]
-    groq: [qwen/qwen3.8-27b]
-    vercel: [alibaba/qwen3.8-27b]
-    alibaba: ["qwen3.8-27b"]
+    cloudflare:
+    - '@cf/qwen/qwen3.8-27b'
+    nebius:
+    - Qwen/Qwen3.8-27B
+    huggingface:
+    - Qwen/Qwen3.8-27B
+    deepinfra:
+    - Qwen/Qwen3.8-27B
+    novita:
+    - qwen/qwen3.8-27b
+    groq:
+    - qwen/qwen3.8-27b
+    vercel:
+    - alibaba/qwen3.8-27b
+    alibaba:
+    - qwen3.8-27b
+    cerebras:
+    - qwen-3.8-27b
 qwen/qwen3.8-2.4t-a95b:
   aliases: [Qwen/Qwen3.8-2.4T-A95B, qwen/qwen3.8-2.4t-a95b, alibaba/qwen3.8-2.4t-a95b]
   reviewed_sources:
@@ -212,36 +256,87 @@ deepseek/deepseek-v4.1-flash:
     novita: [deepseek/deepseek-v4.1-flash]
     vercel: [deepseek/deepseek-v4.1-flash]
 deepseek/deepseek-v4-pro-0813:
-  aliases: [deepseek-ai/DeepSeek-V4-Pro-0813, deepseek/deepseek-v4-pro-0813, "deepseek-v4-pro"]
+  aliases:
+  - deepseek-ai/DeepSeek-V4-Pro-0813
+  - deepseek/deepseek-v4-pro-0813
+  - deepseek-v4-pro
+  - perplexity/deepseek-v4-pro-0813
   reviewed_sources:
-    deepseek: ["deepseek-v4-pro"]
-    nebius: ["deepseek-ai/DeepSeek-V4-Pro-0813"]
-    huggingface: ["deepseek-ai/DeepSeek-V4-Pro-0813"]
-    deepinfra: [deepseek-ai/DeepSeek-V4-Pro-0813]
-    novita: [deepseek/deepseek-v4-pro-0813]
-    vercel: [deepseek/deepseek-v4-pro-0813]
+    deepseek:
+    - deepseek-v4-pro
+    nebius:
+    - deepseek-ai/DeepSeek-V4-Pro-0813
+    huggingface:
+    - deepseek-ai/DeepSeek-V4-Pro-0813
+    deepinfra:
+    - deepseek-ai/DeepSeek-V4-Pro-0813
+    novita:
+    - deepseek/deepseek-v4-pro-0813
+    vercel:
+    - deepseek/deepseek-v4-pro-0813
+    arcee:
+    - deepseek/deepseek-v4-pro-0813
+    perplexity:
+    - perplexity/deepseek-v4-pro-0813
 zai/glm-5.3:
-  aliases: [zai-org/GLM-5.3, zai-org/glm-5.3, zai/glm-5.3, "@cf/zai-org/glm-5.3", "glm-5.3", "GLM-5.3"]
+  aliases:
+  - zai-org/GLM-5.3
+  - zai-org/glm-5.3
+  - zai/glm-5.3
+  - '@cf/zai-org/glm-5.3'
+  - glm-5.3
+  - GLM-5.3
+  - perplexity/glm-5.3
   reviewed_sources:
-    snowflake: ["glm-5.3"]
-    zai: ["GLM-5.3"]
-    alibaba: ["glm-5.3"]
-    cloudflare: ["@cf/zai-org/glm-5.3"]
-    nebius: ["zai-org/GLM-5.3"]
-    huggingface: ["zai-org/GLM-5.3"]
-    deepinfra: [zai-org/GLM-5.3]
-    novita: [zai-org/glm-5.3]
-    vercel: [zai/glm-5.3]
+    snowflake:
+    - glm-5.3
+    zai:
+    - GLM-5.3
+    alibaba:
+    - glm-5.3
+    cloudflare:
+    - '@cf/zai-org/glm-5.3'
+    nebius:
+    - zai-org/GLM-5.3
+    huggingface:
+    - zai-org/GLM-5.3
+    deepinfra:
+    - zai-org/GLM-5.3
+    novita:
+    - zai-org/glm-5.3
+    vercel:
+    - zai/glm-5.3
+    arcee:
+    - zai-org/glm-5.3
+    perplexity:
+    - perplexity/glm-5.3
 zai/glm-5.3-flash:
-  aliases: [zai-org/GLM-5.3-Flash, zai-org/glm-5.3-flash, zai/glm-5.3-flash, "@cf/zai-org/glm-5.3-flash", "GLM-5.3-Flash"]
+  aliases:
+  - zai-org/GLM-5.3-Flash
+  - zai-org/glm-5.3-flash
+  - zai/glm-5.3-flash
+  - '@cf/zai-org/glm-5.3-flash'
+  - GLM-5.3-Flash
+  - perplexity/glm-5.3-flash
   reviewed_sources:
-    zai: ["GLM-5.3-Flash"]
-    cloudflare: ["@cf/zai-org/glm-5.3-flash"]
-    nebius: ["zai-org/GLM-5.3-Flash"]
-    huggingface: ["zai-org/GLM-5.3-Flash"]
-    deepinfra: [zai-org/GLM-5.3-Flash]
-    novita: [zai-org/glm-5.3-flash]
-    vercel: [zai/glm-5.3-flash]
+    zai:
+    - GLM-5.3-Flash
+    cloudflare:
+    - '@cf/zai-org/glm-5.3-flash'
+    nebius:
+    - zai-org/GLM-5.3-Flash
+    huggingface:
+    - zai-org/GLM-5.3-Flash
+    deepinfra:
+    - zai-org/GLM-5.3-Flash
+    novita:
+    - zai-org/glm-5.3-flash
+    vercel:
+    - zai/glm-5.3-flash
+    arcee:
+    - zai-org/glm-5.3-flash
+    perplexity:
+    - perplexity/glm-5.3-flash
 zai/glm-5.3-flashx:
   aliases: [zai/glm-5.3-flashx, "GLM-5.3-FlashX"]
   reviewed_sources:
@@ -254,13 +349,26 @@ minimax/minimax-m3:
     deepinfra: [MiniMaxAI/MiniMax-M3]
     vercel: [minimax/minimax-m3]
 moonshotai/kimi-k3:
-  aliases: [moonshotai/Kimi-K3, moonshotai/kimi-k3, "kimi-k3"]
+  aliases:
+  - moonshotai/Kimi-K3
+  - moonshotai/kimi-k3
+  - kimi-k3
+  - perplexity/kimi-k3
   reviewed_sources:
-    snowflake: ["kimi-k3"]
-    deepinfra: [moonshotai/Kimi-K3]
-    novita: [moonshotai/kimi-k3]
-    vercel: [moonshotai/kimi-k3]
-    moonshot: ["kimi-k3"]
+    snowflake:
+    - kimi-k3
+    deepinfra:
+    - moonshotai/Kimi-K3
+    novita:
+    - moonshotai/kimi-k3
+    vercel:
+    - moonshotai/kimi-k3
+    moonshot:
+    - kimi-k3
+    arcee:
+    - moonshotai/kimi-k3
+    perplexity:
+    - perplexity/kimi-k3
 moonshotai/kimi-k2.7-code:
   aliases: [moonshotai/Kimi-K2.7-Code, moonshotai/kimi-k2.7-code, kimi-k2.7-code]
   reviewed_sources:
@@ -320,17 +428,23 @@ openai/gpt-5.6-sol:
   reviewed_sources:
     openai:
     - gpt-5.6-sol
+    castform:
+    - gpt-5.6-sol
 openai/gpt-5.6-terra:
   aliases:
   - gpt-5.6-terra
   reviewed_sources:
     openai:
     - gpt-5.6-terra
+    castform:
+    - gpt-5.6-terra
 openai/gpt-5.6-luna:
   aliases:
   - gpt-5.6-luna
   reviewed_sources:
     openai:
+    - gpt-5.6-luna
+    castform:
     - gpt-5.6-luna
 openai/gpt-5.5:
   aliases:
@@ -355,6 +469,8 @@ openai/gpt-5.4-nano:
   - gpt-5.4-nano
   reviewed_sources:
     openai:
+    - gpt-5.4-nano
+    castform:
     - gpt-5.4-nano
 openai/gpt-5.2:
   aliases:
@@ -596,6 +712,8 @@ xai/grok-4.3:
   reviewed_sources:
     xai:
     - grok-4.3
+    castform:
+    - grok-4.3
 xai/grok-build-0.1:
   aliases:
   - grok-build-0.1
@@ -605,9 +723,12 @@ xai/grok-build-0.1:
 zai/glm-5.2:
   aliases:
   - GLM-5.2
+  - zai-org/glm-5.2
   reviewed_sources:
     zai:
     - GLM-5.2
+    arcee:
+    - zai-org/glm-5.2
 zai/glm-5.1:
   aliases:
   - GLM-5.1
@@ -659,3 +780,437 @@ qwen/qwen3.5-flash:
   reviewed_sources:
     alibaba:
     - qwen3.5-flash
+
+# Explicit current-source coverage expansion; no inferred provider permissions.
+cohere/command-a-plus:
+  aliases:
+  - cohere/command-a-plus
+  reviewed_sources:
+    openrouter:
+    - cohere/command-a-plus
+cohere/command-a:
+  aliases:
+  - cohere/command-a
+  reviewed_sources:
+    openrouter:
+    - cohere/command-a
+    vercel:
+    - cohere/command-a
+cohere/command-r7b-12-2024:
+  aliases:
+  - cohere/command-r7b-12-2024
+  reviewed_sources:
+    openrouter:
+    - cohere/command-r7b-12-2024
+cohere/command-r-08-2024:
+  aliases:
+  - cohere/command-r-08-2024
+  reviewed_sources:
+    openrouter:
+    - cohere/command-r-08-2024
+cohere/command-r-plus-08-2024:
+  aliases:
+  - cohere/command-r-plus-08-2024
+  reviewed_sources:
+    openrouter:
+    - cohere/command-r-plus-08-2024
+stepfun/step-3.5-flash:
+  aliases:
+  - stepfun/step-3.5-flash
+  reviewed_sources:
+    openrouter:
+    - stepfun/step-3.5-flash
+stepfun/step-3.7-flash:
+  aliases:
+  - stepfun/step-3.7-flash
+  reviewed_sources:
+    openrouter:
+    - stepfun/step-3.7-flash
+    vercel:
+    - stepfun/step-3.7-flash
+stepfun/step-5-preview:
+  aliases:
+  - stepfun/step-5-preview
+  reviewed_sources:
+    openrouter:
+    - stepfun/step-5-preview
+    vercel:
+    - stepfun/step-5-preview
+liquid/lfm-2.5-24b-a2b:
+  aliases:
+  - liquid/lfm-2.5-24b-a2b
+  reviewed_sources:
+    openrouter:
+    - liquid/lfm-2.5-24b-a2b
+liquid/lfm-2.5-2.6b:
+  aliases:
+  - liquid/lfm-2.5-2.6b
+  reviewed_sources:
+    openrouter:
+    - liquid/lfm-2.5-2.6b
+aion-labs/aion-3.5-mini:
+  aliases:
+  - aion-labs/aion-3.5-mini
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-3.5-mini
+aion-labs/aion-3.5:
+  aliases:
+  - aion-labs/aion-3.5
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-3.5
+aion-labs/aion-3.0-mini:
+  aliases:
+  - aion-labs/aion-3.0-mini
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-3.0-mini
+aion-labs/aion-3.0:
+  aliases:
+  - aion-labs/aion-3.0
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-3.0
+aion-labs/aion-2.0:
+  aliases:
+  - aion-labs/aion-2.0
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-2.0
+aion-labs/aion-rp-llama-3.1-8b:
+  aliases:
+  - aion-labs/aion-rp-llama-3.1-8b
+  reviewed_sources:
+    openrouter:
+    - aion-labs/aion-rp-llama-3.1-8b
+inception/mercury-3:
+  aliases:
+  - inception/mercury-3
+  reviewed_sources:
+    openrouter:
+    - inception/mercury-3
+    vercel:
+    - inception/mercury-3
+inception/mercury-2.5:
+  aliases:
+  - inception/mercury-2.5
+  reviewed_sources:
+    openrouter:
+    - inception/mercury-2.5
+    vercel:
+    - inception/mercury-2.5
+inception/mercury-2:
+  aliases:
+  - inception/mercury-2
+  reviewed_sources:
+    openrouter:
+    - inception/mercury-2
+    vercel:
+    - inception/mercury-2
+writer/palmyra-x5:
+  aliases:
+  - writer/palmyra-x5
+  reviewed_sources:
+    openrouter:
+    - writer/palmyra-x5
+tencent/hy4:
+  aliases:
+  - tencent/hy4
+  reviewed_sources:
+    openrouter:
+    - tencent/hy4
+    vercel:
+    - tencent/hy4
+tencent/hy3-preview:
+  aliases:
+  - tencent/hy3-preview
+  reviewed_sources:
+    openrouter:
+    - tencent/hy3-preview
+tencent/hy-mt2-1.8b:
+  aliases:
+  - tencent/hy-mt2-1.8b
+  reviewed_sources:
+    openrouter:
+    - tencent/hy-mt2-1.8b
+tencent/hy-mt2-30b-a3b:
+  aliases:
+  - tencent/hy-mt2-30b-a3b
+  reviewed_sources:
+    openrouter:
+    - tencent/hy-mt2-30b-a3b
+tencent/hy-mt2-7b:
+  aliases:
+  - tencent/hy-mt2-7b
+  reviewed_sources:
+    openrouter:
+    - tencent/hy-mt2-7b
+tencent/hunyuan-a13b-instruct:
+  aliases:
+  - tencent/hunyuan-a13b-instruct
+  reviewed_sources:
+    openrouter:
+    - tencent/hunyuan-a13b-instruct
+mistralai/devstral-2512:
+  aliases:
+  - mistralai/devstral-2512
+  reviewed_sources:
+    openrouter:
+    - mistralai/devstral-2512
+mistralai/mistral-large-2512:
+  aliases:
+  - mistralai/mistral-large-2512
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-large-2512
+mistralai/mistral-medium-3-5:
+  aliases:
+  - mistralai/mistral-medium-3-5
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-medium-3-5
+mistralai/mistral-medium-3.1:
+  aliases:
+  - mistralai/mistral-medium-3.1
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-medium-3.1
+mistralai/mistral-medium-3:
+  aliases:
+  - mistralai/mistral-medium-3
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-medium-3
+mistralai/mistral-small-3.2-24b-instruct:
+  aliases:
+  - mistralai/mistral-small-3.2-24b-instruct
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-small-3.2-24b-instruct
+mistralai/mistral-small-3.1-24b-instruct:
+  aliases:
+  - mistralai/mistral-small-3.1-24b-instruct
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-small-3.1-24b-instruct
+mistralai/mistral-saba:
+  aliases:
+  - mistralai/mistral-saba
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-saba
+mistralai/mistral-small-24b-instruct-2501:
+  aliases:
+  - mistralai/mistral-small-24b-instruct-2501
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-small-24b-instruct-2501
+mistralai/mistral-large-2407:
+  aliases:
+  - mistralai/mistral-large-2407
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-large-2407
+mistralai/mistral-nemo:
+  aliases:
+  - mistralai/mistral-nemo
+  reviewed_sources:
+    openrouter:
+    - mistralai/mistral-nemo
+mistralai/mixtral-8x22b-instruct:
+  aliases:
+  - mistralai/mixtral-8x22b-instruct
+  reviewed_sources:
+    openrouter:
+    - mistralai/mixtral-8x22b-instruct
+qwen/qwen3.6-35b-a3b:
+  aliases:
+  - qwen/qwen3.6-35b-a3b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.6-35b-a3b
+qwen/qwen3.6-27b:
+  aliases:
+  - qwen/qwen3.6-27b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.6-27b
+qwen/qwen3.5-9b:
+  aliases:
+  - qwen/qwen3.5-9b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.5-9b
+qwen/qwen3.5-35b-a3b:
+  aliases:
+  - qwen/qwen3.5-35b-a3b
+  - qwen3.5-35b-a3b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.5-35b-a3b
+    castform:
+    - qwen3.5-35b-a3b
+qwen/qwen3.5-27b:
+  aliases:
+  - qwen/qwen3.5-27b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.5-27b
+qwen/qwen3.5-122b-a10b:
+  aliases:
+  - qwen/qwen3.5-122b-a10b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.5-122b-a10b
+qwen/qwen3.5-flash-02-23:
+  aliases:
+  - qwen/qwen3.5-flash-02-23
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3.5-flash-02-23
+qwen/qwen3-32b:
+  aliases:
+  - qwen/qwen3-32b
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3-32b
+qwen/qwen3-coder:
+  aliases:
+  - qwen/qwen3-coder
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3-coder
+qwen/qwen3-coder-30b-a3b-instruct:
+  aliases:
+  - qwen/qwen3-coder-30b-a3b-instruct
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3-coder-30b-a3b-instruct
+qwen/qwen3-235b-a22b-thinking-2507:
+  aliases:
+  - qwen/qwen3-235b-a22b-thinking-2507
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3-235b-a22b-thinking-2507
+qwen/qwen3-next-80b-a3b-instruct:
+  aliases:
+  - qwen/qwen3-next-80b-a3b-instruct
+  reviewed_sources:
+    openrouter:
+    - qwen/qwen3-next-80b-a3b-instruct
+deepseek/deepseek-r1-0528:
+  aliases:
+  - deepseek/deepseek-r1-0528
+  reviewed_sources:
+    openrouter:
+    - deepseek/deepseek-r1-0528
+deepseek/deepseek-v3.2:
+  aliases:
+  - deepseek/deepseek-v3.2
+  reviewed_sources:
+    openrouter:
+    - deepseek/deepseek-v3.2
+    vercel:
+    - deepseek/deepseek-v3.2
+deepseek/deepseek-v3.1-terminus:
+  aliases:
+  - deepseek/deepseek-v3.1-terminus
+  reviewed_sources:
+    openrouter:
+    - deepseek/deepseek-v3.1-terminus
+minimax/minimax-m2.7:
+  aliases:
+  - minimax/minimax-m2.7
+  reviewed_sources:
+    openrouter:
+    - minimax/minimax-m2.7
+    vercel:
+    - minimax/minimax-m2.7
+minimax/minimax-m2.5:
+  aliases:
+  - minimax/minimax-m2.5
+  reviewed_sources:
+    openrouter:
+    - minimax/minimax-m2.5
+    vercel:
+    - minimax/minimax-m2.5
+minimax/minimax-m2.1:
+  aliases:
+  - minimax/minimax-m2.1
+  reviewed_sources:
+    openrouter:
+    - minimax/minimax-m2.1
+    vercel:
+    - minimax/minimax-m2.1
+minimax/minimax-m2:
+  aliases:
+  - minimax/minimax-m2
+  reviewed_sources:
+    openrouter:
+    - minimax/minimax-m2
+    vercel:
+    - minimax/minimax-m2
+moonshotai/kimi-k3.1-pro:
+  aliases:
+  - moonshotai/kimi-k3.1-pro
+  reviewed_sources:
+    openrouter:
+    - moonshotai/kimi-k3.1-pro
+    vercel:
+    - moonshotai/kimi-k3.1-pro
+moonshotai/kimi-k2.5:
+  aliases:
+  - moonshotai/kimi-k2.5
+  reviewed_sources:
+    openrouter:
+    - moonshotai/kimi-k2.5
+    vercel:
+    - moonshotai/kimi-k2.5
+moonshotai/kimi-k2-thinking:
+  aliases:
+  - moonshotai/kimi-k2-thinking
+  reviewed_sources:
+    openrouter:
+    - moonshotai/kimi-k2-thinking
+moonshotai/kimi-k2-0905:
+  aliases:
+  - moonshotai/kimi-k2-0905
+  reviewed_sources:
+    openrouter:
+    - moonshotai/kimi-k2-0905
+qwen/qwen3.5-4b:
+  aliases:
+  - qwen/qwen3.5-4b
+  - qwen3.5-4b
+  reviewed_sources:
+    castform:
+    - qwen3.5-4b
+xai/grok-4.1-fast-non-reasoning:
+  aliases:
+  - xai/grok-4.1-fast-non-reasoning
+  - grok-4-1-fast-non-reasoning
+  reviewed_sources:
+    castform:
+    - grok-4-1-fast-non-reasoning
+perplexity/sonar-agent:
+  aliases:
+  - perplexity/sonar-agent
+  - perplexity/sonar
+  reviewed_sources:
+    perplexity:
+    - perplexity/sonar
+upstage/solar-pro4-260806:
+  aliases:
+  - upstage/solar-pro4-260806
+  - solar-pro4-260806
+  reviewed_sources:
+    upstage:
+    - solar-pro4-260806
+upstage/solar-mini4-260922:
+  aliases:
+  - upstage/solar-mini4-260922
+  - solar-mini4-260922
+  reviewed_sources:
+    upstage:
+    - solar-mini4-260922

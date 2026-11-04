@@ -38,7 +38,12 @@ class ParserTests(unittest.TestCase):
 
     def test_exact_aliases_do_not_merge_thinking_or_other_versions(self):
         self.assertEqual(self.aliases["meta-llama/Llama-3.3-70B-Instruct-Turbo"], "meta/llama-3.3-70b-instruct")
-        self.assertNotIn("qwen/qwen3-235b-a22b-thinking-2507", self.aliases)
+        thinking = "qwen/qwen3-235b-a22b-thinking-2507"
+        instruct = "qwen/qwen3-235b-a22b-instruct-2507"
+        self.assertEqual(self.aliases[thinking], thinking)
+        self.assertEqual(self.aliases[instruct], instruct)
+        self.assertNotEqual(self.aliases[thinking], self.aliases[instruct])
+        self.assertNotIn("qwen/qwen3-235b-a22b-thinking-2508", self.aliases)
         self.assertNotIn("openai/gpt-oss-120b-special", self.aliases)
 
     def test_deepinfra_cents_per_token_and_precision(self):

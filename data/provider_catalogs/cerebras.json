@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "parser_version": 1,
+  "provider": "cerebras",
+  "source_kind": "api+documentation",
+  "records": [
+    {
+      "id": "cerebras-2b75403079278a4fcec119a0",
+      "provider": "cerebras",
+      "native_id": "65aa90b788eb4820dd82e730",
+      "kind": "document_row",
+      "label": "[Qwen 3.8 27B](https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Model Catalog",
+          "Available Models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model Name",
+          "Model ID",
+          "Parameters",
+          "Context (free / paid)",
+          "Speed (tokens/s)"
+        ],
+        "source_url": "https://inference-docs.cerebras.ai/models/overview.md"
+      },
+      "billing": {
+        "cells": [
+          "[Qwen 3.8 27B](https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md)",
+          "`qwen-3.8-27b`",
+          "27 billion",
+          "64k / 128k",
+          "\\~1850"
+        ],
+        "columns": [
+          "Model Name",
+          "Model ID",
+          "Parameters",
+          "Context (free / paid)",
+          "Speed (tokens/s)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "qwen-3.8-27b"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-418c7a53310adab5fbf985fa",
+      "provider": "cerebras",
+      "native_id": "https://inference-docs.cerebras.ai/models/openai-oss.md",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://inference-docs.cerebras.ai/models/openai-oss.md"
+      },
+      "billing": {
+        "text": "Documentation Index\nFetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nOpenAI GPT OSS\nThis model excels at efficient reasoning across science, math, and coding applications. It's ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.\nModel ID: gpt-oss-120b. Pricing: $0.35 per million input tokens, $0.75 per million output tokens. Context window: 65k tokens (free tier), 131k tokens (paid). Max output: 32k tokens (free tier), 40k tokens (paid). Speed: \\~3000 tokens/sec. Capabilities: Reasoning, Streaming, Structured Outputs, Tool Calling, Prompt Caching. Free tier rate limits: 30 requests/min, 60k input tokens/min, 1M tokens/day. Notes: Use the reasoning_effort parameter to control reasoning; the default effort level is medium. When min_tokens is set, the model may generate EOS tokens which can cause parser failures. This model may call tools that aren't directly specified — reprompt with \"you're hallucinating a tool call\" to help it self-correct. The API maps the \"system\" role to developer-level instructions in the prompt hierarchy.\nModel ID\ngpt-oss-120b\nTry in Playground (https://cloud.cerebras.ai)\nModel card (https://openai.com/index/gpt-oss-model-card/)\nModel Stats\nSPEED\nCONTEXT WINDOW\nFree\n65k tokens\nPaid\n131k tokens\nMAX OUTPUT\nFree\n32k tokens\nPaid\n40k tokens\nMODALITY\nInput\nOutput\nPricing\nper million tokens\nInput\n$0.35\nOutput\n$0.75\nDeveloper pricing. For volume discounts and enterprise features, see our\npricing page (https://www.cerebras.ai/pricing)\n.\nNeed Higher Limits?\nReach out for custom pricing with our Enterprise tier for higher rate limits and dedicated support.\nContact Sales (https://cerebras.ai/contact-us)",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-9aa35819f05cd39078d8c71d",
+      "provider": "cerebras",
+      "native_id": "https://inference-docs.cerebras.ai/models/overview.md",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://inference-docs.cerebras.ai/models/overview.md"
+      },
+      "billing": {
+        "text": "Documentation Index\nFetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nModel Catalog\nBrowse all models available with Cerebras Shared Inference.\nYou can use models available with Cerebras Shared Inference on the Free Trial and Pay as You Go tiers, subject to rate limits (https://inference-docs.cerebras.ai/support/rate-limits.md) and pricing (https://inference-docs.cerebras.ai/support/pricing.md). For additional model families, reserved capacity, higher throughput, and production SLAs, see Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md).\n[!TIP]\nNew here? Follow the Quickstart (https://inference-docs.cerebras.ai/quickstart.md) to make your first API call. To pick a model by use case, see the model selection guide (https://inference-docs.cerebras.ai/models/choose-a-model.md). Select any model name below for full specs, capabilities, and per-tier limits.\nAvailable Models\n[!TIP]\nLooking for more models? Many additional model families are available through Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md#supported-models).\nModel Compression\nThis section provides transparency about the compression state of each model available on our platform.\nWe host a variety of open-source models from the community. We do not currently host pruned models with Shared Inference. All models served through Shared Inference are the original, unpruned versions.\nWe research pruning techniques like REAP (Router-weighted Expert Activation Pruning) and share these pruned models with the research community on Hugging Face. These pruned models are not available through Shared Inference. You can read more about REAP in our research blog (https://www.cerebras.ai/blog/reap). All Shared Inference models are unpruned.\nCerebras uses selective weight-only quantization only during storage to preserve maximal quality. This means that the weights are stored in partial 16-bit / 8-bit / 4-bit, in-line with industry standards. For quality, sensitive layers are stored at full precision with dequantization on the fly, so operations are done in high precision. The activations, attention, and kv cache remain in full precision and unquantized.\nFrequently Asked Questions\n[accordion] Will you change a model's architecture without notice?\nNo. We are committed to serving the original weights for existing model IDs without modification. We do not alter model architectures via pruning on our hosted portfolio. If we explore additional compression techniques like pruning in the future, we will offer them as separate model variants with distinct model IDs. This keeps the difference transparent and lets you choose the variant that best fits your needs.\n[accordion] Where can I find your REAP pruned models?\nOur REAP pruned models are available on Hugging Face for research and experimentation purposes: Cerebras REAP Collection (https://huggingface.co/collections/cerebras/cerebras-reap). These models demonstrate our pruning research but are not served through our production API.\n[accordion] What are compression, quantization, and pruning?\nCompression is an umbrella term for techniques that reduce model size or computational requirements. Common compression techniques include:\n* Quantization: Reducing the precision of numbers used to represent model weights (e.g., converting from FP16 to FP8). This reduces memory usage without changing the model's architecture.\n* Pruning: Permanently removing parts of a model, like layers or experts, to reduce model size. This changes the model's architecture and creates a different model.",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-ae57e867e1f785be72ff59c6",
+      "provider": "cerebras",
+      "native_id": "ee8d1be802d20870e4eae4a1",
+      "kind": "document_row",
+      "label": "[OpenAI GPT OSS](https://inference-docs.cerebras.ai/models/openai-oss.md)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Model Catalog",
+          "Available Models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model Name",
+          "Model ID",
+          "Parameters",
+          "Context (free / paid)",
+          "Speed (tokens/s)"
+        ],
+        "source_url": "https://inference-docs.cerebras.ai/models/overview.md"
+      },
+      "billing": {
+        "cells": [
+          "[OpenAI GPT OSS](https://inference-docs.cerebras.ai/models/openai-oss.md)",
+          "`gpt-oss-120b`",
+          "120 billion",
+          "65k / 131k",
+          "\\~3000"
+        ],
+        "columns": [
+          "Model Name",
+          "Model ID",
+          "Parameters",
+          "Context (free / paid)",
+          "Speed (tokens/s)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "gpt-oss-120b"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-af69fb63c2e2ad29f5729235",
+      "provider": "cerebras",
+      "native_id": "qwen-3.8-27b",
+      "kind": "model",
+      "label": "Qwen 3.8 27B",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "architecture": {
+            "instruct_type": "qwen",
+            "modality": "text+vision",
+            "tokenizer": "Qwen"
+          },
+          "capabilities": {
+            "function_calling": true,
+            "json_mode": true,
+            "parallel_tool_calls": true,
+            "reasoning": true,
+            "response_format": true,
+            "streaming": true,
+            "structured_outputs": true,
+            "tool_choice": true,
+            "tools": true,
+            "vision": true
+          },
+          "created": 0,
+          "datacenter_locations": [],
+          "deprecated": false,
+          "description": "This model excels at vision-language understanding, coding, research, and long-horizon agentic tasks.",
+          "hugging_face_id": "Qwen/Qwen3.8-27B",
+          "id": "qwen-3.8-27b",
+          "limits": {
+            "max_completion_tokens": 32768,
+            "max_context_length": 65536,
+            "requests_per_minute": null,
+            "tokens_per_minute": null
+          },
+          "name": "Qwen 3.8 27B",
+          "object": "model",
+          "owned_by": "Cerebras",
+          "preview": false,
+          "pricing": {
+            "completion": "0.00000149",
+            "prompt": "0.00000099"
+          },
+          "quantization": "FP16/FP8",
+          "supported_parameters": {
+            "frequency_penalty": true,
+            "logit_bias": true,
+            "logprobs": true,
+            "max_completion_tokens": true,
+            "presence_penalty": true,
+            "repetition_penalty": false,
+            "seed": true,
+            "stop": true,
+            "temperature": true,
+            "top_logprobs": true,
+            "top_p": true
+          }
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000099",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.prompt"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000149",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.completion"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "qwen-3.8-27b",
+        "context_length": 65536,
+        "max_output_tokens": 32768,
+        "quantization": "FP16/FP8",
+        "model_name": "Qwen 3.8 27B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-d0c8d2c19f6cad2d28741316",
+      "provider": "cerebras",
+      "native_id": "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md"
+      },
+      "billing": {
+        "text": "Documentation Index\nFetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nQwen 3.8 27B\nAlibaba's 27B dense multimodal model for agentic coding, tool use, research, and long-running workflows. It accepts text and image inputs and supports configurable reasoning.\nModel ID: qwen-3.8-27b. Context window: 64K tokens (65,536) for Free Trial and 128K tokens (131,072) for paid tiers and trial customers. Maximum output: 32K tokens (32,768) for Free Trial and 40K tokens (40,960) for paid tiers and trial customers. Pricing: $0.99 per million input tokens and $1.49 per million output tokens. Free Trial rate limits: 5 requests per minute, 30K uncached tokens per minute, 90K total tokens per minute, and 1M tokens per day. Developer rate limits: 300 requests per minute, 150K uncached tokens per minute, 750K total tokens per minute (temporarily increased from 450K), and no daily token limit. Modality: multimodal. Accepts text and base64-encoded PNG or JPEG image inputs and produces text output. Maximum images per request: 2 for Free Trial, 10 for Developer and Enterprise accounts using Shared Inference. Maximum request payload: 10 MiB. Capabilities: Image Inputs, Reasoning, Streaming, Sampling Controls, Structured Outputs, Tool Calling, Parallel Tool Calling, and Prompt Caching. Reasoning defaults to high. Set reasoning_effort to none to disable it. clear_thinking defaults to false, which preserves prior assistant reasoning supplied in conversation history. The hidden reasoning format is not supported. See the Structured Outputs guide (https://inference-docs.cerebras.ai/capabilities/structured-outputs.md) for strict schema support and limitations.\n[!NOTE]\nQwen 3.8 27B is available through both Shared Inference and Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md#supported-models). Use qwen-3.8-27b with Shared Inference or your assigned endpoint ID with Dedicated Inference.\nModel ID\nqwen-3.8-27b\nTry in Playground (https://cloud.cerebras.ai)\nModel card (https://huggingface.co/Qwen/Qwen3.8-27B)\nModel Stats\nSPEED\nCONTEXT WINDOW\nFree\n64k tokens\nPaid\n128k tokens\nMAX OUTPUT\nFree\n32k tokens\nPaid\n40k tokens\nMODALITY\nInput\nOutput\nPricing\nper million tokens\nInput\n$0.99\nOutput\n$1.49\nDeveloper pricing. For volume discounts and enterprise features, see our\npricing page (https://www.cerebras.ai/pricing)\n.\nNeed Higher Limits?\nReach out for custom pricing with our Enterprise tier for higher rate limits and dedicated support.\nContact Sales (https://cerebras.ai/contact-us)",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-d84336971ea122ee90a5039b",
+      "provider": "cerebras",
+      "native_id": "https://inference-docs.cerebras.ai/api-reference/models/public-models.md",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://inference-docs.cerebras.ai/api-reference/models/public-models.md"
+      },
+      "billing": {
+        "text": "Documentation Index\nFetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nPublic models\nRetrieve details about publicly available Cerebras models without an API key, including context length, pricing, and supported features. This endpoint supports multiple response formats for compatibility with different platforms.\n[!NOTE]\nThis endpoint is public and does not require an API key.\nSupported Formats\nThe endpoint supports three response formats via the format query parameter:\n* Default (Cerebras) - Native Cerebras format\n* OpenRouter - OpenRouter-compatible format\n* HuggingFace - HuggingFace-compatible format\nQuery Parameters\nformat string\nResponse format. Options: openrouter, huggingface. Omit for default Cerebras format.\nResponse\nDefault Format\nobject string\nThe object type, which is always list for list responses or model for single model responses.\ndata array\nArray of model objects (only in list responses).\nmodel properties\nid string\nThe model identifier (e.g., gpt-oss-120b).\nobject string\nThe object type, which is always model.\ncreated integer\nThe Unix timestamp (in seconds) of when the model was created.\nowned\\_by string\nThe organization that owns the model.\nname string\nHuman-readable model name.\ndescription string\nDescription of the model's capabilities and recommended use cases.\nhugging\\_face\\_id string\nThe HuggingFace repository identifier for this model.\npricing object\nPricing per token in USD.\npricing fields\nprompt string\nCost per prompt token.\ncompletion string\nCost per completion token.\ncapabilities object\nBoolean flags for supported features.\ncapability fields\nstreaming boolean\nWhether streaming is supported.\nfunction\\_calling boolean\nWhether function calling is supported.\nstructured\\_outputs boolean\nWhether structured outputs are supported.\nvision boolean\nWhether vision/image input is supported.\njson\\_mode boolean\nWhether JSON mode is supported.\ntools boolean\nWhether tool use is supported.\ntool\\_choice boolean\nWhether tool choice is supported.\nparallel\\_tool\\_calls boolean\nWhether parallel tool calls are supported.\nresponse\\_format boolean\nWhether response format control is supported.\nreasoning boolean\nWhether the model supports reasoning.\nsupported\\_parameters object\nBoolean flags for supported API parameters.\narchitecture object\nModel architecture details.\narchitecture fields\nmodality string\nInput/output modality (e.g., text).\ntokenizer string\nTokenizer type.\ninstruct\\_type string\nInstruction tuning format.\nlimits object\nModel limits.\nlimit fields\nmax\\_context\\_length integer\nMaximum context window in tokens.\nmax\\_completion\\_tokens integer\nMaximum completion tokens.\nrequests\\_per\\_minute integer\nRequests per minute limit (null if unlimited).\ntokens\\_per\\_minute integer\nTokens per minute limit (null if unlimited).\ndeprecated boolean\nWhether this model is deprecated.\npreview boolean\nWhether this model is in preview.\nquantization string\nQuantization method used for the model.\nOpenRouter Format\ndata array\nArray of model objects with extended metadata.\nextended properties\nid string\nThe model identifier.\nhugging\\_face\\_id string\nThe HuggingFace repository identifier.\nname string\nHuman-readable model name.\ninput\\_modalities array\nSupported input types (e.g., [\"text\"]).\noutput\\_modalities array\nSupported output types (e.g., [\"text\"]).\ncontext\\_length integer\nMaximum context window size in tokens.\nmax\\_output\\_length integer\nMaximum output length in tokens.\npricing object\nPricing information per token.\npricing fields\nprompt string\nCost per prompt token.\ncompletion string\nCost per completion token.\nrequest string\nCost per request (typically \"0\").\nimage string\nCost per image token (typically \"0\" for text-only models).\ninput\\_cache\\_read string\nCost per cached input token read (typically \"0\").\ninput\\_cache\\_write string\nCost per cached input token write (typically \"0\").\nsupported\\_sampling\\_parameters array\nList of supported sampling parameters.\nsupported\\_features array\nList of supported features (e.g., [\"tools\", \"json_mode\", \"structured_outputs\"]).\nHuggingFace Format\ndata array\nArray of model objects.\nproperties\nid string\nThe model identifier.\nhugging\\_face\\_id string\nThe HuggingFace repository identifier.\nobject string\nThe object type, which is always model.\ncreated integer\nThe Unix timestamp (in seconds) of when the model was created.\nowned\\_by string\nThe organization that owns the model.\npricing object\nPricing in USD per million tokens.\npricing fields\ninput number\nPrice per million input tokens.\noutput number\nPrice per million output tokens.\ncontext\\_length integer\nMaximum context window size in tokens.\ncapabilities object\nBoolean flags for supported features.\nRetrieve Specific Model\nYou can also retrieve information about a specific model by appending the model ID to the endpoint:\nPath Parameters\nmodel\\_id string *required*\nThe ID of the model to retrieve (for example, gpt-oss-120b or qwen-3.8-27b).\nUse Cases\nPlatform Integration - Use the OpenRouter or HuggingFace formats to integrate Cerebras models into existing platforms that support these standards.\nModel Discovery - Programmatically discover available models and their capabilities without authentication.\nPricing Comparison - Compare pricing across different models using the structured pricing information.\nFeature Detection - Check which features (streaming, tools, JSON mode) are supported by each model.",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "cerebras-ddeb2785638ab2df5a2c2cba",
+      "provider": "cerebras",
+      "native_id": "gpt-oss-120b",
+      "kind": "model",
+      "label": "OpenAI GPT OSS",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "architecture": {
+            "instruct_type": "harmony",
+            "modality": "text",
+            "tokenizer": "GPT"
+          },
+          "capabilities": {
+            "function_calling": true,
+            "json_mode": true,
+            "parallel_tool_calls": false,
+            "reasoning": true,
+            "response_format": true,
+            "streaming": true,
+            "structured_outputs": true,
+            "tool_choice": true,
+            "tools": true,
+            "vision": false
+          },
+          "created": 1754438400,
+          "datacenter_locations": [],
+          "deprecated": false,
+          "description": "This model excels at efficient reasoning across science, math, and coding applications. It's ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.",
+          "hugging_face_id": "openai/gpt-oss-120b",
+          "id": "gpt-oss-120b",
+          "limits": {
+            "max_completion_tokens": 40960,
+            "max_context_length": 131072,
+            "requests_per_minute": null,
+            "tokens_per_minute": null
+          },
+          "name": "OpenAI GPT OSS",
+          "object": "model",
+          "owned_by": "OpenAI",
+          "preview": false,
+          "pricing": {
+            "completion": "0.00000075",
+            "prompt": "0.00000035"
+          },
+          "quantization": "FP16/8 (weights only)",
+          "supported_parameters": {
+            "frequency_penalty": true,
+            "logit_bias": true,
+            "logprobs": false,
+            "max_completion_tokens": true,
+            "presence_penalty": true,
+            "repetition_penalty": false,
+            "seed": true,
+            "stop": true,
+            "temperature": true,
+            "top_logprobs": false,
+            "top_p": true
+          }
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000035",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.prompt"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000075",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.completion"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-oss-120b",
+        "context_length": 131072,
+        "max_output_tokens": 40960,
+        "quantization": "FP16/8 (weights only)",
+        "model_name": "OpenAI GPT OSS"
+      },
+      "comparison_eligible": false
+    }
+  ],
+  "billing_notes": [
+    "Complete unauthenticated Shared Inference model feed and selected model references. Free and paid limits can differ; conflicting feed/document limits remain explicit. Dedicated inference is a separate product.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: * Default (Cerebras) - Native Cerebras format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: * HuggingFace - HuggingFace-compatible format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: * OpenRouter - OpenRouter-compatible format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Array of model objects (only in list responses).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Array of model objects with extended metadata.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Array of model objects.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Boolean flags for supported API parameters.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Boolean flags for supported features.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per cached input token read (typically \"0\").",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per cached input token write (typically \"0\").",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per completion token.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per image token (typically \"0\" for text-only models).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per prompt token.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Cost per request (typically \"0\").",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Default Format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Description of the model's capabilities and recommended use cases.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Documentation Index",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Feature Detection - Check which features (streaming, tools, JSON mode) are supported by each model.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Fetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: HuggingFace Format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Human-readable model name.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Input/output modality (e.g., text).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Instruction tuning format.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: List of supported features (e.g., [\"tools\", \"json_mode\", \"structured_outputs\"]).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: List of supported sampling parameters.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Maximum completion tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Maximum context window in tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Maximum context window size in tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Maximum output length in tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Model Discovery - Programmatically discover available models and their capabilities without authentication.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Model architecture details.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Model limits.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: OpenRouter Format",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Path Parameters",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Platform Integration - Use the OpenRouter or HuggingFace formats to integrate Cerebras models into existing platforms that support these standards.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Price per million input tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Price per million output tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Pricing Comparison - Compare pricing across different models using the structured pricing information.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Pricing in USD per million tokens.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Pricing information per token.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Pricing per token in USD.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Public models",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Quantization method used for the model.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Query Parameters",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Requests per minute limit (null if unlimited).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Response",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Response format. Options: openrouter, huggingface. Omit for default Cerebras format.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Retrieve Specific Model",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Retrieve details about publicly available Cerebras models without an API key, including context length, pricing, and supported features. This endpoint supports multiple response formats for compatibility with different platforms.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Supported Formats",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Supported input types (e.g., [\"text\"]).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Supported output types (e.g., [\"text\"]).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The HuggingFace repository identifier for this model.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The HuggingFace repository identifier.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The ID of the model to retrieve (for example, gpt-oss-120b or qwen-3.8-27b).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The Unix timestamp (in seconds) of when the model was created.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The endpoint supports three response formats via the format query parameter:",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The model identifier (e.g., gpt-oss-120b).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The model identifier.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The object type, which is always list for list responses or model for single model responses.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The object type, which is always model.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: The organization that owns the model.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: This endpoint is public and does not require an API key.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Tokenizer type.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Tokens per minute limit (null if unlimited).",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Use Cases",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Use this file to discover all available pages before exploring further.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether JSON mode is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether function calling is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether parallel tool calls are supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether response format control is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether streaming is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether structured outputs are supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether the model supports reasoning.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether this model is deprecated.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether this model is in preview.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether tool choice is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether tool use is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: Whether vision/image input is supported.",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: You can also retrieve information about a specific model by appending the model ID to the endpoint:",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: [!NOTE]",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: architecture fields",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: architecture object",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: capabilities object",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: capability fields",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: completion string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: context\\_length integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: created integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: data array",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: deprecated boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: description string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: extended properties",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: format string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: function\\_calling boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: hugging\\_face\\_id string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: id string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: image string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: input number",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: input\\_cache\\_read string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: input\\_cache\\_write string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: input\\_modalities array",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: instruct\\_type string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: json\\_mode boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: limit fields",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: limits object",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: max\\_completion\\_tokens integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: max\\_context\\_length integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: max\\_output\\_length integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: modality string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: model properties",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: model\\_id string *required*",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: name string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: object string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: output number",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: output\\_modalities array",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: owned\\_by string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: parallel\\_tool\\_calls boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: preview boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: pricing fields",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: pricing object",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: prompt string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: properties",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: quantization string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: reasoning boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: request string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: requests\\_per\\_minute integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: response\\_format boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: streaming boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: structured\\_outputs boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: supported\\_features array",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: supported\\_parameters object",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: supported\\_sampling\\_parameters array",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: tokenizer string",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: tokens\\_per\\_minute integer",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: tool\\_choice boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: tools boolean",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md: vision boolean",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: $0.35",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: $0.75",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: .",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: 131k tokens",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: 32k tokens",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: 40k tokens",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: 65k tokens",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: CONTEXT WINDOW",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Contact Sales (https://cerebras.ai/contact-us)",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Developer pricing. For volume discounts and enterprise features, see our",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Documentation Index",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Fetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Free",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Input",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: MAX OUTPUT",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: MODALITY",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Model ID",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Model ID: gpt-oss-120b. Pricing: $0.35 per million input tokens, $0.75 per million output tokens. Context window: 65k tokens (free tier), 131k tokens (paid). Max output: 32k tokens (free tier), 40k tokens (paid). Speed: \\~3000 tokens/sec. Capabilities: Reasoning, Streaming, Structured Outputs, Tool Calling, Prompt Caching. Free tier rate limits: 30 requests/min, 60k input tokens/min, 1M tokens/day. Notes: Use the reasoning_effort parameter to control reasoning; the default effort level is medium. When min_tokens is set, the model may generate EOS tokens which can cause parser failures. This model may call tools that aren't directly specified — reprompt with \"you're hallucinating a tool call\" to help it self-correct. The API maps the \"system\" role to developer-level instructions in the prompt hierarchy.",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Model Stats",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Model card (https://openai.com/index/gpt-oss-model-card/)",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Need Higher Limits?",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: OpenAI GPT OSS",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Output",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Paid",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Pricing",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Reach out for custom pricing with our Enterprise tier for higher rate limits and dedicated support.",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: SPEED",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: This model excels at efficient reasoning across science, math, and coding applications. It's ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Try in Playground (https://cloud.cerebras.ai)",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: Use this file to discover all available pages before exploring further.",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: gpt-oss-120b",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: per million tokens",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md: pricing page (https://www.cerebras.ai/pricing)",
+    "https://inference-docs.cerebras.ai/models/overview.md: * Pruning: Permanently removing parts of a model, like layers or experts, to reduce model size. This changes the model's architecture and creates a different model.",
+    "https://inference-docs.cerebras.ai/models/overview.md: * Quantization: Reducing the precision of numbers used to represent model weights (e.g., converting from FP16 to FP8). This reduces memory usage without changing the model's architecture.",
+    "https://inference-docs.cerebras.ai/models/overview.md: Available Models",
+    "https://inference-docs.cerebras.ai/models/overview.md: Browse all models available with Cerebras Shared Inference.",
+    "https://inference-docs.cerebras.ai/models/overview.md: Cerebras uses selective weight-only quantization only during storage to preserve maximal quality. This means that the weights are stored in partial 16-bit / 8-bit / 4-bit, in-line with industry standards. For quality, sensitive layers are stored at full precision with dequantization on the fly, so operations are done in high precision. The activations, attention, and kv cache remain in full precision and unquantized.",
+    "https://inference-docs.cerebras.ai/models/overview.md: Compression is an umbrella term for techniques that reduce model size or computational requirements. Common compression techniques include:",
+    "https://inference-docs.cerebras.ai/models/overview.md: Documentation Index",
+    "https://inference-docs.cerebras.ai/models/overview.md: Fetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt",
+    "https://inference-docs.cerebras.ai/models/overview.md: Frequently Asked Questions",
+    "https://inference-docs.cerebras.ai/models/overview.md: Looking for more models? Many additional model families are available through Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md#supported-models).",
+    "https://inference-docs.cerebras.ai/models/overview.md: Model Catalog",
+    "https://inference-docs.cerebras.ai/models/overview.md: Model Compression",
+    "https://inference-docs.cerebras.ai/models/overview.md: New here? Follow the Quickstart (https://inference-docs.cerebras.ai/quickstart.md) to make your first API call. To pick a model by use case, see the model selection guide (https://inference-docs.cerebras.ai/models/choose-a-model.md). Select any model name below for full specs, capabilities, and per-tier limits.",
+    "https://inference-docs.cerebras.ai/models/overview.md: No. We are committed to serving the original weights for existing model IDs without modification. We do not alter model architectures via pruning on our hosted portfolio. If we explore additional compression techniques like pruning in the future, we will offer them as separate model variants with distinct model IDs. This keeps the difference transparent and lets you choose the variant that best fits your needs.",
+    "https://inference-docs.cerebras.ai/models/overview.md: Our REAP pruned models are available on Hugging Face for research and experimentation purposes: Cerebras REAP Collection (https://huggingface.co/collections/cerebras/cerebras-reap). These models demonstrate our pruning research but are not served through our production API.",
+    "https://inference-docs.cerebras.ai/models/overview.md: This section provides transparency about the compression state of each model available on our platform.",
+    "https://inference-docs.cerebras.ai/models/overview.md: Use this file to discover all available pages before exploring further.",
+    "https://inference-docs.cerebras.ai/models/overview.md: We host a variety of open-source models from the community. We do not currently host pruned models with Shared Inference. All models served through Shared Inference are the original, unpruned versions.",
+    "https://inference-docs.cerebras.ai/models/overview.md: We research pruning techniques like REAP (Router-weighted Expert Activation Pruning) and share these pruned models with the research community on Hugging Face. These pruned models are not available through Shared Inference. You can read more about REAP in our research blog (https://www.cerebras.ai/blog/reap). All Shared Inference models are unpruned.",
+    "https://inference-docs.cerebras.ai/models/overview.md: You can use models available with Cerebras Shared Inference on the Free Trial and Pay as You Go tiers, subject to rate limits (https://inference-docs.cerebras.ai/support/rate-limits.md) and pricing (https://inference-docs.cerebras.ai/support/pricing.md). For additional model families, reserved capacity, higher throughput, and production SLAs, see Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md).",
+    "https://inference-docs.cerebras.ai/models/overview.md: [!TIP]",
+    "https://inference-docs.cerebras.ai/models/overview.md: [accordion] What are compression, quantization, and pruning?",
+    "https://inference-docs.cerebras.ai/models/overview.md: [accordion] Where can I find your REAP pruned models?",
+    "https://inference-docs.cerebras.ai/models/overview.md: [accordion] Will you change a model's architecture without notice?",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: $0.99",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: $1.49",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: .",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: 128k tokens",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: 32k tokens",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: 40k tokens",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: 64k tokens",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Alibaba's 27B dense multimodal model for agentic coding, tool use, research, and long-running workflows. It accepts text and image inputs and supports configurable reasoning.",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: CONTEXT WINDOW",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Contact Sales (https://cerebras.ai/contact-us)",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Developer pricing. For volume discounts and enterprise features, see our",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Documentation Index",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Fetch the complete documentation index at: https://inference-docs.cerebras.ai/llms.txt",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Free",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Input",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: MAX OUTPUT",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: MODALITY",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Model ID",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Model ID: qwen-3.8-27b. Context window: 64K tokens (65,536) for Free Trial and 128K tokens (131,072) for paid tiers and trial customers. Maximum output: 32K tokens (32,768) for Free Trial and 40K tokens (40,960) for paid tiers and trial customers. Pricing: $0.99 per million input tokens and $1.49 per million output tokens. Free Trial rate limits: 5 requests per minute, 30K uncached tokens per minute, 90K total tokens per minute, and 1M tokens per day. Developer rate limits: 300 requests per minute, 150K uncached tokens per minute, 750K total tokens per minute (temporarily increased from 450K), and no daily token limit. Modality: multimodal. Accepts text and base64-encoded PNG or JPEG image inputs and produces text output. Maximum images per request: 2 for Free Trial, 10 for Developer and Enterprise accounts using Shared Inference. Maximum request payload: 10 MiB. Capabilities: Image Inputs, Reasoning, Streaming, Sampling Controls, Structured Outputs, Tool Calling, Parallel Tool Calling, and Prompt Caching. Reasoning defaults to high. Set reasoning_effort to none to disable it. clear_thinking defaults to false, which preserves prior assistant reasoning supplied in conversation history. The hidden reasoning format is not supported. See the Structured Outputs guide (https://inference-docs.cerebras.ai/capabilities/structured-outputs.md) for strict schema support and limitations.",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Model Stats",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Model card (https://huggingface.co/Qwen/Qwen3.8-27B)",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Need Higher Limits?",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Output",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Paid",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Pricing",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Qwen 3.8 27B",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Qwen 3.8 27B is available through both Shared Inference and Dedicated Inference (https://inference-docs.cerebras.ai/dedicated/overview.md#supported-models). Use qwen-3.8-27b with Shared Inference or your assigned endpoint ID with Dedicated Inference.",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Reach out for custom pricing with our Enterprise tier for higher rate limits and dedicated support.",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: SPEED",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Try in Playground (https://cloud.cerebras.ai)",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: Use this file to discover all available pages before exploring further.",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: [!NOTE]",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: per million tokens",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: pricing page (https://www.cerebras.ai/pricing)",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: qwen-3.8-27b"
+  ],
+  "catalog_sha256": "ffc75b3608a764b1ac0b1f012724a18b5485685269d87372a09bd8e8cca7d352",
+  "revision": 3,
+  "changed_at": "2026-11-04T11:39:11Z",
+  "source_url": "https://api.cerebras.ai/public/v1/models",
+  "source_urls": [
+    "https://api.cerebras.ai/public/v1/models",
+    "https://inference-docs.cerebras.ai/api-reference/models/public-models.md",
+    "https://inference-docs.cerebras.ai/models/overview.md",
+    "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md",
+    "https://inference-docs.cerebras.ai/models/openai-oss.md"
+  ],
+  "source_sha256": "9d5d0ebda3a290724a1fdb19b07d9c0efe01dc161d08ae4f7768f66bc15dac14",
+  "archive_reference": null
+}

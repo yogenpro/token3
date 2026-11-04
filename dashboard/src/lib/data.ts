@@ -9,7 +9,7 @@ const timestamp = z.iso.datetime();
 const rate = z.number().finite().nonnegative();
 const modelSchema = z.object({
   id: z.string(), creator: z.string(), name: z.string(), version: z.string(),
-  family: z.string(), open_weight: z.boolean(), description: z.string(),
+  family: z.string(), open_weight: z.boolean().nullable(), description: z.string(),
   lifecycle: z.enum(['current', 'legacy', 'preview']).optional(), documentation_url: url.optional(),
 });
 const offeringSchema = z.object({
@@ -19,6 +19,7 @@ const offeringSchema = z.object({
   source_url: url, active: z.boolean(), first_observed_at: timestamp, last_seen_at: timestamp,
   min_input_tokens: z.number().int().nonnegative().optional(), max_input_tokens: z.number().int().nonnegative().nullable().optional(),
   max_output_tokens: z.number().int().nonnegative().nullable().optional(), pricing_notes: z.string().optional(),
+  pricing_scope_unverified: z.boolean().optional(),
   quote_unit: z.enum(['USD', 'EUR', 'DBU', 'AI_CREDIT']).optional(),
 }).refine((o) => o.max_input_tokens == null || o.max_input_tokens >= (o.min_input_tokens ?? 0), 'Invalid input pricing band');
 const priceSchema = z.object({
@@ -80,6 +81,9 @@ export const datasetSchema = z.object({
 });
 
 export type Model = z.infer<typeof modelSchema>;
+export function weightLabel(model: Pick<Model, 'open_weight'>) {
+  return model.open_weight === null ? 'Weights unverified' : model.open_weight ? 'Open weights' : 'Proprietary';
+}
 export type Offering = z.infer<typeof offeringSchema>;
 export type Price = z.infer<typeof priceSchema>;
 export type Change = z.infer<typeof changeSchema>;
@@ -127,6 +131,24 @@ export const providers: Record<string, { name: string; color: string; initials: 
   meta: { name: 'Meta Model API', color: '#1765c1', initials: 'M' },
   mistral: { name: 'Mistral API', color: '#9b461a', initials: 'Mi' },
   moonshot: { name: 'Moonshot AI', color: '#575b68', initials: 'MS' },
+  cohere: { name: 'Cohere', color: 'var(--soft-text)', initials: 'Co' },
+  ai21: { name: 'AI21', color: 'var(--soft-text)', initials: '21' },
+  perplexity: { name: 'Perplexity API', color: 'var(--soft-text)', initials: 'Px' },
+  cerebras: { name: 'Cerebras', color: 'var(--soft-text)', initials: 'Ce' },
+  castform: { name: 'Castform', color: 'var(--soft-text)', initials: 'Ca' },
+  arcee: { name: 'Arcee AI', color: 'var(--soft-text)', initials: 'Ar' },
+  stepfun: { name: 'StepFun', color: 'var(--soft-text)', initials: 'St' },
+  upstage: { name: 'Upstage', color: 'var(--soft-text)', initials: 'Up' },
+  telnyx: { name: 'Telnyx Inference', color: 'var(--soft-text)', initials: 'Tx' },
+  typesafe: { name: 'TypeSafe', color: 'var(--soft-text)', initials: 'TS' },
+  blackforestlabs: { name: 'Black Forest Labs', color: 'var(--soft-text)', initials: 'BF' },
+  runway: { name: 'Runway', color: 'var(--soft-text)', initials: 'RW' },
+  stability: { name: 'Stability AI', color: 'var(--soft-text)', initials: 'SA' },
+  ideogram: { name: 'Ideogram', color: 'var(--soft-text)', initials: 'Id' },
+  elevenlabs: { name: 'ElevenLabs', color: 'var(--soft-text)', initials: 'EL' },
+  byteplus: { name: 'BytePlus ModelArk', color: 'var(--soft-text)', initials: 'BP' },
+  adobe: { name: 'Adobe Firefly API', color: 'var(--soft-text)', initials: 'Ad' },
+  baidu: { name: 'Baidu Qianfan', color: 'var(--soft-text)', initials: 'Bq' },
 };
 export function providerInfo(id: string) {
   return providers[id] ?? { name: id, color: '#6b7280', initials: id.slice(0, 2) };

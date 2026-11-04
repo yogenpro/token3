@@ -60,7 +60,7 @@ describe('cloud and proprietary pricing rules', () => {
     expect(() => datasetSchema.parse({ ...data, offerings: [{ ...data.offerings[0], max_output_tokens: -1 }] })).toThrow();
   });
   it('includes proprietary creators and native, GCP, AWS, and Azure comparisons', () => {
-    for (const creator of ['OpenAI', 'Anthropic', 'Google']) expect(data.models.some((m) => m.creator === creator && !m.open_weight)).toBe(true);
+    for (const creator of ['OpenAI', 'Anthropic', 'Google']) expect(data.models.some((m) => m.creator === creator && m.open_weight === false)).toBe(true);
     // A failed daily check retains real last-good coverage; health is not a
     // prerequisite for displaying those observations with a warning.
     for (const provider of ['openai', 'anthropic', 'gemini', 'vertex', 'bedrock', 'azure']) {
@@ -68,7 +68,7 @@ describe('cloud and proprietary pricing rules', () => {
       expect(data.offerings.some((o) => o.provider === provider && o.active)).toBe(true);
     }
     expect(new Set(rankOfferings(data, 'anthropic/claude-sonnet-4.6', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['anthropic', 'vertex', 'bedrock']));
-    expect(new Set(rankOfferings(data, 'openai/gpt-5.4', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['openai', 'azure']));
+    expect(new Set(rankOfferings(data, 'openai/gpt-5.4', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['openai', 'azure', 'castform']));
   });
   it('retains last-good reviewed quotes without erasing collector failure status', () => {
     const failed = datasetSchema.parse({ ...data, status: { ...data.status, providers: data.status.providers.map((p) =>

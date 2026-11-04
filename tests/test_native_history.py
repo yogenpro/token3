@@ -1,4 +1,5 @@
 import copy
+import gzip
 import hashlib
 import json
 import tempfile
@@ -244,6 +245,43 @@ class ProductionNativeHistoryTests(unittest.TestCase):
         self.assertEqual(manifest["archive"]["bytes"], manifest["migration"]["input_bytes"])
         self.assertEqual(manifest["archive"]["event_count"], manifest["migration"]["event_count"])
         self.assertEqual(manifest["observation_count"], manifest["migration"]["observation_count"])
+
+    def test_parallel_collection_archive_preserves_both_original_histories(self):
+        root = ROOT / "data"
+        path = root / "inventory_history/branch_archives/76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d.json"
+        archive = json.loads(path.read_text())
+        expected = {"source": "8f687266b8c1c40f8727d9e122d390e1fbe0f26eee2ffa005c60e67b87c6b8c8",
+                    "production": "81610b3fbb81db9ff41dc0a9ce90c09ee58197855eadfc6119abac4ae38ef1e2"}
+        manifests = {}
+        for kind, digest in expected.items():
+            raw = archive[kind + "_manifest_utf8"].encode()
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), digest)
+            self.assertEqual(archive[kind + "_manifest_sha256"], digest)
+            manifests[kind] = json.loads(raw)
+        source, production = manifests["source"], manifests["production"]
+        self.assertEqual(verify_reconstruction(root, source)["event_count"], 86930)
+        current = load_manifest(root)
+        self.assertEqual(current["segments"][:len(production["segments"])], production["segments"])
+        self.assertEqual(source["archive"], production["archive"])
+        self.assertEqual(source["proofs"], production["proofs"])
+        self.assertEqual(archive["excluded_active_providers"], ["openrouter", "vercel"])
+
+        def rows(refs):
+            return {row["id"]: row for ref in refs
+                    for line in gzip.decompress((root / ref["path"]).read_bytes()).splitlines()
+                    if line.strip() for row in [json.loads(line)]}
+
+        # Both forks advanced from the same 36-segment production baseline.
+        original = rows(source["segments"][36:])
+        published = rows(production["segments"][36:])
+        collisions = original.keys() & published.keys()
+        self.assertEqual(len(collisions), 39)
+        self.assertTrue(all(original[key] != published[key] for key in collisions))
+        active_additions = rows(current["segments"][len(production["segments"]):])
+        selected = {key: row for key, row in original.items()
+                    if row["provider"] not in archive["excluded_active_providers"]}
+        self.assertEqual(len(selected), 1575)
+        self.assertTrue(all(active_additions.get(key) == row for key, row in selected.items()))
 
 
 if __name__ == "__main__":

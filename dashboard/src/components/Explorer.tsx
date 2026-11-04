@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Search } from 'lucide-react';
-import { comparisonsPaused, type Dataset } from '../lib/data';
+import { comparisonsPaused, weightLabel, type Dataset } from '../lib/data';
 import { defaultWorkload, money, rankOfferings } from '../lib/pricing';
 import { ModelMark, ProviderMark } from './UI';
 import type { CatalogIndex } from '../lib/catalog';
@@ -24,6 +24,6 @@ export function Explorer({ data, onModel, catalog, directory, onDirectory, onPro
       const input = Math.min(...ranked.map((r) => r.price.input_per_million));
       const output = Math.min(...ranked.map((r) => r.price.output_per_million));
       const max = Math.max(...ranked.map((r) => r.price.input_per_million));
-      return <tr key={model.id}><td><div className="explorer-model"><ModelMark model={model} /><div><button onClick={() => onModel(model.id)}>{model.name} <ArrowRight size={14} /></button><small title={model.description}>{model.creator} · {model.version} · {model.open_weight ? 'open weights' : 'proprietary'}{model.lifecycle === 'legacy' ? ' · legacy' : ''}</small><code>{model.id}</code></div></div></td><td><div className="provider-stack">{providers.map((p) => <ProviderMark provider={p} key={p} />)}<span>{providers.length}</span></div><small>{providers.length === 1 ? 'Single billing source' : `${providers.length} billing sources`}</small></td><td className="price-cell">{ranked.length ? money(input) : '—'}</td><td className="price-cell">{ranked.length ? money(output) : '—'}</td><td><span className="spread-badge">{ranked.length && input > 0 ? `${(max / input).toFixed(1)}×` : '—'}</span></td><td><button className="icon-button" aria-label={`Compare ${model.name}`} onClick={() => onModel(model.id)}><ArrowRight size={17} /></button></td></tr>;
+      return <tr key={model.id}><td><div className="explorer-model"><ModelMark model={model} /><div><button onClick={() => onModel(model.id)}>{model.name} <ArrowRight size={14} /></button><small title={model.description}>{model.creator} · {model.version} · {weightLabel(model)}{model.lifecycle === 'legacy' ? ' · legacy' : ''}</small><code>{model.id}</code></div></div></td><td><div className="provider-stack">{providers.map((p) => <ProviderMark provider={p} key={p} />)}<span>{providers.length}</span></div><small>{providers.length === 1 ? 'Single billing source' : `${providers.length} billing sources`}</small></td><td className="price-cell">{ranked.length ? money(input) : '—'}</td><td className="price-cell">{ranked.length ? money(output) : '—'}</td><td><span className="spread-badge">{ranked.length && input > 0 ? `${(max / input).toFixed(1)}×` : '—'}</span></td><td><button className="icon-button" aria-label={`Compare ${model.name}`} onClick={() => onModel(model.id)}><ArrowRight size={17} /></button></td></tr>;
     })}</tbody></table></div>{!models.length && <div className="empty-state"><Search size={28} /><h3>No matching models</h3><p>Try a model family or creator, such as Llama, Qwen, or OpenAI.</p></div>}</section></>}</>;
 }

@@ -1,0 +1,1366 @@
+{
+  "schema_version": 1,
+  "reviewed_on": "2026-11-04",
+  "observed_at": "2026-11-04T18:26:21Z",
+  "baseline_commit": "8744722c7a67168188b48868bc40dd1e81de40b3",
+  "scope": "Current public provider/model coverage expansion; exact official billing sources only. Native records remain comparison-ineligible. No historical imports, release dates, FX or credit conversion are inferred.",
+  "before": {
+    "retained_models": 103,
+    "retained_offerings": 347,
+    "reviewed_billing_groups": 29,
+    "native_source_groups": 29
+  },
+  "after": {
+    "retained_models": 169,
+    "retained_offerings": 447,
+    "reviewed_billing_groups": 34,
+    "native_source_groups": 47
+  },
+  "new_model_ids": [
+    "aion-labs/aion-2.0",
+    "aion-labs/aion-3.0",
+    "aion-labs/aion-3.0-mini",
+    "aion-labs/aion-3.5",
+    "aion-labs/aion-3.5-mini",
+    "aion-labs/aion-rp-llama-3.1-8b",
+    "cohere/command-a",
+    "cohere/command-a-plus",
+    "cohere/command-r-08-2024",
+    "cohere/command-r-plus-08-2024",
+    "cohere/command-r7b-12-2024",
+    "deepseek/deepseek-r1-0528",
+    "deepseek/deepseek-v3.1-terminus",
+    "deepseek/deepseek-v3.2",
+    "inception/mercury-2",
+    "inception/mercury-2.5",
+    "inception/mercury-3",
+    "liquid/lfm-2.5-2.6b",
+    "liquid/lfm-2.5-24b-a2b",
+    "minimax/minimax-m2",
+    "minimax/minimax-m2.1",
+    "minimax/minimax-m2.5",
+    "minimax/minimax-m2.7",
+    "mistralai/devstral-2512",
+    "mistralai/mistral-large-2407",
+    "mistralai/mistral-large-2512",
+    "mistralai/mistral-medium-3",
+    "mistralai/mistral-medium-3-5",
+    "mistralai/mistral-medium-3.1",
+    "mistralai/mistral-nemo",
+    "mistralai/mistral-saba",
+    "mistralai/mistral-small-24b-instruct-2501",
+    "mistralai/mistral-small-3.1-24b-instruct",
+    "mistralai/mistral-small-3.2-24b-instruct",
+    "mistralai/mixtral-8x22b-instruct",
+    "moonshotai/kimi-k2-0905",
+    "moonshotai/kimi-k2-thinking",
+    "moonshotai/kimi-k2.5",
+    "moonshotai/kimi-k3.1-pro",
+    "perplexity/sonar-agent",
+    "qwen/qwen3-235b-a22b-thinking-2507",
+    "qwen/qwen3-32b",
+    "qwen/qwen3-coder",
+    "qwen/qwen3-coder-30b-a3b-instruct",
+    "qwen/qwen3-next-80b-a3b-instruct",
+    "qwen/qwen3.5-122b-a10b",
+    "qwen/qwen3.5-27b",
+    "qwen/qwen3.5-35b-a3b",
+    "qwen/qwen3.5-4b",
+    "qwen/qwen3.5-9b",
+    "qwen/qwen3.5-flash-02-23",
+    "qwen/qwen3.6-27b",
+    "qwen/qwen3.6-35b-a3b",
+    "stepfun/step-3.5-flash",
+    "stepfun/step-3.7-flash",
+    "stepfun/step-5-preview",
+    "tencent/hunyuan-a13b-instruct",
+    "tencent/hy-mt2-1.8b",
+    "tencent/hy-mt2-30b-a3b",
+    "tencent/hy-mt2-7b",
+    "tencent/hy3-preview",
+    "tencent/hy4",
+    "upstage/solar-mini4-260922",
+    "upstage/solar-pro4-260806",
+    "writer/palmyra-x5",
+    "xai/grok-4.1-fast-non-reasoning"
+  ],
+  "reviewed_bindings": {
+    "openrouter": {
+      "cohere/command-a-plus": "cohere/command-a-plus",
+      "cohere/command-a": "cohere/command-a",
+      "cohere/command-r7b-12-2024": "cohere/command-r7b-12-2024",
+      "cohere/command-r-08-2024": "cohere/command-r-08-2024",
+      "cohere/command-r-plus-08-2024": "cohere/command-r-plus-08-2024",
+      "stepfun/step-3.5-flash": "stepfun/step-3.5-flash",
+      "stepfun/step-3.7-flash": "stepfun/step-3.7-flash",
+      "stepfun/step-5-preview": "stepfun/step-5-preview",
+      "liquid/lfm-2.5-24b-a2b": "liquid/lfm-2.5-24b-a2b",
+      "liquid/lfm-2.5-2.6b": "liquid/lfm-2.5-2.6b",
+      "aion-labs/aion-3.5-mini": "aion-labs/aion-3.5-mini",
+      "aion-labs/aion-3.5": "aion-labs/aion-3.5",
+      "aion-labs/aion-3.0-mini": "aion-labs/aion-3.0-mini",
+      "aion-labs/aion-3.0": "aion-labs/aion-3.0",
+      "aion-labs/aion-2.0": "aion-labs/aion-2.0",
+      "aion-labs/aion-rp-llama-3.1-8b": "aion-labs/aion-rp-llama-3.1-8b",
+      "inception/mercury-3": "inception/mercury-3",
+      "inception/mercury-2.5": "inception/mercury-2.5",
+      "inception/mercury-2": "inception/mercury-2",
+      "writer/palmyra-x5": "writer/palmyra-x5",
+      "tencent/hy4": "tencent/hy4",
+      "tencent/hy3-preview": "tencent/hy3-preview",
+      "tencent/hy-mt2-1.8b": "tencent/hy-mt2-1.8b",
+      "tencent/hy-mt2-30b-a3b": "tencent/hy-mt2-30b-a3b",
+      "tencent/hy-mt2-7b": "tencent/hy-mt2-7b",
+      "tencent/hunyuan-a13b-instruct": "tencent/hunyuan-a13b-instruct",
+      "mistralai/devstral-2512": "mistralai/devstral-2512",
+      "mistralai/mistral-large-2512": "mistralai/mistral-large-2512",
+      "mistralai/mistral-medium-3-5": "mistralai/mistral-medium-3-5",
+      "mistralai/mistral-medium-3.1": "mistralai/mistral-medium-3.1",
+      "mistralai/mistral-medium-3": "mistralai/mistral-medium-3",
+      "mistralai/mistral-small-3.2-24b-instruct": "mistralai/mistral-small-3.2-24b-instruct",
+      "mistralai/mistral-small-3.1-24b-instruct": "mistralai/mistral-small-3.1-24b-instruct",
+      "mistralai/mistral-saba": "mistralai/mistral-saba",
+      "mistralai/mistral-small-24b-instruct-2501": "mistralai/mistral-small-24b-instruct-2501",
+      "mistralai/mistral-large-2407": "mistralai/mistral-large-2407",
+      "mistralai/mistral-nemo": "mistralai/mistral-nemo",
+      "mistralai/mixtral-8x22b-instruct": "mistralai/mixtral-8x22b-instruct",
+      "qwen/qwen3.6-35b-a3b": "qwen/qwen3.6-35b-a3b",
+      "qwen/qwen3.6-27b": "qwen/qwen3.6-27b",
+      "qwen/qwen3.5-9b": "qwen/qwen3.5-9b",
+      "qwen/qwen3.5-35b-a3b": "qwen/qwen3.5-35b-a3b",
+      "qwen/qwen3.5-27b": "qwen/qwen3.5-27b",
+      "qwen/qwen3.5-122b-a10b": "qwen/qwen3.5-122b-a10b",
+      "qwen/qwen3.5-flash-02-23": "qwen/qwen3.5-flash-02-23",
+      "qwen/qwen3-32b": "qwen/qwen3-32b",
+      "qwen/qwen3-coder": "qwen/qwen3-coder",
+      "qwen/qwen3-coder-30b-a3b-instruct": "qwen/qwen3-coder-30b-a3b-instruct",
+      "qwen/qwen3-235b-a22b-thinking-2507": "qwen/qwen3-235b-a22b-thinking-2507",
+      "qwen/qwen3-next-80b-a3b-instruct": "qwen/qwen3-next-80b-a3b-instruct",
+      "deepseek/deepseek-r1-0528": "deepseek/deepseek-r1-0528",
+      "deepseek/deepseek-v3.2": "deepseek/deepseek-v3.2",
+      "deepseek/deepseek-v3.1-terminus": "deepseek/deepseek-v3.1-terminus",
+      "minimax/minimax-m2.7": "minimax/minimax-m2.7",
+      "minimax/minimax-m2.5": "minimax/minimax-m2.5",
+      "minimax/minimax-m2.1": "minimax/minimax-m2.1",
+      "minimax/minimax-m2": "minimax/minimax-m2",
+      "moonshotai/kimi-k3.1-pro": "moonshotai/kimi-k3.1-pro",
+      "moonshotai/kimi-k2.5": "moonshotai/kimi-k2.5",
+      "moonshotai/kimi-k2-thinking": "moonshotai/kimi-k2-thinking",
+      "moonshotai/kimi-k2-0905": "moonshotai/kimi-k2-0905"
+    },
+    "cerebras": {
+      "gpt-oss-120b": "openai/gpt-oss-120b",
+      "qwen-3.8-27b": "qwen/qwen3.8-27b"
+    },
+    "arcee": {
+      "zai-org/glm-5.3-flash": "zai/glm-5.3-flash",
+      "deepseek/deepseek-v4-pro-0813": "deepseek/deepseek-v4-pro-0813",
+      "zai-org/glm-5.2": "zai/glm-5.2",
+      "zai-org/glm-5.3": "zai/glm-5.3",
+      "moonshotai/kimi-k3": "moonshotai/kimi-k3"
+    },
+    "castform": {
+      "gpt-5.6-sol": "openai/gpt-5.6-sol",
+      "gpt-5.6-luna": "openai/gpt-5.6-luna",
+      "gpt-5.6-terra": "openai/gpt-5.6-terra",
+      "gpt-5.4": "openai/gpt-5.4",
+      "gpt-5.4-mini": "openai/gpt-5.4-mini",
+      "gpt-5.4-nano": "openai/gpt-5.4-nano",
+      "grok-4-1-fast-non-reasoning": "xai/grok-4.1-fast-non-reasoning",
+      "grok-4.3": "xai/grok-4.3",
+      "qwen3.5-4b": "qwen/qwen3.5-4b",
+      "qwen3.5-35b-a3b": "qwen/qwen3.5-35b-a3b",
+      "gemma-4-26b-a4b-it": "google/gemma-4-26b-a4b-it"
+    },
+    "perplexity": {
+      "perplexity/glm-5.3": "zai/glm-5.3",
+      "perplexity/glm-5.3-flash": "zai/glm-5.3-flash",
+      "perplexity/deepseek-v4-pro-0813": "deepseek/deepseek-v4-pro-0813",
+      "perplexity/kimi-k3": "moonshotai/kimi-k3",
+      "perplexity/sonar": "perplexity/sonar-agent"
+    },
+    "upstage": {
+      "solar-pro4-260806": "upstage/solar-pro4-260806",
+      "solar-mini4-260922": "upstage/solar-mini4-260922"
+    },
+    "vercel": {
+      "cohere/command-a": "cohere/command-a",
+      "stepfun/step-3.7-flash": "stepfun/step-3.7-flash",
+      "stepfun/step-5-preview": "stepfun/step-5-preview",
+      "inception/mercury-3": "inception/mercury-3",
+      "inception/mercury-2.5": "inception/mercury-2.5",
+      "inception/mercury-2": "inception/mercury-2",
+      "tencent/hy4": "tencent/hy4",
+      "deepseek/deepseek-v3.2": "deepseek/deepseek-v3.2",
+      "minimax/minimax-m2.7": "minimax/minimax-m2.7",
+      "minimax/minimax-m2.5": "minimax/minimax-m2.5",
+      "minimax/minimax-m2.1": "minimax/minimax-m2.1",
+      "minimax/minimax-m2": "minimax/minimax-m2",
+      "moonshotai/kimi-k3.1-pro": "moonshotai/kimi-k3.1-pro",
+      "moonshotai/kimi-k2.5": "moonshotai/kimi-k2.5"
+    }
+  },
+  "new_source_groups": [
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "source_url": "https://cohere.com/pricing",
+      "source_urls": [
+        "https://docs.cohere.com/docs/models.md",
+        "https://cohere.com/pricing"
+      ],
+      "native_records": 70,
+      "reviewed_offerings": 0,
+      "scope_note": "Public model directory and pricing page. Exact API IDs, deprecated entries and research models stay distinct. Pricing-card names do not bind a versioned API quote; Model Vault instance prices and search units are not token rates."
+    },
+    {
+      "id": "ai21",
+      "name": "AI21",
+      "source_url": "https://www.ai21.com/pricing/",
+      "source_urls": [
+        "https://docs.ai21.com/docs/jamba-foundation-models.md",
+        "https://www.ai21.com/pricing/"
+      ],
+      "native_records": 10,
+      "reviewed_offerings": 0,
+      "scope_note": "Public Jamba directory and direct pricing page. Generic Mini/Large labels do not establish the billing scope of a versioned Jamba endpoint. Cloud-host prices and free-trial credits stay separate."
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity API",
+      "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
+      "source_urls": [
+        "https://docs.perplexity.ai/docs/getting-started/pricing.md",
+        "https://docs.perplexity.ai/docs/agent-api/models.md",
+        "https://docs.perplexity.ai/docs/router/models.md"
+      ],
+      "native_records": 54,
+      "reviewed_offerings": 5,
+      "scope_note": "Public Agent, Orchestrator, search, embedding and decision billing. Orchestrator is private preview; its public documentation does not establish general access. Tool/request/session fees, tiers and token quotes stay separate."
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "source_url": "https://api.cerebras.ai/public/v1/models",
+      "source_urls": [
+        "https://api.cerebras.ai/public/v1/models",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models.md",
+        "https://inference-docs.cerebras.ai/models/overview.md",
+        "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md",
+        "https://inference-docs.cerebras.ai/models/openai-oss.md"
+      ],
+      "native_records": 8,
+      "reviewed_offerings": 2,
+      "scope_note": "Complete unauthenticated Shared Inference model feed and selected model references. Free and paid limits can differ; conflicting feed/document limits remain explicit. Dedicated inference is a separate product."
+    },
+    {
+      "id": "castform",
+      "name": "Castform",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "source_urls": [
+        "https://api.castform.com/v1/pricing"
+      ],
+      "native_records": 22,
+      "reviewed_offerings": 11,
+      "scope_note": "Complete public pricing response, retaining inference and training as different billing products. Advertised model identifiers establish this billing source only; upstream-provider pricing, limits and cache fees are not inferred."
+    },
+    {
+      "id": "arcee",
+      "name": "Arcee AI",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "source_urls": [
+        "https://docs.arcee.ai/get-started/pricing.md"
+      ],
+      "native_records": 8,
+      "reviewed_offerings": 5,
+      "scope_note": "Public Arcee Platform rates. Exact served IDs are independent billing offers; creator names do not imply direct upstream-provider billing."
+    },
+    {
+      "id": "stepfun",
+      "name": "StepFun",
+      "source_url": "https://platform.stepfun.ai/docs/en/guides/pricing/details.md",
+      "source_urls": [
+        "https://platform.stepfun.ai/docs/en/guides/pricing/details.md"
+      ],
+      "native_records": 37,
+      "reviewed_offerings": 0,
+      "scope_note": "Global English pricing document, including text, image, audio and voice charges. Chinese-region billing, coding subscriptions and credits are separate products. Cache hit/miss and session rounding remain explicit."
+    },
+    {
+      "id": "upstage",
+      "name": "Upstage",
+      "source_url": "https://www.upstage.ai/pricing/api",
+      "source_urls": [
+        "https://www.upstage.ai/pricing/api",
+        "https://console.upstage.ai/docs/models.md",
+        "https://console.upstage.ai/docs/models/solar-pro-4.md",
+        "https://console.upstage.ai/docs/models/solar-mini-4.md"
+      ],
+      "native_records": 4,
+      "reviewed_offerings": 2,
+      "scope_note": "Direct API pricing and model references. Current Solar 4 versions, ended Solar 2/3 service, document pages, prepaid bonuses, VAT and Studio subscriptions stay distinct. No retrospective prices are imported."
+    },
+    {
+      "id": "telnyx",
+      "name": "Telnyx Inference",
+      "source_url": "https://telnyx.com/pricing/inference-api",
+      "source_urls": [
+        "https://telnyx.com/pricing/inference-api"
+      ],
+      "native_records": 20,
+      "reviewed_offerings": 0,
+      "scope_note": "Public inference pricing document. Different deployment/pricing sections, promotional rows and cached-input rates are source-native; no cheapest-row selection or inferred endpoint IDs."
+    },
+    {
+      "id": "typesafe",
+      "name": "TypeSafe",
+      "source_url": "https://docs.typesafe.ai/models.md",
+      "source_urls": [
+        "https://docs.typesafe.ai/models.md"
+      ],
+      "native_records": 9,
+      "reviewed_offerings": 0,
+      "scope_note": "Jev typed-decision models; source-native input-token billing with explicitly free outputs and separate per-request/per-question limits. No assumed equivalence to general chat generation."
+    },
+    {
+      "id": "blackforestlabs",
+      "name": "Black Forest Labs",
+      "source_url": "https://docs.bfl.ai/quick_start/pricing.md",
+      "source_urls": [
+        "https://docs.bfl.ai/quick_start/pricing.md"
+      ],
+      "native_records": 26,
+      "reviewed_offerings": 0,
+      "scope_note": "Public FLUX image pricing by model, resolution, image/token component and edit/generation scope. Credit, token and image formulas are not converted to text-generation quotes."
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "source_url": "https://docs.dev.runwayml.com/guides/pricing.md",
+      "source_urls": [
+        "https://docs.dev.runwayml.com/guides/pricing.md"
+      ],
+      "native_records": 132,
+      "reviewed_offerings": 0,
+      "scope_note": "Public developer-API model prices and credit billing, including hosted third-party models. Native seconds, images, characters and credits remain separate; consumer subscription allowances are not API rates."
+    },
+    {
+      "id": "stability",
+      "name": "Stability AI",
+      "source_url": "https://platform.stability.ai/pricing",
+      "source_urls": [
+        "https://platform.stability.ai/pricing"
+      ],
+      "native_records": 26,
+      "reviewed_offerings": 0,
+      "scope_note": "Public API image, audio, 3D and editing credit tariffs. Native credit amounts and published conversion prose remain evidence, without inferred token rates or reviewed money conversion."
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview",
+      "source_urls": [
+        "https://developer.ideogram.ai/ideogram-api/api-overview"
+      ],
+      "native_records": 11,
+      "reviewed_offerings": 0,
+      "scope_note": "Public API model/capability documentation and linked API billing information. Image resolution, rendering modes and consumer-plan credits do not establish text-token prices."
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "source_url": "https://elevenlabs.io/pricing/api",
+      "source_urls": [
+        "https://elevenlabs.io/pricing/api",
+        "https://elevenlabs.io/docs/overview/models.md",
+        "https://elevenlabs.io/docs/overview/administration/billing.md"
+      ],
+      "native_records": 49,
+      "reviewed_offerings": 0,
+      "scope_note": "Public API plan and billing documents, including audio, speech, music and other exposed products. Plan allowances, minimum purchases, character/token/second units and concurrency remain native; no flat universal rate is inferred."
+    },
+    {
+      "id": "byteplus",
+      "name": "BytePlus ModelArk",
+      "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md",
+      "source_urls": [
+        "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      ],
+      "native_records": 175,
+      "reviewed_offerings": 0,
+      "scope_note": "International ModelArk tariff document. Exact dated IDs, prompt bands, Standard/Flex tiers, peak/off-peak schedules, cache-storage hours and audio/image/video/3D charges remain native. ByteDance is a creator; Chinese Volcano Engine billing is separate."
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe Firefly API",
+      "source_url": "https://developer.adobe.com/firefly-services/docs/firefly-api/guides/",
+      "source_urls": [
+        "https://developer.adobe.com/firefly-services/docs/firefly-api/guides/"
+      ],
+      "native_records": 1,
+      "reviewed_offerings": 0,
+      "scope_note": "Public developer API guide, a bounded product/model-document scope. Monetary API tariffs and consumer subscription-credit equivalence remain unverified; the guide is not an authoritative complete model catalog."
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu Qianfan",
+      "source_url": "https://cloud.baidu.com/product/wenxinworkshop.html",
+      "source_urls": [
+        "https://cloud.baidu.com/product/wenxinworkshop.html"
+      ],
+      "native_records": 1,
+      "reviewed_offerings": 0,
+      "scope_note": "Public Qianfan product/model overview only. Tariff, currency and endpoint availability remain unverified. No Chinese-to-international billing equivalence, token prices or full-catalog completeness is inferred."
+    }
+  ],
+  "new_offerings": [
+    {
+      "id": "arcee-58f0f10914a8b33a",
+      "model_id": "zai/glm-5.3-flash",
+      "provider": "arcee",
+      "provider_model_id": "zai-org/glm-5.3-flash",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "arcee-960026dc30e748ac",
+      "model_id": "deepseek/deepseek-v4-pro-0813",
+      "provider": "arcee",
+      "provider_model_id": "deepseek/deepseek-v4-pro-0813",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "arcee-c6e110dc3ae02f48",
+      "model_id": "zai/glm-5.2",
+      "provider": "arcee",
+      "provider_model_id": "zai-org/glm-5.2",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "arcee-d23c0aad645b325e",
+      "model_id": "zai/glm-5.3",
+      "provider": "arcee",
+      "provider_model_id": "zai-org/glm-5.3",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "arcee-d52bfe399f8a010c",
+      "model_id": "moonshotai/kimi-k3",
+      "provider": "arcee",
+      "provider_model_id": "moonshotai/kimi-k3",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-0205bf007153b61b",
+      "model_id": "google/gemma-4-26b-a4b-it",
+      "provider": "castform",
+      "provider_model_id": "gemma-4-26b-a4b-it",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-0d5c9bdbeeca17de",
+      "model_id": "xai/grok-4.1-fast-non-reasoning",
+      "provider": "castform",
+      "provider_model_id": "grok-4-1-fast-non-reasoning",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-3274bd8a34977a9b",
+      "model_id": "openai/gpt-5.6-sol",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.6-sol",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-5aa6043631cceb78",
+      "model_id": "openai/gpt-5.4-mini",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.4-mini",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-83356a5a7c5c03a4",
+      "model_id": "xai/grok-4.3",
+      "provider": "castform",
+      "provider_model_id": "grok-4.3",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-8d5d2cb6ce8be101",
+      "model_id": "openai/gpt-5.4",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.4",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-92d978450e571825",
+      "model_id": "openai/gpt-5.4-nano",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.4-nano",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-948778c6569ccd69",
+      "model_id": "qwen/qwen3.5-4b",
+      "provider": "castform",
+      "provider_model_id": "qwen3.5-4b",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-d2e3551d284e0792",
+      "model_id": "qwen/qwen3.5-35b-a3b",
+      "provider": "castform",
+      "provider_model_id": "qwen3.5-35b-a3b",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-f002adffe6018c68",
+      "model_id": "openai/gpt-5.6-terra",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.6-terra",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "castform-f0030e0c1de75260",
+      "model_id": "openai/gpt-5.6-luna",
+      "provider": "castform",
+      "provider_model_id": "gpt-5.6-luna",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "cerebras-850cc51ea905f7ff",
+      "model_id": "openai/gpt-oss-120b",
+      "provider": "cerebras",
+      "provider_model_id": "gpt-oss-120b",
+      "source_url": "https://api.cerebras.ai/public/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "cerebras-a9cedcabc00a003f",
+      "model_id": "qwen/qwen3.8-27b",
+      "provider": "cerebras",
+      "provider_model_id": "qwen-3.8-27b",
+      "source_url": "https://api.cerebras.ai/public/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-00e250aeaa9fa205",
+      "model_id": "mistralai/mistral-medium-3.1",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-medium-3.1",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-0a66cb4433f84385",
+      "model_id": "aion-labs/aion-3.0",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-3.0",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-0d68c1c0cc2e4588",
+      "model_id": "qwen/qwen3-coder-30b-a3b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3-coder-30b-a3b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-0f7ebcdcb865e0c5",
+      "model_id": "tencent/hy3-preview",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hy3-preview",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1279a4d3efe8f408",
+      "model_id": "qwen/qwen3.5-35b-a3b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.5-35b-a3b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-161f9f126a4ebabc",
+      "model_id": "mistralai/mistral-large-2407",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-large-2407",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1a2fd5cdd1b6bdc4",
+      "model_id": "qwen/qwen3-32b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3-32b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1b28efcffe0fc169",
+      "model_id": "deepseek/deepseek-v3.1-terminus",
+      "provider": "openrouter",
+      "provider_model_id": "deepseek/deepseek-v3.1-terminus",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1e66702c979a475b",
+      "model_id": "mistralai/mistral-medium-3",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-medium-3",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1ef013e4ce0629e5",
+      "model_id": "mistralai/mistral-nemo",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-nemo",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-1fb7c87f29108339",
+      "model_id": "cohere/command-a-plus",
+      "provider": "openrouter",
+      "provider_model_id": "cohere/command-a-plus",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-21d0eb1be9a4c845",
+      "model_id": "minimax/minimax-m2.1",
+      "provider": "openrouter",
+      "provider_model_id": "minimax/minimax-m2.1",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-2745a2467d10fab6",
+      "model_id": "moonshotai/kimi-k2.5",
+      "provider": "openrouter",
+      "provider_model_id": "moonshotai/kimi-k2.5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-2a4cfc544d79e691",
+      "model_id": "aion-labs/aion-3.5",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-3.5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-2c20d2dae430248f",
+      "model_id": "writer/palmyra-x5",
+      "provider": "openrouter",
+      "provider_model_id": "writer/palmyra-x5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-3062d374173d4ee4",
+      "model_id": "tencent/hy4",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hy4",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-34bb8f753495e7b4",
+      "model_id": "liquid/lfm-2.5-24b-a2b",
+      "provider": "openrouter",
+      "provider_model_id": "liquid/lfm-2.5-24b-a2b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-3feb6de6b8218e8d",
+      "model_id": "aion-labs/aion-rp-llama-3.1-8b",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-rp-llama-3.1-8b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-42f9c5d8edb3568e",
+      "model_id": "tencent/hunyuan-a13b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hunyuan-a13b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-435cba46ffd7a891",
+      "model_id": "minimax/minimax-m2.7",
+      "provider": "openrouter",
+      "provider_model_id": "minimax/minimax-m2.7",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-442784319798bd00",
+      "model_id": "cohere/command-r-08-2024",
+      "provider": "openrouter",
+      "provider_model_id": "cohere/command-r-08-2024",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-4b08011fb2efdd52",
+      "model_id": "aion-labs/aion-2.0",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-2.0",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-4f2984a037b55149",
+      "model_id": "qwen/qwen3-coder",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3-coder",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-4fc21fd8164dd3f9",
+      "model_id": "tencent/hy-mt2-1.8b",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hy-mt2-1.8b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-555ac9e892e58d01",
+      "model_id": "tencent/hy-mt2-30b-a3b",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hy-mt2-30b-a3b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-66584118eeeef52b",
+      "model_id": "minimax/minimax-m2.5",
+      "provider": "openrouter",
+      "provider_model_id": "minimax/minimax-m2.5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-6993a7318a9b3107",
+      "model_id": "moonshotai/kimi-k2-0905",
+      "provider": "openrouter",
+      "provider_model_id": "moonshotai/kimi-k2-0905",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-6a336150b84a6b5c",
+      "model_id": "mistralai/mistral-small-24b-instruct-2501",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-small-24b-instruct-2501",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-6bd78fd2997db4a7",
+      "model_id": "mistralai/devstral-2512",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/devstral-2512",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-6cfd5f3a6ef063b2",
+      "model_id": "mistralai/mistral-small-3.2-24b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-small-3.2-24b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-75cc52036d26a0b3",
+      "model_id": "qwen/qwen3-235b-a22b-thinking-2507",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3-235b-a22b-thinking-2507",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-78be6e4a7104f90d",
+      "model_id": "stepfun/step-3.7-flash",
+      "provider": "openrouter",
+      "provider_model_id": "stepfun/step-3.7-flash",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-7cea05050af6ce8e",
+      "model_id": "deepseek/deepseek-v3.2",
+      "provider": "openrouter",
+      "provider_model_id": "deepseek/deepseek-v3.2",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-7cf52bea969d4743",
+      "model_id": "mistralai/mixtral-8x22b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mixtral-8x22b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-808a6d5b37e84e84",
+      "model_id": "qwen/qwen3.5-flash-02-23",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.5-flash-02-23",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-8671abf45a12351b",
+      "model_id": "qwen/qwen3.5-122b-a10b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.5-122b-a10b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-8ceef7aee9031c6b",
+      "model_id": "qwen/qwen3.6-27b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.6-27b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-8fbfd83d1258c38e",
+      "model_id": "mistralai/mistral-large-2512",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-large-2512",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-915f01979c47e3e6",
+      "model_id": "stepfun/step-5-preview",
+      "provider": "openrouter",
+      "provider_model_id": "stepfun/step-5-preview",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-9d39669c204c3096",
+      "model_id": "mistralai/mistral-medium-3-5",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-medium-3-5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-a2dd11028f911bbb",
+      "model_id": "qwen/qwen3.5-27b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.5-27b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-a71667a4931a06cf",
+      "model_id": "aion-labs/aion-3.5-mini",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-3.5-mini",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-b169c63a2cf88342",
+      "model_id": "aion-labs/aion-3.0-mini",
+      "provider": "openrouter",
+      "provider_model_id": "aion-labs/aion-3.0-mini",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-c0b2cbd737cb117d",
+      "model_id": "mistralai/mistral-saba",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-saba",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-c4058d80d76e9800",
+      "model_id": "liquid/lfm-2.5-2.6b",
+      "provider": "openrouter",
+      "provider_model_id": "liquid/lfm-2.5-2.6b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-c4e3cf58dd7ba7a6",
+      "model_id": "inception/mercury-2.5",
+      "provider": "openrouter",
+      "provider_model_id": "inception/mercury-2.5",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-c4ff73910a757a8a",
+      "model_id": "qwen/qwen3.5-9b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.5-9b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-c7528b3b65abf551",
+      "model_id": "minimax/minimax-m2",
+      "provider": "openrouter",
+      "provider_model_id": "minimax/minimax-m2",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-cbc2517548655661",
+      "model_id": "deepseek/deepseek-r1-0528",
+      "provider": "openrouter",
+      "provider_model_id": "deepseek/deepseek-r1-0528",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-ccef5d79b3c653f5",
+      "model_id": "cohere/command-r7b-12-2024",
+      "provider": "openrouter",
+      "provider_model_id": "cohere/command-r7b-12-2024",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-d34af87674626731",
+      "model_id": "inception/mercury-3",
+      "provider": "openrouter",
+      "provider_model_id": "inception/mercury-3",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-d6da72169f1a3587",
+      "model_id": "cohere/command-r-plus-08-2024",
+      "provider": "openrouter",
+      "provider_model_id": "cohere/command-r-plus-08-2024",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-d82640ffcda798bd",
+      "model_id": "moonshotai/kimi-k2-thinking",
+      "provider": "openrouter",
+      "provider_model_id": "moonshotai/kimi-k2-thinking",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-d8b879db457b4169",
+      "model_id": "tencent/hy-mt2-7b",
+      "provider": "openrouter",
+      "provider_model_id": "tencent/hy-mt2-7b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-e5dc6c05c9821310",
+      "model_id": "stepfun/step-3.5-flash",
+      "provider": "openrouter",
+      "provider_model_id": "stepfun/step-3.5-flash",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-e9e692c5a8c426aa",
+      "model_id": "cohere/command-a",
+      "provider": "openrouter",
+      "provider_model_id": "cohere/command-a",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-f15e9aa2056c070a",
+      "model_id": "qwen/qwen3-next-80b-a3b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3-next-80b-a3b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-f631ff3384d603c6",
+      "model_id": "mistralai/mistral-small-3.1-24b-instruct",
+      "provider": "openrouter",
+      "provider_model_id": "mistralai/mistral-small-3.1-24b-instruct",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-f6631941ef2023dd",
+      "model_id": "inception/mercury-2",
+      "provider": "openrouter",
+      "provider_model_id": "inception/mercury-2",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-fa96b45ddd89cfa8",
+      "model_id": "moonshotai/kimi-k3.1-pro",
+      "provider": "openrouter",
+      "provider_model_id": "moonshotai/kimi-k3.1-pro",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "openrouter-fecf0131f094f05f",
+      "model_id": "qwen/qwen3.6-35b-a3b",
+      "provider": "openrouter",
+      "provider_model_id": "qwen/qwen3.6-35b-a3b",
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "perplexity-39107fa163984503",
+      "model_id": "moonshotai/kimi-k3",
+      "provider": "perplexity",
+      "provider_model_id": "perplexity/kimi-k3",
+      "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "perplexity-89bd313851c956cb",
+      "model_id": "perplexity/sonar-agent",
+      "provider": "perplexity",
+      "provider_model_id": "perplexity/sonar",
+      "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "perplexity-9714c3751a56858c",
+      "model_id": "zai/glm-5.3-flash",
+      "provider": "perplexity",
+      "provider_model_id": "perplexity/glm-5.3-flash",
+      "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "perplexity-b46cc99419a266b5",
+      "model_id": "zai/glm-5.3",
+      "provider": "perplexity",
+      "provider_model_id": "perplexity/glm-5.3",
+      "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "perplexity-d1be5ee31c705491",
+      "model_id": "deepseek/deepseek-v4-pro-0813",
+      "provider": "perplexity",
+      "provider_model_id": "perplexity/deepseek-v4-pro-0813",
+      "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "upstage-6cd1fd92e20f09f6",
+      "model_id": "upstage/solar-pro4-260806",
+      "provider": "upstage",
+      "provider_model_id": "solar-pro4-260806",
+      "source_url": "https://console.upstage.ai/docs/models/solar-pro-4.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "upstage-b47085dd1bd46269",
+      "model_id": "upstage/solar-mini4-260922",
+      "provider": "upstage",
+      "provider_model_id": "solar-mini4-260922",
+      "source_url": "https://console.upstage.ai/docs/models/solar-mini-4.md",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-0b1105b06201ce00",
+      "model_id": "minimax/minimax-m2.5",
+      "provider": "vercel",
+      "provider_model_id": "minimax/minimax-m2.5",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-1a74f4e8518d34a3",
+      "model_id": "minimax/minimax-m2.1",
+      "provider": "vercel",
+      "provider_model_id": "minimax/minimax-m2.1",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-2433a868fc739b79",
+      "model_id": "stepfun/step-5-preview",
+      "provider": "vercel",
+      "provider_model_id": "stepfun/step-5-preview",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-275525096a633555",
+      "model_id": "moonshotai/kimi-k2.5",
+      "provider": "vercel",
+      "provider_model_id": "moonshotai/kimi-k2.5",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-29ee6255667a3510",
+      "model_id": "moonshotai/kimi-k3.1-pro",
+      "provider": "vercel",
+      "provider_model_id": "moonshotai/kimi-k3.1-pro",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-337ecd6f17d02cf7",
+      "model_id": "cohere/command-a",
+      "provider": "vercel",
+      "provider_model_id": "cohere/command-a",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-4e670076fd99079d",
+      "model_id": "inception/mercury-2",
+      "provider": "vercel",
+      "provider_model_id": "inception/mercury-2",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-58e0f31819ed8c44",
+      "model_id": "inception/mercury-2.5",
+      "provider": "vercel",
+      "provider_model_id": "inception/mercury-2.5",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-92bac3573fdd28be",
+      "model_id": "minimax/minimax-m2.7",
+      "provider": "vercel",
+      "provider_model_id": "minimax/minimax-m2.7",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-b0bbaf2ed91aad9e",
+      "model_id": "minimax/minimax-m2",
+      "provider": "vercel",
+      "provider_model_id": "minimax/minimax-m2",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-c7ad98da5684fdfb",
+      "model_id": "deepseek/deepseek-v3.2",
+      "provider": "vercel",
+      "provider_model_id": "deepseek/deepseek-v3.2",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-d84e6a9e39a14d65",
+      "model_id": "inception/mercury-3",
+      "provider": "vercel",
+      "provider_model_id": "inception/mercury-3",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-dcf83b29825d509b",
+      "model_id": "stepfun/step-3.7-flash",
+      "provider": "vercel",
+      "provider_model_id": "stepfun/step-3.7-flash",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    },
+    {
+      "id": "vercel-f710d3bdf190b2dd",
+      "model_id": "tencent/hy4",
+      "provider": "vercel",
+      "provider_model_id": "tencent/hy4",
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "first_observed_at": "2026-11-04T11:19:31Z"
+    }
+  ],
+  "existing_offering_price_updates": [
+    {
+      "offering_id": "openrouter-8d3ef8a9890855b1",
+      "provider": "openrouter",
+      "model_id": "meta/llama-3.3-70b-instruct",
+      "observed_at": "2026-11-04T14:33:17Z",
+      "fields": {
+        "input_per_million": {
+          "before": 0.2,
+          "after": 0.1
+        },
+        "output_per_million": {
+          "before": 0.52,
+          "after": 0.32
+        },
+        "cache_read_per_million": {
+          "before": 0.1,
+          "after": null
+        }
+      },
+      "source_url": "https://openrouter.ai/api/v1/models",
+      "source_sha256": "8b6257a9071d24d2daaad143c1b5dac18777caae34d11ea933e4ca5d0b0ddb5a"
+    },
+    {
+      "offering_id": "vercel-0709d00b1d740ecd",
+      "provider": "vercel",
+      "model_id": "zai/glm-5.3-flash",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 0.15,
+          "after": 0.0975
+        },
+        "output_per_million": {
+          "before": 0.5,
+          "after": 0.325
+        },
+        "cache_read_per_million": {
+          "before": 0.03,
+          "after": 0.0195
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-35ad8d2628cad07d",
+      "provider": "vercel",
+      "model_id": "zai/glm-5.3",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 1.4,
+          "after": 0.91
+        },
+        "output_per_million": {
+          "before": 4.4,
+          "after": 2.86
+        },
+        "cache_read_per_million": {
+          "before": 0.14,
+          "after": 0.091
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-41a3138b074c6813",
+      "provider": "vercel",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 0.3,
+          "after": 0.195
+        },
+        "output_per_million": {
+          "before": 1.2,
+          "after": 0.78
+        },
+        "cache_read_per_million": {
+          "before": 0.007,
+          "after": 0.0045
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-bac0da714408b0a5",
+      "provider": "vercel",
+      "model_id": "moonshotai/kimi-k3",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 3.0,
+          "after": 1.95
+        },
+        "output_per_million": {
+          "before": 15.0,
+          "after": 9.75
+        },
+        "cache_read_per_million": {
+          "before": 0.3,
+          "after": 0.195
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    }
+  ],
+  "quarantined_pricing_scope_offer_ids": [
+    "vercel-77b3b57194ba01ed"
+  ],
+  "integrity": {
+    "original_models_unchanged": true,
+    "original_offering_ids_and_first_observations_retained": true,
+    "original_reviewed_observations_retained": 463,
+    "original_csv_prefix_unchanged": true,
+    "original_immutable_assets_unchanged": 7144,
+    "original_native_manifest_segments_unchanged": true,
+    "current_reviewed_observations": 570,
+    "historical_publication_groups": 26,
+    "native_publication": "Existing read-only field allowlist and bounded chunks; no warehouse/raw archive publication."
+  },
+  "limitations": [
+    "Native source/model/row/route/product counts are not unique-model or comparable-price counts.",
+    "Thirteen added groups remain native-only; Adobe and Baidu have explicitly limited unpriced product/document scopes.",
+    "Unresolved served versions, absent current billing witnesses, unsupported conditions and creator-only labels do not establish a current quote or retirement.",
+    "Cerebras feed and paid model-reference limits differ; capacities remain unverified in the selected quotes.",
+    "Sonar Agent API billing is distinct from legacy search and Orchestrator private-preview billing.",
+    "Weight access is unverified for the added identities, without changing older classifications.",
+    "Together stays paused, historical scope stays at the original 26 groups, and no code release/gate change is authorized."
+  ],
+  "parallel_collection_reconciliation": {
+    "source_commit": "76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d",
+    "production_commit": "79d720a483a6759e8f65dacaf32e47a10b379201",
+    "source_manifest_sha256": "8f687266b8c1c40f8727d9e122d390e1fbe0f26eee2ffa005c60e67b87c6b8c8",
+    "production_manifest_sha256": "81610b3fbb81db9ff41dc0a9ce90c09ee58197855eadfc6119abac4ae38ef1e2",
+    "archive_path": "data/inventory_history/branch_archives/76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d.json",
+    "original_branch_native_events": 86930,
+    "original_production_native_events": 85515,
+    "unchanged_imported_new_source_events": 1575,
+    "published_native_manifest_prefix_retained": true,
+    "original_branch_native_history_reconstructible": true,
+    "both_reviewed_observation_sets_retained": true
+  }
+}

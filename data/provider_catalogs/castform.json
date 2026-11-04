@@ -1,0 +1,954 @@
+{
+  "schema_version": 1,
+  "parser_version": 1,
+  "provider": "castform",
+  "source_kind": "api",
+  "records": [
+    {
+      "id": "castform-06af5843012e5784ed6926e9",
+      "provider": "castform",
+      "native_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "kind": "model",
+      "label": "Qwen3-VL 30B-A3B Instruct",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 3.3,
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Qwen3-VL 30B-A3B Instruct",
+          "introductory": true,
+          "modality": "text/vision",
+          "model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+          "params_b": 31,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.2
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "context_length": 262144,
+        "model_name": "Qwen3-VL 30B-A3B Instruct"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-16848e211ca156f52ac7a1fe",
+      "provider": "castform",
+      "native_id": "Qwen/Qwen3.5-0.8B",
+      "kind": "model",
+      "label": "Qwen3.5 0.8B",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Qwen3.5 0.8B",
+          "introductory": true,
+          "modality": "text",
+          "model": "Qwen/Qwen3.5-0.8B",
+          "params_b": 0.9,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.1
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3.5-0.8B",
+        "context_length": 262144,
+        "model_name": "Qwen3.5 0.8B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-1a94bbd05c61d7c31a689910",
+      "provider": "castform",
+      "native_id": "gpt-5.4-mini",
+      "kind": "model",
+      "label": "gpt-5.4-mini",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.75,
+          "model": "gpt-5.4-mini",
+          "output_per_1m_tokens": 4.5
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.75",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "4.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.4-mini",
+        "context_length": null,
+        "model_name": "gpt-5.4-mini"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-237fd846b11240956a0b6b9e",
+      "provider": "castform",
+      "native_id": "google/gemma-4-26B-A4B-it",
+      "kind": "model",
+      "label": "Gemma 4 26B-A4B",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 4,
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Gemma 4 26B-A4B",
+          "introductory": true,
+          "modality": "text/vision",
+          "model": "google/gemma-4-26B-A4B-it",
+          "params_b": 26,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.2
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "google/gemma-4-26B-A4B-it",
+        "context_length": 262144,
+        "model_name": "Gemma 4 26B-A4B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-341456951101f487fa6fe82c",
+      "provider": "castform",
+      "native_id": "gemma-4-26b-a4b-it",
+      "kind": "model",
+      "label": "gemma-4-26b-a4b-it",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.06,
+          "model": "gemma-4-26b-a4b-it",
+          "output_per_1m_tokens": 0.33
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "0.33",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gemma-4-26b-a4b-it",
+        "context_length": null,
+        "model_name": "gemma-4-26b-a4b-it"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-3fc36fc00757622e07f5aa0d",
+      "provider": "castform",
+      "native_id": "qwen3.5-35b-a3b",
+      "kind": "model",
+      "label": "qwen3.5-35b-a3b",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.25,
+          "model": "qwen3.5-35b-a3b",
+          "output_per_1m_tokens": 2
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "qwen3.5-35b-a3b",
+        "context_length": null,
+        "model_name": "qwen3.5-35b-a3b"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-4bb627b69aa18353d5a72366",
+      "provider": "castform",
+      "native_id": "gpt-5.6-sol",
+      "kind": "model",
+      "label": "gpt-5.6-sol",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 5,
+          "model": "gpt-5.6-sol",
+          "output_per_1m_tokens": 30
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "30",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.6-sol",
+        "context_length": null,
+        "model_name": "gpt-5.6-sol"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-4db94dc97057b76eae38039f",
+      "provider": "castform",
+      "native_id": "grok-4-1-fast-non-reasoning",
+      "kind": "model",
+      "label": "grok-4-1-fast-non-reasoning",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.2,
+          "model": "grok-4-1-fast-non-reasoning",
+          "output_per_1m_tokens": 0.5
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "grok-4-1-fast-non-reasoning",
+        "context_length": null,
+        "model_name": "grok-4-1-fast-non-reasoning"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-4f868ec6f33d710399eed8f7",
+      "provider": "castform",
+      "native_id": "gpt-5.4-nano",
+      "kind": "model",
+      "label": "gpt-5.4-nano",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.2,
+          "model": "gpt-5.4-nano",
+          "output_per_1m_tokens": 1.25
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "1.25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.4-nano",
+        "context_length": null,
+        "model_name": "gpt-5.4-nano"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-5b8c4fc8120c76c493ef93c9",
+      "provider": "castform",
+      "native_id": "grok-4.3",
+      "kind": "model",
+      "label": "grok-4.3",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 1.25,
+          "model": "grok-4.3",
+          "output_per_1m_tokens": 2.5
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "1.25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "grok-4.3",
+        "context_length": null,
+        "model_name": "grok-4.3"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-7cfcbd631d5f789e4e8eb144",
+      "provider": "castform",
+      "native_id": "gpt-5.6-luna",
+      "kind": "model",
+      "label": "gpt-5.6-luna",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 1,
+          "model": "gpt-5.6-luna",
+          "output_per_1m_tokens": 6
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "6",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.6-luna",
+        "context_length": null,
+        "model_name": "gpt-5.6-luna"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-8973b1be7b697034b7bb7e1e",
+      "provider": "castform",
+      "native_id": "tencent/Hy3",
+      "kind": "model",
+      "label": "Hy3",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 21,
+          "context_length": 262144,
+          "display_name": "Hy3",
+          "modality": "text",
+          "model": "tencent/Hy3",
+          "params_b": 295,
+          "self_serve": false
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "tencent/Hy3",
+        "context_length": 262144,
+        "model_name": "Hy3"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-8ad8ad253a993702bad76029",
+      "provider": "castform",
+      "native_id": "text-embedding-3-large",
+      "kind": "model",
+      "label": "text-embedding-3-large",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.143,
+          "model": "text-embedding-3-large",
+          "output_per_1m_tokens": 0
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.143",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "text-embedding-3-large",
+        "context_length": null,
+        "model_name": "text-embedding-3-large"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-8eb28a0f39e9933715ede427",
+      "provider": "castform",
+      "native_id": "hy3-rl",
+      "kind": "model",
+      "label": "hy3-rl",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 1,
+          "model": "hy3-rl",
+          "output_per_1m_tokens": 5
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "hy3-rl",
+        "context_length": null,
+        "model_name": "hy3-rl"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-93290e82ca1320611abf1978",
+      "provider": "castform",
+      "native_id": "gpt-5.6-terra",
+      "kind": "model",
+      "label": "gpt-5.6-terra",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 2.5,
+          "model": "gpt-5.6-terra",
+          "output_per_1m_tokens": 15
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.6-terra",
+        "context_length": null,
+        "model_name": "gpt-5.6-terra"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-9370a04f3c55ce1d628c76ed",
+      "provider": "castform",
+      "native_id": "gpt-5.4",
+      "kind": "model",
+      "label": "gpt-5.4",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 2.5,
+          "model": "gpt-5.4",
+          "output_per_1m_tokens": 15
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "gpt-5.4",
+        "context_length": null,
+        "model_name": "gpt-5.4"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-9b3aaedef0d1ba1c76b00d95",
+      "provider": "castform",
+      "native_id": "Qwen/Qwen3.5-35B-A3B",
+      "kind": "model",
+      "label": "Qwen3.5 35B-A3B",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 3,
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Qwen3.5 35B-A3B",
+          "introductory": true,
+          "modality": "text",
+          "model": "Qwen/Qwen3.5-35B-A3B",
+          "params_b": 36,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.2
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3.5-35B-A3B",
+        "context_length": 262144,
+        "model_name": "Qwen3.5 35B-A3B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-a574045e3a0e6f121e5e4663",
+      "provider": "castform",
+      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+      "kind": "model",
+      "label": "Nemotron 3.5 Lightning 30B-A3B",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 3,
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Nemotron 3.5 Lightning 30B-A3B",
+          "introductory": true,
+          "modality": "text",
+          "model": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+          "params_b": 30,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.2
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+        "context_length": 262144,
+        "model_name": "Nemotron 3.5 Lightning 30B-A3B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-ab0785185f89077ba56cc87d",
+      "provider": "castform",
+      "native_id": "qwen3.5-4b",
+      "kind": "model",
+      "label": "qwen3.5-4b",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "currency": "USD",
+          "input_per_1m_tokens": 0.03,
+          "model": "qwen3.5-4b",
+          "output_per_1m_tokens": 0.15
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "input_per_1m_tokens",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "input_per_1m_tokens"
+          }
+        },
+        {
+          "dimension": "output_per_1m_tokens",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "output_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "qwen3.5-4b",
+        "context_length": null,
+        "model_name": "qwen3.5-4b"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-d714dedfb8bd9451d4f0505f",
+      "provider": "castform",
+      "native_id": "stepfun-ai/Step-3.7-Flash",
+      "kind": "model",
+      "label": "Step 3.7 Flash",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "active_params_b": 11,
+          "context_length": 262144,
+          "display_name": "Step 3.7 Flash",
+          "modality": "text",
+          "model": "stepfun-ai/Step-3.7-Flash",
+          "params_b": 198,
+          "self_serve": false
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "stepfun-ai/Step-3.7-Flash",
+        "context_length": 262144,
+        "model_name": "Step 3.7 Flash"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-df85902bb53ccefe67edbc8d",
+      "provider": "castform",
+      "native_id": "Qwen/Qwen3.5-4B",
+      "kind": "model",
+      "label": "Qwen3.5 4B",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Qwen3.5 4B",
+          "introductory": true,
+          "modality": "text",
+          "model": "Qwen/Qwen3.5-4B",
+          "params_b": 4.7,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.1
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3.5-4B",
+        "context_length": 262144,
+        "model_name": "Qwen3.5 4B"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "castform-f268e70ff87547be12350378",
+      "provider": "castform",
+      "native_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "kind": "model",
+      "label": "Qwen3-VL 4B Instruct",
+      "scope": {
+        "billing_product": "training"
+      },
+      "billing": {
+        "rules": {
+          "context_length": 262144,
+          "currency": "USD",
+          "display_name": "Qwen3-VL 4B Instruct",
+          "introductory": true,
+          "modality": "text/vision",
+          "model": "Qwen/Qwen3-VL-4B-Instruct",
+          "params_b": 4.4,
+          "self_serve": true,
+          "train_per_1m_tokens": 0.1
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "train_per_1m_tokens",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "train_per_1m_tokens"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "Qwen/Qwen3-VL-4B-Instruct",
+        "context_length": 262144,
+        "model_name": "Qwen3-VL 4B Instruct"
+      },
+      "comparison_eligible": false
+    }
+  ],
+  "billing_notes": [
+    "Complete public pricing response, retaining inference and training as different billing products. Advertised model identifiers establish this billing source only; upstream-provider pricing, limits and cache fees are not inferred."
+  ],
+  "catalog_sha256": "3d3dfb8b205f10445f04a24de127e352c1f7f5b4cc3e3610cd2ecd8efda31b07",
+  "revision": 1,
+  "changed_at": "2026-11-04T11:19:31Z",
+  "source_url": "https://api.castform.com/v1/pricing",
+  "source_urls": [
+    "https://api.castform.com/v1/pricing"
+  ],
+  "source_sha256": "c2dbeb1a6c8f304771d04eb27528c8ecf2e27291c3ff5b8731ba8cc791c90250",
+  "archive_reference": null
+}
