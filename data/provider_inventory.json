@@ -1,10 +1,55 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-11-04T09:39:28Z",
-  "provider_count": 29,
+  "updated_at": "2026-11-04T11:39:11Z",
+  "provider_count": 47,
   "scope": "Full source-native model/meter/SKU/document pricing records. Native units, expressions, conditions and unknown values are preserved; these are not canonical cross-provider cost comparisons.",
   "retention": "Current normalized catalogs plus bounded immutable native-history segments and verified compact observations. Original migration history is archived losslessly. New raw responses are transient; pre-existing source archives are preserved unchanged.",
   "providers": [
+    {
+      "id": "adobe",
+      "name": "Adobe Firefly API",
+      "source_url": "https://developer.adobe.com/firefly-services/docs/firefly-api/guides/",
+      "source_urls": [
+        "https://developer.adobe.com/firefly-services/docs/firefly-api/guides/"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "504fa1ea62f7e2a6383facc3abf6677f0d22d6c0840818b886a6999830c4d32e",
+      "catalog_sha256": "6dd6a4351cb16643c3bfb03b8ee77631415fd7a754532afa1cd1acdf54d56176",
+      "latest_path": "provider_catalogs/adobe.json",
+      "record_count": 1,
+      "revision": 2,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "ai21",
+      "name": "AI21",
+      "source_url": "https://www.ai21.com/pricing/",
+      "source_urls": [
+        "https://docs.ai21.com/docs/jamba-foundation-models.md",
+        "https://www.ai21.com/pricing/"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "b54cd333382dc2ad3ba9d1d6125b7e4e5b4afdb15f736cf99ff684b1cb93b1b6",
+      "catalog_sha256": "b48285675a461689c53780a87d6fd992da8e941b266c983e7648fe751f24c1ed",
+      "latest_path": "provider_catalogs/ai21.json",
+      "record_count": 10,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
     {
       "id": "alibaba",
       "name": "Alibaba Cloud Model Studio",
@@ -73,6 +118,28 @@
       }
     },
     {
+      "id": "arcee",
+      "name": "Arcee AI",
+      "source_url": "https://docs.arcee.ai/get-started/pricing.md",
+      "source_urls": [
+        "https://docs.arcee.ai/get-started/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "599b326e3fca1bc7eff52f20aa903796f6aa1d1efd644302e3444d08e773bf13",
+      "catalog_sha256": "c700980784404a7e9eeaa49f20552dab9de9c39bd455cdc9809d81c0eb08b022",
+      "latest_path": "provider_catalogs/arcee.json",
+      "record_count": 8,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "azure",
       "name": "Microsoft Foundry",
       "source_url": "https://prices.azure.com/api/retail/prices?$filter=serviceName%20eq%20%27Foundry%20Models%27%20and%20armRegionName%20eq%20%27eastus%27",
@@ -109,6 +176,28 @@
         "state": "not_applicable",
         "reason": "API/feed responses are not public page captures"
       }
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu Qianfan",
+      "source_url": "https://cloud.baidu.com/product/wenxinworkshop.html",
+      "source_urls": [
+        "https://cloud.baidu.com/product/wenxinworkshop.html"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "900b372a5a929e5f1e21976d04db27aa80543fa7ec225af068406c88baa08d2e",
+      "catalog_sha256": "88659f490e3672887daf9c44f37fb446b8e52593ecc477ad19de701206a2b837",
+      "latest_path": "provider_catalogs/baidu.json",
+      "record_count": 1,
+      "revision": 2,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     },
     {
       "id": "bedrock",
@@ -149,6 +238,98 @@
       }
     },
     {
+      "id": "blackforestlabs",
+      "name": "Black Forest Labs",
+      "source_url": "https://docs.bfl.ai/quick_start/pricing.md",
+      "source_urls": [
+        "https://docs.bfl.ai/quick_start/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "8bb09f82121f119da7a47197740fba5d6bf170fbb8e348541ba8fbd478914853",
+      "catalog_sha256": "b8724e6ac713588dd71e94c6e7d34d18f4d4190d7250df2a851c5ff6bb733f05",
+      "latest_path": "provider_catalogs/blackforestlabs.json",
+      "record_count": 26,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "byteplus",
+      "name": "BytePlus ModelArk",
+      "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md",
+      "source_urls": [
+        "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "709c7faef3cd74da93a3a379734f5327887895f45788755eca92820942267662",
+      "catalog_sha256": "29a6cc076132bfb50543a07f2eafcac431e3e4fb899d1c69f564886f102e02d7",
+      "latest_path": "provider_catalogs/byteplus.json",
+      "record_count": 175,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "castform",
+      "name": "Castform",
+      "source_url": "https://api.castform.com/v1/pricing",
+      "source_urls": [
+        "https://api.castform.com/v1/pricing"
+      ],
+      "source_kind": "api",
+      "fallback_reason": null,
+      "source_sha256": "c2dbeb1a6c8f304771d04eb27528c8ecf2e27291c3ff5b8731ba8cc791c90250",
+      "catalog_sha256": "3d3dfb8b205f10445f04a24de127e352c1f7f5b4cc3e3610cd2ecd8efda31b07",
+      "latest_path": "provider_catalogs/castform.json",
+      "record_count": 22,
+      "revision": 1,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "cerebras",
+      "name": "Cerebras",
+      "source_url": "https://api.cerebras.ai/public/v1/models",
+      "source_urls": [
+        "https://api.cerebras.ai/public/v1/models",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models.md",
+        "https://inference-docs.cerebras.ai/models/overview.md",
+        "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md",
+        "https://inference-docs.cerebras.ai/models/openai-oss.md"
+      ],
+      "source_kind": "api+documentation",
+      "fallback_reason": null,
+      "source_sha256": "9d5d0ebda3a290724a1fdb19b07d9c0efe01dc161d08ae4f7768f66bc15dac14",
+      "catalog_sha256": "ffc75b3608a764b1ac0b1f012724a18b5485685269d87372a09bd8e8cca7d352",
+      "latest_path": "provider_catalogs/cerebras.json",
+      "record_count": 8,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "cloudflare",
       "name": "Cloudflare Workers AI",
       "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
@@ -167,6 +348,29 @@
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "source_url": "https://cohere.com/pricing",
+      "source_urls": [
+        "https://docs.cohere.com/docs/models.md",
+        "https://cohere.com/pricing"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "2e47e4be6305e243020ac8d39eb34e75e44f9c058922e33f5e20133213eefc0c",
+      "catalog_sha256": "fbde69a0c764b99b222033df8f1503a830c4307382b1db7dde2c87871213aaf1",
+      "latest_path": "provider_catalogs/cohere.json",
+      "record_count": 70,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
       "legacy_source_archive": null,
       "archive_reference": null
     },
@@ -274,6 +478,30 @@
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "source_url": "https://elevenlabs.io/pricing/api",
+      "source_urls": [
+        "https://elevenlabs.io/pricing/api",
+        "https://elevenlabs.io/docs/overview/models.md",
+        "https://elevenlabs.io/docs/overview/administration/billing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "0955cad103b44fbc4680a2dd823fc1c3105febbf9d4cca22ae381e010bd289ef",
+      "catalog_sha256": "01c62bde4e749426828378ccafc0745a9804685d5a90362de5ca98a20aad4169",
+      "latest_path": "provider_catalogs/elevenlabs.json",
+      "record_count": 49,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
       "legacy_source_archive": null,
       "archive_reference": null
     },
@@ -436,6 +664,28 @@
         "state": "not_applicable",
         "reason": "API/feed responses are not public page captures"
       }
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "source_url": "https://developer.ideogram.ai/ideogram-api/api-overview",
+      "source_urls": [
+        "https://developer.ideogram.ai/ideogram-api/api-overview"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "0f8d3a241efc597a29f329686db2d84ccc39b367ceeeb5851a13a70afd32bded",
+      "catalog_sha256": "1e851a54a4218b690674d128638347edbc54094510ffee34778e87588fb996a8",
+      "latest_path": "provider_catalogs/ideogram.json",
+      "record_count": 11,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     },
     {
       "id": "meta",
@@ -651,13 +901,13 @@
       ],
       "source_kind": "api",
       "fallback_reason": null,
-      "source_sha256": "a1ae4b286109052e577970fb89d65ff242b61cedda5aeca153ec6cc2023f6982",
-      "catalog_sha256": "679c2efd1bbd6bd4c0233caccdc3e20e92969a5bab22ecf45bc6cba030f6c742",
+      "source_sha256": "82b08ba5f20732c1c0d6c6ef543edafa7574ca779f871042d4a6bf4188c87cae",
+      "catalog_sha256": "ddff251e85964027653fe4d56fa7374708481b4d57ece58059550602a0ec8933",
       "latest_path": "provider_catalogs/openrouter.json",
-      "record_count": 451,
-      "revision": 40,
+      "record_count": 455,
+      "revision": 41,
       "first_seen_at": "2026-10-06T16:59:50Z",
-      "last_seen_at": "2026-11-03T14:15:48Z",
+      "last_seen_at": "2026-11-04T11:19:31Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "collection_scope": "inventory_and_reviewed_quotes",
@@ -714,6 +964,52 @@
         "state": "not_applicable",
         "reason": "API/feed responses are not public page captures"
       }
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity API",
+      "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
+      "source_urls": [
+        "https://docs.perplexity.ai/docs/getting-started/pricing.md",
+        "https://docs.perplexity.ai/docs/agent-api/models.md",
+        "https://docs.perplexity.ai/docs/router/models.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "422916a939a736b84906a39542ac1dc9a983f248cf08a1caf79628460d682a7c",
+      "catalog_sha256": "2a8e50197c8ed0af3dfc46020e9ddaaca9b16ec6a027367235d98decf93c8924",
+      "latest_path": "provider_catalogs/perplexity.json",
+      "record_count": 54,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "source_url": "https://docs.dev.runwayml.com/guides/pricing.md",
+      "source_urls": [
+        "https://docs.dev.runwayml.com/guides/pricing.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "726c9d905edb75ccb9eb9696652ecc57909652e9ec6caa4bd0eb7f1e5dc0d195",
+      "catalog_sha256": "b95774c2696da848dd45fcf0b156de5d2bc4610f5b9155791eff36c3bf944cc8",
+      "latest_path": "provider_catalogs/runway.json",
+      "record_count": 132,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
     },
     {
       "id": "scaleway",
@@ -779,6 +1075,72 @@
       ]
     },
     {
+      "id": "stability",
+      "name": "Stability AI",
+      "source_url": "https://platform.stability.ai/pricing",
+      "source_urls": [
+        "https://platform.stability.ai/pricing"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "224fb9e6c0e9ac449140df0a2fda75e8bc1aaf810bce9f35b4fed63366c85ca3",
+      "catalog_sha256": "3cf5b8ea7df1c7504c147558af602d215053b632936c69c3eca5a52c87773c89",
+      "latest_path": "provider_catalogs/stability.json",
+      "record_count": 26,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "stepfun",
+      "name": "StepFun",
+      "source_url": "https://platform.stepfun.ai/docs/en/guides/pricing/details.md",
+      "source_urls": [
+        "https://platform.stepfun.ai/docs/en/guides/pricing/details.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "89161b87a6b81f7dc1c3452abe2ddc46750441f479e838a1d48bbbe91f6daede",
+      "catalog_sha256": "d8d6414fb9da4f21b4b661a9f84a1d29b5ddb851f18e272ec9833e70f62f599f",
+      "latest_path": "provider_catalogs/stepfun.json",
+      "record_count": 37,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "telnyx",
+      "name": "Telnyx Inference",
+      "source_url": "https://telnyx.com/pricing/inference-api",
+      "source_urls": [
+        "https://telnyx.com/pricing/inference-api"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "c2761488891a8598272f09bdc54ebaf4299a67664d9a77db5edb611c9950e25f",
+      "catalog_sha256": "fe70ffeb4e9783973b365ff4acbe177a2f8bd22af0993fb5e6397c19df7d1565",
+      "latest_path": "provider_catalogs/telnyx.json",
+      "record_count": 20,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "together",
       "name": "Together AI",
       "source_url": "https://docs.together.ai/docs/serverless-models",
@@ -817,6 +1179,53 @@
       }
     },
     {
+      "id": "typesafe",
+      "name": "TypeSafe",
+      "source_url": "https://docs.typesafe.ai/models.md",
+      "source_urls": [
+        "https://docs.typesafe.ai/models.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "c7ae39208b28d7d1763214f8b379cef391dea24e522490fc0be96fd21bf3c1c5",
+      "catalog_sha256": "deae5d9bdf02389d50071b27456e901deab4367ca874eff0af705487aaccae54",
+      "latest_path": "provider_catalogs/typesafe.json",
+      "record_count": 9,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "not_applicable",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_only",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
+      "id": "upstage",
+      "name": "Upstage",
+      "source_url": "https://www.upstage.ai/pricing/api",
+      "source_urls": [
+        "https://www.upstage.ai/pricing/api",
+        "https://console.upstage.ai/docs/models.md",
+        "https://console.upstage.ai/docs/models/solar-pro-4.md",
+        "https://console.upstage.ai/docs/models/solar-mini-4.md"
+      ],
+      "source_kind": "documentation",
+      "fallback_reason": null,
+      "source_sha256": "fbe325d0d3dd095430ccb8e604a3ddd5f4028792d977be7fa4872960398a947f",
+      "catalog_sha256": "53e47a285e46e4681274b4bb686f5008e57a46a9e7f365884d8efdf687471dfe",
+      "latest_path": "provider_catalogs/upstage.json",
+      "record_count": 4,
+      "revision": 3,
+      "first_seen_at": "2026-11-04T11:19:31Z",
+      "last_seen_at": "2026-11-04T11:39:11Z",
+      "curated_parser_state": "ok",
+      "curated_parser_error": null,
+      "collection_scope": "inventory_and_reviewed_quotes",
+      "legacy_source_archive": null,
+      "archive_reference": null
+    },
+    {
       "id": "vercel",
       "name": "Vercel AI Gateway",
       "source_url": "https://ai-gateway.vercel.sh/v1/models",
@@ -825,13 +1234,13 @@
       ],
       "source_kind": "api",
       "fallback_reason": null,
-      "source_sha256": "16bdff65be5b5b6d776ad28bd4ea2ce287cffd442c2fce8b8a48677ae3ec298e",
-      "catalog_sha256": "696c3805900e26217f556a4c38f97d50b8664b36cfc4a9cbd00ccc09ad0cb6a5",
+      "source_sha256": "239e5cb3d67f3cf77671b8a5a68d5c2876d466bd4a6a7ba8c3f0728d3bb43a9a",
+      "catalog_sha256": "16ae69ea43db497e2aaa35024c25b7a636a93fa3ae700db43bfd02909fe836a2",
       "latest_path": "provider_catalogs/vercel.json",
-      "record_count": 497,
-      "revision": 30,
+      "record_count": 498,
+      "revision": 31,
       "first_seen_at": "2026-10-06T16:59:50Z",
-      "last_seen_at": "2026-11-03T14:15:48Z",
+      "last_seen_at": "2026-11-04T11:19:31Z",
       "curated_parser_state": "ok",
       "curated_parser_error": null,
       "collection_scope": "inventory_and_reviewed_quotes",

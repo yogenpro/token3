@@ -107,7 +107,7 @@ export type ChangeCategory = NativeChange['category'];
 export function accessKind(provider: string): CatalogProvider['access'] {
   if (['openrouter', 'vercel', 'huggingface'].includes(provider)) return 'Gateway';
   if (['azure', 'vertex', 'bedrock', 'oracle'].includes(provider)) return 'Managed cloud';
-  if (['snowflake', 'databricks', 'cloudflare', 'scaleway'].includes(provider)) return 'Platform';
+  if (['snowflake', 'databricks', 'cloudflare', 'scaleway', 'castform', 'perplexity'].includes(provider)) return 'Platform';
   return 'Direct API';
 }
 export function jsonText(value: unknown): string {

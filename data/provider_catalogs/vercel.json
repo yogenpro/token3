@@ -1101,8 +1101,7 @@
       "billing": {
         "rules": {
           "input": "0.00000135",
-          "output": "0.0000054",
-          "varies_by_provider": true
+          "output": "0.0000054"
         },
         "currency": "USD",
         "state": "reported",
@@ -1167,7 +1166,7 @@
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -5013,6 +5012,9 @@
           ]
         },
         "reasoning_options": [
+          {
+            "type": "toggle"
+          },
           {
             "type": "effort",
             "values": [
@@ -11088,8 +11090,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0",
-          "output": "0"
+          "input": "0.0000003",
+          "input_cache_read": "0.00000006",
+          "output": "0.0000009"
         },
         "currency": "USD",
         "state": "reported",
@@ -11099,16 +11102,23 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0",
+          "amount": "0.0000009",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -18582,7 +18592,7 @@
       "provider": "vercel",
       "native_id": "tencent/hy3",
       "kind": "model",
-      "label": "Hy3",
+      "label": "Tencent Hy3",
       "scope": {},
       "billing": {
         "rules": {
@@ -18620,7 +18630,7 @@
         }
       ],
       "metadata": {
-        "name": "Hy3",
+        "name": "Tencent Hy3",
         "owned_by": "tencent",
         "type": "language",
         "context_window": 262144,
@@ -18660,7 +18670,7 @@
           }
         ],
         "zdr": "none",
-        "no_training": "some"
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -19169,6 +19179,95 @@
             "image"
           ]
         },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-672102754719da95cd4cbeaa",
+      "provider": "vercel",
+      "native_id": "tencent/hy4",
+      "kind": "model",
+      "label": "Tencent Hy4",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000417",
+          "input_cache_read": "0.000000021",
+          "output": "0.0000012505"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000417",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000012505",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000021",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Tencent Hy4",
+        "owned_by": "tencent",
+        "type": "language",
+        "context_window": 1024000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "high"
+            ]
+          }
+        ],
         "zdr": "none",
         "no_training": "none"
       },
@@ -32999,8 +33098,7 @@
       "billing": {
         "rules": {
           "input": "0.00000022",
-          "output": "0.00000088",
-          "varies_by_provider": true
+          "output": "0.00000088"
         },
         "currency": "USD",
         "state": "reported",
@@ -33051,7 +33149,7 @@
             "text"
           ]
         },
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -36499,8 +36597,7 @@
         "rules": {
           "input": "0.00000025",
           "input_cache_read": "0.00000013",
-          "output": "0.00000095",
-          "varies_by_provider": true
+          "output": "0.00000095"
         },
         "currency": "USD",
         "state": "reported",
@@ -36575,7 +36672,7 @@
           }
         ],
         "zdr": "none",
-        "no_training": "some"
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -37247,9 +37344,9 @@
             "input_cache_read": "0.00000056",
             "output": "0.0000088"
           },
-          "input": "0.0000008",
-          "input_cache_read": "0.00000016",
-          "output": "0.00000255",
+          "input": "0.0000014",
+          "input_cache_read": "0.00000014",
+          "output": "0.0000044",
           "regional": {
             "us": {
               "fast": {
@@ -37272,21 +37369,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000008",
+          "amount": "0.0000014",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000255",
+          "amount": "0.0000044",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000016",
+          "amount": "0.00000014",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -44109,37 +44206,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000066",
-          "input_cache_read": "0.000000022",
-          "output": "0.00000198",
-          "peak_pricing": {
-            "holiday_calendar": "cn",
-            "multiplier": 2,
-            "windows": [
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 240,
-                "start_minute_utc": 60
-              },
-              {
-                "days_of_week": [
-                  1,
-                  2,
-                  3,
-                  4,
-                  5
-                ],
-                "end_minute_utc": 600,
-                "start_minute_utc": 360
-              }
-            ]
-          },
+          "input": "0.00000132",
+          "input_cache_read": "0.000000132",
+          "output": "0.00000396",
           "regional": {
             "us": {
               "input": "0.00000132",
@@ -44157,21 +44226,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000066",
+          "amount": "0.00000132",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000198",
+          "amount": "0.00000396",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000022",
+          "amount": "0.000000132",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -44181,8 +44250,8 @@
         "name": "DeepSeek V4 Pro",
         "owned_by": "deepseek",
         "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 384000,
+        "context_window": 1048600,
+        "max_tokens": 1048600,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -44697,9 +44766,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.000000076",
-          "input_cache_read": "0.000000014",
-          "output": "0.000000153",
+          "input": "0.00000013",
+          "input_cache_read": "0.000000028",
+          "output": "0.00000026",
           "regional": {
             "us": {
               "input": "0.00000013",
@@ -44717,21 +44786,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.000000076",
+          "amount": "0.00000013",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000000153",
+          "amount": "0.00000026",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000014",
+          "amount": "0.000000028",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -45365,16 +45434,13 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "696c3805900e26217f556a4c38f97d50b8664b36cfc4a9cbd00ccc09ad0cb6a5",
-  "revision": 30,
-  "changed_at": "2026-11-03T14:15:48Z",
+  "catalog_sha256": "16ae69ea43db497e2aaa35024c25b7a636a93fa3ae700db43bfd02909fe836a2",
+  "revision": 31,
+  "changed_at": "2026-11-04T11:19:31Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "16bdff65be5b5b6d776ad28bd4ea2ce287cffd442c2fce8b8a48677ae3ec298e",
-  "archive_reference": {
-    "state": "not_applicable",
-    "reason": "API/feed responses are not public page captures"
-  }
+  "source_sha256": "239e5cb3d67f3cf77671b8a5a68d5c2876d466bd4a6a7ba8c3f0728d3bb43a9a",
+  "archive_reference": null
 }

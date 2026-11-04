@@ -12,7 +12,7 @@ const selected = [
 
 test('requested models and additional recent families have reviewed comparisons', async ({ page }) => {
   await page.goto('./');
-  await expect(page.getByLabel('SELECT A MODEL').locator('option')).toHaveCount(103);
+  await expect(page.getByLabel('SELECT A MODEL').locator('option')).toHaveCount(169);
   for (const id of selected) {
     await page.getByLabel('SELECT A MODEL').selectOption(id);
     await expect(page.getByTestId('offering-row').first()).toBeVisible();
@@ -49,6 +49,31 @@ test('Haiku 5.5 fully cached requests use the correct 100K prompt band', async (
   await page.getByRole('spinbutton', { name: 'Input tokens per request' }).fill('100001');
   await expect(winners.first()).toContainText('Prompt >100K');
   await expect(page.getByText('Outside prompt band').first()).toBeVisible();
+});
+
+test('expanded billing sources and unverified weights remain explicit without native downloads', async ({ page }) => {
+  const nativeRequests: string[] = [];
+  page.on('request', (request) => { if (request.url().includes('/catalog/')) nativeRequests.push(request.url()); });
+  await page.goto('./');
+  for (const [model, provider] of [
+    ['upstage/solar-pro4-260806', 'Upstage'], ['perplexity/sonar-agent', 'Perplexity API'],
+    ['qwen/qwen3.5-4b', 'Castform'], ['openai/gpt-oss-120b', 'Cerebras'], ['zai/glm-5.3-flash', 'Arcee AI'],
+  ]) {
+    await page.getByLabel('SELECT A MODEL').selectOption(model);
+    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
+  }
+  await page.getByLabel('SELECT A MODEL').selectOption('stepfun/step-5-preview');
+  await expect(page.locator('.model-meta')).toContainText('Weights unverified');
+  await expect(page.locator('.model-meta')).not.toContainText('Proprietary');
+  await expect(page.getByTestId('offering-row').first()).toContainText('Gateway access');
+  expect(nativeRequests).toEqual([]);
+  for (const theme of ['light', 'dark']) {
+    await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
+    expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
+  }
+  await page.goto('./?view=models');
+  await page.getByRole('textbox', { name: 'Search models', exact: true }).fill('Step 5 Preview');
+  await expect(page.locator('.explorer-table tbody')).toContainText('Weights unverified');
 });
 
 test('gateway prices stay gateway-labeled and preserve service tiers and scope', async ({ page }) => {

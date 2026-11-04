@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from providers.common import Collection
 from providers.expanded import INVENTORY_PROVIDERS, _listing, _oracle, _scaleway, _snowflake_pdf
+from providers.coverage_expansion import PUBLIC_SOURCES
 from scripts.catalog_inventory import canonical, normalize_inventory
 from scripts.collect import PROVIDERS, run
 
@@ -33,9 +34,10 @@ def normalize(provider, payload=None):
 
 class ExpandedInventoryTests(unittest.TestCase):
     def test_all_fifteen_expanded_sources_keep_native_records_comparison_ineligible(self):
-        self.assertEqual(len(INVENTORY_PROVIDERS), 15)
-        self.assertEqual(len(PROVIDERS), 29)
-        for provider in INVENTORY_PROVIDERS:
+        self.assertEqual(len(FIXTURES), 15)
+        self.assertEqual(set(INVENTORY_PROVIDERS), set(FIXTURES) | set(PUBLIC_SOURCES))
+        self.assertEqual(len(PROVIDERS), 47)
+        for provider in FIXTURES:
             with self.subTest(provider=provider):
                 document, fingerprint = normalize(provider)
                 self.assertTrue(document['records'])

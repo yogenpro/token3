@@ -207,3 +207,6 @@ INVENTORY_PROVIDERS = {
         fetch_source="https://api-docs.deepseek.com/quick_start/pricing/",
         scope_note="Official public API model/price table with cache hit/miss, output and model-version conditions. Row/column orientation is source-native, not guessed canonical model equivalence."),
 }
+
+from .coverage_expansion import PUBLIC_SOURCES
+INVENTORY_PROVIDERS.update(PUBLIC_SOURCES)

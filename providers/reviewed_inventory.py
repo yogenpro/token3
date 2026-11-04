@@ -8,8 +8,9 @@ from .common import number, observation, provider_aliases
 from .public_pricing import require_models, unique_records
 
 from .comparison_expansion import PROVIDERS as EXPANDED_COMPARISON_PROVIDERS
+from .coverage_quotes import REVIEWED_PROVIDERS as COVERAGE_REVIEWED_PROVIDERS
 
-REVIEWED_INVENTORY_PROVIDERS = frozenset(("vercel",)) | EXPANDED_COMPARISON_PROVIDERS
+REVIEWED_INVENTORY_PROVIDERS = frozenset(("vercel",)) | EXPANDED_COMPARISON_PROVIDERS | COVERAGE_REVIEWED_PROVIDERS
 TOKEN_FIELDS = ("input", "output", "input_cache_read", "input_cache_write")
 
 

@@ -7,6 +7,7 @@ import prices from '../../data/latest_prices.json';
 import history from '../../data/price_history.json';
 import changes from '../../data/changes.json';
 import status from '../../data/status.json';
+import coverageReview from '../../tests/fixtures/provider-model-expansion/review.json';
 
 const data = datasetSchema.parse({ models, offerings, prices, history, changes, status });
 const requested = ['anthropic/claude-opus-5.5', 'anthropic/claude-fable-5', 'anthropic/claude-fable-5.1', 'openai/gpt-6.1-sol', 'openai/gpt-6-luna', 'openai/gpt-6-astra'];
@@ -26,7 +27,7 @@ function boundary(model: string, short: number, long: number) {
 
 describe('explicit recent-model comparison expansion', () => {
   it('has real reviewed quotes for requested models and every retained canonical identity', () => {
-    expect(data.models).toHaveLength(103);
+    expect(data.models).toHaveLength(169);
     for (const id of requested) {
       expect(data.models.some((m) => m.id === id)).toBe(true);
       const rows = rankOfferings(data, id, defaultWorkload);
@@ -73,7 +74,7 @@ describe('explicit recent-model comparison expansion', () => {
     for (const provider of ['azure', 'bedrock', 'vertex'])
       expect(data.offerings.some((o) => o.model_id === 'openai/gpt-6-astra' && o.provider === provider)).toBe(false);
     expect(new Set(data.offerings.filter((o) => o.provider === 'openrouter').map((o) => o.provider_model_id)))
-      .toEqual(new Set(['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta-llama/llama-3.3-70b-instruct']));
+      .toEqual(new Set(['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'meta-llama/llama-3.3-70b-instruct', ...Object.keys(coverageReview.reviewed_bindings.openrouter)]));
     expect(data.offerings.some((o) => o.provider === 'novita' && o.model_id === 'minimax/minimax-m3')).toBe(false);
     expect(new Set(data.offerings.filter((o) => o.model_id === 'xai/grok-4.7').map((o) => o.provider))).toEqual(new Set(['vercel', 'xai']));
     expect(data.models.find((m) => m.id === 'anthropic/claude-mythos-5.1')?.description).toContain('Limited availability');

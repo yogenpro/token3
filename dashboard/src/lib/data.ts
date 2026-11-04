@@ -9,7 +9,7 @@ const timestamp = z.iso.datetime();
 const rate = z.number().finite().nonnegative();
 const modelSchema = z.object({
   id: z.string(), creator: z.string(), name: z.string(), version: z.string(),
-  family: z.string(), open_weight: z.boolean(), description: z.string(),
+  family: z.string(), open_weight: z.boolean().nullable(), description: z.string(),
   lifecycle: z.enum(['current', 'legacy', 'preview']).optional(), documentation_url: url.optional(),
 });
 const offeringSchema = z.object({
@@ -80,6 +80,9 @@ export const datasetSchema = z.object({
 });
 
 export type Model = z.infer<typeof modelSchema>;
+export function weightLabel(model: Pick<Model, 'open_weight'>) {
+  return model.open_weight === null ? 'Weights unverified' : model.open_weight ? 'Open weights' : 'Proprietary';
+}
 export type Offering = z.infer<typeof offeringSchema>;
 export type Price = z.infer<typeof priceSchema>;
 export type Change = z.infer<typeof changeSchema>;
@@ -127,6 +130,24 @@ export const providers: Record<string, { name: string; color: string; initials: 
   meta: { name: 'Meta Model API', color: '#1765c1', initials: 'M' },
   mistral: { name: 'Mistral API', color: '#9b461a', initials: 'Mi' },
   moonshot: { name: 'Moonshot AI', color: '#575b68', initials: 'MS' },
+  cohere: { name: 'Cohere', color: 'var(--muted)', initials: 'Co' },
+  ai21: { name: 'AI21', color: 'var(--muted)', initials: '21' },
+  perplexity: { name: 'Perplexity API', color: 'var(--muted)', initials: 'Px' },
+  cerebras: { name: 'Cerebras', color: 'var(--muted)', initials: 'Ce' },
+  castform: { name: 'Castform', color: 'var(--muted)', initials: 'Ca' },
+  arcee: { name: 'Arcee AI', color: 'var(--muted)', initials: 'Ar' },
+  stepfun: { name: 'StepFun', color: 'var(--muted)', initials: 'St' },
+  upstage: { name: 'Upstage', color: 'var(--muted)', initials: 'Up' },
+  telnyx: { name: 'Telnyx Inference', color: 'var(--muted)', initials: 'Tx' },
+  typesafe: { name: 'TypeSafe', color: 'var(--muted)', initials: 'TS' },
+  blackforestlabs: { name: 'Black Forest Labs', color: 'var(--muted)', initials: 'BF' },
+  runway: { name: 'Runway', color: 'var(--muted)', initials: 'RW' },
+  stability: { name: 'Stability AI', color: 'var(--muted)', initials: 'SA' },
+  ideogram: { name: 'Ideogram', color: 'var(--muted)', initials: 'Id' },
+  elevenlabs: { name: 'ElevenLabs', color: 'var(--muted)', initials: 'EL' },
+  byteplus: { name: 'BytePlus ModelArk', color: 'var(--muted)', initials: 'BP' },
+  adobe: { name: 'Adobe Firefly API', color: 'var(--muted)', initials: 'Ad' },
+  baidu: { name: 'Baidu Qianfan', color: 'var(--muted)', initials: 'Bq' },
 };
 export function providerInfo(id: string) {
   return providers[id] ?? { name: id, color: '#6b7280', initials: id.slice(0, 2) };

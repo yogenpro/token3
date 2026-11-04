@@ -38,7 +38,7 @@ class CoverageReviewTests(unittest.TestCase):
         added = set(json.loads((FIXTURES / 'new-model-ids.json').read_text()))
         self.assertEqual(len(added), 58)
         baseline = json.loads((FIXTURES.parent / 'reviewed-bindings-2026-10-26.json').read_text())
-        self.assertEqual({m['id'] for m in self.models}, set(baseline['model_ids']) | added)
+        self.assertLessEqual(set(baseline['model_ids']) | added, {m['id'] for m in self.models})
         records = [r for p in ('openai', 'anthropic', 'gemini', 'mistral', 'meta', 'moonshot', 'xai', 'zai', 'alibaba', 'deepinfra') for r in self.rows(p)]
         normalized = [normalize(r, self.aliases, TIME, HASH)[0] for r in records]
         self.assertEqual({o['model_id'] for o in normalized} & added, added)

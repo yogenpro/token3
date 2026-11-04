@@ -1,0 +1,1846 @@
+<!DOCTYPE html><!-- Last Published: Tue Nov 03 2026 14:28:45 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.upstage.ai" data-wf-page="6908acb8f0cdae1c75a55e73" data-wf-site="6743d5190bb2b52f38e99e37" lang="en"><head><meta charset="utf-8"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>Pricing | Upstage AI</title><link rel="alternate" hrefLang="x-default" href="https://www.upstage.ai/pricing/api"/><link rel="alternate" hrefLang="en" href="https://www.upstage.ai/pricing/api"/><link rel="alternate" hrefLang="ko" href="https://www.upstage.ai/pricing/api"/><meta content="Pricing | Upstage AI" property="og:title"/><meta content="Pricing | Upstage AI" name="twitter:title"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="ExS1EMXMeLd-0wFBCqo63xAO_htRvieP7hU0DvbpF0M" name="google-site-verification"/><link href="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/css/upstage-staging.webflow.shared.31ad9954b.css" rel="stylesheet" type="text/css" integrity="sha384-Ma2ZVLe7/rJERXaKp3U5z3NvKeLbk6Ea8H/eDRpmP7qze/yI1ghAZviivwZVHHUS" crossorigin="anonymous"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Geist:300,400,500,600,700","Noto Sans JP:300,400,500,600,700","Noto Sans KR:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6748713db65988aab4e2dbf7_G.WEB.svg" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6761994342af9b1ae6a14b36_upstage%20symbol_social%20profiel(256px).png" rel="apple-touch-icon"/><link href="https://www.upstage.ai/pricing/api" rel="canonical"/><!-- Consent Mode 초기화
+     최종 수정: 2026-08-06 (종원)
+     - url_passthrough 추가 — 거부 상태에서도 광고 클릭 ID 유지
+     - localStorage 파싱에 try/catch 추가
+       (저장값이 깨지면 예외로 스크립트 전체가 중단되고
+        consent default 없이 GTM이 로드되던 버그)
+     - 첫 방문 분기에 wait_for_update: 500 추가
+       ※ 사람이 배너를 클릭하는 수 초는 못 기다림.
+         "첫 방문 시 동의한 그 페이지의 히트 손실"은 별건 —
+         동의 승인 시 page_view 재발화(GTM 작업) 필요
+     - 재방문 분기에 ads_data_redaction 누락 보완
+     원본 백업 보관 중
+-->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+ 
+// 광고 클릭 ID를 페이지 간 URL 파라미터로 전달 (저장 아님 / 동의 무관)
+gtag('set', 'url_passthrough', true);
+ 
+// 저장된 동의 정보 읽기 — 깨져 있어도 스크립트가 죽지 않도록 방어
+var storedConsent = null;
+try {
+  storedConsent = JSON.parse(localStorage.getItem('consentMode'));
+} catch (e) {
+  storedConsent = null;
+}
+ 
+if (!storedConsent) {
+  // 첫 방문: 기본값 모두 denied (GDPR 준수)
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'denied',
+    'security_storage': 'granted',  // 보안 쿠키는 항상 허용
+    'wait_for_update': 500
+  });
+  gtag('set', 'ads_data_redaction', true);
+} else {
+  // 재방문: 이전 동의 정보 복원
+  gtag('consent', 'default', storedConsent);
+  gtag('set', 'ads_data_redaction', storedConsent.ad_storage !== 'granted');
+}
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                                                      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-M2LDL34Q');</script>
+<!-- End Google Tag Manager -->
+
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<meta name="naver-site-verification" content="97f82f32eb9eef748292f98244028c2a76629d71" />
+
+<!-- Meta Pixel -->
+<meta name="facebook-domain-verification" content="ud0lasqynrxwcjkl1exzu5ehgxgpa9" />
+
+<!-- Finsweet CMS Slider -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsslider@1/cmsslider.js"></script>
+
+<!-- Finsweet Powerful Rich Text -->
+<script defer src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-richtext@1/richtext.js"></script>
+
+
+<!-- Code block Style start -->
+<style>
+  .w-code-block{
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 100%; 
+  overflow-x: hidden;
+  }
+  
+  code, kbd, pre, samp {
+    font-size: 0.9rem;
+    border-radius: 8px;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere !important;
+    word-break: Break-word !important;
+}
+</style>
+<!-- Code block Style end -->
+
+<!-- Finsweet Cookie Consent start -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/cookie-consent@1/fs-cc.js" fs-cc-mode="opt-in"></script>
+<!-- Finsweet Cookie Consent end -->
+
+<!---- 탭 버튼 외부 버튼 연결(활성화 표시) ---->
+<style>
+  .lang-btn.is-active {
+    font-weight: 600;
+    border: 1px solid gray;
+    border-radius: 100px;
+    padding: 9 20 9 20;
+    /* text-decoration: underline; */
+    color: #000; /* 필요 시 강조 색상 */
+  }
+</style>
+ <style>
+/* CMS pricing cards.
+   CMS 필드는 맨 숫자(0.30)와 맨 단위(1M tokens)만 갖는다 - 계산기가 파싱해야 하므로.
+   통화기호와 슬래시는 여기서 붙이고, 값과 단위를 inline으로 만들어 한 줄에 앉힌다.
+   굵기는 원래 <strong>이 주던 것인데 인라인 태그는 CMS 바인딩을 못 달아 여기로 옮겼다.
+   크기(1.25rem)도 마찬가지 - .text-size-medium 클래스가 이름 충돌로 API에서 적용되지
+   않아 같은 값을 여기에 적었다. Designer에서 클래스를 직접 붙일 수 있게 되면 이 두 줄은
+   지워도 된다. */
+[data-rate] {
+  display: inline;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+}
+[data-rate]::before {
+  content: "$";
+}
+
+[data-rate-unit] {
+  display: inline;
+  margin-left: 4px;
+}
+[data-rate-unit]::before {
+  content: "/ ";
+}
+
+/* 값이 비면 장식도 없다 */
+[data-rate]:empty::before,
+[data-rate-unit]:empty::before {
+  content: none;
+}
+
+[data-rate], [data-rate-unit] {
+  white-space: nowrap;
+}
+
+/* 단가가 하나뿐인 모델(Solar Mini, Embed, Embed 2)은 라벨을 조건부로 숨긴다.
+   행이 space-between이라 자식이 하나만 남으면 가격이 왼쪽으로 붙어 위 카드들과
+   열이 어긋난다. 마지막 자식을 오른쪽으로 밀어 열을 맞춘다. */
+.pricing-feature-v2 > :last-child {
+  margin-left: auto;
+}
+
+/* Collection List가 카드 사이 간격을 삼킨다. .model-card는 grid이고 row-gap을
+   변수로 갖는데, 카드가 리스트 안으로 들어가면 리스트 래퍼 하나만 grid item이 되고
+   그 안의 아이템들은 gap 없이 붙는다. 세 겹을 display:contents로 없애 카드 자체가
+   다시 grid item이 되게 한다 - 이러면 브레이크포인트별 gap 값을 옮겨 적을 필요가 없다. */
+.model-card > .w-dyn-list,
+.model-card .w-dyn-items,
+.model-card .w-dyn-item {
+  display: contents;
+}
+
+/* 설명 아래 각주 박스. CMS Notice에 바인딩돼 있다. 이탤릭은 원래 <em>이 주던 것.
+   대부분의 모델은 각주가 없고, 빈 박스는 배경과 패딩만 칠하므로 마지막 규칙이
+   빈 박스를 지운다. :has를 모르는 브라우저에서는 각주가 보이는 쪽으로 기운다. */
+[data-notice-box] {
+  margin-top: 16px;
+}
+[data-notice-box] > div {
+  font-style: italic;
+}
+[data-notice-box]:not(:has(> :not(:empty))) {
+  display: none;
+}
+
+/* 배지(New/Beta)가 없는 모델은 알약이 빈 채로 남는다. */
+.new-pill:has(.new-pill-text.w-dyn-bind-empty),
+.new-pill:has(.new-pill-text:empty) {
+  display: none;
+}
+
+/* 프로모션 값은 숨긴 요소에 실려 다닌다 - API가 CMS 필드를 커스텀 속성 값에
+   바인딩하지 못하기 때문. 스크립트가 textContent로 읽는다.
+   이 규칙이 없으면 카드에 ISO 날짜와 단가가 그대로 찍힌다. */
+[data-promo] {
+  display: none;
+}
+
+/* 프로모션 페이즈. 스크립트는 카드에 data-phase만 찍는다. 아래는 전부 표현이라
+   프로모션이 끝날 때 DOM을 되돌릴 일이 없다. */
+s[data-was] {
+  font-size: 14px;
+  font-weight: 400;
+  color: #70757F;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+[data-phase="free"] [data-rate]::before {
+  content: none;
+}
+[data-phase="free"] [data-rate-unit] {
+  display: none;
+}
+
+/* 2단 요금이 없는 모델(Document OCR엔 Enhanced가 없다)도 행 마크업은 그대로
+   실려 온다. Webflow는 바인딩된 값에 w-dyn-bind-empty만 붙인다. 두면 툴팁 아이콘과
+   "/ Page"만 덩그러니 남는다. 행과 그 위 구분선, 그리고 2단이 있을 때만 유효한
+   auto 모드 문구를 숨긴다. :has는 중첩이 안 되므로 구분선 규칙은 자손 결합자로 뻗는다. */
+.pricing-feature-v2:has([data-rate].w-dyn-bind-empty) {
+  display: none;
+}
+.line-divider:has(+ .pricing-feature-v2 [data-rate].w-dyn-bind-empty) {
+  display: none;
+}
+.pricing-wrap:has([data-rate="enhanced"].w-dyn-bind-empty) .mode-description-wrap {
+  display: none;
+}
+</style>
+
+<!--style>
+  /* 가격 텍스트를 언제나 굵게(볼드) — JS가 textContent를 교체해도 유지됨 */
+  .di-input-price,
+  .di-parse-input,
+  .di-ocr-input,
+  .di-ie-input,
+  .di-receipt-input,
+  .di-logistics-input { font-weight: 700; }
+</style-->
+
+<style>
+  /* 두 줄 가격 레이아웃: 모두 볼드, 줄 간격만 살짝 */
+  .di-price-lines { display:flex; flex-direction:column; gap:2px; }
+  .di-price-lines .line-base strong,
+  .di-price-lines .line-enh strong { font-weight:700; }
+  .di-price-lines .line-enh { display:none; } /* 기본은 숨김 */
+  .di-price-lines .line-enh .tag { font-weight:700; } /* (enhanced)도 볼드 */
+</style>
+
+<style>
+/* Enhanced Pricing - Notice Visibility Only */
+
+.promo-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.promo-visible {
+  /* 기존 디자인 그대로 유지 */
+}
+</style>
+
+<!-- hreflang: Pricing - API -->
+<link rel="alternate" hreflang="en" href="https://www.upstage.ai/pricing/api" />
+<link rel="alternate" hreflang="en-us" href="https://us.upstage.ai/pricing/api" />
+<link rel="alternate" hreflang="x-default" href="https://www.upstage.ai/pricing/api" />
+
+<style>
+  html { scroll-padding-top: 100px; }
+</style><script src="https://cdn.jsdelivr.net/npm/@flowbase-co/boosters-tooltip@1.1.2/dist/tooltip.js" type="text/javascript" integrity="sha384-IIHHs5EyPKqUFNFkmDdboHa7DYH7IF6Cv1v2MqazjClAzrfbpMBVPyz6h7nmw5GS" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/@flowbase-co/boosters-tooltip@1.1.0/dist/tooltip.min.js" type="text/javascript" integrity="sha384-8GLx1Yn27bGzxJp9b9B+4vpObvjPzDyCoYPDQTplFhruDbzR/fR4tbtcFniEiPCq" crossorigin="anonymous"></script><script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push.apply(w[g],Array.isArray(i)?i:[i]);})(window,['GTM-M2LDL34Q'],'google_tags_first_party');</script><script async="" src="/9i1h7htkfq16Njc0M2Q1MTkwYmIyYjUyZjM4ZTk5ZTM3/2XPWIl8UOyuaaaPDEJvup-igBqM"></script><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('set', 'developer_id.dYWYxNW', true);gtag('js', new Date());gtag('config', 'GTM-M2LDL34Q');</script><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script></head><body><div class="page-wrapper"><div class="global-styles w-embed"><style>
+
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+
+/* Set color style to inherit */
+.inherit-color * {
+    color: inherit;
+}
+
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+
+
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+ 
+.margin-0 {
+  margin: 0rem !important;
+}
+  
+.padding-0 {
+  padding: 0rem !important;
+}
+
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+  
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+  
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+  
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+  
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+</style></div><div id="top-bar" data-topbar-state="open" class="brix---top-bar-wrapper-4"><div class="w-dyn-list"></div><figure id="close-bar" data-w-id="a194fb8f-0fa3-c67e-10b5-2896fee7bda0" class="brix---top-bar-close-icon-2"><div class="icon-1x1-small w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M6.28033 5.21967C5.98744 4.92678 5.51256 4.92678 5.21967 5.21967C4.92678 5.51256 4.92678 5.98744 5.21967 6.28033L8.93934 10L5.21967 13.7197C4.92678 14.0126 4.92678 14.4874 5.21967 14.7803C5.51256 15.0732 5.98744 15.0732 6.28033 14.7803L10 11.0607L13.7197 14.7803C14.0126 15.0732 14.4874 15.0732 14.7803 14.7803C15.0732 14.4874 15.0732 14.0126 14.7803 13.7197L11.0607 10L14.7803 6.28033C15.0732 5.98744 15.0732 5.51256 14.7803 5.21967C14.4874 4.92678 14.0126 4.92678 13.7197 5.21967L10 8.93934L6.28033 5.21967Z" fill="#374151"/>
+</svg></div></figure></div><div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="uui-navbar07_component w-nav"><div class="uui-navbar07_container"><a href="/" class="uui-navbar07_logo-link w-nav-brand"><div class="uui-logo_component"><img sizes="(max-width: 479px) 100vw, 600px" srcset="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6743f495cc3c0ed693e0b5f3_Logo_Black-p-500.avif 500w, https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6743f495cc3c0ed693e0b5f3_Logo_Black.avif 1000w" alt="Untitled UI logotext" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6743f495cc3c0ed693e0b5f3_Logo_Black.avif" loading="lazy" class="uui-logo_logotype hide-mobile-portrait"/><img loading="lazy" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6743f49549daa3311a34cabb_Symbol_Black.avif" alt="Logo" class="uui-logo_image"/></div></a><nav role="navigation" class="uui-navbar07_menu w-nav-menu"><div class="uui-navbar07_menu-left"><div data-delay="300" data-hover="true" data-w-id="b173083f-fd5c-2f82-8e9c-2ab13447d813" class="uui-navbar07_menu-dropdown w-dropdown"><div class="uui-navbar07_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Products</div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="uui-navbar07_dropdown-list-h"><div class="uui-navbar07_dropdown-link-grid max-width-full mkt2-grid-4"><div class="padding-top"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d81e-3447d80b" class="padding-horizontal-2"><div class="uui-navbar07_item-heading-hover-none-2">Generative intelligence</div><div class="line-divider"></div></div><div class="spacer-small hide-mobile-landscape hide-tablet"></div><a href="https://www.upstage.ai/blog/en/solar-pro-4" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-_8c287ec2-b734-e4f1-189b-858820e251ed-3447d80b" class="uui-navbar07_item-right-2"><div class="div-block-62"><div class="uui-navbar07_item-heading-3">Solar Pro 4</div><div class="notice-pill-3"><div class="text-size-tiny"><span class="text-weight-medium text-color-purple">New</span></div></div></div><p class="uui-navbar07_item-paragraph">Agentic LLM built for multi-step real work: tool calling, terminal tasks, and long-document reasoning</p></div></a><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><a href="https://www.upstage.ai/blog/en/solar-mini-4" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d829-3447d80b" class="uui-navbar07_item-right-2"><div class="div-block-62"><p class="uui-navbar07_item-heading-3">Solar Mini 4</p><div class="notice-pill-3"><div class="text-size-tiny"><p class="text-weight-medium text-color-purple sm4-badge">New</p></div></div></div><p class="uui-navbar07_item-paragraph">Compact model that runs agents at scale: just 3B active parameters for high-frequency, cost-sensitive work</p></div></a><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><a href="https://www.upstage.ai/blog/en/upstage-ai-jp-syn-pro" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d82f-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-3">Syn Pro</div><p class="uui-navbar07_item-paragraph">Top-performing locally trained LLM for Japan</p></div></a></div><div class="padding-top"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d835-3447d80b" class="padding-horizontal-2"><div class="uui-navbar07_item-heading-hover-none-2">Document intelligence</div><div class="line-divider"></div></div><div class="spacer-small hide-mobile-landscape hide-tablet"></div><a href="/products/document-parse" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d83a-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-3">Document Parse</div><p class="uui-navbar07_item-paragraph">Convert complex documents into LLM-readable formats</p></div></a><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><a href="/products/information-extract" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d840-3447d80b" class="uui-navbar07_item-right-2"><div class="div-block-62"><div class="uui-navbar07_item-heading-3">Information Extract</div></div><p class="uui-navbar07_item-paragraph">Extract structured key data from unstructured text</p></div></a></div><div class="padding-top"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d84b-3447d80b" class="padding-horizontal-2"><div class="uui-navbar07_item-heading-hover-none-2">Intelligent spaces</div><div class="line-divider"></div><div class="spacer-small hide-mobile-landscape hide-tablet"></div></div><a href="/products/studio" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d850-3447d80b" class="uui-navbar07_item-right-2"><div class="div-block-62"><div class="uui-navbar07_item-heading-3">Upstage Studio</div></div><p class="uui-navbar07_item-paragraph">Build and run AI agents for document workflows</p></div></a><div class="spacer-small hide-mobile-landscape hide-tablet"></div></div><div class="mkt2-deploy-col"><div class="padding-horizontal-2"><div class="uui-navbar07_item-heading-hover-none-2">Deployment</div><div class="line-divider"></div></div><div class="spacer-small hide-mobile-landscape hide-tablet"></div><a target="_blank" rel="noopener" href="https://console.upstage.ai" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-3">API</div><p class="uui-navbar07_item-paragraph">Build directly with the Upstage API</p></div></a><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><a href="/pricing/marketplace" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-3">Cloud Marketplace</div><p class="uui-navbar07_item-paragraph">Buy and deploy via AWS, Azure, Snowflake</p></div></a><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><a href="/pricing/on-prem" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-3">On-prem</div><p class="uui-navbar07_item-paragraph">Run inside your own infrastructure</p></div></a></div></div></div></nav></div><div data-delay="300" data-hover="true" data-w-id="b173083f-fd5c-2f82-8e9c-2ab13447d860" class="uui-navbar07_menu-dropdown-2 w-dropdown"><div class="uui-navbar07_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Solutions</div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="uui-navbar07_dropdown-list-2 mkt2-panel-auto"><div class="uui-navbar07_dropdown-link-grid max-width-full mkt2-grid-2"><div class="padding-top"><div class="padding-horizontal-2"><div class="uui-navbar07_item-heading-hover-none-2">By industry</div><div class="line-divider"></div></div><div class="uui-navbar07_dropdown-link-list"><a href="/solutions/insurance" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Insurance</div></div></a><a href="/solutions/healthcare" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Healthcare</div></div></a><a href="/solutions/manufacturing" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Manufacturing</div></div></a><a href="/solutions/financial-services" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Financial Services</div></div></a></div></div></div></div></nav></div><div data-delay="300" data-hover="true" data-w-id="b173083f-fd5c-2f82-8e9c-2ab13447d876" class="uui-navbar07_menu-dropdown-2 w-dropdown"><div class="uui-navbar07_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Resources</div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="uui-navbar07_dropdown-list-2"><div class="uui-navbar07_dropdown-link-list"><a href="/customers" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d881-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Customers</div></div></a><a href="/blog" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d885-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Blog</div></div></a><a href="/events" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d889-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Events</div></div></a><a href="/apps" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d88d-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Apps</div></div></a><a href="https://console.upstage.ai/docs/getting-started?utm_source=web-resource&amp;utm_medium=navbar&amp;utm_campaign=documentation-console" target="_blank" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-_3d83abf3-fbab-c702-353e-df5640149d16-3447d80b" class="uui-navbar07_item-right-2 add-arrow"><div class="uui-navbar07_item-heading">Documentation</div><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/675fa396cd722f4681c129e1_arrow-up-right%2032px%202.svg" loading="lazy" alt="" class="top-nav-arrow"/></div></a></div></div></nav></div><div data-delay="300" data-hover="true" data-w-id="b173083f-fd5c-2f82-8e9c-2ab13447d890" class="uui-navbar07_menu-dropdown-2 w-dropdown"><div class="uui-navbar07_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Company</div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="uui-navbar07_dropdown-list-2"><div class="uui-navbar07_dropdown-link-list"><a href="/about" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d89b-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">About Us</div></div></a><a href="/careers" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d89f-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Careers</div></div></a><a href="/partners" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d8a3-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Partners</div></div></a><a href="/news" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d8a7-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading">Newsroom</div></div></a><a href="http://support.upstage.ai/" target="_blank" class="uui-navbar07_dropdown-link-2 w-inline-block"><div id="w-node-b173083f-fd5c-2f82-8e9c-2ab13447d8ab-3447d80b" class="uui-navbar07_item-right-2 add-arrow"><div class="uui-navbar07_item-heading">Support</div><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/675fa396cd722f4681c129e1_arrow-up-right%2032px%202.svg" loading="lazy" alt="" class="top-nav-arrow"/></div></a></div></div></nav></div><div data-delay="300" data-hover="true" data-w-id="9675b396-2e10-20a6-5a5f-c455fd79418b" class="uui-navbar07_menu-dropdown-2 w-dropdown"><div class="uui-navbar07_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div>Pricing</div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="uui-navbar07_dropdown-list-2"><div class="uui-navbar07_dropdown-link-list"><a href="/pricing/api" aria-current="page" class="uui-navbar07_dropdown-link-2 w-inline-block w--current"><div id="w-node-_9675b396-2e10-20a6-5a5f-c455fd794196-3447d80b" class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-10">API</div></div></a><a href="/pricing/studio" class="uui-navbar07_dropdown-link-2 w-inline-block"><div class="uui-navbar07_item-right-2"><div class="uui-navbar07_item-heading-10">Studio</div></div></a></div></div></nav></div></div><div class="uui-navbar07_menu-right"><div class="uui-navbar07_button-wrapper"><a data-gnb-cta="tablet" href="https://console.upstage.ai/playground?utm_source=gnb-button&amp;utm_medium=web-global&amp;utm_campaign=pricing%20plan" target="_blank" class="uui-button-secondary-gray-5 show-tablet w-inline-block">Try demo</a><a data-gnb-cta="desktop" href="https://console.upstage.ai/playground?utm_source=gnb-button&amp;utm_medium=web-global&amp;utm_campaign=pricing%20plan" target="_blank" class="button is-text is-small btn-try-demo-nav hide-tablet hide-mobile-landscape hide-mobile-portrait text-size-regular margin-0 w-inline-block">Try demo</a><a data-w-id="b173083f-fd5c-2f82-8e9c-2ab13447d8c3" href="/contact-us" class="button-2 is-small btn-contact w-inline-block"><div class="text-size-regular-2">Contact us </div></a><div class="language-option w-locales-list"><div role="list" class="w-locales-items"><div role="listitem" class="w-locales-item"></div><div role="listitem" class="w-locales-item"></div></div></div></div><div data-hover="true" data-delay="300" data-w-id="56f269c8-43ab-705a-4a2d-e3a50a1af036" class="lang_menu-dropdown w-dropdown"><div class="lang_dropdown-toggle w-dropdown-toggle"><div class="uui-dropdown-icon-2 w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div class="lang-text-wrapper"><div class="lang-option-text up">🇺🇸</div><div class="lang-option-text brix---hidden-desktop">en</div></div></div><nav class="dropdown-list w-dropdown-list"><div class="spacer-small hide-mobile-landscape hide-tablet"></div><div class="spacer-xsmall hide-mobile-landscape hide-tablet"></div><div class="lang-navbar-dropdown-list w-locales-list"><div role="list" class="lang-navbar-dropdown-link-list w-locales-items"><div role="listitem" class="lang-navbar-item-right w-locales-item"><div class="lang-text-wrapper"><a hreflang="en" href="/pricing/api" aria-current="page" class="lang-option-text up w--current">🇺🇸</a><a hreflang="en" href="/pricing/api" aria-current="page" class="lang-option-text w--current">en</a></div></div><div role="listitem" class="lang-navbar-item-right w-locales-item"><div class="lang-text-wrapper"><a hreflang="ko" href="/ko/pricing/api" class="lang-option-text up">🇰🇷</a><a hreflang="ko" href="/ko/pricing/api" class="lang-option-text">ko</a></div></div></div></div></nav></div></div></nav><div class="uui-navbar07_menu-button w-nav-button"><div class="menu-icon_component"><div class="menu-icon_line-top-2"></div><div class="menu-icon_line-middle-2"><div class="menu-icon_line-middle-inner"></div></div><div class="menu-icon_line-bottom-2"></div></div></div></div></div><main class="main-wrapper"><header class="section-pricing-main-hero background-color-secondary"><div class="padding-global"><div class="container-large"><div data-w-id="07aaf605-620c-b35f-8c4f-5cffe74a6251" style="opacity:0" class="text-align-center"><div class="max-width-full align-center"><div>Pricing</div><h1 class="heading-style-h1">Flexible pricing for every stage of growth</h1><div class="spacer-small"></div></div></div><div class="spacer-huge"></div><div class="spacer-xsmall"></div><div><div data-w-id="07aaf605-620c-b35f-8c4f-5cffe74a6269" style="opacity:0" data-current="Generative intelligence" data-easing="ease" data-duration-in="300" data-duration-out="100" class="model-pricing-tap w-tabs"><div class="model-tabs-menu w-tab-menu"><a data-w-tab="Generative intelligence" class="model-tab w-inline-block w-tab-link w--current"><div class="text-block-38">Generative intelligence</div></a><a data-w-tab="Document intelligence" class="model-tab w-inline-block w-tab-link"><div>Document intelligence</div></a></div><div class="integration-tabs-content w-tab-content"><div data-w-tab="Generative intelligence" class="w-tab-pane w--tab-active"><div class="model-card"><div class="w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-pro-4?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro4" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-pro-4?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro4" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Solar Pro 4</h4><div class="new-pill"><div class="new-pill-text">New</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Agentic LLM built for multi-step real work: tool calling, terminal tasks, and long-document reasoning</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Input</div><div><div class="text-color-black-3"> <div data-rate="input">0.30</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Input(Cached)</div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Save 80% on input tokens" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached">0.06</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Output</div><div><div class="text-color-black-3"> <div data-rate="output">1.20</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data">2026-08-05T22:00:00Z|2026-08-11T00:00:00Z|free
+2026-08-11T00:00:00Z|2026-09-11T00:00:00Z|input=0.03|cached=0.006|output=0.12
+2026-09-11T00:00:00Z|2026-10-20T00:00:00Z|input=0.09|cached=0.018|output=0.36|note=short
+2026-10-20T00:00:00Z||input=0.15|cached=0.03|output=0.60</div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-pro-3?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro3" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-pro-3?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro3" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Solar Pro 3</h4><div class="new-pill"><div class="new-pill-text w-dyn-bind-empty"></div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Optimized large-scale LLM with stronger reasoning and better instruction following</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3">* End of service on 2026-10-30 (KST).</div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Input</div><div><div class="text-color-black-3"> <div data-rate="input">0.15</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Input(Cached)</div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Save 90% on input tokens" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached">0.015</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Output</div><div><div class="text-color-black-3"> <div data-rate="output">0.6</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro2" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-pro2" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Solar Pro 2</h4><div class="new-pill"><div class="new-pill-text w-dyn-bind-empty"></div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">High-performance enterprise LLM for complex reasoning and generation.</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3">* End of service on 2026-10-30 (KST).</div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Input</div><div><div class="text-color-black-3"> <div data-rate="input">0.15</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Input(Cached)</div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Save 90% on input tokens" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached">0.015</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Output</div><div><div class="text-color-black-3"> <div data-rate="output">0.6</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-mini-4?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini4" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/models/solar-mini-4?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini4" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Solar Mini 4</h4><div class="new-pill"><div class="new-pill-text">New</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Compact model that runs agents at scale: just 3B active parameters for high-frequency, cost-sensitive work</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Input</div><div><div class="text-color-black-3"> <div data-rate="input">0.10</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Input(Cached)</div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Save 90% on input tokens" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached">0.01</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Output</div><div><div class="text-color-black-3"> <div data-rate="output">0.40</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data">2026-09-22T05:00:00Z|2026-10-11T00:00:00Z|input=0.03|cached=0.003|output=0.12
+2026-10-11T00:00:00Z|2026-10-23T00:00:00Z|input=0.05|cached=0.005|output=0.20</div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Solar Mini</h4><div class="new-pill"><div class="new-pill-text w-dyn-bind-empty"></div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Small, fast LLM for lightweight reasoning and cost-efficient tasks.</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3">* End of service on 2026-10-30 (KST).</div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="input">0.15</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0 w-dyn-bind-empty"></div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="output" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/embed?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=embed" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/embed?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=embed" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Embed</h4><div class="new-pill"><div class="new-pill-text w-dyn-bind-empty"></div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Embedding model for accurate semantic search and retrieval.</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3">* End of service on 2026-12-31 (UTC). We recommend migrating to Embed 2.</div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="input">0.10</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0 w-dyn-bind-empty"></div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="output" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="solar-pro-4" class="pricing-card-v2"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/embed?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=embed2" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/embed?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=embed2" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>Embed 2</h4><div class="new-pill"><div class="new-pill-text">New</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Our next-generation embedding model — faster retrieval for accurate semantic search.</p><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="input">0.02</div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0 w-dyn-bind-empty"></div><div class="cached-prompts-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3"> <div data-rate="cached" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small w-dyn-bind-empty"></div><div><div class="text-color-black-3"> <div data-rate="output" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">1M tokens</div></div></div></div></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div></div></div><div id="file-search" class="pricing-card-v2 w-node-_2dc91860-dfd3-ff2d-4855-71f44fc39733-75a55e73"><a href="https://console.upstage.ai/docs/capabilities/search/file-search?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=file-search" target="_blank" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a href="https://console.upstage.ai/docs/capabilities/search/file-search?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=file-search" target="_blank" class="model-card-title-wrapper w-inline-block"><div class="api-title-flex"><h4>File Search</h4><div class="beta-pill"><div class="beta-text">Beta</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Search API for natural-language retrieval across<br/>your own documents.</p></a><div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Storage</div></div><div><div class="text-color-black-3"><strong class="text-size-medium">Free</strong></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="text-size-small padding-0">Processing</div><div class="cached-prompts-tooltips"><div fb-tooltip-trigger="hover" fb-tooltip="true" fb-tooltip-animation="shift-away" fb-tooltip-message="Native text files (txt, md, json, code) are free." fb-tooltip-position="top" fb-tooltip-show-delay="500" fb-tooltip-theme="material" class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div><div class="text-color-black-3 text-align-right"><strong class="text-size-medium">Free</strong></div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="text-size-small">Search</div><div><div class="text-color-black-3 text-align-right"><strong class="text-size-medium">Free </strong></div></div></div></div></div></div></div></div><div><div class="spacer-medium"></div><div class="line-divider-small"></div><div class="notice-text-box"><div class="text-size-small">* All prices shown are exclusive of 10% VAT.</div></div></div></div><div data-w-tab="Document intelligence" class="w-tab-pane"><div class="model-card"><div class="w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="w-dyn-item"><div id="document-parse" class="pricing-card-v2 w-node-_098093d5-a3c5-08ba-d4a1-f7de75fa4f88-75a55e73"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/digitize/document-parsing?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document%20parse" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/digitize/document-parsing?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document%20parse" class="model-card-title-wrapper w-inline-block"><h4>Document Parse</h4><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Converts complex documents into structured, LLM-ready formats.</p><div class="spacer-small"></div></a><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall promo-notice"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div>Standard</div><div class="pricing-info-trigger"><div data-rate="standard">0.01</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div>Enhanced</div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Better handling of complex tables, charts, figures, and checkboxes." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="pricing-info-trigger"><div data-rate="enhanced">0.03</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="mode-description-wrap"><div class="spacer-medium"></div><p class="text-size-tiny">Auto mode: Automatically selects Standard or Enhanced per page to optimize cost and accuracy. <a href="https://console.upstage.ai/api/document-digitization/document-parsing?utm_source=text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=dpe" target="_blank" class="link text-color-black">Learn more</a></p></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="document-parse" class="pricing-card-v2 w-node-_098093d5-a3c5-08ba-d4a1-f7de75fa4f88-75a55e73"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/digitize/document-ocr?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document%20ocr" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/digitize/document-ocr?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document%20ocr" class="model-card-title-wrapper w-inline-block"><h4>Document OCR</h4><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Extracts text from any document.</p><div class="spacer-small"></div></a><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall promo-notice"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="w-dyn-bind-empty"></div><div class="pricing-info-trigger"><div data-rate="standard">0.0015</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="w-dyn-bind-empty"></div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="pricing-info-trigger"><div data-rate="enhanced" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="mode-description-wrap"><div class="spacer-medium"></div><p class="text-size-tiny">Auto mode: Automatically selects Standard or Enhanced per page to optimize cost and accuracy. <a href="https://console.upstage.ai/api/document-digitization/document-parsing?utm_source=text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=dpe" target="_blank" class="link text-color-black">Learn more</a></p></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="document-parse" class="pricing-card-v2 w-node-_098093d5-a3c5-08ba-d4a1-f7de75fa4f88-75a55e73"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/classify/document-classification?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document-clasify" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/classify/document-classification?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=document-clasify" class="model-card-title-wrapper w-inline-block"><h4>Document Classify</h4><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Universal classification for any document.</p><div class="spacer-small"></div></a><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall promo-notice"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div class="w-dyn-bind-empty"></div><div class="pricing-info-trigger"><div data-rate="standard">0.004</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div class="w-dyn-bind-empty"></div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="" fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="pricing-info-trigger"><div data-rate="enhanced" class="w-dyn-bind-empty"></div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="mode-description-wrap"><div class="spacer-medium"></div><p class="text-size-tiny">Auto mode: Automatically selects Standard or Enhanced per page to optimize cost and accuracy. <a href="https://console.upstage.ai/api/document-digitization/document-parsing?utm_source=text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=dpe" target="_blank" class="link text-color-black">Learn more</a></p></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div><div role="listitem" class="w-dyn-item"><div id="document-parse" class="pricing-card-v2 w-node-_098093d5-a3c5-08ba-d4a1-f7de75fa4f88-75a55e73"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/extract/universal-extraction?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=information%20extract" class="go-to-document w-inline-block"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M4.5 19.5L19.5 4.5M19.5 4.5L8.25 4.5M19.5 4.5V15.75" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></a><div class="pricing-card-top-v3"><a rel="noopener noreferrer" target="_blank" href="https://console.upstage.ai/docs/capabilities/extract/universal-extraction?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=information%20extract" class="model-card-title-wrapper w-inline-block"><h4>Information Extract</h4><div class="spacer-small"></div><p class="text-color-dark-grey text-size-regular">Extracts structured key fields from any document.</p><div class="spacer-small"></div></a><div data-notice-box="true" class="price-notice-card background-color-tertiary padding-xsmall promo-notice"><div class="text-size-tiny text-color-black-3 w-dyn-bind-empty"></div></div><div class="pricing-wrap"><div class="pricing-feature-v2 _2x1-grid"><div>Standard</div><div class="pricing-info-trigger"><div data-rate="standard">0.04</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="line-divider"></div><div class="pricing-feature-v2 _2x1-grid"><div class="pricing-info-trigger"><div>Enhanced</div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Enhanced processing for complex documents. +50% additional cost." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="pricing-info-trigger"><div data-rate="enhanced">0.06</div><div data-rate-unit="" class="text-size-small padding-0">Page</div></div></div><div class="mode-description-wrap"><div class="spacer-medium"></div><p class="text-size-tiny">Auto mode: Automatically selects Standard or Enhanced per page to optimize cost and accuracy. <a href="https://console.upstage.ai/api/document-digitization/document-parsing?utm_source=text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=dpe" target="_blank" class="link text-color-black">Learn more</a></p></div></div></div><div data-promo="schedule" class="promo-data w-dyn-bind-empty"></div></div></div></div></div></div><div><div class="spacer-medium"></div><div class="line-divider-small"></div><div class="notice-text-box"><div class="text-size-small">* All prices shown are exclusive of 10% VAT.</div></div></div></div><div data-w-tab="Upstage Studio" class="w-tab-pane"><div><div><h4 class="text-align-center">Build and deploy document agents via API.</h4><div class="spacer-small"></div><div class="highlighting padding-xsmall text-color-black-4"><p class="text-align-center margin-0">Every agent includes 10 free runs — test with real documents, no credit card required.</p></div><div class="spacer-small"></div><div class="spacer-small"></div><div class="spacer-small"></div></div><div class="model-card grid-4x1"><div class="pricing-card-v2"><a href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" target="_blank" class="go-to-document w-inline-block"></a><a href="https://console.upstage.ai/docs/studio-and-agents/studio?utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=studio-pricing&amp;utm_term=model card parse" target="_blank" class="pricing-card-top-v3-2 w-inline-block"><div><h4>Parse</h4><div class="spacer-small"></div><p class="text-color-dark-grey-13 text-size-regular">Converts documents into structured, AI-ready data</p></div><div class="mode-wrap"><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div>Standard</div><div class="div-block-152"><div data-promo-until="2026-01-27T23:59:59Z" data-enhanced-factor="3" class="_w-dyn-item"><div class="di-parse-input text-color-black-3"><strong>$0.01</strong></div></div><div class="text-size-small-12 margin-0 padding-0">/ Pages</div></div></div></div><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div class="div-block-152"><div>Enhanced</div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Better handling of complex tables, charts, figures, and checkboxes." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="div-block-152"><div data-promo-until="2026-01-27T23:59:59Z" data-enhanced-factor="3" class="_w-dyn-item"><div class="di-parse-input text-color-black-3"><strong>$0.03</strong></div></div><div class="text-size-small-12 margin-0 padding-0">/ Pages</div></div></div></div></div></a></div><div class="pricing-card-v2"><a href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" target="_blank" class="go-to-document w-inline-block"></a><a href="https://console.upstage.ai/docs/studio-and-agents/studio?utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=studio-pricing&amp;utm_term=model card extract" target="_blank" class="pricing-card-top-v3-2 w-inline-block"><div><h4>Extract</h4><div class="spacer-small"></div><p class="text-color-dark-grey-13 text-size-regular">Identifies and extracts key fields from documents</p></div><div class="mode-wrap"><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div>Standard</div><div class="div-block-152"><div data-promo-until="2026-01-27T23:59:59Z" data-enhanced-factor="3" class="_w-dyn-item"><div class="di-parse-input text-color-black-3"><strong>$0.03</strong></div></div><div class="text-size-small-12 margin-0 padding-0">/ Pages</div></div></div></div><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div class="div-block-152"><div>Enhanced</div><div class="enhanced-tooltips" fb-tooltip-position="top" fb-tooltip-animation="shift-away" fb-tooltip-message="Enhanced processing for complex documents. +50% additional cost." fb-tooltip-theme="dark" fb-tooltip-arrow="rounded" fb-tooltip-show-delay="500" fb-tooltip="true" fb-tooltip-trigger="hover"><div class="code-embed-flex w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M11.25 11.25L11.2915 11.2293C11.8646 10.9427 12.5099 11.4603 12.3545 12.082L11.6455 14.918C11.4901 15.5397 12.1354 16.0573 12.7085 15.7707L12.75 15.75M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM12 8.25H12.0075V8.2575H12V8.25Z" stroke="#374151" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div></div><div class="div-block-152"><div data-promo-until="2026-01-27T23:59:59Z" data-enhanced-factor="3" class="_w-dyn-item"><div class="di-parse-input text-color-black-3"><strong>$0.05</strong></div></div><div class="text-size-small-12 margin-0 padding-0">/ Pages</div></div></div></div></div></a></div><div class="pricing-card-v2"><a href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" target="_blank" class="go-to-document w-inline-block"></a><a href="https://console.upstage.ai/docs/studio-and-agents/studio?utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=studio-pricing&amp;utm_term=model card classify" target="_blank" class="pricing-card-top-v3-2 w-inline-block"><div><div class="api-title-flex"><h4>Classify</h4><div class="beta-pill"><div class="beta-text">Beta</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey-13 text-size-regular">Automatically sorts documents by type</p></div><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div><div class="text-color-black-4"><strong class="solar-mini-input">Free</strong></div></div><div class="text-size-tiny">* Pricing may change</div></div></div></a></div><div class="pricing-card-v2"><a href="https://console.upstage.ai/docs/capabilities/generate/chat?utm_source=model-card&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=solar-mini" target="_blank" class="go-to-document w-inline-block"></a><a href="https://console.upstage.ai/docs/studio-and-agents/studio?utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=studio-pricing&amp;utm_term=model card instruct" target="_blank" class="pricing-card-top-v3-2 w-inline-block"><div><div class="api-title-flex"><h4>Instruct</h4><div class="beta-pill"><div class="beta-text">Beta</div></div></div><div class="spacer-small"></div><p class="text-color-dark-grey-13 text-size-regular">Add custom LLM steps using natural language prompts</p></div><div class="pricing-wrap-4"><div class="line-divider-2"></div><div class="pricing-feature-v2 _2x1-grid"><div><div class="text-color-black-4"><strong class="solar-mini-input">Free</strong></div></div><div class="text-size-tiny">* Pricing may change</div></div></div></a></div></div><div class="padding-small text-align-center"><div><div class="spacer-medium"></div><div class="line-divider-small"></div><div class="notice-text-box"><div class="text-size-small">* Each agent is billed as the sum of the steps it runs. See <a href="#faq" class="text-color-black-4">FAQ</a> for pricing examples. / All prices shown are exclusive of 10% VAT. </div></div></div></div><div class="spacer-huge-3"></div><div class="container-large"><div class="line-divider-2"></div><div class="_2x1-grid-13 align-top"><h2 class="heading-style-h2-9 h2-small text-align-left">Why Upstage Studio?</h2><div id="w-node-d16036cb-ea6b-10ef-e531-13f1694653de-75a55e73" class="button-group-13"><a href="https://studio.upstage.ai/?utm_source=homepage&amp;utm_medium=internal&amp;utm_campaign=studio-pricing&amp;utm_term=cta" target="_blank" class="w-inline-block"><div class="button-20 btn-try-demo-body">Try Studio for free</div></a></div></div><div class="spacer-xlarge"></div><div class="w-layout-grid marketplace-card-wrap"><div class="uui-layout94_item background-color-white border-frame"><div class="uui-layout94_item-content"><div class="icon-featured-square-large-4"><div class="icon-1x1-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+  <path d="M15.75 5.25H8.75C6.817 5.25 5.25 6.817 5.25 8.75V15.75C5.25 17.683 6.817 19.25 8.75 19.25H15.75C17.683 19.25 19.25 17.683 19.25 15.75V8.75C19.25 6.817 17.683 5.25 15.75 5.25Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12.25 19.25V26.25C12.25 27.1783 12.6187 28.0685 13.2751 28.7249C13.9315 29.3813 14.8217 29.75 15.75 29.75H22.75" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M33.25 22.75H26.25C24.317 22.75 22.75 24.317 22.75 26.25V33.25C22.75 35.183 24.317 36.75 26.25 36.75H33.25C35.183 36.75 36.75 35.183 36.75 33.25V26.25C36.75 24.317 35.183 22.75 33.25 22.75Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div><div class="spacer-large"></div><h3 class="uui-heading-xxsmall-13">No code, full control</h3><div class="spacer-small"></div><div class="uui-text-size-medium-18">Combine steps into custom workflows — just click and configure.</div></div></div><div class="uui-layout94_item background-color-white border-frame"><div class="uui-layout94_item-content"><div class="icon-featured-square-large-4"><div class="icon-1x1-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+  <path d="M15.75 5.25H7C6.0335 5.25 5.25 6.0335 5.25 7V19.25C5.25 20.2165 6.0335 21 7 21H15.75C16.7165 21 17.5 20.2165 17.5 19.25V7C17.5 6.0335 16.7165 5.25 15.75 5.25Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 5.25H26.25C25.2835 5.25 24.5 6.0335 24.5 7V12.25C24.5 13.2165 25.2835 14 26.25 14H35C35.9665 14 36.75 13.2165 36.75 12.25V7C36.75 6.0335 35.9665 5.25 35 5.25Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 21H26.25C25.2835 21 24.5 21.7835 24.5 22.75V35C24.5 35.9665 25.2835 36.75 26.25 36.75H35C35.9665 36.75 36.75 35.9665 36.75 35V22.75C36.75 21.7835 35.9665 21 35 21Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15.75 28H7C6.0335 28 5.25 28.7835 5.25 29.75V35C5.25 35.9665 6.0335 36.75 7 36.75H15.75C16.7165 36.75 17.5 35.9665 17.5 35V29.75C17.5 28.7835 16.7165 28 15.75 28Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div><div class="spacer-large"></div><h3 class="uui-heading-xxsmall-13">See results instantly</h3><div class="spacer-small"></div><div class="uui-text-size-medium-18">Run your agent and preview results in real time.</div></div></div><div class="uui-layout94_item background-color-white border-frame"><div class="uui-layout94_item-content"><div class="icon-featured-square-large-4"><div class="icon-1x1-large w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+  <path d="M21 22.75V3.5L35 10.5L21 17.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35.9812 17.8884C36.9125 20.7586 36.9996 23.836 36.2322 26.7543C35.4649 29.6726 33.8753 32.3091 31.6527 34.3501C29.43 36.391 26.6679 37.7505 23.6949 38.2668C20.7218 38.7831 17.663 38.4345 14.8824 37.2624C12.1018 36.0904 9.71641 34.1442 8.01004 31.6554C6.30367 29.1667 5.34815 26.2401 5.25716 23.224C5.16618 20.2078 5.94355 17.229 7.4968 14.6419C9.05005 12.0548 11.3138 9.96841 14.0187 8.63086" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14.0042 17.4941C13.1273 18.6614 12.5564 20.0296 12.3435 21.474C12.1306 22.9184 12.2826 24.393 12.7855 25.7637C13.2884 27.1343 14.1262 28.3573 15.2227 29.3213C16.3193 30.2853 17.6395 30.9595 19.0633 31.2827C20.4871 31.6058 21.9691 31.5676 23.3743 31.1714C24.7795 30.7753 26.0632 30.0338 27.1085 29.0145C28.1539 27.9953 28.9275 26.7307 29.3591 25.3359C29.7906 23.9412 29.8663 22.4606 29.5792 21.0291" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div></div><div class="spacer-large"></div><h3 class="uui-heading-xxsmall-13">API-ready from day one</h3><div class="spacer-small"></div><div class="uui-text-size-medium-18">Every agent gets its own API endpoint — ready to integrate.</div></div></div></div></div></div></div></div></div></div></div></div></header><section class="section-default"><div id="commitment" class="padding-global"><div class="spacer-huge"></div><div class="container-large"><div><div class="max-width-full"><div class="line-divider-2"></div><div class="_2x1-grid align-top"><div class="max-width-large"><div><h2 class="heading-style-h2 h2-small text-align-left">Commitment tiers</h2><div class="spacer-small"></div><p>Prepaid plans that reward you based on your commitment. Get bonus credits, higher rate limits, and faster support at higher tiers — pay once and use credits as you need.</p></div></div><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a63c8-75a55e73" class="button-group-8"><a href="https://console.upstage.ai/docs/getting-started?utm_source=tire-cta&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update" target="_blank" class="w-inline-block"><div class="button btn-try-demo-body">Get Started with API</div></a></div></div></div><div class="spacer-small"></div><div class="spacer-xlarge"></div><div data-w-id="07aaf605-620c-b35f-8c4f-5cffe74a63ce" style="opacity:0" data-current="Monthly" data-easing="ease" data-duration-in="300" data-duration-out="100" class="commitment-tap w-tabs"><div class="commitment-tabs-menu padding-xsmall w-tab-menu"><a data-w-tab="Monthly" class="commitment-tab w-inline-block w-tab-link w--current"><div class="text-block-38">Monthly</div></a><a data-w-tab="Yearly" class="commitment-tab flex w-inline-block w-tab-link"><div>Yearly</div><div class="promotion-pill"><div><span class="text-weight-medium text-color-purple text-size-small-8 text-align-center">Save 20% with yearly billing</span></div></div></a></div><div class="integration-tabs-content w-tab-content"><div data-w-tab="Monthly" class="w-tab-pane w--tab-active"><div class="commitment-card-wrap"><div id="w-node-_9d9ee362-88a7-7044-fb41-e3698b116957-75a55e73" class="notice-card"><div class="spacer-medium"></div><p class="text-size-small text-align-center">* <em>Commitment tier credits are </em><strong><em>shared across Console and Studio</em></strong><em>. One account, all products. All prices shown are exclusive of 10% VAT. </em></p></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Explore</p><div class="spacer-xsmall"></div><h3>$100+</h3><p class="text-color-dark-grey text-size-tiny">/monthly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+10% bonus credits on prepaid amount</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Rate limits</p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 1 limits apply by default</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 3 (30 req/sec), Information Extract (10 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier1-m-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Community support only<br/>‍</div></div></div></div></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Build</p><div class="spacer-xsmall"></div><h3>$500+</h3><p class="text-color-dark-grey text-size-tiny">/monthly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+15% bonus credits on prepaid amount</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Rate limits</p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 2 limits apply</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 3 (50 req/sec), Information Extract (20 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier2-m-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Email support with a 3-business-day response time</div></div></div></div></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Scale</p><div class="spacer-xsmall"></div><h3>$5,000+</h3><p class="text-color-dark-grey text-size-tiny">/monthly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+20% bonus credits on prepaid amount</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Rate limits</p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 3 limits apply</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 3 (80 req/sec), Information Extract (40 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier3-m-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Priority support with guaranteed 1-business-day response time</div></div></div></div></div></div></div><div data-w-tab="Yearly" class="w-tab-pane"><div class="commitment-card-wrap"><div id="w-node-_0e20e906-ddba-d19a-e391-daebeaaa665d-75a55e73" class="notice-card"><div class="spacer-medium"></div><p class="text-size-small text-align-center">* <em>Commitment tier credits are </em><strong><em>shared across Console and Studio</em></strong><em>. One account, all products. All prices shown are exclusive of 10% VAT. </em></p></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Explore</p><div class="spacer-xsmall"></div><h3>$1,200+</h3><p class="text-color-dark-grey text-size-small">/yearly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+30% bonus credits (up to $360 yearly)</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Tier 1 limit  </p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 1 limits apply by default</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 2 (30 req/sec), Information Extract (10 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier1-y-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Community support only<br/>‍</div></div></div></div></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Build</p><div class="spacer-xsmall"></div><h3>$6,000+</h3><p class="text-color-dark-grey text-size-small">/yearly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+35% bonus credits (up to $2,100 yearly)</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Tier 2 limit  </p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 2 limits apply</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 2 (50 req/sec), Information Extract (20 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier2-y-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Email support with a 3-business-day response time</div></div></div></div><div class="commitment-card padding-medium"><div class="pricing-card-top-v2"><div><p class="text-color-dark-grey text-size-regular">Scale</p><div class="spacer-xsmall"></div><h3>$60,000+</h3><p class="text-color-dark-grey text-size-small">/yearly prepaid</p></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Benefits</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">+40% bonus credits (up to $24,000 yearly)</div></div></div><div class="pricing-wrap"><div class="line-divider"></div><div class="div-block-115"><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Tier 3 limit  </p></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Tier 3 limits apply</div></div><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div><p class="text-color-black"><span class="text-size-small-8 text-weight-semibold padding-0">Example: </span>Solar Pro 2 (80 req/sec), Information Extract (40 req/sec)</p><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=tier3-y-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=view-all-model-limits#solar-pro2" target="_blank" class="text-size-tiny text-color-black"><em>View all model limits </em></a></div></div></div><div class="pricing-wrap"><div class="line-divider"></div><p class="text-size-tiny text-color-purple-500 text-weight-semibold">Support</p><div class="commitment-feature"><div class="w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+  <g clip-path="url(#clip0_974_6601)">
+    <path d="M2.8125 10.125L6.75 14.0625L15.75 5.0625" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_974_6601">
+      <rect width="18" height="18" fill="white"/>
+    </clipPath>
+  </defs>
+</svg></div><div class="text-color-black">Priority support with guaranteed 1-business-day response time</div></div></div></div></div></div></div></div></div></div><div class="spacer-small"></div><div class="commitment-card-wrap"><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a656b-75a55e73" class="commitment-card padding-medium"><div><div class="spacer-xsmall"></div><p class="text-color-dark-grey text-size-regular">Enterprise</p><h3>Custom pricing</h3><div class="spacer-small"></div><div class="max-width-medium"><p class="text-color-dark-grey text-size-regular">Tailored for mission-critical workloads. Flexible rate limits and dedicated support built around your operations.</p></div></div></div><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a6576-75a55e73" class="commitment-card padding-medium align-vertical-center"><div><div class="spacer-xsmall"></div><div class="button-group align-left"><a href="/contact-us" class="button btn-contact-body w-inline-block"><div>Contact sales</div></a></div></div></div></div></div><div class="spacer-huge"></div></div></section><section class="section-default background-color-tertiary"><div class="padding-global"><div class="spacer-huge"></div><div class="container-large"><div class="_2x1-grid gap-10"><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a6595-75a55e73" class="div-block-113"><div><span class="text-color-purple-500 text-weight-semibold">Upstage x AWS | AI Initiative</span></div><h3>AI support program for educational and public interest organizations</h3><p>AI access for schools, hospitals, and nonprofits We provide eligible institutions with free access to Solar Pro (LLM) and Document Parse for up to one year — helping you explore and adopt AI without cost barriers.</p><a href="https://www.upstage.ai/events/ai-initiative-2025-en" class="button w-inline-block"><div>Get free access</div></a></div><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a65a0-75a55e73" class="image-29"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6908acd0a7ceea9a56ac911e_add-a-laptop-in-front-of-the-right-person-on-the-t-p-500.avif 500w, https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6908acd0a7ceea9a56ac911e_add-a-laptop-in-front-of-the-right-person-on-the-t.avif 1280w" alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6908acd0a7ceea9a56ac911e_add-a-laptop-in-front-of-the-right-person-on-the-t.avif" loading="lazy"/></div></div></div><div class="spacer-huge"></div></div></section><section class="section-default"><div id="faq" class="padding-global"><div class="spacer-huge"></div><div class="container-large"><div><div class="max-width-full"><div class="line-divider"></div><div class="_2x1-grid align-bottom"><div class="max-width-large"><div><h2 class="heading-style-h2 h2-small text-align-left">Frequently asked questions</h2></div></div><div id="w-node-_07aaf605-620c-b35f-8c4f-5cffe74a65af-75a55e73" class="button-group-8"><a href="https://console.upstage.ai/docs/getting-started?utm_source=faq-cta&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update" target="_blank" class="button btn-try-demo-body w-inline-block"><div>Get Started with API</div></a><a href="/contact-us" class="button is-secondary btn-contact-body w-inline-block"><div>Contact us</div></a></div></div></div><div class="spacer-xlarge hide-mobile-portrait hide-mobile-landscape"></div><div class="uui-faq01_component"><div class="uui-faq01_list"><div class="w-dyn-list"><div role="list" class="w-dyn-items"><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">How do I terminate auto-recharge?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Auto-recharge can be terminated anytime via the Edit button. Terminating will only stop the next scheduled recharge, while already purchased credits remain available.</p></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">How do I set up auto-recharge?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>You can enable auto-recharge from the <a href="https://console.upstage.ai/billing?utm_source=faq-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=billing" target="_blank">Billing</a> &gt; <a href="https://console.upstage.ai/billing/credit?utm_source=faq-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=credit" target="_blank">Credit</a> page by clicking Start auto-recharge.</p><ul role="list"><li>Recharge amount: Set your preferred amount (bonus included)</li><li>Frequency: Choose monthly or yearly</li><li>Billing date: Pick your preferred date</li><li>Preview (Commitment benefits): Preview bonuses and tier benefits before confirming</li></ul></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">What is the validity period of commitment bonus credits?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Bonus credits are valid only during your Commitment period. Even bonus credits from additional recharges will expire once the Commitment period ends. To maximize your benefits, it’s best to make larger payments at the beginning of your Commitment period.</p></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">What is the commitment tier?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>It’s a tiered system that provides benefits based on your purchase amount:</p><ul role="list"><li>Bonus Credits: Additional credits up to +10% depending on purchase size</li><li><a href="https://console.upstage.ai/docs/guides/rate-limits?utm_source=faq-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=rate-limit" target="_blank">Rate Limit</a> Benefits: Higher requests per second and more pages processed (Tier 1–3)</li><li>Automatic Tier Management: Explore, Build, Scale—adjusted automatically by monthly purchase</li><li>Eligibility: Applies when monthly purchases are $100 or more</li></ul></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">What is the refund policy?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Important: Purchased credits are generally non-refundable.</p><ul role="list"><li>Refundable: Only if there is no API usage history</li><li>Non-refundable: If the API has been used at least once</li></ul><p>* You must agree to the refund policy before purchase<br/>* If you would like a refund, please submit a request through our <a href="https://support.upstage.ai/" target="_blank">Help Center.</a></p></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">What payment methods are supported?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>We currently support credit card payments.</p><ul role="list"><li>Visa, Mastercard, and other major cards accepted</li><li>Card information is securely encrypted</li><li>Payment methods can be updated anytime</li><li>Other methods: If you need a payment option other than credit card, please contact our <a href="https://support.upstage.ai/" target="_blank">Help center</a></li></ul></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">How do I purchase credits?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><ol role="list"><li>Go to <a href="https://console.upstage.ai/billing?utm_source=faq-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=billing" target="_blank">Billing</a> &gt; <a href="https://console.upstage.ai/billing/credit?utm_source=faq-text-link&amp;utm_medium=web-pricing-api&amp;utm_campaign=pricing-update&amp;utm_content=credit" target="_blank">Credit</a> in the console</li><li>Click &quot;Purchase credits&quot;</li><li>Enter your desired amount or choose a preset</li><li>Check the box to agree to the refund policy</li><li>Click “Confirm and pay” to complete your purchase</li></ol></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">What are credits?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Credits are a prepaid balance system for Upstage AI API services. Even if your credits run out, your API usage won’t be interrupted—charges will be billed to your registered payment method. By pre-purchasing credits, you can also receive various bonus benefits.</p></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">How does Upstage Studio pricing work?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Each agent is billed based on the steps it runs. Parse is the base step included in every agent, billed per page. Extract is billed per page on top of Parse. Classify is currently free (Beta). Instruct is currently free (Beta) — pricing will be announced separately. When multiple steps run together, Parse is only charged once per page.</p></div></div></div></div><div role="listitem" class="w-dyn-item"><div class="uui-faq01_accordion"><div data-w-id="c9ffc083-2628-c743-5ae7-80d2c2572d67" class="uui-faq01_question"><div class="div-block-117"><div class="heading-style-h5">Q. </div><div class="heading-style-h5">How much does a typical Upstage Studio agent cost?</div></div><div class="uui-faq01_icon-wrapper"><div class="accordion-icon_component"><div class="accordion-icon_horizontal-line"></div><div class="accordion-icon_vertical-line"></div></div></div></div><div class="uui-faq01_answer max-width-xlarge"><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="spacer-xsmall"></div><div class="blog-ko-rich-text margin-0 w-richtext"><p>Here are common examples:</p><ul role="list"><li>Parsing invoices to get structured text → Parse only: <strong>$0.01 / page</strong></li><li>Extracting key fields (e.g. vendor, amount, date) from receipts → Parse + Extract: <strong>$0.01 + $0.03 = $0.04 / page</strong></li><li>Sorting mixed documents by type, then extracting → Parse + Classify + Extract: <strong>$0.01 + Free + $0.03 = $0.04 / page</strong></li></ul><p>‍</p></div></div></div></div></div></div></div></div></div></div><div class="spacer-huge"></div></div></section></main><footer class="footer-component"><div class="padding-global"><div class="container-large"><div><div class="padding-bottom"><a href="/" class="w-inline-block"><img alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6743f495db2f0b0f43c196ae_Symbol_White.avif" class="footer-logo"/></a><div class="spacer-small"></div><div class="w-layout-grid footer-wrapper-2"><div id="w-node-_52137b9e-9241-0ee4-4acd-09304392a4e5-b84c3c4a" class="footer-link-list"><div class="footer-link-heading">Products</div><div class="spacer-xsmall"></div><a href="https://www.upstage.ai/blog/en/solar-pro-4" class="footer-link">Solar Pro 4</a><a href="https://www.upstage.ai/blog/en/solar-mini-4" class="footer-link">Solar Mini 4</a><a href="https://www.upstage.ai/blog/en/upstage-ai-jp-syn-pro" class="footer-link">Syn Pro</a><a href="/products/document-parse" class="footer-link">Document Parse</a><a href="/products/information-extract" class="footer-link">Information Extract</a><a href="/products/studio-pre-studio2" class="footer-link">Studio</a><a href="/pricing/api" aria-current="page" class="footer-link w--current">Pricing API</a><a href="/pricing/studio" class="footer-link">Pricing Studio</a></div><div id="w-node-_02d36ebb-91fd-0e93-d5f7-578e856daab0-b84c3c4a" class="footer-link-list"><div class="footer-link-heading">Solutions</div><div class="spacer-xsmall"></div><a href="/solutions/insurance" class="footer-link">Insurance</a><a href="/solutions/healthcare" class="footer-link">Healthcare</a><a href="/solutions/manufacturing" class="footer-link">Manufacturing</a><a href="/solutions/financial-services" class="footer-link">Financial Services</a></div><div id="w-node-e1c7cbf2-6c9a-cc8e-e638-a8231d03f040-b84c3c4a" class="footer-link-list"><div class="footer-link-heading">Resources</div><div class="spacer-xsmall"></div><a href="/customers" class="footer-link">Customers</a><a href="/blog" class="footer-link">Blog</a><a href="/events" class="footer-link">Events</a><a href="/apps" class="footer-link">Apps</a><div class="div-block-17"><a href="https://console.upstage.ai/docs/getting-started?utm_source=web-resource&amp;utm_medium=footer&amp;utm_campaign=documentation-console" target="_blank" class="footer-link">Documentation</a><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/675fa3974c95cae7866001b1_arrow-up-right%2032px%203.svg" loading="lazy" width="15" alt="" class="image-10"/></div></div><div id="w-node-_0bc6652f-92ee-57db-0bf3-5cf3533ce73f-b84c3c4a" class="footer-link-list"><div class="footer-link-heading">Company</div><div class="spacer-xsmall"></div><a href="/about" class="footer-link">About us</a><a href="/careers" class="footer-link">Careers</a><a href="/partners" class="footer-link">Partners</a><a href="/news" class="footer-link">Newsroom</a><a href="/resources/brand-resource-center" class="footer-link">Brand resource center</a><div data-w-id="41ac5d46-387e-d927-7909-dab9db26cb20" class="div-block-17"><a href="https://support.upstage.ai" target="_blank" class="footer-link">Support</a><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/675fa3974c95cae7866001b1_arrow-up-right%2032px%203.svg" loading="lazy" width="15" alt="" class="image-10"/></div></div></div><div class="spacer-huge"></div><div class="div-block-30"><a id="w-node-_04240065-c730-ab88-f6e8-1036fcafb6a1-b84c3c4a" href="https://www.aicpa.org/soc4so" target="_blank" class="link-block w-inline-block"><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/679396ca82a1075c7348ff82_21972-312_SOC_NonCPA.avif" loading="lazy" alt="AICPA SOC" height="80" class="image-15"/></a><img src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/6864bb123a147bafc1e203ed_Vanta_Compliance_HIPAA.svg" loading="lazy" alt="HIPAA" height="80" class="image-15"/><img width="Auto" height="80" alt="Mark of Trust - Multi - ISO_IEC 27001 and ISO_IEC 27701_" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/67516c299e5a46148368459a_Mark%20of%20Trust%20-%20Multi%20-%20ISO_IEC%2027001%20and%20ISO_IEC%2027701_Black%20writing_purple%20BG.avif" id="w-node-_04240065-c730-ab88-f6e8-1036fcafb6a4-b84c3c4a" class="image"/></div></div><div class="padding-bottom padding-xxlarge"></div><div class="padding-top padding-medium"><div class="footer-bottom-wrapper"><div class="w-layout-grid footer-legal-list"><div class="footer-copyright-text">© 2026 Upstage</div><div id="w-node-a947fccc-aef0-47e2-bb2f-d9eab84c3c82-b84c3c4a" class="footer-copyright-text"><a href="/privacy-policy" class="text-color-alternate">Privacy policy</a> </div><div id="w-node-_7ba0ba5e-b375-35f6-26a6-4560512b4041-b84c3c4a" class="footer-copyright-text"><a href="/terms-of-service" class="text-color-alternate">Terms of use</a></div></div><div class="w-layout-grid footer-social-list"><a href="https://linkedin.com/company/upstageai" target="_blank" class="footer-social-link w-inline-block"><img alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/67448a19863f9ca2d8b89ee3_linkedin.svg" class="icon-xsmall"/></a><a href="https://x.com/upstageai" target="_blank" class="footer-social-link w-inline-block"><img alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/67448a19ef523e42d0de214a_X.svg" class="icon-xsmall"/></a><a href="https://go.upstage.ai/discord" target="_blank" class="footer-social-link w-inline-block"><img alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/67448a191d61a90d4e2f354e_discord-1.svg" class="icon-xsmall"/></a><a href="https://huggingface.co/upstage" target="_blank" class="footer-social-link w-inline-block"><img alt="" src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/67448a1b4b2b0958859ce57a_huggingface.avif" class="icon-xsmall"/></a></div></div></div></div><div><div class="w-embed w-script"><div class="upstage-biz-wrap">
+  <button class="upstage-biz-toggle" aria-expanded="false" aria-controls="upstage-biz-body">
+    <span class="upstage-biz-label">Business Information
+      <svg class="upstage-biz-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </button>
+  <div class="upstage-biz-body" id="upstage-biz-body" aria-hidden="true">
+    <div class="upstage-biz-inner">
+      <p class="upstage-biz-line">
+        <span>Upstage Co., Ltd. (주식회사 업스테이지)</span><span class="sep">|</span><span>CEO: Sunghun Kim (김성훈)</span><span class="sep">|</span><span>Business Reg. No. (사업자등록번호): 830-88-01918</span><span class="sep">|</span><span>E-Commerce Reg. No. (통신판매번호): 2026-서울강남-02376</span>
+      </p>
+      <p class="upstage-biz-line">
+        <span>Tel (대표번호): 070-8098-3023</span><span class="sep">|</span><span>Email (이메일): <a href="mailto:contact@upstage.ai" class="upstage-biz-link">contact@upstage.ai</a></span><span class="sep">|</span><span>Hosting Provider (호스팅제공자): Amazon Web Services</span>
+      </p>
+      <p class="upstage-biz-line">
+        <span>Rooms 812–817, Spark Plus Gangnam Branch 5, Hall 2, Korea Science and Technology Center, 22 Teheran-ro 7-gil, Gangnam-gu, Seoul</span>
+      </p>
+      <p class="upstage-biz-line">
+        <span>서울 강남구 테헤란로7길 22 한국과학기술회관 2관, 스파크플러스 강남5호점 812~817호</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+.upstage-biz-wrap{margin-top:16px;padding:0;border-top:1px solid rgba(255,255,255,.08)}
+.upstage-biz-toggle{display:flex;align-items:center;width:100%;padding:14px 0;background:none;border:none;cursor:pointer;color:rgba(255,255,255,1);font-size:14px;font-family:inherit;text-align:left;transition:color .3s}
+.upstage-biz-toggle:hover{color:rgba(255,255,255,.65)}
+.upstage-biz-label{display:inline-flex;align-items:center;gap:6px;line-height:1}
+.upstage-biz-arrow{flex-shrink:0;transition:transform .25s ease;position:relative;top:1px}
+.upstage-biz-toggle[aria-expanded="true"] .upstage-biz-arrow{transform:rotate(180deg)}
+.upstage-biz-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.upstage-biz-body.is-open{max-height:600px}
+.upstage-biz-inner{padding-bottom:20px}
+.upstage-biz-line{display:block !important;font-size:12px;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:2px;word-break:break-word}
+.upstage-biz-line .sep{margin:0 10px;color:rgba(255,255,255,.15)}
+.upstage-biz-link{color:rgba(255,255,255,.5);text-decoration:none}
+.upstage-biz-link:hover{color:rgba(255,255,255,.75)}
+@media(max-width:768px){
+  .upstage-biz-body.is-open{max-height:900px}
+  .upstage-biz-line{display:flex !important;flex-direction:column;gap:4px;margin-bottom:10px}
+  .upstage-biz-line .sep{display:none}
+}
+</style>
+
+<script>
+(function(){
+  var btn=document.querySelector('.upstage-biz-toggle');
+  var body=document.getElementById('upstage-biz-body');
+  if(!btn||!body)return;
+  btn.addEventListener('click',function(){
+    var o=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!o));
+    body.setAttribute('aria-hidden',String(o));
+    body.classList.toggle('is-open',!o);
+  });
+})();
+</script></div></div></div></div><div id="cookie-banner" fs-cc="banner" class="uui-banner21_component"><div class="uui-page-padding-7"><div class="uui-container-large-8"><div class="uui-banner21_wrapper"><div class="uui-banner21_content"><div class="uui-banner21_text-wrapper"><div class="uui-banner21_text">We use cookies to improve your experience on <a href="http://www.upstage.ai/" class="text-style-link"><span>www.upstage.ai</span></a>. By continuing to browse, you agree to our use of cookies.</div></div></div><div class="uui-button-row-3"><div class="uui-button-wrapper-2"><a id="reject-all" fs-cc="deny" href="#" class="button is-text w-inline-block"><div class="text-size-small text-color-light-gray">Decline</div></a></div><div class="uui-button-wrapper-2"><a id="accept-all" fs-cc="allow" data-w-id="d69793a6-b424-2c14-d880-d73286636442" href="#" class="button is-secondary smaller w-inline-block"><div>Allow</div></a></div></div></div></div></div></div></footer></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6743d5190bb2b52f38e99e37" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/js/webflow.schunk.1a807f015b216e46.js" type="text/javascript" integrity="sha384-oY4R8SfnVBTWnix6ULiWbZs/5tyRyxEiWcG+WrT3unnu5pmfsIYJEraZcyFVlvND" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/js/webflow.schunk.f076ecf39d5f917e.js" type="text/javascript" integrity="sha384-cvNXF/AX+QjFYVc5BC5S8pP67Y4Zw3B/yzBwVRxJdbQet9lsjdtFGg5Qe0//NY1B" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/js/webflow.schunk.f262fda2e904653d.js" type="text/javascript" integrity="sha384-CaBtKVafx5B5cDRRbc+apvXOthmZBTJMkt9JnlOeNW+RyL5QUOboI7IRlOUMmeVZ" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/js/webflow.schunk.4913f0d9ee368d76.js" type="text/javascript" integrity="sha384-j3R/zD6ANugAuyivaSShu4Pueq0H3b21ZuYGjExFl18/3yqUApyu/S+tVZ0usPnf" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37/js/webflow.2ef735cc.2af1c88a7bf421b0.js" type="text/javascript" integrity="sha384-byl2qS4BojAtuI0SFiV35q/ALjvFz7Y1TVhnvbK7RgDY2EumpvpSRRCsnxXLAJjl" crossorigin="anonymous"></script><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2LDL34Q" height="0" width="0" style="display: none; visibility: hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 모든 target="_blank" 링크 찾기
+    const externalLinks = document.querySelectorAll('a[target="_blank"]');
+
+    externalLinks.forEach((link) => {
+      // 현재 rel 값 가져오기
+      const currentRel = link.getAttribute('rel') || '';
+
+      // noopener noreferrer 추가 (중복 방지)
+      const relValues = new Set(currentRel.split(' ').filter(Boolean));
+      relValues.add('noopener');
+      relValues.add('noreferrer');
+
+      link.setAttribute('rel', Array.from(relValues).join(' '));
+    });
+  });
+</script>
+
+<!-- ✅ Clean URL Script (for Webflow + Google Analytics) -->
+<script>
+  (function () {
+    try {
+      const url = new URL(window.location.href);
+
+      // 제거할 Google 관련 파라미터 목록
+      const googleParams = ['_gl', '_ga', '_ga_XHVZT7B35B', '_gcl_au'];
+
+      let changed = false;
+      googleParams.forEach((param) => {
+        if (url.searchParams.has(param)) {
+          url.searchParams.delete(param);
+          changed = true;
+        }
+      });
+
+      // 파라미터가 제거된 경우만 URL을 업데이트
+      if (changed) {
+        const cleanUrl = url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '');
+        window.history.replaceState({}, '', cleanUrl);
+      }
+    } catch (e) {
+      console.warn('Clean URL script error:', e);
+    }
+  })();
+</script>
+
+<!-- Tab deep-linking with hash + UTM support -->
+<script>
+  window.Webflow = window.Webflow || [];
+  window.Webflow.push(function () {
+    const hash = decodeURIComponent(window.location.hash.replace('#', '').split('?')[0]);
+    if (!hash) return;
+
+    const tabs = document.querySelectorAll('.w-tab-link');
+    tabs.forEach(function (tab) {
+      const tabText = tab.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+      if (tabText.includes(hash.toLowerCase())) {
+        tab.removeAttribute('href');
+        tab.click();
+      }
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    const tab = e.target.closest('.w-tab-link');
+    if (tab) {
+      const label = tab.textContent.trim().replace(/\s+/g, '-');
+      // UTM이 search(?)에 있거나 hash(#) 안에 있는 경우 모두 처리
+      const utmFromSearch = window.location.search;
+      const utmFromHash = window.location.hash.includes('?') ? '?' + window.location.hash.split('?')[1] : '';
+      const utm = utmFromSearch || utmFromHash;
+      history.replaceState(null, null, utm + '#' + encodeURIComponent(label));
+    }
+  });
+</script>
+
+<script>
+  (function () {
+    // 만약 location.pathname === '/jp' 이고, 이전 페이지가 /careertalk-sep25 라면 → 되돌리기
+    if (window.location.pathname === '/jp' && document.referrer.includes('/careers/careertalk-sep25')) {
+      window.location.href = '/careers/careertalk-sep25'; // 원래 위치로 되돌리기
+    }
+  })();
+</script>
+
+<script>
+  (function () {
+    // 경로가 해당 리디렉트 페이지인 경우만 적용
+    if (window.location.pathname.includes('/careers/careertalk-sep25')) {
+      // 1. 불필요한 쿼리 스트링 제거
+      if (window.location.search) {
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      }
+
+      // 2. 기존 브라우저 쿠키 삭제
+      document.cookie.split(';').forEach(function (cookie) {
+        document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/');
+      });
+
+      // 3. HSTS preload 강제 무력화 (개발자 설정 시)
+      console.log('리다이렉트 캐시 초기화 로직 실행됨');
+    }
+  })();
+</script>
+
+<script>
+  (function () {
+    // 방문자의 잘못된 리다이렉트 캐시 제거용: 쿼리 스트링/쿠키 제거
+    if (window.location.pathname.includes('/careers/careertalk-sep25')) {
+      // 브라우저 히스토리에서 쿼리 제거
+      if (window.location.search) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      // 브라우저에 저장된 관련 쿠키 제거
+      document.cookie.split(';').forEach(function (cookie) {
+        document.cookie = cookie.replace(/^ +/, '').replace(/=.*/, '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/');
+      });
+    }
+  })();
+</script>
+
+<!-- A/B Test tracking via GTM dataLayer -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const abTests = [
+      { selector: '.ab-test-topbar-set', key: 'topbar', display: 'block' },
+      { selector: '.ab-test-hero-set', key: 'hero', display: 'inline-flex' },
+      { selector: '.ab-test-feature-set', key: 'feature', display: 'inline-flex' },
+      { selector: '.ab-test-footer-set', key: 'footer', display: 'inline-flex' },
+    ];
+
+    const today = new Date().toISOString().split('T')[0];
+    const pagePath = window.location.pathname;
+
+    abTests.forEach((test) => {
+      const sets = document.querySelectorAll(test.selector);
+      if (sets.length === 0) return;
+
+      const storageKey = `ab_test_${test.key}`;
+      let storedData = localStorage.getItem(storageKey);
+      let selectedIndex;
+
+      if (storedData) {
+        try {
+          const parsed = JSON.parse(storedData);
+          if (parsed.date === today && parsed.index < sets.length) {
+            selectedIndex = parsed.index;
+          }
+        } catch (e) {}
+      }
+
+      if (selectedIndex === undefined) {
+        selectedIndex = Math.floor(Math.random() * sets.length);
+        localStorage.setItem(storageKey, JSON.stringify({ date: today, index: selectedIndex }));
+      }
+
+      sets.forEach((set, idx) => {
+        if (idx === selectedIndex) {
+          const isMobile = window.innerWidth < 768;
+          let displayStyle = test.display;
+          if (test.key === 'hero' && isMobile) {
+            displayStyle = 'flex';
+          }
+          set.style.display = displayStyle;
+
+          // Variant 값 추출
+          const variant = set.querySelector('[data-variant]')?.getAttribute('data-variant') || `Variant ${selectedIndex + 1}`;
+
+          // ✅ 개선 1: 노출(View) 데이터 GTM으로 전달 (Clarity 하드코딩 대체)
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'ab_test_view',
+            ab_test_key: test.key, // 예: 'topbar'
+            ab_test_variant: variant, // 예: 'Variant 1'
+            page_path: pagePath,
+          });
+
+          // ✅ 개선 2: 클릭(Click) 데이터 GTM으로 전달 (GA4, Clarity 하드코딩 대체)
+          const buttons = set.querySelectorAll('a, button');
+          buttons.forEach((btn) => {
+            btn.addEventListener('click', function () {
+              window.dataLayer.push({
+                event: 'ab_test_click',
+                ab_test_key: test.key,
+                ab_test_variant: variant,
+                ab_test_category: `${test.key.toUpperCase()} AB Test`,
+                page_path: pagePath,
+              });
+            });
+          });
+        } else {
+          set.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<!--script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sets = document.querySelectorAll(".ab-test-topbar-set");
+
+    if (sets.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * sets.length);
+
+    sets.forEach((set, idx) => {
+      set.style.display = idx === randomIndex ? "block" : "none"; // 또는 "inline-flex", 레이아웃에 따라 조정
+    });
+  });
+</script-->
+
+<!-- rich text h2+h3 margin-top -->
+<style>
+  [data-custom='rich-text'] h2 + h3 {
+    margin-top: 2rem;
+  }
+</style>
+
+<!--Start medium-zoom.js -->
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.3/dist/medium-zoom.min.js"></script>
+<script>
+  const images = Array.from(document.querySelectorAll('.post-wrapper img:not(.background-video img)'));
+  if ($(window).width() >= 991) {
+    images.forEach((img) => {
+      mediumZoom(img, {
+        margin: 0 /* The space outside the zoomed image */,
+        background: '#fff' /* The background of the overlay */,
+        scrollOffset: 40 /* The number of pixels to scroll to close the zoom */,
+        container: null /* The viewport to render the zoom in */,
+        template: null /* The template element to display on zoom */,
+      });
+    });
+  }
+</script>
+<!--End medium-zoom.js -->
+
+<!-- Start UTM 동적 리다이렉트 (v=1 제외 버전) -->
+<script>
+  const currentUrlParams = new URLSearchParams(window.location.search);
+
+  document.querySelectorAll('a').forEach((link) => {
+    try {
+      const linkUrl = new URL(link.href, window.location.origin);
+
+      // UTM 파라미터만 복사
+      currentUrlParams.forEach((value, key) => {
+        if (key.startsWith('utm_')) {
+          linkUrl.searchParams.set(key, value);
+        }
+      });
+
+      link.href = linkUrl.toString();
+    } catch (e) {
+      // 상대경로 등 파싱 불가능한 경우 무시
+    }
+  });
+</script>
+<!-- End UTM 동적 리다이렉트 -->
+
+<!-- Finsweet ↔ Google Consent Mode 연동 브릿지 -->
+<script>
+(function () {
+  var STORAGE_KEY = 'consentMode';
+ 
+  function syncConsentToGoogle(settings) {
+    var payload = JSON.stringify(settings);
+ 
+    // 같은 값이면 중복 전송하지 않음
+    try {
+      if (localStorage.getItem(STORAGE_KEY) === payload) return;
+    } catch (e) {}
+ 
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', settings);
+    }
+ 
+    // 다음 페이지 접속 시 Head에서 읽어 기본값을 복원하도록 저장
+    try {
+      localStorage.setItem(STORAGE_KEY, payload);
+    } catch (e) {}
+ 
+    // UI 숨김 처리는 Finsweet이 스스로 담당
+  }
+ 
+  function build(marketing, analytics, functional) {
+    return {
+      ad_storage:            marketing  ? 'granted' : 'denied',
+      ad_user_data:          marketing  ? 'granted' : 'denied',
+      ad_personalization:    marketing  ? 'granted' : 'denied',
+      analytics_storage:     analytics  ? 'granted' : 'denied',
+      functionality_storage: functional ? 'granted' : 'denied',
+      security_storage:      'granted'
+    };
+  }
+ 
+  // ---- 1) 클릭 처리 — 이벤트 위임으로 레이스 컨디션 회피 ----
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('[fs-cc]') : null;
+    if (!el) return;
+ 
+    var role = el.getAttribute('fs-cc');
+ 
+    if (role === 'allow') {
+      syncConsentToGoogle(build(true, true, true));
+ 
+    } else if (role === 'deny') {
+      syncConsentToGoogle(build(false, false, false));
+ 
+    } else if (role === 'submit') {
+      syncConsentToGoogle(build(
+        document.getElementById('marketing') && document.getElementById('marketing').checked,
+        document.getElementById('analytics') && document.getElementById('analytics').checked,
+        document.getElementById('functional') && document.getElementById('functional').checked
+      ));
+    }
+  }, true);
+ 
+  // ---- 2) 로드 시 동기화 — 기존 desync 사용자 자동 복구 ----
+  function readFsCC() {
+    try {
+      var m = document.cookie.match(/(?:^|;\s*)fs-cc=([^;]*)/);
+      if (!m) return null;
+      var v = decodeURIComponent(m[1]);
+      if (v.charAt(0) !== '{') v = decodeURIComponent(v); // 이중 인코딩 대비
+      var parsed = JSON.parse(v);
+      return parsed && parsed.consents ? parsed.consents : null;
+    } catch (e) {
+      return null;
+    }
+  }
+ 
+  var c = readFsCC();
+  if (c) {
+    syncConsentToGoogle(build(!!c.marketing, !!c.analytics, !!c.personalization));
+  }
+})();
+</script>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://aifeed.kr') return;
+    var d = e.data;
+    if ((d === 'upstage_contact_submit' || (d && d.event === 'upstage_contact_submit')) && typeof window.lintrk === 'function') {
+      window.lintrk('track', { conversion_id: 26942020 });
+    }
+  });
+</script>
+<script>
+  document.addEventListener(
+    'submit',
+    function (e) {
+      var f = e.target;
+      if (!f || !f.getAttribute) return;
+      var n = f.getAttribute('data-name') || '',
+        i = f.id || '';
+      if (n === 'Underwriting Reinvention Form' || i.indexOf('Underwriting-Reinvention-Form') !== -1) {
+        if (typeof window.lintrk === 'function') {
+          window.lintrk('track', { conversion_id: 26942028 });
+        }
+      }
+    },
+    true,
+  );
+</script>
+<script>
+  document.addEventListener(
+    'submit',
+    function (e) {
+      var f = e.target;
+      if (!f || !f.getAttribute) return;
+      var n = f.getAttribute('data-name') || '',
+        i = f.id || '';
+      if (n === 'Newsletter New Form ACC' || i.indexOf('Newsletter-New-Form-ACC') !== -1) {
+        if (typeof window.lintrk === 'function') {
+          window.lintrk('track', { conversion_id: 26942036 });
+        }
+      }
+    },
+    true,
+  );
+</script>
+<!-- ============================================================
+  LinkedIn Insight Tag — 파트너 ID 8296964 (Campaign Manager 계정 510199561)
+  추가일: 2026-07-20 / 민지
+
+  [배경]
+  - GTM(GTM-M2LDL34Q)에 설치된 기존 LinkedIn Insight Tag는 파트너 ID가
+    6328284로, 현재 사용 중인 광고 계정(8296964)과 달라 방문자/전환 데이터가
+    엉뚜한 계정으로 전송되고 있었음.
+  - GTM 편집 권한이 없어 임시로 푸터 커스텀 코드에 올바른 ID(8296964)를
+    추가함. 위 푸터의 기존 전환 스크립트 3개(lintrk track: 26942020,
+    26942028, 26942036)도 이 태그를 통해 정상 계정으로 잡히게 됨.
+
+  [동작 방식 — 쿠키 동의 연동]
+  - LinkedIn 원본 스니펫을 그대로 쓰지 않고, 이 사이트의 동의 체계
+    (Consent Mode + Finsweet 배너)를 따르도록 감쌀 버전임.
+  - GTM이 마케팅 동의 시 dataLayer에 push하는 'marketing-activated'
+    이벤트를 감지해 그때만 태그를 로드함. 동의 전에는 아무것도 안 함.
+  - 재방문자(이미 동의한 상태)는 페이지 로드 시 dataLayer에 남아있는
+    이벤트를 확인해 즉시 로드함.
+  - noscript 픽셀은 동의 판단이 불가능해 의도적으로 제외함.
+
+  [2026-07-28 검증 메모 — 삭제 금지]
+  - GTM Version 33에 정식 태그(8296964)를 추가한 뒤 이 블록을 제거해
+    보았으나, 아래 두 가지 문제가 확인되어 복구함.
+    1) window.lintrk 스텁이 사라져 위 전환 스크립트 3개가 모두 무동작.
+       (GTM LinkedIn InsightTag 2.0 템플릿은 전역 lintrk를 만들지 않음)
+    2) 첫 방문 시 동의를 누른 바로 그 페이지에서는 GTM 태그가 발화하지
+       않음. Consent Mode가 update를 반영하지 못해 2번째 페이지뷰부터
+       granted로 잡히기 때문.
+  - 즉, 이 블록은 임시물이 아니라 위 두 간극을 메우는 역할을 하고 있음.
+    배너의 consent update가 Consent Mode에 정상 반영되도록 고치기 전까지
+    제거하지 말 것.
+============================================================ -->
+<script type="text/javascript">
+(function(){
+  // LinkedIn Insight Tag 로드 함수 (1회만 실행되도록 가드)
+  function loadLI(){
+    if(window.__li8296964) return; window.__li8296964=true;
+
+    // 파트너 ID 등록 — 배열이라 GTM의 기존 태그(6328284)와 충돌하지 않음
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push("8296964");
+
+    // lintrk 스텁 생성 — 태그 로드 전에 발생한 전환 호출을 큐에 보관
+    if(!window.lintrk){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[];}
+
+    // LinkedIn 공식 스크립트 비동기 로드
+    var s=document.getElementsByTagName("script")[0], b=document.createElement("script");
+    b.type="text/javascript"; b.async=true;
+    b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b,s);
+  }
+
+  window.dataLayer = window.dataLayer || [];
+
+  // 케이스 1: 재방문자 — 이미 동의되어 이벤트가 dataLayer에 있으면 즉시 로드
+  if(window.dataLayer.some(function(e){return e&&e.event==="marketing-activated";})) loadLI();
+
+  // 케이스 2: 첫 방문자 — dataLayer.push를 감싸서 동의 이벤트를 기다렸다가 로드
+  var p = window.dataLayer.push.bind(window.dataLayer);
+  window.dataLayer.push = function(){
+    for(var i=0;i<arguments.length;i++){var e=arguments[i]; if(e&&e.event==="marketing-activated") loadLI();}
+    return p.apply(null, arguments);
+  };
+})();
+</script>
+<!-- End LinkedIn Insight Tag (8296964) -->
+<!-- Consent recovery measurement: added 2026-08-24 -->
+<script>
+(function () {
+  if (window.__consentRecoveryMeasurement) return;
+  window.__consentRecoveryMeasurement = true;
+  function send(event, params) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: event }, params || {}));
+  }
+  function storedConsent() {
+    try { return JSON.parse(localStorage.getItem('consentMode')); } catch (_) { return null; }
+  }
+  var saved = storedConsent();
+  send('consent_state_initialized', {
+    consent_state_at_load: !saved ? 'no_response' : (saved.analytics_storage === 'granted' ? 'granted' : 'denied')
+  });
+  var sentImpression = false;
+  function observeBanner() {
+    var banner = document.querySelector('[fs-cc="banner"]');
+    if (!banner || sentImpression) return;
+    var style = window.getComputedStyle(banner);
+    if (style.display !== 'none' && style.visibility !== 'hidden') {
+      sentImpression = true;
+      send('consent_banner_impression');
+    }
+  }
+  observeBanner();
+  var observer = new MutationObserver(observeBanner);
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+  window.setTimeout(function () { observer.disconnect(); }, 5000);
+  document.addEventListener('click', function (event) {
+    var target = event.target.closest('[fs-cc]');
+    if (!target) return;
+    var action = target.getAttribute('fs-cc');
+    if (action === 'allow') {
+      send('consent_choice', { consent_choice: 'allow', analytics_choice: 'granted' });
+    } else if (action === 'deny') {
+      send('consent_choice', { consent_choice: 'decline', analytics_choice: 'denied' });
+    } else if (action === 'submit') {
+      var analytics = document.querySelector('#analytics');
+      send('consent_choice', { consent_choice: 'custom', analytics_choice: analytics && analytics.checked ? 'granted' : 'denied' });
+    }
+  }, true);
+})();
+</script>
+
+<!---script>
+  /* ═══════════════════════════════════════════════════════════════
+   Solar Pro 4 — Promotional Pricing Phases
+   Pricing API page - standalone module (replaces Enhanced Pricing System v2.3)
+   v1.2 - 2026-08-06
+   Card markup holds STANDARD pricing; this script overwrites it
+   during the free and discounted phases. If this script fails,
+   standard pricing remains visible - never a stale promo price.
+   ═══════════════════════════════════════════════════════════════ */
+  (function () {
+    'use strict';
+
+    var CONFIG = {
+      modelTitle: 'Solar Pro 4',
+      cardSelector: '.pricing-card-v2',
+      unit: ' / 1M tokens',
+
+      /* Standard prices baked into the card markup. Same order as the DOM rows. */
+      standard: ['$0.30', '$0.06', '$1.20'],
+
+      phases: [
+        {
+          id: 'free',
+          start: '2026-08-05T22:00:00Z' /* open: 2026-08-06 07:00 KST */,
+          end: '2026-08-11T00:00:00Z' /* 2026-08-11 09:00 KST */,
+          prices: ['Free', 'Free', 'Free'],
+          showUnit: false,
+          note: {
+            en: '* Free until 2026-08-10 (UTC).',
+            ko: '* 2026-08-10(UTC)까지 무료로 제공합니다.',
+          },
+        },
+        {
+          id: 'discount',
+          start: '2026-08-11T00:00:00Z',
+          end: '2026-09-11T00:00:00Z',
+          prices: ['$0.03', '$0.006', '$0.12'],
+          showUnit: true,
+          note: {
+            en: '* 90% off until 2026-09-10 (UTC). 70% off applies from 2026-09-11 (UTC).',
+            ko: '* 2026-09-10(UTC)까지 90% 할인가가 적용됩니다. 2026-09-11(UTC)부터 70% 할인가가 적용됩니다.',
+          },
+        },
+        {
+          id: 'discount70',
+          start: '2026-09-11T00:00:00Z',
+          end: '2026-10-11T00:00:00Z',
+          prices: ['$0.09', '$0.018', '$0.36'],
+          showUnit: true,
+          note: {
+            en: '* 70% off until 2026-10-10 (UTC). Standard pricing applies from 2026-10-11 (UTC).',
+            ko: '* 2026-10-10(UTC)까지 70% 할인가가 적용됩니다. 2026-10-11(UTC)부터 정상가로 전환됩니다.',
+          },
+        },
+      ],
+
+      debug: false,
+    };
+
+    var STYLE_ID = 'sp4-promo-style';
+    var CSS = '.sp4-was{font-size:14px!important;font-weight:400!important;color:#70757F!important;' + 'text-decoration:line-through;text-decoration-thickness:1px;margin-right:8px;white-space:nowrap}' + '.sp4-was *{font-size:inherit!important;font-weight:inherit!important;color:inherit!important}' + '.sp4-price-cell{white-space:nowrap}';
+
+    function log() {
+      if (CONFIG.debug && window.console) console.log.apply(console, ['[SP4]'].concat([].slice.call(arguments)));
+    }
+
+    /* Test hook. Always real time in production. */
+    function now() {
+      return typeof window.__SP4_NOW__ === 'number' ? window.__SP4_NOW__ : Date.now();
+    }
+
+    function currentPhase() {
+      var t = now();
+      for (var i = 0; i < CONFIG.phases.length; i++) {
+        var p = CONFIG.phases[i];
+        if (t >= Date.parse(p.start) && t < Date.parse(p.end)) return p;
+      }
+      return null; /* before launch or after promo -> standard pricing */
+    }
+
+    function isKorean() {
+      return /(^|\/)ko(\/|$)/.test(location.pathname) || (document.documentElement.lang || '').toLowerCase().indexOf('ko') === 0;
+    }
+
+    function findCard() {
+      var cards = document.querySelectorAll(CONFIG.cardSelector);
+      for (var i = 0; i < cards.length; i++) {
+        var h = cards[i].querySelector('h1,h2,h3,h4,h5,h6');
+        if (h && h.textContent.trim() === CONFIG.modelTitle) return cards[i];
+      }
+      return null;
+    }
+
+    function injectStyle() {
+      if (document.getElementById(STYLE_ID)) return;
+      var s = document.createElement('style');
+      s.id = STYLE_ID;
+      s.textContent = CSS;
+      document.head.appendChild(s);
+    }
+
+    /* Repaint one row as: struck-through standard price + current price */
+    function renderRow(row, standardText, nowText, showUnit) {
+      var cell = row.querySelector('.text-color-black-3') || (row.querySelector('strong') && row.querySelector('strong').parentNode);
+      if (!cell) return false;
+
+      cell.classList.add('sp4-price-cell');
+      cell.textContent = '';
+
+      var was = document.createElement('span');
+      was.className = 'sp4-was';
+      was.textContent = standardText + CONFIG.unit;
+
+      var cur = document.createElement('strong');
+      cur.className = 'text-size-medium';
+      cur.textContent = nowText;
+
+      cell.appendChild(was);
+      cell.appendChild(cur);
+
+      if (showUnit) {
+        var u = document.createElement('span');
+        u.className = 'text-size-small padding-0';
+        u.textContent = CONFIG.unit;
+        cell.appendChild(u);
+      }
+      return true;
+    }
+
+    function renderNote(card, phase) {
+      var host = card.querySelector('.model-card-title-wrapper') || card.querySelector('.pricing-card-top-v3');
+      if (!host) return;
+
+      var box = card.querySelector('[data-sp4-note]');
+      if (!box) {
+        box = document.createElement('div');
+        box.setAttribute('data-sp4-note', '');
+        box.className = 'price-notice-card background-color-tertiary padding-xsmall';
+        var inner = document.createElement('div');
+        inner.className = 'text-size-tiny text-color-black-3';
+        inner.appendChild(document.createElement('em'));
+        box.appendChild(inner);
+        host.appendChild(box);
+      }
+      box.querySelector('em').textContent = isKorean() ? phase.note.ko : phase.note.en;
+      box.style.display = '';
+    }
+
+    function apply() {
+      var card = findCard();
+      if (!card) {
+        log('card not found - leaving standard pricing');
+        return;
+      }
+
+      var phase = currentPhase();
+      var want = phase ? phase.id : 'standard';
+
+      /* Idempotent: same phase -> touch nothing (blocks MutationObserver feedback) */
+      if (card.getAttribute('data-sp4-phase') === want) return;
+
+      injectStyle();
+
+      var rows = card.querySelectorAll('.pricing-feature-v2');
+      if (rows.length !== CONFIG.standard.length) {
+        log('unexpected row count:', rows.length);
+        return;
+      }
+
+      if (!phase) {
+        /* Restore standard pricing. Only touch cells we previously overwrote,
+         since a tab re-render may have already restored the original markup. */
+        for (var i = 0; i < CONFIG.standard.length; i++) {
+          var cell = rows[i].querySelector('.text-color-black-3');
+          if (cell && cell.querySelector('.sp4-was')) {
+            cell.textContent = '';
+            cell.classList.remove('sp4-price-cell');
+            var st = document.createElement('strong');
+            st.className = 'text-size-medium';
+            st.textContent = CONFIG.standard[i];
+            var su = document.createElement('span');
+            su.className = 'text-size-small padding-0';
+            su.textContent = CONFIG.unit;
+            cell.appendChild(st);
+            cell.appendChild(su);
+          }
+        }
+        var oldNote = card.querySelector('[data-sp4-note]');
+        if (oldNote) oldNote.style.display = 'none';
+        card.setAttribute('data-sp4-phase', 'standard');
+        log('standard pricing');
+        return;
+      }
+
+      var ok = true;
+      for (var j = 0; j < CONFIG.standard.length; j++) {
+        if (!renderRow(rows[j], CONFIG.standard[j], phase.prices[j], phase.showUnit)) ok = false;
+      }
+      if (!ok) {
+        log('partial render - not locking phase, will retry');
+        return;
+      }
+
+      renderNote(card, phase);
+      card.setAttribute('data-sp4-phase', want);
+      log('applied phase:', want);
+    }
+
+    /* Handles tab switches and late renders. Safe to call repeatedly.
+     Keep one timer per delay so they do not cancel each other. */
+    var timers = {};
+    function schedule(delay) {
+      clearTimeout(timers[delay]);
+      timers[delay] = setTimeout(apply, delay);
+    }
+
+    function boot() {
+      apply();
+      document.addEventListener(
+        'click',
+        function (e) {
+          var el = e.target;
+          while (el && el !== document) {
+            if (el.className && typeof el.className === 'string' && /tab/i.test(el.className)) {
+              schedule(120);
+              schedule(400);
+              schedule(1200);
+              return;
+            }
+            el = el.parentNode;
+          }
+        },
+        true,
+      );
+      /* Catches a phase boundary crossed while the tab sat open */
+      document.addEventListener('visibilitychange', function () {
+        if (!document.hidden) apply();
+      });
+      window.addEventListener('focus', apply);
+      /* Safety net (no-op when the phase is unchanged) */
+      setInterval(apply, 60 * 1000);
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+    else boot();
+
+    window.__SP4_APPLY__ = apply; /* demo / debug hook */
+  })();
+</script--->
+
+
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   Pricing promo phases - CMS driven, multi-window
+   /pricing/api
+   v3.3 - 2026-10-08  (v3.2 + note=short: end date only, next window not announced)
+   Markup holds STANDARD pricing. This script overwrites it while a
+   promo window is open. If it fails, standard pricing stays visible.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  var CARD  = '.pricing-card-v2';   /* production. staging uses .pricing-card-v2-2 */
+  var DEBUG = false;
+
+  function log(){ if (DEBUG && window.console) console.log.apply(console, ['[promo]'].concat([].slice.call(arguments))); }
+
+  /* Test hook. Real time in production. */
+  function now(){ return (typeof window.__PROMO_NOW__ === 'number') ? window.__PROMO_NOW__ : Date.now(); }
+
+  function isKorean(){
+    return /(^|\/)ko(\/|$)/.test(location.pathname) ||
+           (document.documentElement.lang || '').toLowerCase().indexOf('ko') === 0;
+  }
+
+  function read(card, role){
+    var el = card.querySelector('[data-promo="' + role + '"]');
+    var v  = el ? el.textContent.trim() : '';
+    return v || null;
+  }
+
+  /* Boundary is exclusive, so the last applicable day is the day before. */
+  function lastDay(iso){
+    var t = Date.parse(iso);
+    return isNaN(t) ? null : new Date(t - 86400000).toISOString().slice(0, 10);
+  }
+
+  /* ── v3: schedule ────────────────────────────────────────────────
+     One window per line:  startISO|endISO|role=value|role=value
+     A free window carries the single word `free` instead of values.
+     v3.2: an empty endISO (startISO||role=value) means no end date.
+     v3.3: note=short on a line prints only its end date, not the next window.
+     A malformed line is dropped - that instant falls back to standard.
+     Overlapping windows: the one that started later wins.          */
+  function parseSchedule(raw){
+    var out = [];
+    if (!raw) return out;
+    raw.split(/[\r\n]+/).forEach(function(line){
+      var p = line.split('|');
+      if (p.length < 3) return;
+      var startIso = p[0].trim(), endIso = p[1].trim();
+      var s = Date.parse(startIso);
+      var e = (endIso === '') ? Infinity : Date.parse(endIso);   /* v3.2: empty end = open-ended */
+      if (isNaN(s) || isNaN(e) || e <= s) return;
+      var free = false, values = {}, seen = false;
+      for (var i = 2; i < p.length; i++){
+        var tok = p[i].trim();
+        if (!tok) continue;
+        if (/^free$/i.test(tok)){ free = true; seen = true; continue; }
+        var eq = tok.indexOf('=');
+        if (eq < 1) return;                      /* malformed token -> drop line */
+        var k = tok.slice(0, eq).trim().toLowerCase();
+        var v = tok.slice(eq + 1).trim();
+        if (!k || !v) return;
+        values[k] = v; seen = true;
+      }
+      if (!seen) return;
+      out.push({ start: startIso, end: endIso, startMs: s, endMs: e, free: free, values: values });
+    });
+    return out;
+  }
+
+  function windowOf(card){
+    var wins = parseSchedule(read(card, 'schedule'));
+    var t = now(), best = null;
+    for (var i = 0; i < wins.length; i++){
+      var w = wins[i];
+      if (t < w.startMs || t >= w.endMs) continue;
+      if (!best || w.startMs > best.startMs) best = w;
+    }
+    return best;
+  }
+  /* ─────────────────────────────────────────────────────────────── */
+
+  /* Legacy two-field model. Used only when the card has no schedule. */
+  function legacyPhase(card){
+    var t    = now();
+    var free = Date.parse(read(card, 'free-until')     || '');
+    var disc = Date.parse(read(card, 'discount-until') || '');
+    if (!isNaN(free) && t < free) return 'free';
+    if (!isNaN(disc) && t < disc && (isNaN(free) || t >= free)) return 'discount';
+    return 'standard';
+  }
+
+  /* ── v3.1: the footnote must not lie when windows are chained ────
+     v3.0 said "Standard pricing applies from <end>" for every discount
+     window. When the next window starts exactly at this one's end that
+     sentence is false - 9/11 goes to 70% off, not to standard pricing.
+     pctOff reads the discount back off the markup (data-standard is
+     already filled by the rate loop, which runs before this), and
+     nextWindow finds a window butted up against this one's end.       */
+  function pctOff(card, win){
+    if (!win || win.free) return null;
+    var rates = card.querySelectorAll('[data-rate]');
+    for (var i = 0; i < rates.length; i++){
+      var role  = rates[i].getAttribute('data-rate');
+      var promo = win.values[role];
+      if (!promo) continue;
+      var stdRaw = rates[i].getAttribute('data-standard');
+      if (stdRaw == null) stdRaw = rates[i].textContent;
+      var s = parseFloat(String(stdRaw).replace(/[^0-9.]/g, ''));
+      var p = parseFloat(String(promo).replace(/[^0-9.]/g, ''));
+      if (!isFinite(s) || !isFinite(p) || s <= 0) continue;
+      var pct = Math.round((1 - p / s) * 100);
+      if (pct > 0 && pct < 100) return pct;
+    }
+    return null;
+  }
+
+  function nextWindow(card, win){
+    if (!win) return null;
+    var wins = parseSchedule(read(card, 'schedule'));
+    for (var i = 0; i < wins.length; i++){
+      if (wins[i].startMs === win.endMs) return wins[i];
+    }
+    return null;
+  }
+
+  function noteFor(card, phase, win){
+    var ko = isKorean();
+    if (phase === 'free'){
+      var d = lastDay(win ? win.end : read(card, 'free-until'));
+      if (!d) return null;
+      return ko ? '* ' + d + '(UTC)까지 무료입니다.'
+                : '* Free until ' + d + ' (UTC).';
+    }
+    if (phase === 'discount'){
+      /* v3.2: open-ended window - no end date to promise, no next window to announce */
+      if (win && !isFinite(win.endMs)){
+        var opct = pctOff(card, win);
+        return ko
+          ? (opct ? '* 별도 공지 전까지 ' + opct + '% 할인가가 적용됩니다.'
+                  : '* 별도 공지 전까지 할인가가 적용됩니다.')
+          : (opct ? '* ' + opct + '% off until further notice.'
+                  : '* Discounted until further notice.');
+      }
+      var s = win ? win.end : read(card, 'discount-until');
+      var e = lastDay(s);
+      if (!e) return null;
+      var from = s ? s.slice(0, 10) : null;
+      var pct  = pctOff(card, win);
+      var nxt  = nextWindow(card, win);
+      var npct = nxt ? pctOff(card, nxt) : null;
+
+      var head = ko
+        ? (pct ? '* ' + e + '(UTC)까지 ' + pct + '% 할인가가 적용됩니다.'
+               : '* ' + e + '(UTC)까지 할인가가 적용됩니다.')
+        : (pct ? '* ' + pct + '% off until ' + e + ' (UTC).'
+               : '* Discounted until ' + e + ' (UTC).');
+      if (!from) return head;
+      if (win && win.values.note === 'short') return head;   /* v3.3 */
+
+      var tail;
+      if (nxt && nxt.free)      tail = ko ? ' ' + from + '(UTC)부터 무료입니다.'
+                                          : ' Free from ' + from + ' (UTC).';
+      else if (nxt && npct)     tail = ko ? ' ' + from + '(UTC)부터 ' + npct + '% 할인가가 적용됩니다.'
+                                          : ' ' + npct + '% off applies from ' + from + ' (UTC).';
+      else if (nxt)             tail = ko ? ' ' + from + '(UTC)부터 새 프로모션 가격이 적용됩니다.'
+                                          : ' New promotional pricing applies from ' + from + ' (UTC).';
+      else                      tail = ko ? ' ' + from + '(UTC)부터 정상가로 전환됩니다.'
+                                          : ' Standard pricing applies from ' + from + ' (UTC).';
+      return head + tail;
+    }
+    return null;
+  }
+
+  /* Repaint one price: struck-through standard + current value. */
+  function renderRate(el, promo, isFree){
+    if (!el.hasAttribute('data-standard')) el.setAttribute('data-standard', el.textContent.trim());
+    var std  = el.getAttribute('data-standard');
+    var unit = el.parentNode.querySelector('[data-rate-unit]');
+    var unitText = unit ? unit.textContent.trim() : '';
+
+    var was = el.previousElementSibling;
+    if (!was || was.tagName !== 'S'){
+      was = document.createElement('s');
+      was.setAttribute('data-was', '');
+      el.parentNode.insertBefore(was, el);
+    }
+    was.textContent = '$' + std + (unitText ? ' / ' + unitText : '');
+    el.textContent  = isFree ? 'Free' : promo;
+  }
+
+  function restore(card){
+    card.querySelectorAll('[data-standard]').forEach(function(el){
+      el.textContent = el.getAttribute('data-standard');
+    });
+    card.querySelectorAll('s[data-was]').forEach(function(s){ s.remove(); });
+  }
+
+  function renderNote(card, text){
+    var box = card.querySelector('[data-notice-box]');
+    if (!box) return;
+    var inner = box.firstElementChild;
+    if (!inner) return;
+    /* Webflow tags a bound element whose CMS value is blank with
+       w-dyn-bind-empty and hides it. That class is the authoritative "the CMS
+       has nothing here" signal - and it must be removed, or text written into
+       the element stays invisible. A notice written by a human wins. */
+    var mine = inner.hasAttribute('data-promo-note');
+    if (!mine && !inner.classList.contains('w-dyn-bind-empty')) return;
+    if (text){
+      inner.setAttribute('data-promo-note', '');
+      inner.classList.remove('w-dyn-bind-empty');
+      inner.textContent = text;
+    } else if (mine){
+      inner.removeAttribute('data-promo-note');
+      inner.classList.add('w-dyn-bind-empty');
+      inner.textContent = '';
+    }
+  }
+
+  function applyCard(card){
+    var win   = windowOf(card);
+    var phase = win ? (win.free ? 'free' : 'discount') : legacyPhase(card);
+
+    /* Idempotent, but the key must change when the window changes -
+       two discount windows back to back would otherwise not repaint. */
+    var key = phase + (win ? '@' + win.start : '');
+    if (card.getAttribute('data-phase-key') === key) return;
+
+    var rates = card.querySelectorAll('[data-rate]');
+    if (!rates.length){
+      card.setAttribute('data-phase', phase);
+      card.setAttribute('data-phase-key', key);
+      return;
+    }
+
+    if (phase === 'standard'){
+      restore(card);
+    } else {
+      var free = phase === 'free';
+      for (var i = 0; i < rates.length; i++){
+        /* The CMS has no rate for this row (Document OCR has no Enhanced tier).
+           The row is hidden by CSS - do not paint "Free" into it. */
+        if (rates[i].classList.contains('w-dyn-bind-empty')) continue;
+        var role  = rates[i].getAttribute('data-rate');
+        var promo = win ? win.values[role] : read(card, role);
+        /* Discount window with no value for this row: leave it standard. */
+        if (!free && !promo) {
+          if (rates[i].hasAttribute('data-standard')) renderRate(rates[i], rates[i].getAttribute('data-standard'), false);
+          continue;
+        }
+        renderRate(rates[i], promo, free);
+      }
+      /* A row painted by a previous window but absent from this one
+         must go back to standard. Handled above via data-standard. */
+    }
+
+    renderNote(card, noteFor(card, phase, win));
+    card.setAttribute('data-phase', phase);
+    card.setAttribute('data-phase-key', key);
+    log(card.querySelector('h1,h2,h3,h4,h5,h6').textContent.trim(), '->', key);
+  }
+
+  function apply(){
+    var cards = document.querySelectorAll(CARD);
+    for (var i = 0; i < cards.length; i++){
+      if (cards[i].querySelector('[data-promo]')) applyCard(cards[i]);
+    }
+  }
+
+  /* Tabs re-render their panes, so reapply after a click. */
+  var timers = {};
+  function schedule(d){ clearTimeout(timers[d]); timers[d] = setTimeout(apply, d); }
+
+  function boot(){
+    apply();
+    document.addEventListener('click', function(e){
+      var el = e.target;
+      while (el && el !== document){
+        if (el.className && typeof el.className === 'string' && /tab/i.test(el.className)){
+          schedule(120); schedule(400); schedule(1200); return;
+        }
+        el = el.parentNode;
+      }
+    }, true);
+    document.addEventListener('visibilitychange', function(){ if (!document.hidden) apply(); });
+    window.addEventListener('focus', apply);
+    setInterval(apply, 60 * 1000);   /* catches a boundary crossed with the tab open */
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+
+  window.__PROMO_APPLY__ = apply;   /* debug hook */
+  window.__PROMO_PARSE__ = parseSchedule;   /* test hook */
+})();
+</script><script src="https://cdn.prod.website-files.com/6743d5190bb2b52f38e99e37%2F689e5ba67671442434f3ca35%2F6ac4f6a6b579283356a4c0b4%2Fst2linkfix-1.0.0.js" type="text/javascript"></script></body></html>
