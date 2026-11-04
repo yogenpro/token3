@@ -1,3 +1,5 @@
+In the pricing tiers, K means 1,000 and M means 1,000,000. For example, 128K equals 128,000 tokens, 256K equals 256,000 tokens, and 1M equals 1,000,000 tokens.
+
 <Tab title="Singapore">
     <table style={{ display: "table", tableLayout: "fixed", width: "100%", overflowWrap: "anywhere" }}>
       <colgroup>

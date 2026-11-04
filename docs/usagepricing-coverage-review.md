@@ -65,7 +65,8 @@ rows into a unique-model count. These remaining limits stay explicit:
 
 Original aliases/source bindings remain intact. Qwen thinking modes share an
 endpoint and bands, so their new IDs also distinguish billing mode. No original
-offering ID changes. Weight metadata preserves published license terms; it does
+offering ID changes. Qwen's source explicitly defines K as 1,000 and M as
+1,000,000; a changed or missing definition fails closed. Weight metadata preserves published license terms; it does
 not grant unrestricted licensing or inference access. Codestral's unversioned
 competitor label does not establish its context limit; only the current official
 `codestral-2508` quote is selected.

@@ -124,6 +124,7 @@ class CoverageReviewTests(unittest.TestCase):
         self.assertEqual([(r['input_per_million'], r['output_per_million']) for r in plus], [(.32, 1.28), (.32, 1.28), (.96, 3.84), (.96, 3.84)])
         self.assertEqual({r['variant'] for r in plus}, {'thinking', 'non-thinking'})
         with self.assertRaises(ValueError): self.rows('alibaba', body('alibaba').replace('Limited-time 20% off', 'Limited-time 30% off'))
+        with self.assertRaises(ValueError): self.rows('alibaba', body('alibaba').replace('K means 1,000', 'K means 1,024'))
         grok = [r for r in self.rows('xai') if r['provider_model_id'] == 'grok-4.6']
         self.assertEqual([(r['input_per_million'], r['max_input_tokens']) for r in grok], [(2, 199999), (4, None)])
         with self.assertRaises(ValueError): self.rows('xai', body('xai').replace('grok-4.6 (≥ 200k prompt tokens)', 'grok-4.6 (≥ 256k prompt tokens)'))

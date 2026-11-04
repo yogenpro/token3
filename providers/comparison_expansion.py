@@ -365,6 +365,8 @@ def alibaba_qwen_quotes(body, aliases, source):
     selected = set(QWEN_LABELS) & set(aliases)
     if not selected:
         return []
+    if 'In the pricing tiers, K means 1,000 and M means 1,000,000.' not in body:
+        raise ValueError('Alibaba token-band multiplier requires review')
     # Read inert JSX span attributes and escaped inequalities without allowing
     # HTMLParser to consume '<Token' as an HTML tag.
     view = re.sub(r'(rowSpan|colSpan)=\{(\d+)\}', r'\1="\2"', body.replace('\\<', '&lt;'))
