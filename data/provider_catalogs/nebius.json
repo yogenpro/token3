@@ -677,6 +677,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "nebius-5b7cab30ab91e43b5893040d",
+      "provider": "nebius",
+      "native_id": "moonshotai/Kimi-K3.1-Pro",
+      "kind": "model_flavor",
+      "label": "Kimi-K3.1-Pro",
+      "scope": {
+        "flavor": "cheap",
+        "region": {
+          "country_code": "US",
+          "name": "us-north1"
+        }
+      },
+      "billing": {
+        "rules": {
+          "input_cached_price_per_million_tokens": 0.2,
+          "input_price_per_million_tokens": 2,
+          "output_price_per_million_tokens": 10
+        },
+        "state": "reported",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "input_price_per_million_tokens",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output_price_per_million_tokens",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "model_type": "image2text",
+        "model_name": "Kimi-K3.1-Pro",
+        "max_model_len": 1048576,
+        "context_window_k": 1048,
+        "quantization": "fp4",
+        "external_provider": false,
+        "tags": [],
+        "use_cases": [
+          "dedicated-endpoint",
+          "text",
+          "image",
+          "code",
+          "function_calling",
+          "reasoning",
+          "responses_api"
+        ],
+        "status": "active",
+        "license": {
+          "name": "Kimi K3.1 Pro License",
+          "type": "",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/main/LICENSE"
+        },
+        "vendor": "moonshotai",
+        "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "size_b": 0
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "nebius-602cfe34152caa8d5e2b769d",
       "provider": "nebius",
       "native_id": "openbmb/MiniCPM-V-4_5",
@@ -2062,14 +2129,14 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "fb04d3b9dc5cb2695c3f8cfc7186d6cc0be67d21b1bbdb067de591a00f3cbcb7",
-  "revision": 18,
-  "changed_at": "2026-11-04T14:33:17Z",
+  "catalog_sha256": "d0169571b9790b9d10ffe80a740e1a15c37ccb5644820de8f7cb7beba353ce22",
+  "revision": 19,
+  "changed_at": "2026-11-04T18:50:50Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "f7669da53c2c19403886629775057203f2879e51bc4fdb52bcf251f52287e689",
+  "source_sha256": "48c3b4ac112ae689aaae075ffeac5d30d72265616b02c801c5ee4df71685ea77",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
