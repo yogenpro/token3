@@ -10,6 +10,17 @@ API_IDS = {"gpt-5.4": "gpt-5.4-2026-03-05", "gpt-5.4-mini": "gpt-5.4-mini-2026-0
            "gpt-6-astra": "gpt-6-astra", "gpt-6.1-sol": "gpt-6.1-sol", "gpt-6-luna": "gpt-6-luna", "gpt-6-sol": "gpt-6-sol"}
 ROWS.update({model: model for model in API_IDS if model.startswith("gpt-6")})
 LONG_CONTEXT_MODELS = frozenset(("gpt-5.4", "gpt-6-astra", "gpt-6.1-sol", "gpt-6-luna", "gpt-6-sol"))
+ADDITIONAL_IDS = (
+    "gpt-6.1-terra", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna",
+    "gpt-5.5", "gpt-5.5-pro", "gpt-5.4-pro", "gpt-5.4-nano",
+    "gpt-5.2", "gpt-5.2-pro", "gpt-5.1", "gpt-5", "gpt-5-mini",
+    "gpt-5-nano", "gpt-5-pro", "gpt-4.1", "gpt-4.1-mini", "gpt-4o",
+    "gpt-4o-mini", "o3-pro", "o3",
+)
+TRACKED_IDS = {**API_IDS, **{mid: mid for mid in ADDITIONAL_IDS}}
+ROWS.update({mid: mid for mid in ADDITIONAL_IDS})
+ROWS.update({mid + " (<272K context length)": mid for mid in ("gpt-5.5", "gpt-5.5-pro", "gpt-5.4-pro")})
+LONG_CONTEXT_MODELS |= frozenset(("gpt-6.1-terra", "gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna", "gpt-5.5", "gpt-5.5-pro", "gpt-5.4-pro"))
 HEADER = ["Model", "Short context input", "Short context cached input", "Short context cache writes", "Short context output", "Long context input", "Long context cached input", "Long context cache writes", "Long context output"]
 RETENTION_HEADER = ["Model", "Short context input", "Short context output", "Short context cached input", "Short context 30m write", "Short context 12h write", "Long context input", "Long context output", "Long context cached input", "Long context 30m write", "Long context 12h write"]
 UNIFORM_HEADER = ["Model", "Input", "Output", "Cached input"]
@@ -32,7 +43,7 @@ def _tracked_rows(standard, aliases):
             header = cells
             continue
         model = ROWS.get(cells[0])
-        if model is None or API_IDS[model] not in aliases:
+        if model is None or TRACKED_IDS[model] not in aliases:
             continue
         schema = frozenset(header)
         if header[0] != "Model" or len(header) != len(schema) or schema not in SCHEMAS:
@@ -80,11 +91,11 @@ def parse(body, aliases):
             notes = "Standard text-token pricing. Reasoning tokens count as output. Tool fees and cache writes are excluded from estimates. Prompt bands count the full input, including cached tokens."
             if schema == frozenset(RETENTION_HEADER) and values[2] is not None:
                 notes += " Current cache-write component: 30-minute retention only; 12-hour writes remain native-only. Historical unqualified write observations do not establish retention."
-            records.append(observation("openai", API_IDS[model], values[0], values[3], SOURCE,
+            records.append(observation("openai", TRACKED_IDS[model], values[0], values[3], SOURCE,
                 cache_read_per_million=values[1], cache_write_per_million=values[2], region="global",
                 min_input_tokens=minimum, max_input_tokens=maximum, variant=variant,
                 pricing_notes=notes, **metadata(model)))
-    require_models(records, API_IDS.values(), aliases)
+    require_models(records, TRACKED_IDS.values(), aliases)
     return snapshot(records, body, SOURCE)
 
 

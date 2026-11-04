@@ -112,6 +112,10 @@ def normalize(record, aliases, observed_at, source_hash):
     # Preserve all existing offering IDs; distinguish new prompt-length bands.
     if minimum or maximum is not None:
         identity.extend([str(minimum), str(maximum)])
+    # These newly reviewed billing modes share an endpoint and prompt bands.
+    # Preserve every legacy ID while keeping their distinct output columns apart.
+    if record.get("variant") in ("thinking", "non-thinking"):
+        identity.extend(["billing_mode", record["variant"]])
     offering_id = record["provider"] + "-" + hashlib.sha256("\0".join(identity).encode()).hexdigest()[:16]
     offering = {key: record.get(key) for key in OFFERING_FIELDS}
     if quote_unit != "USD":

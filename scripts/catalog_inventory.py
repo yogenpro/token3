@@ -266,6 +266,8 @@ class _DocumentHTML(PricingHTML):
 
 
 def _markdown(body):
+    from providers.markdoc import table_markdown
+    body = table_markdown(body)
     headings, tables, notes, rows, scope = [], [], [], [], []
     heading_levels = {}
     def flush():
@@ -377,6 +379,15 @@ def normalize_inventory(provider, body, source_kind, source_urls=None, observed_
             raise ValueError("Unknown full-catalog JSON schema for " + provider)
     else:
         records, notes = _document(provider, body)
+        if provider == "moonshot":
+            from providers.moonshot import native_notes, tables
+            notes.extend(native_notes(body))
+            for headers, rows in tables(body):
+                for mid, prices in rows:
+                    records.append(entry(provider, mid, "model", mid,
+                        dict(headers=headers), dict(columns=headers, cells=[mid, *prices],
+                            interpretation="Public serialized DocTable literals; never executed"),
+                        rates=_quoted_rates([mid, *prices], headers, provider, [])))
     if not records:
         raise ValueError("Full inventory is empty; previous catalog retained")
     unique = {}

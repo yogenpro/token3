@@ -1,6 +1,6 @@
 # Source-native provider expansion
 
-The source warehouse collects **26 provider groups**: the original 11 plus the 15 below. The original expansion was **collection only**. A subsequent [2026-10-11 explicit model review](reviewed-model-review.md) added separately curated Vercel gateway quotes and expanded reviewed coverage to **45 models / 216 offerings across 12 billing providers**. The [2026-10-26 provider review](provider-comparison-expansion.md) adds 47 selected quotes across the remaining fourteen groups, for 45 models / 263 retained offerings across 26 billing providers. USD, EUR, DBU and AI Credit views are isolated; Together remains paused. Every native row, including records linked to these quotes, remains comparison-ineligible. Discovery never creates a canonical alias, quote or cross-provider equivalence automatically. Google Gemini Developer API and Google Vertex AI remain separate sources and commercial offerings.
+The source warehouse now collects **29 provider groups**: the original 11, the 15 below, and Mistral API, Meta Model API and Moonshot AI from the [2026-11-04 gap review](usagepricing-coverage-review.md). Historical recovery remains scoped to the original 26 groups. The original expansion was **collection only**. A subsequent [2026-10-11 explicit model review](reviewed-model-review.md) added separately curated Vercel gateway quotes and expanded reviewed coverage to **45 models / 216 offerings across 12 billing providers**. The [2026-10-26 provider review](provider-comparison-expansion.md) adds 47 selected quotes across the remaining fourteen groups, for 45 models / 263 retained offerings across 26 billing providers. USD, EUR, DBU and AI Credit views are isolated; Together remains paused. Every native row, including records linked to these quotes, remains comparison-ineligible. Discovery never creates a canonical alias, quote or cross-provider equivalence automatically. Google Gemini Developer API and Google Vertex AI remain separate sources and commercial offerings.
 
 The existing source-native catalog/index and change-only history are reused. A later storage/presentation design can work from the collected evidence; this step does not introduce a database or universal cost schema.
 
@@ -60,4 +60,12 @@ python -m scripts.collect --strict \
   --provider minimax --provider deepseek
 ```
 
-The normal scheduled command selects all **26** providers automatically. Health distinguishes inventory-only collection from reviewed quotes, and limited optional-source coverage is visible. The user approved a separate data-only publication path after PR #2's initial manual release verifies, using `ENABLE_COLLECTION_PUBLISH=true`. It follows successful strict collection and remains bounded by the published code baseline. This is not permission to publish new code or partial data. See [publishing](publishing.md).
+The normal scheduled command selects all **29** providers automatically. Health distinguishes inventory-only collection from reviewed quotes, and limited optional-source coverage is visible. The user approved a separate data-only publication path after PR #2's initial manual release verifies, using `ENABLE_COLLECTION_PUBLISH=true`. It follows successful strict collection and remains bounded by the published code baseline. This is not permission to publish new code or partial data. See [publishing](publishing.md).
+
+## November direct-source additions
+
+The [UsagePricing comparison and review](usagepricing-coverage-review.md) adds Mistral API (`mistral`), Meta Model API (`meta`) and Moonshot AI (`moonshot`), all from public pricing documents without credentials. Mistral selects Standard USD and preserves its complete pricing document; Meta keeps Standard and Contributor modes separate; Kimi reads inert serialized public price tables because its Markdown export omits them. No inference endpoints are called. Historical backfill is not expanded by this current-source addition.
+
+```bash
+python -m scripts.collect --strict --dry-run --provider mistral --provider meta --provider moonshot
+```

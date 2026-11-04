@@ -27,6 +27,11 @@ def fixture(provider):
 class ReviewedExpansionTests(unittest.TestCase):
     def setUp(self):
         self.models, self.aliases = catalog()
+        # October fixtures retain their original review scope; November's full
+        # enrollment is independently checked in test_coverage_review.
+        baseline = json.loads((FIXTURES / 'reviewed-bindings-2026-10-26.json').read_text())
+        self.models = [m for m in self.models if m['id'] in baseline['model_ids']]
+        self.aliases.sources = baseline['sources']
 
     def parser(self, provider):
         selected = self.aliases.sources[provider.__name__.split('.')[-1]]

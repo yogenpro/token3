@@ -4,6 +4,9 @@ from .public_pricing import CLAUDE_NAMES, metadata, mtok, require_models
 SOURCE = "https://platform.claude.com/docs/en/about-claude/pricing"
 FETCH_URL = SOURCE + ".md"
 HEADER = ["model", "base input tokens", "5m cache writes", "1h cache writes", "cache hits and refreshes", "output tokens"]
+ADDITIONAL_LABELS = ("Claude Sonnet 4.5", "Claude Opus 4.5", "Claude Opus 4.7", "Claude Opus 4.8", "Claude Sonnet 5", "Claude Opus 5")
+ADDITIONAL_NAMES = {label: label for label in ADDITIONAL_LABELS}
+ADDITIONAL_NAMES["Claude Mythos 5 ([limited availability](https://support.claude.com/en/articles/14604842))"] = "Claude Mythos 5"
 
 
 def parse(body, aliases):
@@ -21,7 +24,7 @@ def parse(body, aliases):
         elif label == "Claude Mythos 5.1 ([limited availability](https://support.claude.com/en/articles/14604842))":
             model = "claude-mythos-5-1"
         else:
-            model = CLAUDE_NAMES.get(label)
+            model = {**CLAUDE_NAMES, **ADDITIONAL_NAMES}.get(label)
             if model == "claude-haiku-5-5":
                 raise ValueError("Haiku 5.5 prompt-band conditions are missing")
         if model is None or model not in aliases:
@@ -30,8 +33,10 @@ def parse(body, aliases):
         notes = "First-party global pricing. Cache-write quote uses a 5-minute TTL; the separately priced 1-hour TTL is not shown. Cache writes and server-side tool fees are excluded from estimates."
         if model == "claude-haiku-5-5":
             notes += " Haiku 5.5 prices the entire request by full prompt length, including cached tokens: up to 100,000 versus over 100,000."
-        if model == "claude-mythos-5-1":
+        if model in ("claude-mythos-5-1", "Claude Mythos 5"):
             notes += " Limited availability; a public rate does not establish account access."
+        if model in ADDITIONAL_NAMES.values():
+            notes += " Exact pricing-table label; API endpoint identity and capacity are not asserted."
         records.append(observation("anthropic", model, rates[0], rates[4], SOURCE,
             cache_read_per_million=rates[3], cache_write_per_million=rates[1], region="global",
             min_input_tokens=minimum, max_input_tokens=maximum, pricing_notes=notes,
@@ -40,7 +45,7 @@ def parse(body, aliases):
         bands = {(r["min_input_tokens"], r["max_input_tokens"]) for r in records if r["provider_model_id"] == "claude-haiku-5-5"}
         if bands != {(0, 100000), (100001, None)}:
             raise ValueError("Incomplete Haiku 5.5 prompt-band snapshot")
-    require_models(records, CLAUDE_NAMES.values(), aliases)
+    require_models(records, [*CLAUDE_NAMES.values(), *ADDITIONAL_NAMES.values()], aliases)
     return snapshot(records, body, SOURCE)
 
 

@@ -4,6 +4,7 @@ Fixtures/mutations are test inputs, never observations or historical TTL evidenc
 """
 import copy
 import hashlib
+import json
 import unittest
 from pathlib import Path
 
@@ -22,6 +23,8 @@ HASH = 'a' * 64
 class OpenAILayoutTests(unittest.TestCase):
     def setUp(self):
         _, self.aliases = catalog()
+        baseline = json.loads((FIXTURES / 'reviewed-bindings-2026-10-26.json').read_text())
+        self.aliases.sources = baseline['sources']
         self.scoped = self.aliases.for_provider('openai')
 
     def original_records(self):
