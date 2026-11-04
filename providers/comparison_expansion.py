@@ -144,8 +144,10 @@ def document_quotes(provider, payload, aliases, source):
             records.append(quote(provider, cells[0], [money(cells[1]), money(cells[4]), money(cells[2])], source,
                 region="international API", pricing_notes="International Z.ai API, USD per million tokens. Cached-input storage promotions are separate; Coding Plan and Chinese Zhipu billing excluded."))
     elif provider == "xai":
+        if "All prices are in USD." not in body:
+            raise ValueError("xAI pricing currency changed")
         for headers, cells in markdown_tables(section(body, "Text API Pricing", level=3)):
-            m = re.fullmatch(r"(grok-4\.7) \((<|≥) 200k prompt tokens\)", cells[0])
+            m = re.fullmatch(r"(grok-4\.[7356]|grok-build-0\.1) \((<|≥) 200k prompt tokens\)", cells[0])
             if not m or m[1] not in aliases:
                 continue
             if headers != ["Model", "Context", "Input / 1M tokens", "Cached input / 1M tokens", "Output / 1M tokens"]:
@@ -153,7 +155,9 @@ def document_quotes(provider, payload, aliases, source):
             records.append(quote(provider, m[1], [money(cells[2]), money(cells[4]), money(cells[3])], source,
                 min_input_tokens=0 if m[2] == "<" else 200000, max_input_tokens=199999 if m[2] == "<" else None,
                 pricing_notes="xAI Standard text pricing, full prompt boundary <200,000 / ≥200,000. Regional, Batch and Priority modifiers excluded. Source context shorthand left unverified."))
-        if len(records) != 2 or {r['min_input_tokens'] for r in records} != {0, 200000}:
+        if any(len([r for r in records if r['provider_model_id'] == mid]) != 2 or
+               {r['min_input_tokens'] for r in records if r['provider_model_id'] == mid} != {0, 200000}
+               for mid in aliases):
             raise ValueError("Incomplete xAI prompt schedule")
     elif provider == "minimax":
         llm = section(body, "LLM")
@@ -345,6 +349,79 @@ def ovhcloud_quotes(payload, aliases, source):
     return records
 
 
+QWEN_LABELS = {
+    'qwen3.8-max': 'qwen3.8-max > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.8-flash': 'qwen3.8-flash > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.8-27b': 'qwen3.8-27b > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.7-max': 'qwen3.7-max > Currently equivalent to qwen3.7-max-2026-05-20 > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.7-plus': 'qwen3.7-plus > Currently equivalent to qwen3.7-plus-2026-05-26 > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.7-flash': 'qwen3.7-flash > Currently equivalent to qwen3.7-flash-2026-07-15 > 50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount > [context caching discount](/en/model-studio/context-cache)',
+    'qwen3.5-plus': 'qwen3.5-plus > Currently equivalent to qwen3.5-plus-2026-02-15',
+    'qwen3.5-flash': 'qwen3.5-flash > Currently equivalent to qwen3.5-flash-2026-02-23 > 50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount > [context caching discount](/en/model-studio/context-cache)',
+}
+
+
+def alibaba_qwen_quotes(body, aliases, source):
+    selected = set(QWEN_LABELS) & set(aliases)
+    if not selected:
+        return []
+    if 'In the pricing tiers, K means 1,000 and M means 1,000,000.' not in body:
+        raise ValueError('Alibaba token-band multiplier requires review')
+    # Read inert JSX span attributes and escaped inequalities without allowing
+    # HTMLParser to consume '<Token' as an HTML tag.
+    view = re.sub(r'(rowSpan|colSpan)=\{(\d+)\}', r'\1="\2"', body.replace('\\<', '&lt;'))
+    lookup = {QWEN_LABELS[mid]: mid for mid in selected}
+    expected_bands = {
+        'qwen3.7-flash': [(1, 32000), (32001, 256000), (256001, 1000000)],
+        'qwen3.7-plus': [(1, 256000), (256001, 1000000)],
+        'qwen3.5-plus': [(1, 256000), (256001, 1000000)],
+    }
+    bands = {'0<Token≤1M': (1, 1000000), '0<Token≤32K': (1, 32000), '32K<Token≤256K': (32001, 256000),
+             '256K<Token≤1M': (256001, 1000000), '0<Token≤256K': (1, 256000)}
+    records, seen = [], {mid: [] for mid in selected}
+    for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>', view, re.S):
+        parser = Tables(); parser.feed(block)
+        for table in parser.tables:
+            rows = expand(table)
+            for cells in rows[1:]:
+                mid = lookup.get(cells[0])
+                if mid is None:
+                    continue
+                modes = mid in ('qwen3.7-plus', 'qwen3.5-plus')
+                mode_column = mid in ('qwen3.8-max', 'qwen3.8-27b', 'qwen3.7-max')
+                headers = ['Model ID', 'Deployment scope'] + (['Mode'] if mode_column else []) + ['Input tokens per request', 'Input price (per 1 million tokens)', 'Output price (per 1 million tokens)' + (' > Chain of thought + answer' if mode_column else '')] + (['Output price (per 1 million tokens)'] if modes else [])
+                if rows[0][:-1] != headers or not rows[0][-1].startswith('Free quota') or len(cells) != len(headers) + 1:
+                    raise ValueError('Alibaba Qwen token headers changed')
+                if modes and rows[1][:-1] != headers[:4] + ['Non-Thinking mode', 'Thinking mode (chain of thought + answer)']:
+                    raise ValueError('Alibaba Qwen thinking mode headers changed')
+                offset = 3 if mode_column else 2
+                if cells[1] != 'International' or (mode_column and cells[2] != 'Non-Thinking and Thinking modes') or cells[offset] not in bands:
+                    raise ValueError('Alibaba Qwen deployment/mode/prompt scope changed')
+                band = bands[cells[offset]]
+                if band in seen[mid]:
+                    raise ValueError('Duplicate Alibaba Qwen prompt band')
+                seen[mid].append(band)
+                rates = []
+                for cell in cells[offset+1:offset+3+(1 if modes else 0)]:
+                    cell = cell.replace('\\', '')
+                    if mid == 'qwen3.7-plus':
+                        discount = re.fullmatch(r'List price \$([0-9.]+) \(Limited-time 20% off\)', cell)
+                        if not discount:
+                            raise ValueError('Alibaba Qwen discount requires review')
+                        rates.append(float(Decimal(discount[1]) * Decimal('0.8')))
+                    else:
+                        rates.append(money(cell))
+                for index, variant in enumerate(('non-thinking', 'thinking') if modes else ('standard',)):
+                    records.append(quote('alibaba', mid, [rates[0], rates[1+index]], source,
+                        region='Singapore / International', variant=variant, min_input_tokens=band[0], max_input_tokens=band[1],
+                        pricing_notes='Model Studio Singapore International USD per million text tokens; full-prompt bands and explicit thinking modes retained. Source identity: ' + QWEN_LABELS[mid] + '. ' +
+                        ('Published limited-time 20% discount, with no stated end date; refresh from source rather than assuming continuity. ' if mid == 'qwen3.7-plus' else '') +
+                        'Other regions, Batch, free quotas and caching discounts excluded; cache rates remain unknown. Mutable source IDs are not aliases for their dated served versions.'))
+    if any(sorted(seen[mid]) != expected_bands.get(mid, [(1, 1000000)]) for mid in selected):
+        raise ValueError('Incomplete Alibaba reviewed Qwen snapshot')
+    return records
+
+
 def expanded_quotes(provider,payload,aliases,source):
     if not aliases:
         raise ValueError("Provider requires explicit reviewed source bindings")
@@ -358,9 +435,11 @@ def expanded_quotes(provider,payload,aliases,source):
     elif provider=='scaleway':records=scaleway_quotes(payload,aliases,source)
     elif provider=='ovhcloud':records=ovhcloud_quotes(payload,aliases,source)
     elif provider=='alibaba':
-        # Limit initial review to the flat, explicitly USD Singapore GLM row.
         records=[]
         body=document(payload)
+        qwen_ids = set(QWEN_LABELS) & set(aliases)
+        records.extend(alibaba_qwen_quotes(body, aliases, source))
+        glm_aliases = {mid: value for mid, value in aliases.items() if mid not in qwen_ids}
         candidates=[]
         for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>',body,re.S):
             if not re.search(r'>\s*glm-5\.3\s*<',block):
@@ -368,7 +447,7 @@ def expanded_quotes(provider,payload,aliases,source):
             parser=Tables();parser.feed(block)
             for table in parser.tables:
                 rows=expand(table)
-                if any(row and row[0] in aliases for row in rows[1:]):
+                if any(row and row[0] in glm_aliases for row in rows[1:]):
                     candidates.append(rows)
         if len(candidates)!=1:
             raise ValueError("Alibaba reviewed Singapore table missing/duplicated")
@@ -376,7 +455,7 @@ def expanded_quotes(provider,payload,aliases,source):
         expected=['Model ID','Deployment scope','Mode','Input tokens per request','Input price (per 1 million tokens)','Output price (per 1 million tokens) > Chain of thought and answer']
         if rows[0][:6]!=expected or len(rows[0])!=7 or not rows[0][6].startswith('Free quota'):
             raise ValueError("Alibaba reviewed token headers changed")
-        for mid,row in exact_rows([dict(id=r[0],cells=r) for r in rows[1:]],'id',aliases).items():
+        for mid,row in exact_rows([dict(id=r[0],cells=r) for r in rows[1:]],'id',glm_aliases).items():
             cells=row['cells']
             if len(cells)!=7 or cells[1:4]!=['International','Non-Thinking and Thinking modes','flat-rate pricing']:
                 raise ValueError("Alibaba deployment/mode/prompt scope changed")
@@ -384,7 +463,7 @@ def expanded_quotes(provider,payload,aliases,source):
                 region='Singapore / International',pricing_notes="Model Studio Singapore International flat-rate USD/1M schedule for Non-Thinking and Thinking modes. Other regions, free quotas and caching discounts excluded."))
     else:raise ValueError("Unsupported comparison source")
     require_models(records,aliases,aliases)
-    identities=[(r['provider_model_id'],r['service_tier'],r['region'],r['min_input_tokens'],r['max_input_tokens']) for r in records]
+    identities=[(r['provider_model_id'],r['service_tier'],r['region'],r['variant'],r['min_input_tokens'],r['max_input_tokens']) for r in records]
     if len(identities)!=len(set(identities)):
         raise ValueError("Duplicate reviewed quote scope")
     return records

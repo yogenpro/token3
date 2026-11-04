@@ -9,6 +9,7 @@ import { encodeCatalogChunk, decodeCatalogChunk } from './catalog_chunk_codec';
 import { historicalCaptureSchema, historicalEvidenceSchema, historicalCheckSchema, historicalIndexSchema, historicalIndexChunkSchema, historicalEvidenceChunkSchema, historicalManifestSchema, historicalCheckChunkSchema } from '../dashboard/src/lib/historical';
 import { readNativeHistory } from './native_history';
 import { checkedProjection } from './prepared_projection';
+import historicalPublication from '../config/historical_publication.json' with { type: 'json' };
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
   modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
@@ -18,6 +19,8 @@ import {
 
 type ObjectValue = Record<string, any>;
 const same = (a: unknown, b: unknown): boolean => stable(a) === stable(b);
+const historicalScope = z.object({ schema_version: z.literal(1), providers: z.array(z.string().regex(/^[a-z0-9-]+$/)).nonempty() })
+  .strict().parse(historicalPublication).providers;
 
 /** Consume the private build bridge without constructing a corpus-sized string. */
 function* projectionLines(path: string): Generator<string> {
@@ -72,6 +75,22 @@ export function readHistoricalProjection(path: string): ObjectValue {
 export function buildHistoricalAssets(dataDir: string): Map<string, string> {
   return checkedProjection('historical', dataDir, () => projectHistoricalAssets(dataDir), (assets) => validateProjectionAssets('historical', assets));
 }
+
+/** Current collection may grow without authorizing retrospective imports. */
+export function historicalProviderDirectory(directory: ObjectValue[], scope: string[], payload: ObjectValue): ObjectValue[] {
+  const allowed = new Set(scope), published = new Map(directory.map((p) => [p.id, p]));
+  if (!scope.length || allowed.size !== scope.length || published.size !== directory.length) throw new Error('Invalid historical provider scope');
+  if ([...payload.captures, ...payload.assertions, ...payload.checks].some((r) => !allowed.has(r.provider)))
+    throw new Error('Historical provider is outside the configured source scope');
+  const captured = new Set(payload.captures.map((c: ObjectValue) => c.provider));
+  return scope.map((id) => {
+    const provider = published.get(id);
+    if (!provider) throw new Error('Historical provider is not in the published source directory');
+    if (!captured.has(id)) throw new Error('Historical provider has no retained public capture');
+    return provider;
+  });
+}
+
 function projectHistoricalAssets(dataDir: string): Map<string, string> {
   const directory = mkdtempSync(join(tmpdir(), 'token3-historical-projection-'));
   let payload: ObjectValue;
@@ -87,10 +106,9 @@ function projectHistoricalAssets(dataDir: string): Map<string, string> {
   const captures = payload.captures;
   const records = payload.assertions;
   const checks = payload.checks;
-  const ids = new Set(inventory.providers.map((p: ObjectValue) => p.id));
-  if ([...captures, ...records, ...checks].some((r) => !ids.has(r.provider))) throw new Error('Historical provider is not in the published source directory');
+  const historicalDirectory = historicalProviderDirectory(inventory.providers, historicalScope, payload);
   const frequencies = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((k) => [k, values.filter((v) => v === k).length]));
-  const providers = inventory.providers.map((provider: ObjectValue) => {
+  const providers = historicalDirectory.map((provider: ObjectValue) => {
     const selected = records.filter((r: ObjectValue) => r.provider === provider.id);
     const source = captures.filter((c: ObjectValue) => c.provider === provider.id);
     const failed = checks.filter((c: ObjectValue) => c.provider === provider.id);

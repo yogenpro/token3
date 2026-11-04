@@ -26,6 +26,8 @@ def fixture(provider):
 class ProviderComparisonTests(unittest.TestCase):
     def setUp(self):
         _, self.aliases = catalog()
+        baseline = json.loads((FIXTURES.parent / 'reviewed-bindings-2026-10-26.json').read_text())
+        self.aliases.sources = baseline['sources']
 
     def quotes(self, provider, payload=None):
         return reviewed_quotes(provider, payload or fixture(provider), self.aliases, INVENTORY_PROVIDERS[provider].SOURCE)

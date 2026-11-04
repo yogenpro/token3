@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
-from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, groq, novita, openai, together, vertex
+from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, groq, meta, mistral, moonshot, novita, openai, together, vertex
 from providers.common import safe_error
 from providers.expanded import INVENTORY_PROVIDERS
 from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
@@ -25,9 +25,11 @@ from .catalog_inventory import canonical
 PROVIDERS = {"deepinfra": deepinfra, "novita": novita, "together": together, "fireworks": fireworks, "groq": groq,
              "openai": openai, "anthropic": anthropic, "gemini": gemini, "vertex": vertex, "bedrock": bedrock, "azure": azure}
 PROVIDERS.update(INVENTORY_PROVIDERS)
+PROVIDERS.update(meta=meta, mistral=mistral, moonshot=moonshot)
 PROVIDER_NAMES = {"deepinfra": "DeepInfra", "novita": "Novita", "together": "Together AI", "fireworks": "Fireworks", "groq": "Groq",
                   "openai": "OpenAI API", "anthropic": "Anthropic API", "gemini": "Google Gemini API", "vertex": "Google Vertex AI", "bedrock": "Amazon Bedrock", "azure": "Microsoft Foundry"}
 PROVIDER_NAMES.update({key: collector.name for key, collector in INVENTORY_PROVIDERS.items()})
+PROVIDER_NAMES.update(meta="Meta Model API", mistral="Mistral API", moonshot="Moonshot AI")
 SOURCE_KINDS = {"deepinfra": "api", "novita": "api", "azure": "api", "bedrock": "price_list"}
 HISTORY_FIELDS = ("offering_id", "observed_at") + PRICE_FIELDS + ("currency", "source_url", "source_sha256")
 

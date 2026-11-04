@@ -26,7 +26,7 @@ function boundary(model: string, short: number, long: number) {
 
 describe('explicit recent-model comparison expansion', () => {
   it('has real reviewed quotes for requested models and every retained canonical identity', () => {
-    expect(data.models).toHaveLength(45);
+    expect(data.models).toHaveLength(103);
     for (const id of requested) {
       expect(data.models.some((m) => m.id === id)).toBe(true);
       const rows = rankOfferings(data, id, defaultWorkload);
@@ -42,6 +42,18 @@ describe('explicit recent-model comparison expansion', () => {
     boundary('openai/gpt-6.1-sol', 272000, 272001);
     const rows = rankOfferings(data, 'anthropic/claude-haiku-5.5', { ...defaultWorkload, inputTokens: 100001, outputTokens: 0, requests: 1, cacheHitPercent: 100 });
     expect(rows[0].cost.perRequest).toBeCloseTo(100001 * 0.05 / 1000000, 10);
+  });
+  it('exposes the newly reviewed direct sources with their billing modes and bands', () => {
+    for (const [model, provider] of [['meta/muse-spark-1.3', 'meta'], ['mistral/mistral-large-4', 'mistral'], ['moonshotai/kimi-k2.6', 'moonshot']]) {
+      const rows = rankOfferings(data, model, defaultWorkload);
+      expect(rows.some((r) => r.offering.provider === provider && r.cost.eligible)).toBe(true);
+    }
+    const qwen = rankOfferings(data, 'qwen/qwen3.7-plus', { ...defaultWorkload, inputTokens: 256001, requests: 1 }, 'all')
+      .filter((r) => r.cost.eligible);
+    expect(new Set(qwen.map((r) => r.offering.variant))).toEqual(new Set(['thinking', 'non-thinking']));
+    expect(qwen.every((r) => r.price.input_per_million === 0.96 && r.price.output_per_million === 3.84)).toBe(true);
+    expect(new Set(qwen.map((r) => r.offering.id)).size).toBe(2);
+    expect(rankOfferings(data, 'meta/muse-spark-1.3', defaultWorkload)[0].price.input_per_million).toBe(1.25);
   });
   it('keeps gateway identity, quote scope and unknown cache-write TTL explicit', () => {
     const rows = rankOfferings(data, 'openai/gpt-6.1-sol', defaultWorkload, 'all');

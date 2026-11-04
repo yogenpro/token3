@@ -124,12 +124,15 @@ export const providers: Record<string, { name: string; color: string; initials: 
   scaleway: { name: 'Scaleway Generative APIs', color: '#7148c1', initials: 'Sc' },
   minimax: { name: 'MiniMax', color: '#b74641', initials: 'MM' },
   deepseek: { name: 'DeepSeek', color: '#1765c1', initials: 'DS' },
+  meta: { name: 'Meta Model API', color: '#1765c1', initials: 'M' },
+  mistral: { name: 'Mistral API', color: '#9b461a', initials: 'Mi' },
+  moonshot: { name: 'Moonshot AI', color: '#575b68', initials: 'MS' },
 };
 export function providerInfo(id: string) {
   return providers[id] ?? { name: id, color: '#6b7280', initials: id.slice(0, 2) };
 }
 export function providerColor(id: string) {
-  return `var(--provider-color-${id}, ${providerInfo(id).color})`;
+  return `var(--provider-color-${id}, ${providers[id]?.color ?? 'var(--muted)'})`;
 }
 export function isStale(timestamp: string | null, now = Date.now()) {
   return !timestamp || now - new Date(timestamp).getTime() > 48 * 60 * 60 * 1000;

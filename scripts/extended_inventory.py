@@ -200,6 +200,8 @@ class _MixedHTML(_DocumentHTML):
 
 
 def _mixed_document(body):
+    # Markdown's escaped comparison is literal text, not an HTML <Token tag.
+    body = body.replace('\\<', '&lt;')
     if not re.search(r"<table\b", body, re.I):
         # Inline styling is not pricing identity. Keep its visible content.
         return re.sub(r"</?(?:div|span|strong|em)\b[^>]*>", "", body, flags=re.I)

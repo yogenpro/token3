@@ -11,7 +11,7 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 - **Compare:** reviewed model/offer identities only, with separate USD/EUR/DBU/AI Credit views, workload estimates, tier/region/prompt-band constraints, visible workload-fit uncertainty, provenance, and explicitly reviewed exports. A grouped reviewed-price digest highlights actual quote updates; an expandable model × billing-source workload price map preserves tier, region, variant, freshness and fit uncertainty. Single-date histories use a first-observation snapshot; multi-date histories use real observed-price charts. Search the model picker or use a six-item recent-model list instead of a full-catalog watchlist.
 - **Models and Providers:** separate reviewed and provider-scoped directories, with creator/family/provider or modality/billing/pricing-state filters. Lightweight indexes lead to on-demand native evidence, including unknown prices, currencies and non-token units. Discovery never makes a record calculator-eligible.
 - **Changes:** reviewed changes and separate native amount, billing-rule and catalog timelines. Native history opens as observation batches; event pages load bounded chunks. Explicit full-history searches examine all matching batches, never just the visible page. These are not mixed-unit price charts or launch/delisting announcements.
-- **Historical evidence:** search recovered model IDs, SKUs, document rows and PDF pages across all 26 groups. Inspect source captures, original expressions, provenance, distinct dates and partial-coverage checks; export the complete filtered historical selection separately. Historical research also accepts [best-effort attributed reports and archive decoding](docs/historical-corroboration.md) from news, public social sources, embedded regional price attributes and conservative PDF tables. These derivative reports retain uncertainty and conflicts in separate research files; the current app does not ingest them or promote them into comparisons. See the [complete selected-target recovery audit](docs/historical-target-recovery.md) for recovered targets and remaining public-access limits.
+- **Historical evidence:** search recovered model IDs, SKUs, document rows and PDF pages across the original 26 groups. Inspect source captures, original expressions, provenance, distinct dates and partial-coverage checks; export the complete filtered historical selection separately. Historical research also accepts [best-effort attributed reports and archive decoding](docs/historical-corroboration.md) from news, public social sources, embedded regional price attributes and conservative PDF tables. These derivative reports retain uncertainty and conflicts in separate research files; the current app does not ingest them or promote them into comparisons. See the [complete selected-target recovery audit](docs/historical-target-recovery.md) for recovered targets and remaining public-access limits.
 - **Coverage:** distinct reviewed-model/active-offer, source-listing and native-record counts, billing/pricing facets, comparison-depth limits and per-source check status. No misleading percentage combines those different denominators.
 - **Operations:** daily collection and CI are active; main-branch CI/collection failures create no-AI issue handoffs for a manually launched local coding agent.
 - **Publishing:** manual `main` releases remain pinned to the dispatch SHA and gated by `ENABLE_PAGES=true`. The user approved PR #2's initial release and automatic data-only updates with `ENABLE_COLLECTION_PUBLISH=true`, activated only after verifying that release. It requires successful strict collection, the exact pushed snapshot, full checks, and no unpublished code/configuration/docs changes relative to the last successful Pages release. A push alone never deploys. See [publishing and activation](docs/publishing.md).
@@ -44,7 +44,7 @@ python -m pip install -r requirements.txt
 python -m scripts.collect --strict
 ```
 
-`npm run collect` uses `python3` from your current environment. Collection spans 26 providers; complete pagination, large documents and network retries can take several minutes. The dashboard’s Refresh button reloads the **published files**, not live provider sources.
+`npm run collect` uses `python3` from your current environment. Collection spans 29 providers; complete pagination, large documents and network retries can take several minutes. The dashboard’s Refresh button reloads the **published files**, not live provider sources.
 
 ### API-first collection
 
@@ -67,14 +67,14 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ## What’s built
 
-- Searchable model selector and recent-model navigation for 45 manually curated canonical models, including recent OpenAI/Claude releases and broader Google, Qwen, DeepSeek, GLM, MiniMax, Kimi, Nemotron, Llama and Grok coverage.
+- Searchable model selector and recent-model navigation for 103 manually curated canonical models, including recent OpenAI/Claude releases and broader Google, Qwen, DeepSeek, GLM, MiniMax, Kimi, Nemotron, Llama and Grok coverage.
 - Current input/output/cache read/cache write comparisons with precision, context, variant, service tier, and region.
 - Per-request, total-workload, and per-million-request cost calculations. Set requests to `1,000,000` for that total.
 - Cheapest estimate for your actual input/output/cache mix; inapplicable prompt-price bands and known context/output limits cannot win.
 - Standard/priority/flex/all-tier filters, separate USD/EUR/DBU/AI Credit comparison bases, explicit DeepSeek peak/off-peak scenarios, sortable prices and estimates, expandable provenance, and correctly labeled comparison CSV export.
 - Input/output/cache-read history with stepped lines, date ranges, provider toggles, and an exact-observations table.
 - Separate reviewed-price, native-amount, billing-rule, and catalog change feeds; source absence never implies discontinuation.
-- Provider-native exploration across all 26 groups: search/filter, original billing rules/units, source scope, provenance, record details, lazy history, and filtered JSON exports.
+- Provider-native exploration across all 29 groups: search/filter, original billing rules/units, source scope, provenance, record details, lazy history, and filtered JSON exports.
 - A broader provider-scoped API model/route/flavor directory, separate from reviewed canonical models. Collected listing counts are not unique-model counts.
 - Collector health, calculation methodology, reviewed dataset downloads, and independent pricing/review/freshness labels.
 - Responsive layout, dark theme, keyboard controls, and shareable URLs containing model, tier, view, workload, provider, native record, directory, and feed.
@@ -83,9 +83,9 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ### Reviewed coverage and collection scope
 
-Reviewed baseline: **45 canonical models / 263 recorded offerings / 26 reviewed providers**.
+Reviewed baseline: **103 canonical models / 347 recorded offerings / 29 reviewed providers**.
 
-These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 263 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 347 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
 
 This is the complete **reviewed canonical model list**, not every model name, route, flavor or SKU in the broader native inventory. Canonical IDs keep versions and variants explicit.
 
@@ -117,18 +117,18 @@ This is the complete **reviewed canonical model list**, not every model name, ro
 | Gemma 4 31B IT | `google/gemma-4-31b-it` | DeepInfra, Novita, Vercel AI Gateway |
 | Gemma 4 26B A4B IT | `google/gemma-4-26b-a4b-it` | DeepInfra, Novita, Vercel AI Gateway |
 | Gemma 4 E4B IT | `google/gemma-4-e4b-it` | DeepInfra |
-| Qwen3.8 27B | `qwen/qwen3.8-27b` | Cloudflare Workers AI, DeepInfra, Groq, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway |
+| Qwen3.8 27B | `qwen/qwen3.8-27b` | Alibaba Cloud Model Studio, Cloudflare Workers AI, DeepInfra, Groq, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway |
 | Qwen3.8 2.4T A95B | `qwen/qwen3.8-2.4t-a95b` | DeepInfra, Novita, Vercel AI Gateway |
-| Qwen3.8 Flash | `qwen/qwen3.8-flash` | DeepInfra, Novita, Vercel AI Gateway |
-| Qwen3.8 Max | `qwen/qwen3.8-max` | DeepInfra, Novita, Vercel AI Gateway |
+| Qwen3.8 Flash | `qwen/qwen3.8-flash` | Alibaba Cloud Model Studio, DeepInfra, Novita, Vercel AI Gateway |
+| Qwen3.8 Max | `qwen/qwen3.8-max` | Alibaba Cloud Model Studio, DeepInfra, Novita, Vercel AI Gateway |
 | DeepSeek V4.1 Flash | `deepseek/deepseek-v4.1-flash` | DeepInfra, DeepSeek, Novita, Vercel AI Gateway |
 | DeepSeek V4 Pro 0813 | `deepseek/deepseek-v4-pro-0813` | DeepInfra, DeepSeek, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway |
 | GLM-5.3 | `zai/glm-5.3` | Alibaba Cloud Model Studio, Cloudflare Workers AI, DeepInfra, Hugging Face Inference, Nebius Token Factory, Novita, Snowflake Cortex, Vercel AI Gateway, Z.ai |
 | GLM-5.3 Flash | `zai/glm-5.3-flash` | Cloudflare Workers AI, DeepInfra, Hugging Face Inference, Nebius Token Factory, Novita, Vercel AI Gateway, Z.ai |
 | GLM-5.3 FlashX | `zai/glm-5.3-flashx` | Vercel AI Gateway, Z.ai |
 | MiniMax M3 | `minimax/minimax-m3` | DeepInfra, MiniMax, Vercel AI Gateway |
-| Kimi K3 | `moonshotai/kimi-k3` | DeepInfra, Novita, Snowflake Cortex, Vercel AI Gateway |
-| Kimi K2.7 Code | `moonshotai/kimi-k2.7-code` | DeepInfra, Novita, Vercel AI Gateway |
+| Kimi K3 | `moonshotai/kimi-k3` | DeepInfra, Moonshot AI, Novita, Snowflake Cortex, Vercel AI Gateway |
+| Kimi K2.7 Code | `moonshotai/kimi-k2.7-code` | DeepInfra, Moonshot AI, Novita, Vercel AI Gateway |
 | Nemotron 3.5 Lightning | `nvidia/nemotron-3.5-lightning` | DeepInfra, Vercel AI Gateway |
 | Nemotron 3 Ultra 550B A55B | `nvidia/nemotron-3-ultra-550b-a55b` | DeepInfra, Vercel AI Gateway |
 | Nemotron 3 Super 120B A12B | `nvidia/nemotron-3-super-120b-a12b` | DeepInfra, Vercel AI Gateway |
@@ -136,22 +136,82 @@ This is the complete **reviewed canonical model list**, not every model name, ro
 | Llama 4 Maverick 17B 128E Instruct | `meta/llama-4-maverick-17b-128e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
 | Llama 4 Scout 17B 16E Instruct | `meta/llama-4-scout-17b-16e-instruct` | DeepInfra, Novita, Vercel AI Gateway |
 | Grok 4.7 | `xai/grok-4.7` | Vercel AI Gateway, xAI |
+| GPT-6.1 Terra | `openai/gpt-6.1-terra` | OpenAI API |
+| GPT-5.6 Sol | `openai/gpt-5.6-sol` | OpenAI API |
+| GPT-5.6 Terra | `openai/gpt-5.6-terra` | OpenAI API |
+| GPT-5.6 Luna | `openai/gpt-5.6-luna` | OpenAI API |
+| GPT-5.5 | `openai/gpt-5.5` | OpenAI API |
+| GPT-5.5 Pro | `openai/gpt-5.5-pro` | OpenAI API |
+| GPT-5.4 Pro | `openai/gpt-5.4-pro` | OpenAI API |
+| GPT-5.4 nano | `openai/gpt-5.4-nano` | OpenAI API |
+| GPT-5.2 | `openai/gpt-5.2` | OpenAI API |
+| GPT-5.2 Pro | `openai/gpt-5.2-pro` | OpenAI API |
+| GPT-5.1 | `openai/gpt-5.1` | OpenAI API |
+| GPT-5 | `openai/gpt-5` | OpenAI API |
+| GPT-5 mini | `openai/gpt-5-mini` | OpenAI API |
+| GPT-5 nano | `openai/gpt-5-nano` | OpenAI API |
+| GPT-5 Pro | `openai/gpt-5-pro` | OpenAI API |
+| GPT-4.1 | `openai/gpt-4.1` | OpenAI API |
+| GPT-4.1 mini | `openai/gpt-4.1-mini` | OpenAI API |
+| GPT-4O | `openai/gpt-4o` | OpenAI API |
+| GPT-4O mini | `openai/gpt-4o-mini` | OpenAI API |
+| o3-pro | `openai/o3-pro` | OpenAI API |
+| o3 | `openai/o3` | OpenAI API |
+| Claude Sonnet 4.5 | `anthropic/claude-sonnet-4.5` | Anthropic API |
+| Claude Opus 4.5 | `anthropic/claude-opus-4.5` | Anthropic API |
+| Claude Opus 4.7 | `anthropic/claude-opus-4.7` | Anthropic API |
+| Claude Opus 4.8 | `anthropic/claude-opus-4.8` | Anthropic API |
+| Claude Sonnet 5 | `anthropic/claude-sonnet-5` | Anthropic API |
+| Claude Opus 5 | `anthropic/claude-opus-5` | Anthropic API |
+| Claude Mythos 5 | `anthropic/claude-mythos-5` | Anthropic API |
+| Gemini 4 Argon | `google/gemini-4-argon` | Google Gemini API |
+| Gemini 3.6 Flash | `google/gemini-3.6-flash` | Google Gemini API |
+| Gemini 3.1 Flash-Lite | `google/gemini-3.1-flash-lite` | Google Gemini API |
+| Gemini 2.5 Pro | `google/gemini-2.5-pro` | Google Gemini API |
+| Gemini 2.5 Flash | `google/gemini-2.5-flash` | Google Gemini API |
+| Gemini 2.5 Flash-Lite | `google/gemini-2.5-flash-lite` | Google Gemini API |
+| Mistral Large 4 | `mistral/mistral-large-4` | Mistral API |
+| Mistral Small 4 | `mistral/mistral-small-2603` | Mistral API |
+| Ministral 3 14B | `mistral/ministral-14b-2512` | Mistral API |
+| Ministral 3 8B | `mistral/ministral-8b-2512` | Mistral API |
+| Ministral 3 3B | `mistral/ministral-3b-2512` | Mistral API |
+| Codestral 25.08 | `mistral/codestral-2508` | Mistral API |
+| Muse Wonder 1.0 | `meta/muse-wonder-1.0` | Meta Model API |
+| Muse Spark 1.3 | `meta/muse-spark-1.3` | Meta Model API |
+| Muse Spark 1.2 | `meta/muse-spark-1.2` | Meta Model API |
+| Muse Spark 1.1 | `meta/muse-spark-1.1` | Meta Model API |
+| Kimi K2.6 | `moonshotai/kimi-k2.6` | Moonshot AI |
+| Grok 4.6 | `xai/grok-4.6` | xAI |
+| Grok 4.5 | `xai/grok-4.5` | xAI |
+| Grok 4.3 | `xai/grok-4.3` | xAI |
+| Grok Build 0.1 | `xai/grok-build-0.1` | xAI |
+| GLM-5.2 | `zai/glm-5.2` | Z.ai |
+| GLM-5.1 | `zai/glm-5.1` | Z.ai |
+| GLM-5 | `zai/glm-5` | Z.ai |
+| GLM-4.7 | `zai/glm-4.7` | Z.ai |
+| Qwen3.7 Max | `qwen/qwen3.7-max` | Alibaba Cloud Model Studio, DeepInfra |
+| Qwen3.7 Plus | `qwen/qwen3.7-plus` | Alibaba Cloud Model Studio |
+| Qwen3.7 Flash | `qwen/qwen3.7-flash` | Alibaba Cloud Model Studio |
+| Qwen3.5 Plus | `qwen/qwen3.5-plus` | Alibaba Cloud Model Studio |
+| Qwen3.5 Flash | `qwen/qwen3.5-flash` | Alibaba Cloud Model Studio |
 
 Claude 4.6 releases remain labeled legacy for verifiable historical cross-cloud coverage. GPT-5.4/mini retain their Azure comparisons; newer GPT-6 identities have separately reviewed OpenAI and Vercel quotes, not automatically inferred AWS/Azure/Vertex quotes. Vercel is the billing gateway, **not an asserted upstream supplier**. Cloud regions, billing locations, tiers, and prompt-length pricing bands remain explicit.
 
 The original successful run recorded **26 offerings across five providers**, and its historical CSV rows are preserved. Coverage and prices will change. These are first-seen observations, **not** provider launch announcements. No historical prices were fabricated: charts start at the first real collection and become more useful over time.
 
-[Historical backfill research](docs/history-backfill.md) maps evidence options across all 26 indexed provider groups, including past SKUs and historical-only models. Historical discovery is broader than today's reviewed model list, and archive coverage does not establish continuous price history.
+[Historical backfill research](docs/history-backfill.md) maps evidence options across the original 26 indexed provider groups, including past SKUs and historical-only models. Historical discovery is broader than today's reviewed model list, and archive coverage does not establish continuous price history.
 
 The [AWS and DeepInfra follow-up](docs/aws-deepinfra-history-research.md) records deeper version/archive recovery, historical identity rosters and price-difference candidates, with explicit gaps and original billing units. These remain research evidence outside the public catalogs and calculators.
 
-The [historical evidence ledger](docs/historical-evidence-ledger.md) retains selected public evidence across **all 26 indexed provider groups**, including historical-only identifiers and retirement documents independently of reviewed aliases. Exact source bytes, native assertions and source-bounded coverage live in `data/historical_evidence/`, with immutable SHA-256-addressed gzip assets capped at 16 MiB uncompressed and an ordered atomic manifest. A separate, explicit discovery command stages bounded public downloads; offline import/verification preserves separate retrieval, archive, publication and reported-effective dates. Corrections append references without erasing evidence. Coverage is partial: [the dated expansion report](docs/historical-ledger-expansion.md) separates indexed entries, recovered captures, assertions and unresolved lookups. The authorized [Historical evidence view](docs/dashboard-data-organization.md#historical-public-projection) publishes selected read-only fields through validated, lazy chunks. Raw source bytes, warehouse manifests/segments and arbitrary metadata stay outside the app. Historical evidence remains outside reviewed quotes, live observations and comparison charts. Verify it with `python -m scripts.historical_ledger verify`.
+The [historical evidence ledger](docs/historical-evidence-ledger.md) retains selected public evidence across **the original 26 indexed provider groups**, including historical-only identifiers and retirement documents independently of reviewed aliases. Exact source bytes, native assertions and source-bounded coverage live in `data/historical_evidence/`, with immutable SHA-256-addressed gzip assets capped at 16 MiB uncompressed and an ordered atomic manifest. A separate, explicit discovery command stages bounded public downloads; offline import/verification preserves separate retrieval, archive, publication and reported-effective dates. Corrections append references without erasing evidence. Coverage is partial: [the dated expansion report](docs/historical-ledger-expansion.md) separates indexed entries, recovered captures, assertions and unresolved lookups. The authorized [Historical evidence view](docs/dashboard-data-organization.md#historical-public-projection) publishes selected read-only fields through validated, lazy chunks. Raw source bytes, warehouse manifests/segments and arbitrary metadata stay outside the app. Historical evidence remains outside reviewed quotes, live observations and comparison charts. Verify it with `python -m scripts.historical_ledger verify`.
 
 The [archive continuation and pricing audit](docs/historical-backfill-continuation.md) distinguish actual native price fields, document candidates, attributed historical reports and unresolved model/rate mappings. Best-effort reporting preserves conflicts and uncertainty; document counts are not proof of recovered prices or complete provider history. The [target recovery](docs/historical-target-recovery.md) also processes independently witnessed Arquivo.pt and Common Crawl evidence alongside Wayback captures; empty archive lookups do not establish that historical offerings were absent. Licensed, commit-pinned community history datasets remain separate attributed research, with publisher dates and unknown native identities. Public historical chunks use lossless compression when smaller, with separate wire/decoded integrity checks and the same 512 KiB decoded cap; full records and exports remain available.
 
 ### Full source-native inventory (separate from comparisons)
 
-Collection scope: **26 provider groups**, with separately reviewed selections across all 26, including the fourteen previously inventory-only sources. The [2026-10-26 provider review](docs/provider-comparison-expansion.md) added 47 quotes across OpenRouter, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. Compare separates USD, EUR, Databricks DBUs and Snowflake AI Credits, with no assumed FX or credit conversion. DeepSeek has an explicit peak/off-peak scenario selector. Complete native catalogs remain comparison-ineligible. Collection never automatically adds dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+Collection scope: **29 provider groups**, with separately reviewed selections across all 29, including the fourteen previously inventory-only sources. The [2026-10-26 provider review](docs/provider-comparison-expansion.md) added 47 quotes across OpenRouter, Alibaba Cloud Model Studio, Hugging Face Inference, Snowflake Cortex, Cloudflare Workers AI, Databricks, Oracle Cloud Generative AI, Nebius Token Factory, xAI, Z.ai, OVHcloud, Scaleway, MiniMax and DeepSeek. Compare separates USD, EUR, Databricks DBUs and Snowflake AI Credits, with no assumed FX or credit conversion. DeepSeek has an explicit peak/off-peak scenario selector. Complete native catalogs remain comparison-ineligible. Collection never automatically adds dashboard quotes. Gateway routes, credits, DBUs, neurons, native currencies and unpriced offers remain explicit. See [source scopes and collection caveats](docs/collection-expansion.md). No additional credentials are required for these selected public sources.
+
+The [2026-11-04 provider coverage review](docs/provider-coverage-review.md) adds Mistral API, Meta Model API and Moonshot AI, plus 58 explicitly reviewed identities and 84 first-observed offerings. Its dated manifest records the additions and exact official billing sources. Official sources establish prices; model creators, billing providers and served versions remain distinct. Historical recovery remains scoped to the original 26 groups.
 
 #### Recent/current-generation models now reviewed
 
@@ -163,7 +223,7 @@ The captured version is **GPT-6 Luna**, not `gpt-6.1-luna`. API pricing is separ
 
 #### All collected provider groups
 
-All **26 provider groups** now have selected retained reviewed offerings and native inventory. Together’s current comparisons remain paused. Review is at the exact model/billing-scope level; unselected native records stay outside Compare. These are billing/source groups, not model creators or inferred upstream suppliers. Google Gemini API means the Gemini Developer API, separate from Vertex AI billing. Microsoft Foundry's reviewed quotes are Azure OpenAI offerings; its native meter inventory has broader scope.
+All **29 provider groups** now have selected retained reviewed offerings and native inventory. Together’s current comparisons remain paused. Review is at the exact model/billing-scope level; unselected native records stay outside Compare. These are billing/source groups, not model creators or inferred upstream suppliers. Google Gemini API means the Gemini Developer API, separate from Vertex AI billing. Microsoft Foundry's reviewed quotes are Azure OpenAI offerings; its native meter inventory has broader scope.
 
 | Provider group | Collector ID | Coverage |
 | --- | --- | --- |
@@ -179,6 +239,9 @@ All **26 provider groups** now have selected retained reviewed offerings and nat
 | Google Gemini API | `gemini` | Reviewed comparisons + native inventory |
 | Groq | `groq` | Reviewed comparisons + native inventory |
 | Hugging Face Inference | `huggingface` | Reviewed comparisons + native inventory |
+| Meta Model API | `meta` | Reviewed comparisons + native inventory |
+| Mistral API | `mistral` | Reviewed comparisons + native inventory |
+| Moonshot AI | `moonshot` | Reviewed comparisons + native inventory |
 | MiniMax | `minimax` | Reviewed comparisons + native inventory |
 | Nebius Token Factory | `nebius` | Reviewed comparisons + native inventory |
 | Novita | `novita` | Reviewed comparisons + native inventory |
