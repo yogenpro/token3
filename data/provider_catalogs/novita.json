@@ -3489,6 +3489,98 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-78f328765b862022ef0c385f",
+      "provider": "novita",
+      "native_id": "zai-org/glm-5.3-flashX",
+      "kind": "model",
+      "label": "GLM 5.3 FlashX",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 3700,
+              "price_per_m": 3700,
+              "origin_price_per_m_decimal": "0.37",
+              "price_per_m_decimal": "0.37"
+            },
+            "completion": {
+              "origin_price_per_m": 12500,
+              "price_per_m": 12500,
+              "origin_price_per_m_decimal": "1.25",
+              "price_per_m_decimal": "1.25"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 750,
+              "price_per_m": 750,
+              "origin_price_per_m_decimal": "0.075",
+              "price_per_m_decimal": "0.075"
+            }
+          },
+          "native_input_billing_units": 3700,
+          "native_output_billing_units": 12500,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.37",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "1.25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.075",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1048576,
+        "max_output_tokens": 131072,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-7b54398f38ced3bd30a4637a",
       "provider": "novita",
       "native_id": "deepseek/deepseek-ocr-2",
@@ -7796,6 +7888,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-df9ca3e8218c94a70c63a593",
+      "provider": "novita",
+      "native_id": "tencent/hy4",
+      "kind": "model",
+      "label": "Hy4",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 8340,
+              "price_per_m": 8340,
+              "origin_price_per_m_decimal": "0.834",
+              "price_per_m_decimal": "0.834"
+            },
+            "completion": {
+              "origin_price_per_m": 25010,
+              "price_per_m": 25010,
+              "origin_price_per_m_decimal": "2.501",
+              "price_per_m_decimal": "2.501"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 420,
+              "price_per_m": 420,
+              "origin_price_per_m_decimal": "0.042",
+              "price_per_m_decimal": "0.042"
+            }
+          },
+          "native_input_billing_units": 8340,
+          "native_output_billing_units": 25010,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.834",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "2.501",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.042",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1000000,
+        "max_output_tokens": 64000,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-e5cac87ec9839c216ee50899",
       "provider": "novita",
       "native_id": "moonshotai/kimi-k2.5",
@@ -8325,14 +8508,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "e49ae5547b7386222f114a30af3fbb3f3e631355418b2bfb94d7c7328ddc9016",
-  "revision": 15,
-  "changed_at": "2026-11-02T15:53:09Z",
+  "catalog_sha256": "21614c0439bdf4e3f67d4edaf916c99067969713e4b30049297ca6c68faa5f3c",
+  "revision": 16,
+  "changed_at": "2026-11-04T14:33:17Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "f7d074ec382b7980ce205d6aa470e4b08aa85e76aab42768be04c27b2380ef2c",
+  "source_sha256": "c2ed63f9308a392338cc6f7d7e2f28f31e0c71ef1ac307a0d5d50ee1ee8a82ed",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
