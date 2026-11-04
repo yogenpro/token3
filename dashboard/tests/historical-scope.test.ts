@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { historicalProviderDirectory } from '../../scripts/dashboard_projection';
-import historicalSources from '../../config/historical_sources.json';
+import historicalPublication from '../../config/historical_publication.json';
 import inventory from '../../data/provider_inventory.json';
 
 const payload = (ids: string[]): Record<'captures' | 'assertions' | 'checks', Array<{ provider: string }>> =>
@@ -8,7 +8,9 @@ const payload = (ids: string[]): Record<'captures' | 'assertions' | 'checks', Ar
 
 describe('independent current and historical source scopes', () => {
   it('keeps the complete authorized historical directory when current collection adds providers', () => {
-    const scope = Object.keys(historicalSources.providers);
+    const scope = historicalPublication.providers;
+    expect(scope).toHaveLength(26);
+    expect(scope).toContain('bedrock'); // Dedicated historical adapter, outside document profiles.
     const result = historicalProviderDirectory(inventory.providers, scope, payload(scope));
     expect(result.map((p) => p.id)).toEqual(scope);
     for (const id of ['meta', 'mistral', 'moonshot']) {

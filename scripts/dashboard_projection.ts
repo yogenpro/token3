@@ -9,7 +9,7 @@ import { encodeCatalogChunk, decodeCatalogChunk } from './catalog_chunk_codec';
 import { historicalCaptureSchema, historicalEvidenceSchema, historicalCheckSchema, historicalIndexSchema, historicalIndexChunkSchema, historicalEvidenceChunkSchema, historicalManifestSchema, historicalCheckChunkSchema } from '../dashboard/src/lib/historical';
 import { readNativeHistory } from './native_history';
 import { checkedProjection } from './prepared_projection';
-import historicalSources from '../config/historical_sources.json' with { type: 'json' };
+import historicalPublication from '../config/historical_publication.json' with { type: 'json' };
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
   modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
@@ -19,6 +19,8 @@ import {
 
 type ObjectValue = Record<string, any>;
 const same = (a: unknown, b: unknown): boolean => stable(a) === stable(b);
+const historicalScope = z.object({ schema_version: z.literal(1), providers: z.array(z.string().regex(/^[a-z0-9-]+$/)).nonempty() })
+  .strict().parse(historicalPublication).providers;
 
 /** Consume the private build bridge without constructing a corpus-sized string. */
 function* projectionLines(path: string): Generator<string> {
@@ -104,7 +106,7 @@ function projectHistoricalAssets(dataDir: string): Map<string, string> {
   const captures = payload.captures;
   const records = payload.assertions;
   const checks = payload.checks;
-  const historicalDirectory = historicalProviderDirectory(inventory.providers, Object.keys(historicalSources.providers), payload);
+  const historicalDirectory = historicalProviderDirectory(inventory.providers, historicalScope, payload);
   const frequencies = (values: string[]) => Object.fromEntries([...new Set(values)].sort().map((k) => [k, values.filter((v) => v === k).length]));
   const providers = historicalDirectory.map((provider: ObjectValue) => {
     const selected = records.filter((r: ObjectValue) => r.provider === provider.id);

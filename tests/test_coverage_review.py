@@ -131,6 +131,12 @@ class CoverageReviewTests(unittest.TestCase):
         hosted = self.rows('deepinfra')
         self.assertEqual({r['provider_model_id'] for r in hosted}, {'Qwen/Qwen3.7-Max'})
         self.assertTrue(all(normalize(r, self.aliases, TIME, HASH)[0]['model_id'] == 'qwen/qwen3.7-max' for r in hosted))
+        native, _ = normalize_inventory('alibaba', json.dumps({'format': 'token3.inventory-sources.v1', 'adapter': 'documents',
+            'documents': [{'source_url': 'https://example.com/pricing', 'body': body('alibaba')}]}), 'documentation')
+        source_cells = [cell for r in native['records'] for cell in r['billing']['cells']]
+        self.assertIn('0<Token≤1M', source_cells)
+        self.assertIn('32K<Token≤256K', source_cells)
+        self.assertTrue(all(not r['comparison_eligible'] for r in native['records']))
 
     def test_failure_retains_all_previous_reviewed_observations(self):
         valid = meta.parse(body('meta'), self.aliases)

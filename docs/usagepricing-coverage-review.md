@@ -77,6 +77,9 @@ Google now returns Markdoc tables/tabs. An inert text reader restores explicit
 cell boundaries/headings for reviewed and native readers, preserving original
 response hashes. Malformed tables fail closed. This layout change produced native
 catalog events, not inferred launches, retirements or economic price observations.
+The mixed Markdown/HTML reader also preserves escaped prompt inequalities as
+literal native cell text. Existing observations remain unchanged; a legitimate
+collection records the corrected current evidence without changing reviewed rates.
 
 Kimi's Markdown omits its custom tables. A bounded grammar reads serialized
 `DocTable` literals in the public HTML without executing JavaScript/MDX. Native
@@ -106,7 +109,7 @@ remains scoped to the original **26 groups**, without implied imports for the
 three new groups, backfills or invented release dates.
 
 The Historical projection selects that explicit scope from
-`config/historical_sources.json`, separately from the 29-group current directory.
+`config/historical_publication.json`, separately from the 29-group current directory.
 Missing captures for any configured historical group and historical rows outside
 the authorized scope still fail closed; current-only providers do not manufacture
 empty historical manifests.
