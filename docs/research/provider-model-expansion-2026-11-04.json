@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "reviewed_on": "2026-11-04",
-  "observed_at": "2026-11-04T12:06:50Z",
+  "observed_at": "2026-11-04T18:26:21Z",
   "baseline_commit": "8744722c7a67168188b48868bc40dd1e81de40b3",
   "scope": "Current public provider/model coverage expansion; exact official billing sources only. Native records remain comparison-ineligible. No historical imports, release dates, FX or credit conversion are inferred.",
   "before": {
@@ -1220,7 +1220,7 @@
       "offering_id": "openrouter-8d3ef8a9890855b1",
       "provider": "openrouter",
       "model_id": "meta/llama-3.3-70b-instruct",
-      "observed_at": "2026-11-04T11:19:31Z",
+      "observed_at": "2026-11-04T14:33:17Z",
       "fields": {
         "input_per_million": {
           "before": 0.2,
@@ -1236,7 +1236,95 @@
         }
       },
       "source_url": "https://openrouter.ai/api/v1/models",
-      "source_sha256": "82b08ba5f20732c1c0d6c6ef543edafa7574ca779f871042d4a6bf4188c87cae"
+      "source_sha256": "8b6257a9071d24d2daaad143c1b5dac18777caae34d11ea933e4ca5d0b0ddb5a"
+    },
+    {
+      "offering_id": "vercel-0709d00b1d740ecd",
+      "provider": "vercel",
+      "model_id": "zai/glm-5.3-flash",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 0.15,
+          "after": 0.0975
+        },
+        "output_per_million": {
+          "before": 0.5,
+          "after": 0.325
+        },
+        "cache_read_per_million": {
+          "before": 0.03,
+          "after": 0.0195
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-35ad8d2628cad07d",
+      "provider": "vercel",
+      "model_id": "zai/glm-5.3",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 1.4,
+          "after": 0.91
+        },
+        "output_per_million": {
+          "before": 4.4,
+          "after": 2.86
+        },
+        "cache_read_per_million": {
+          "before": 0.14,
+          "after": 0.091
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-41a3138b074c6813",
+      "provider": "vercel",
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 0.3,
+          "after": 0.195
+        },
+        "output_per_million": {
+          "before": 1.2,
+          "after": 0.78
+        },
+        "cache_read_per_million": {
+          "before": 0.007,
+          "after": 0.0045
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
+    },
+    {
+      "offering_id": "vercel-bac0da714408b0a5",
+      "provider": "vercel",
+      "model_id": "moonshotai/kimi-k3",
+      "observed_at": "2026-11-04T18:26:21Z",
+      "fields": {
+        "input_per_million": {
+          "before": 3.0,
+          "after": 1.95
+        },
+        "output_per_million": {
+          "before": 15.0,
+          "after": 9.75
+        },
+        "cache_read_per_million": {
+          "before": 0.3,
+          "after": 0.195
+        }
+      },
+      "source_url": "https://ai-gateway.vercel.sh/v1/models",
+      "source_sha256": "6276a40445319f98639644c3d5c812fb5c10d06c5f4a8b50bd776bde7be254fe"
     }
   ],
   "quarantined_pricing_scope_offer_ids": [
@@ -1249,7 +1337,7 @@
     "original_csv_prefix_unchanged": true,
     "original_immutable_assets_unchanged": 7144,
     "original_native_manifest_segments_unchanged": true,
-    "current_reviewed_observations": 564,
+    "current_reviewed_observations": 570,
     "historical_publication_groups": 26,
     "native_publication": "Existing read-only field allowlist and bounded chunks; no warehouse/raw archive publication."
   },
@@ -1261,5 +1349,18 @@
     "Sonar Agent API billing is distinct from legacy search and Orchestrator private-preview billing.",
     "Weight access is unverified for the added identities, without changing older classifications.",
     "Together stays paused, historical scope stays at the original 26 groups, and no code release/gate change is authorized."
-  ]
+  ],
+  "parallel_collection_reconciliation": {
+    "source_commit": "76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d",
+    "production_commit": "79d720a483a6759e8f65dacaf32e47a10b379201",
+    "source_manifest_sha256": "8f687266b8c1c40f8727d9e122d390e1fbe0f26eee2ffa005c60e67b87c6b8c8",
+    "production_manifest_sha256": "81610b3fbb81db9ff41dc0a9ce90c09ee58197855eadfc6119abac4ae38ef1e2",
+    "archive_path": "data/inventory_history/branch_archives/76eecbd7a1af1e1fdbbc4d789b1c1a501ff4678d.json",
+    "original_branch_native_events": 86930,
+    "original_production_native_events": 85515,
+    "unchanged_imported_new_source_events": 1575,
+    "published_native_manifest_prefix_retained": true,
+    "original_branch_native_history_reconstructible": true,
+    "both_reviewed_observation_sets_retained": true
+  }
 }

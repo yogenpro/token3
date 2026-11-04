@@ -100,8 +100,12 @@ assets are preserved. Current collector changes append native observations and
 bounded immutable segments; original segments are not rewritten. Normalization
 corrections for new document sources retain earlier observations and do not assert
 vendor price changes. New offers start at actual collection time. The gateway
-refresh also observed one genuine existing-offering price change independently of
-the 100 new offers.
+refresh observed genuine existing-offering quote updates independently of the
+100 new offers. Reconciliation with a later production collection preserves both
+reviewed observation sets; a further strict gateway refresh adds its actual
+newly observed changes without overwriting earlier rates. Parallel native
+collection ID collisions retain a complete checksummed branch archive, as
+described in [history reconciliation](native-history-compaction.md#parallel-collection-reconciliation).
 
 Live provider-scoped strict dry-runs and legitimate strict collections cover the
 18 new groups and two expanded gateways. Other existing providers were not

@@ -33,6 +33,7 @@ The [current expansion](provider-model-expansion.md) adds bounded public documen
 | `data/inventory_history/manifest.json` | Ordered, checksummed schema-1 warehouse manifest; atomically committed after immutable segments |
 | `data/inventory_history/segments/<sha>.jsonl.gz` | Native events and verified compact observations; at most 16 MiB uncompressed per event-boundary segment |
 | `data/inventory_history/archive/<sha>.jsonl.gz` | Lossless original migration ledger in bounded segments, with whole-input checksum |
+| `data/inventory_history/branch_archives/<commit>.json` | Checksummed original manifests for a parallel collection fork; referenced immutable segments and original event identities remain retained outside public projections |
 | `data/inventory_history/proofs/<sha>.json` | Two-sided historical request-scope witnesses for narrowly proven retrospective observations |
 | `data/collection_checks.jsonl` | Small success/failure ledger per provider/check; retains exact compact Google latest-price observation timestamps/source hashes and distinguishes unchanged checks from outages |
 | `data/price_history.csv` | Existing curated observations retained verbatim; future rows only on first observation or actual rate change |

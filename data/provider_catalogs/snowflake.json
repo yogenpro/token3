@@ -327,6 +327,41 @@
       "comparison_eligible": false
     },
     {
+      "id": "snowflake-488385115abf9a429bfb7fd0",
+      "provider": "snowflake",
+      "native_id": "7b90a5f3a0483089207511ea",
+      "kind": "document_row",
+      "label": "Cortex AI Gateway",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Snowflake AI pricing",
+          "Features that use AI Credit pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Pricing type"
+        ],
+        "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "Cortex AI Gateway",
+          "AI Credit"
+        ],
+        "columns": [
+          "Feature",
+          "Pricing type"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "snowflake-4f9aaf1ccd70aa2304cff93d",
       "provider": "snowflake",
       "native_id": "23",
@@ -992,6 +1027,7 @@
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: AI Functions (such as AI_COMPLETE, AI_EMBED, AI_CLASSIFY, and AI_EXTRACT) are billed in AI Credits per million tokens processed. The rate varies by model. Both input and output tokens count toward consumption, and you can track usage through the CORTEX_FUNCTIONS_QUERY_USAGE_HISTORY view.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: AI Parse Doc is billed in AI Credits per 1,000 pages processed. The rate depends on the parsing mode.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Assume a customer has an Enterprise Edition account, where Platform Credits are $3.00 per credit and AI Credits are $2.00 per credit for global routing. If the customer uses 100 Platform Credits and 100 AI Credits, their spend would be:",
+    "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex AI Gateway is billed the same way as the Cortex REST API: in AI Credits, per token processed, at each model's rate. For details, see [](/user-guide/snowflake-cortex/cortex-ai-gateway/inference#label-cortex-ai-gateway-inference-pricing).",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Agents are billed in AI Credits per million tokens processed. Because agents orchestrate multi-step workflows, costs are additive across the underlying services the agent invokes (such as Cortex Analyst and Cortex Search). The specific rate depends on the model selected for orchestration. You can monitor per-agent usage through the [CORTEX_AGENT_USAGE_HISTORY](/sql-reference/account-usage/cortex_agent_usage_history) view.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Batch Search is billed Credits per GB per hour of indexed data for the duration of the batch job. Unlike interactive Cortex Search, serving compute only runs while the batch job is active rather than continuously. Additional costs include query embedding tokens and virtual warehouse compute for orchestration.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Search is billed based on two components: serving compute and embedding compute. Serving compute is charged Credits per GB per month of indexed data (including vector embeddings) and runs continuously while the service is resumed. Embedding compute is charged per token when data is inserted or updated. For more details, see [Understanding cost for Cortex Search Services](/user-guide/snowflake-cortex/cortex-search/cortex-search-costs).",
@@ -1006,19 +1042,19 @@
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: provide a flat pricing model regardless of edition (Standard, Enterprise, Business Critical, or VPS)",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: storage, and data transfer continue to use Platform Credit pricing. Your existing capacity balance"
   ],
-  "catalog_sha256": "09cc340d7793123af675f9de1777461fecb52baa7dc705b3dfc53819d718467e",
-  "revision": 5,
-  "changed_at": "2026-10-29T19:32:19Z",
+  "catalog_sha256": "9c056640855bae9f6b8bc20eebdccd6b8387aa4b2cf66c1571625b36282c97aa",
+  "revision": 6,
+  "changed_at": "2026-11-04T14:33:17Z",
   "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
   "source_urls": [
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
     "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf"
   ],
-  "source_sha256": "e527314f4bc6945030e1d02a713993e37be867ce0ade86e66cc42d2afb6962c9",
+  "source_sha256": "cc558ebcb285e73cdacb57fcd338c9b6473c7f2aef7ffd5bf683a121fcfcdabd",
   "archive_reference": {
     "state": "unavailable",
     "target_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
-    "checked_at": "2026-10-29T19:32:19Z"
+    "checked_at": "2026-11-04T14:33:17Z"
   },
   "source_evidence": [
     {
