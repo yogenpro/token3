@@ -517,7 +517,7 @@ model = response.json()
 ```javascript JavaScript theme={null}
 const modelId = 'gpt-oss-120b';
 const response = await fetch(
-  `https://api.cerebras.ai/public/v1/models/${modelId}` 
+  `https://api.cerebras.ai/public/v1/models/${modelId}`
 );
 const model = await response.json();
 ```

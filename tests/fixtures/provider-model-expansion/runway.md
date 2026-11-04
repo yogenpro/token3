@@ -372,13 +372,13 @@ You can calculate the cost of your intended usage:
       'seedance2_mini_480p': 28,
     };
     const videoCostPerSecond = costPerSecond[document.getElementById('vid-model').value] || 0;
-    
+
     const numVideos = Math.max(0, parseInt(document.getElementById('num-videos').value) || 0);
     const duration = Math.max(0, parseInt(document.getElementById('vid-duration').value) || 0);
-    
+
     // Update label to be singular or plural
     document.getElementById('vid-label').textContent = numVideos === 1 ? 'video' : 'videos';
-    
+
     const totalSeconds = numVideos * duration;
     const perVideoCredits = Math.max(
       duration * videoCostPerSecond,

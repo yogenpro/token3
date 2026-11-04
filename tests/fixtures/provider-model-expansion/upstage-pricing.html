@@ -14,10 +14,10 @@
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
- 
+
 // 광고 클릭 ID를 페이지 간 URL 파라미터로 전달 (저장 아님 / 동의 무관)
 gtag('set', 'url_passthrough', true);
- 
+
 // 저장된 동의 정보 읽기 — 깨져 있어도 스크립트가 죽지 않도록 방어
 var storedConsent = null;
 try {
@@ -25,7 +25,7 @@ try {
 } catch (e) {
   storedConsent = null;
 }
- 
+
 if (!storedConsent) {
   // 첫 방문: 기본값 모두 denied (GDPR 준수)
   gtag('consent', 'default', {
@@ -75,10 +75,10 @@ if (!storedConsent) {
   .w-code-block{
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
-  max-width: 100%; 
+  max-width: 100%;
   overflow-x: hidden;
   }
-  
+
   code, kbd, pre, samp {
     font-size: 0.9rem;
     border-radius: 8px;
@@ -296,8 +296,8 @@ body {
   margin-left: auto !important;
 }
 
-/* 
-Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+/*
+Make the following elements inherit typography styles from the parent and not have hardcoded values.
 Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
 Uncomment this CSS to use it in the project. Leave this message for future hand-off.
 */
@@ -352,11 +352,11 @@ a,
       display: none !important;
     }
 }
- 
+
 .margin-0 {
   margin: 0rem !important;
 }
-  
+
 .padding-0 {
   padding: 0rem !important;
 }
@@ -377,7 +377,7 @@ margin: 0rem !important;
   padding-bottom: 0rem !important;
   padding-left: 0rem !important;
 }
-  
+
 .margin-right {
   margin-top: 0rem !important;
   margin-bottom: 0rem !important;
@@ -407,13 +407,13 @@ margin: 0rem !important;
   margin-right: 0rem !important;
   margin-bottom: 0rem !important;
 }
-  
+
 .padding-left {
   padding-top: 0rem !important;
   padding-right: 0rem !important;
   padding-bottom: 0rem !important;
 }
-  
+
 .margin-horizontal {
   margin-top: 0rem !important;
   margin-bottom: 0rem !important;
@@ -428,7 +428,7 @@ margin: 0rem !important;
   margin-right: 0rem !important;
   margin-left: 0rem !important;
 }
-  
+
 .padding-vertical {
   padding-right: 0rem !important;
   padding-left: 0rem !important;
@@ -1062,27 +1062,27 @@ margin: 0rem !important;
 <script>
 (function () {
   var STORAGE_KEY = 'consentMode';
- 
+
   function syncConsentToGoogle(settings) {
     var payload = JSON.stringify(settings);
- 
+
     // 같은 값이면 중복 전송하지 않음
     try {
       if (localStorage.getItem(STORAGE_KEY) === payload) return;
     } catch (e) {}
- 
+
     if (typeof gtag === 'function') {
       gtag('consent', 'update', settings);
     }
- 
+
     // 다음 페이지 접속 시 Head에서 읽어 기본값을 복원하도록 저장
     try {
       localStorage.setItem(STORAGE_KEY, payload);
     } catch (e) {}
- 
+
     // UI 숨김 처리는 Finsweet이 스스로 담당
   }
- 
+
   function build(marketing, analytics, functional) {
     return {
       ad_storage:            marketing  ? 'granted' : 'denied',
@@ -1093,20 +1093,20 @@ margin: 0rem !important;
       security_storage:      'granted'
     };
   }
- 
+
   // ---- 1) 클릭 처리 — 이벤트 위임으로 레이스 컨디션 회피 ----
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('[fs-cc]') : null;
     if (!el) return;
- 
+
     var role = el.getAttribute('fs-cc');
- 
+
     if (role === 'allow') {
       syncConsentToGoogle(build(true, true, true));
- 
+
     } else if (role === 'deny') {
       syncConsentToGoogle(build(false, false, false));
- 
+
     } else if (role === 'submit') {
       syncConsentToGoogle(build(
         document.getElementById('marketing') && document.getElementById('marketing').checked,
@@ -1115,7 +1115,7 @@ margin: 0rem !important;
       ));
     }
   }, true);
- 
+
   // ---- 2) 로드 시 동기화 — 기존 desync 사용자 자동 복구 ----
   function readFsCC() {
     try {
@@ -1129,7 +1129,7 @@ margin: 0rem !important;
       return null;
     }
   }
- 
+
   var c = readFsCC();
   if (c) {
     syncConsentToGoogle(build(!!c.marketing, !!c.analytics, !!c.personalization));
