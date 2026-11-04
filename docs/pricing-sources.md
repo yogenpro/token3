@@ -43,6 +43,8 @@ The [REST reference](https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api) 
 
 Only source-bound language identities and explicitly published Standard/Flex/Priority prices are quoted. Fast, ultrafast, regional, Batch and non-token components stay in the full native rules; no supplier endpoint is inferred. Cache-write TTL is unverified, not copied from another provider. Quote parsing can fail while the complete fetched native source is retained and last-good comparison prices remain intact. No inference API is called.
 
+Unreviewed peak schedules or other unsupported billing components quarantine advertised base quotes from estimates, cheapest-price results, workload-map winners and comparable history charts. This check applies both to the model's shared pricing and inside each Flex/Priority tier, including every prompt band of that tier. A condition confined to one tier does not quarantine the other tiers. Native rules, base amounts and observation identities remain intact; no multiplier or applicable period is inferred. The known DeepSeek V4 Pro 0813 gateway scope remains quarantined pending a separate review even if its modifier disappears.
+
 ### Microsoft Foundry (Azure)
 
 Microsoft's [Foundry Models overview](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure) states that models sold by Azure include all Azure OpenAI models and selected third-party models. The public [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices) exposes their service as `Foundry Models`.

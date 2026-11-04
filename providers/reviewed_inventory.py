@@ -12,6 +12,7 @@ from .coverage_quotes import REVIEWED_PROVIDERS as COVERAGE_REVIEWED_PROVIDERS
 
 REVIEWED_INVENTORY_PROVIDERS = frozenset(("vercel",)) | EXPANDED_COMPARISON_PROVIDERS | COVERAGE_REVIEWED_PROVIDERS
 TOKEN_FIELDS = ("input", "output", "input_cache_read", "input_cache_write")
+SERVICE_COMPONENTS = frozenset((*TOKEN_FIELDS, *(field + "_tiers" for field in TOKEN_FIELDS), "long_context"))
 # Retain the observed base quote, but require a separate billing-scope review.
 # Absence of the modifier on a later response does not silently resume it.
 UNREVIEWED_VERCEL_SCOPES = frozenset(("deepseek/deepseek-v4-pro-0813",))
@@ -107,6 +108,7 @@ def vercel_quotes(payload, aliases, source):
             if tier in service:
                 tiers[tier] = service_bands(service[tier])
         for tier, bands in tiers.items():
+            tier_scope_unverified = scope_unverified or (tier != "standard" and bool(set(service[tier]) - SERVICE_COMPONENTS))
             for rates, minimum, maximum in bands:
                 record = observation("vercel", model_id, rates["input"] * 1000000,
                     rates["output"] * 1000000, source,
@@ -116,7 +118,7 @@ def vercel_quotes(payload, aliases, source):
                     service_tier=tier, region="default gateway route",
                     min_input_tokens=minimum, max_input_tokens=maximum,
                     pricing_notes="Vercel AI Gateway advertised USD/token prices, not a direct upstream-provider quote or guaranteed route. Explicit integer prompt bands and published Standard/Flex/Priority prices are kept separate. Fast, ultrafast, regional and Batch variants remain native-only. Cache-write TTL is not established by this catalog; writes, tools and non-token fees are excluded from estimates.")
-                if scope_unverified:
+                if tier_scope_unverified:
                     record["pricing_scope_unverified"] = True
                     record["pricing_notes"] += " Advertised base rates are retained, but scheduled or unsupported billing conditions require separate review. Excluded from workload estimates and cheapest-price results. Prior observations are not assigned a peak/off-peak scope."
                 records.append(record)
