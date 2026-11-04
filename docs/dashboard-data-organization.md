@@ -55,6 +55,13 @@ OVHcloud native API records explicitly show unverified currency; separate review
 
 ## Historical public projection
 
+The publication scope comes from `config/historical_sources.json`, independently
+of the current provider directory. It currently covers the original 26 groups;
+Mistral API, Meta Model API and Moonshot AI add current collection without implied
+retrospective evidence. Every configured historical group still requires a
+retained public capture and a published provider-directory entry. Captures,
+assertions or lookup checks outside that configured scope fail publication.
+
 `scripts/historical_projection.py` first verifies the entire ledger, including exact
 source hashes, archive/index witnesses and reproducible extraction. It emits only
 explicitly selected capture provenance, assertion identity/scope/expressions,

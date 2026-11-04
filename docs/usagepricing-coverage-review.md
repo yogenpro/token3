@@ -104,3 +104,9 @@ manifest. New quotes start at actual collection time. No historical archive,
 Pages gate, paid recovery setting or deployment changed. Historical recovery
 remains scoped to the original **26 groups**, without implied imports for the
 three new groups, backfills or invented release dates.
+
+The Historical projection selects that explicit scope from
+`config/historical_sources.json`, separately from the 29-group current directory.
+Missing captures for any configured historical group and historical rows outside
+the authorized scope still fail closed; current-only providers do not manufacture
+empty historical manifests.
