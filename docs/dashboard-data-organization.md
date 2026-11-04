@@ -57,6 +57,15 @@ OVHcloud native API records explicitly show unverified currency; separate review
 
 The [current expansion](provider-model-expansion.md) separates 47 current source groups from the 34 retained reviewed billing groups and the original 26 historical groups. Unverified weight access is represented as `open_weight: null`; Compare and Model explorer display “Weights unverified”. Public native document context remains evidence, with original table expressions and unknown currency/unit applicability kept separate from reviewed quote fields. Castform and Perplexity use Platform access labels because their broader billing products must not imply a creator-direct quote. Native catalog/history assets remain lazy and read-only.
 
+Retained advertised base observations can have `pricing_scope_unverified: true`
+when required billing conditions need a separate review. They show an explicit
+ineligibility reason and cannot win estimates, rankings or workload-map cells;
+unqualified base observations stay outside comparable chart series while the
+exact-observation table and original dataset retain them.
+Comparison CSVs retain the observed base amounts, set `pricing_scope_verified`
+false and leave estimate columns blank. Source health and availability stay
+independent; earlier observations are not retroactively assigned a period.
+
 ## Historical public projection
 
 The publication scope comes from `config/historical_publication.json`, independently

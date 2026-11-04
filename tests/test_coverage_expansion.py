@@ -110,6 +110,23 @@ class CoverageExpansionTests(unittest.TestCase):
             else: data['catalog']['data'][0]['preview'] = True
             with self.subTest(mutate=mutate), self.assertRaises(ValueError): self.quotes('cerebras', data)
 
+    def test_gateway_unreviewed_schedules_retain_base_observations_without_assuming_scope(self):
+        data = gateway_payload('vercel')
+        rows = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
+        scheduled = next(r for r in rows if r['provider_model_id'] == 'deepseek/deepseek-v4-pro-0813')
+        self.assertTrue(scheduled['pricing_scope_unverified'])
+        offering, price = normalize(scheduled, self.aliases, TIME, HASH)
+        self.assertTrue(offering['pricing_scope_unverified'])
+        self.assertEqual((price['input_per_million'], price['output_per_million'], price['cache_read_per_million']), (.66, 1.98, .066))
+        target = next(row for row in data['catalog']['data'] if row['id'] == 'deepseek/deepseek-v4-pro-0813')
+        target['pricing'].pop('peak_pricing')
+        rows = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
+        self.assertTrue(next(r for r in rows if r['provider_model_id'] == target['id'])['pricing_scope_unverified'])
+        other = next(row for row in data['catalog']['data'] if row['id'] == 'inception/mercury-3')
+        other['pricing']['mandatory_request_fee'] = '.01'
+        rows = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
+        self.assertTrue(next(r for r in rows if r['provider_model_id'] == other['id'])['pricing_scope_unverified'])
+
     def test_public_feeds_reject_partial_private_and_duplicate_snapshots(self):
         for provider in ('cerebras', 'castform'):
             for change in ('next', 'total', 'duplicate', 'private', 'empty'):

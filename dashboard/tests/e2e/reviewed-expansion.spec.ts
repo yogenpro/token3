@@ -74,6 +74,13 @@ test('expanded billing sources and unverified weights remain explicit without na
   await page.goto('./?view=models');
   await page.getByRole('textbox', { name: 'Search models', exact: true }).fill('Step 5 Preview');
   await expect(page.locator('.explorer-table tbody')).toContainText('Weights unverified');
+  await page.goto('./?model=deepseek%2Fdeepseek-v4-pro-0813');
+  const scoped = page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' });
+  await expect(scoped).toContainText('Pricing scope unverified');
+  await expect(scoped).not.toContainText('Lowest estimate');
+  await expect(page.getByLabel('Toggle providers in history').getByRole('button', { name: 'Vercel AI Gateway' })).toHaveCount(0);
+  await page.getByText('View exact observations', { exact: false }).click();
+  await expect(page.locator('.history-data tbody')).toContainText('base rate, scope unverified');
 });
 
 test('gateway prices stay gateway-labeled and preserve service tiers and scope', async ({ page }) => {

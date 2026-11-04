@@ -20,7 +20,7 @@ def detect_changes(old_offering, offering, previous, current, observed_at):
     elif not old_offering["active"]:
         events.append(event("offering_restored", offering, observed_at))
     else:
-        for field in ("context_window", "quantization", "variant", "max_output_tokens"):
+        for field in ("context_window", "quantization", "variant", "max_output_tokens", "pricing_scope_unverified"):
             if old_offering.get(field) != offering.get(field):
                 events.append(event("offering_updated", offering, observed_at, field, old_offering.get(field), offering.get(field)))
     if previous is not None:

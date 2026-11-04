@@ -18,10 +18,11 @@ export function estimateCost(offering: Offering, price: Price, raw: Workload) {
   const fitsContext = offering.context_window === null || workload.inputTokens + workload.outputTokens <= offering.context_window;
   const fitsInputRange = workload.inputTokens >= (offering.min_input_tokens ?? 0) && (offering.max_input_tokens == null || workload.inputTokens <= offering.max_input_tokens);
   const fitsOutputLimit = offering.max_output_tokens == null || workload.outputTokens <= offering.max_output_tokens;
+  const pricingScopeVerified = offering.pricing_scope_unverified !== true;
   const perRequest = (uncached * price.input_per_million + cached * (price.cache_read_per_million ?? price.input_per_million) + workload.outputTokens * price.output_per_million) / 1_000_000;
   return {
     perRequest, total: perRequest * workload.requests, perMillionRequests: perRequest * 1_000_000,
-    fitsContext, fitsInputRange, fitsOutputLimit, eligible: fitsContext && fitsInputRange && fitsOutputLimit,
+    fitsContext, fitsInputRange, fitsOutputLimit, pricingScopeVerified, eligible: pricingScopeVerified && fitsContext && fitsInputRange && fitsOutputLimit,
     contextUnverified: offering.context_window === null,
     cacheFallback: cached > 0 && price.cache_read_per_million === null,
   };
@@ -64,12 +65,12 @@ export function inputBandLabel(offering: Offering) {
   return min > 0 ? `Prompt >${tokens(min - 1)}${max != null ? `, ≤${tokens(max)}` : ''}` : `Prompt ≤${tokens(max ?? null)}`;
 }
 export function eligibilityReason(cost: ReturnType<typeof estimateCost>) {
-  return !cost.fitsContext ? 'Exceeds context limit' : !cost.fitsOutputLimit ? 'Exceeds output limit' : !cost.fitsInputRange ? 'Outside prompt band' : '';
+  return !cost.pricingScopeVerified ? 'Pricing scope unverified' : !cost.fitsContext ? 'Exceeds context limit' : !cost.fitsOutputLimit ? 'Exceeds output limit' : !cost.fitsInputRange ? 'Outside prompt band' : '';
 }
 
 export function historyRows(history: Price[], offerings: Offering[], field: keyof Pick<Price, 'input_per_million' | 'output_per_million' | 'cache_read_per_million'>, days: number, now = Date.now()) {
   if (new Set(offerings.map(quoteUnit)).size > 1) throw new Error('Price history requires one billing basis');
-  const ids = new Set(offerings.map((o) => o.id));
+  const ids = new Set(offerings.filter((o) => !o.pricing_scope_unverified).map((o) => o.id));
   const points = new Map<number, Record<string, number | null>>();
   for (const price of history) {
     const timestamp = new Date(price.observed_at).getTime();
@@ -95,7 +96,7 @@ export function comparisonCsv(rows: RankedOffering[], rawWorkload: Workload = de
   const header = ['canonical_model', 'provider', 'provider_model_id', 'tier', 'region', 'quantization', 'variant', 'context_window', 'input_tokens', 'output_tokens', 'cache_hit_percent', 'requests', 'input_usd_per_million', 'output_usd_per_million', 'cache_read_usd_per_million', 'cache_write_usd_per_million', 'estimated_usd_per_request', 'estimated_usd_per_million_requests', 'estimated_workload_usd', 'fits_context', 'context_unverified', 'cache_fallback', 'min_input_tokens', 'max_input_tokens', 'max_output_tokens', 'fits_input_range', 'fits_output_limit', 'eligible', 'pricing_notes', 'observed_at', 'source_url'];
   const values = rows.map(({ offering: o, price: p, cost: c }) => [o.model_id, o.provider, o.provider_model_id, o.service_tier, o.region, o.quantization, o.variant, o.context_window, w.inputTokens, w.outputTokens, w.cacheHitPercent, w.requests, p.input_per_million, p.output_per_million, p.cache_read_per_million, p.cache_write_per_million, c.eligible ? c.perRequest : null, c.eligible ? c.perMillionRequests : null, c.eligible ? c.total : null, c.fitsContext, c.contextUnverified, c.cacheFallback, o.min_input_tokens ?? 0, o.max_input_tokens, o.max_output_tokens, c.fitsInputRange, c.fitsOutputLimit, c.eligible, o.pricing_notes, p.observed_at, p.source_url]);
   const labeled = unit === 'USD' ? header : header.map((h) => h.replaceAll('usd', unit.toLowerCase()));
-  return [[...labeled, 'quote_unit'], ...values.map((r) => [...r, unit])].map((row) => row.map(csvCell).join(',')).join('\n') + '\n';
+  return [[...labeled, 'pricing_scope_verified', 'quote_unit'], ...values.map((r, i) => [...r, rows[i].cost.pricingScopeVerified, unit])].map((row) => row.map(csvCell).join(',')).join('\n') + '\n';
 }
 export function downloadFile(content: string, filename: string, type = 'text/csv;charset=utf-8') {
   const url = URL.createObjectURL(new Blob([content], { type }));

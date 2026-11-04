@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { datasetSchema, weightLabel, providerInfo } from '../src/lib/data';
 import { accessKind } from '../src/lib/catalog';
-import { defaultWorkload, rankOfferings } from '../src/lib/pricing';
+import { comparisonCsv, defaultWorkload, eligibilityReason, estimateCost, historyRows, isBestCost, rankOfferings } from '../src/lib/pricing';
 import models from '../../data/models.json';
 import offerings from '../../data/offerings.json';
 import prices from '../../data/latest_prices.json';
@@ -58,5 +58,31 @@ describe('current provider and model coverage', () => {
     expect(accessKind('perplexity')).toBe('Platform');
     expect(accessKind('cerebras')).toBe('Direct API');
     expect(accessKind('openrouter')).toBe('Gateway');
+  });
+  it('excludes unreviewed billing conditions from winners and exported estimates', () => {
+    const offering = { ...data.offerings[0], pricing_scope_unverified: true, pricing_notes: 'Test scope quarantine' };
+    const price = data.prices.find((p) => p.offering_id === offering.id)!;
+    const cost = estimateCost(offering, price, defaultWorkload);
+    expect(cost.eligible).toBe(false);
+    expect(cost.pricingScopeVerified).toBe(false);
+    expect(eligibilityReason(cost)).toBe('Pricing scope unverified');
+    const row = { offering, price, cost };
+    expect(isBestCost(row, row)).toBe(false);
+    const csv = comparisonCsv([row]);
+    const [header, values] = csv.trim().split('\n').map((line) => line.split(','));
+    expect(values[header.indexOf('estimated_workload_usd')]).toBe('');
+    expect(values[header.indexOf('pricing_scope_verified')]).toBe('false');
+  });
+  it('quarantines the retained scheduled gateway base quote in both scenarios', () => {
+    for (const period of ['peak', 'off_peak']) {
+      const rows = rankOfferings(data, 'deepseek/deepseek-v4-pro-0813', defaultWorkload, 'standard', 'USD', period);
+      const scheduled = rows.find((r) => r.offering.provider === 'vercel')!;
+      expect(scheduled.offering.pricing_scope_unverified).toBe(true);
+      expect(scheduled.price.input_per_million).toBe(.66);
+      expect(scheduled.cost.eligible).toBe(false);
+      expect(eligibilityReason(scheduled.cost)).toBe('Pricing scope unverified');
+      expect(isBestCost(scheduled, rows[0])).toBe(false);
+      expect(historyRows(data.history, [scheduled.offering], 'input_per_million', 0)).toEqual([]);
+    }
   });
 });

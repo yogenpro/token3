@@ -87,6 +87,8 @@ Reviewed baseline: **169 canonical models / 447 recorded offerings / 34 reviewed
 
 These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 447 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
 
+Retained base quotes with unreviewed required billing conditions are marked explicitly and excluded from estimates, cheapest-price results and comparable chart series. Comparison CSVs include `pricing_scope_verified`; unverified rows have blank estimates. Original base observations remain available without assigning a historical peak/off-peak period.
+
 This is the complete **reviewed canonical model list**, not every model name, route, flavor or SKU in the broader native inventory. Canonical IDs keep versions and variants explicit.
 
 | Canonical model | Canonical ID | Providers with recorded reviewed offerings (including inactive) |

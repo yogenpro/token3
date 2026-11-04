@@ -122,6 +122,8 @@ def normalize(record, aliases, observed_at, source_hash):
         offering["quote_unit"] = quote_unit
     offering.update(min_input_tokens=minimum, pricing_notes=record.get("pricing_notes", ""))
     offering.update(id=offering_id, model_id=model_id, active=True, last_seen_at=observed_at)
+    if record.get("pricing_scope_unverified") is True:
+        offering["pricing_scope_unverified"] = True
     price = {key: None if record.get(key) is None else round(number(record[key]), 10) for key in PRICE_FIELDS}
     if price["input_per_million"] is None or price["output_per_million"] is None:
         raise ValueError("Input and output prices are required")

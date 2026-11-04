@@ -48,6 +48,17 @@ Weight access was not independently reviewed for these 66 identities. Their
 Existing verified open/proprietary classifications are unchanged. Observation
 dates do not establish release dates or a license.
 
+One retained Vercel DeepSeek V4 Pro 0813 base quote has a scheduled multiplier
+whose application is outside the reviewed token interpretation. Its amounts,
+ID and prior observations remain unchanged. `pricing_scope_unverified: true`
+excludes it from estimates, cheapest-price results, comparable chart series and workload-map winners in
+both scenarios. CSVs expose `pricing_scope_verified: false` with blank estimates.
+No multiplier, cache treatment, current period or historical period is inferred.
+The exact-observation table and append-only dataset retain the original base observations.
+The quote stays quarantined until a separate scope review, even if the modifier
+later disappears from a response. New unsupported gateway components also fail
+comparison eligibility while their native evidence remains available.
+
 ## Added public source groups
 
 Each source has a bounded scope. Native records remain

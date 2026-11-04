@@ -19,6 +19,7 @@ const offeringSchema = z.object({
   source_url: url, active: z.boolean(), first_observed_at: timestamp, last_seen_at: timestamp,
   min_input_tokens: z.number().int().nonnegative().optional(), max_input_tokens: z.number().int().nonnegative().nullable().optional(),
   max_output_tokens: z.number().int().nonnegative().nullable().optional(), pricing_notes: z.string().optional(),
+  pricing_scope_unverified: z.boolean().optional(),
   quote_unit: z.enum(['USD', 'EUR', 'DBU', 'AI_CREDIT']).optional(),
 }).refine((o) => o.max_input_tokens == null || o.max_input_tokens >= (o.min_input_tokens ?? 0), 'Invalid input pricing band');
 const priceSchema = z.object({

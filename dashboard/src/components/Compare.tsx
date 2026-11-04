@@ -52,7 +52,7 @@ export function Compare({ unit, onUnit, period, onPeriod, data, model, onModel, 
         const { offering: o, price: p, cost: c } = row;
         const bestCost = isBestCost(row, best);
         const failed = data.status.providers.find((s) => s.id === o.provider)?.state === 'error';
-        return <CompareRow key={o.id} row={row} bestCost={bestCost} lowestInput={p.input_per_million === cheapestInput?.price.input_per_million} failed={failed} onProvider={onProvider} expanded={expanded === o.id} onExpand={() => setExpanded(expanded === o.id ? null : o.id)} />;
+        return <CompareRow key={o.id} row={row} bestCost={bestCost} lowestInput={c.eligible && p.input_per_million === cheapestInput?.price.input_per_million} failed={failed} onProvider={onProvider} expanded={expanded === o.id} onExpand={() => setExpanded(expanded === o.id ? null : o.id)} />;
       })}</tbody></table></div> : <div className="empty-state"><SlidersHorizontal size={28} /><h3>No tracked offerings in this tier</h3><p>Choose another billing basis or service tier to see reviewed prices for this model.</p></div>}
       <div className="table-note"><Info size={14} /><span>Prompt bands count all input, including cached tokens. Cache-write, storage and tool fees are excluded. Unknown context limits remain unverified.</span><button onClick={onMethodology}>Details</button></div>
     </section>
