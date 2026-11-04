@@ -71,6 +71,10 @@ not grant unrestricted licensing or inference access. Codestral's unversioned
 competitor label does not establish its context limit; only the current official
 `codestral-2508` quote is selected.
 
+All three new sources have explicit display names and badge colors for both
+themes. Unknown-provider colors fall back to the theme's readable muted text;
+the existing WCAG assertions remain unchanged.
+
 ## Formats, verification and preservation
 
 Google now returns Markdoc tables/tabs. An inert text reader restores explicit
