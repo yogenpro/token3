@@ -4,7 +4,7 @@ These instructions apply throughout this repository. Read [README.md](README.md)
 
 ## Scope and current operating decisions
 
-- The [2026-11-04 UsagePricing gap review](docs/usagepricing-coverage-review.md) expands current collection to **29 provider groups**, adding Mistral API, Meta Model API and Moonshot AI with exact separately reviewed quotes. Historical evidence remains scoped to the original 26 groups; new current collectors do not authorize historical imports. Competitor lists are discovery checklists, never current quote or lifecycle authority.
+- The [2026-11-04 provider coverage review](docs/provider-coverage-review.md) expands current collection to **29 provider groups**, adding Mistral API, Meta Model API and Moonshot AI with exact separately reviewed quotes. Historical evidence remains scoped to the original 26 groups; new current collectors do not authorize historical imports. Discovery checklists are never current quote or lifecycle authority.
 - Keep the architecture static: Python collection produces versioned files; React/TypeScript/Vite renders reviewed data and validated public native projections. No application backend, database/SQL, paid storage, inference routing, BYOK, provider inference calls or benchmarks.
 - Maintain three distinct layers: **source-native warehouse/evidence**, **read-only public native projections**, and **separately reviewed comparable offers**. Broader discovery does not expand reviewed comparisons automatically.
 - Daily collection and ordinary CI are authorized project operations. Main-branch CI/collection failures produce **no-AI issue handoffs** for a human-launched local coding agent. PR/fork failures are excluded from ticketing.

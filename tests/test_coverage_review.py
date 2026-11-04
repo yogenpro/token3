@@ -14,7 +14,7 @@ from scripts.catalog_inventory import normalize_inventory
 from scripts.collect import apply_snapshot
 from scripts.normalize import catalog, normalize
 
-FIXTURES = Path(__file__).parent / 'fixtures' / 'usagepricing-review'
+FIXTURES = Path(__file__).parent / 'fixtures' / 'provider-coverage-review'
 TIME = '2026-11-04T00:00:00Z'  # Fixture-only timestamp, never production data.
 HASH = 'a' * 64
 
@@ -148,21 +148,22 @@ class CoverageReviewTests(unittest.TestCase):
         with self.assertRaises(ValueError): apply_snapshot('meta', invalid, self.aliases, TIME, offerings, latest, history, changes)
         self.assertEqual((offerings, latest, history, changes), before)
 
-    def test_dated_audit_accounts_for_hidden_rows_and_unresolved_source_boundaries(self):
-        report = json.loads((FIXTURES.parents[2] / 'docs/research/usagepricing-gap-review-2026-11-04.json').read_text())
-        rows = report['rows']
-        self.assertEqual(len(rows), 146)
-        self.assertEqual(len({r['usagepricing_slug'] for r in rows}), 146)
-        self.assertEqual(sum(r['usagepricing_status'] == 'deprecated' for r in rows), 19)
-        self.assertEqual(sum(report['summary']['dispositions'].values()), len(rows))
-        self.assertTrue(all(r['disposition'] == 'operator_paused' for r in rows if r['collector_id'] == 'together'))
-        self.assertTrue(all(r['canonical_id'] is None for r in rows if r['usagepricing_provider_slug'] == 'zhipu'))
+    def test_dated_review_manifest_binds_every_new_offering_to_its_official_source(self):
+        report = json.loads((FIXTURES.parents[2] / 'docs/research/provider-coverage-review-2026-11-04.json').read_text())
+        rows = report['new_offerings']
+        baseline_ids = set(report['baseline_reviewed_offering_ids'])
+        added_ids = {r['id'] for r in rows}
+        self.assertEqual(len(baseline_ids), 263)
+        self.assertEqual(len(rows), 84)
+        self.assertEqual(len(added_ids), 84)
+        self.assertFalse(baseline_ids & added_ids)
+        self.assertEqual(set(report['new_model_ids']), set(json.loads((FIXTURES / 'new-model-ids.json').read_text())))
         offerings = {o['id']: o for o in json.loads((FIXTURES.parents[2] / 'data/offerings.json').read_text())}
+        self.assertLessEqual(baseline_ids | added_ids, offerings.keys())
         for row in rows:
-            if row['disposition'] == 'reviewed_source_covered':
-                self.assertTrue(row['after_reviewed_active_offering_ids'])
-                self.assertTrue(all(offerings[oid]['provider'] == row['collector_id'] and offerings[oid]['model_id'] == row['canonical_id']
-                                    for oid in row['after_reviewed_active_offering_ids']))
+            self.assertEqual(row, {key: offerings[row['id']][key] for key in row})
+            self.assertNotEqual(row['provider'], 'together')
+            self.assertTrue(row['source_url'].startswith('https://'))
 
 
 if __name__ == '__main__':
