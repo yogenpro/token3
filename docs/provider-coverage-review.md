@@ -94,11 +94,13 @@ archive/history assets are byte-identical, and original ordered native history
 segments are unchanged. Collection appended new segments and advanced the
 manifest. New quotes start at actual collection time. No historical archive,
 Pages gate, paid recovery setting or deployment changed. Historical recovery
-remains scoped to the original **26 groups**, without implied imports for the
-three new groups, backfills or invented release dates.
+was scoped to the original **26 groups** at this review, without implied imports
+for the three new groups. The separately authorized
+[November 5 backfill](recent-provider-history.md) subsequently expands that
+selected scope to 47 groups; it does not invent release dates.
 
 The Historical projection selects that explicit scope from
-`config/historical_publication.json`, separately from the 29-group current directory.
+`config/historical_publication.json`, independently of current collection.
 Missing captures for any configured historical group and historical rows outside
 the authorized scope still fail closed; current-only providers do not manufacture
 empty historical manifests.

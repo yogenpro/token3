@@ -45,7 +45,7 @@ class ExpansionTests(unittest.TestCase):
         self.assertEqual(set(profiles()) | {"bedrock"}, set(scope))
         self.assertEqual(len(scope), len(set(scope)))
         self.assertTrue(set(scope) <= {p["id"] for p in data["providers"]})
-        self.assertEqual(len(profiles()), 25)
+        self.assertEqual(len(profiles()), 46)
         for provider, profile in profiles().items():
             for source in profile["sources"]:
                 self.assertEqual(source_spec(source["url"], provider), source)

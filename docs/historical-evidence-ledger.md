@@ -11,7 +11,9 @@ The first authorized import retained the public AWS/DeepInfra evidence examined 
 the [dated research](aws-deepinfra-history-research.md). The subsequent authorized
 [expansion](historical-ledger-expansion.md) adds selected public evidence for the
 other 24 groups. Versioned exact URL profiles and native catalog, document and PDF
-extractors now cover all 26 indexed groups. Historical-only identifiers do not need
+extractors initially covered all 26 indexed groups. The separately authorized
+[recent-provider backfill](recent-provider-history.md) adds the 21 newly collected
+groups and selected gateway captures, with partial recovery across 47 groups. Historical-only identifiers do not need
 reviewed aliases. Coverage remains partial. Adding another source requires its own
 public-source boundary and reconstruction tests, not an alias or price conversion.
 

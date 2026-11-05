@@ -29,7 +29,7 @@ describe('read-only public historical evidence', () => {
     const text = assets.get('catalog/historical/index.json')!;
     const index = historicalIndexSchema.parse(JSON.parse(text));
     const original = JSON.parse(readFileSync(join(warehouse, 'manifest.json'), 'utf8'));
-    expect(index.providers.length).toBe(26);
+    expect(index.providers.length).toBe(47);
     expect(index.capture_count).toBe(original.counts.capture);
     expect(index.assertion_count).toBe(original.counts.assertion);
     expect(text.length).toBeLessThan(30000);
