@@ -2105,6 +2105,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-187a03910fff236340e03df4",
+      "provider": "deepinfra",
+      "native_id": "moonshotai/Kimi-K3.1-Pro",
+      "kind": "model",
+      "label": "moonshotai/Kimi-K3.1-Pro",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": 0.05,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 0.0002,
+          "cents_per_output_token": 0.001,
+          "rate_per_input_token_cached": 0.1,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": 1.5,
+          "rate_per_service_tier_flex": 0.8,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 1048576,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-18aae437b3a52d19dc925dcf",
       "provider": "deepinfra",
       "native_id": "anthropic/claude-opus-5",
@@ -4082,6 +4135,43 @@
         "type": "text-generation",
         "max_tokens": 8192,
         "quantization": "fp8"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-327ee5d70ac7521ee972bc06",
+      "provider": "deepinfra",
+      "native_id": "nvidia/Nemo3-ASR-Streaming",
+      "kind": "model",
+      "label": "nvidia/Nemo3-ASR-Streaming",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "input_length",
+          "cents_per_input_sec": 0.000333
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_sec",
+          "amount": "0.00000333",
+          "currency": "USD",
+          "unit": "input second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "automatic-speech-recognition",
+        "max_tokens": null,
+        "quantization": null
       },
       "comparison_eligible": false
     },
@@ -18897,13 +18987,16 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "f8bb757ad792b23dc7a08c7724060642c20488bbc97685eb29d96f6d5f669cdc",
-  "revision": 22,
-  "changed_at": "2026-11-04T08:54:47Z",
+  "catalog_sha256": "a4d3d70a242c8cf6710d841f3962a9a174fedb2753e5aefa455b7f3d2c232672",
+  "revision": 23,
+  "changed_at": "2026-11-05T04:17:16Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "b7aa06f9db91c536f8d86c519c7915a38549c0888aeb053b8a4ab7f576996eed",
-  "archive_reference": null
+  "source_sha256": "de8fbc5ef9787a1b7e41837825aa8e219f0ebb93adcd321fd416e4f1446a79db",
+  "archive_reference": {
+    "state": "not_applicable",
+    "reason": "API/feed responses are not public page captures"
+  }
 }

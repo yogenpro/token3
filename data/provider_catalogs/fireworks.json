@@ -872,6 +872,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-6e9608a279d4e50da977a204",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/kimi-k3p1-pro",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro",
+      "scope": {
+        "serving_mode": "priority"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.3",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "15",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "3",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "3",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "service_tier": "priority"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-6f3a4552d5917e374be8d7d9",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/inkling",
@@ -2428,14 +2493,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "78a49e4cb08c3241e77e5fa6ca79df3d822fea9c049640fcfd5fdb4fa3c5eece",
-  "revision": 14,
-  "changed_at": "2026-11-03T14:15:48Z",
+  "catalog_sha256": "3bf9b44f82c6339991332615bd2860ab182aa59a7f8298d4502857785271d170",
+  "revision": 15,
+  "changed_at": "2026-11-05T04:17:16Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "2bcb265a8b387fee531f6573b8e7ac9e5582471d3ba2d69695de0e9b1365d43e",
+  "source_sha256": "2a152795997dd9497e68fa898e77334a30174e0cdec2f5a674a5c2c400e56f67",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
