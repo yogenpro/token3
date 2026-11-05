@@ -127,6 +127,34 @@ class CoverageExpansionTests(unittest.TestCase):
         rows = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
         self.assertTrue(next(r for r in rows if r['provider_model_id'] == other['id'])['pricing_scope_unverified'])
 
+    def test_gateway_nested_tier_conditions_quarantine_every_affected_prompt_band(self):
+        for tier in ('flex', 'priority'):
+            for long_context in (False, True):
+                for component in ('peak_pricing', 'mandatory_request_fee'):
+                    with self.subTest(tier=tier, long_context=long_context, component=component):
+                        data = gateway_payload('vercel')
+                        target = next(row for row in data['catalog']['data'] if row['id'] == 'google/gemini-3.1-pro-preview')
+                        service = target['pricing']['service_tiers'][tier]
+                        if not long_context:
+                            service.pop('long_context')
+                        before = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
+                        service[component] = ({'multiplier': 2, 'windows': [{'start_minute_utc': 0, 'end_minute_utc': 840}]}
+                                              if component == 'peak_pricing' else '.01')
+                        rows = gateway_quotes('vercel', data, self.aliases, 'https://ai-gateway.vercel.sh/v1/models')
+                        affected = [r for r in rows if r['provider_model_id'] == target['id'] and r['service_tier'] == tier]
+                        self.assertEqual(len(affected), 2 if long_context else 1)
+                        self.assertTrue(all(r.get('pricing_scope_unverified') is True for r in affected))
+                        # The flag and explanatory notes may change; quote identities and base amounts must not.
+                        self.assertEqual([normalize(r, self.aliases, TIME, HASH)[1] for r in rows],
+                                         [normalize(r, self.aliases, TIME, HASH)[1] for r in before])
+                        self.assertEqual([r for r in rows if r not in affected],
+                                         [r for r in before if r['provider_model_id'] != target['id'] or r['service_tier'] != tier])
+                        native_payload = dict(data, format='token3.inventory-sources.v1', adapter='vercel')
+                        native, _ = normalize_inventory('vercel', json.dumps(native_payload), 'api')
+                        record = next(r for r in native['records'] if r['native_id'] == target['id'])
+                        self.assertEqual(record['billing']['rules']['service_tiers'][tier][component], service[component])
+                        self.assertFalse(record['comparison_eligible'])
+
     def test_public_feeds_reject_partial_private_and_duplicate_snapshots(self):
         for provider in ('cerebras', 'castform'):
             for change in ('next', 'total', 'duplicate', 'private', 'empty'):
