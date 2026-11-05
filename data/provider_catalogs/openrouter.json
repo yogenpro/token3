@@ -572,9 +572,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000004",
-          "input_cache_read": "0.000000007",
-          "prompt": "0.000000013"
+          "completion": "0.000000134",
+          "input_cache_read": "0.000000022",
+          "prompt": "0.000000045"
         },
         "currency": "USD",
         "state": "reported",
@@ -584,21 +584,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000013",
+          "amount": "0.000000045",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000004",
+          "amount": "0.000000134",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000007",
+          "amount": "0.000000022",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -10769,6 +10769,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-4467596b583a88f7a311df34",
+      "provider": "openrouter",
+      "native_id": "google/gemini-omni-1.2-flash",
+      "kind": "model",
+      "label": "Google: Gemini Omni 1.2 Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.000009",
+          "prompt": "0.0000015",
+          "web_search": "0.014"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000009",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "web_search",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "search",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Google: Gemini Omni 1.2 Flash",
+        "canonical_slug": "google/gemini-omni-1.2-flash-20261105",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+video->text+video",
+          "output_modalities": [
+            "text",
+            "video"
+          ],
+          "tokenizer": "Gemini"
+        },
+        "context_length": 131072,
+        "top_provider": {
+          "context_length": 131072,
+          "is_moderated": false,
+          "max_completion_tokens": 65536
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "seed",
+          "temperature",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-4474f0902015901ebc0aa60b",
       "provider": "openrouter",
       "native_id": "prism-ml/ternary-bonsai-2-9b",
@@ -19100,9 +19181,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000052",
-          "input_cache_read": "0.0000001",
-          "prompt": "0.0000002"
+          "completion": "0.00000079",
+          "input_cache_read": "0.000000295",
+          "prompt": "0.00000059"
         },
         "currency": "USD",
         "state": "reported",
@@ -19112,21 +19193,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000002",
+          "amount": "0.00000059",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000052",
+          "amount": "0.00000079",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000001",
+          "amount": "0.000000295",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -19151,7 +19232,7 @@
         "top_provider": {
           "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 128000
+          "max_completion_tokens": 32768
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -20325,6 +20406,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-811d3b80a808277125ee15e3",
+      "provider": "openrouter",
+      "native_id": "google/gemini-omni-1.1-flash",
+      "kind": "model",
+      "label": "Google: Gemini Omni 1.1 Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.000009",
+          "prompt": "0.0000015",
+          "web_search": "0.014"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000009",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "web_search",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "search",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Google: Gemini Omni 1.1 Flash",
+        "canonical_slug": "google/gemini-omni-1.1-flash-20260911",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image",
+            "video"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+video->text+video",
+          "output_modalities": [
+            "text",
+            "video"
+          ],
+          "tokenizer": "Gemini"
+        },
+        "context_length": 131072,
+        "top_provider": {
+          "context_length": 131072,
+          "is_moderated": false,
+          "max_completion_tokens": 65536
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "seed",
+          "temperature",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-81467339c8759e9017bc4432",
       "provider": "openrouter",
       "native_id": "openai/gpt-5.1",
@@ -20625,7 +20787,7 @@
         "rules": {
           "completion": "0.0000003",
           "input_cache_read": "0.000000035",
-          "prompt": "0.000000054"
+          "prompt": "0.0000000434"
         },
         "currency": "USD",
         "state": "reported",
@@ -20635,7 +20797,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000054",
+          "amount": "0.0000000434",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -25452,8 +25614,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000015",
+          "completion": "0.0000003",
+          "input_cache_read": "0.0000000075",
           "overrides": [
             {
               "completion": "0.0000003",
@@ -25470,7 +25632,7 @@
               "utc_start": 100
             }
           ],
-          "prompt": "0.00000015"
+          "prompt": "0.000000075"
         },
         "currency": "USD",
         "state": "reported",
@@ -25480,21 +25642,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.000000075",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000015",
+          "amount": "0.0000000075",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -29063,7 +29225,7 @@
         "rules": {
           "completion": "0.0000093388",
           "input_cache_read": "0.00000015",
-          "prompt": "0.0000001577"
+          "prompt": "0.000000151"
         },
         "currency": "USD",
         "state": "reported",
@@ -29073,7 +29235,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000001577",
+          "amount": "0.000000151",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -32907,9 +33069,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000016104",
-          "input_cache_read": "0.000000001708",
-          "prompt": "0.00000005368"
+          "completion": "0.0000003",
+          "input_cache_read": "0.000000035",
+          "prompt": "0.0000000434"
         },
         "currency": "USD",
         "state": "reported",
@@ -32919,21 +33081,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000005368",
+          "amount": "0.0000000434",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000016104",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001708",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -32958,7 +33120,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -38749,8 +38911,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000528",
-          "input_cache_read": "0.000000033",
+          "completion": "0.00000033",
+          "input_cache_read": "0.000000020625",
           "overrides": [
             {
               "completion": "0.000000528",
@@ -38767,7 +38929,7 @@
               "utc_start": 1600
             }
           ],
-          "prompt": "0.000000132"
+          "prompt": "0.0000000825"
         },
         "currency": "USD",
         "state": "reported",
@@ -38777,21 +38939,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000132",
+          "amount": "0.0000000825",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000528",
+          "amount": "0.00000033",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000033",
+          "amount": "0.000000020625",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -40820,8 +40982,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000002501",
-          "input_cache_read": "0.000000042",
+          "completion": "0.0000022509",
+          "input_cache_read": "0.0000000378",
           "overrides": [
             {
               "completion": "0.000002501",
@@ -40838,7 +41000,7 @@
               "utc_start": 1600
             }
           ],
-          "prompt": "0.000000834"
+          "prompt": "0.0000007506"
         },
         "currency": "USD",
         "state": "reported",
@@ -40848,21 +41010,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000834",
+          "amount": "0.0000007506",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000002501",
+          "amount": "0.0000022509",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000042",
+          "amount": "0.0000000378",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -42424,14 +42586,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "a9e89a01e7db5826186b01b1f9399ade5418b6c6e7dd4a100813b9db5233bda6",
-  "revision": 44,
-  "changed_at": "2026-11-05T14:41:11Z",
+  "catalog_sha256": "f8e140b1cba6c39e3fb3dc508435debe24d47b114be73d54af7cdce7f9eec7ee",
+  "revision": 45,
+  "changed_at": "2026-11-05T17:47:57Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "18b8c69a3189af11342af304a9be4a7ae44f7eb733d44d35551b387e71a8f54c",
+  "source_sha256": "783c5e898e123e96539e8323ea71e6eeec0adec9f08311cb05269fa35b1d3cde",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
