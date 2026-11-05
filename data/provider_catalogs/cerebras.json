@@ -70,6 +70,100 @@
       "comparison_eligible": false
     },
     {
+      "id": "cerebras-742678b6864229d9148a977e",
+      "provider": "cerebras",
+      "native_id": "moonshotai-kimi-k3",
+      "kind": "model",
+      "label": "moonshotai-kimi-k3",
+      "scope": {
+        "billing_product": "inference"
+      },
+      "billing": {
+        "rules": {
+          "architecture": {
+            "instruct_type": null,
+            "modality": "text",
+            "tokenizer": "unknown"
+          },
+          "capabilities": {
+            "function_calling": false,
+            "json_mode": false,
+            "parallel_tool_calls": false,
+            "reasoning": false,
+            "response_format": false,
+            "streaming": true,
+            "structured_outputs": false,
+            "tool_choice": false,
+            "tools": false,
+            "vision": false
+          },
+          "created": 0,
+          "datacenter_locations": [],
+          "deprecated": false,
+          "description": "Model moonshotai-kimi-k3",
+          "hugging_face_id": null,
+          "id": "moonshotai-kimi-k3",
+          "limits": {
+            "max_completion_tokens": 4096,
+            "max_context_length": 8192,
+            "requests_per_minute": null,
+            "tokens_per_minute": null
+          },
+          "name": "moonshotai-kimi-k3",
+          "object": "model",
+          "owned_by": "Cerebras",
+          "preview": false,
+          "pricing": {
+            "completion": "0",
+            "prompt": "0"
+          },
+          "quantization": null,
+          "supported_parameters": {
+            "frequency_penalty": false,
+            "logit_bias": false,
+            "logprobs": false,
+            "max_completion_tokens": true,
+            "presence_penalty": false,
+            "repetition_penalty": false,
+            "seed": true,
+            "stop": true,
+            "temperature": true,
+            "top_logprobs": false,
+            "top_p": true
+          }
+        },
+        "interpretation": "Exact public price-feed fields; products and units remain separate."
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.prompt"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "token",
+          "conditions": {
+            "source_field": "pricing.completion"
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "moonshotai-kimi-k3",
+        "context_length": 8192,
+        "max_output_tokens": 4096,
+        "quantization": null,
+        "model_name": "moonshotai-kimi-k3"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "cerebras-9aa35819f05cd39078d8c71d",
       "provider": "cerebras",
       "native_id": "https://inference-docs.cerebras.ai/models/overview.md",
@@ -593,9 +687,9 @@
     "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: pricing page (https://www.cerebras.ai/pricing)",
     "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md: qwen-3.8-27b"
   ],
-  "catalog_sha256": "ffc75b3608a764b1ac0b1f012724a18b5485685269d87372a09bd8e8cca7d352",
-  "revision": 3,
-  "changed_at": "2026-11-04T11:39:11Z",
+  "catalog_sha256": "e8d7f617acb6b2f5d8c87ce08ca1711d598f52db9189a5858fc4529d7a85b3dd",
+  "revision": 4,
+  "changed_at": "2026-11-05T14:41:11Z",
   "source_url": "https://api.cerebras.ai/public/v1/models",
   "source_urls": [
     "https://api.cerebras.ai/public/v1/models",
@@ -604,6 +698,9 @@
     "https://inference-docs.cerebras.ai/models/qwen-3.8-27b.md",
     "https://inference-docs.cerebras.ai/models/openai-oss.md"
   ],
-  "source_sha256": "9d5d0ebda3a290724a1fdb19b07d9c0efe01dc161d08ae4f7768f66bc15dac14",
-  "archive_reference": null
+  "source_sha256": "32d712eaa852dd39c236ba89afe48c8bdd8c8a21c22b7bf5c5a7df22162c97da",
+  "archive_reference": {
+    "state": "not_applicable",
+    "reason": "API/feed responses are not public page captures"
+  }
 }

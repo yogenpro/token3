@@ -5,6 +5,44 @@
   "source_kind": "documentation",
   "records": [
     {
+      "id": "typesafe-2c97b8ebf7a206633bb6072b",
+      "provider": "typesafe",
+      "native_id": "21c97405c8ea2dd74c2fdc7a",
+      "kind": "document_row",
+      "label": "Input",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Models",
+          "Current models"
+        ],
+        "tabs": [],
+        "headers": [
+          "",
+          "Jev 1.14",
+          "Jev 1.13"
+        ],
+        "source_url": "https://docs.typesafe.ai/models.md"
+      },
+      "billing": {
+        "cells": [
+          "Input",
+          "Text, images",
+          "Text, images"
+        ],
+        "columns": [
+          "",
+          "Jev 1.14",
+          "Jev 1.13"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "typesafe-58deb0084383f4f9e695b893",
       "provider": "typesafe",
       "native_id": "99ea6a3f305484423d54c58b",
@@ -81,11 +119,30 @@
       "comparison_eligible": false
     },
     {
-      "id": "typesafe-6a30e074eeb4e2cec94a1c89",
+      "id": "typesafe-77ebd1532d22ff851d655854",
       "provider": "typesafe",
-      "native_id": "cd1697dfae4b51eec3d23281",
+      "native_id": "https://docs.typesafe.ai/models.md",
+      "kind": "document_page",
+      "label": "Public billing/model document",
+      "scope": {
+        "source_url": "https://docs.typesafe.ai/models.md"
+      },
+      "billing": {
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.typesafe.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nModels\nJev is TypeSafe's flagship model and the first System One model (https://docs.typesafe.ai/concepts/system-one.md). Every model on this page is served by the same endpoint, POST /v1/systemone. The request's model field selects which one handles it; see the API reference (https://docs.typesafe.ai/api) for the full request shape.\nCurrent models\nJev 1.14 is the newest Jev release, available from October 14, 2026.\n* Price: You pay per input token. Output tokens are free. A Btok is a billion tokens and an Mtok is a million tokens.\n* Context length: Two limits, the per-request context and the per-question context. See Context length (#context-length). To raise both, see Long context (#long-context).\n* Input: Jev reads natural-language text, sent as a string, a JSON object, or an array of text values. It also reads PNG and JPEG images (https://docs.typesafe.ai/images.md) anywhere in the request. It does not natively accept audio or video (yet). See State (https://docs.typesafe.ai/concepts/state.md) for the shapes state accepts.\n* Question types: Box (https://docs.typesafe.ai/primitives/box.md) questions need Jev 1.14.\nContext length\nJev ingests the state once and evaluates every question against it in parallel. A request has to fit two context limits:\n* Per-request context (per_request_context): the state plus all questions combined.\n* Per-question context (per_question_context): the state plus any one question.\nThere is no separate limit on the number of questions in a request. Any number of questions is allowed as long as the request fits both limits. See Speculative fan-out (https://docs.typesafe.ai/patterns/fan-out.md) for packing many questions into one request, and Model jaggedness (https://docs.typesafe.ai/model-jaggedness.md) for how accuracy shifts as the state grows.\nTo raise both limits, see Long context (#long-context).\nLong context\nLong context is off by default and works on both Jev 1.14 and Jev 1.13. To turn it on, send the TypeSafe-Danger-Zone-Long-Context: true header with each request that needs it. With the header, the per-request context and the per-question context are both 262k tokens. Requests without the header keep the default limits in the table above.\nLong context costs the same per token as any other request. It is slower and less accurate than staying within the default limits, so turn it on only for requests that need it.\nRate limits\nRate limits are set per organization. Your organization's current limits are in the developer console (https://console.typesafe.ai/rate-limits).\nLimits are measured in tokens per second and requests per second. A request over either limit returns 429 Too Many Requests. Our client SDKs (https://docs.typesafe.ai/sdk.md) retry these requests by default, waiting longer between each attempt, and follow the retry-after header when the response includes one. If you call the HTTP API directly, see Handling rate limits (https://docs.typesafe.ai/api/errors.md#handling-rate-limits).\nHigher limits are available on custom and enterprise plans. To request a higher limit, fill out the rate limit increase request form (https://support.typesafe.ai/forms/rate-limit-increase-request).\nAliases\nAn alias is a model name that points to a versioned model ID. Send it in the model field the same way you send a model ID.\n[!WARNING]\njev-preview currently points to the same model as jev-latest. There is no preview build available right now.\nAn alias moves when a new release ships, so its answers can change without any change to your code. Each response's model field gives the versioned ID that answered, so you can log which model produced each result. If you have tuned confidence thresholds against one version, send that version's ID instead of the alias, and switch to the new version when you are ready.\nCustomizing Jev\nJev is not fine-tuned or LoRA-adapted with customer data. It is trained with RLCD (https://docs.typesafe.ai/introduction/machine-learning-primer.md) to return calibrated decisions, and the same weights serve every account. You shape its answers to your domain through the request rather than through per-account weights:\n* Put your proprietary content, records, and reference material in the state field. See State (https://docs.typesafe.ai/concepts/state.md).\n* Encode your domain rules and boundary cases in the instructions and criteria of each question. See How to build with TypeSafe (https://docs.typesafe.ai/concepts/how-to-build-with-system-one.md) and Advanced: structure (https://docs.typesafe.ai/primitives/advanced.md).\n* Decompose broad judgments into atomic questions and combine the outputs in code. See Composite scoring (https://docs.typesafe.ai/patterns/composite-scoring.md) and the AutoResearch cookbook (https://docs.typesafe.ai/cookbooks/autoresearch_feature_discovery.md) for training a downstream classical model on Jev's probabilities.\nLanguage support\nJev accepts natural-language text. English is the primary training language and where accuracy is currently best. Other languages, including CJK scripts, are handled but not equally well; test on your own content before relying on Jev for a non-English workload, and pay close attention to Confidence (https://docs.typesafe.ai/confidence.md) when routing.\nData handling\nJev is not trained on customer requests or responses. See Legal (https://docs.typesafe.ai/legal.md) for the Data Processing Agreement, the Privacy Policy, and details on zero data retention (ZDR) for enterprise customers.\nListing models\nGET /v1/models returns the names your account can send in the model field, each with a description and a release date. It currently lists the aliases. Versioned IDs such as jev-1.14.0 are accepted by the model field whether or not they appear in the list.\nmodels array *required*\nOne entry per model or alias.\nproperties\nname string *required*\nThe model ID or alias, as accepted by the model field.\ndescription string *required*\nWhat the model is for.\nrelease\\_date string *required*\nWhen the model or alias was released.\nSee the Python (https://docs.typesafe.ai/sdk/python/api/clients/sync.md#typesafe_sdk.Models.list) and JavaScript (https://docs.typesafe.ai/sdk/javascript/api/interfaces/Models.md) SDK references for the full method signatures.\nThis documentation is built and hosted on Mintlify (https://mintlify.com), a developer documentation platform.",
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "typesafe-7a54ec040bcd315dcf94f6e3",
+      "provider": "typesafe",
+      "native_id": "61999eb4fe311ee79c77c0db",
       "kind": "document_row",
-      "label": "Input",
+      "label": "Question types",
       "scope": {
         "table": 0,
         "headings": [
@@ -102,9 +159,9 @@
       },
       "billing": {
         "cells": [
-          "Input",
-          "Text",
-          "Text"
+          "Question types",
+          "Choice, Score, Noul, Box",
+          "Choice, Score, Noul"
         ],
         "columns": [
           "",
@@ -116,25 +173,6 @@
       },
       "rates": [],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "typesafe-77ebd1532d22ff851d655854",
-      "provider": "typesafe",
-      "native_id": "https://docs.typesafe.ai/models.md",
-      "kind": "document_page",
-      "label": "Public billing/model document",
-      "scope": {
-        "source_url": "https://docs.typesafe.ai/models.md"
-      },
-      "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.typesafe.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nModels\nJev is TypeSafe's flagship model and the first System One model (https://docs.typesafe.ai/concepts/system-one.md). Every model on this page is served by the same endpoint, POST /v1/systemone. The request's model field selects which one handles it; see the API reference (https://docs.typesafe.ai/api) for the full request shape.\nCurrent models\nJev 1.14 is the newest Jev release, available from October 14, 2026.\n* Price: You pay per input token. Output tokens are free. A Btok is a billion tokens and an Mtok is a million tokens.\n* Context length: Two limits, the per-request context and the per-question context. See Context length (#context-length). To raise both, see Long context (#long-context).\n* Input: Jev reads natural-language text, sent as a string, a JSON object, or an array of text values. It does not accept audio or video. Convert those into text or structured fields before you send them as state. See State (https://docs.typesafe.ai/concepts/state.md) for the shapes state accepts.\nContext length\nJev ingests the state once and evaluates every question against it in parallel. A request has to fit two context limits:\n* Per-request context (per_request_context): the state plus all questions combined.\n* Per-question context (per_question_context): the state plus any one question.\nThere is no separate limit on the number of questions in a request. Any number of questions is allowed as long as the request fits both limits. See Speculative fan-out (https://docs.typesafe.ai/patterns/fan-out.md) for packing many questions into one request, and Model jaggedness (https://docs.typesafe.ai/model-jaggedness.md) for how accuracy shifts as the state grows.\nTo raise both limits, see Long context (#long-context).\nLong context\nLong context is off by default and works on both Jev 1.14 and Jev 1.13. To turn it on, send the TypeSafe-Danger-Zone-Long-Context: true header with each request that needs it. With the header, the per-request context and the per-question context are both 262k tokens. Requests without the header keep the default limits in the table above.\nLong context costs the same per token as any other request. It is slower and less accurate than staying within the default limits, so turn it on only for requests that need it.\nRate limits\nRate limits are set per organization. Your organization's current limits are in the developer console (https://console.typesafe.ai/rate-limits).\nLimits are measured in tokens per second and requests per second. A request over either limit returns 429 Too Many Requests. Our client SDKs (https://docs.typesafe.ai/sdk.md) retry these requests by default, waiting longer between each attempt, and follow the retry-after header when the response includes one. If you call the HTTP API directly, see Handling rate limits (https://docs.typesafe.ai/api/errors.md#handling-rate-limits).\nHigher limits are available on custom and enterprise plans. To request a higher limit, fill out the rate limit increase request form (https://support.typesafe.ai/forms/rate-limit-increase-request).\nAliases\nAn alias is a model name that points to a versioned model ID. Send it in the model field the same way you send a model ID.\n[!WARNING]\njev-preview currently points to the same model as jev-latest. There is no preview build available right now.\nAn alias moves when a new release ships, so its answers can change without any change to your code. Each response's model field gives the versioned ID that answered, so you can log which model produced each result. If you have tuned confidence thresholds against one version, send that version's ID instead of the alias, and switch to the new version when you are ready.\nCustomizing Jev\nJev is not fine-tuned or LoRA-adapted with customer data. It is trained with RLCD (https://docs.typesafe.ai/introduction/machine-learning-primer.md) to return calibrated decisions, and the same weights serve every account. You shape its answers to your domain through the request rather than through per-account weights:\n* Put your proprietary content, records, and reference material in the state field. See State (https://docs.typesafe.ai/concepts/state.md).\n* Encode your domain rules and boundary cases in the instructions and criteria of each question. See How to build with TypeSafe (https://docs.typesafe.ai/concepts/how-to-build-with-system-one.md) and Advanced: structure (https://docs.typesafe.ai/primitives/advanced.md).\n* Decompose broad judgments into atomic questions and combine the outputs in code. See Composite scoring (https://docs.typesafe.ai/patterns/composite-scoring.md) and the AutoResearch cookbook (https://docs.typesafe.ai/cookbooks/autoresearch_feature_discovery.md) for training a downstream classical model on Jev's probabilities.\nLanguage support\nJev accepts natural-language text. English is the primary training language and where accuracy is currently best. Other languages, including CJK scripts, are handled but not equally well; test on your own content before relying on Jev for a non-English workload, and pay close attention to Confidence (https://docs.typesafe.ai/confidence.md) when routing.\nData handling\nJev is not trained on customer requests or responses. See Legal (https://docs.typesafe.ai/legal.md) for the Data Processing Agreement, the Privacy Policy, and details on zero data retention (ZDR) for enterprise customers.\nListing models\nGET /v1/models returns the names your account can send in the model field, each with a description and a release date. It currently lists the aliases. Versioned IDs such as jev-1.14.0 are accepted by the model field whether or not they appear in the list.\nmodels array *required*\nOne entry per model or alias.\nproperties\nname string *required*\nThe model ID or alias, as accepted by the model field.\ndescription string *required*\nWhat the model is for.\nrelease\\_date string *required*\nWhen the model or alias was released.\nSee the Python (https://docs.typesafe.ai/sdk/python/api/clients/sync.md#typesafe_sdk.Models.list) and JavaScript (https://docs.typesafe.ai/sdk/javascript/api/interfaces/Models.md) SDK references for the full method signatures.\nThis documentation is built and hosted on Mintlify (https://mintlify.com), a developer documentation platform.",
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "table_alignment_verified": false
-      },
       "comparison_eligible": false
     },
     {
@@ -152,7 +190,8 @@
           "Model ID": "`jev-1.14.0`",
           "Price (per Btok / per Mtok)": "$42 / $0.042",
           "Context length": "64k per-request / 32k per-question",
-          "Input": "Text"
+          "Input": "Text, images",
+          "Question types": "Choice, Score, Noul, Box"
         },
         "interpretation": "Explicit transposed model ID and original column fields; currency, limits and rates remain unparsed."
       },
@@ -177,7 +216,8 @@
           "Model ID": "`jev-1.13.0`",
           "Price (per Btok / per Mtok)": "$42 / $0.042",
           "Context length": "64k per-request / 32k per-question",
-          "Input": "Text"
+          "Input": "Text, images",
+          "Question types": "Choice, Score, Noul"
         },
         "interpretation": "Explicit transposed model ID and original column fields; currency, limits and rates remain unparsed."
       },
@@ -307,11 +347,12 @@
     "https://docs.typesafe.ai/models.md: * Context length: Two limits, the per-request context and the per-question context. See Context length (#context-length). To raise both, see Long context (#long-context).",
     "https://docs.typesafe.ai/models.md: * Decompose broad judgments into atomic questions and combine the outputs in code. See Composite scoring (https://docs.typesafe.ai/patterns/composite-scoring.md) and the AutoResearch cookbook (https://docs.typesafe.ai/cookbooks/autoresearch_feature_discovery.md) for training a downstream classical model on Jev's probabilities.",
     "https://docs.typesafe.ai/models.md: * Encode your domain rules and boundary cases in the instructions and criteria of each question. See How to build with TypeSafe (https://docs.typesafe.ai/concepts/how-to-build-with-system-one.md) and Advanced: structure (https://docs.typesafe.ai/primitives/advanced.md).",
-    "https://docs.typesafe.ai/models.md: * Input: Jev reads natural-language text, sent as a string, a JSON object, or an array of text values. It does not accept audio or video. Convert those into text or structured fields before you send them as state. See State (https://docs.typesafe.ai/concepts/state.md) for the shapes state accepts.",
+    "https://docs.typesafe.ai/models.md: * Input: Jev reads natural-language text, sent as a string, a JSON object, or an array of text values. It also reads PNG and JPEG images (https://docs.typesafe.ai/images.md) anywhere in the request. It does not natively accept audio or video (yet). See State (https://docs.typesafe.ai/concepts/state.md) for the shapes state accepts.",
     "https://docs.typesafe.ai/models.md: * Per-question context (per_question_context): the state plus any one question.",
     "https://docs.typesafe.ai/models.md: * Per-request context (per_request_context): the state plus all questions combined.",
     "https://docs.typesafe.ai/models.md: * Price: You pay per input token. Output tokens are free. A Btok is a billion tokens and an Mtok is a million tokens.",
     "https://docs.typesafe.ai/models.md: * Put your proprietary content, records, and reference material in the state field. See State (https://docs.typesafe.ai/concepts/state.md).",
+    "https://docs.typesafe.ai/models.md: * Question types: Box (https://docs.typesafe.ai/primitives/box.md) questions need Jev 1.14.",
     "https://docs.typesafe.ai/models.md: Aliases",
     "https://docs.typesafe.ai/models.md: An alias is a model name that points to a versioned model ID. Send it in the model field the same way you send a model ID.",
     "https://docs.typesafe.ai/models.md: An alias moves when a new release ships, so its answers can change without any change to your code. Each response's model field gives the versioned ID that answered, so you can log which model produced each result. If you have tuned confidence thresholds against one version, send that version's ID instead of the alias, and switch to the new version when you are ready.",
@@ -355,13 +396,13 @@
     "https://docs.typesafe.ai/models.md: properties",
     "https://docs.typesafe.ai/models.md: release\\_date string *required*"
   ],
-  "catalog_sha256": "deae5d9bdf02389d50071b27456e901deab4367ca874eff0af705487aaccae54",
-  "revision": 3,
-  "changed_at": "2026-11-04T11:39:11Z",
+  "catalog_sha256": "3b6942e4821b5c42c453075107d894d7859b4959c731273fabe4002d3befa920",
+  "revision": 4,
+  "changed_at": "2026-11-05T14:41:11Z",
   "source_url": "https://docs.typesafe.ai/models.md",
   "source_urls": [
     "https://docs.typesafe.ai/models.md"
   ],
-  "source_sha256": "c7ae39208b28d7d1763214f8b379cef391dea24e522490fc0be96fd21bf3c1c5",
+  "source_sha256": "cbf3ea1108cf158291dac08a29ec7ac4831c0f444cf331374f0a849fbc250dba",
   "archive_reference": null
 }
