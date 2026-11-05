@@ -9,6 +9,7 @@ from html.parser import HTMLParser
 
 from .common import markdown_tables, money, number, observation
 from .deepseek_pricing import Tables, expand, parse_models
+from .openrouter_catalog import complete_model_ids
 from .public_pricing import require_models, section
 
 PROVIDERS = frozenset(("openrouter", "alibaba", "huggingface", "snowflake", "cloudflare",
@@ -425,6 +426,16 @@ def alibaba_qwen_quotes(body, aliases, source):
 def expanded_quotes(provider,payload,aliases,source):
     if not aliases:
         raise ValueError("Provider requires explicit reviewed source bindings")
+    if provider == 'openrouter':
+        present = {row['id'] for row in payload['catalog']['data']}
+        if set(aliases) - present:
+            # A verified complete public list establishes current gateway
+            # availability, not upstream retirement. Reduced/legacy fixtures
+            # still require every tracked binding unless completeness is proven.
+            present = complete_model_ids(payload['catalog'], source)
+            aliases = {mid: canonical for mid, canonical in aliases.items() if mid in present}
+            if not aliases:
+                raise ValueError("OpenRouter catalog has no reviewed quotes; refusing an empty snapshot")
     if provider in ('openrouter','huggingface','nebius'):
         records=api_quotes(provider,payload,aliases,source)
     elif provider in ('cloudflare','zai','xai','minimax','deepseek'):
