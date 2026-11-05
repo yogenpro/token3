@@ -29,6 +29,38 @@ The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identiti
 
 ## API details and limits
 
+### OpenRouter public catalog availability
+
+The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
+states that omitting `offset` and `limit` returns the full list with
+`links.next: null`; the default response covers text-output models. The exact
+public `https://openrouter.ai/api/v1/models` source is authoritative only for
+availability in that gateway catalog. Filtered URLs, individual model lookups,
+authenticated catalogs and other providers do not inherit that authority.
+
+Collection requires a nonempty object list, an integer `total_count` equal to its
+length, an explicit null next-page link, no unresolved pagination, and unique
+nonempty public model IDs. Reviewed rows still require their exact source
+bindings, original currency, token basis, supported components and text output.
+An invalid remaining quote or a snapshot with no reviewed quotes fails closed;
+no offerings are retired from such a snapshot. Reduced legacy regression
+fixtures without completeness proof must still contain all tracked bindings.
+
+On a successful complete snapshot, reviewed offers absent from this list become
+inactive through the existing collector lifecycle. Their aliases, offering IDs,
+last-seen dates, last-good prices and every historical observation are retained.
+Reappearance restores the same offering identity. This records OpenRouter listing
+availability, not upstream vendor discontinuation or an inferred retirement date.
+
+The November 5, 2026 [failed run](https://github.com/yogenpro/token3/actions/runs/42047163173)
+returned 452 distinct IDs with a matching total and null next-page link, omitting
+`minimax/minimax-m2` and `minimax/minimax-m2.1`. A live strict dry-run reproduced
+the omission; public individual-model lookups returned 404 during investigation.
+The bounded regression fixture retains every returned ID and exact quote fields,
+with separate parent-source and reduced-fixture hashes. It is test evidence,
+not a new production observation or historical import. Source amounts, billing
+scope and source bindings are unchanged by this repair.
+
 ### OpenAI Standard table and cache-write scope
 
 The [official pricing Markdown](https://developers.openai.com/api/docs/pricing.md) now reorders input/output/cache columns, separates 30-minute and 12-hour writes, and lists GPT-5.4 mini in a compact input/output/cached-input table. The 2026-10-21 failed capture and the 2026-10-22 investigation fetched the same body SHA-256: `129d6019819379a6f30edc0811d4631ddb085dcd4b3b1d0012a945cd1af1bfbf`.

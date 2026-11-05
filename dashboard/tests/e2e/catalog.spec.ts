@@ -138,10 +138,13 @@ test('lazy asset failures are recoverable and never erase reviewed quotes', asyn
   let blocked = true;
   await page.route('**/catalog/providers/openrouter.json', (route) => blocked ? route.fulfill({ status: 503, body: '{}' }) : route.continue());
   await page.goto('./?view=providers&provider=openrouter');
-  await expect(page.getByRole('alert')).toContainText('Unable to load catalog');
+  // A retained collector failure may be a separate, equally valid alert.
+  const assetError = page.getByRole('alert').filter({ has: page.getByRole('button', { name: 'Retry catalog', exact: true }) });
+  await expect(assetError).toContainText('Unable to load catalog');
   blocked = false;
   await page.getByRole('button', { name: 'Retry catalog' }).click();
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);
+  await expect(assetError).toHaveCount(0);
   await page.getByRole('button', { name: 'Compare prices', exact: true }).click();
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
 });

@@ -13,6 +13,7 @@ from urllib.parse import urlencode
 
 from .common import Collection, fetch_bytes, fetch_text, safe_error
 from .pricing_api import MAX_CATALOG_BYTES, encode_payload
+from .openrouter_catalog import complete_model_ids
 from .reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS, reviewed_quotes
 
 ENVELOPE = "token3.inventory-sources.v1"
@@ -126,6 +127,8 @@ class InventoryCollector:
             key = None if self.adapter in ("nebius", "ovhcloud") else "data"
             payload["catalog"] = _listing(self.SOURCE, key)
             urls = [self.SOURCE]
+            if self.provider == "openrouter":
+                complete_model_ids(payload["catalog"], self.SOURCE)
         docs = []
         for url in self.documents or ((self.SOURCE,) if self.adapter == "documents" else ()):
             retrieval_url = self.fetch_source if url == self.SOURCE and self.fetch_source else url
@@ -165,6 +168,7 @@ class InventoryCollector:
                 # Preserve the complete fetched native source on quote failure.
                 parse_error = safe_error(error)
         return Collection(records, self.SOURCE, hashlib.sha256(body.encode()).hexdigest(), source_payload=body,
+                          authoritative_catalog=self.provider == "openrouter" and parse_error is None,
                           source_urls=urls, source_kind=kind, fallback_reason=fallback, inventory_only=not reviewed,
                           parse_error=parse_error,
                           source_evidence=[{key:payload['pdf_document'][key] for key in ('source_url', 'response_sha256')}]

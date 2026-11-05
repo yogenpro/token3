@@ -19,6 +19,8 @@ React + TypeScript + Vite render versioned data; Python observes official provid
 
 Collector health, retained reviewed coverage, native pricing certainty and freshness are independent. Missing prices are not free; a successful recent collection does not mean all records were reviewed. See [the three data layers and dashboard views](docs/dashboard-data-organization.md).
 
+OpenRouter's exact public model list establishes gateway listing availability only after validating its total, final-page marker and unique public IDs. Missing reviewed offers become inactive while their identities, last-good prices and history remain retained; this does not establish upstream model retirement. Incomplete catalogs and unsupported quote conditions still fail collection. See [OpenRouter availability checks](docs/pricing-sources.md#openrouter-public-catalog-availability).
+
 For development and coding-agent work, start with [AGENTS.md](AGENTS.md). [Documentation maintenance](#documentation-and-maintenance) is part of completing a change.
 
 ## Run locally
