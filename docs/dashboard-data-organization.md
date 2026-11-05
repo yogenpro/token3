@@ -26,7 +26,7 @@ Every view labels the included collection timestamp separately from build time u
 
 ## Lazy assets
 
-The comparison landing page requests no native assets. Native views load a small `catalog/index.json` (schema 2). Coverage needs no catalog payloads. Models, provider details and history use schema-2 manifests, referencing content-addressed schema-1 chunks; these versions describe public delivery, not a warehouse migration.
+The comparison landing page requests no native assets. Native views load a small `catalog/index.json` (schema 2). Coverage needs no catalog payloads. Models and provider details use schema-2 manifests, referencing content-addressed schema-1 chunks. Native history accepts schema-2 inline manifests and schema-3 compact manifests; these versions describe public delivery, not a warehouse migration.
 
 Generated public paths:
 
@@ -43,7 +43,28 @@ Provider indexes contain exact source-local identities, display scope/billing/pr
 
 Provider history is opt-in, including on a record deep link. Batch paging fetches only intersecting event chunks. Explicit full-history searches and selected-record history searches may fetch many bounded chunks; they show progress and return complete matching results only after all required chunks validate. Category/provider manifests share identical event chunks rather than duplicating whole histories. Public chunking does not discard retained events or reclassify history to improve delivery sizes. The distinct, authorized [warehouse compaction](native-history-compaction.md) provides explicitly verified observation-only annotations; original events remain reconstructible and archived. Public batches contain change-bearing observations, not every unchanged daily check or compact as-of observation.
 
-Provider and category history manifests have a **128 KiB uncompressed performance budget**, checked against every generated native history manifest in the real-data projection tests. This replaces the original 60,000-byte sample-manifest assertion: retained observation-batch references grow over time, and the November 2, 2026 rule manifest reached 60,742 bytes without embedding full events. The budget is a build-time regression check, separate from the hard **512 KiB** immutable-chunk bound and browser integrity checks. Approaching it again calls for reassessing manifest paging or the budget; no history is dropped to fit it.
+Provider and category history manifests have a **128 KiB uncompressed performance budget**, checked against every generated native history manifest in the real-data projection tests. The budget is a build-time regression check, separate from the hard **512 KiB** immutable-chunk bound and browser integrity checks. Retained batch references grow over time; future growth still requires reassessing delivery or paging, never dropping history to fit.
+
+Schema-3 history manifests declare `batch_encoding: "tuple-v1"`. Each batch is
+`[id, provider, observed_at, category, event_count, chunks]`, with chunk references
+encoded as `[sha256, count, bytes]`. The decoder reconstructs the exact fixed
+`catalog/chunks/<sha256>.json` path. A null batch ID is emitted only when the
+original ID exactly equals `provider:observed_at:category`; other IDs are stored
+verbatim. Decoding restores that same original identifier, not a new identity.
+Both formats normalize through the existing full batch/reference/count schemas
+before the UI or event paging can use them. Malformed tuples, unknown encodings,
+invalid hashes/limits and incomplete counts fail closed. Empty or other shorter
+inline manifests retain schema 2; the projector chooses the smaller UTF-8 form
+only after verifying exact reconstruction. Immutable event chunks, event order,
+source provenance and every warehouse observation remain unchanged.
+
+The November 5, 2026 [release build](https://github.com/yogenpro/token3/actions/runs/42078375810)
+stopped before deployment when `catalog/changes/catalog.json` reached 132,327
+bytes across 371 retained batches. Compact delivery reduced that same manifest
+to 50,095 bytes without raising the budget. Read-only before/after verification
+preserved all 50 native history manifests' decoded content and all 870 immutable
+native chunks byte-for-byte. These are measurements of that dated snapshot,
+not fixed live totals or a historical data migration.
 
 The global JSON export remains reviewed-comparison data; native records export separately from provider pages. No warehouse file, reviewed history row, source hash or quote permission is changed by this delivery layer.
 

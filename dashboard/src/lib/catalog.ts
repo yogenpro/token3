@@ -90,8 +90,39 @@ export const eventBatchSchema = z.object({
   id: z.string(), provider: z.string(), observed_at: time, category: z.enum(['price', 'rule', 'catalog']),
   event_count: z.number().int().positive(), chunks: z.array(chunkRefSchema),
 }).refine((b) => b.chunks.reduce((n, r) => n + r.count, 0) === b.event_count, 'Incomplete event batch.');
-export const historyManifestSchema = z.object({ schema_version: z.literal(2), event_count: z.number().int().nonnegative(), batches: z.array(eventBatchSchema) })
+const inlineHistoryManifestSchema = z.object({ schema_version: z.literal(2), event_count: z.number().int().nonnegative(), batches: z.array(eventBatchSchema) })
   .refine((d) => d.batches.reduce((n, b) => n + b.event_count, 0) === d.event_count, 'Incomplete history manifest.');
+const compactBatchSchema = z.tuple([
+  eventBatchSchema.shape.id.nullable(), eventBatchSchema.shape.provider, eventBatchSchema.shape.observed_at,
+  eventBatchSchema.shape.category, eventBatchSchema.shape.event_count,
+  z.array(z.tuple([chunkRefSchema.shape.sha256, chunkRefSchema.shape.count, chunkRefSchema.shape.bytes])),
+]);
+const compactHistoryWireSchema = z.object({ schema_version: z.literal(3), batch_encoding: z.literal('tuple-v1'),
+  event_count: z.number().int().nonnegative(), batches: z.array(compactBatchSchema) }).strict();
+const compactHistoryManifestSchema = compactHistoryWireSchema.transform((wire) => ({
+  schema_version: 2 as const, event_count: wire.event_count,
+  batches: wire.batches.map(([id, provider, observed_at, category, event_count, chunks]) => ({
+    id: id ?? `${provider}:${observed_at}:${category}`, provider, observed_at, category, event_count,
+    chunks: chunks.map(([sha256, count, bytes]) => ({ path: `catalog/chunks/${sha256}.json`, sha256, count, bytes })),
+  })),
+})).pipe(inlineHistoryManifestSchema);
+// UI and integrity readers receive the same fully validated object structure
+// for legacy inline metadata and compact wire metadata.
+export const historyManifestSchema = z.union([inlineHistoryManifestSchema, compactHistoryManifestSchema]);
+
+export function serializeHistoryManifest(value: unknown): string {
+  const manifest = historyManifestSchema.parse(value);
+  const inline = JSON.stringify(manifest);
+  const wire = compactHistoryWireSchema.parse({ schema_version: 3, batch_encoding: 'tuple-v1', event_count: manifest.event_count,
+    batches: manifest.batches.map((b) => [b.id === `${b.provider}:${b.observed_at}:${b.category}` ? null : b.id,
+      b.provider, b.observed_at, b.category, b.event_count, b.chunks.map((r) => [r.sha256, r.count, r.bytes])]),
+  });
+  // Check exact reconstruction before emitting a more compact representation.
+  // Existing IDs and arbitrary noncanonical legacy IDs are never replaced.
+  if (JSON.stringify(historyManifestSchema.parse(wire)) !== inline) throw new Error('History manifest encoding changed its content');
+  const compact = JSON.stringify(wire), encoder = new TextEncoder();
+  return encoder.encode(compact).length < encoder.encode(inline).length ? compact : inline;
+}
 export type ChunkRef = z.infer<typeof chunkRefSchema>;
 export type NativeRate = z.infer<typeof nativeRateSchema>;
 export type NativeRecord = z.infer<typeof nativeRecordSchema>;

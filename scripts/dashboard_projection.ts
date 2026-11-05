@@ -13,7 +13,7 @@ import historicalPublication from '../config/historical_publication.json' with {
 import {
   accessKind, billingBasis, catalogIndexSchema, googlePricingObservationSchema, historyManifestSchema, MAX_CATALOG_CHUNK_BYTES,
   modelDirectorySchema, modelListingsSchema, nativeChangesSchema, nativeRecordSchema, pricingState, providerCatalogSchema,
-  recordChunkSchema, recordIndexChunkSchema, scopeLabel,
+  recordChunkSchema, recordIndexChunkSchema, scopeLabel, serializeHistoryManifest,
   type CatalogProvider, type ChunkRef, type EventBatch, type ModelListing, type NativeChange, type NativeRecord,
 } from '../dashboard/src/lib/catalog';
 
@@ -385,11 +385,11 @@ function projectDashboardAssets(dataDir: string): Map<string, string> {
   const changeCounts: Record<string, number> = {};
   for (const category of ['price', 'rule', 'catalog'] as const) {
     const selected = batches.filter((b) => b.category === category); changeCounts[category] = selected.reduce((n, b) => n + b.event_count, 0);
-    put(`catalog/changes/${category}.json`, historyManifestSchema.parse({ schema_version: 2, event_count: changeCounts[category], batches: selected }));
+    assets.set(`catalog/changes/${category}.json`, serializeHistoryManifest({ schema_version: 2, event_count: changeCounts[category], batches: selected }));
   }
   for (const p of providers) {
     const selected = batches.filter((b) => b.provider === p.id);
-    put(p.history_path, historyManifestSchema.parse({ schema_version: 2, event_count: selected.reduce((n, b) => n + b.event_count, 0), batches: selected }));
+    assets.set(p.history_path, serializeHistoryManifest({ schema_version: 2, event_count: selected.reduce((n, b) => n + b.event_count, 0), batches: selected }));
   }
   const active = offerings.filter((o: ObjectValue) => o.active);
   const providerSets = new Map<string, Set<string>>();
