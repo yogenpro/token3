@@ -137,12 +137,15 @@ test('a corrupt index chunk is recoverable and cannot become a shorter catalog o
     await route.fulfill({ response, body: corrupt ? (await response.text()).replace('label', 'tampered-label') : await response.text() });
   });
   await page.goto('./?view=providers&provider=openrouter');
-  await expect(page.getByRole('alert')).toContainText('Catalog chunk and manifest differ');
+  // Collector health is independent of this injected chunk-integrity error.
+  const assetError = page.getByRole('alert').filter({ has: page.getByRole('button', { name: 'Retry catalog', exact: true }) });
+  await expect(assetError).toContainText('Catalog chunk and manifest differ');
   await expect(page.locator('.native-table')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Export filtered records' })).toHaveCount(0);
   corrupt = false;
   await page.getByRole('button', { name: 'Retry catalog' }).click();
   await expect(page.locator('.native-table tbody tr')).toHaveCount(25);
+  await expect(assetError).toHaveCount(0);
   await page.getByRole('button', { name: 'Compare prices', exact: true }).click();
   await expect(page.getByTestId('offering-row').first()).toBeVisible();
 });
