@@ -7,16 +7,17 @@ const payload = (ids: string[]): Record<'captures' | 'assertions' | 'checks', Ar
   ({ captures: ids.map((provider) => ({ provider })), assertions: [], checks: [] });
 
 describe('independent current and historical source scopes', () => {
-  it('keeps the complete authorized historical directory when current collection adds providers', () => {
+  it('includes the explicitly authorized recent backfill independently of future current providers', () => {
     const scope = historicalPublication.providers;
-    expect(scope).toHaveLength(26);
+    expect(scope).toHaveLength(47);
     expect(scope).toContain('bedrock'); // Dedicated historical adapter, outside document profiles.
-    const result = historicalProviderDirectory(inventory.providers, scope, payload(scope));
+    const result = historicalProviderDirectory([...inventory.providers, { id: 'future-current-only' }], scope, payload(scope));
     expect(result.map((p) => p.id)).toEqual(scope);
-    for (const id of ['meta', 'mistral', 'moonshot']) {
+    for (const id of ['meta', 'mistral', 'moonshot', 'castform', 'byteplus', 'runway']) {
       expect(inventory.providers.some((p) => p.id === id)).toBe(true);
-      expect(result.some((p) => p.id === id)).toBe(false);
+      expect(result.some((p) => p.id === id)).toBe(true);
     }
+    expect(result.some((p) => p.id === 'future-current-only')).toBe(false);
   });
   it('still fails closed if any configured historical provider lacks a public capture or directory entry', () => {
     const directory = [{ id: 'known' }, { id: 'missing' }, { id: 'current-only' }];

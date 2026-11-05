@@ -72,14 +72,14 @@ class CoverageExpansionTests(unittest.TestCase):
                             self.aliases['qwen/qwen3-235b-a22b-instruct-2507'])
         self.assertNotEqual(self.aliases['perplexity/sonar'], 'perplexity/sonar')
 
-    def test_all_registered_sources_are_public_and_historical_scope_is_unchanged(self):
+    def test_all_registered_sources_are_public_with_separately_authorized_history(self):
         self.assertEqual(set(PUBLIC_SOURCES), {'cohere', 'ai21', 'perplexity', 'cerebras', 'castform', 'arcee',
             'stepfun', 'upstage', 'telnyx', 'typesafe', 'blackforestlabs', 'runway', 'stability', 'ideogram',
             'elevenlabs', 'byteplus', 'adobe', 'baidu'})
         self.assertLessEqual(PUBLIC_SOURCES.keys(), PROVIDERS.keys())
         published = json.loads((FIXTURES.parents[2] / 'config/historical_publication.json').read_text())
-        self.assertEqual(len(published['providers']), 26)
-        self.assertFalse(set(published['providers']) & PUBLIC_SOURCES.keys())
+        self.assertEqual(len(published['providers']), 47)
+        self.assertLessEqual(PUBLIC_SOURCES.keys(), set(published['providers']))
 
     def test_bounded_official_source_fixtures_keep_parent_and_fixture_hashes_distinct(self):
         for file, info in MANIFEST['sources'].items():

@@ -6,7 +6,7 @@ test('historical overview loads only summary metadata and all provider groups', 
   const paths: string[] = [];
   page.on('request', (r) => { const path = sitePathname(r.url()); if (path.includes('/catalog/')) paths.push(path); });
   await page.goto('./?view=historical');
-  await expect(page.locator('.provider-card')).toHaveCount(26);
+  await expect(page.locator('.provider-card')).toHaveCount(47);
   expect([...new Set(paths.filter((p) => p.includes('historical/')))]).toEqual(['/catalog/historical/index.json']);
   expect(paths.some((p) => p.includes('/chunks/'))).toBe(false);
   await expect(page.getByRole('note').first()).toContainText('excluded from comparisons');
@@ -14,6 +14,13 @@ test('historical overview loads only summary metadata and all provider groups', 
   await expect(page.locator('.provider-card')).toHaveCount(1);
   await page.getByRole('button', { name: 'Historical evidence for Together AI' }).click();
   await expect(page.getByText('Free documents only.', { exact: false })).toBeVisible();
+  await page.getByRole('button', { name: 'All historical providers', exact: true }).click();
+  await page.getByLabel('Search historical providers').fill('castform');
+  await page.getByRole('button', { name: 'Historical evidence for Castform' }).click();
+  const firstRecord = page.locator('.historical-records tbody tr').first();
+  await expect(firstRecord).toBeVisible();
+  await firstRecord.getByRole('button').click();
+  await expect(page.getByRole('region', { name: 'Selected historical evidence' })).toContainText('Unreviewed historical · not compared');
 });
 
 test('historical IDs, dates, expressions and provenance survive deep links', async ({ page }) => {
@@ -78,7 +85,7 @@ test('historical views are accessible in both themes and fit mobile', async ({ p
     expect(result.violations.map((v) => ({ id: v.id, targets: v.nodes.map((n) => n.target) }))).toEqual([]);
   };
   await page.goto('./?view=historical');
-  await expect(page.locator('.provider-card')).toHaveCount(26); await audit();
+  await expect(page.locator('.provider-card')).toHaveCount(47); await audit();
   await page.getByRole('button', { name: 'Switch to dark theme' }).click(); await audit();
   await page.getByRole('button', { name: 'Historical evidence for Amazon Bedrock' }).click();
   await expect(page.locator('.historical-records tbody tr')).toHaveCount(25); await audit();

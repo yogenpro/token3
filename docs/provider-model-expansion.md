@@ -6,7 +6,9 @@ offerings across 34 reviewed billing groups**, with bounded native evidence acro
 **47 source groups**. These are retained reviewed identities and source groups,
 not counts of currently accessible endpoints or unique native models.
 
-Historical evidence remains scoped to the original **26 groups**. Together remains
+At this review, historical evidence remained scoped to the original **26 groups**.
+The separately authorized [November 5 backfill](recent-provider-history.md)
+subsequently expands the selected historical scope to 47 groups. Together remains
 paused. Collection uses public documents/model/price listings, without new
 credentials, inference calls, deposits, paid services or release-gate changes.
 

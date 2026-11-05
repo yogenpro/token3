@@ -55,7 +55,7 @@ OVHcloud native API records explicitly show unverified currency; separate review
 
 ## Current coverage expansion
 
-The [current expansion](provider-model-expansion.md) separates 47 current source groups from the 34 retained reviewed billing groups and the original 26 historical groups. Unverified weight access is represented as `open_weight: null`; Compare and Model explorer display “Weights unverified”. Public native document context remains evidence, with original table expressions and unknown currency/unit applicability kept separate from reviewed quote fields. Castform and Perplexity use Platform access labels because their broader billing products must not imply a creator-direct quote. Native catalog/history assets remain lazy and read-only.
+The [current expansion](provider-model-expansion.md) separates 47 current source groups from the 34 retained reviewed billing groups and the independently authorized 47-group historical scope. Unverified weight access is represented as `open_weight: null`; Compare and Model explorer display “Weights unverified”. Public native document context remains evidence, with original table expressions and unknown currency/unit applicability kept separate from reviewed quote fields. Castform and Perplexity use Platform access labels because their broader billing products must not imply a creator-direct quote. Native catalog/history assets remain lazy and read-only.
 
 Retained advertised base observations can have `pricing_scope_unverified: true`
 when required billing conditions need a separate review. They show an explicit
@@ -69,9 +69,10 @@ independent; earlier observations are not retroactively assigned a period.
 ## Historical public projection
 
 The publication scope comes from `config/historical_publication.json`, independently
-of the current provider directory. It currently covers the original 26 groups;
-Current-only sources add collection without implied retrospective evidence;
-the [current expansion](provider-model-expansion.md) does not expand that historical scope. Every configured historical group still requires a
+of the current provider directory. The explicitly authorized
+[November 5 backfill](recent-provider-history.md) expands it from 26 to 47 groups.
+Future current-only sources still add collection without implied retrospective evidence;
+a current collector or discovery profile does not expand historical publication. Every configured historical group still requires a
 retained public capture and a published provider-directory entry. Captures,
 assertions or lookup checks outside that configured scope fail publication.
 This explicit list includes Bedrock's dedicated historical adapter as well as
