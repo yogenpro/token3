@@ -581,7 +581,7 @@
             ]
           }
         ],
-        "zdr": "all",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -6744,14 +6744,19 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "none",
               "low",
+              "medium",
               "high"
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -6880,7 +6885,7 @@
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -9704,7 +9709,7 @@
             ]
           }
         ],
-        "zdr": "all",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -14001,92 +14006,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-4c58056d5164e79f11ef169f",
-      "provider": "vercel",
-      "native_id": "google/gemini-3.7-flash-batch",
-      "kind": "model",
-      "label": "Gemini 3.7 Flash (Batch)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.000000375",
-          "input_cache_read": "0.0000000375",
-          "output": "0.000001875"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.000000375",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000001875",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0000000375",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Gemini 3.7 Flash (Batch)",
-        "owned_by": "google",
-        "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 65535,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "low",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-4ca7dccecea6788d2b4b56fe",
       "provider": "vercel",
       "native_id": "baseten/elephant-1",
@@ -15793,120 +15712,6 @@
         },
         "zdr": "none",
         "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-544576bbfa19bff3d59545e7",
-      "provider": "vercel",
-      "native_id": "google/gemini-3.1-flash-image-preview",
-      "kind": "model",
-      "label": "Gemini 3.1 Flash Image Preview (Nano Banana 2)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "image_dimension_quality_pricing": [
-            {
-              "cost": "0.045",
-              "size": "512"
-            },
-            {
-              "cost": "0.067",
-              "size": "1K"
-            },
-            {
-              "cost": "0.101",
-              "size": "2K"
-            },
-            {
-              "cost": "0.151",
-              "size": "4K"
-            },
-            {
-              "cost": "0.067",
-              "size": "default"
-            }
-          ],
-          "input": "0.0000005",
-          "input_cache_read": "0.00000005",
-          "output": "0.000003",
-          "service_tiers": {
-            "flex": {
-              "input": "0.00000025",
-              "output": "0.0000015"
-            }
-          },
-          "web_search": "14"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0000005",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000003",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000005",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Gemini 3.1 Flash Image Preview (Nano Banana 2)",
-        "owned_by": "google",
-        "type": "language",
-        "context_window": 131072,
-        "max_tokens": 32768,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text",
-            "image"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "low",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -21871,92 +21676,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-795cb1cbd505f18f103f86bc",
-      "provider": "vercel",
-      "native_id": "google/gemini-3.5-flash-batch",
-      "kind": "model",
-      "label": "Gemini 3.5 Flash (Batch)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000075",
-          "input_cache_read": "0.000000075",
-          "output": "0.0000045"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000075",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000045",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000075",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Gemini 3.5 Flash (Batch)",
-        "owned_by": "google",
-        "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 64000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image",
-            "pdf",
-            "video"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "effort",
-            "values": [
-              "low",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-79b7c15ae9f09e2cc8326d79",
       "provider": "vercel",
       "native_id": "voyage/voyage-finance-2",
@@ -22797,67 +22516,6 @@
           ],
           "output": [
             "text"
-          ]
-        },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-8177bb2c042f36f41afd4fc4",
-      "provider": "vercel",
-      "native_id": "google/veo-3.0-fast-generate-001",
-      "kind": "model",
-      "label": "Veo 3.0 Fast Generate",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "video_duration_pricing": [
-            {
-              "audio": false,
-              "cost_per_second": "0.1",
-              "resolution": "720p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.15",
-              "resolution": "720p"
-            },
-            {
-              "audio": false,
-              "cost_per_second": "0.1",
-              "resolution": "1080p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.15",
-              "resolution": "1080p"
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "native_rules_only",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [],
-      "metadata": {
-        "name": "Veo 3.0 Fast Generate",
-        "owned_by": "google",
-        "type": "video",
-        "context_window": 0,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "video"
           ]
         },
         "zdr": "all",
@@ -34094,14 +33752,19 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "none",
               "low",
+              "medium",
               "high"
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -36521,8 +36184,7 @@
         "rules": {
           "input": "0.000001",
           "input_cache_read": "0.0000001",
-          "output": "0.0000027",
-          "varies_by_provider": true
+          "output": "0.0000027"
         },
         "currency": "USD",
         "state": "reported",
@@ -36817,10 +36479,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000005",
-          "input_cache_read": "0.0000001",
-          "input_cache_write": "0.000000625",
-          "output": "0.000003",
+          "input": "0.00000006",
+          "input_cache_read": "0.000000059",
+          "output": "0.0000023",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -36831,30 +36492,23 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000005",
+          "amount": "0.00000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000003",
+          "amount": "0.0000023",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000001",
+          "amount": "0.000000059",
           "currency": "USD",
           "unit": "cached input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_write",
-          "amount": "0.000000625",
-          "currency": "USD",
-          "unit": "cache-write token",
           "conditions": {}
         }
       ],
@@ -36862,8 +36516,8 @@
         "name": "Qwen3.8 27B",
         "owned_by": "alibaba",
         "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 131072,
+        "context_window": 262144,
+        "max_tokens": 262144,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -37860,67 +37514,6 @@
             ]
           }
         ],
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-d272e347f0e4d5ae159bb743",
-      "provider": "vercel",
-      "native_id": "google/veo-3.0-generate-001",
-      "kind": "model",
-      "label": "Veo 3.0",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "video_duration_pricing": [
-            {
-              "audio": false,
-              "cost_per_second": "0.2",
-              "resolution": "720p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.4",
-              "resolution": "720p"
-            },
-            {
-              "audio": false,
-              "cost_per_second": "0.2",
-              "resolution": "1080p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.4",
-              "resolution": "1080p"
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "native_rules_only",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [],
-      "metadata": {
-        "name": "Veo 3.0",
-        "owned_by": "google",
-        "type": "video",
-        "context_window": 0,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "video"
-          ]
-        },
         "zdr": "all",
         "no_training": "all"
       },
@@ -45566,14 +45159,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "2c5c3c0b5de2c780bff84db3eaf9515e2bfebb8c7beb85eb355fb0fe75cf1d78",
-  "revision": 35,
-  "changed_at": "2026-11-05T17:47:57Z",
+  "catalog_sha256": "b048a7d60630118e0a46d989cd55213416dd61344f8bd325f33e0c3fd5107084",
+  "revision": 36,
+  "changed_at": "2026-11-06T14:18:24Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "8fead4c8d2265e0ce7051dae821c80c4f5702a54963db6dcaf345ac9834c6f45",
+  "source_sha256": "56f4571cfbbc9c07c380595e4fc2f216f1d89018d794473b9b38a5063ec1be49",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

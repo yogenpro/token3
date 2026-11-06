@@ -2727,77 +2727,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-6a3a7dd41ef25b6746d4ab9b",
-      "provider": "novita",
-      "native_id": "meta-llama/llama-3.2-1b-instruct",
-      "kind": "model",
-      "label": "Llama 3.2 1B Instruct\t",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 200,
-              "price_per_m": 200,
-              "origin_price_per_m_decimal": "0.02",
-              "price_per_m_decimal": "0.02"
-            },
-            "completion": {
-              "origin_price_per_m": 200,
-              "price_per_m": 200,
-              "origin_price_per_m_decimal": "0.02",
-              "price_per_m_decimal": "0.02"
-            }
-          },
-          "native_input_billing_units": 200,
-          "native_output_billing_units": 200,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.02",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.02",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 131000,
-        "max_output_tokens": 32000,
-        "status": 1,
-        "features": [
-          "structured-outputs"
-        ],
-        "endpoints": [
-          "chat/completions",
-          "batch-api"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-6a9d5936e88a730898844fde",
       "provider": "novita",
       "native_id": "zai-org/glm-4.7-h",
@@ -8508,14 +8437,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "a76bfbde452f0a437741631dafeb63d3120faaaf99215774d2421b6ef81fa6bc",
-  "revision": 17,
-  "changed_at": "2026-11-05T04:17:16Z",
+  "catalog_sha256": "bf45c1643ce3020dd1da2727e92abc7463b6de0d97eb3c695ea6427621fdfdca",
+  "revision": 18,
+  "changed_at": "2026-11-06T14:18:24Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "81c55496799007a1f34e21f83df07de6153ead025444673fd3c24555498ff87d",
+  "source_sha256": "1d9a9662ced824b556d79e4396c07c539d890b9f9770cb3362f3693ecf6d6191",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
