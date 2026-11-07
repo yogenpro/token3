@@ -7,7 +7,7 @@ import { accessKinds, billingBases, historyManifestSchema, jsonText, kindLabel, 
   type CatalogIndex, type CatalogProvider, type NativeRecord } from '../lib/catalog';
 import { loadCatalogRows, useCatalogChunks } from '../lib/catalogChunks';
 import { useCatalogAsset } from '../lib/useCatalogAsset';
-import { dateLabel, downloadFile, exactDate } from '../lib/pricing';
+import { dateLabel, downloadFile, exactDate, money as formatMoney, quoteUnit, unitLabel } from '../lib/pricing';
 import { ProviderMark } from './UI';
 import { AssetNotice, Pager } from './CatalogUI';
 import { SourceHistory } from './SourceHistory';
@@ -18,17 +18,24 @@ const recordRows = (value: z.infer<typeof recordChunkSchema>) => value.records;
 export function Providers({ data, catalog, providerId, recordId, onProvider, onModel }: { data: Dataset; catalog: CatalogIndex; providerId: string; recordId: string; onProvider: (id: string, record?: string) => void; onModel: (id: string) => void }) {
   const [search, setSearch] = useState('');
   const [access, setAccess] = useState('all');
+  const [scopeFilter, setScopeFilter] = useState('all');
   const provider = catalog.providers.find((p) => p.id === providerId);
   if (providerId && !provider) return <div className="empty-state"><h1>Provider not found</h1><p>This provider is not in the published catalog.</p><button className="button" onClick={() => onProvider('')}>All providers</button></div>;
   if (provider) return <ProviderDetail key={provider.id} data={data} provider={provider} version={catalog.updated_at} recordId={recordId} onProvider={onProvider} onModel={onModel} />;
-  const visible = catalog.providers.filter((p) => (access === 'all' || p.access === access) && `${p.name} ${p.id}`.toLowerCase().includes(search.trim().toLowerCase()));
+  const visible = catalog.providers.filter((p) => {
+    const reviewed = data.offerings.filter((o) => o.provider === p.id && o.active).length;
+    const status = data.status.providers.find((s) => s.id === p.id);
+    const freshness = sourceFreshness(status);
+    const matchesScope = scopeFilter === 'all' || (scopeFilter === 'reviewed' && reviewed > 0 && !comparisonsPaused(p.id)) || (scopeFilter === 'native_only' && reviewed === 0) || (scopeFilter === 'attention' && (freshness.warning || comparisonsPaused(p.id)));
+    return (access === 'all' || p.access === access) && matchesScope && `${p.name} ${p.id}`.toLowerCase().includes(search.trim().toLowerCase());
+  });
   return <><div className="page-heading"><div className="eyebrow">THE SOURCE-NATIVE CATALOG</div><h1>Every source. <span>Its own terms.</span></h1><p>Explore models, routes, billing rules, and cloud meters without forcing them into the same price unit.</p></div>
     <div className="catalog-stats"><div><strong>{catalog.providers.length}</strong><span>provider groups</span></div><div><strong>{catalog.record_count.toLocaleString('en-US')}</strong><span>source records, not unique models</span></div><div><strong>{data.offerings.filter((o) => o.active).length}</strong><span>active retained reviewed offers; pauses apply</span></div></div>
-    <div className="catalog-toolbar"><label className="search-field"><Search size={16} /><input aria-label="Search providers" placeholder="Search providers…" value={search} onChange={(e) => setSearch(e.target.value)} /></label><select aria-label="Filter providers by access type" value={access} onChange={(e) => setAccess(e.target.value)}><option value="all">All access types</option>{accessKinds.map((type) => <option key={type}>{type}</option>)}</select></div>
+    <div className="catalog-toolbar"><label className="search-field"><Search size={16} /><input aria-label="Search providers" placeholder="Search providers…" value={search} onChange={(e) => setSearch(e.target.value)} /></label><select aria-label="Filter providers by access type" value={access} onChange={(e) => setAccess(e.target.value)}><option value="all">All access types</option>{accessKinds.map((type) => <option key={type}>{type}</option>)}</select><select aria-label="Filter providers by coverage layer" value={scopeFilter} onChange={(e) => setScopeFilter(e.target.value)}><option value="all">All coverage layers ({catalog.providers.length})</option><option value="reviewed">In reviewed comparisons</option><option value="native_only">Source-native catalog only</option><option value="attention">Paused or freshness warning</option></select></div>
     <div className="provider-grid">{visible.map((p) => {
       const status = data.status.providers.find((s) => s.id === p.id), freshness = sourceFreshness(status);
       const reviewed = data.offerings.filter((o) => o.provider === p.id && o.active).length;
-      return <section className="panel provider-card" key={p.id}><div className="provider-card-heading"><ProviderMark provider={p.id} /><div><h2>{p.name}</h2><span className="subtle-badge">{p.access}</span></div></div><span className={`health-badge ${freshness.warning ? 'warning' : ''}`}>{freshness.label}</span><div className="provider-card-counts"><strong>{p.record_count.toLocaleString('en-US')} records</strong><span>{p.model_listing_count.toLocaleString('en-US')} named API listings · {reviewed} active retained reviewed offers</span>{comparisonsPaused(p.id) && <span>Current comparisons paused · free documents retained</span>}</div><p>{Object.entries(p.kind_counts).map(([kind, count]) => `${count.toLocaleString('en-US')} ${kindLabel(kind).toLowerCase()}${count === 1 ? '' : 's'}`).join(' · ')}</p><div className="provider-card-footer"><span title={exactDate(p.last_seen_at)}>Checked {dateLabel(p.last_seen_at, true)}</span><button className="text-link" aria-label={`Explore ${p.name}`} onClick={() => onProvider(p.id)}>Explore <ArrowRight size={15} /></button></div></section>;
+      return <section className="panel provider-card" key={p.id}><div className="provider-card-heading"><ProviderMark provider={p.id} /><div><h2>{p.name}</h2><div className="provider-card-badges"><span className="subtle-badge">{p.access}</span>{reviewed > 0 && !comparisonsPaused(p.id) && <span className="layer-tag reviewed-tag">{reviewed} reviewed</span>}</div></div></div><span className={`health-badge ${freshness.warning ? 'warning' : ''}`}>{freshness.label}</span><div className="provider-card-counts"><strong>{p.record_count.toLocaleString('en-US')} records</strong><span>{p.model_listing_count.toLocaleString('en-US')} named API listings · {reviewed} active retained reviewed offers</span>{comparisonsPaused(p.id) && <span>Current comparisons paused · free documents retained</span>}</div><p>{Object.entries(p.kind_counts).map(([kind, count]) => `${count.toLocaleString('en-US')} ${kindLabel(kind).toLowerCase()}${count === 1 ? '' : 's'}`).join(' · ')}</p><div className="provider-card-footer"><span title={exactDate(p.last_seen_at)}>Checked {dateLabel(p.last_seen_at, true)}</span><button className="text-link" aria-label={`Explore ${p.name}`} onClick={() => onProvider(p.id)}>Explore <ArrowRight size={15} /></button></div></section>;
     })}</div>
     {!visible.length && <div className="empty-state"><h2>No matching providers</h2><p>Try another provider name or access type.</p></div>}
     <div className="notice"><Info size={17} /><span>Coverage means entries returned by selected official sources, not every region, contract, or account-specific price. Gateways are commercial offers, not inferred upstream endpoints.</span></div>
@@ -37,7 +44,7 @@ export function Providers({ data, catalog, providerId, recordId, onProvider, onM
 
 function ProviderDetail({ data, provider, version, recordId, onProvider, onModel }: { data: Dataset; provider: CatalogProvider; version: string; recordId: string; onProvider: (id: string, record?: string) => void; onModel: (id: string) => void }) {
   const asset = useCatalogAsset(provider.detail_path, providerCatalogSchema, version);
-  const [search, setSearch] = useState(''), [kind, setKind] = useState('all'), [basis, setBasis] = useState('all'), [priceState, setPriceState] = useState('all');
+  const [search, setSearch] = useState(''), [kind, setKind] = useState('all'), [basis, setBasis] = useState('all'), [priceState, setPriceState] = useState('all'), [linkFilter, setLinkFilter] = useState('all');
   const [page, setPage] = useState(1), [historyOpen, setHistoryOpen] = useState(false);
   const [exporting, setExporting] = useState(false), [exportError, setExportError] = useState('');
   const history = useCatalogAsset(historyOpen ? provider.history_path : null, historyManifestSchema, version);
@@ -51,11 +58,14 @@ function ProviderDetail({ data, provider, version, recordId, onProvider, onModel
   const record = detail.data?.find((r) => r.id === recordId && r.provider === provider.id && r.native_id === selected?.native_id);
   const filtered = useMemo(() => indexValid ? records.filter((r) => (kind === 'all' || r.kind === kind) &&
     (basis === 'all' || r.billing_basis === basis) && (priceState === 'all' || r.pricing_state === priceState) &&
-    summarySearch(r).includes(search.trim().toLowerCase())) : [], [records, indexValid, search, kind, basis, priceState]);
+    (linkFilter === 'all' || (linkFilter === 'linked' ? r.reviewed_model_ids.length > 0 : r.reviewed_model_ids.length === 0)) &&
+    summarySearch(r).includes(search.trim().toLowerCase())) : [], [records, indexValid, search, kind, basis, priceState, linkFilter]);
   const update = (set: (value: string) => void, value: string) => { set(value); setPage(1); };
   const pageNumber = Math.min(page, Math.max(1, Math.ceil(filtered.length / 25)));
   const status = data.status.providers.find((p) => p.id === provider.id), freshness = sourceFreshness(status);
-  const reviewed = data.offerings.filter((o) => o.active && o.provider === provider.id).length;
+  const providerOfferings = useMemo(() => data.offerings.filter((o) => o.provider === provider.id), [data.offerings, provider.id]);
+  const reviewed = providerOfferings.filter((o) => o.active).length;
+  const linkedRecordCount = indexValid ? records.filter((r) => r.reviewed_model_ids.length > 0).length : 0;
   const exportRecords = async () => {
     if (!asset.data || !indexValid) return;
     setExporting(true); setExportError('');
@@ -83,6 +93,12 @@ function ProviderDetail({ data, provider, version, recordId, onProvider, onModel
     <AssetNotice loading={asset.loading} error={asset.error ?? (asset.data && !valid ? 'Catalog and index revisions differ. Refresh the published dataset.' : undefined)} retry={asset.retry} />
     {valid && <>
       {asset.data!.pricing_observation && <div className={`notice ${asset.data!.pricing_observation.older_than_documented_window_count ? 'warning' : ''}`} role="note" aria-label="Google source-time provenance"><Info size={17} /><span>Google latest-price as-of timestamps are source provenance, not tariff dates. Captured check: {exactDate(asset.data!.pricing_observation.observed_at)}. {asset.data!.pricing_observation.older_than_documented_window_count > 0 && <>{asset.data!.pricing_observation.older_than_documented_window_count.toLocaleString('en-US')} SKU timestamps are older than the API's advertised 12-hour age. Exact timestamps are retained; this is not a new tariff or a freshness guarantee.</>}</span></div>}
+      {providerOfferings.length > 0 && <section className="panel provider-reviewed-panel" aria-label="Reviewed comparison offerings"><details open={providerOfferings.length <= 12}><summary className="provider-reviewed-summary"><div><strong>Reviewed comparison offerings on {provider.name}</strong><span>{reviewed} active / {providerOfferings.length} retained · Separately curated calculator layer{comparisonsPaused(provider.id) ? ' (paused)' : ''}</span></div><span className="layer-tag reviewed-tag">Reviewed Layer</span></summary><div className="table-scroll"><table className="provider-reviewed-table"><thead><tr><th>Canonical model</th><th>Provider model ID</th><th>Tier / region</th><th>Input / 1M</th><th>Output / 1M</th><th>Basis</th><th>Status</th><th>Compare</th></tr></thead><tbody>{providerOfferings.map((o) => {
+        const m = data.models.find((item) => item.id === o.model_id);
+        const p = data.prices.find((item) => item.offering_id === o.id);
+        const u = quoteUnit(o);
+        return <tr key={o.id}><td><strong>{m?.name ?? o.model_id}</strong></td><td><code>{o.provider_model_id}</code></td><td>{o.service_tier} · {o.region}</td><td className="price-cell">{p ? formatMoney(p.input_per_million, false, u) : '—'}</td><td className="price-cell">{p ? formatMoney(p.output_per_million, false, u) : '—'}</td><td><span className="subtle-badge">{unitLabel(u)}</span></td><td><span className="subtle-badge">{comparisonsPaused(provider.id) ? 'Paused' : o.active ? 'Active' : 'Inactive'}</span></td><td><button type="button" className="text-link" onClick={() => onModel(o.model_id)}>Calculator <ArrowRight size={13} /></button></td></tr>;
+      })}</tbody></table></div></details></section>}
       <section className="panel source-notes"><h2>Source scope & billing notes</h2><details><summary>{asset.data!.billing_notes.length} source notes · view conditions and limitations</summary><ul tabIndex={0} aria-label="Scrollable source billing notes">{asset.data!.billing_notes.map((note, i) => <li key={i}>{note}</li>)}</ul></details>
         {provider.id === 'ovhcloud' && <p className="catalog-caution">Currency is not stated in the selected catalog. Amounts remain native; no USD or EUR is assumed.</p>}
         {provider.id === 'snowflake' && <p className="catalog-caution">PDF page text is source evidence. Table alignment and model-to-rate mappings are not reviewed.</p>}
@@ -92,12 +108,13 @@ function ProviderDetail({ data, provider, version, recordId, onProvider, onModel
       <AssetNotice loading={index.loading} error={index.error ?? (records && !indexValid ? 'Incomplete or mismatched provider search index.' : undefined)} retry={index.retry} />
       {recordId && selected && <><AssetNotice loading={detail.loading} error={detail.error ?? (detail.data && !record ? 'Selected evidence differs from its index.' : undefined)} retry={detail.retry} />{record && <RecordDetail record={record} provider={provider} onClose={() => onProvider(provider.id)} onModel={onModel} data={data} />}</>}
       {recordId && indexValid && !selected && <div className="notice warning" role="status"><Info size={17} /><span>This record is not in the current selected source. Retained history is available on request; absence does not prove discontinuation.</span><button onClick={() => onProvider(provider.id)}>Clear selection</button></div>}
-      {indexValid && <section className="panel native-catalog"><div className="section-heading"><div><h2>Native catalog</h2><p>Search all indexed identities, scope labels, units and currencies. Open a record for complete billing expressions.</p></div><button className="button" disabled={exporting} onClick={() => void exportRecords()}><Download size={15} />{exporting ? 'Loading complete export…' : 'Export filtered records'}</button></div>
+      {indexValid && <section className="panel native-catalog"><div className="section-heading"><div><h2>Native catalog <span className="count-badge">{filtered.length.toLocaleString('en-US')}</span></h2><p>Search all indexed identities, scope labels, units and currencies. Open a record for complete billing expressions.</p></div><button className="button" disabled={exporting} onClick={() => void exportRecords()}><Download size={15} />{exporting ? 'Loading complete export…' : 'Export filtered records'}</button></div>
         {exportError && <div className="notice warning" role="alert"><Info size={17} /><span>{exportError} No partial export was produced.</span><button onClick={() => void exportRecords()}>Retry export</button></div>}
         <div className="catalog-toolbar"><label className="search-field"><Search size={16} /><input aria-label="Search native catalog" placeholder="Model, route, SKU, region, unit, or currency…" value={search} onChange={(e) => update(setSearch, e.target.value)} /></label>
           <select aria-label="Filter catalog by record type" value={kind} onChange={(e) => update(setKind, e.target.value)}><option value="all">All record types</option>{Object.keys(provider.kind_counts).map((k) => <option value={k} key={k}>{kindLabel(k)}</option>)}</select>
           <select aria-label="Filter catalog by billing basis" value={basis} onChange={(e) => update(setBasis, e.target.value)}><option value="all">All billing bases</option>{billingBases.map((b) => <option key={b}>{b}</option>)}</select>
           <select aria-label="Filter catalog by pricing state" value={priceState} onChange={(e) => update(setPriceState, e.target.value)}><option value="all">All pricing states</option>{[...new Set(records.map((r) => r.pricing_state))].sort().map((s) => <option key={s}>{s}</option>)}</select>
+          <select aria-label="Filter catalog by review link" value={linkFilter} onChange={(e) => update(setLinkFilter, e.target.value)}><option value="all">All review states</option><option value="linked">Linked to reviewed model ({linkedRecordCount})</option><option value="unlinked">Unlinked native only</option></select>
         </div>
         <div className="table-scroll"><table className="native-table"><thead><tr><th>Source listing</th><th>Kind / access</th><th>Native pricing</th><th>Review</th><th>Details</th></tr></thead><tbody>{filtered.slice((pageNumber - 1) * 25, pageNumber * 25).map((r) => <tr key={r.id}>
           <td><strong>{r.label}</strong><code>{r.native_id}</code><small>{r.scope_label || 'No additional source scope published'}</small></td><td>{kindLabel(r.kind)}<small>{provider.access}</small><small>{r.billing_basis}</small></td>
