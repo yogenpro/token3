@@ -7969,6 +7969,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-2ce6160d171a4530294032d8",
+      "provider": "vercel",
+      "native_id": "deepseek/deepseek-v4.1-flash-1017-ultrafast",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017 Ultrafast",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000024",
+          "input_cache_read": "0.000000048",
+          "output": "0.0000096"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000024",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000096",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000048",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "DeepSeek V4.1 Flash 1017 Ultrafast",
+        "owned_by": "deepseek",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "high",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-2d2d6c328de8a64fd32b0bb6",
       "provider": "vercel",
       "native_id": "meta/muse-image-1.0",
@@ -15899,9 +15990,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000005",
-          "input_cache_read": "0.00000001",
-          "output": "0.0000002",
+          "input": "0.00000006",
+          "input_cache_read": "0.00000003",
+          "output": "0.00000016",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -15912,21 +16003,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000005",
+          "amount": "0.00000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000002",
+          "amount": "0.00000016",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000001",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -15976,7 +16067,7 @@
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "none",
         "no_training": "some"
       },
       "comparison_eligible": false
@@ -22834,6 +22925,83 @@
         ],
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-82bb5b1664d7aaa2123df1f0",
+      "provider": "vercel",
+      "native_id": "humansand/ampersand-v0.1",
+      "kind": "model",
+      "label": "Ampersand v0.1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Ampersand v0.1",
+        "owned_by": "humansand",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 32768,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -43118,6 +43286,45 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f57f6a461e95439fdefb5902",
+      "provider": "vercel",
+      "native_id": "parallel/parallel-decisions-fast",
+      "kind": "model",
+      "label": "Decisions Fast",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "request": "0.001"
+        },
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Decisions Fast",
+        "owned_by": "parallel",
+        "type": "evaluation",
+        "context_window": 32000,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f670f845c2bb03a8df8b8cd3",
       "provider": "vercel",
       "native_id": "openai/gpt-5.6-luna-fast",
@@ -45159,14 +45366,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "b048a7d60630118e0a46d989cd55213416dd61344f8bd325f33e0c3fd5107084",
-  "revision": 36,
-  "changed_at": "2026-11-06T14:18:24Z",
+  "catalog_sha256": "9a45b3e44b90d6c352619ff5bc9d7d4b321b5cee26fabce4f4492c2b234f124a",
+  "revision": 37,
+  "changed_at": "2026-11-07T13:01:42Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "56f4571cfbbc9c07c380595e4fc2f216f1d89018d794473b9b38a5063ec1be49",
+  "source_sha256": "0d1d3b8c1061efb5fc59af0058b7fe0c8d079ae3e347a25430f0cc6c1fe78e1b",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
