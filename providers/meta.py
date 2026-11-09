@@ -22,11 +22,13 @@ def parse(body, aliases):
             raise ValueError("Meta prompt pricing scope changed")
         rates = {}
         for header, cells in markdown_tables(block):
-            if header != ["Usage", "Standard mode (per 1M tokens)", "Contributor mode (per 1M tokens)"]:
+            expected = {"Usage", "Standard mode (per 1M tokens)", "Contributor mode (per 1M tokens)"}
+            if len(header) != len(expected) or set(header) != expected:
                 raise ValueError("Meta billing mode or denominator changed")
-            if cells[0] not in ("Input", "Output", "Cached input") or cells[0] in rates:
+            usage = cells[header.index("Usage")]
+            if usage not in ("Input", "Output", "Cached input") or usage in rates:
                 raise ValueError("Meta duplicate or unknown token component")
-            rates[cells[0]] = money(cells[1])
+            rates[usage] = money(cells[header.index("Standard mode (per 1M tokens)")])
         if set(rates) != {"Input", "Output", "Cached input"}:
             raise ValueError("Incomplete Meta pricing group")
         for mid in ids:

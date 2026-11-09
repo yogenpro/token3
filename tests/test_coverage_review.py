@@ -103,6 +103,21 @@ class CoverageReviewTests(unittest.TestCase):
         for old, new in [('Standard mode (per 1M tokens)', 'Standard mode (per 1K tokens)'), ('`muse-spark-1.1` in Standard mode', '`muse-spark-1.1` in Contributor mode')]:
             with self.assertRaises(ValueError): self.rows('meta', body('meta').replace(old, new))
 
+    def test_meta_reordered_columns_preserve_all_reviewed_quotes(self):
+        captured = (FIXTURES.parent / 'meta-standard-column-reorder.md').read_text()
+        expected = self.rows('meta')
+        self.assertEqual(self.rows('meta', captured), expected)
+        self.assertEqual(self.rows('meta', captured.replace('$0.10', '$0.001')), expected)
+        header = '| Usage        | Contributor mode (per 1M tokens) | Standard mode (per 1M tokens) |'
+        for bad in (
+            captured.replace('Standard mode (per 1M tokens)', 'Standard mode (per 1K tokens)'),
+            captured.replace('Contributor mode (per 1M tokens)', 'Standard mode (per 1M tokens)'),
+            captured.replace(header, header + '\n| Input | $0.01 | $9.00 |'),
+            captured.replace('| Input        | $0.10                            | $1.25                         |', ''),
+        ):
+            with self.subTest(source=bad):
+                with self.assertRaises(ValueError): self.rows('meta', bad)
+
     def test_kimi_inert_tables_cache_ttl_and_access_limits(self):
         rows = self.rows('moonshot')
         k3 = next(r for r in rows if r['provider_model_id'] == 'kimi-k3')

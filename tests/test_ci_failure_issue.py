@@ -191,7 +191,10 @@ class FailureIssueTests(unittest.TestCase):
 
     def test_mismatched_malformed_and_oversized_artifacts_fall_back(self):
         for key, value in [('run_attempt', '2'), ('failed_run_id', '456'), ('schema_version', 2),
-                           ('failed_providers', [{'id': '../evil', 'error': 'bad'}])]:
+                           ('failed_providers', [{'id': '../evil', 'error': 'bad'}]),
+                           ('failed_providers', [{'id': 'castform', 'error': 'bad'}] * 2),
+                           ('failed_providers', [{'id': [], 'error': 'bad'}]),
+                           ('failed_providers', [{'id': 'coverage_quotes', 'error': 'bad'}])]:
             fake = FakeGitHub(collection=True)
             fake.add_context()
             fake.context[key] = value
@@ -274,6 +277,40 @@ class FailureIssueTests(unittest.TestCase):
         self.assertIn('scripts/extended_inventory.py', body)
         self.assertNotIn('providers/snowflake.py', body)
 
+    def test_current_collection_provider_context_is_complete(self):
+        from scripts.collect import PROVIDERS
+        self.assertEqual(tickets.PROVIDERS, frozenset(PROVIDERS))
+        fake = FakeGitHub(collection=True)
+        fake.add_context()
+        fake.context['failed_providers'] = [
+            {'id': 'castform', 'error': 'DNS lookup failed'},
+            {'id': 'meta', 'error': 'Meta billing mode or denominator changed'},
+        ]
+        body = self.publish(fake)['body']
+        self.assertIn('DNS lookup failed', body)
+        self.assertIn('Meta billing mode or denominator changed', body)
+        self.assertIn('providers/coverage_expansion.py', body)
+        self.assertNotIn('providers/castform.py', body)
+        self.assertNotIn('context unavailable or rejected', body)
+
+    def test_reporter_imports_without_installed_dependencies(self):
+        result = subprocess.run([sys.executable, '-I', '-S', '-c',
+            "import sys; sys.path.insert(0, '.'); from scripts.ci_failure_issue import PROVIDERS; assert 'castform' in PROVIDERS"],
+            cwd=ROOT, capture_output=True, text=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_all_current_providers_fit_bounded_context(self):
+        from scripts.collect import PROVIDERS
+        fake = FakeGitHub(collection=True)
+        fake.add_context()
+        fake.context['failed_providers'] = [{'id': p, 'error': 'Source unavailable'} for p in PROVIDERS]
+        body = self.publish(fake)['body']
+        self.assertNotIn('context unavailable or rejected', body)
+        self.assertLess(len(body), tickets.MAX_BODY + 100)
+        fake.issues = []
+        fake.context['failed_providers'].append(fake.context['failed_providers'][0])
+        self.assertIn('context unavailable or rejected', self.publish(fake)['body'])
+
     def test_dependency_browser_and_check_recipes(self):
         fake = FakeGitHub()
         fake.jobs[0]['steps'] = [{'name': name, 'conclusion': 'failure'} for name in ['npm ci', 'npm run check', 'npm run test:e2e']]
@@ -354,7 +391,7 @@ class FailureIssueTests(unittest.TestCase):
     def test_maximum_provider_context_and_job_summaries_are_bounded(self):
         fake = FakeGitHub(collection=True)
         fake.add_context()
-        fake.context['failed_providers'] = [{'id': p, 'error': 'ValueError: ' + 'e ' * 500} for p in sorted(tickets.PROVIDERS)[:26]]
+        fake.context['failed_providers'] = [{'id': p, 'error': 'ValueError: ' + 'e ' * 500} for p in sorted(tickets.PROVIDERS)]
         fake.jobs = [dict(fake.jobs[0], id=456 + i, steps=[{'name': 'n ' * 300, 'conclusion': 'failure'}] * 20) for i in range(12)]
         body = self.publish(fake)['body']
         self.assertLess(len(body), tickets.MAX_BODY + 100)
