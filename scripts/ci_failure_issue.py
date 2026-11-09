@@ -15,6 +15,8 @@ import zipfile
 from pathlib import Path
 from urllib.parse import unquote
 
+from providers.coverage_expansion import PUBLIC_SOURCES
+from providers.expanded import INVENTORY_PROVIDERS
 from scripts.self_heal import BOT, api, repository
 
 WORKFLOWS = {
@@ -30,13 +32,11 @@ MAX_DOWNLOAD = 4 * 1024 * 1024
 MAX_BODY = 24000
 MAX_DIAGNOSTICS = 6500
 ROOT = Path(__file__).resolve().parent.parent
-PROVIDERS = frozenset(path.stem for path in (ROOT / 'providers').glob('*.py')) - {
-    '__init__', 'common', 'expanded', 'google_billing', 'pricing_api', 'public_pricing',
-}
-# Inventory-only providers also have handoff paths, but not individual parser modules.
-PROVIDERS |= frozenset({
-    'alibaba', 'cloudflare', 'databricks', 'deepseek', 'huggingface', 'minimax', 'nebius',
-    'oracle', 'openrouter', 'ovhcloud', 'scaleway', 'snowflake', 'vercel', 'xai', 'zai',
+# Match the collection registry, including sources without individual modules.
+# These imports use only the standard library; reporting installs no dependencies.
+PROVIDERS = frozenset(INVENTORY_PROVIDERS) | frozenset({
+    'deepinfra', 'novita', 'together', 'fireworks', 'groq', 'openai', 'anthropic',
+    'gemini', 'vertex', 'bedrock', 'azure', 'meta', 'mistral', 'moonshot',
 })
 
 
@@ -147,12 +147,15 @@ def collector_context(run):
             or context.get('run_attempt') != attempt):
         raise ValueError('Collector context belongs to a different attempt')
     rows = context.get('failed_providers')
-    if not isinstance(rows, list) or len(rows) > 26:
+    if not isinstance(rows, list) or len(rows) > len(PROVIDERS):
         raise ValueError('Invalid provider failure context')
     safe = []
+    seen = set()
     for row in rows:
-        if not isinstance(row, dict) or row.get('id') not in PROVIDERS or not isinstance(row.get('error'), str):
+        if (not isinstance(row, dict) or not isinstance(row.get('id'), str)
+                or row['id'] not in PROVIDERS or row['id'] in seen or not isinstance(row.get('error'), str)):
             raise ValueError('Invalid provider failure entry')
+        seen.add(row['id'])
         safe.append({'id': row['id'], 'error': redact(row['error'], 450)})
     return safe
 
@@ -223,7 +226,9 @@ def guidance(kind, jobs, providers):
             path = 'providers/{}.py'.format(provider)
             if not (ROOT / path).exists():
                 path = 'providers/expanded.py and scripts/extended_inventory.py'
-            tips.append('`{}`: inspect `{}` and its fixture tests; use `python -m scripts.collect --provider {} --dry-run --strict` for a non-writing public-source reproduction.'.format(provider, path, provider))
+                if provider in PUBLIC_SOURCES:
+                    path = 'providers/coverage_expansion.py and scripts/extended_inventory.py'
+            tips.append('`{}`: `{}`; reproduce with `python -m scripts.collect --provider {} --dry-run --strict`.'.format(provider, path, provider))
     if 'npm ci' in steps or 'pip install' in steps:
         tips.append('Dependency installation failed: inspect the lockfile/requirements and runtime compatibility. Distinguish registry/network failures from a reproducible dependency conflict; do not delete lockfiles or bypass checks.')
     if 'npm run check' in steps or 'unittest' in steps or 'validate parsers' in steps:

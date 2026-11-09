@@ -29,6 +29,8 @@ Tickets have the `ci-failure` label (created if needed). User-owned repositories
 
 Missing/expired/rejected diagnostics do not prevent a ticket. It states that context is unknown and links the original run; it never substitutes today's `data/status.json` as evidence of an older attempt. A source missing tracked rows does not prove a model was discontinued, and an unhealthy collector can retain valid last-good reviewed prices.
 
+Collector context accepts the current 47-provider collection registry, including public sources without individual parser modules such as Castform. It allows at most one failure per registered provider, retaining the archive, size, exact-attempt and redaction checks. Unknown provider IDs, helper-module names and duplicates are rejected. Expanded public-source handoffs point to their registry and native adapter rather than an invented provider module.
+
 ## Using a local coding agent
 
 For example:
