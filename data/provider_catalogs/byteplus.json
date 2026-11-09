@@ -609,6 +609,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-10e8ab07ecae4ba0f1c3758e",
+      "provider": "byteplus",
+      "native_id": "52587cd99d7e1e0749ae1a64",
+      "kind": "document_row",
+      "label": "`seed-2-0-mini-260215`",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-2-0-mini-260215`",
+          "`seed-2-0-mini-260428`",
+          "[0, 128]",
+          "$0.05",
+          "$0.02",
+          "$0.20"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-2-0-mini-260215"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-135e2660b089292e4599eda0",
       "provider": "byteplus",
       "native_id": "2e5350d1bba9ea55bc8ec7da",
@@ -1043,6 +1093,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-1e9be6dc4463e5ac885d8eb3",
+      "provider": "byteplus",
+      "native_id": "ec0facc600e7b48c27ec297a",
+      "kind": "document_row",
+      "label": "`seed-1-6-250915`",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-6-250915`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.125",
+          "$0.05",
+          "$1.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-6-250915"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-1ecd02245647a747a16e2225",
       "provider": "byteplus",
       "native_id": "bdff0ed5189fa4a4f78c9199",
@@ -1242,7 +1342,7 @@
         "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
       },
       "billing": {
-        "text": "Features and unit prices vary with model services. This topic introduces the billing formulas and unit prices for each model to help you check and compare model prices.\nTip\nTo learn about the billing method and detailed billing rules, see Model service billing (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/model-service-pricing).\nPricing notes\n* > Unless otherwise specified, prices use the following units:\n* > Token prices are USD per million tokens. Cache\\-storage prices are USD per million tokens per hour.\n* > Image generation prices are per image.\n* > 3D generation prices are per call.\n* > The peak and off\\-peak hours for DeepSeek V4.1 Flash series models are as follows:\n* > Peak hours: (UTC+8) Monday to Friday, 09:00\\-12:00 and 14:00\\-18:00.\n* > Off\\-peak hours: All times other than the peak hours listed above are off\\-peak hours.\nLarge language models\nPricing\nNon\\-audio input\nStandard\nFlex\nBatch\nAudio input\nOnly the following models support audio input for Standard and Flex inference. Output token prices are listed in the tables above.\nStandard\nFlex\nRetiring models\nThese models are retiring and will be retired on November 11, 2026.\nStandard\nFlex\nBatch\nBilling rules\n* Standard:  Cost = Input unit price × input tokens + Cached input unit price × cached input tokens + Cache-storage unit price × cache-storage tokens × duration + Output unit price × output tokens\n* Flex:  Input and output prices are approximately 50% of Standard prices. Cached input prices are the same as Standard prices. Flex supports implicit caching only, with no cache\\-storage fee.\n* Batch:  Cost = Input unit price × input tokens + Cached input unit price × cached input tokens + Output unit price × output tokens. Some models support transparent prefix caching without additional configuration.\n* Tiered billing:  For models with prompt\\-length tiers, prices are determined by the prompt length of each request.\nBilling examples\nA request to seed-2-0-lite-260428 with 200K input tokens and 14K output tokens uses the (128, 256]K pricing tier.\nVideo generation models\nPricing\nTip\nVideo pricing is determined by both the token rate and token consumption. Under otherwise identical conditions:\n* > A video generated at a higher resolution costs more than one generated at a lower resolution.\n* > A video generated with video input costs more than one generated without video input.\nYou can use the Seedance 2.0 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIHSU1yg0GtzCX4pyW3g3yb) and Seedance 2.5 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIYBa28VajWRTpAPEwR4icf) to estimate the cost of each video.\nInput without video\nInput with video\nRetiring models\nThis model is retiring and will be retired on November 11, 2026.\nBilling rules\n* You are only charged for successfully generated videos. No fee is charged if generation fails due to reasons such as content moderation.\n* Estimated video price:  Token unit price × token consumption\n* Estimated token consumption:  (Input video duration + output video duration) × output video width × output video height × output video frame rate / 1024\n* Some models support Draft mode:\n* Dreamina Seedance 2.5 generates Draft videos at a fixed 480p resolution. The token consumption and token rate are the same as normal 480p videos.\n* Seedance 1.5 Pro uses the following formula: Draft video token consumption = Estimated normal video token consumption × conversion factor. The conversion factor is 0.7 for silent videos and 0.6 for videos with audio.\n* Token consumption values are estimates. Actual consumption is determined by usage.completion_tokens in the API response.\nMinimum token consumption\nFor the Dreamina Seedance 2.0 series and Dreamina Seedance 2.5, minimum token consumption applies when the input includes video:\n* > If estimated token consumption is below the minimum, the video is billed at the minimum token consumption.\n* > The minimum depends on resolution, aspect ratio, and output duration. Check the Dreamina Seedance 2.0 series minimum token consumption table (https://bytedance.larkoffice.com/wiki/H0fUwHPxtiHayOk6CVpcZzKqnHJ?table=tblnV1KjhYJO12Zh&view=vewWPcN5zJ) or Dreamina Seedance 2.5 minimum token consumption table (https://bytedance.larkoffice.com/wiki/H0fUwHPxtiHayOk6CVpcZzKqnHJ?table=tblTUnmKaxBSqpU7&view=vewpCgsiHf).\nBilling examples\nThe following estimated prices illustrate typical input and output specifications.\nDreamina Seedance 2.5\nInput without video\nInput with video\nDreamina Seedance 2.0 series\nInput without video\nInput with video\nSeedance 1.0 Pro\nTo get more estimated prices, please use the Price Calculator - SD 1.0 Pro (https://bytedance.larkoffice.com/share/base/form/shrcna8QRuYvU0vVl1YrRxfrkvg).\nSeedance 1.0 Pro Fast\nTo get more estimated prices, please use the Price Calculator - SD 1.0 Pro (https://bytedance.larkoffice.com/share/base/form/shrcna8QRuYvU0vVl1YrRxfrkvg).\nImage generation models\nPricing\nBilling rules\n* Images that are not successfully output due to reasons such as content moderation are not billed.\n* In Seedream 5.0 pro layer decomposition, layers returned by the same request may fall into different pixel tiers. Each layer is billed separately based on its actual pixel tier.\n* For Seedream 5.0 lite, Seedream 4.5, and Seedream 4.0, sequential image generation is billed based on the actual number of generated images.\n3D generation models\nPricing\nBilling rules\nBilling is based on the number of successfully output 3D files.\nEmbedding models\nPricing\nInput, including images, is converted into tokens for billing.\nBilling rules\n* Billing formula:  Inference cost = Text input unit price × text tokens + Image input unit price × image tokens\n* Image tokens:  (width in px × height in px) / 784, up to 1,312 tokens per image.\nModel unit\nPricing\nYou can flexibly combine Postpaid (hourly)  and Prepaid (monthly)  billing options.\nThe platform also provides a Model Unit Calculator (https://ai.byteplus.com/ark/region:ap-southeast-1/endpoint/create) (available on the order page after login) to help you estimate the required machine types and quantities. It is strongly recommended to perform stress testing with real business traffic to accurately determine the appropriate machine specifications and capacity.\nFor more information about how to choose a plan, see What are the differences between model units of different machine types? How to choose a machine type? (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/modelark-faq#112a7e97)\nTip\nThis is a Beta capability only open to invited users. To use it, submit a test application ticket (https://console.byteplus.com/workorder/create?step=2&SubProductID=P00001514).\nBilling rules\nModel units are billed based on the selected machine type and usage duration, and pricing is independent of the model itself.\nManaged Agents\nPricing\nBilling is calculated as the sum of three items: Tokens actually consumed during agent operation, agent runtime duration, and number of tool calls.\nBilling rules\nBilling formula: Managed Agents fee = Model invocation fee + agent runtime fee + tool calling fee\nCoding Plan\nPricing\nFor plan information and special offers, see Subscription overview (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/coding-plan-personal-plan-overview).\nRate limits\nThe call limits for each model are requests per minute (RPM) and tokens per minute (TPM). You can go to the Model activation (https://ai.byteplus.com/ark/region:ap-southeast-1/openManagement) page to view the limits of each account and all its sub\\-accounts.\nTo increase your limits, submit a request on the console.\nBilling notes\n* An account is considered in arrears when its balance becomes insufficient or falls below zero.\n* If an account stays in arrears for 2 hours, the model services will be suspended. Services will resume once the account has been recharged. Please make sure that all outstanding bills are paid on time to avoid any unexpected service interruption.",
+        "text": "Features and unit prices vary with model services. This topic introduces the billing formulas and unit prices for each model to help you check and compare model prices.\nTip\nTo learn about the billing method and detailed billing rules, see Model service billing (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/model-service-pricing).\nPricing notes\n* > Unless otherwise specified, prices use the following units:\n* > Token prices are USD per million tokens. Cache\\-storage prices are USD per million tokens per hour.\n* > Image generation prices are per image.\n* > 3D generation prices are per call.\n* > The peak and off\\-peak hours for DeepSeek V4.1 Flash series models are as follows:\n* > Peak hours: (UTC+8) Monday to Friday, 09:00\\-12:00 and 14:00\\-18:00.\n* > Off\\-peak hours: All times other than the peak hours listed above are off\\-peak hours.\nLarge language models\nPricing\nNon\\-audio input\nStandard\nFlex\nBatch\nAudio input\nOnly the following models support audio input for Standard and Flex inference. Output token prices are listed in the tables above.\nStandard\nFlex\nRetiring models\nThese models are retiring and will be retired on November 11, 2026.\nStandard\nFlex\nBatch\nBilling rules\n* Standard:  Cost = Input unit price × input tokens + Cached input unit price × cached input tokens + Cache-storage unit price × cache-storage tokens × duration + Output unit price × output tokens\n* Flex:  Input and output prices are approximately 50% of Standard prices. Cached input prices are the same as Standard prices. Flex supports implicit caching only, with no cache\\-storage fee.\n* Batch:  Cost = Input unit price × input tokens + Cached input unit price × cached input tokens + Output unit price × output tokens. Some models support transparent prefix caching without additional configuration.\n* Tiered billing:  For models with prompt\\-length tiers, prices are determined by the prompt length of each request.\nBilling examples\nA request to seed-2-0-lite-260428 with 200K input tokens and 14K output tokens uses the (128, 256]K pricing tier.\nVideo generation models\nPricing\nTip\nVideo pricing is determined by both the token rate and token consumption. Under otherwise identical conditions:\n* > A video generated at a higher resolution costs more than one generated at a lower resolution.\n* > A video generated with video input costs more than one generated without video input.\nYou can use the Seedance 2.0 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIHSU1yg0GtzCX4pyW3g3yb) and Seedance 2.5 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIYBa28VajWRTpAPEwR4icf) to estimate the cost of each video.\nInput without video\nInput with video\nRetiring models\nThis model is retiring and will be retired on November 11, 2026.\nBilling rules\n* You are only charged for successfully generated videos. No fee is charged if generation fails due to reasons such as content moderation.\n* Estimated video price:  Token unit price × token consumption\n* Estimated token consumption:  (Input video duration + output video duration) × output video width × output video height × output video frame rate / 1024\n* Some models support Draft mode:\n* Dreamina Seedance 2.5 generates Draft videos at a fixed 480p resolution. The token consumption and token rate are the same as normal 480p videos.\n* Seedance 1.5 Pro uses the following formula: Draft video token consumption = Estimated normal video token consumption × conversion factor. The conversion factor is 0.7 for silent videos and 0.6 for videos with audio.\n* Token consumption values are estimates. Actual consumption is determined by usage.completion_tokens in the API response.\nMinimum token consumption\nFor the Dreamina Seedance 2.0 series and Dreamina Seedance 2.5, minimum token consumption applies when the input includes video:\n* > If estimated token consumption is below the minimum, the video is billed at the minimum token consumption.\n* > The minimum depends on resolution, aspect ratio, and output duration. Check the Dreamina Seedance 2.0 series minimum token consumption table (https://bytedance.larkoffice.com/wiki/H0fUwHPxtiHayOk6CVpcZzKqnHJ?table=tblnV1KjhYJO12Zh&view=vewWPcN5zJ) or Dreamina Seedance 2.5 minimum token consumption table (https://bytedance.larkoffice.com/wiki/H0fUwHPxtiHayOk6CVpcZzKqnHJ?table=tblTUnmKaxBSqpU7&view=vewpCgsiHf).\nBilling examples\nThe following estimated prices illustrate typical input and output specifications.\nDreamina Seedance 2.5\nInput without video\nInput with video\nDreamina Seedance 2.0 series\nInput without video\nInput with video\nSeedance 1.0 Pro\nTo get more estimated prices, please use the Price Calculator - SD 1.0 Pro (https://bytedance.larkoffice.com/share/base/form/shrcna8QRuYvU0vVl1YrRxfrkvg).\nSeedance 1.0 Pro Fast\nTo get more estimated prices, please use the Price Calculator - SD 1.0 Pro (https://bytedance.larkoffice.com/share/base/form/shrcna8QRuYvU0vVl1YrRxfrkvg).\nImage generation models\nPricing\nBilling formula: Cost per request = Σ (each input image × input image unit price) + Σ (each output image × output image unit price at the applicable tier)\nBilling rules\n* Images that are not successfully output due to reasons such as content moderation are not billed.\n* In Seedream 5.0 pro layer decomposition, each layer in a single request may fall into a different resolution tier and is billed based on the actual generated output.\n* For Seedream 5.0 lite, Seedream 4.5, and Seedream 4.0, sequential image generation is billed based on the actual number of generated images.\n3D generation models\nPricing\nBilling rules\nBilling is based on the number of successfully output 3D files.\nEmbedding models\nPricing\nInput, including images, is converted into tokens for billing.\nBilling rules\n* Billing formula:  Inference cost = Text input unit price × text tokens + Image input unit price × image tokens\n* Image tokens:  (width in px × height in px) / 784, up to 1,312 tokens per image.\nModel unit\nPricing\nYou can flexibly combine Postpaid (hourly)  and Prepaid (monthly)  billing options.\nThe platform also provides a Model Unit Calculator (https://ai.byteplus.com/ark/region:ap-southeast-1/endpoint/create) (available on the order page after login) to help you estimate the required machine types and quantities. It is strongly recommended to perform stress testing with real business traffic to accurately determine the appropriate machine specifications and capacity.\nFor more information about how to choose a plan, see What are the differences between model units of different machine types? How to choose a machine type? (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/modelark-faq#112a7e97)\nTip\nThis is a Beta capability only open to invited users. To use it, submit a test application ticket (https://console.byteplus.com/workorder/create?step=2&SubProductID=P00001514).\nBilling rules\nModel units are billed based on the selected machine type and usage duration, and pricing is independent of the model itself.\nManaged Agents\nPricing\nBilling is calculated as the sum of three items: Tokens actually consumed during agent operation, agent runtime duration, and number of tool calls.\nBilling rules\nBilling formula: Managed Agents fee = Model invocation fee + agent runtime fee + tool calling fee\nCoding Plan\nPricing\nFor plan information and special offers, see Subscription overview (https://ai.byteplus.com/ark/region:ap-southeast-1/docs/coding-plan-personal-plan-overview).\nRate limits\nThe call limits for each model are requests per minute (RPM) and tokens per minute (TPM). You can go to the Model activation (https://ai.byteplus.com/ark/region:ap-southeast-1/openManagement) page to view the limits of each account and all its sub\\-accounts.\nTo increase your limits, submit a request on the console.\nBilling notes\n* An account is considered in arrears when its balance becomes insufficient or falls below zero.\n* If an account stays in arrears for 2 hours, the model services will be suspended. Services will resume once the account has been recharged. Please make sure that all outstanding bills are paid on time to avoid any unexpected service interruption.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
@@ -1392,6 +1492,56 @@
       },
       "rates": [],
       "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "byteplus-2b72cbeb1b65119ce955cf79",
+      "provider": "byteplus",
+      "native_id": "65c7fffc3038a8d764bb3d8e",
+      "kind": "document_row",
+      "label": "`seed-1-8-251228`",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-8-251228`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.125",
+          "$0.05",
+          "$1.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-8-251228"
+      },
       "comparison_eligible": false
     },
     {
@@ -1642,6 +1792,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-3315f2872cd514c0f75e9bae",
+      "provider": "byteplus",
+      "native_id": "bf20eeff4744d7156de091ad",
+      "kind": "document_row",
+      "label": "`seed-1-6-flash-250715`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-6-flash-250715`",
+          "`seed-2-0-mini-260428`",
+          "[0, 128]",
+          "$0.075",
+          "$0.015",
+          "$0.0083",
+          "$0.30"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-6-flash-250715"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-35368f00461d163bb40fab2a",
       "provider": "byteplus",
       "native_id": "58e2e112668014a96b977c44",
@@ -1817,59 +2020,6 @@
       },
       "rates": [],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "byteplus-3df9276d2d53da26be9e626c",
-      "provider": "byteplus",
-      "native_id": "d2813420ac929e6b11bb2d4f",
-      "kind": "document_row",
-      "label": "`seed-1-6-flash-250715`",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-6-flash-250715`",
-          "`dola-seed-2-0-mini-260428`",
-          "[0, 128]",
-          "$0.075",
-          "$0.015",
-          "$0.0083",
-          "$0.30"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-6-flash-250715"
-      },
       "comparison_eligible": false
     },
     {
@@ -3124,6 +3274,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-6629d918b594cd47c2923e83",
+      "provider": "byteplus",
+      "native_id": "bf20eeff4744d7156de091ad",
+      "kind": "document_row",
+      "label": "`seed-1-6-flash-250715`",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-6-flash-250715`",
+          "`seed-2-0-mini-260428`",
+          "[0, 128]",
+          "$0.038",
+          "$0.015",
+          "$0.15"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-6-flash-250715"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-670ecf706c9e74321c2e0d7b",
       "provider": "byteplus",
       "native_id": "3a666073a57709b939e9b788",
@@ -3705,6 +3905,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-71c349bbb6c6e1619ca9757f",
+      "provider": "byteplus",
+      "native_id": "ec0facc600e7b48c27ec297a",
+      "kind": "document_row",
+      "label": "`seed-1-6-250915`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-6-250915`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.25",
+          "$0.05",
+          "$0.0083",
+          "$2.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-6-250915"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-736d891bd8617fbe825886ae",
       "provider": "byteplus",
       "native_id": "8d54728c37603998f749a6d5",
@@ -3886,56 +4139,6 @@
       "rates": [],
       "metadata": {
         "source_model_id": "deepseek-v4-pro-ga-260813"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "byteplus-75fd74d58e3785d111f80250",
-      "provider": "byteplus",
-      "native_id": "385678469bdfd88335c5cd2c",
-      "kind": "document_row",
-      "label": "`seed-1-6-250915`",
-      "scope": {
-        "table": 7,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-6-250915`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.125",
-          "$0.05",
-          "$1.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-6-250915"
       },
       "comparison_eligible": false
     },
@@ -4584,59 +4787,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "byteplus-83a97dccc730b6644d847e78",
-      "provider": "byteplus",
-      "native_id": "9d55e8f32d20abd6c2801c3f",
-      "kind": "document_row",
-      "label": "`seed-2-0-mini-260215`",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-2-0-mini-260215`",
-          "`dola-seed-2-0-mini-260428`",
-          "[0, 128]",
-          "$0.10",
-          "$0.02",
-          "$0.0083",
-          "$0.40"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-2-0-mini-260215"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "byteplus-8411a7c28d3b9aaa5e859047",
       "provider": "byteplus",
       "native_id": "8e32ea810735a03283ebd72e",
@@ -4883,6 +5033,109 @@
       "rates": [],
       "metadata": {
         "source_model_id": "deepseek-v4-flash-ga-260731"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "byteplus-89b683484f4680e023b5ccf4",
+      "provider": "byteplus",
+      "native_id": "5f2acaf86c96405f86208701",
+      "kind": "document_row",
+      "label": "`seed-2-0-lite-260228`",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-2-0-lite-260228`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.125",
+          "$0.05",
+          "$1.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-2-0-lite-260228"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "byteplus-89d42f1331dd0460dc23dd2e",
+      "provider": "byteplus",
+      "native_id": "5f2acaf86c96405f86208701",
+      "kind": "document_row",
+      "label": "`seed-2-0-lite-260228`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-2-0-lite-260228`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.25",
+          "$0.05",
+          "$0.0083",
+          "$2.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-2-0-lite-260228"
       },
       "comparison_eligible": false
     },
@@ -5615,112 +5868,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "byteplus-9d2b32bc60c036f13b2b450a",
-      "provider": "byteplus",
-      "native_id": "385678469bdfd88335c5cd2c",
-      "kind": "document_row",
-      "label": "`seed-1-6-250915`",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-6-250915`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.25",
-          "$0.05",
-          "$0.0083",
-          "$2.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-6-250915"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "byteplus-a35b598383b74fac8b2f0db5",
-      "provider": "byteplus",
-      "native_id": "79a3d59e8af5dc5a620bbdd5",
-      "kind": "document_row",
-      "label": "`seed-2-0-lite-260228`",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-2-0-lite-260228`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.25",
-          "$0.05",
-          "$0.0083",
-          "$2.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-2-0-lite-260228"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "byteplus-a619d831b00483fcf4d7f567",
       "provider": "byteplus",
       "native_id": "001874beb26f315cd5e37a78",
@@ -5908,56 +6055,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "byteplus-a76e70a83b0805d620cc3496",
-      "provider": "byteplus",
-      "native_id": "9d55e8f32d20abd6c2801c3f",
-      "kind": "document_row",
-      "label": "`seed-2-0-mini-260215`",
-      "scope": {
-        "table": 7,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-2-0-mini-260215`",
-          "`dola-seed-2-0-mini-260428`",
-          "[0, 128]",
-          "$0.05",
-          "$0.02",
-          "$0.20"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-2-0-mini-260215"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "byteplus-a97e995c0ad45f79b155b5d5",
       "provider": "byteplus",
       "native_id": "f08a7a6951bae78d477d893b",
@@ -6057,6 +6154,59 @@
       "rates": [],
       "metadata": {
         "source_model_id": "glm-4-7-251222"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "byteplus-b501d5f0e418d42253af4254",
+      "provider": "byteplus",
+      "native_id": "52587cd99d7e1e0749ae1a64",
+      "kind": "document_row",
+      "label": "`seed-2-0-mini-260215`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-2-0-mini-260215`",
+          "`seed-2-0-mini-260428`",
+          "[0, 128]",
+          "$0.10",
+          "$0.02",
+          "$0.0083",
+          "$0.40"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-2-0-mini-260215"
       },
       "comparison_eligible": false
     },
@@ -7437,56 +7587,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "byteplus-de63948d03649ad0d11a31a1",
-      "provider": "byteplus",
-      "native_id": "eb256c5eb3dc8371dba2ec22",
-      "kind": "document_row",
-      "label": "`seed-1-8-251228`",
-      "scope": {
-        "table": 7,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-8-251228`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.125",
-          "$0.05",
-          "$1.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-8-251228"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "byteplus-dee7eb84201e4e7c129fcd63",
       "provider": "byteplus",
       "native_id": "2e5350d1bba9ea55bc8ec7da",
@@ -7812,56 +7912,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "byteplus-ea32f7eb47ea51c9740184c1",
-      "provider": "byteplus",
-      "native_id": "d2813420ac929e6b11bb2d4f",
-      "kind": "document_row",
-      "label": "`seed-1-6-flash-250715`",
-      "scope": {
-        "table": 7,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-6-flash-250715`",
-          "`dola-seed-2-0-mini-260428`",
-          "[0, 128]",
-          "$0.038",
-          "$0.015",
-          "$0.15"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-6-flash-250715"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "byteplus-ecd187abc4d7a6e30e5f997e",
       "provider": "byteplus",
       "native_id": "32d11e13ecfa13e132286712",
@@ -7955,56 +8005,6 @@
       "rates": [],
       "metadata": {
         "source_model_id": "hitem3d-2-0-251223"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "byteplus-f2a09c2fa1536e3720bea1fe",
-      "provider": "byteplus",
-      "native_id": "79a3d59e8af5dc5a620bbdd5",
-      "kind": "document_row",
-      "label": "`seed-2-0-lite-260228`",
-      "scope": {
-        "table": 7,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-2-0-lite-260228`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.125",
-          "$0.05",
-          "$1.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-2-0-lite-260228"
       },
       "comparison_eligible": false
     },
@@ -8257,6 +8257,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "byteplus-f9abbb103052cb42502873c6",
+      "provider": "byteplus",
+      "native_id": "65c7fffc3038a8d764bb3d8e",
+      "kind": "document_row",
+      "label": "`seed-1-8-251228`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Large language models",
+          "Pricing",
+          "Audio input"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`seed-1-8-251228`",
+          "`seed-2-0-lite-260428`",
+          "[0, 128]",
+          "$0.25",
+          "$0.05",
+          "$0.0083",
+          "$2.00"
+        ],
+        "columns": [
+          "Model ID",
+          "Recommended replacement",
+          "Prompt length (K tokens)",
+          "Input",
+          "Cached input",
+          "Cache storage",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "seed-1-8-251228"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "byteplus-fa601ca8da9c95af7669fbdc",
       "provider": "byteplus",
       "native_id": "b4fbb7776189f84f2fc174bd",
@@ -8296,59 +8349,6 @@
       },
       "rates": [],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "byteplus-fc809479f74efd8a56dce039",
-      "provider": "byteplus",
-      "native_id": "eb256c5eb3dc8371dba2ec22",
-      "kind": "document_row",
-      "label": "`seed-1-8-251228`",
-      "scope": {
-        "table": 5,
-        "headings": [
-          "Large language models",
-          "Pricing",
-          "Audio input"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
-      },
-      "billing": {
-        "cells": [
-          "`seed-1-8-251228`",
-          "`dola-seed-2-0-lite-260428`",
-          "[0, 128]",
-          "$0.25",
-          "$0.05",
-          "$0.0083",
-          "$2.00"
-        ],
-        "columns": [
-          "Model ID",
-          "Recommended replacement",
-          "Prompt length (K tokens)",
-          "Input",
-          "Cached input",
-          "Cache storage",
-          "Output"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "seed-1-8-251228"
-      },
       "comparison_eligible": false
     },
     {
@@ -8429,7 +8429,7 @@
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * If an account stays in arrears for 2 hours, the model services will be suspended. Services will resume once the account has been recharged. Please make sure that all outstanding bills are paid on time to avoid any unexpected service interruption.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * Image tokens:  (width in px × height in px) / 784, up to 1,312 tokens per image.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * Images that are not successfully output due to reasons such as content moderation are not billed.",
-    "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * In Seedream 5.0 pro layer decomposition, layers returned by the same request may fall into different pixel tiers. Each layer is billed separately based on its actual pixel tier.",
+    "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * In Seedream 5.0 pro layer decomposition, each layer in a single request may fall into a different resolution tier and is billed based on the actual generated output.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * Seedance 1.5 Pro uses the following formula: Draft video token consumption = Estimated normal video token consumption × conversion factor. The conversion factor is 0.7 for silent videos and 0.6 for videos with audio.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * Some models support Draft mode:",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: * Standard:  Cost = Input unit price × input tokens + Cached input unit price × cached input tokens + Cache-storage unit price × cache-storage tokens × duration + Output unit price × output tokens",
@@ -8441,6 +8441,7 @@
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Audio input",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Batch",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Billing examples",
+    "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Billing formula: Cost per request = Σ (each input image × input image unit price) + Σ (each output image × output image unit price at the applicable tier)",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Billing formula: Managed Agents fee = Model invocation fee + agent runtime fee + tool calling fee",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Billing is based on the number of successfully output 3D files.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: Billing is calculated as the sum of three items: Tokens actually consumed during agent operation, agent runtime duration, and number of tool calls.",
@@ -8488,13 +8489,13 @@
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: You can flexibly combine Postpaid (hourly)  and Prepaid (monthly)  billing options.",
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md: You can use the Seedance 2.0 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIHSU1yg0GtzCX4pyW3g3yb) and Seedance 2.5 Series Pricing Calculator (https://bytedance.larkoffice.com/share/base/form/shrcnIYBa28VajWRTpAPEwR4icf) to estimate the cost of each video."
   ],
-  "catalog_sha256": "29a6cc076132bfb50543a07f2eafcac431e3e4fb899d1c69f564886f102e02d7",
-  "revision": 3,
-  "changed_at": "2026-11-04T11:39:11Z",
+  "catalog_sha256": "76a6f4891c1b376f27b02400b355c935a8b5b666268337254d47e94fa781fbe9",
+  "revision": 4,
+  "changed_at": "2026-11-09T16:20:33Z",
   "source_url": "https://docs.byteplus.com/docs/en/modelark/model-pricing.md",
   "source_urls": [
     "https://docs.byteplus.com/docs/en/modelark/model-pricing.md"
   ],
-  "source_sha256": "709c7faef3cd74da93a3a379734f5327887895f45788755eca92820942267662",
+  "source_sha256": "2ec8ca8d239379112baacbb7b9ba331c7f46bb305ffab34172da39609509a743",
   "archive_reference": null
 }
