@@ -546,71 +546,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "nebius-58dc73e0f41684e43c71bda8",
-      "provider": "nebius",
-      "native_id": "deepseek-ai/DeepSeek-V4.1-Flash",
-      "kind": "model_flavor",
-      "label": "DeepSeek V4.1 Flash",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "US",
-          "name": "us-north1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.01,
-          "input_price_per_million_tokens": 0.3,
-          "output_price_per_million_tokens": 1.2
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.3",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "1.2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "image2text",
-        "model_name": "DeepSeek V4.1 Flash",
-        "max_model_len": 1048576,
-        "context_window_k": 1048,
-        "quantization": "fp8",
-        "external_provider": false,
-        "tags": [],
-        "use_cases": [
-          "dedicated-endpoint",
-          "text",
-          "image",
-          "code",
-          "responses_api"
-        ],
-        "status": "active",
-        "license": {
-          "name": "MIT",
-          "type": "",
-          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/df42c109f1defefcbfcedbe7d905718a12266e40/LICENSE"
-        },
-        "vendor": "deepseek",
-        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
-        "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "nebius-5b7cab30ab91e43b5893040d",
       "provider": "nebius",
       "native_id": "moonshotai/Kimi-K3.1-Pro",
@@ -674,72 +609,6 @@
         "vendor": "moonshotai",
         "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
         "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "nebius-602cfe34152caa8d5e2b769d",
-      "provider": "nebius",
-      "native_id": "openbmb/MiniCPM-V-4_5",
-      "kind": "model_flavor",
-      "label": "openbmb/MiniCPM-V-4_5",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "FI",
-          "name": "eu-north1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.13,
-          "input_price_per_million_tokens": 0.658,
-          "output_price_per_million_tokens": 1.11
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.658",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "1.11",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "image2text",
-        "model_name": "openbmb/MiniCPM-V-4_5",
-        "max_model_len": 32000,
-        "context_window_k": 32,
-        "quantization": "fp16",
-        "external_provider": false,
-        "tags": [
-          "JSON mode"
-        ],
-        "use_cases": [
-          "text",
-          "image",
-          "summarization",
-          "context_and_rag"
-        ],
-        "status": "active",
-        "license": {
-          "name": "Apache 2.0 License",
-          "type": "",
-          "url": "https://github.com/OpenBMB/MiniCPM-V/blob/main/LICENSE"
-        },
-        "vendor": "openbmb",
-        "huggingface_url": "https://huggingface.co/openbmb/MiniCPM-V-4_5",
-        "size_b": 8
       },
       "comparison_eligible": false
     },
@@ -945,79 +814,6 @@
         "vendor": "reflection",
         "huggingface_url": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
         "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "nebius-6e1aaf7d0de1139be6c4a7e5",
-      "provider": "nebius",
-      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "kind": "model_flavor",
-      "label": "DeepSeek-V4-Flash-0731",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "US",
-          "name": "us-central1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.01,
-          "input_price_per_million_tokens": 0.14,
-          "output_price_per_million_tokens": 0.28
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.14",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "text2text",
-        "model_name": "DeepSeek-V4-Flash-0731",
-        "max_model_len": 1048576,
-        "context_window_k": 1024,
-        "quantization": "fp8",
-        "external_provider": false,
-        "tags": [
-          "1M context",
-          "reasoning",
-          "JSON mode",
-          "code",
-          "math"
-        ],
-        "use_cases": [
-          "text",
-          "reasoning",
-          "function_calling",
-          "code",
-          "context_and_rag",
-          "responses_api",
-          "fine_tune"
-        ],
-        "status": "active",
-        "license": {
-          "name": "MIT License",
-          "type": "",
-          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE"
-        },
-        "vendor": "deepseek",
-        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
-        "size_b": 304
       },
       "comparison_eligible": false
     },
@@ -1372,73 +1168,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "nebius-96abea7f58676fe19e45960e",
-      "provider": "nebius",
-      "native_id": "Qwen/Qwen3.5-397B-A17B",
-      "kind": "model_flavor",
-      "label": "Qwen3.5-397B-A17B",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "FI",
-          "name": "eu-north1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.12,
-          "input_price_per_million_tokens": 0.6,
-          "output_price_per_million_tokens": 3.6
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.6",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "3.6",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "text2text",
-        "model_name": "Qwen3.5-397B-A17B",
-        "max_model_len": 262000,
-        "context_window_k": 262,
-        "quantization": "fp4",
-        "external_provider": false,
-        "tags": [],
-        "use_cases": [
-          "dedicated-endpoint",
-          "text",
-          "code",
-          "reasoning",
-          "function_calling",
-          "context_and_rag",
-          "responses_api"
-        ],
-        "status": "active",
-        "license": {
-          "name": "Apache 2.0 License",
-          "type": "",
-          "url": "https://huggingface.co/datasets/choosealicense/licenses/blob/main/markdown/apache-2.0.md"
-        },
-        "vendor": "Qwen",
-        "huggingface_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
-        "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "nebius-99415446aeb30f109197a46f",
       "provider": "nebius",
       "native_id": "openai/gpt-oss-120b",
@@ -1574,76 +1303,6 @@
         "vendor": "nvidia",
         "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
         "size_b": 30
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "nebius-c5a8e8e79805af2a1ecd2767",
-      "provider": "nebius",
-      "native_id": "moonshotai/Kimi-K2.7-Code",
-      "kind": "model_flavor",
-      "label": "Kimi-K2.7-Code",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "US",
-          "name": "us-central1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.15,
-          "input_price_per_million_tokens": 0.95,
-          "output_price_per_million_tokens": 4
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.95",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "text2text",
-        "model_name": "Kimi-K2.7-Code",
-        "max_model_len": 262144,
-        "context_window_k": 256,
-        "quantization": "fp4",
-        "external_provider": false,
-        "tags": [],
-        "use_cases": [
-          "dedicated-endpoint",
-          "text",
-          "image",
-          "code",
-          "complex_writing",
-          "context_and_rag",
-          "function_calling",
-          "reasoning",
-          "summarization",
-          "responses_api"
-        ],
-        "status": "active",
-        "license": {
-          "name": "mit",
-          "type": "",
-          "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code/blob/main/LICENSE"
-        },
-        "vendor": "moonshotai",
-        "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-        "size_b": 0
       },
       "comparison_eligible": false
     },
@@ -1843,76 +1502,6 @@
         },
         "vendor": "nvidia",
         "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
-        "size_b": 0
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "nebius-e8041f03576ea12b8eb952d8",
-      "provider": "nebius",
-      "native_id": "moonshotai/Kimi-K2.6",
-      "kind": "model_flavor",
-      "label": "Kimi-K2.6",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "US",
-          "name": "us-central1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.16,
-          "input_price_per_million_tokens": 0.95,
-          "output_price_per_million_tokens": 4
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.95",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "image2text",
-        "model_name": "Kimi-K2.6",
-        "max_model_len": 262144,
-        "context_window_k": 256,
-        "quantization": "int4",
-        "external_provider": false,
-        "tags": [],
-        "use_cases": [
-          "dedicated-endpoint",
-          "text",
-          "image",
-          "code",
-          "complex_writing",
-          "context_and_rag",
-          "function_calling",
-          "reasoning",
-          "summarization",
-          "responses_api"
-        ],
-        "status": "active",
-        "license": {
-          "name": "mit",
-          "type": "",
-          "url": "https://huggingface.co/moonshotai/Kimi-K2.6/blob/main/LICENSE"
-        },
-        "vendor": "moonshotai",
-        "huggingface_url": "https://huggingface.co/moonshotai/Kimi-K2.6",
         "size_b": 0
       },
       "comparison_eligible": false
@@ -2130,14 +1719,14 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "4ddd4d4a1bc486762cdc91955e99f822c533f6a4db3af818c4dcecf1d7d37bc5",
-  "revision": 21,
-  "changed_at": "2026-11-09T16:20:33Z",
+  "catalog_sha256": "fe0619bca8f0d69e718e3bb83187a29e57c12d7e551f8bfa3628efbf2bd20eaa",
+  "revision": 22,
+  "changed_at": "2026-11-09T18:59:34Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "5b7cd1773b9e1fbfcb9d59d3986a83b9391ed81768ef60c4bb6b355db1bf1ca8",
+  "source_sha256": "112462d17cd4588d69534c3137aab67dadda95557fd2c3b994a3a110dbc6fb2f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

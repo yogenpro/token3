@@ -25497,6 +25497,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-94bd03aa8c790dd23a090c8e",
+      "provider": "vercel",
+      "native_id": "meta/muse-ember",
+      "kind": "model",
+      "label": "Muse Ember",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000001",
+          "input_cache_read": "0.000000004",
+          "output": "0.0000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000004",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Muse Ember",
+        "owned_by": "meta",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 1048576,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "minimal",
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-9531536e74364ce67e9c57b4",
       "provider": "vercel",
       "native_id": "google/gemini-3.1-flash-lite-image",
@@ -45357,14 +45448,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "7ecd2d0e8f6f4417ccd4a1bfb512a76abb2a887620505689040b8f5a453c6885",
-  "revision": 38,
-  "changed_at": "2026-11-08T13:26:11Z",
+  "catalog_sha256": "5f0004181743d929148f9dfe81e7382ad6eb8fc253e1458dede485ada0a0033e",
+  "revision": 39,
+  "changed_at": "2026-11-09T18:59:34Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "a4e3ae080e17bd5e6a22dc9c0f9263d9452dee9522c72dbe655ea7b741352bf9",
+  "source_sha256": "1555c55afa068a1accad714d8b5ceab38e3ace0a326d40cab38b2338b0040c16",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
