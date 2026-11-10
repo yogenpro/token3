@@ -7487,7 +7487,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": 0.75,
+          "discount": 0.85,
           "discount_ends_at": null,
           "short": null,
           "full": null,
@@ -11999,6 +11999,59 @@
       "metadata": {
         "type": "text-to-music",
         "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-a0022229cea6ea44b1b35509",
+      "provider": "deepinfra",
+      "native_id": "nace-ai/drex-max-finance",
+      "kind": "model",
+      "label": "nace-ai/drex-max-finance",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": 0.5,
+          "discount_ends_at": null,
+          "short": "$0.12 / 1M tokens",
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 1.2e-05,
+          "cents_per_output_token": 0.0,
+          "rate_per_input_token_cached": 1.0,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000012",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "decision",
+        "max_tokens": 262144,
         "quantization": null
       },
       "comparison_eligible": false
@@ -19227,14 +19280,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "67f225b18c7d006ba9f88aa536540c04a848778a72b644f16cfc1ead5a92d135",
-  "revision": 25,
-  "changed_at": "2026-11-07T13:01:42Z",
+  "catalog_sha256": "f47389f183c356ed2a43cc8c3b50c15714f9e35cfcc5eddc8774f7c7fb3d04db",
+  "revision": 26,
+  "changed_at": "2026-11-10T14:54:12Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "1c0fcf643f9822b26824d6e7eb232932cfe5aab36f2098c2a809b09aded1f7ac",
+  "source_sha256": "3d7a04fc8cecc461e639173d6fe028a7d133c8e8711293365ca9a5cc11637dde",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

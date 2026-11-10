@@ -3212,42 +3212,32 @@
         "state": "reported",
         "rules": {
           "rules": {
-            "prompt": {
-              "origin_price_per_m": 10000,
-              "price_per_m": 10000,
-              "origin_price_per_m_decimal": "1",
-              "price_per_m_decimal": "1"
-            },
             "completion": {
-              "origin_price_per_m": 10000,
-              "price_per_m": 10000,
-              "origin_price_per_m_decimal": "1",
-              "price_per_m_decimal": "1"
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
             },
             "multimodal_input": [
               {
                 "modals": [
                   "text"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "image"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "video"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "audio"
-                ],
-                "input_token_base_price": 10000
+                ]
               }
             ],
             "multimodal_output": [
@@ -3255,47 +3245,38 @@
                 "modals": [
                   "text"
                 ],
-                "output_token_base_price": 10000
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
               },
               {
                 "modals": [
                   "image"
                 ],
-                "output_token_base_price": 10000
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
               },
               {
                 "modals": [
                   "video"
-                ],
-                "output_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "audio"
-                ],
-                "output_token_base_price": 10000
+                ]
               }
             ]
           },
-          "native_input_billing_units": 10000,
-          "native_output_billing_units": 10000,
+          "native_input_billing_units": 0,
+          "native_output_billing_units": 20000,
           "tiered_billing": false,
           "tiered_billing_configs": []
         }
       },
       "rates": [
         {
-          "dimension": "prompt",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
           "dimension": "completion",
-          "amount": "1",
+          "amount": "2",
           "currency": "USD",
           "unit": "1M tokens",
           "conditions": {
@@ -8084,42 +8065,32 @@
         "state": "reported",
         "rules": {
           "rules": {
-            "prompt": {
-              "origin_price_per_m": 10000,
-              "price_per_m": 10000,
-              "origin_price_per_m_decimal": "1",
-              "price_per_m_decimal": "1"
-            },
             "completion": {
-              "origin_price_per_m": 10000,
-              "price_per_m": 10000,
-              "origin_price_per_m_decimal": "1",
-              "price_per_m_decimal": "1"
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
             },
             "multimodal_input": [
               {
                 "modals": [
                   "text"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "image"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "video"
-                ],
-                "input_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "audio"
-                ],
-                "input_token_base_price": 10000
+                ]
               }
             ],
             "multimodal_output": [
@@ -8127,47 +8098,38 @@
                 "modals": [
                   "text"
                 ],
-                "output_token_base_price": 10000
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
               },
               {
                 "modals": [
                   "image"
                 ],
-                "output_token_base_price": 10000
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
               },
               {
                 "modals": [
                   "video"
-                ],
-                "output_token_base_price": 10000
+                ]
               },
               {
                 "modals": [
                   "audio"
-                ],
-                "output_token_base_price": 10000
+                ]
               }
             ]
           },
-          "native_input_billing_units": 10000,
-          "native_output_billing_units": 10000,
+          "native_input_billing_units": 0,
+          "native_output_billing_units": 20000,
           "tiered_billing": false,
           "tiered_billing_configs": []
         }
       },
       "rates": [
         {
-          "dimension": "prompt",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
           "dimension": "completion",
-          "amount": "1",
+          "amount": "2",
           "currency": "USD",
           "unit": "1M tokens",
           "conditions": {
@@ -8437,14 +8399,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "bf45c1643ce3020dd1da2727e92abc7463b6de0d97eb3c695ea6427621fdfdca",
-  "revision": 18,
-  "changed_at": "2026-11-06T14:18:24Z",
+  "catalog_sha256": "2effbbabbb8e12ecf820fd49b820562607262ad87fb5bc6fef4f57c10f92c3d4",
+  "revision": 19,
+  "changed_at": "2026-11-10T14:54:12Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "1d9a9662ced824b556d79e4396c07c539d890b9f9770cb3362f3693ecf6d6191",
+  "source_sha256": "b2f2dcaacac2e8bd37ba5a043f148191e6e9e2e92e65d59793b6b1de99ae3380",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

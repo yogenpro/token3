@@ -88,6 +88,61 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-0163efaf36f105c3eb3b1b8c",
+      "provider": "vercel",
+      "native_id": "nace-ai/drex-v2.0",
+      "kind": "model",
+      "label": "Drex 2.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000003",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Drex 2.0",
+        "owned_by": "nace-ai",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-01c459caad4e906f35193524",
       "provider": "vercel",
       "native_id": "baseten/joey-1",
@@ -292,8 +347,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00004",
-          "speech_input_character_cost": "0.00004"
+          "input": "0.00008",
+          "speech_input_character_cost": "0.00008"
         },
         "currency": "USD",
         "state": "reported",
@@ -303,14 +358,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -5617,6 +5672,112 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-1dde047e61a489d3bfd44379",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-fable-5.2-fast",
+      "kind": "model",
+      "label": "Claude Fable 5.2 (Fast)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000016",
+          "input_cache_read": "0.0000004",
+          "input_cache_write": "0.00002",
+          "output": "0.00008",
+          "regional": {
+            "us": {
+              "input": "0.0000176",
+              "input_cache_read": "0.00000044",
+              "input_cache_write": "0.000022",
+              "output": "0.000088"
+            }
+          },
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000016",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00008",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000004",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00002",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Fable 5.2 (Fast)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-1e4ccda329088f38224c4f5f",
       "provider": "vercel",
       "native_id": "openai/gpt-4o-batch",
@@ -7494,7 +7655,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "speech_output_cost_per_second": "0.00125"
+          "speech_output_cost_per_second": "0.0025"
         },
         "currency": "USD",
         "state": "native_rules_only",
@@ -9337,8 +9498,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00002",
-          "speech_input_character_cost": "0.00002"
+          "input": "0.00004",
+          "speech_input_character_cost": "0.00004"
         },
         "currency": "USD",
         "state": "reported",
@@ -9348,14 +9509,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -14514,8 +14675,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00002",
-          "speech_input_character_cost": "0.00002"
+          "input": "0.00004",
+          "speech_input_character_cost": "0.00004"
         },
         "currency": "USD",
         "state": "reported",
@@ -14525,14 +14686,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -15191,8 +15352,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00004",
-          "speech_input_character_cost": "0.00004"
+          "input": "0.00008",
+          "speech_input_character_cost": "0.00008"
         },
         "currency": "USD",
         "state": "reported",
@@ -15202,14 +15363,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -15799,6 +15960,62 @@
           ],
           "output": [
             "image"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-5467ad521f1ca7de82b3cc36",
+      "provider": "vercel",
+      "native_id": "nace-ai/drex-max-v1.1",
+      "kind": "model",
+      "label": "Drex Max v1.1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000003",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Drex Max v1.1",
+        "owned_by": "nace-ai",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
           ]
         },
         "zdr": "none",
@@ -18118,10 +18335,10 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000009",
-          "input_cache_read": "0.00000009",
-          "output": "0.0000045",
-          "realtime_session_duration_cost_per_second": "0.0006667"
+          "input": "0.0000018",
+          "input_cache_read": "0.00000018",
+          "output": "0.000009",
+          "realtime_session_duration_cost_per_second": "0.0013334"
         },
         "currency": "USD",
         "state": "reported",
@@ -18131,28 +18348,28 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000009",
+          "amount": "0.0000018",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.0000045",
+          "amount": "0.000009",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000009",
+          "amount": "0.00000018",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "realtime_session_duration_cost_per_second",
-          "amount": "0.0006667",
+          "amount": "0.0013334",
           "currency": "USD",
           "unit": "second",
           "conditions": {}
@@ -20052,8 +20269,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00002",
-          "speech_input_character_cost": "0.00002"
+          "input": "0.00004",
+          "speech_input_character_cost": "0.00004"
         },
         "currency": "USD",
         "state": "reported",
@@ -20063,14 +20280,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -21753,6 +21970,101 @@
           }
         ],
         "zdr": "some",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-78f02d747b06b154bc15dbb0",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-fable-5.2-batch",
+      "kind": "model",
+      "label": "Claude Fable 5.2 (Batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000004",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.000005",
+          "output": "0.00002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000004",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00002",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Fable 5.2 (Batch)",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -24577,8 +24889,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00004",
-          "speech_input_character_cost": "0.00004"
+          "input": "0.00008",
+          "speech_input_character_cost": "0.00008"
         },
         "currency": "USD",
         "state": "reported",
@@ -24588,14 +24900,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00004",
+          "amount": "0.00008",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -26830,6 +27142,62 @@
         ],
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-9a2b3af84b1af45fe35be392",
+      "provider": "vercel",
+      "native_id": "nace-ai/drex-max-finance",
+      "kind": "model",
+      "label": "Drex Max Finance",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000003",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Drex Max Finance",
+        "owned_by": "nace-ai",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -31029,7 +31397,7 @@
       "billing": {
         "rules": {
           "input": "0",
-          "transcription_duration_cost_per_second": "0.000030556"
+          "transcription_duration_cost_per_second": "0.000061112"
         },
         "currency": "USD",
         "state": "reported",
@@ -31046,7 +31414,7 @@
         },
         {
           "dimension": "transcription_duration_cost_per_second",
-          "amount": "0.000030556",
+          "amount": "0.000061112",
           "currency": "USD",
           "unit": "second",
           "conditions": {}
@@ -35331,10 +35699,10 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000001",
-          "input_cache_read": "0.00000001",
-          "output": "0.000003",
-          "realtime_session_duration_cost_per_second": "0.0006667"
+          "input": "0.0000002",
+          "input_cache_read": "0.00000002",
+          "output": "0.000006",
+          "realtime_session_duration_cost_per_second": "0.0013334"
         },
         "currency": "USD",
         "state": "reported",
@@ -35344,28 +35712,28 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000001",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.000003",
+          "amount": "0.000006",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000001",
+          "amount": "0.00000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
         },
         {
           "dimension": "realtime_session_duration_cost_per_second",
-          "amount": "0.0006667",
+          "amount": "0.0013334",
           "currency": "USD",
           "unit": "second",
           "conditions": {}
@@ -35914,7 +36282,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "speech_output_cost_per_second": "0.001"
+          "speech_output_cost_per_second": "0.002"
         },
         "currency": "USD",
         "state": "native_rules_only",
@@ -40968,6 +41336,124 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-e4f656b1ee578ecc591536c0",
+      "provider": "vercel",
+      "native_id": "anthropic/claude-fable-5.2",
+      "kind": "model",
+      "label": "Claude Fable 5.2",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "fast": {
+            "input": "0.000016",
+            "input_cache_read": "0.0000004",
+            "input_cache_write": "0.00002",
+            "output": "0.00008"
+          },
+          "input": "0.000008",
+          "input_cache_read": "0.0000002",
+          "input_cache_write": "0.00001",
+          "output": "0.00004",
+          "regional": {
+            "us": {
+              "fast": {
+                "input": "0.0000176",
+                "input_cache_read": "0.00000044",
+                "input_cache_write": "0.000022",
+                "output": "0.000088"
+              },
+              "input": "0.0000088",
+              "input_cache_read": "0.00000022",
+              "input_cache_write": "0.000011",
+              "output": "0.000044"
+            }
+          },
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000008",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00004",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Claude Fable 5.2",
+        "owned_by": "anthropic",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 128000,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh",
+              "max"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-e5481b500c36800a4c1237e4",
       "provider": "vercel",
       "native_id": "google/gemini-3.1-flash-lite-batch",
@@ -45362,8 +45848,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00002",
-          "speech_input_character_cost": "0.00002"
+          "input": "0.00004",
+          "speech_input_character_cost": "0.00004"
         },
         "currency": "USD",
         "state": "reported",
@@ -45373,14 +45859,14 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "speech_input_character_cost",
-          "amount": "0.00002",
+          "amount": "0.00004",
           "currency": "USD",
           "unit": "input character",
           "conditions": {}
@@ -45416,7 +45902,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "speech_output_cost_per_second": "0.00125"
+          "speech_output_cost_per_second": "0.0025"
         },
         "currency": "USD",
         "state": "native_rules_only",
@@ -45448,14 +45934,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "5f0004181743d929148f9dfe81e7382ad6eb8fc253e1458dede485ada0a0033e",
-  "revision": 39,
-  "changed_at": "2026-11-09T18:59:34Z",
+  "catalog_sha256": "bff8be7db3786ee6e4f1df2363d6b1d5406364e44430c094c158e6bca64a68ea",
+  "revision": 40,
+  "changed_at": "2026-11-10T14:54:12Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "1555c55afa068a1accad714d8b5ceab38e3ace0a326d40cab38b2338b0040c16",
+  "source_sha256": "3c71487357c980ce55c98e33f02d509b6f1b393f659514c2037e2d2962bdeae6",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
