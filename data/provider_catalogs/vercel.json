@@ -97,7 +97,12 @@
       "billing": {
         "rules": {
           "input": "0.00000003",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.00000003"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -9188,6 +9193,68 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-315858e40f8bca5b3df4e124",
+      "provider": "vercel",
+      "native_id": "minimax/minimax-h3-image",
+      "kind": "model",
+      "label": "MiniMax H3 Image",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000023",
+          "output": "0.0000038"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000023",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000038",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "MiniMax H3 Image",
+        "owned_by": "minimax",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-31e3ac99da71dbc6099a5920",
       "provider": "vercel",
       "native_id": "bfl/flux-kontext-max",
@@ -15977,7 +16044,12 @@
       "billing": {
         "rules": {
           "input": "0.00000003",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.00000003"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -18034,6 +18106,82 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-5d69d5dd90672832756ecca2",
+      "provider": "vercel",
+      "native_id": "alibaba/qwen3.6-35b-a3b",
+      "kind": "model",
+      "label": "Qwen 3.6 35B A3B",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000375",
+          "output": "0.00000225",
+          "varies_by_provider": true
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000375",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00000225",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Qwen 3.6 35B A3B",
+        "owned_by": "alibaba",
+        "type": "language",
+        "context_window": 262144,
+        "max_tokens": 65536,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5daf186e61432f452d9211f2",
       "provider": "vercel",
       "native_id": "openai/gpt-4.1-nano",
@@ -18402,77 +18550,6 @@
         },
         "zdr": "none",
         "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-6107fd0e529b4406ca56c1ba",
-      "provider": "vercel",
-      "native_id": "bytedance/seedance-v1.5-pro",
-      "kind": "model",
-      "label": "Seedance v1.5 Pro",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "video_duration_pricing": [
-            {
-              "audio": false,
-              "cost_per_second": "0.0121",
-              "resolution": "480p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.0241",
-              "resolution": "480p"
-            },
-            {
-              "audio": false,
-              "cost_per_second": "0.0259",
-              "resolution": "720p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.0518",
-              "resolution": "720p"
-            },
-            {
-              "audio": false,
-              "cost_per_second": "0.0583",
-              "resolution": "1080p"
-            },
-            {
-              "audio": true,
-              "cost_per_second": "0.1166",
-              "resolution": "1080p"
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "native_rules_only",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [],
-      "metadata": {
-        "name": "Seedance v1.5 Pro",
-        "owned_by": "bytedance",
-        "type": "video",
-        "context_window": 0,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "video"
-          ]
-        },
-        "zdr": "none",
-        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -27155,7 +27232,12 @@
       "billing": {
         "rules": {
           "input": "0.00000003",
-          "output": "0"
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.00000003"
+            }
+          }
         },
         "currency": "USD",
         "state": "reported",
@@ -29001,6 +29083,68 @@
         ],
         "zdr": "some",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-a291a39ffa4379399d2dcd7e",
+      "provider": "vercel",
+      "native_id": "minimax/minimax-h3-image-highspeed",
+      "kind": "model",
+      "label": "MiniMax H3 Image Highspeed",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000023",
+          "output": "0.0000076"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000023",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000076",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "MiniMax H3 Image Highspeed",
+        "owned_by": "minimax",
+        "type": "image",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "image"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -31998,6 +32142,121 @@
           }
         ],
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-aedb8917ceed74d99008e873",
+      "provider": "vercel",
+      "native_id": "google/gemini-4-carbon",
+      "kind": "model",
+      "label": "Gemini 4 Carbon",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000002",
+          "input_cache_read": "0.0000001",
+          "maps_search": "14",
+          "output": "0.00001",
+          "regional": {
+            "eu": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "output": "0.000011"
+            },
+            "us": {
+              "input": "0.0000022",
+              "input_cache_read": "0.00000011",
+              "output": "0.000011"
+            }
+          },
+          "service_tiers": {
+            "flex": {
+              "input": "0.000001",
+              "input_cache_read": "0.00000005",
+              "output": "0.000005"
+            },
+            "priority": {
+              "input": "0.0000036",
+              "input_cache_read": "0.00000018",
+              "output": "0.000018"
+            }
+          },
+          "web_search": "14"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 4 Carbon",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -37099,7 +37358,7 @@
         "rules": {
           "input": "0.00000006",
           "input_cache_read": "0.000000059",
-          "output": "0.0000023",
+          "output": "0.0000022",
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -37117,7 +37376,7 @@
         },
         {
           "dimension": "output",
-          "amount": "0.0000023",
+          "amount": "0.0000022",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -40610,108 +40869,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-e0c075ad57a50fcf0f3dad8f",
-      "provider": "vercel",
-      "native_id": "bytedance/seed-1.6",
-      "kind": "model",
-      "label": "Seed 1.6",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000025",
-          "input_cache_read": "0.00000005",
-          "input_tiers": [
-            {
-              "cost": "0.00000025",
-              "max": 128001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000005",
-              "min": 128001
-            }
-          ],
-          "output": "0.000002",
-          "output_tiers": [
-            {
-              "cost": "0.000002",
-              "max": 128001,
-              "min": 0
-            },
-            {
-              "cost": "0.000004",
-              "min": 128001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000005",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Seed 1.6",
-        "owned_by": "bytedance",
-        "type": "language",
-        "context_window": 256000,
-        "max_tokens": 32000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          }
-        ],
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-e2458dcfe7f6f44db22f338c",
       "provider": "vercel",
       "native_id": "openai/gpt-image-2.5-flare",
@@ -42472,117 +42629,6 @@
             "image"
           ]
         },
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-ec61f743c4993b9a64b4062f",
-      "provider": "vercel",
-      "native_id": "bytedance/seed-1.8",
-      "kind": "model",
-      "label": "Bytedance Seed 1.8",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000025",
-          "input_cache_read": "0.00000005",
-          "input_tiers": [
-            {
-              "cost": "0.00000025",
-              "max": 128001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000005",
-              "min": 128001
-            }
-          ],
-          "output": "0.000002",
-          "output_tiers": [
-            {
-              "cost": "0.000002",
-              "max": 128001,
-              "min": 0
-            },
-            {
-              "cost": "0.000004",
-              "min": 128001
-            }
-          ]
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.00000005",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Bytedance Seed 1.8",
-        "owned_by": "bytedance",
-        "type": "language",
-        "context_window": 256000,
-        "max_tokens": 64000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "minimal",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -45934,14 +45980,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "bff8be7db3786ee6e4f1df2363d6b1d5406364e44430c094c158e6bca64a68ea",
-  "revision": 40,
-  "changed_at": "2026-11-10T14:54:12Z",
+  "catalog_sha256": "2eefad0ae0303f9e76306ce0d9f62845f00a4ede85420228c6aa0c86b66a5603",
+  "revision": 41,
+  "changed_at": "2026-11-11T14:23:43Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "3c71487357c980ce55c98e33f02d509b6f1b393f659514c2037e2d2962bdeae6",
+  "source_sha256": "28a966c75af904104bcb0e412106065d2580bb605cb868e84f87f80acefbdbae",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
