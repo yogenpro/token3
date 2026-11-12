@@ -44,56 +44,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "perplexity-0722a116e4974b38f2688f27",
-      "provider": "perplexity",
-      "native_id": "87fc2b8dc30d495a780a9abf",
-      "kind": "document_row",
-      "label": "`anthropic/claude-fable-5`",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Agent API Models",
-          "Available Models",
-          "Anthropic"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
-      },
-      "billing": {
-        "cells": [
-          "`anthropic/claude-fable-5`",
-          "10.00",
-          "50.00",
-          "1.00",
-          "—",
-          "[Claude Fable 5](https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5)"
-        ],
-        "columns": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "anthropic/claude-fable-5"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "perplexity-0746c219e2ef9c9409c8cdd4",
       "provider": "perplexity",
       "native_id": "17099f9475dbd458a1e939aa",
@@ -297,7 +247,7 @@
         "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
       },
       "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nAgent API Models\nCompare Agent API models, token pricing, supported service tiers, and provider documentation.\n[!NOTE]\nLooking for ranked web results instead of a generated answer? Use the Search API at POST /search. It takes no model parameter and bills per successful request, not per token. Start with the Search API quickstart (https://docs.perplexity.ai/docs/search/quickstart.md).\nAvailable Models\nThe Agent API provides a unified interface to models from multiple providers with transparent token-based pricing.\nPricing rates are published per model and may differ from provider list prices. All charges are based on actual token consumption, and every API response includes exact token counts so you know your costs per request.\nThe Service tiers column lists optional non-default tiers. An em dash means the model uses default processing only.\nA rate with a context-length range, such as (≤272k), changes when the input is above that range. A single value applies at every context length.\n[!TIP]\nLooking for pre-configured model setups? See Effort Levels (https://docs.perplexity.ai/docs/agent-api/effort.md) — optimized for specific use cases.\n[tab] Anthropic\n[card] Anthropic\nClaude Opus (highest reasoning), Sonnet (balanced), and Haiku (fastest, cheapest).\n[!WARNING]\nRequests that use an anthropic/* model must include max_output_tokens. If omitted, the API returns HTTP 400 with validation failed: max_output_tokens is required when using Anthropic models. max_output_tokens is a shared Agent API parameter, but this required condition applies only to Anthropic models.\n[tab] OpenAI\n[card] OpenAI\nOpenAI GPT models.\n[tab] Google\n[card] Google\nGemini 4 Argon and Gemini 3.6, 3.7, and 3.8 Flash.\nGemini 4 Argon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.\n[tab] xAI\n[card] xAI\nGrok 4.7, 4.6, and 4.5.\n[tab] Z.AI\n[card] Z.AI\nGLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.\n[tab] DeepSeek\n[card] DeepSeek\nDeepSeek V4 Pro, hosted by Perplexity.\n[tab] Moonshot AI\n[card] Moonshot AI\nKimi K3 — Moonshot AI's flagship reasoning model.\n[!NOTE]\nKimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.\n[tab] NVIDIA\n[card] NVIDIA\nNemotron 3.5 Super is a reasoning model with a 1,048,576-token context window and up to 131,072 output tokens. It accepts text input only.\n[tab] Perplexity\n[card] Perplexity\nPerplexity's grounded search model.\nService tiers\nOmit service_tier, or set it to auto or default, to use default processing. flex uses lower-cost, best-effort capacity at 0.5× the listed token prices. priority uses higher-priority processing at 2× the listed token prices. fast is accepted as an alias for priority. These multipliers apply only to models that list the tier in the Service tiers column. Other models always bill at the listed rate.\nWhen you provide model or models, the Agent API applies flex or priority only if the selected model—or every model in a fallback list—supports that tier. An unsupported tier does not cause the request to be rejected; the API ignores service_tier and uses default processing. Requests that specify only an effort level or profile retain the tier until the model is resolved. The response's service_tier field reports the tier that served the request.\n[!WARNING]\nNot all third-party models support all features (e.g., reasoning, tools). Check model documentation for specific capabilities.\nUsing a Model\n[accordion] Response\n[!TIP]\nSee Your Costs in Real-Time: Every response includes a usage field with exact input tokens, output tokens, and cache read tokens. Calculate your cost instantly using the pricing table above.\nModel Fallback\nFor high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.\n[card] Model Fallback Chain (https://docs.perplexity.ai/docs/agent-api/model-fallback.md)\nLearn how to use model fallback chains to ensure high availability and reliability by automatically trying multiple models when one fails.\n[!NOTE]\nExample:\nFor detailed examples, pricing information, and best practices, see the Model Fallback documentation (https://docs.perplexity.ai/docs/agent-api/model-fallback.md).\nNext Steps\n[card] Web Search (https://docs.perplexity.ai/docs/agent-api/tools/web-search.md)\nEquip your model with web search for source-grounded context.\n[card] Prompt Guide (https://docs.perplexity.ai/docs/agent-api/prompt-guide.md)\nWrite prompts that get the most out of the Agent API.\n[card] Output Control (https://docs.perplexity.ai/docs/agent-api/output-control.md)\nShape responses with structured outputs and JSON schemas.\n[card] Finance Search (https://docs.perplexity.ai/docs/agent-api/tools/finance-search.md)\nQuery market data, filings, and ticker-level information.",
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nAgent API Models\nCompare Agent API models, token pricing, supported service tiers, and provider documentation.\n[!NOTE]\nLooking for ranked web results instead of a generated answer? Use the Search API at POST /search. It takes no model parameter and bills per successful request, not per token. Start with the Search API quickstart (https://docs.perplexity.ai/docs/search/quickstart.md).\nAvailable Models\nThe Agent API provides a unified interface to models from multiple providers with transparent token-based pricing.\nPricing rates are published per model and may differ from provider list prices. All charges are based on actual token consumption, and every API response includes exact token counts so you know your costs per request.\nThe Service tiers column lists optional non-default tiers. An em dash means the model uses default processing only.\nA rate with a context-length range, such as (≤272k), changes when the input is above that range. A single value applies at every context length.\n[!TIP]\nLooking for pre-configured model setups? See Effort Levels (https://docs.perplexity.ai/docs/agent-api/effort.md) — optimized for specific use cases.\n[tab] Anthropic\n[card] Anthropic\nClaude Opus (highest reasoning), Sonnet (balanced), and Haiku (fastest, cheapest).\n[!WARNING]\nRequests that use an anthropic/* model must include max_output_tokens. If omitted, the API returns HTTP 400 with validation failed: max_output_tokens is required when using Anthropic models. max_output_tokens is a shared Agent API parameter, but this required condition applies only to Anthropic models.\nClaude Fable 5.2 requires non-Zero Data Retention (non-ZDR) model access. Contact api@perplexity.ai (mailto:api@perplexity.ai) to request access.\n[tab] OpenAI\n[card] OpenAI\nOpenAI GPT models.\n[tab] Google\n[card] Google\nGemini 4 Argon, Gemini 4 Carbon, and Gemini 3.6, 3.7, and 3.8 Flash.\nGemini 4 Argon and Gemini 4 Carbon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.\n[tab] xAI\n[card] xAI\nGrok 4.7, 4.6, and 4.5.\n[tab] Z.AI\n[card] Z.AI\nGLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.\n[tab] DeepSeek\n[card] DeepSeek\nDeepSeek V4 Pro, hosted by Perplexity.\n[tab] Moonshot AI\n[card] Moonshot AI\nKimi K3 — Moonshot AI's flagship reasoning model.\n[!NOTE]\nKimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.\n[tab] NVIDIA\n[card] NVIDIA\nNemotron 3.5 Super is a reasoning model with a 1,048,576-token context window and up to 131,072 output tokens. It accepts text input only.\n[tab] Perplexity\n[card] Perplexity\nPerplexity's grounded search model.\nService tiers\nOmit service_tier, or set it to auto or default, to use default processing. flex uses lower-cost, best-effort capacity at 0.5× the listed token prices. priority uses higher-priority processing at 2× the listed token prices. fast is accepted as an alias for priority. These multipliers apply only to models that list the tier in the Service tiers column. Other models always bill at the listed rate.\nWhen you provide model or models, the Agent API applies flex or priority only if the selected model—or every model in a fallback list—supports that tier. An unsupported tier does not cause the request to be rejected; the API ignores service_tier and uses default processing. Requests that specify only an effort level or profile retain the tier until the model is resolved. The response's service_tier field reports the tier that served the request.\n[!WARNING]\nNot all third-party models support all features (e.g., reasoning, tools). Check model documentation for specific capabilities.\nUsing a Model\n[accordion] Response\n[!TIP]\nSee Your Costs in Real-Time: Every response includes a usage field with exact input tokens, output tokens, and cache read tokens. Calculate your cost instantly using the pricing table above.\nModel Fallback\nFor high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.\n[card] Model Fallback Chain (https://docs.perplexity.ai/docs/agent-api/model-fallback.md)\nLearn how to use model fallback chains to ensure high availability and reliability by automatically trying multiple models when one fails.\n[!NOTE]\nExample:\nFor detailed examples, pricing information, and best practices, see the Model Fallback documentation (https://docs.perplexity.ai/docs/agent-api/model-fallback.md).\nNext Steps\n[card] Web Search (https://docs.perplexity.ai/docs/agent-api/tools/web-search.md)\nEquip your model with web search for source-grounded context.\n[card] Prompt Guide (https://docs.perplexity.ai/docs/agent-api/prompt-guide.md)\nWrite prompts that get the most out of the Agent API.\n[card] Output Control (https://docs.perplexity.ai/docs/agent-api/output-control.md)\nShape responses with structured outputs and JSON schemas.\n[card] Finance Search (https://docs.perplexity.ai/docs/agent-api/tools/finance-search.md)\nQuery market data, filings, and ticker-level information.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
@@ -744,56 +694,6 @@
       },
       "rates": [],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "perplexity-51870ce17ad632de115c2b81",
-      "provider": "perplexity",
-      "native_id": "ac5db41a00f074b2fcd081d3",
-      "kind": "document_row",
-      "label": "`anthropic/claude-opus-5`",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Agent API Models",
-          "Available Models",
-          "Anthropic"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
-      },
-      "billing": {
-        "cells": [
-          "`anthropic/claude-opus-5`",
-          "5.00",
-          "25.00",
-          "0.50",
-          "—",
-          "[Claude Opus 5](https://platform.claude.com/docs/en/about-claude/models/overview)"
-        ],
-        "columns": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "anthropic/claude-opus-5"
-      },
       "comparison_eligible": false
     },
     {
@@ -1796,11 +1696,11 @@
       "comparison_eligible": false
     },
     {
-      "id": "perplexity-b5d5d9c5e6bce52d994c23f9",
+      "id": "perplexity-b880ed8cd355bdeb477773cc",
       "provider": "perplexity",
-      "native_id": "759fa053d6f7bb21cceddf5e",
+      "native_id": "e993057f2b3e1850795890c3",
       "kind": "document_row",
-      "label": "`anthropic/claude-sonnet-5`",
+      "label": "`anthropic/claude-fable-5-2`",
       "scope": {
         "table": 0,
         "headings": [
@@ -1821,12 +1721,12 @@
       },
       "billing": {
         "cells": [
-          "`anthropic/claude-sonnet-5`",
-          "2.00",
-          "10.00",
+          "`anthropic/claude-fable-5-2`",
+          "8.00",
+          "40.00",
           "0.20",
           "—",
-          "[Claude Sonnet 5](https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5)"
+          "[Claude Fable 5.2](https://platform.claude.com/docs/en/about-claude/models/overview)"
         ],
         "columns": [
           "Model",
@@ -1841,7 +1741,7 @@
       },
       "rates": [],
       "metadata": {
-        "source_model_id": "anthropic/claude-sonnet-5"
+        "source_model_id": "anthropic/claude-fable-5-2"
       },
       "comparison_eligible": false
     },
@@ -2255,17 +2155,17 @@
       "comparison_eligible": false
     },
     {
-      "id": "perplexity-f1526146902f1905f2b84e06",
+      "id": "perplexity-f42e15c068a0da5c10555b5a",
       "provider": "perplexity",
-      "native_id": "dbce3997cfc5c06b04c46e48",
+      "native_id": "92d5a6eeb1d28f18c2316640",
       "kind": "document_row",
-      "label": "`anthropic/claude-fable-5-1`",
+      "label": "`google/gemini-4-carbon`",
       "scope": {
-        "table": 0,
+        "table": 2,
         "headings": [
           "Agent API Models",
           "Available Models",
-          "Anthropic"
+          "Google"
         ],
         "tabs": [],
         "headers": [
@@ -2280,12 +2180,12 @@
       },
       "billing": {
         "cells": [
-          "`anthropic/claude-fable-5-1`",
+          "`google/gemini-4-carbon`",
+          "2.00",
           "10.00",
-          "50.00",
-          "0.25",
-          "—",
-          "[Claude Fable 5.1](https://platform.claude.com/docs/en/about-claude/models/overview)"
+          "0.10",
+          "Default only",
+          "[Gemini models](https://ai.google.dev/gemini-api/docs/models)"
         ],
         "columns": [
           "Model",
@@ -2300,7 +2200,7 @@
       },
       "rates": [],
       "metadata": {
-        "source_model_id": "anthropic/claude-fable-5-1"
+        "source_model_id": "google/gemini-4-carbon"
       },
       "comparison_eligible": false
     },
@@ -2394,6 +2294,7 @@
     "https://docs.perplexity.ai/docs/agent-api/models.md: A rate with a context-length range, such as (≤272k), changes when the input is above that range. A single value applies at every context length.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Agent API Models",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Available Models",
+    "https://docs.perplexity.ai/docs/agent-api/models.md: Claude Fable 5.2 requires non-Zero Data Retention (non-ZDR) model access. Contact api@perplexity.ai (mailto:api@perplexity.ai) to request access.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Claude Opus (highest reasoning), Sonnet (balanced), and Haiku (fastest, cheapest).",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Compare Agent API models, token pricing, supported service tiers, and provider documentation.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: DeepSeek V4 Pro, hosted by Perplexity.",
@@ -2404,8 +2305,8 @@
     "https://docs.perplexity.ai/docs/agent-api/models.md: For detailed examples, pricing information, and best practices, see the Model Fallback documentation (https://docs.perplexity.ai/docs/agent-api/model-fallback.md).",
     "https://docs.perplexity.ai/docs/agent-api/models.md: For high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: GLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.",
-    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon and Gemini 3.6, 3.7, and 3.8 Flash.",
-    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.",
+    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon and Gemini 4 Carbon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.",
+    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon, Gemini 4 Carbon, and Gemini 3.6, 3.7, and 3.8 Flash.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Grok 4.7, 4.6, and 4.5.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Kimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Kimi K3 — Moonshot AI's flagship reasoning model.",
@@ -2539,22 +2440,22 @@
     "https://docs.perplexity.ai/docs/router/models.md: [card] Quickstart (https://docs.perplexity.ai/docs/orchestrator/quickstart.md)",
     "https://docs.perplexity.ai/docs/router/models.md: perplexity/glm-5.3-flash supports cache reads but not cache writes."
   ],
-  "catalog_sha256": "d5623db27aa346c048ea7d35e15651bb04d6362047218c8fb30868b30ce1b84e",
-  "revision": 6,
-  "changed_at": "2026-11-09T16:20:33Z",
+  "catalog_sha256": "ee8c449f82c407ada5e390ef34650244bd57ca52bb7c438de3f2465e4bcf49d5",
+  "revision": 7,
+  "changed_at": "2026-11-11T14:23:43Z",
   "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
   "source_urls": [
     "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
     "https://docs.perplexity.ai/docs/router/models.md"
   ],
-  "source_sha256": "813576d770f46205da8a372844e460cdf3650df06f3ebec8b42fe89e91a2c92b",
+  "source_sha256": "31799067569979b009af32a1f3e2d6788966504aae341ecc7bd6ec2ee1de74cb",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "url": "https://web.archive.org/web/20260520194121/https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "capture_at": "2026-05-20T19:41:21Z",
-    "checked_at": "2026-11-09T16:20:33Z",
+    "checked_at": "2026-11-11T14:23:43Z",
     "verification": null
   }
 }

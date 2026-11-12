@@ -1436,9 +1436,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000065",
-          "input_cache_read": "0.00000035",
-          "prompt": "0.00000035"
+          "completion": "0.0000005",
+          "input_cache_read": "0.0000002",
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -1448,21 +1448,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000035",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000065",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000035",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -1874,9 +1874,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000075",
-          "input_cache_read": "0.0000004",
-          "prompt": "0.0000004"
+          "completion": "0.0000005",
+          "input_cache_read": "0.0000003",
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -1886,21 +1886,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000004",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000075",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000004",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -4752,7 +4752,7 @@
       "metadata": {
         "name": "Cohere: Command R7B (12-2024)",
         "canonical_slug": "cohere/command-r7b-12-2024",
-        "hugging_face_id": "",
+        "hugging_face_id": "CohereLabs/c4ai-command-r7b-12-2024",
         "architecture": {
           "input_modalities": [
             "text"
@@ -4885,7 +4885,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-09-30"
       },
       "comparison_eligible": false
@@ -5919,6 +5919,7 @@
           "reasoning_effort",
           "repetition_penalty",
           "response_format",
+          "seed",
           "structured_outputs",
           "temperature",
           "tool_choice",
@@ -6821,7 +6822,7 @@
           "tools"
         ],
         "default_parameters": {},
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-06-30"
       },
       "comparison_eligible": false
@@ -7204,7 +7205,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-09-30"
       },
       "comparison_eligible": false
@@ -7327,7 +7328,7 @@
       "metadata": {
         "name": "Mistral: Mistral Large 3 2512",
         "canonical_slug": "mistralai/mistral-large-2512",
-        "hugging_face_id": "",
+        "hugging_face_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
         "architecture": {
           "input_modalities": [
             "text",
@@ -8341,6 +8342,127 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-2fca687725c700c10ae29c6c",
+      "provider": "openrouter",
+      "native_id": "google/gemini-4-carbon",
+      "kind": "model",
+      "label": "Google: Gemini 4 Carbon",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "audio": "0.000002",
+          "completion": "0.00001",
+          "image": "0.000002",
+          "input_audio_cache": "0.0000001",
+          "input_cache_read": "0.0000001",
+          "input_cache_write": "0.0000001875",
+          "internal_reasoning": "0.00001",
+          "prompt": "0.000002",
+          "web_search": "0.014"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000001",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000001875",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        },
+        {
+          "dimension": "web_search",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "search",
+          "conditions": {}
+        },
+        {
+          "dimension": "internal_reasoning",
+          "amount": "0.00001",
+          "currency": "USD",
+          "unit": "reasoning token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Google: Gemini 4 Carbon",
+        "canonical_slug": "google/gemini-4-carbon-20261110",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "audio",
+            "file",
+            "image",
+            "text",
+            "video"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+file+audio+video->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Gemini"
+        },
+        "context_length": 1048576,
+        "top_provider": {
+          "context_length": 1048576,
+          "is_moderated": false,
+          "max_completion_tokens": 943718
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null,
+          "temperature": null,
+          "top_k": null,
+          "top_p": null
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-30616053c0858769c5b6c8ae",
       "provider": "openrouter",
       "native_id": "z-ai/glm-4.7-flash",
@@ -9079,6 +9201,87 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-3259de0da930e3a401cbaa2e",
+      "provider": "openrouter",
+      "native_id": "baidu/ernie-light-dt-1.0-intl",
+      "kind": "model",
+      "label": "Baidu: ERNIE-Light-DT-1.0",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.00000394",
+          "input_cache_read": "0.000000113",
+          "prompt": "0.00000113"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000113",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000394",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000113",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Baidu: ERNIE-Light-DT-1.0",
+        "canonical_slug": "baidu/ernie-light-dt-1.0-intl-20261110",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "instruct_type": null,
+          "modality": "text->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other"
+        },
+        "context_length": 1024000,
+        "top_provider": {
+          "context_length": 1024000,
+          "is_moderated": false,
+          "max_completion_tokens": 131072
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-3274f82f963c3d802e6aa718",
       "provider": "openrouter",
       "native_id": "z-ai/glm-4.5",
@@ -9687,7 +9890,7 @@
       "metadata": {
         "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
         "canonical_slug": "nvidia/nemotron-3.5-super-vl-20261015",
-        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
         "architecture": {
           "input_modalities": [
             "text",
@@ -9950,7 +10153,7 @@
       "metadata": {
         "name": "Mistral Large 2407",
         "canonical_slug": "mistralai/mistral-large-2407",
-        "hugging_face_id": "",
+        "hugging_face_id": "mistralai/Mistral-Large-Instruct-2407",
         "architecture": {
           "input_modalities": [
             "text",
@@ -10365,7 +10568,7 @@
       "metadata": {
         "name": "Cohere: Command R (08-2024)",
         "canonical_slug": "cohere/command-r-08-2024",
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/c4ai-command-r-08-2024",
         "architecture": {
           "input_modalities": [
             "text"
@@ -10863,7 +11066,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-05-31"
       },
       "comparison_eligible": false
@@ -12153,7 +12356,7 @@
       "metadata": {
         "name": "AionLabs: Aion-RP 1.0 (8B)",
         "canonical_slug": "aion-labs/aion-rp-llama-3.1-8b",
-        "hugging_face_id": "",
+        "hugging_face_id": "aion-labs/Aion-RP-Llama-3.1-8B",
         "architecture": {
           "input_modalities": [
             "text"
@@ -12219,7 +12422,7 @@
       "metadata": {
         "name": "Cohere: Command R+ (08-2024)",
         "canonical_slug": "cohere/command-r-plus-08-2024",
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/c4ai-command-r-plus-08-2024",
         "architecture": {
           "input_modalities": [
             "text"
@@ -13152,7 +13355,7 @@
       "metadata": {
         "name": "Mistral: Mistral Medium 3.5 (batch)",
         "canonical_slug": "mistralai/mistral-medium-3.5-20260430",
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
         "architecture": {
           "input_modalities": [
             "text",
@@ -14130,7 +14333,7 @@
       "metadata": {
         "name": "inclusionAI: Ling 3.1 Flash",
         "canonical_slug": "inclusionai/ling-3.1-flash-20261002",
-        "hugging_face_id": null,
+        "hugging_face_id": "inclusionAI/Ling-3.1-flash",
         "architecture": {
           "input_modalities": [
             "text"
@@ -14503,7 +14706,7 @@
       "metadata": {
         "name": "Mistral: Mistral Medium 3.5",
         "canonical_slug": "mistralai/mistral-medium-3.5-20260430",
-        "hugging_face_id": null,
+        "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
         "architecture": {
           "input_modalities": [
             "text",
@@ -16425,7 +16628,7 @@
           ],
           "tokenizer": "Other"
         },
-        "context_length": 1048576,
+        "context_length": 262144,
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
@@ -19318,16 +19521,20 @@
         "supported_parameters": [
           "frequency_penalty",
           "include_reasoning",
+          "logprobs",
           "max_tokens",
           "parallel_tool_calls",
           "presence_penalty",
           "reasoning",
           "reasoning_effort",
+          "repetition_penalty",
           "response_format",
           "structured_outputs",
           "temperature",
           "tool_choice",
           "tools",
+          "top_k",
+          "top_logprobs",
           "top_p"
         ],
         "default_parameters": {},
@@ -20403,9 +20610,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000191052",
-          "input_cache_read": "0.000000079605",
-          "prompt": "0.00000095526"
+          "completion": "0.000001777932",
+          "input_cache_read": "0.0000000740805",
+          "prompt": "0.000000888966"
         },
         "currency": "USD",
         "state": "reported",
@@ -20415,21 +20622,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000095526",
+          "amount": "0.000000888966",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000191052",
+          "amount": "0.000001777932",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000079605",
+          "amount": "0.0000000740805",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21008,9 +21215,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000012",
-          "input_cache_read": "0.000000006",
-          "prompt": "0.0000003"
+          "completion": "0.000000567",
+          "input_cache_read": "0.000000018",
+          "prompt": "0.000000051"
         },
         "currency": "USD",
         "state": "reported",
@@ -21020,21 +21227,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000003",
+          "amount": "0.000000051",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000012",
+          "amount": "0.000000567",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000006",
+          "amount": "0.000000018",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21980,7 +22187,7 @@
         "context_length": 1000000,
         "top_provider": {
           "context_length": 1000000,
-          "is_moderated": false,
+          "is_moderated": true,
           "max_completion_tokens": 128000
         },
         "per_request_limits": null,
@@ -23488,7 +23695,7 @@
           "tools"
         ],
         "default_parameters": {},
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-06-30"
       },
       "comparison_eligible": false
@@ -24074,6 +24281,7 @@
           "reasoning_effort",
           "repetition_penalty",
           "response_format",
+          "seed",
           "structured_outputs",
           "temperature",
           "tool_choice",
@@ -24744,7 +24952,7 @@
           "temperature": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-09-30"
       },
       "comparison_eligible": false
@@ -24932,7 +25140,7 @@
         "context_length": 1050000,
         "top_provider": {
           "context_length": 1050000,
-          "is_moderated": false,
+          "is_moderated": true,
           "max_completion_tokens": 128000
         },
         "per_request_limits": null,
@@ -26851,9 +27059,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000182",
-          "input_cache_read": "0.0000000182",
-          "prompt": "0.000000091"
+          "completion": "0.00000018",
+          "input_cache_read": "0.000000018",
+          "prompt": "0.00000009"
         },
         "currency": "USD",
         "state": "reported",
@@ -26863,21 +27071,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000091",
+          "amount": "0.00000009",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000182",
+          "amount": "0.00000018",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000182",
+          "amount": "0.000000018",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -26900,9 +27108,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048575,
+          "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 943717
+          "max_completion_tokens": 393216
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -27053,7 +27261,7 @@
       "metadata": {
         "name": "NVIDIA: Nemotron 3.5 Super VL",
         "canonical_slug": "nvidia/nemotron-3.5-super-vl-20261015",
-        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+        "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
         "architecture": {
           "input_modalities": [
             "text",
@@ -27870,93 +28078,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "openrouter-a670817180385c1b5597236d",
-      "provider": "openrouter",
-      "native_id": "bytedance-seed/seed-1.6-flash",
-      "kind": "model",
-      "label": "ByteDance Seed: Seed 1.6 Flash",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.0000003",
-          "overrides": [
-            {
-              "completion": "0.0000008",
-              "min_prompt_tokens": 128000,
-              "prompt": "0.0000001"
-            }
-          ],
-          "prompt": "0.000000075"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.000000075",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.0000003",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "ByteDance Seed: Seed 1.6 Flash",
-        "canonical_slug": "bytedance-seed/seed-1.6-flash-20250625",
-        "hugging_face_id": "",
-        "architecture": {
-          "input_modalities": [
-            "image",
-            "text",
-            "video"
-          ],
-          "instruct_type": null,
-          "modality": "text+image+video->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 32768
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "response_format",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_p"
-        ],
-        "default_parameters": {
-          "frequency_penalty": null,
-          "temperature": null,
-          "top_p": null
-        },
-        "expiration_date": "2026-11-11",
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "openrouter-a69650151c935283277b1e39",
       "provider": "openrouter",
       "native_id": "moonshotai/kimi-k3.1-pro",
@@ -28323,7 +28444,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-05-31"
       },
       "comparison_eligible": false
@@ -28427,9 +28548,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000012",
-          "input_cache_read": "0.00000006",
-          "prompt": "0.0000003"
+          "completion": "0.00000108",
+          "input_cache_read": "0.000000027",
+          "prompt": "0.00000027"
         },
         "currency": "USD",
         "state": "reported",
@@ -28439,21 +28560,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000003",
+          "amount": "0.00000027",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000012",
+          "amount": "0.00000108",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000006",
+          "amount": "0.000000027",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -28476,9 +28597,9 @@
         },
         "context_length": 200000,
         "top_provider": {
-          "context_length": 65536,
+          "context_length": 200000,
           "is_moderated": false,
-          "max_completion_tokens": 58982
+          "max_completion_tokens": 128000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -28685,6 +28806,7 @@
           "reasoning_effort",
           "repetition_penalty",
           "response_format",
+          "seed",
           "structured_outputs",
           "temperature",
           "tool_choice",
@@ -28778,7 +28900,7 @@
           "temperature": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-06-30"
       },
       "comparison_eligible": false
@@ -29561,7 +29683,7 @@
           "temperature": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-09-30"
       },
       "comparison_eligible": false
@@ -29738,87 +29860,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "openrouter-acbbd079ba995e64177f0f0a",
-      "provider": "openrouter",
-      "native_id": "qwen/qwen-2.5-7b-instruct",
-      "kind": "model",
-      "label": "Qwen: Qwen2.5 7B Instruct",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.0000002",
-          "prompt": "0.0000001"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.0000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.0000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Qwen: Qwen2.5 7B Instruct",
-        "canonical_slug": "qwen/qwen-2.5-7b-instruct",
-        "hugging_face_id": "Qwen/Qwen2.5-7B-Instruct",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": "chatml",
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Qwen"
-        },
-        "context_length": 32768,
-        "top_provider": {
-          "context_length": 32768,
-          "is_moderated": false,
-          "max_completion_tokens": 29491
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "frequency_penalty": null,
-          "temperature": null,
-          "top_p": null
-        },
-        "expiration_date": null,
-        "knowledge_cutoff": "2024-06-30"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "openrouter-ad02da404dc6e133171f935b",
       "provider": "openrouter",
       "native_id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -29885,6 +29926,7 @@
           "frequency_penalty",
           "include_reasoning",
           "logit_bias",
+          "logprobs",
           "max_tokens",
           "min_p",
           "presence_penalty",
@@ -29899,6 +29941,7 @@
           "tool_choice",
           "tools",
           "top_k",
+          "top_logprobs",
           "top_p"
         ],
         "default_parameters": {
@@ -30011,7 +30054,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000093388",
+          "completion": "0.0000110055",
           "input_cache_read": "0.00000018",
           "prompt": "0.0000001824"
         },
@@ -30030,7 +30073,7 @@
         },
         {
           "dimension": "completion",
-          "amount": "0.0000093388",
+          "amount": "0.0000110055",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -30766,6 +30809,200 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-b37fc2f1419d82a2534cdb35",
+      "provider": "openrouter",
+      "native_id": "baidu/ernie-5.5-flash-preview:free",
+      "kind": "model",
+      "label": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0",
+          "prompt": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Baidu: ERNIE-5.5-Flash-Preview (free)",
+        "canonical_slug": "baidu/ernie-5.5-flash-preview-20261110",
+        "hugging_face_id": "baidu/ERNIE-5.5-Flash-Preview",
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "instruct_type": null,
+          "modality": "text->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other"
+        },
+        "context_length": 1024000,
+        "top_provider": {
+          "context_length": 1024000,
+          "is_moderated": false,
+          "max_completion_tokens": 921600
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-b39bd429d9b03ad27b25c611",
+      "provider": "openrouter",
+      "native_id": "google/gemini-4-carbon:batch",
+      "kind": "model",
+      "label": "Google: Gemini 4 Carbon (batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "audio": "0.000001",
+          "completion": "0.000005",
+          "image": "0.000001",
+          "input_audio_cache": "0.00000005",
+          "input_cache_read": "0.00000005",
+          "input_cache_write": "0.0000001875",
+          "internal_reasoning": "0.000005",
+          "prompt": "0.000001",
+          "web_search": "0.014"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000001875",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        },
+        {
+          "dimension": "web_search",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "search",
+          "conditions": {}
+        },
+        {
+          "dimension": "internal_reasoning",
+          "amount": "0.000005",
+          "currency": "USD",
+          "unit": "reasoning token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Google: Gemini 4 Carbon (batch)",
+        "canonical_slug": "google/gemini-4-carbon-20261110",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "audio",
+            "file",
+            "image",
+            "text",
+            "video"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+file+audio+video->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Gemini"
+        },
+        "context_length": 1048576,
+        "top_provider": {
+          "context_length": 1048576,
+          "is_moderated": false,
+          "max_completion_tokens": 943718
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "include_reasoning",
+          "max_tokens",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null,
+          "temperature": null,
+          "top_k": null,
+          "top_p": null
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-b556584afbcdaf1fd7ac8961",
       "provider": "openrouter",
       "native_id": "openai/gpt-4o-2024-05-13",
@@ -31388,7 +31625,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-05-31"
       },
       "comparison_eligible": false
@@ -31836,8 +32073,8 @@
       "billing": {
         "rules": {
           "completion": "0.000000061",
-          "input_cache_read": "0.000000014",
-          "prompt": "0.000000033"
+          "input_cache_read": "0.00000002",
+          "prompt": "0.000000047"
         },
         "currency": "USD",
         "state": "reported",
@@ -31847,7 +32084,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000033",
+          "amount": "0.000000047",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -31861,7 +32098,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000014",
+          "amount": "0.00000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -32433,9 +32670,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000044",
-          "input_cache_read": "0.00000026",
-          "prompt": "0.0000014"
+          "completion": "0.00000418",
+          "input_cache_read": "0.000000247",
+          "prompt": "0.00000133"
         },
         "currency": "USD",
         "state": "reported",
@@ -32445,21 +32682,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000014",
+          "amount": "0.00000133",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000044",
+          "amount": "0.00000418",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000026",
+          "amount": "0.000000247",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -32482,7 +32719,7 @@
         },
         "context_length": 204800,
         "top_provider": {
-          "context_length": 202752,
+          "context_length": 202745,
           "is_moderated": false,
           "max_completion_tokens": 131072
         },
@@ -33261,93 +33498,6 @@
           "top_p": null
         },
         "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-c41db2fabb236f4cf61b7314",
-      "provider": "openrouter",
-      "native_id": "bytedance-seed/seed-1.6",
-      "kind": "model",
-      "label": "ByteDance Seed: Seed 1.6",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.000002",
-          "overrides": [
-            {
-              "completion": "0.000004",
-              "min_prompt_tokens": 128000,
-              "prompt": "0.0000005"
-            }
-          ],
-          "prompt": "0.00000025"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "ByteDance Seed: Seed 1.6",
-        "canonical_slug": "bytedance-seed/seed-1.6-20250625",
-        "hugging_face_id": "",
-        "architecture": {
-          "input_modalities": [
-            "image",
-            "text",
-            "video"
-          ],
-          "instruct_type": null,
-          "modality": "text+image+video->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 32768
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "response_format",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_p"
-        ],
-        "default_parameters": {
-          "frequency_penalty": null,
-          "temperature": null,
-          "top_p": null
-        },
-        "expiration_date": "2026-11-11",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -34960,7 +35110,7 @@
           "top_k": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": "2024-05-31"
       },
       "comparison_eligible": false
@@ -35009,7 +35159,7 @@
       "metadata": {
         "name": "Cohere: Command A+",
         "canonical_slug": "cohere/command-a-plus-05-2026",
-        "hugging_face_id": null,
+        "hugging_face_id": "CohereLabs/command-a-plus-05-2026-bf16",
         "architecture": {
           "input_modalities": [
             "text",
@@ -35748,89 +35898,6 @@
         },
         "expiration_date": null,
         "knowledge_cutoff": "2026-08-28"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-d102b06a6241dd27b74f83d1",
-      "provider": "openrouter",
-      "native_id": "xingchen-agi/xing4.0-29b-a4b:free",
-      "kind": "model",
-      "label": "XingChen: Xing4.0 29B A4B (free)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0",
-          "prompt": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "XingChen: Xing4.0 29B A4B (free)",
-        "canonical_slug": "xingchen-agi/xing4.0-29b-a4b-20261015",
-        "hugging_face_id": "XingChen-AGI/Xing4.0-29B-A4B",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 235929
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "reasoning",
-          "repetition_penalty",
-          "response_format",
-          "seed",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "repetition_penalty": 1.05,
-          "temperature": 1,
-          "top_p": 0.95
-        },
-        "expiration_date": null,
-        "knowledge_cutoff": null
       },
       "comparison_eligible": false
     },
@@ -38137,8 +38204,8 @@
       "billing": {
         "rules": {
           "completion": "0.0000068",
-          "input_cache_read": "0.0000000052",
-          "prompt": "0.0000000062"
+          "input_cache_read": "0.000000006",
+          "prompt": "0.000000007"
         },
         "currency": "USD",
         "state": "reported",
@@ -38148,7 +38215,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000062",
+          "amount": "0.000000007",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -38162,7 +38229,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000052",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -39339,7 +39406,7 @@
       "metadata": {
         "name": "Dots Studio: Dots3-Note Preview (free)",
         "canonical_slug": "dots-studio/dots-3-note-preview-20260813",
-        "hugging_face_id": null,
+        "hugging_face_id": "dots-studio/dots3-note-prev",
         "architecture": {
           "input_modalities": [
             "text",
@@ -39907,9 +39974,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048576,
+          "context_length": 1000000,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 262144
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -40490,90 +40557,6 @@
           "top_p": null
         },
         "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-ee397e8d3662dff2ab6e8293",
-      "provider": "openrouter",
-      "native_id": "bytedance-seed/seed-2.0-code",
-      "kind": "model",
-      "label": "ByteDance Seed: Seed-2.0-Code",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.000003",
-          "overrides": [
-            {
-              "completion": "0.000006",
-              "min_prompt_tokens": 128000,
-              "prompt": "0.000001"
-            }
-          ],
-          "prompt": "0.0000005"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.0000005",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.000003",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "ByteDance Seed: Seed-2.0-Code",
-        "canonical_slug": "bytedance-seed/seed-2.0-code-20260730",
-        "hugging_face_id": null,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image",
-            "video"
-          ],
-          "instruct_type": null,
-          "modality": "text+image+video->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Other"
-        },
-        "context_length": 262144,
-        "top_provider": {
-          "context_length": 262144,
-          "is_moderated": false,
-          "max_completion_tokens": 131072
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "reasoning",
-          "reasoning_effort",
-          "response_format",
-          "stop",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-11-11",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -41503,6 +41486,90 @@
       "comparison_eligible": false
     },
     {
+      "id": "openrouter-f25f5802fec72ba851f5a37d",
+      "provider": "openrouter",
+      "native_id": "kt/midm-k-3.0-pro",
+      "kind": "model",
+      "label": "KT: Mi:dm K 3.0 Pro",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.0000008",
+          "input_cache_read": "0.00000004",
+          "prompt": "0.0000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.0000008",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000004",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "KT: Mi:dm K 3.0 Pro",
+        "canonical_slug": "kt/midm-k-3.0-pro",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "instruct_type": null,
+          "modality": "text->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other"
+        },
+        "context_length": 261795,
+        "top_provider": {
+          "context_length": 261795,
+          "is_moderated": false,
+          "max_completion_tokens": 235615
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "logprobs",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "response_format",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "openrouter-f2d64a5d1ba39b0bdd65001f",
       "provider": "openrouter",
       "native_id": "google/gemini-3-pro-image",
@@ -42358,7 +42425,7 @@
           "temperature": null,
           "top_p": null
         },
-        "expiration_date": null,
+        "expiration_date": "2026-12-11",
         "knowledge_cutoff": null
       },
       "comparison_eligible": false
@@ -42459,6 +42526,90 @@
         },
         "expiration_date": null,
         "knowledge_cutoff": "2025-08-31"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-f779370f5314291e70912e80",
+      "provider": "openrouter",
+      "native_id": "motif-technologies/motif-3",
+      "kind": "model",
+      "label": "Motif Technologies: Motif 3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.0000012",
+          "input_cache_read": "0.00000006",
+          "prompt": "0.0000003"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.0000012",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Motif Technologies: Motif 3",
+        "canonical_slug": "motif-technologies/motif-3",
+        "hugging_face_id": "Motif-Technologies/Motif-3",
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "instruct_type": null,
+          "modality": "text->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Other"
+        },
+        "context_length": 262144,
+        "top_provider": {
+          "context_length": 262144,
+          "is_moderated": false,
+          "max_completion_tokens": 235929
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "logprobs",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "response_format",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_logprobs",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
       },
       "comparison_eligible": false
     },
@@ -43598,14 +43749,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "988776d60d57a77b44532b684714d6561fe6c054e37207bf0bffea8d2acc8a9e",
-  "revision": 51,
-  "changed_at": "2026-11-10T14:54:12Z",
+  "catalog_sha256": "b72f6656db2638bd11deaa8a23ca42c10024af40019980f3536f5b84ee4635f4",
+  "revision": 52,
+  "changed_at": "2026-11-11T14:23:43Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "d28064121f74b010c0076c3f5c4d2ef8b3ac3980c63c2aafacc5f4d43ce61d66",
+  "source_sha256": "922002491e3fdd55091b1d8e8e3b9bf5b60a16564b470d415fce632931d4a2bd",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

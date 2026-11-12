@@ -178,52 +178,38 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-06cf7ea525dde7dab248ae1b",
+      "id": "minimax-0ad4f6d68088cbcb0da0be7a",
       "provider": "minimax",
-      "native_id": "c745baada44e2c0be9916f1c",
+      "native_id": "5c531e450c274dce3c573ec3",
       "kind": "document_row",
-      "label": "**web\\_search**",
+      "label": "Package duration",
       "scope": {
-        "table": 14,
+        "table": 18,
         "headings": [
           "Pricing Overview",
-          "Server Tools"
+          "Package Usage Rules",
+          "Coverage"
         ],
         "tabs": [],
         "headers": [
-          "Server Tool",
-          "Description",
-          "Price"
+          "Feature",
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**web\\_search**",
-          "Web search; the model runs the search on the server and answers based on the results. See [Server Tools](https://platform.minimax.io/docs/guides/server-tools.md).",
-          "\\$0.01 / request"
+          "Package duration",
+          "1 month, 3 months (10% off), or 1 year (20% off)"
         ],
         "columns": [
-          "Server Tool",
-          "Description",
-          "Price"
+          "Feature",
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [
-        {
-          "dimension": "Price:0",
-          "amount": "0.01",
-          "currency": "USD",
-          "unit": "/ request",
-          "conditions": {
-            "source_expression": "\\$0.01 / request",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -427,13 +413,266 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-2163cc197795019d6d35fc70",
+      "id": "minimax-26e9f375b91187cd5f7a388a",
       "provider": "minimax",
-      "native_id": "b6eac5bf94f67e1107fcc96f",
+      "native_id": "9591e218b89c1b4356b892e9",
       "kind": "document_row",
-      "label": "**Monthly Subscription**",
+      "label": "**MiniMax-H3-Image-Highspeed** Highspeed",
       "scope": {
-        "table": 15,
+        "table": 7,
+        "headings": [
+          "Pricing Overview",
+          "Image",
+          "Image Generation"
+        ],
+        "tabs": [],
+        "headers": [
+          "**Model**",
+          "**Input Text** \\$ / M tokens",
+          "**Input Image** \\$ / M tokens",
+          "**Output Image** \\$ / M tokens"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**MiniMax-H3-Image-Highspeed** Highspeed",
+          "\\$2.30",
+          "\\$3.00",
+          "\\$7.60"
+        ],
+        "columns": [
+          "**Model**",
+          "**Input Text** \\$ / M tokens",
+          "**Input Image** \\$ / M tokens",
+          "**Output Image** \\$ / M tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input Text** \\$ / M tokens:0",
+          "amount": "2.3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2.30",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Input Image** \\$ / M tokens:0",
+          "amount": "3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$3.00",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output Image** \\$ / M tokens:0",
+          "amount": "7.6",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$7.60",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-347dea6e385bdac0cef887d7",
+      "provider": "minimax",
+      "native_id": "82114d24a857ef5bb3a6b7ac",
+      "kind": "document_row",
+      "label": "**MiniMax-H3-Image** Standard",
+      "scope": {
+        "table": 7,
+        "headings": [
+          "Pricing Overview",
+          "Image",
+          "Image Generation"
+        ],
+        "tabs": [],
+        "headers": [
+          "**Model**",
+          "**Input Text** \\$ / M tokens",
+          "**Input Image** \\$ / M tokens",
+          "**Output Image** \\$ / M tokens"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**MiniMax-H3-Image** Standard",
+          "\\$2.30",
+          "\\$1.50",
+          "\\$3.80"
+        ],
+        "columns": [
+          "**Model**",
+          "**Input Text** \\$ / M tokens",
+          "**Input Image** \\$ / M tokens",
+          "**Output Image** \\$ / M tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input Text** \\$ / M tokens:0",
+          "amount": "2.3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2.30",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Input Image** \\$ / M tokens:0",
+          "amount": "1.5",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.50",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Output Image** \\$ / M tokens:0",
+          "amount": "3.8",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$3.80",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-3613d93d33cc35e8206c39b3",
+      "provider": "minimax",
+      "native_id": "9079980c343884fed2bf65f8",
+      "kind": "document_row",
+      "label": "H3-Image-Context-IR",
+      "scope": {
+        "table": 10,
+        "headings": [
+          "Pricing Overview",
+          "Image",
+          "H3-Image-Context-IR (Prompt Enhancement)"
+        ],
+        "tabs": [],
+        "headers": [
+          "**Model / API**",
+          "**Input** \\$ / M tokens"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "H3-Image-Context-IR",
+          "\\$2.30"
+        ],
+        "columns": [
+          "**Model / API**",
+          "**Input** \\$ / M tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Input** \\$ / M tokens:0",
+          "amount": "2.3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2.30",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-3cf6bfc763359071ce570f7a",
+      "provider": "minimax",
+      "native_id": "8609ae91e4ce821ff7bf5984",
+      "kind": "document_row",
+      "label": "**Rapid Voice Cloning**",
+      "scope": {
+        "table": 13,
+        "headings": [
+          "Pricing Overview",
+          "Audio"
+        ],
+        "tabs": [],
+        "headers": [
+          "**API**",
+          "**Description**",
+          "**Price**",
+          "**Notes**"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**Rapid Voice Cloning**",
+          "LLM-powered voice cloning that produces a high-fidelity replica in seconds, without long high-quality reference audio.",
+          "\\$1.5 per voice",
+          "Charged when the cloned voice is first used for synthesis, not at cloning time. Preview characters are billed at the selected preview model's rate."
+        ],
+        "columns": [
+          "**API**",
+          "**Description**",
+          "**Price**",
+          "**Notes**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Price**:0",
+          "amount": "1.5",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$1.5 per voice",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-51966e9bb2b809b3320589dc",
+      "provider": "minimax",
+      "native_id": "778918eb8cb384552b422b53",
+      "kind": "document_row",
+      "label": "**Audio points per month**",
+      "scope": {
+        "table": 16,
         "headings": [
           "Pricing Overview",
           "Audio"
@@ -452,13 +691,13 @@
       },
       "billing": {
         "cells": [
-          "**Monthly Subscription**",
-          "\\$5",
-          "\\$30",
-          "\\$99",
-          "\\$249",
-          "\\$999",
-          "/"
+          "**Audio points per month**",
+          "100,000",
+          "300,000",
+          "1,100,000",
+          "3,300,000",
+          "20,000,000",
+          "As many audio points as you need"
         ],
         "columns": [
           "Category",
@@ -468,101 +707,6 @@
           "Scale",
           "Business",
           "Customer Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Starter:0",
-          "amount": "5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$5",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Standard:0",
-          "amount": "30",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$30",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Pro:0",
-          "amount": "99",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$99",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Scale:0",
-          "amount": "249",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$249",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Business:0",
-          "amount": "999",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$999",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-4b101b9b16e1435ae1e6927a",
-      "provider": "minimax",
-      "native_id": "79cb025084b2093745917aa6",
-      "kind": "document_row",
-      "label": "Billing units",
-      "scope": {
-        "table": 17,
-        "headings": [
-          "Pricing Overview",
-          "Payment Methods",
-          "Compare Billing Options"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Billing units",
-          "Varies by model, configuration, and type of usage",
-          "Audio points per month; video points"
-        ],
-        "columns": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -650,112 +794,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-55467e08b5c5266ab984d2a7",
-      "provider": "minimax",
-      "native_id": "a1694a6e268dc1c0c9052200",
-      "kind": "document_row",
-      "label": "**3-month Subscription** (10% off)",
-      "scope": {
-        "table": 15,
-        "headings": [
-          "Pricing Overview",
-          "Audio"
-        ],
-        "tabs": [],
-        "headers": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**3-month Subscription** (10% off)",
-          "\\$13.5",
-          "\\$81",
-          "\\$267",
-          "\\$672",
-          "\\$2,697",
-          "/"
-        ],
-        "columns": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Starter:0",
-          "amount": "13.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$13.5",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Standard:0",
-          "amount": "81",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$81",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Pro:0",
-          "amount": "267",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$267",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Scale:0",
-          "amount": "672",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$672",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Business:0",
-          "amount": "2697",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$2,697",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "minimax-5ab0591e0be3ddf6025ecc7b",
       "provider": "minimax",
       "native_id": "9087e8216737d9082e3dadaa",
@@ -834,128 +872,47 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-5f61f8aaf48312a5da4e8313",
+      "id": "minimax-5dffe3911071711b38aae0e8",
       "provider": "minimax",
-      "native_id": "c3eca0841dba3157d0310aa0",
+      "native_id": "d5afff1e9921b4795a00831f",
       "kind": "document_row",
-      "label": "MiniMax-H3-Lite",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Pricing Overview",
-          "Video",
-          "H3 Series Flagship Models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Text-to-video t2v",
-          "Image-to-video i2v",
-          "First & last frame fl2v",
-          "Reference ref"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "MiniMax-H3-Lite",
-          "Supported",
-          "Supported",
-          "Supported",
-          "Image, video, audio"
-        ],
-        "columns": [
-          "Model",
-          "Text-to-video t2v",
-          "Image-to-video i2v",
-          "First & last frame fl2v",
-          "Reference ref"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-5fea737df074258a329c7b43",
-      "provider": "minimax",
-      "native_id": "c7b3115d5b8b8cca95929e28",
-      "kind": "document_row",
-      "label": "Plan details",
-      "scope": {
-        "table": 18,
-        "headings": [
-          "Pricing Overview",
-          "Package Usage Rules",
-          "Coverage"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Plan details",
-          "[Audio](#packages/speech)",
-          "[Video](#packages/video)"
-        ],
-        "columns": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-65f2c756fac4f730ef8d9c3d",
-      "provider": "minimax",
-      "native_id": "4d31c18c268d36aab766bb62",
-      "kind": "document_row",
-      "label": "**Total video points**",
+      "label": "**Functions**",
       "scope": {
         "table": 16,
         "headings": [
           "Pricing Overview",
-          "Video"
+          "Audio"
         ],
         "tabs": [],
         "headers": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**Total video points**",
-          "3,760 video points",
-          "9,920 video points",
-          "18,900 video points",
-          "26,780 video points",
-          "As many video points as you need"
+          "**Functions**",
+          "• Voice slots: 10 • RPM: 10 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
+          "• Voice slots: 100 • RPM: 50 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
+          "• Voice slots: 250 • RPM: 200 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
+          "• Voice slots: 500 • RPM: 500 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
+          "• Voice slots: 800 • RPM: 800 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
+          "• Unlimited RPM/TPM • Priority access to model updates • More voices and more cloning options • Exclusive security and stability guarantees"
         ],
         "columns": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -965,52 +922,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-67e5971f539ef22c683a2404",
-      "provider": "minimax",
-      "native_id": "6237d62c9523735592984e70",
-      "kind": "document_row",
-      "label": "How you pay",
-      "scope": {
-        "table": 17,
-        "headings": [
-          "Pricing Overview",
-          "Payment Methods",
-          "Compare Billing Options"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "How you pay",
-          "Add funds to your account and pay for what you use",
-          "Purchase an Audio or Video Package"
-        ],
-        "columns": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-76d0ee1c28518620b7d45c42",
+      "id": "minimax-5e7242fe70d365aa3fd7ded7",
       "provider": "minimax",
       "native_id": "6d3bd4f0ff71bf935703cb75",
       "kind": "document_row",
       "label": "**Yearly Subscription** (20% off)",
       "scope": {
-        "table": 15,
+        "table": 16,
         "headings": [
           "Pricing Overview",
           "Audio"
@@ -1110,105 +1028,192 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-7b6b60cbe4712b53e7c88cb9",
+      "id": "minimax-5f61f8aaf48312a5da4e8313",
       "provider": "minimax",
-      "native_id": "8609ae91e4ce821ff7bf5984",
+      "native_id": "c3eca0841dba3157d0310aa0",
       "kind": "document_row",
-      "label": "**Rapid Voice Cloning**",
+      "label": "MiniMax-H3-Lite",
       "scope": {
-        "table": 12,
+        "table": 2,
+        "headings": [
+          "Pricing Overview",
+          "Video",
+          "H3 Series Flagship Models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Text-to-video t2v",
+          "Image-to-video i2v",
+          "First & last frame fl2v",
+          "Reference ref"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "MiniMax-H3-Lite",
+          "Supported",
+          "Supported",
+          "Supported",
+          "Image, video, audio"
+        ],
+        "columns": [
+          "Model",
+          "Text-to-video t2v",
+          "Image-to-video i2v",
+          "First & last frame fl2v",
+          "Reference ref"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-6a3940aa813d5f0e7219b242",
+      "provider": "minimax",
+      "native_id": "ede87f99156fec03da7ca2bc",
+      "kind": "document_row",
+      "label": "Coverage",
+      "scope": {
+        "table": 17,
+        "headings": [
+          "Pricing Overview",
+          "Payment Methods",
+          "Compare Billing Options"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "Coverage",
+          "All MiniMax models and tools",
+          "All speech models"
+        ],
+        "columns": [
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-7a9c2d4f15c2748a848b08b4",
+      "provider": "minimax",
+      "native_id": "b6eac5bf94f67e1107fcc96f",
+      "kind": "document_row",
+      "label": "**Monthly Subscription**",
+      "scope": {
+        "table": 16,
         "headings": [
           "Pricing Overview",
           "Audio"
         ],
         "tabs": [],
         "headers": [
-          "**API**",
-          "**Description**",
-          "**Price**",
-          "**Notes**"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**Rapid Voice Cloning**",
-          "LLM-powered voice cloning that produces a high-fidelity replica in seconds, without long high-quality reference audio.",
-          "\\$1.5 per voice",
-          "Charged when the cloned voice is first used for synthesis, not at cloning time. Preview characters are billed at the selected preview model's rate."
+          "**Monthly Subscription**",
+          "\\$5",
+          "\\$30",
+          "\\$99",
+          "\\$249",
+          "\\$999",
+          "/"
         ],
         "columns": [
-          "**API**",
-          "**Description**",
-          "**Price**",
-          "**Notes**"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "**Price**:0",
-          "amount": "1.5",
+          "dimension": "Starter:0",
+          "amount": "5",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$1.5 per voice",
+            "source_expression": "\\$5",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Standard:0",
+          "amount": "30",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$30",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Pro:0",
+          "amount": "99",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$99",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Scale:0",
+          "amount": "249",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$249",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Business:0",
+          "amount": "999",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$999",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-7cd76ec5bf766718d45a4664",
-      "provider": "minimax",
-      "native_id": "d5afff1e9921b4795a00831f",
-      "kind": "document_row",
-      "label": "**Functions**",
-      "scope": {
-        "table": 15,
-        "headings": [
-          "Pricing Overview",
-          "Audio"
-        ],
-        "tabs": [],
-        "headers": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**Functions**",
-          "• Voice slots: 10 • RPM: 10 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
-          "• Voice slots: 100 • RPM: 50 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
-          "• Voice slots: 250 • RPM: 200 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
-          "• Voice slots: 500 • RPM: 500 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
-          "• Voice slots: 800 • RPM: 800 • Faster speed of generating speech • Supports T2A v2, T2A large v2 API • Supports all speech models",
-          "• Unlimited RPM/TPM • Priority access to model updates • More voices and more cloning options • Exclusive security and stability guarantees"
-        ],
-        "columns": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -1386,72 +1391,103 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-7e995ee8541ffe241a9136bb",
+      "id": "minimax-8508ca350fa96220286b3c47",
       "provider": "minimax",
-      "native_id": "9591e218b89c1b4356b892e9",
+      "native_id": "a1694a6e268dc1c0c9052200",
       "kind": "document_row",
-      "label": "**MiniMax-H3-Image-Highspeed** Highspeed",
+      "label": "**3-month Subscription** (10% off)",
       "scope": {
-        "table": 7,
+        "table": 16,
         "headings": [
           "Pricing Overview",
-          "Image"
+          "Audio"
         ],
         "tabs": [],
         "headers": [
-          "**Model**",
-          "**Input Text** \\$ / M tokens",
-          "**Input Image** \\$ / M tokens",
-          "**Output Image** \\$ / M tokens"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**MiniMax-H3-Image-Highspeed** Highspeed",
-          "\\$2.30",
-          "\\$3.00",
-          "\\$7.60"
+          "**3-month Subscription** (10% off)",
+          "\\$13.5",
+          "\\$81",
+          "\\$267",
+          "\\$672",
+          "\\$2,697",
+          "/"
         ],
         "columns": [
-          "**Model**",
-          "**Input Text** \\$ / M tokens",
-          "**Input Image** \\$ / M tokens",
-          "**Output Image** \\$ / M tokens"
+          "Category",
+          "Starter",
+          "Standard",
+          "Pro",
+          "Scale",
+          "Business",
+          "Customer Pricing"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "**Input Text** \\$ / M tokens:0",
-          "amount": "2.3",
+          "dimension": "Starter:0",
+          "amount": "13.5",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$2.30",
+            "source_expression": "\\$13.5",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
-          "dimension": "**Input Image** \\$ / M tokens:0",
-          "amount": "3",
+          "dimension": "Standard:0",
+          "amount": "81",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$3.00",
+            "source_expression": "\\$81",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
         },
         {
-          "dimension": "**Output Image** \\$ / M tokens:0",
-          "amount": "7.6",
+          "dimension": "Pro:0",
+          "amount": "267",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$7.60",
+            "source_expression": "\\$267",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Scale:0",
+          "amount": "672",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$672",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Business:0",
+          "amount": "2697",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$2,697",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -1506,97 +1542,36 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-8f6bac7c6adecf6d95f2f007",
+      "id": "minimax-8c315c9ce8746ae0518313a2",
       "provider": "minimax",
-      "native_id": "d4c13057b42d6ef381b18782",
+      "native_id": "edfd262c89ec403f5a0b8b84",
       "kind": "document_row",
-      "label": "**T2A Async**",
+      "label": "Get started",
       "scope": {
-        "table": 11,
+        "table": 17,
         "headings": [
           "Pricing Overview",
-          "Audio"
+          "Payment Methods",
+          "Compare Billing Options"
         ],
         "tabs": [],
         "headers": [
-          "**API**",
-          "**Model**",
-          "**Description**",
-          "**Price**"
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**T2A Async**",
-          "speech-2.8-hd",
-          "Asynchronous long-form synthesis, up to 1M characters per request, retrieved asynchronously.",
-          "\\$100 / M characters"
+          "Get started",
+          "[Recharge Now](https://platform.minimax.io/user-center/payment/balance)",
+          "[View Audio Packages](#packages/speech)"
         ],
         "columns": [
-          "**API**",
-          "**Model**",
-          "**Description**",
-          "**Price**"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "**Price**:0",
-          "amount": "100",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$100 / M characters",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-90722a96f1459a979e9516e0",
-      "provider": "minimax",
-      "native_id": "c27b83b73b0e774315314499",
-      "kind": "document_row",
-      "label": "**Functions**",
-      "scope": {
-        "table": 16,
-        "headings": [
-          "Pricing Overview",
-          "Video"
-        ],
-        "tabs": [],
-        "headers": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**Functions**",
-          "• Supports Video Generation API • RPM: 20",
-          "• Supports Video Generation API • RPM: 30",
-          "• Supports Video Generation API • RPM: 40",
-          "• Supports Video Generation API • RPM: 50",
-          "• Unlimited RPM/TPM • Priority access to model updates • Exclusive security and stability guarantees"
-        ],
-        "columns": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -1606,50 +1581,83 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-951cad674ccbd0d4f37e57d7",
+      "id": "minimax-946df6310130ed13d2e1a7c6",
       "provider": "minimax",
-      "native_id": "70fecb407a912494d4d68546",
+      "native_id": "b0b924b933b2c0c5574b5fd5",
       "kind": "document_row",
-      "label": "Speech Recognition",
+      "label": "Supported models",
       "scope": {
-        "table": 10,
+        "table": 18,
         "headings": [
           "Pricing Overview",
-          "Audio"
+          "Package Usage Rules",
+          "Coverage"
         ],
         "tabs": [],
         "headers": [
-          "**API**",
-          "**Endpoint**",
-          "**Description**",
-          "**Price**"
+          "Feature",
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "Speech Recognition",
-          "Speech-to-Text",
-          "Audio-to-text transcription with streaming, speaker diarization, and subtitle (srt/vtt) export.",
-          "\\$0.38 / hour"
+          "Supported models",
+          "All speech models"
         ],
         "columns": [
-          "**API**",
-          "**Endpoint**",
-          "**Description**",
-          "**Price**"
+          "Feature",
+          "Audio Packages"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-96230fec626c0b81cf17c8da",
+      "provider": "minimax",
+      "native_id": "c745baada44e2c0be9916f1c",
+      "kind": "document_row",
+      "label": "**web\\_search**",
+      "scope": {
+        "table": 15,
+        "headings": [
+          "Pricing Overview",
+          "Server Tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Server Tool",
+          "Description",
+          "Price"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**web\\_search**",
+          "Web search; the model runs the search on the server and answers based on the results. See [Server Tools](https://platform.minimax.io/docs/guides/server-tools.md).",
+          "\\$0.01 / request"
+        ],
+        "columns": [
+          "Server Tool",
+          "Description",
+          "Price"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [
         {
-          "dimension": "**Price**:0",
-          "amount": "0.38",
+          "dimension": "Price:0",
+          "amount": "0.01",
           "currency": "USD",
-          "unit": "/ hour",
+          "unit": "/ request",
           "conditions": {
-            "source_expression": "\\$0.38 / hour",
+            "source_expression": "\\$0.01 / request",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -1659,9 +1667,9 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-9cd6867c4b9bc6774781a32a",
+      "id": "minimax-99d44dbd4c1df7a27006382a",
       "provider": "minimax",
-      "native_id": "2a168bf5c729c86b2d03780c",
+      "native_id": "f523a617edcbd23aefb9e3ad",
       "kind": "document_row",
       "label": "Use cases",
       "scope": {
@@ -1675,7 +1683,7 @@
         "headers": [
           "Feature",
           "Pay-as-you-go",
-          "Packages"
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
@@ -1683,12 +1691,12 @@
         "cells": [
           "Use cases",
           "Use any MiniMax model or tool and pay for what you use, with the flexibility to support a wide range of business needs and API workloads.",
-          "For speech or video workloads where you expect to make good use of the included points."
+          "For speech workloads where you expect to use the included audio points."
         ],
         "columns": [
           "Feature",
           "Pay-as-you-go",
-          "Packages"
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -1777,127 +1785,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-9db3675e713154eb2182d601",
+      "id": "minimax-a14c27a39c902e4ae56ce36b",
       "provider": "minimax",
-      "native_id": "82114d24a857ef5bb3a6b7ac",
+      "native_id": "70fecb407a912494d4d68546",
       "kind": "document_row",
-      "label": "**MiniMax-H3-Image** Standard",
+      "label": "Speech Recognition",
       "scope": {
-        "table": 7,
-        "headings": [
-          "Pricing Overview",
-          "Image"
-        ],
-        "tabs": [],
-        "headers": [
-          "**Model**",
-          "**Input Text** \\$ / M tokens",
-          "**Input Image** \\$ / M tokens",
-          "**Output Image** \\$ / M tokens"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**MiniMax-H3-Image** Standard",
-          "\\$2.30",
-          "\\$1.50",
-          "\\$3.80"
-        ],
-        "columns": [
-          "**Model**",
-          "**Input Text** \\$ / M tokens",
-          "**Input Image** \\$ / M tokens",
-          "**Output Image** \\$ / M tokens"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "**Input Text** \\$ / M tokens:0",
-          "amount": "2.3",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$2.30",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "**Input Image** \\$ / M tokens:0",
-          "amount": "1.5",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$1.50",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "**Output Image** \\$ / M tokens:0",
-          "amount": "3.8",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$3.80",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-a4e1700a8d5bf355eb33d5fa",
-      "provider": "minimax",
-      "native_id": "fdc5f4fa78c900b2689a7f46",
-      "kind": "document_row",
-      "label": "Supported models",
-      "scope": {
-        "table": 18,
-        "headings": [
-          "Pricing Overview",
-          "Package Usage Rules",
-          "Coverage"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Supported models",
-          "All speech models",
-          "Hailuo video models; MiniMax H3 is not supported yet"
-        ],
-        "columns": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-a597fcfadb3550c046fb338e",
-      "provider": "minimax",
-      "native_id": "c085f96804c4c3e7385647ac",
-      "kind": "document_row",
-      "label": "**Voice Design**",
-      "scope": {
-        "table": 12,
+        "table": 11,
         "headings": [
           "Pricing Overview",
           "Audio"
@@ -1905,24 +1799,24 @@
         "tabs": [],
         "headers": [
           "**API**",
+          "**Endpoint**",
           "**Description**",
-          "**Price**",
-          "**Notes**"
+          "**Price**"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**Voice Design**",
-          "Generate a voice (voice\\_id) from a natural-language description; usable in both sync and async T2A endpoints.",
-          "\\$3 per voice",
-          "Charged when the designed voice is first used for synthesis, not at generation time. In-API preview synthesis is billed at \\$60 / M characters."
+          "Speech Recognition",
+          "Speech-to-Text",
+          "Audio-to-text transcription with streaming, speaker diarization, and subtitle (srt/vtt) export.",
+          "\\$0.38 / hour"
         ],
         "columns": [
           "**API**",
+          "**Endpoint**",
           "**Description**",
-          "**Price**",
-          "**Notes**"
+          "**Price**"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -1930,23 +1824,12 @@
       "rates": [
         {
           "dimension": "**Price**:0",
-          "amount": "3",
+          "amount": "0.38",
           "currency": "USD",
-          "unit": null,
+          "unit": "/ hour",
           "conditions": {
-            "source_expression": "\\$3 per voice",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "**Notes**:0",
-          "amount": "60",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "Charged when the designed voice is first used for synthesis, not at generation time. In-API preview synthesis is billed at \\$60 / M characters.",
-            "unit_verified": false,
+            "source_expression": "\\$0.38 / hour",
+            "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
@@ -2111,44 +1994,189 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-aa38c5be77177d589f0fb898",
+      "id": "minimax-abe14a837b1282a0b984c6bb",
       "provider": "minimax",
-      "native_id": "ff341aa6ea32a8a92632eb8f",
+      "native_id": "59cb663315b60a300ea531b3",
       "kind": "document_row",
-      "label": "**Valid**",
+      "label": "**T2A Async**",
       "scope": {
-        "table": 16,
+        "table": 12,
         "headings": [
           "Pricing Overview",
-          "Video"
+          "Audio"
         ],
         "tabs": [],
         "headers": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
+          "**API**",
+          "**Model**",
+          "**Description**",
+          "**Price**"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "**Valid**",
-          "1 month",
-          "1 month",
-          "1 month",
-          "1 month",
-          "-"
+          "**T2A Async**",
+          "speech-2.8-turbo",
+          "Same capabilities as hd, optimized for speed and cost.",
+          "\\$60 / M characters"
         ],
         "columns": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
+          "**API**",
+          "**Model**",
+          "**Description**",
+          "**Price**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Price**:0",
+          "amount": "60",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$60 / M characters",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-b0a5c19aa977792418a66561",
+      "provider": "minimax",
+      "native_id": "c085f96804c4c3e7385647ac",
+      "kind": "document_row",
+      "label": "**Voice Design**",
+      "scope": {
+        "table": 13,
+        "headings": [
+          "Pricing Overview",
+          "Audio"
+        ],
+        "tabs": [],
+        "headers": [
+          "**API**",
+          "**Description**",
+          "**Price**",
+          "**Notes**"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**Voice Design**",
+          "Generate a voice (voice\\_id) from a natural-language description; usable in both sync and async T2A endpoints.",
+          "\\$3 per voice",
+          "Charged when the designed voice is first used for synthesis, not at generation time. In-API preview synthesis is billed at \\$60 / M characters."
+        ],
+        "columns": [
+          "**API**",
+          "**Description**",
+          "**Price**",
+          "**Notes**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Price**:0",
+          "amount": "3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$3 per voice",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "**Notes**:0",
+          "amount": "60",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "Charged when the designed voice is first used for synthesis, not at generation time. In-API preview synthesis is billed at \\$60 / M characters.",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-b7429ab0730fbe44b16b3077",
+      "provider": "minimax",
+      "native_id": "b64b80b464cce0480b3787bb",
+      "kind": "document_row",
+      "label": "Billing units",
+      "scope": {
+        "table": 17,
+        "headings": [
+          "Pricing Overview",
+          "Payment Methods",
+          "Compare Billing Options"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "Billing units",
+          "Varies by model, configuration, and type of usage",
+          "Audio points per month"
+        ],
+        "columns": [
+          "Feature",
+          "Pay-as-you-go",
+          "Audio Packages"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-b8a324739cdb4d251eef0797",
+      "provider": "minimax",
+      "native_id": "c91fd76e85abea7f001ccdbe",
+      "kind": "document_row",
+      "label": "Supported APIs",
+      "scope": {
+        "table": 18,
+        "headings": [
+          "Pricing Overview",
+          "Package Usage Rules",
+          "Coverage"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Audio Packages"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "Supported APIs",
+          "T2A v2 and T2A large v2"
+        ],
+        "columns": [
+          "Feature",
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -2307,6 +2335,106 @@
           "unit": "per image",
           "conditions": {
             "source_expression": "\\$0.03",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-bddc8f19e85a11532faae4a7",
+      "provider": "minimax",
+      "native_id": "d4c13057b42d6ef381b18782",
+      "kind": "document_row",
+      "label": "**T2A Async**",
+      "scope": {
+        "table": 12,
+        "headings": [
+          "Pricing Overview",
+          "Audio"
+        ],
+        "tabs": [],
+        "headers": [
+          "**API**",
+          "**Model**",
+          "**Description**",
+          "**Price**"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**T2A Async**",
+          "speech-2.8-hd",
+          "Asynchronous long-form synthesis, up to 1M characters per request, retrieved asynchronously.",
+          "\\$100 / M characters"
+        ],
+        "columns": [
+          "**API**",
+          "**Model**",
+          "**Description**",
+          "**Price**"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "**Price**:0",
+          "amount": "100",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "\\$100 / M characters",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "minimax-be78d1285f6441490d7d2d00",
+      "provider": "minimax",
+      "native_id": "06a2752935c951aa842d869d",
+      "kind": "document_row",
+      "label": "**API-vlm**",
+      "scope": {
+        "table": 14,
+        "headings": [
+          "Pricing Overview",
+          "MCP"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Input Price"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "**API-vlm**",
+          "\\$0.01 / request"
+        ],
+        "columns": [
+          "Model",
+          "Input Price"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input Price:0",
+          "amount": "0.01",
+          "currency": "USD",
+          "unit": "/ request",
+          "conditions": {
+            "source_expression": "\\$0.01 / request",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -2489,58 +2617,11 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-c186c4ff1b9c0b214986bc54",
+      "id": "minimax-c1e563378770c3ccf257d479",
       "provider": "minimax",
-      "native_id": "06a2752935c951aa842d869d",
+      "native_id": "77adef851d877d839f30a4a1",
       "kind": "document_row",
-      "label": "**API-vlm**",
-      "scope": {
-        "table": 13,
-        "headings": [
-          "Pricing Overview",
-          "MCP"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input Price"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**API-vlm**",
-          "\\$0.01 / request"
-        ],
-        "columns": [
-          "Model",
-          "Input Price"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input Price:0",
-          "amount": "0.01",
-          "currency": "USD",
-          "unit": "/ request",
-          "conditions": {
-            "source_expression": "\\$0.01 / request",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-c6853b748c775cbd96679af5",
-      "provider": "minimax",
-      "native_id": "153b6bd2ccf50ad12b0c302d",
-      "kind": "document_row",
-      "label": "Get started",
+      "label": "How you pay",
       "scope": {
         "table": 17,
         "headings": [
@@ -2552,20 +2633,20 @@
         "headers": [
           "Feature",
           "Pay-as-you-go",
-          "Packages"
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "Get started",
-          "[Recharge Now](https://platform.minimax.io/user-center/payment/balance)",
-          "[View Audio](#packages/speech) · [View Video](#packages/video)"
+          "How you pay",
+          "Add funds to your account and pay for what you use",
+          "Purchase an Audio Package"
         ],
         "columns": [
           "Feature",
           "Pay-as-you-go",
-          "Packages"
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -2575,13 +2656,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-c87629a3c6a04ad1dcfde488",
+      "id": "minimax-c585aef7ffc7ab6bf5ce598b",
       "provider": "minimax",
-      "native_id": "902a8e6994ca81b4c8d369e1",
+      "native_id": "407220ad85d3de361b2662c4",
       "kind": "document_row",
       "label": "**T2A** (Sync)",
       "scope": {
-        "table": 11,
+        "table": 12,
         "headings": [
           "Pricing Overview",
           "Audio"
@@ -2598,59 +2679,6 @@
       "billing": {
         "cells": [
           "**T2A** (Sync)",
-          "speech-2.8-hd",
-          "Real-time synthesis with volume/pitch/speed/mixing controls and bitrate/sample-rate options. Best for short-form conversational audio.",
-          "\\$100 / M characters"
-        ],
-        "columns": [
-          "**API**",
-          "**Model**",
-          "**Description**",
-          "**Price**"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "**Price**:0",
-          "amount": "100",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$100 / M characters",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-c89ec60dafc816ded5c0d7f1",
-      "provider": "minimax",
-      "native_id": "59cb663315b60a300ea531b3",
-      "kind": "document_row",
-      "label": "**T2A Async**",
-      "scope": {
-        "table": 11,
-        "headings": [
-          "Pricing Overview",
-          "Audio"
-        ],
-        "tabs": [],
-        "headers": [
-          "**API**",
-          "**Model**",
-          "**Description**",
-          "**Price**"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**T2A Async**",
           "speech-2.8-turbo",
           "Same capabilities as hd, optimized for speed and cost.",
           "\\$60 / M characters"
@@ -2899,98 +2927,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-d62f4b7603a1fdc57da626ba",
-      "provider": "minimax",
-      "native_id": "3235be23f1d3e3ab6a4a5c6a",
-      "kind": "document_row",
-      "label": "**Discounted Price**",
-      "scope": {
-        "table": 16,
-        "headings": [
-          "Pricing Overview",
-          "Video"
-        ],
-        "tabs": [],
-        "headers": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**Discounted Price**",
-          "\\$1,000",
-          "\\$2,500",
-          "\\$4,500",
-          "\\$6,000",
-          "-"
-        ],
-        "columns": [
-          "Package Category",
-          "Standard (SAVE 5%)",
-          "Pro (SAVE 10%)",
-          "Scale (SAVE 15%)",
-          "Business (SAVE 20%)",
-          "Custom Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Standard (SAVE 5%):0",
-          "amount": "1000",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$1,000",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Pro (SAVE 10%):0",
-          "amount": "2500",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$2,500",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Scale (SAVE 15%):0",
-          "amount": "4500",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$4,500",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Business (SAVE 20%):0",
-          "amount": "6000",
-          "currency": "USD",
-          "unit": null,
-          "conditions": {
-            "source_expression": "\\$6,000",
-            "unit_verified": false,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "minimax-d7ec64238b6ac799da4ca747",
       "provider": "minimax",
       "native_id": "5ceb92520f38189fdaaeb6c5",
@@ -3164,6 +3100,42 @@
       "comparison_eligible": false
     },
     {
+      "id": "minimax-dab1d0d3aee0ab0d2ff6e4ec",
+      "provider": "minimax",
+      "native_id": "5da12b018c39645495046956",
+      "kind": "document_row",
+      "label": "Included points",
+      "scope": {
+        "table": 18,
+        "headings": [
+          "Pricing Overview",
+          "Package Usage Rules",
+          "Coverage"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Audio Packages"
+        ],
+        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
+      },
+      "billing": {
+        "cells": [
+          "Included points",
+          "Audio points per month"
+        ],
+        "columns": [
+          "Feature",
+          "Audio Packages"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "minimax-dcdf0f870e08b22b4200bc7f",
       "provider": "minimax",
       "native_id": "55217849d6dad39ba5510a53",
@@ -3222,56 +3194,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-de10184970539abd594d5876",
-      "provider": "minimax",
-      "native_id": "778918eb8cb384552b422b53",
-      "kind": "document_row",
-      "label": "**Audio points per month**",
-      "scope": {
-        "table": 15,
-        "headings": [
-          "Pricing Overview",
-          "Audio"
-        ],
-        "tabs": [],
-        "headers": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "**Audio points per month**",
-          "100,000",
-          "300,000",
-          "1,100,000",
-          "3,300,000",
-          "20,000,000",
-          "As many audio points as you need"
-        ],
-        "columns": [
-          "Category",
-          "Starter",
-          "Standard",
-          "Pro",
-          "Scale",
-          "Business",
-          "Customer Pricing"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -3355,11 +3277,11 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-ea525aa8e025452c6c90b729",
+      "id": "minimax-e8500ea9af420a409eda82f3",
       "provider": "minimax",
-      "native_id": "949823af49b17a85ef9d98fd",
+      "native_id": "ec97cb3b620a25e3692b3a7f",
       "kind": "document_row",
-      "label": "Supported APIs",
+      "label": "Plan details",
       "scope": {
         "table": 18,
         "headings": [
@@ -3370,60 +3292,18 @@
         "tabs": [],
         "headers": [
           "Feature",
-          "Audio",
-          "Video"
+          "Audio Packages"
         ],
         "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
       },
       "billing": {
         "cells": [
-          "Supported APIs",
-          "T2A v2 and T2A large v2",
-          "Video Generation API"
+          "Plan details",
+          "[Audio Packages](#packages/speech)"
         ],
         "columns": [
           "Feature",
-          "Audio",
-          "Video"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-ec67d5702322570cc6238f83",
-      "provider": "minimax",
-      "native_id": "264bcb8e73c1c2a503fb158f",
-      "kind": "document_row",
-      "label": "Package duration",
-      "scope": {
-        "table": 18,
-        "headings": [
-          "Pricing Overview",
-          "Package Usage Rules",
-          "Coverage"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Package duration",
-          "1 month, 3 months (10% off), or 1 year (20% off)",
-          "1 month for all four standard packages"
-        ],
-        "columns": [
-          "Feature",
-          "Audio",
-          "Video"
+          "Audio Packages"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -3606,52 +3486,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "minimax-f32e893f26f72b0030350315",
+      "id": "minimax-f2a666ea076a2b8184de5508",
       "provider": "minimax",
-      "native_id": "c3360a6b4f621ba4c8717e33",
-      "kind": "document_row",
-      "label": "Included points",
-      "scope": {
-        "table": 18,
-        "headings": [
-          "Pricing Overview",
-          "Package Usage Rules",
-          "Coverage"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Included points",
-          "Audio points per month",
-          "Video points"
-        ],
-        "columns": [
-          "Feature",
-          "Audio",
-          "Video"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "minimax-f401eaac391eb23f140dba7e",
-      "provider": "minimax",
-      "native_id": "407220ad85d3de361b2662c4",
+      "native_id": "902a8e6994ca81b4c8d369e1",
       "kind": "document_row",
       "label": "**T2A** (Sync)",
       "scope": {
-        "table": 11,
+        "table": 12,
         "headings": [
           "Pricing Overview",
           "Audio"
@@ -3668,9 +3509,9 @@
       "billing": {
         "cells": [
           "**T2A** (Sync)",
-          "speech-2.8-turbo",
-          "Same capabilities as hd, optimized for speed and cost.",
-          "\\$60 / M characters"
+          "speech-2.8-hd",
+          "Real-time synthesis with volume/pitch/speed/mixing controls and bitrate/sample-rate options. Best for short-form conversational audio.",
+          "\\$100 / M characters"
         ],
         "columns": [
           "**API**",
@@ -3684,11 +3525,11 @@
       "rates": [
         {
           "dimension": "**Price**:0",
-          "amount": "60",
+          "amount": "100",
           "currency": "USD",
           "unit": null,
           "conditions": {
-            "source_expression": "\\$60 / M characters",
+            "source_expression": "\\$100 / M characters",
             "unit_verified": false,
             "active_rate_not_inferred": true
           }
@@ -3696,50 +3537,10 @@
       ],
       "metadata": {},
       "comparison_eligible": false
-    },
-    {
-      "id": "minimax-f781c101a82a46e5534344e5",
-      "provider": "minimax",
-      "native_id": "fd1abb42d5bcdfc80d4dd4ce",
-      "kind": "document_row",
-      "label": "Coverage",
-      "scope": {
-        "table": 17,
-        "headings": [
-          "Pricing Overview",
-          "Payment Methods",
-          "Compare Billing Options"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
-        ],
-        "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md"
-      },
-      "billing": {
-        "cells": [
-          "Coverage",
-          "All MiniMax models and tools",
-          "All speech models; Hailuo video models"
-        ],
-        "columns": [
-          "Feature",
-          "Pay-as-you-go",
-          "Packages"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
     }
   ],
   "billing_notes": [
     "International pay-as-you-go API prices across published modalities. Subscription/Token Plans and Chinese-region billing are separate products; discounts and prompt bands remain native expressions.",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: * **Audio points:** Starter, Standard, Pro, Scale, and Business each include a monthly allowance of audio points. The allowance varies by plan. See the [Audio package pricing table](#packages/speech) for included points, voice slots, and rate limits.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: * **Billing units:** Depending on the service, charges are based on tokens, characters, duration, images, voices, or requests. See the relevant pricing table for the exact unit.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: * **Image input**: The first **5 images** per task are free; additional images are billed per image. The unit price does not vary with image or output video resolution.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: * **MiniMax-H3-Max**: The first **2 images** per task are free; additional images are billed per image. Input video is billed by duration at the output resolution. Audio input is free.",
@@ -3763,14 +3564,12 @@
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > $0.06069",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > 1. The billing item is token count; the token-to-character ratio varies slightly depending on the usage scenario, subject to actual consumption",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > 2. Token to English word ratio (estimate): approximately 750 English words consume 1000 tokens",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Actual charges are based on Token usage. Text Token usage may vary, so costs do not necessarily increase with resolution.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Billing Guides",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > For each billing item, multiply actual usage by the applicable unit price. First, convert usage to the unit listed in the pricing table. For example, if a price is listed per million tokens, divide the token count by 1,000,000 before multiplying by the price. If a request includes multiple billing items, add their costs together.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > H3 video output and input media are billed separately. Images beyond the free allowance incur an additional charge. Input video is billed based on its duration and the output resolution. If you regenerate a video, the input media from the original task is billed again. See the video pricing tables for the applicable rates.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Model Pricing",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Priority gives your requests priority access for faster responses and improved reliability. It costs 1.5 times the Standard rate. To enable it, set `service_tier` to `priority`. See the LLM pricing tables for the rates that apply to each input length.",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Promotional prices are calculated by multiplying the unrounded total task cost by 0.5, then rounding to 5 decimal places.",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Some 1K/2K example amounts have been adjusted for presentation and do not represent the original measured costs for the listed output specifications. The costs above are rounded to 5 decimal places and are provided for reference only; they do not represent fixed per-image prices or average costs.",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: > The amounts above are illustrative estimates for generating a single image; even with the same input and output resolutions, actual costs may vary depending on the number of text input tokens in each request. Text input tokens include those generated by prompt enhancement.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Tool Pricing",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > Visit the [Recharge page](https://platform.minimax.io/user-center/payment/balance) to add funds to your account for pay-as-you-go API usage. View usage and charges on the [API Usage page](https://platform.minimax.io/console/consumption-detail).",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > [Pay-as-you-go Billing](#guides/billing)",
@@ -3814,13 +3613,14 @@
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > ~~$0.13673~~ **$0.06837**\\\\",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: > ~~$0.15407~~ **$0.07703**\\\\",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: Billing Guides",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Explore MiniMax model and tool pricing, choose an Audio or Video Package, or learn about billing.",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Find answers to common questions about pay-as-you-go billing, Audio and Video Packages. See the relevant pricing tables for exact prices and included features.",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: MiniMax offers pay-as-you-go billing, Audio and Video Packages. Choose a billing option based on the models you use, how much you expect to use them, and for how long.",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Explore MiniMax model and tool pricing, choose an Audio Package, or learn about billing.",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Find answers to common questions about pay-as-you-go billing and Audio Packages. See the relevant pricing tables for exact prices and included features.",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: MiniMax offers pay-as-you-go billing and Audio Packages. Choose a billing option based on the models you use, how much you expect to use them, and for how long.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: Model Pricing",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: See Model Pricing and Tool Pricing for individual rates. Audio and Video Packages are also available for supported models. To compare these options, see [Payment Methods](#guides/compare).",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: See Model Pricing and Tool Pricing for individual rates. Audio Packages are also available for speech models. To compare these options, see [Payment Methods](#guides/compare).",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: See the [Audio package pricing table](#packages/speech) for available terms, monthly audio points, rate limits, and other plan features.",
+    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Starter, Standard, Pro, Scale, and Business each include a monthly allowance of audio points. The allowance varies by plan. See the [Audio package pricing table](#packages/speech) for included points, voice slots, and rate limits.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: Tool Pricing",
-    "https://platform.minimax.io/docs/guides/pricing-paygo.md: Unused video points expire with the package and do not roll over. Your video point balance resets to zero when the package expires. For Audio packages, see the pricing table for available terms, monthly audio points, and plan features. Rate limits and other included features are listed in the relevant pricing tables.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: When API-vlm is called through M Plan, usage deducts from the included M Plan quota according to its pay-as-you-go price. If the included quota is exhausted and purchased Credits are available, additional usage can be automatically covered by purchased Credits.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: With pay-as-you-go billing, you use standard Open Platform API keys and pay from your account balance based on usage. All prices are in USD.",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: [Pay-as-you-go Billing](#guides/billing)",
@@ -3829,20 +3629,20 @@
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: per image\\",
     "https://platform.minimax.io/docs/guides/pricing-paygo.md: per second"
   ],
-  "catalog_sha256": "41fa06502435e0f46114bb66ebf1f9db6c005d947f4873777fe17adab64b764b",
-  "revision": 14,
-  "changed_at": "2026-11-10T14:54:12Z",
+  "catalog_sha256": "8ed1daabdbb52df3738a0d0637771234a9e056df9454ae96c4d1eabd48d20f86",
+  "revision": 15,
+  "changed_at": "2026-11-11T14:23:43Z",
   "source_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md",
   "source_urls": [
     "https://platform.minimax.io/docs/guides/pricing-paygo.md"
   ],
-  "source_sha256": "571c266ff659ebb2574bcd57bcdfa2e1d56dcfc1dc2b0203066602fa53ffc537",
+  "source_sha256": "59c5ffae76990becc0328bf17add097910b4ca8c1e504cc2eada8a600207dc4b",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://platform.minimax.io/docs/guides/pricing-paygo.md",
     "url": "https://web.archive.org/web/20261014072929/https://platform.minimax.io/docs/guides/pricing-paygo.md",
     "capture_at": "2026-10-14T07:29:29Z",
-    "checked_at": "2026-11-10T14:54:12Z",
+    "checked_at": "2026-11-11T14:23:43Z",
     "verification": null
   }
 }

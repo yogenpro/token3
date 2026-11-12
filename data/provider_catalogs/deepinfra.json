@@ -4674,7 +4674,7 @@
         "rules": {
           "discount": null,
           "discount_ends_at": null,
-          "short": "$0.08 / second",
+          "short": "from $0.04 / second",
           "full": "$0.04 / second for 720p, $0.08 / second for 1080p, $0.16 / second for 1440p, $0.32 / second for 4K",
           "table": {
             "columns": [
@@ -4701,13 +4701,13 @@
             ]
           },
           "type": "output_length",
-          "cents_per_output_sec": 8.0
+          "cents_per_output_sec": 4.0
         }
       },
       "rates": [
         {
           "dimension": "cents_per_output_sec",
-          "amount": "0.08",
+          "amount": "0.04",
           "currency": "USD",
           "unit": "output second",
           "conditions": {
@@ -7425,6 +7425,58 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-5f56fe150427a3859ff701cc",
+      "provider": "deepinfra",
+      "native_id": "Lightricks/LTX-Reframe",
+      "kind": "model",
+      "label": "Lightricks/LTX-Reframe",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "from $0.10 / second",
+          "full": "$0.10 / second of input video at 720p output, $0.20 at 1080p output",
+          "table": {
+            "columns": [
+              "output resolution",
+              "$ cost per second"
+            ],
+            "rows": [
+              [
+                "720p",
+                "$0.10"
+              ],
+              [
+                "1080p",
+                "$0.20"
+              ]
+            ]
+          },
+          "type": "output_length",
+          "cents_per_output_sec": 10.0
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_output_sec",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "output second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-video",
+        "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-5fe170ff31c740095915bad2",
       "provider": "deepinfra",
       "native_id": "deepseek-ai/DeepSeek-V3.2-Exp",
@@ -8802,6 +8854,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-755f3b040717a77c4dcdbc13",
+      "provider": "deepinfra",
+      "native_id": "Lightricks/LTX-Upscale",
+      "kind": "model",
+      "label": "Lightricks/LTX-Upscale",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "from $0.08 / second",
+          "full": "$0.08 / second of input video to 1080p, $0.30 to 4K, $1.20 to 8K",
+          "table": {
+            "columns": [
+              "output resolution",
+              "$ cost per second"
+            ],
+            "rows": [
+              [
+                "1080p",
+                "$0.08"
+              ],
+              [
+                "4K",
+                "$0.30"
+              ],
+              [
+                "8K",
+                "$1.20"
+              ]
+            ]
+          },
+          "type": "output_length",
+          "cents_per_output_sec": 8.0
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_output_sec",
+          "amount": "0.08",
+          "currency": "USD",
+          "unit": "output second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-video",
+        "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-757a9c9f2babfe3c0976442c",
       "provider": "deepinfra",
       "native_id": "zai-org/GLM-4.7-Flash",
@@ -9149,6 +9257,62 @@
       "metadata": {
         "type": "text-generation",
         "max_tokens": 1000000,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "deepinfra-800b8e2b3844df1810a6d359",
+      "provider": "deepinfra",
+      "native_id": "Lightricks/LTX-HDR",
+      "kind": "model",
+      "label": "Lightricks/LTX-HDR",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "from $0.20 / second",
+          "full": "$0.20 / second of input video up to 1080p, $0.40 up to 1440p, $0.80 up to 4K",
+          "table": {
+            "columns": [
+              "input resolution",
+              "$ cost per second"
+            ],
+            "rows": [
+              [
+                "up to 1080p",
+                "$0.20"
+              ],
+              [
+                "up to 1440p",
+                "$0.40"
+              ],
+              [
+                "up to 4K",
+                "$0.80"
+              ]
+            ]
+          },
+          "type": "output_length",
+          "cents_per_output_sec": 20.0
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_output_sec",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "output second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-video",
+        "max_tokens": null,
         "quantization": null
       },
       "comparison_eligible": false
@@ -14838,7 +15002,7 @@
         "rules": {
           "discount": null,
           "discount_ends_at": null,
-          "short": "$0.17 / second",
+          "short": "from $0.12 / second",
           "full": "$0.12 / second for 720p, $0.17 / second for 1080p, $0.25 / second for 1440p, $0.39 / second for 4K",
           "table": {
             "columns": [
@@ -14865,13 +15029,13 @@
             ]
           },
           "type": "output_length",
-          "cents_per_output_sec": 17.0
+          "cents_per_output_sec": 12.0
         }
       },
       "rates": [
         {
           "dimension": "cents_per_output_sec",
-          "amount": "0.17",
+          "amount": "0.12",
           "currency": "USD",
           "unit": "output second",
           "conditions": {
@@ -16417,6 +16581,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-d63fabbfaae401533058c8bf",
+      "provider": "deepinfra",
+      "native_id": "Lightricks/LTX-AlphaGen",
+      "kind": "model",
+      "label": "Lightricks/LTX-AlphaGen",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": "from $0.25 / second",
+          "full": "$0.25 / second of input video up to 1080p (short side), $0.50 up to 1440p, $1.00 up to 4K",
+          "table": {
+            "columns": [
+              "input short side",
+              "$ cost per second"
+            ],
+            "rows": [
+              [
+                "up to 1080",
+                "$0.25"
+              ],
+              [
+                "up to 1440",
+                "$0.50"
+              ],
+              [
+                "up to 2160",
+                "$1.00"
+              ]
+            ]
+          },
+          "type": "output_length",
+          "cents_per_output_sec": 25.0
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_output_sec",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "output second",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-to-video",
+        "max_tokens": null,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-d6fda279a75131af69bf6e99",
       "provider": "deepinfra",
       "native_id": "nvidia/llama-nemotron-embed-vl-1b-v2",
@@ -16987,7 +17207,7 @@
         "rules": {
           "discount": null,
           "discount_ends_at": null,
-          "short": "$0.13 / second",
+          "short": "from $0.09 / second",
           "full": "$0.09 / second for 720p, $0.13 / second for 1080p, $0.19 / second for 1440p, $0.30 / second for 4K",
           "table": {
             "columns": [
@@ -17014,13 +17234,13 @@
             ]
           },
           "type": "output_length",
-          "cents_per_output_sec": 13.0
+          "cents_per_output_sec": 9.0
         }
       },
       "rates": [
         {
           "dimension": "cents_per_output_sec",
-          "amount": "0.13",
+          "amount": "0.09",
           "currency": "USD",
           "unit": "output second",
           "conditions": {
@@ -17663,7 +17883,7 @@
         "rules": {
           "discount": null,
           "discount_ends_at": null,
-          "short": "$0.06 / second",
+          "short": "from $0.03 / second",
           "full": "$0.03 / second for 720p, $0.06 / second for 1080p, $0.12 / second for 1440p, $0.24 / second for 4K",
           "table": {
             "columns": [
@@ -17690,13 +17910,13 @@
             ]
           },
           "type": "output_length",
-          "cents_per_output_sec": 6.0
+          "cents_per_output_sec": 3.0
         }
       },
       "rates": [
         {
           "dimension": "cents_per_output_sec",
-          "amount": "0.06",
+          "amount": "0.03",
           "currency": "USD",
           "unit": "output second",
           "conditions": {
@@ -19280,14 +19500,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "f47389f183c356ed2a43cc8c3b50c15714f9e35cfcc5eddc8774f7c7fb3d04db",
-  "revision": 26,
-  "changed_at": "2026-11-10T14:54:12Z",
+  "catalog_sha256": "1e6684be60ff8849c496a7ee7051f45fbb96db8a86f26ac886fd50b50981c11b",
+  "revision": 27,
+  "changed_at": "2026-11-11T14:23:43Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "3d7a04fc8cecc461e639173d6fe028a7d133c8e8711293365ca9a5cc11637dde",
+  "source_sha256": "28faff5b2d396021ea544b2a9d1859eb0ac8ae3e3ba988ae5ee12547b00613aa",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
