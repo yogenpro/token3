@@ -785,6 +785,55 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-07e0a3e0def361f184bfc9c4",
+      "provider": "gemini",
+      "native_id": "cb34697da8e0da8e90226910",
+      "kind": "document_row",
+      "label": "[File search](/docs/file-search#pricing)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[File search](/docs/file-search#pricing)",
+          "Free of charge",
+          "Charged for embeddings at [Gemini Embedding](/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "Charged for embeddings at [Gemini Embedding](/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-08ccaabf7d19900d5fab540e",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -831,6 +880,43 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-09535f4c2da987113251ea59",
+      "provider": "gemini",
+      "native_id": "b5e3cc85eaaff0b9455aa0ad",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Gemini Developer API pricing",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -1349,43 +1435,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-0f03c44ae147489bce14705b",
-      "provider": "gemini",
-      "native_id": "a26fda9ac228a8add6c99658",
-      "kind": "document_row",
-      "label": "Tuning price",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Tuning price",
-          "Not available",
-          "Not available"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-0f1f71033e6c2cefd16c7f37",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -1608,67 +1657,6 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-1431971c7e9b0b7ee378fb46",
-      "provider": "gemini",
-      "native_id": "21984546150fc63514ae8199",
-      "kind": "document_row",
-      "label": "Audio input price",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Audio input price",
-          "Not available",
-          "$3.25 ($0.00008 per second)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "3.25",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$3.25 ($0.00008 per second)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.00008",
-          "currency": "USD",
-          "unit": "per second",
-          "conditions": {
-            "source_expression": "$3.25 ($0.00008 per second)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -2177,43 +2165,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-19140583fde88488290cea12",
-      "provider": "gemini",
-      "native_id": "90a315b5a4026d7a4b42d6c2",
-      "kind": "document_row",
-      "label": "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](/docs/models/gemini-3.1-pro-preview)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](/docs/models/gemini-3.1-pro-preview)",
-          "Not available",
-          "Same as [Gemini 3.1 Pro Preview](/docs/pricing#gemini-3.1-pro-preview) pricing"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-1a7ca227c7e2b043aa2af8b7",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -2436,43 +2387,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-1b9fb745b51556c61c550726",
-      "provider": "gemini",
-      "native_id": "9bf52a6ac6113e24058841d4",
-      "kind": "document_row",
-      "label": "[Antigravity Agent](/docs/antigravity-agent)",
-      "scope": {
-        "table": 90,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Antigravity Agent](/docs/antigravity-agent)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](/docs/agents#pricing)).",
-          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
-        ],
-        "columns": [
-          "Feature",
-          "Model",
-          "Tools"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -2780,104 +2694,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-2039ffd815d2b6743dfcf946",
-      "provider": "gemini",
-      "native_id": "eaae60a2ea7765fd787b693e",
-      "kind": "document_row",
-      "label": "Video input price",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Video input price",
-          "Not available",
-          "$6.00 ($0.000395 per frame)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "6",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$6.00 ($0.000395 per frame)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.000395",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$6.00 ($0.000395 per frame)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-20969165f67d834918c32666",
-      "provider": "gemini",
-      "native_id": "24a2cc3f06c62974e24c754c",
-      "kind": "document_row",
-      "label": "[Computer use](/docs/computer-use)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Computer use](/docs/computer-use)",
-          "Not available",
-          "Charged as regular tokens per model pricing (e.g., standard [Gemini 3.8 Flash](/docs/pricing#gemini-3.8-flash) pricing)."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-20f834daafd2955c2a6c8942",
       "provider": "gemini",
       "native_id": "5b4987748d9ff57d8238bc05",
@@ -3023,6 +2839,56 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-239d91dbdee93ce8cf2ea7d5",
+      "provider": "gemini",
+      "native_id": "442dda6190fae76d66a1dac1",
+      "kind": "document_row",
+      "label": "Text input price",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Text input price",
+          "Not available",
+          "$0.10"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -3278,67 +3144,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$0.375",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-25f7b45c391423fd6b4604d5",
-      "provider": "gemini",
-      "native_id": "d3421e445db03957e93b89df",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Not available",
-          "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -3905,16 +3710,53 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-2b9d6eb17807a7b5ec2e5c6d",
+      "id": "gemini-2c644ee24c16003f4e4629b4",
       "provider": "gemini",
-      "native_id": "62c245bb279244ed79e32741",
+      "native_id": "da0ad16573ef39a1702534c0",
       "kind": "document_row",
-      "label": "Input price",
+      "label": "Used to improve our products",
       "scope": {
-        "table": 87,
+        "table": 89,
         "headings": [
           "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Streaming Preview",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-2c67b22734f24dfe25388b8a",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding",
           "Standard"
         ],
         "tabs": [],
@@ -3926,9 +3768,9 @@
       },
       "billing": {
         "cells": [
-          "Input price",
-          "Free of charge",
-          "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027."
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
         ],
         "columns": [
           "Feature",
@@ -3938,91 +3780,7 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-2bdf32f2fd0d582b989d483b",
-      "provider": "gemini",
-      "native_id": "5b4987748d9ff57d8238bc05",
-      "kind": "document_row",
-      "label": "Output price (including thinking tokens)",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price (including thinking tokens)",
-          "Not available",
-          "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "2.5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -4188,6 +3946,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-2d038c96136f74765020ef57",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 81,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Decision",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-2e0f35470e8e5fad858a8177",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -4300,6 +4096,89 @@
           "unit": "/ 1,000,000 tokens per hour",
           "conditions": {
             "source_expression": "$0.0375 through December 31, 2026. $0.075 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-2f4f626097e7adcd74944f77",
+      "provider": "gemini",
+      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Not available",
+          "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:2",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:3",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -4518,17 +4397,17 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-30ea3faaf4c8de2b7661f582",
+      "id": "gemini-30646c6d2cec5b61257f73a5",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
       "kind": "document_row",
       "label": "Used to improve our products",
       "scope": {
-        "table": 83,
+        "table": 87,
         "headings": [
           "Gemini Developer API pricing",
-          "Gemini Embedding",
-          "Standard"
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
         ],
         "tabs": [],
         "headers": [
@@ -4972,13 +4851,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-385f443cdf3f9afa7953b6ed",
+      "id": "gemini-386dd85d432414a4ebcd36d0",
       "provider": "gemini",
-      "native_id": "78683df57f0748ec32c0f4aa",
+      "native_id": "da0ad16573ef39a1702534c0",
       "kind": "document_row",
-      "label": "Image input price",
+      "label": "Used to improve our products",
       "scope": {
-        "table": 82,
+        "table": 83,
         "headings": [
           "Gemini Developer API pricing",
           "Gemini Embedding 2",
@@ -4993,9 +4872,9 @@
       },
       "billing": {
         "cells": [
-          "Image input price",
-          "Not available",
-          "$0.225 ($0.00006 per image)"
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
         ],
         "columns": [
           "Feature",
@@ -5005,30 +4884,7 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.225",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.225 ($0.00006 per image)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.00006",
-          "currency": "USD",
-          "unit": "per image",
-          "conditions": {
-            "source_expression": "$0.225 ($0.00006 per image)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -5713,89 +5569,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-3e86fb21a38b42c8aa4ec29f",
-      "provider": "gemini",
-      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Not available",
-          "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.05",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:2",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:3",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.05 through December 31, 2026. \\\\ $0.10 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-3f0097a7e9ffea2442db6477",
       "provider": "gemini",
       "native_id": "9a69160f6fbce10166da628a",
@@ -6039,44 +5812,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-4221ce6fc0c8489f2daf21b6",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 82,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-42d4e9504f68af21c12aa184",
       "provider": "gemini",
       "native_id": "73d057ac58a037159c82f222",
@@ -6151,6 +5886,128 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$4.50 (audio) through December 31, 2026. $9.00 (audio) starting January 1, 2027. Equivalent to $0.001125 per 10s audio{% sup /%} through December 31, 2026. Equivalent to $0.00225 per 10s audio{% sup /%} starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-43139bf8218aec9aa4b3355f",
+      "provider": "gemini",
+      "native_id": "21984546150fc63514ae8199",
+      "kind": "document_row",
+      "label": "Audio input price",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Audio input price",
+          "Not available",
+          "$3.25 ($0.00008 per second)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "3.25",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$3.25 ($0.00008 per second)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.00008",
+          "currency": "USD",
+          "unit": "per second",
+          "conditions": {
+            "source_expression": "$3.25 ($0.00008 per second)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-431f0e6683d6ee57b07780ec",
+      "provider": "gemini",
+      "native_id": "78683df57f0748ec32c0f4aa",
+      "kind": "document_row",
+      "label": "Image input price",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Image input price",
+          "Not available",
+          "$0.225 ($0.00006 per image)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.225",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.225 ($0.00006 per image)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.00006",
+          "currency": "USD",
+          "unit": "per image",
+          "conditions": {
+            "source_expression": "$0.225 ($0.00006 per image)",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -6388,6 +6245,44 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-46b2f048efb3d68ec9c39c79",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 82,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -7535,6 +7430,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-525c13a98fb6382ad325d100",
+      "provider": "gemini",
+      "native_id": "f38761101e3eb01215ef208b",
+      "kind": "document_row",
+      "label": "[Code execution](/docs/code-execution#billing)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Code execution](/docs/code-execution#billing)",
+          "Free of charge",
+          "Code execution is billed at the standard token rates for the selected model. Costs are determined solely by tool usage; no charges accrue for session runtime. Generated code and execution results are billed as **Output tokens** when created, and as **Input tokens** when used by the model in its iterative reasoning process."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-5310ccee6a2699833c5e294e",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -8055,6 +7987,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-5597a355153ebf4123504ce8",
+      "provider": "gemini",
+      "native_id": "b4188e7c2ecb0c81910e9b3e",
+      "kind": "document_row",
+      "label": "Text input price",
+      "scope": {
+        "table": 82,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Text input price",
+          "Free of charge",
+          "$0.20"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.20",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-55fe53745b1b9c9ff56db5e8",
       "provider": "gemini",
       "native_id": "9aa95a881c3ee17a5941e606",
@@ -8277,43 +8259,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-57cba485e833f062bd25b815",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-57edf64f6835dc3c7946d42c",
       "provider": "gemini",
       "native_id": "30ab2b1ff0c1960f48b9200f",
@@ -8371,6 +8316,94 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-599ab937930bf9565feb02bc",
+      "provider": "gemini",
+      "native_id": "ee9fc1e111705413d043d7b3",
+      "kind": "document_row",
+      "label": "Input price (text, image, video, audio, PDF)",
+      "scope": {
+        "table": 81,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Decision",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price (text, image, video, audio, PDF)",
+          "Free of charge",
+          "$0.10"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-5a7c6bea23bdbb5d987bcbad",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -8696,67 +8729,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-604c0f3237945242fc9dba9c",
-      "provider": "gemini",
-      "native_id": "85c77bf782418c3f36c9cc1b",
-      "kind": "document_row",
-      "label": "Audio input price",
-      "scope": {
-        "table": 81,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Audio input price",
-          "Free of charge",
-          "$6.50 ($0.00016 per second)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "6.5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$6.50 ($0.00016 per second)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.00016",
-          "currency": "USD",
-          "unit": "per second",
-          "conditions": {
-            "source_expression": "$6.50 ($0.00016 per second)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-60aa0e945c3ee12125ece210",
       "provider": "gemini",
       "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
@@ -8825,44 +8797,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-61490b60b7ea80d0050f955a",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -9569,6 +9503,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-68269101d31693e07aa96558",
+      "provider": "gemini",
+      "native_id": "0802311c6ebe88a5bb51543d",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Gemini Developer API pricing",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "Not available"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-68eb040c01798667501a93d2",
       "provider": "gemini",
       "native_id": "5b4987748d9ff57d8238bc05",
@@ -9680,43 +9651,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-694877f94c85c5ad0e67fa53",
-      "provider": "gemini",
-      "native_id": "b3b4a9a194105dbcba0f831c",
-      "kind": "document_row",
-      "label": "[Managed agents in Gemini API](/docs/agents)",
-      "scope": {
-        "table": 90,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Managed agents in Gemini API](/docs/agents)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](/docs/agents#pricing)).",
-          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
-        ],
-        "columns": [
-          "Feature",
-          "Model",
-          "Tools"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-69d9000f43ed72e35f4dd4c5",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -9805,17 +9739,17 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-6a778f0356717f12c2e0dc46",
+      "id": "gemini-6c1ac9d3ddc0686b543889f8",
       "provider": "gemini",
-      "native_id": "d3421e445db03957e93b89df",
+      "native_id": "e52008ae48410011f183ad39",
       "kind": "document_row",
-      "label": "Input price",
+      "label": "Video input price",
       "scope": {
-        "table": 84,
+        "table": 82,
         "headings": [
           "Gemini Developer API pricing",
-          "Gemini Embedding",
-          "Batch"
+          "Gemini Embedding 2",
+          "Standard"
         ],
         "tabs": [],
         "headers": [
@@ -9826,9 +9760,9 @@
       },
       "billing": {
         "cells": [
-          "Input price",
-          "Not available",
-          "$0.075"
+          "Video input price",
+          "Free of charge",
+          "$12.00 ($0.00079 per frame)"
         ],
         "columns": [
           "Feature",
@@ -9841,11 +9775,22 @@
       "rates": [
         {
           "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.075",
+          "amount": "12",
           "currency": "USD",
           "unit": "per 1M tokens",
           "conditions": {
-            "source_expression": "$0.075",
+            "source_expression": "$12.00 ($0.00079 per frame)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.00079",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$12.00 ($0.00079 per frame)",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -10569,6 +10514,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-7586f5dd497392026cbf7da9",
+      "provider": "gemini",
+      "native_id": "a43771bc59f6af0a6894b1c6",
+      "kind": "document_row",
+      "label": "[Google Search](/docs/google-search#pricing)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Google Search](/docs/google-search#pricing)",
+          "500 RPD free (limit shared for Flash and Flash-Lite). Not available for Pro.",
+          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "35",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-759de50841bcbd7f786ab0c7",
       "provider": "gemini",
       "native_id": "0eb2b60884f2120c6688c9d3",
@@ -10805,6 +10810,44 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-77f23b5fbdd958025105e5d6",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-7815fd921d27ca12635a0624",
       "provider": "gemini",
       "native_id": "57a9af69b0a67adff98fc998",
@@ -10966,104 +11009,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-78a71fc23bd9f732ecc0f037",
-      "provider": "gemini",
-      "native_id": "03fc037cea182290fad1e64d",
-      "kind": "document_row",
-      "label": "Output price",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price",
-          "Free of charge",
-          "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "10",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-78c99fd9977eb3722a7797dd",
-      "provider": "gemini",
-      "native_id": "a94e2bb2a0018ed9b2f49509",
-      "kind": "document_row",
-      "label": "Context caching (storage)",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching (storage)",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-7982d2bc628762bb4ff5194c",
       "provider": "gemini",
       "native_id": "0eb2b60884f2120c6688c9d3",
@@ -11198,6 +11143,56 @@
         "cells": [
           "Grounding with Google Search{% sup %}*{% /sup %}",
           "Not available{% sup %}**{% /sup %}",
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-7d4467eeadf05acd81c5cb64",
+      "provider": "gemini",
+      "native_id": "754168fbb133736d1e8bd524",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
           "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
@@ -11370,44 +11365,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-7e35fdbf61429fabaedcd4b7",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -12647,43 +12604,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-8df6798cc1f5f7b3da658189",
-      "provider": "gemini",
-      "native_id": "0f371b9ee77421e5a6bea3b2",
-      "kind": "document_row",
-      "label": "Output price",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-8e203826f1966c292a1cc872",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -12784,6 +12704,127 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-8fa3637c0c194de64a54e49e",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-9083afb80c02b3b6436b60de",
+      "provider": "gemini",
+      "native_id": "19a8c5d39e9c84697bdb165a",
+      "kind": "document_row",
+      "label": "[Google Maps](/docs/maps-grounding#pricing-and-rate-limits)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Google Maps](/docs/maps-grounding#pricing-and-rate-limits)",
+          "500 RPD Not available for Pro.",
+          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "25",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-90e2c3fe20b3853846a4345b",
       "provider": "gemini",
       "native_id": "57a9af69b0a67adff98fc998",
@@ -12825,6 +12866,67 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-9118e977cd19709809b91887",
+      "provider": "gemini",
+      "native_id": "03fc037cea182290fad1e64d",
+      "kind": "document_row",
+      "label": "Output price",
+      "scope": {
+        "table": 88,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price",
+          "Free of charge",
+          "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -12944,56 +13046,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-91964e59182b4dd8f8de29ab",
-      "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 87,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Streaming Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-92231480071abb55de7d69c9",
       "provider": "gemini",
       "native_id": "57a9af69b0a67adff98fc998",
@@ -13085,56 +13137,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "1,500 RPD (free), then $35 / 1,000 grounded prompts",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-93bc3597ee591ac19e271080",
-      "provider": "gemini",
-      "native_id": "62c245bb279244ed79e32741",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 83,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "$0.15"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.15",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -13289,44 +13291,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-96a9f811a4e890cbd61f0dd7",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 81,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -13577,67 +13541,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$0.30 (text / image / video) $1.00 (audio)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-9948c684c110f26c9080652e",
-      "provider": "gemini",
-      "native_id": "a271c1c43a6585bf30c8842e",
-      "kind": "document_row",
-      "label": "Image input price",
-      "scope": {
-        "table": 81,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Image input price",
-          "Free of charge",
-          "$0.45 ($0.00012 per image)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.45",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.45 ($0.00012 per image)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.00012",
-          "currency": "USD",
-          "unit": "per image",
-          "conditions": {
-            "source_expression": "$0.45 ($0.00012 per image)",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -14154,6 +14057,80 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-9ca2d4dbfefb2aba57b14733",
+      "provider": "gemini",
+      "native_id": "cf3f69835a1d3d85318b0222",
+      "kind": "document_row",
+      "label": "[URL context](/docs/url-context#limitations)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[URL context](/docs/url-context#limitations)",
+          "Free of charge",
+          "Charged as input tokens per model pricing."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-9cfd420bf1b86cbd3a4ae374",
+      "provider": "gemini",
+      "native_id": "b3b4a9a194105dbcba0f831c",
+      "kind": "document_row",
+      "label": "[Managed agents in Gemini API](/docs/agents)",
+      "scope": {
+        "table": 91,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Managed agents in Gemini API](/docs/agents)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](/docs/agents#pricing)).",
+          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
+        ],
+        "columns": [
+          "Feature",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-9d43395537541d6f8bdf4fa6",
       "provider": "gemini",
       "native_id": "2ec4dbcfd114672a069018bc",
@@ -14265,6 +14242,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-9de1cdf9860252a2150fe397",
+      "provider": "gemini",
+      "native_id": "8eb76ead85d240433217baa0",
+      "kind": "document_row",
+      "label": "[Gemini Deep Research agent](/docs/deep-research)",
+      "scope": {
+        "table": 91,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Gemini Deep Research agent](/docs/deep-research)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops.",
+          "Tool usage fees apply per existing pricing structure, maintaining standard distinctions for Search Grounding (retrieved tokens excluded) versus Url_context / File Search (retrieved tokens included in all other tools)."
+        ],
+        "columns": [
+          "Feature",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-9e93f518a7a716bc3d6dac84",
       "provider": "gemini",
       "native_id": "0eb2b60884f2120c6688c9d3",
@@ -14365,6 +14379,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-9ed0680843e652aa76767fc1",
+      "provider": "gemini",
+      "native_id": "9bf52a6ac6113e24058841d4",
+      "kind": "document_row",
+      "label": "[Antigravity Agent](/docs/antigravity-agent)",
+      "scope": {
+        "table": 91,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for agents"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Model",
+          "Tools"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Antigravity Agent](/docs/antigravity-agent)",
+          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops. (See [pricing details](/docs/agents#pricing)).",
+          "Environment compute (CPU, memory, sandbox execution) is not billed during the preview period."
+        ],
+        "columns": [
+          "Feature",
+          "Model",
+          "Tools"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-9ed27fad1f92a86999790de4",
       "provider": "gemini",
       "native_id": "5b4987748d9ff57d8238bc05",
@@ -14422,6 +14473,43 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-a002c740cbaca421c621b9be",
+      "provider": "gemini",
+      "native_id": "0f371b9ee77421e5a6bea3b2",
+      "kind": "document_row",
+      "label": "Output price",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Gemini Developer API pricing",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -14638,6 +14726,67 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "1,500 RPD (free, limit shared with Flash RPD), then $35 / 1,000 grounded prompts",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-a1a81f32ddd1cc6bb2c6436a",
+      "provider": "gemini",
+      "native_id": "85c77bf782418c3f36c9cc1b",
+      "kind": "document_row",
+      "label": "Audio input price",
+      "scope": {
+        "table": 82,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Audio input price",
+          "Free of charge",
+          "$6.50 ($0.00016 per second)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "6.5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$6.50 ($0.00016 per second)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.00016",
+          "currency": "USD",
+          "unit": "per second",
+          "conditions": {
+            "source_expression": "$6.50 ($0.00016 per second)",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -14895,6 +15044,67 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-a50ef44f5df16508f9a9bad3",
+      "provider": "gemini",
+      "native_id": "5b4987748d9ff57d8238bc05",
+      "kind": "document_row",
+      "label": "Output price (including thinking tokens)",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price (including thinking tokens)",
+          "Not available",
+          "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.50 through December 31, 2026. \\\\ $5.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-a5523a7c262891eebd76a494",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -15077,63 +15287,13 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-a8666ed705bd59d455e9bd11",
+      "id": "gemini-a8a3871bb0fae9ffc08feaf0",
       "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
+      "native_id": "a271c1c43a6585bf30c8842e",
       "kind": "document_row",
-      "label": "Grounding with Google Search",
+      "label": "Image input price",
       "scope": {
-        "table": 85,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-a900a563a5fa9f54d1703878",
-      "provider": "gemini",
-      "native_id": "b4188e7c2ecb0c81910e9b3e",
-      "kind": "document_row",
-      "label": "Text input price",
-      "scope": {
-        "table": 81,
+        "table": 82,
         "headings": [
           "Gemini Developer API pricing",
           "Gemini Embedding 2",
@@ -15148,9 +15308,9 @@
       },
       "billing": {
         "cells": [
-          "Text input price",
+          "Image input price",
           "Free of charge",
-          "$0.20"
+          "$0.45 ($0.00012 per image)"
         ],
         "columns": [
           "Feature",
@@ -15163,11 +15323,22 @@
       "rates": [
         {
           "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.2",
+          "amount": "0.45",
           "currency": "USD",
           "unit": "per 1M tokens",
           "conditions": {
-            "source_expression": "$0.20",
+            "source_expression": "$0.45 ($0.00012 per image)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.00012",
+          "currency": "USD",
+          "unit": "per image",
+          "conditions": {
+            "source_expression": "$0.45 ($0.00012 per image)",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -15265,92 +15436,17 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-a99c420dff2c917c3b7ddddf",
+      "id": "gemini-aa4685bcc1da3a58aadb4da8",
       "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 84,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Embedding",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-aa184693cce3e447d3b2fe35",
-      "provider": "gemini",
-      "native_id": "da0ad16573ef39a1702534c0",
-      "kind": "document_row",
-      "label": "Used to improve our products",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Used to improve our products",
-          "[Yes](/docs/terms)",
-          "[No](/docs/terms)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-ab1a7d18598f265e1733921d",
-      "provider": "gemini",
-      "native_id": "0802311c6ebe88a5bb51543d",
+      "native_id": "754168fbb133736d1e8bd524",
       "kind": "document_row",
       "label": "Grounding with Google Search",
       "scope": {
         "table": 88,
         "headings": [
           "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+          "Gemini Robotics ER 2 Streaming Preview",
+          "Standard"
         ],
         "tabs": [],
         "headers": [
@@ -15363,7 +15459,7 @@
         "cells": [
           "Grounding with Google Search",
           "Not available",
-          "Not available"
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
         ],
         "columns": [
           "Feature",
@@ -15373,7 +15469,19 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -15749,89 +15857,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-b24c7b7cf59b437f972b44e7",
-      "provider": "gemini",
-      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Not available",
-          "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.2",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:2",
-          "amount": "0.5",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:3",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ 1,000,000 tokens per hour",
-          "conditions": {
-            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-b35f9ae68a4cdadd0304257d",
       "provider": "gemini",
       "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
@@ -15989,43 +16014,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-b48c4d9446a1a52b2e9db776",
-      "provider": "gemini",
-      "native_id": "b5e3cc85eaaff0b9455aa0ad",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -16224,6 +16212,67 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-b63476b072d20185f929ab65",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-b697d683b09d2585a1fc7a6c",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -16350,6 +16399,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-b77136c0b56e0b1303766f80",
+      "provider": "gemini",
+      "native_id": "754168fbb133736d1e8bd524",
+      "kind": "document_row",
+      "label": "Grounding with Google Search",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Grounding with Google Search",
+          "Not available",
+          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "14",
+          "currency": "USD",
+          "unit": "per 1,000 requests",
+          "conditions": {
+            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-b7a3b84f497bcdbb20171d40",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -16402,6 +16501,89 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$1.35 through December 31, 2026. $2.70 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-b7c393977b7c2b8655049a6f",
+      "provider": "gemini",
+      "native_id": "0da0b72ec2bfbe0fc0e3d7c5",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Not available",
+          "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:2",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:3",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ 1,000,000 tokens per hour",
+          "conditions": {
+            "source_expression": "$0.10 through December 31, 2026. \\\\ $0.20 starting January 1, 2027. \\\\ $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. \\\\ $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -16693,6 +16875,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-ba3f907f4b206641368a5e5e",
+      "provider": "gemini",
+      "native_id": "62c245bb279244ed79e32741",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 84,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Free of charge",
+          "$0.15"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.15",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-ba4bb3a6ffb87959907a8ba6",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -16936,6 +17168,82 @@
           }
         }
       ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-be7f038d9b78a38a5b9aa4d6",
+      "provider": "gemini",
+      "native_id": "da0ad16573ef39a1702534c0",
+      "kind": "document_row",
+      "label": "Used to improve our products",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Used to improve our products",
+          "[Yes](/docs/terms)",
+          "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-be968386212a35b486e01083",
+      "provider": "gemini",
+      "native_id": "5c258a5c365e7f241f1d4d56",
+      "kind": "document_row",
+      "label": "Output price",
+      "scope": {
+        "table": 81,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Decision",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price",
+          "Not applicable (0 output tokens)",
+          "Not applicable (0 output tokens)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -17189,43 +17497,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-c2673c1979dd95eb945c3e4f",
-      "provider": "gemini",
-      "native_id": "f38761101e3eb01215ef208b",
-      "kind": "document_row",
-      "label": "[Code execution](/docs/code-execution#billing)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Code execution](/docs/code-execution#billing)",
-          "Free of charge",
-          "Code execution is billed at the standard token rates for the selected model. Costs are determined solely by tool usage; no charges accrue for session runtime. Generated code and execution results are billed as **Output tokens** when created, and as **Input tokens** when used by the model in its iterative reasoning process."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-c272e5aa65e582d31e658543",
       "provider": "gemini",
       "native_id": "42293d9e17d1e289bdb81fbc",
@@ -17310,43 +17581,6 @@
           }
         }
       ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-c459383d276ec2ed51a50801",
-      "provider": "gemini",
-      "native_id": "c6fd7c3f313abc8fa23132bd",
-      "kind": "document_row",
-      "label": "Context caching price",
-      "scope": {
-        "table": 88,
-        "headings": [
-          "Gemini Developer API pricing",
-          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Context caching price",
-          "Free of charge",
-          "Not available"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -17654,66 +17888,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-c679fbd0a2934b3f638329b1",
-      "provider": "gemini",
-      "native_id": "19a8c5d39e9c84697bdb165a",
-      "kind": "document_row",
-      "label": "[Google Maps](/docs/maps-grounding#pricing-and-rate-limits)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Google Maps](/docs/maps-grounding#pricing-and-rate-limits)",
-          "500 RPD Not available for Pro.",
-          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "25",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite) 10,000 RPD free for Pro. Then $25 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-c785151762245e3db5a3db7b",
       "provider": "gemini",
       "native_id": "afcf4794d283171bf0e37964",
@@ -17984,17 +18158,16 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-cba777eb5b2f5ee1596e1c77",
+      "id": "gemini-cb39313513e82a79ecdaf83b",
       "provider": "gemini",
-      "native_id": "442dda6190fae76d66a1dac1",
+      "native_id": "a26fda9ac228a8add6c99658",
       "kind": "document_row",
-      "label": "Text input price",
+      "label": "Tuning price",
       "scope": {
-        "table": 82,
+        "table": 89,
         "headings": [
           "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Batch"
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
         ],
         "tabs": [],
         "headers": [
@@ -18005,9 +18178,9 @@
       },
       "billing": {
         "cells": [
-          "Text input price",
+          "Tuning price",
           "Not available",
-          "$0.10"
+          "Not available"
         ],
         "columns": [
           "Feature",
@@ -18017,19 +18190,7 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.10",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -18184,66 +18345,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-ccfd2cfeb5fec24cba79c31e",
-      "provider": "gemini",
-      "native_id": "a43771bc59f6af0a6894b1c6",
-      "kind": "document_row",
-      "label": "[Google Search](/docs/google-search#pricing)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Google Search](/docs/google-search#pricing)",
-          "500 RPD free (limit shared for Flash and Flash-Lite). Not available for Pro.",
-          "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)"
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "35",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "Gemini 2.5 models: 1,500 RPD free (limit shared for Flash and Flash-Lite). Then $35 / 1,000 grounded prompts Gemini 3 and newer models: 5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests. (Subject to a default daily cap of 1,500 requests per day (RPD) per project on the Gemini Developer API.)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-ccffe47b833e9476f5172b85",
       "provider": "gemini",
       "native_id": "57a9af69b0a67adff98fc998",
@@ -18285,67 +18386,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "5,000 requests per month (free, shared across all Gemini 3 and newer models), then $14 / 1,000 search queries.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-cd7ef0409a392716ca208f94",
-      "provider": "gemini",
-      "native_id": "62c245bb279244ed79e32741",
-      "kind": "document_row",
-      "label": "Input price",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Input price",
-          "Free of charge",
-          "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "1",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "/ image",
-          "conditions": {
-            "source_expression": "$1.00 (text / image / video / audio) through December 31, 2026. \\\\ $2.00 (text / image / video / audio) starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -18554,17 +18594,16 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-d0c96ee31ea7c74c46beb208",
+      "id": "gemini-d00cef32e42e11957aceac10",
       "provider": "gemini",
-      "native_id": "e52008ae48410011f183ad39",
+      "native_id": "90a315b5a4026d7a4b42d6c2",
       "kind": "document_row",
-      "label": "Video input price",
+      "label": "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](/docs/models/gemini-3.1-pro-preview)",
       "scope": {
-        "table": 81,
+        "table": 90,
         "headings": [
           "Gemini Developer API pricing",
-          "Gemini Embedding 2",
-          "Standard"
+          "Pricing for tools"
         ],
         "tabs": [],
         "headers": [
@@ -18575,9 +18614,9 @@
       },
       "billing": {
         "cells": [
-          "Video input price",
-          "Free of charge",
-          "$12.00 ($0.00079 per frame)"
+          "[Custom Tools endpoint (Gemini 3.1 Pro Preview)](/docs/models/gemini-3.1-pro-preview)",
+          "Not available",
+          "Same as [Gemini 3.1 Pro Preview](/docs/pricing#gemini-3.1-pro-preview) pricing"
         ],
         "columns": [
           "Feature",
@@ -18587,30 +18626,7 @@
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "12",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$12.00 ($0.00079 per frame)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "0.00079",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$12.00 ($0.00079 per frame)",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
+      "rates": [],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -19035,6 +19051,67 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-d4d237afde135c31a10af3d6",
+      "provider": "gemini",
+      "native_id": "eaae60a2ea7765fd787b693e",
+      "kind": "document_row",
+      "label": "Video input price",
+      "scope": {
+        "table": 83,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding 2",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Video input price",
+          "Not available",
+          "$6.00 ($0.000395 per frame)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "6",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$6.00 ($0.000395 per frame)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "0.000395",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$6.00 ($0.000395 per frame)",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-d5f31237b7df64c6b22397fb",
       "provider": "gemini",
       "native_id": "62c245bb279244ed79e32741",
@@ -19181,6 +19258,44 @@
           "Used to improve our products",
           "[Yes](/docs/terms)",
           "[No](/docs/terms)"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-d6dee54df2bcb02f019922c6",
+      "provider": "gemini",
+      "native_id": "bfa9bcdab8d32e4fa961c2e6",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 81,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Decision",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Not available",
+          "Not available"
         ],
         "columns": [
           "Feature",
@@ -19537,6 +19652,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-d862ac482ad62d5a914a67e0",
+      "provider": "gemini",
+      "native_id": "24a2cc3f06c62974e24c754c",
+      "kind": "document_row",
+      "label": "[Computer use](/docs/computer-use)",
+      "scope": {
+        "table": 90,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Pricing for tools"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "[Computer use](/docs/computer-use)",
+          "Not available",
+          "Charged as regular tokens per model pricing (e.g., standard [Gemini 3.8 Flash](/docs/pricing#gemini-3.8-flash) pricing)."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-d9b5d473b5b1e4ea7d1ded3e",
       "provider": "gemini",
       "native_id": "67100b27743a0cba30677841",
@@ -19864,67 +20016,6 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "1,500 RPD (free, limit shared with Flash RPD), then $35 / 1,000 grounded prompts",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-dda1be1942a9899b706c1e25",
-      "provider": "gemini",
-      "native_id": "afcf4794d283171bf0e37964",
-      "kind": "document_row",
-      "label": "Output price (including thinking tokens)",
-      "scope": {
-        "table": 85,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Standard"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Output price (including thinking tokens)",
-          "Free of charge",
-          "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "5",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:1",
-          "amount": "10",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -20486,55 +20577,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-e2f5a56980f8725b60f3b729",
-      "provider": "gemini",
-      "native_id": "cb34697da8e0da8e90226910",
-      "kind": "document_row",
-      "label": "[File search](/docs/file-search#pricing)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[File search](/docs/file-search#pricing)",
-          "Free of charge",
-          "Charged for embeddings at [Gemini Embedding](/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "/ 1M tokens",
-          "conditions": {
-            "source_expression": "Charged for embeddings at [Gemini Embedding](/docs/pricing#gemini-embedding) ($0.15 / 1M tokens) or [Gemini Embedding 2](/docs/pricing#gemini-embedding-2) rates. Retrieved document tokens charged as regular tokens per model pricing.",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-e35143d0e5ed2cc0e27d95d5",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -20569,56 +20611,6 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-e4a329fe57739c8dbac2b217",
-      "provider": "gemini",
-      "native_id": "754168fbb133736d1e8bd524",
-      "kind": "document_row",
-      "label": "Grounding with Google Search",
-      "scope": {
-        "table": 86,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Gemini Robotics ER 2 Preview",
-          "Batch"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Grounding with Google Search",
-          "Not available",
-          "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day)."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Paid Tier, per 1M tokens in USD:0",
-          "amount": "14",
-          "currency": "USD",
-          "unit": "per 1,000 requests",
-          "conditions": {
-            "source_expression": "5,000 free search requests per month (shared across all Gemini 3 and newer models), then $14 per 1,000 requests (subject to a [daily cap](/docs/pricing#pricing-for-tools) of 1,500 requests per day).",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -20725,6 +20717,104 @@
           "unit": "per 1M tokens",
           "conditions": {
             "source_expression": "$0.05 through November 30, 2026. $0.10 starting December 1, 2026. Implicit caching only (explicit caching is not supported).",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-e597392fe43ac4a5fcecaaa0",
+      "provider": "gemini",
+      "native_id": "a94e2bb2a0018ed9b2f49509",
+      "kind": "document_row",
+      "label": "Context caching (storage)",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Gemini Developer API pricing",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching (storage)",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-e68b7b41ecd682021c27ac5c",
+      "provider": "gemini",
+      "native_id": "afcf4794d283171bf0e37964",
+      "kind": "document_row",
+      "label": "Output price (including thinking tokens)",
+      "scope": {
+        "table": 86,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Standard"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Output price (including thinking tokens)",
+          "Free of charge",
+          "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$5.00 through December 31, 2026. \\\\ $10.00 starting January 1, 2027.",
             "unit_verified": true,
             "active_rate_not_inferred": true
           }
@@ -21233,6 +21323,67 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-eba6936d3489524f0c23a6f7",
+      "provider": "gemini",
+      "native_id": "d3421e445db03957e93b89df",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 87,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Robotics ER 2 Preview",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Not available",
+          "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027."
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:1",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ image",
+          "conditions": {
+            "source_expression": "$0.50 (text / image / video / audio) through December 31, 2026. \\\\ $1.00 (text / image / video / audio) starting January 1, 2027.",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-ee124c6798d1bf351e7f09cb",
       "provider": "gemini",
       "native_id": "d3421e445db03957e93b89df",
@@ -21317,6 +21468,56 @@
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
       },
       "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "gemini-ef94c8493dbb9e473a21dcbf",
+      "provider": "gemini",
+      "native_id": "d3421e445db03957e93b89df",
+      "kind": "document_row",
+      "label": "Input price",
+      "scope": {
+        "table": 85,
+        "headings": [
+          "Gemini Developer API pricing",
+          "Gemini Embedding",
+          "Batch"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Input price",
+          "Not available",
+          "$0.075"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Paid Tier, per 1M tokens in USD:0",
+          "amount": "0.075",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.075",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
       "metadata": {},
       "comparison_eligible": false
     },
@@ -21667,6 +21868,43 @@
       "comparison_eligible": false
     },
     {
+      "id": "gemini-f69923b7f17e0839208a8e40",
+      "provider": "gemini",
+      "native_id": "c6fd7c3f313abc8fa23132bd",
+      "kind": "document_row",
+      "label": "Context caching price",
+      "scope": {
+        "table": 89,
+        "headings": [
+          "Gemini Developer API pricing",
+          "[Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4)"
+        ],
+        "tabs": [],
+        "headers": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Context caching price",
+          "Free of charge",
+          "Not available"
+        ],
+        "columns": [
+          "Feature",
+          "Free Tier",
+          "Paid Tier, per 1M tokens in USD"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "gemini-f977c00475e35db4dc14d975",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -21696,43 +21934,6 @@
           "Feature",
           "Free Tier",
           "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "gemini-f9d674e4e96b2a15593fd4c7",
-      "provider": "gemini",
-      "native_id": "8eb76ead85d240433217baa0",
-      "kind": "document_row",
-      "label": "[Gemini Deep Research agent](/docs/deep-research)",
-      "scope": {
-        "table": 90,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for agents"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Model",
-          "Tools"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[Gemini Deep Research agent](/docs/deep-research)",
-          "All model inference is charged at standard Gemini list rates, including input, output, and intermediate input / reasoning tokens generated during agentic loops.",
-          "Tool usage fees apply per existing pricing structure, maintaining standard distinctions for Search Grounding (retrieved tokens excluded) versus Url_context / File Search (retrieved tokens included in all other tools)."
-        ],
-        "columns": [
-          "Feature",
-          "Model",
-          "Tools"
         ],
         "alignment_verified": true,
         "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
@@ -22028,43 +22229,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "gemini-fcbae7e609a5a5751e7e3fe1",
-      "provider": "gemini",
-      "native_id": "cf3f69835a1d3d85318b0222",
-      "kind": "document_row",
-      "label": "[URL context](/docs/url-context#limitations)",
-      "scope": {
-        "table": 89,
-        "headings": [
-          "Gemini Developer API pricing",
-          "Pricing for tools"
-        ],
-        "tabs": [],
-        "headers": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "[URL context](/docs/url-context#limitations)",
-          "Free of charge",
-          "Charged as input tokens per model pricing."
-        ],
-        "columns": [
-          "Feature",
-          "Free Tier",
-          "Paid Tier, per 1M tokens in USD"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "gemini-fd1cf508f54594163ccd1b9c",
       "provider": "gemini",
       "native_id": "da0ad16573ef39a1702534c0",
@@ -22194,6 +22358,7 @@
     "3.1 Flash Lite Image model is designed for ultra-low latency and cost-effective",
     "A small and cost effective model, built for at scale usage.",
     "Agent usage costs are calculated based on the underlying token consumption and",
+    "Each request bills shared input tokens once, regardless of question count. Each",
     "Flash](/docs/pricing#gemini-2.5-flash).",
     "Gemini 4 Argon is not available on the Free tier. Every token the model processes is counted and billed, including thinking tokens and internal tool system instructions and function declarations when using grounding.",
     "Gemini 4 Carbon is not available on the Free tier. Every token the model processes is counted and billed, including thinking tokens and internal tool system instructions and function declarations when using grounding.",
@@ -22227,6 +22392,7 @@
     "for input and 175 text tokens per minute for output, for an effective blended",
     "for long-form video, though token counts depend on query complexity and",
     "full video length. This typically results in up to 88% fewer input tokens",
+    "generates zero output tokens. [Batch API](/docs/batch-api) isn't supported.",
     "image. Output images at 1K (1024x1024px) consume 1120 tokens and are equivalent",
     "images at 0.5K (512px) consume 747 tokens and are equivalent to $0.045 per",
     "images at 1K (1024x1024px) consume 1120 tokens and are equivalent to $0.0336 per",
@@ -22240,6 +22406,7 @@
     "prices, see the [Gemini Enterprise Agent Platform pricing",
     "pricing ($12.00 per 1M tokens), this equates to an effective price of",
     "pricing, this equates to an effective price of approximately $0.10 per second.",
+    "question adds tokens for its own instructions, criteria, and formatting, and",
     "rate of ~$0.005 per min for Transcribe.",
     "rate of ~$0.009 per min for Live Transcribe.",
     "regions](/docs/available-regions). See [Billing FAQs](/docs/billing) for",
@@ -22260,20 +22427,20 @@
     "{% sup %}*{% /sup %} Image output is priced at $30 per 1,000,000 tokens. Output",
     "{% sup %}*{% /sup %} Image output is priced at $60 per 1,000,000 tokens. Output"
   ],
-  "catalog_sha256": "c3af3caf9578e8a9b793d337937c26b1dffe441391995d631cfc0df99b9643f8",
-  "revision": 15,
-  "changed_at": "2026-11-11T14:23:43Z",
+  "catalog_sha256": "58e60abb11327d1da4980e0d452e8717cb13cd765b549b02690ff605044228a6",
+  "revision": 16,
+  "changed_at": "2026-11-12T15:16:07Z",
   "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
   "source_urls": [
     "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
   ],
-  "source_sha256": "9170bacb40a6a16d05d650d6627829d5439f50f65a1692c7782ea7b3e3c3911d",
+  "source_sha256": "ee19928adc7f14039d8c36141415818b0e5b77c1d3160211332890e137cbe63d",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://ai.google.dev/gemini-api/docs/pricing.md.txt",
     "url": "https://web.archive.org/web/20261004194537/https://ai.google.dev/gemini-api/docs/pricing.md.txt",
     "capture_at": "2026-10-04T19:45:37Z",
-    "checked_at": "2026-11-11T14:23:43Z",
+    "checked_at": "2026-11-12T15:16:07Z",
     "verification": null
   }
 }

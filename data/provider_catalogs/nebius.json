@@ -818,6 +818,79 @@
       "comparison_eligible": false
     },
     {
+      "id": "nebius-6e1aaf7d0de1139be6c4a7e5",
+      "provider": "nebius",
+      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "kind": "model_flavor",
+      "label": "DeepSeek-V4-Flash-0731",
+      "scope": {
+        "flavor": "cheap",
+        "region": {
+          "country_code": "US",
+          "name": "us-central1"
+        }
+      },
+      "billing": {
+        "rules": {
+          "input_cached_price_per_million_tokens": 0.01,
+          "input_price_per_million_tokens": 0.14,
+          "output_price_per_million_tokens": 0.28
+        },
+        "state": "reported",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "input_price_per_million_tokens",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output_price_per_million_tokens",
+          "amount": "0.28",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "model_type": "text2text",
+        "model_name": "DeepSeek-V4-Flash-0731",
+        "max_model_len": 1048576,
+        "context_window_k": 1024,
+        "quantization": "fp8",
+        "external_provider": false,
+        "tags": [
+          "1M context",
+          "reasoning",
+          "JSON mode",
+          "code",
+          "math"
+        ],
+        "use_cases": [
+          "text",
+          "reasoning",
+          "function_calling",
+          "code",
+          "context_and_rag",
+          "responses_api",
+          "fine_tune"
+        ],
+        "status": "active",
+        "license": {
+          "name": "MIT License",
+          "type": "",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE"
+        },
+        "vendor": "deepseek",
+        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+        "size_b": 304
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "nebius-6e487865bdab25be054f0181",
       "provider": "nebius",
       "native_id": "MiniMaxAI/MiniMax-M3",
@@ -1575,14 +1648,14 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "fd37ac5b8339c3cabff1f59ee431a6de9d64d7310e0c2bb02185086f0c7f59da",
-  "revision": 23,
-  "changed_at": "2026-11-11T14:23:43Z",
+  "catalog_sha256": "f53115679955b08a65ecbd71deec21c5f0c2a06e041041214096e0b4a3f90dbd",
+  "revision": 24,
+  "changed_at": "2026-11-12T15:16:07Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "5585e892790d761a7cfbfe2f2613550e677d5bce64de9692dc24ba8d0accc00f",
+  "source_sha256": "9a42b546a2adc7343f35e28a9c7c1c98448ee29bf9f25d8aba6b04ff65fb8453",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
