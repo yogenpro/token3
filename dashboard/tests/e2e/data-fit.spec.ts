@@ -2,7 +2,7 @@ import { sitePathname } from './paths';
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync } from 'node:fs';
-import type { Model, Offering } from '../../src/lib/data';
+import type { Model, Offering, Price } from '../../src/lib/data';
 import { pageChunks } from '../../src/lib/catalogChunks';
 import { readNativeHistory } from '../../../scripts/native_history';
 import { historyManifestSchema } from '../../src/lib/catalog';
@@ -117,7 +117,20 @@ test('directories filter current coverage and the sidebar keeps a small honest r
 });
 
 test('one-day histories use a compact snapshot and comparison certainty stays visible', async ({ page }) => {
+  // Browser-only fixture: keep one existing observed day for this model so daily
+  // collection can grow the real history. All time avoids aging out that day.
+  const history: Price[] = JSON.parse(readFileSync(new URL('../../../data/price_history.json', import.meta.url), 'utf8'));
+  const modelOfferings = new Set(offerings.filter((o) => o.model_id === 'anthropic/claude-fable-5.1').map((o) => o.id));
+  const observedDay = history.find((p) => modelOfferings.has(p.offering_id))?.observed_at.slice(0, 10);
+  expect(observedDay).toBeDefined();
+  const fixtureHistory = history.filter((p) => !modelOfferings.has(p.offering_id) || p.observed_at.slice(0, 10) === observedDay);
+  await page.route('**/price_history.json', (route) => route.fulfill({ json: fixtureHistory }));
+  await page.route('**/status.json', async (route) => {
+    const response = await route.fetch();
+    await route.fulfill({ response, json: { ...await response.json(), observation_count: fixtureHistory.length } });
+  });
   await page.goto('./?model=anthropic%2Fclaude-fable-5.1');
+  await page.getByLabel('History date range').selectOption('0');
   await expect(page.getByRole('region', { name: 'First observed price snapshot for Claude Fable 5.1' })).toBeVisible();
   await expect(page.locator('.history-panel .chart-container')).toHaveCount(0);
   await expect(page.locator('.comparison-certainty')).toContainText('Reviewed USD/token quotes');

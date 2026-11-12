@@ -38,6 +38,8 @@ See [collection integrity/retention](docs/data-collection.md), [native history c
 
 ## Frontend and public evidence boundary
 
+- Follow the user-approved [pricing-workbench design system](.interface-design/system.md) for UI changes. Keep its shared light/dark tokens, readable typography, restrained summary hierarchy and existing accessible controls. Design approval does not authorize a code release or changes to economic/data semantics.
+
 - Compare/calculators/rankings and reviewed exports use reviewed files only. Models separates reviewed canonical identities from provider-scoped collected listings. Providers/native Changes preserve original units, uncertainty and provenance.
 - Generate native public assets through `scripts/dashboard_projection.ts` and validate them with `dashboard/src/lib/catalog.ts`. Projection is read-only: no warehouse rewrite, alias creation, source-hash change or native-to-reviewed promotion.
 - Publish only the reviewed-file allowlist, explicitly selected publication metadata/pause policy, and whitelisted native fields/assets. Never copy raw/authenticated responses, warehouse JSONL, legacy archives, collector scripts, credentials or `.recovery/` wholesale into the app, exports or public issues.
