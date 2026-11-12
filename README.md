@@ -81,6 +81,7 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 - Collector health, calculation methodology, reviewed dataset downloads, and independent pricing/review/freshness labels.
 - Responsive layout, dark theme, keyboard controls, and shareable URLs containing model, tier, view, workload, provider, native record, directory, and feed.
 - Readable typography inspired by OpenRouter’s benchmarks page: 16px body text, 14px secondary text/controls, 12px metadata, and 20px section headings. Mobile layouts reflow instead of shrinking text.
+- A pricing-workbench design with a shared paper canvas, compact model/billing-basis strip, unboxed quote summaries, an emphasized workload total, and coordinated light/dark themes. The [saved design system](.interface-design/system.md) records the approved patterns for future UI work.
 - Daily collection, no-AI failure tickets, automated unit/collector/browser/documentation checks, and a separately gated manual Pages deployment workflow.
 
 ### Reviewed coverage and collection scope

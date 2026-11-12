@@ -26,6 +26,21 @@ Together comparisons are intentionally paused by the shared `config/provider_pol
 
 Every view labels the included collection timestamp separately from build time using the small generated `publication.json`. It binds to `status.json`; mismatched snapshots fail loading. A build is not a new source observation or an asserted deployment timestamp. No browser GitHub/provider fetch is introduced; see [publication provenance](publishing.md#freshness-metadata).
 
+## Visual system
+
+The approved pricing-workbench appearance uses a shared paper canvas for navigation,
+restrained model-selection rules, an unboxed summary strip, and a larger workload
+estimate above the surfaced editor and provider comparison. Billing-basis controls
+remain visible on mobile; wide quote tables scroll inside their containers.
+Scope/fit uncertainty, source provenance, collector health and snapshot dates retain
+their existing meaning and semantic order in both themes.
+
+`dashboard/src/styles.css` supplies shared component structure;
+`dashboard/src/workbench.css`, imported after it, supplies the visual tokens and
+approved appearance. The [saved design system](../.interface-design/system.md)
+records palette roles, typography, spacing, depth and reusable measurements.
+No runtime trial attribute, preview server, new dependency or data request is needed.
+
 ## Lazy assets
 
 The comparison landing page requests no native assets. Native views load a small `catalog/index.json` (schema 2). Coverage needs no catalog payloads. Models and provider details use schema-2 manifests, referencing content-addressed schema-1 chunks. Native history accepts schema-2 inline manifests and schema-3 compact manifests; these versions describe public delivery, not a warehouse migration.

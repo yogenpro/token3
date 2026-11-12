@@ -84,6 +84,8 @@ test('expanded billing sources and unverified weights remain explicit without na
   await expect(scoped).toContainText('Pricing scope unverified');
   await expect(scoped).not.toContainText('Lowest estimate');
   await expect(page.getByLabel('Toggle providers in history').getByRole('button', { name: 'Vercel AI Gateway' })).toHaveCount(0);
+  // Retained unverified base observations can be older than the default window.
+  await page.getByLabel('History date range').selectOption('0');
   await page.getByText('View exact observations', { exact: false }).click();
   await expect(page.locator('.history-data tbody')).toContainText('base rate, scope unverified');
 });

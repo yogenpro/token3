@@ -14,7 +14,7 @@ for (const width of [1440, 390, 320]) {
     ].map((selector) => [selector, parseFloat(getComputedStyle(document.querySelector(selector)!).fontSize)])));
     expect(sizes).toEqual({
       '.page-heading > p': 16, '.nav-item': 14, '.numeric-field input': 16, '.price-cell': 14,
-      '.provider-cell strong': 16, '.section-heading h2': 20, '.table-note': 12, '.page-footer': 12,
+      '.provider-cell strong': 14, '.section-heading h2': 20, '.table-note': 12, '.page-footer': 12,
     });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     if (width === 390) {
