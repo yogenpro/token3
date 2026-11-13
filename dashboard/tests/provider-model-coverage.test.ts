@@ -21,12 +21,26 @@ describe('current provider and model coverage', () => {
     expect(inventory.providers).toHaveLength(47);
     for (const id of review.new_model_ids) {
       expect(data.models.some((m) => m.id === id)).toBe(true);
-      expect(rankOfferings(data, id, defaultWorkload).some((r) => r.cost.eligible)).toBe(true);
+      // This is a retained review baseline. An authoritative source can later
+      // remove a listing while its reviewed identity and last-good price stay.
+      const retained = data.offerings.filter((o) => o.model_id === id);
+      expect(retained.some((o) => {
+        const price = data.prices.find((p) => p.offering_id === o.id);
+        return price !== undefined && estimateCost(o, price, defaultWorkload).eligible;
+      }), id).toBe(true);
     }
     for (const [provider, bindings] of Object.entries(review.reviewed_bindings)) {
       for (const [sourceId, canonical] of Object.entries(bindings)) {
         expect(data.offerings.some((o) => o.provider === provider && o.provider_model_id === sourceId && o.model_id === canonical)).toBe(true);
       }
+    }
+  });
+  it('retains inactive reviewed prices while excluding those offers from current rankings', () => {
+    const inactive = data.offerings.filter((o) => !o.active);
+    for (const offering of inactive) {
+      expect(data.models.some((m) => m.id === offering.model_id)).toBe(true);
+      expect(data.prices.some((p) => p.offering_id === offering.id)).toBe(true);
+      expect(rankOfferings(data, offering.model_id, defaultWorkload, 'all').some((r) => r.offering.id === offering.id)).toBe(false);
     }
   });
   it('keeps unknown weight access distinct from proprietary and open models', () => {

@@ -29,6 +29,40 @@ The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identiti
 
 ## API details and limits
 
+### November 13 collection investigation (issue #35)
+
+The [failed collection](https://github.com/yogenpro/token3/actions/runs/43444120572/attempts/1)
+has two reproduced layout regressions. Kimi's public HTML now serializes K2
+model labels as plain string literals instead of guide links. Both inert forms
+are accepted without evaluating JavaScript; the same complete tables, exact IDs,
+USD/MTok amounts, cache TTL columns and capacity/access conditions remain required.
+OVHcloud's website cards now put `€` before the amount. Prefix and suffix EUR
+forms retain the same reviewed rates and explicit input/output Mtoken basis;
+the separate API catalog still has unknown currency. Bounded public fixture
+excerpts retain independent parent-response and excerpt hashes in
+`tests/fixtures/issue-35/manifest.json`.
+
+Two other failures remain source limitations, not layout repairs. Arcee's
+[pricing document](https://docs.arcee.ai/get-started/pricing.md), fetched during
+this investigation, omits the tracked `deepseek/deepseek-v4-pro-0813` and
+`zai-org/glm-5.2` rows. This document alone does not authorize retirement, ID
+substitution or dropping the complete tracked-binding requirement. Castform's
+configured [public pricing host](https://api.castform.com/v1/pricing) fails DNS
+resolution during the live dry-run. No replacement endpoint is inferred.
+Both collectors continue to fail strictly and retain last-good reviewed data;
+Arcee's valid fetched native evidence can still be retained. Full strict
+collection cannot be claimed successful until those source issues are resolved.
+
+The retained-coverage frontend test also distinguishes historical review from
+current availability: Liquid's `liquid/lfm-2.5-2.6b` OpenRouter offer is retained
+but inactive in the current data. Tests require retained identities and usable
+last-good prices, and independently assert that inactive offers cannot enter
+current rankings. No production availability or price is changed to satisfy tests.
+The real-data history browser test likewise navigates observation-batch pages
+when newer collections move its largest historical batch beyond the first page.
+It still requires zero event-chunk downloads before selection and exactly the
+intersecting chunks afterward, with unchanged event-count and accessibility checks.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)

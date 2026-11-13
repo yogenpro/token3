@@ -39,13 +39,15 @@ def tables(body):
         rows = []
         for raw in (match[2] + "]").split("],["):
             raw = raw.removeprefix("[").removesuffix("]")
-            row = re.fullmatch(r'_jsx\(_components\.a,\{href:`(/guide/[a-z0-9-]+)`,children:`([a-z0-9.\-]+)`\}\),(.+)', raw)
+            # K2 labels may be plain literals after their guide links disappear.
+            # Accept only these two inert forms, never expressions or templates.
+            row = re.fullmatch(r'(?:_jsx\(_components\.a,\{href:`/guide/[a-z0-9-]+`,children:`([a-z0-9.\-]+)`\}\)|`([a-z0-9.\-]+)`),(.+)', raw)
             if not row:
                 raise ValueError("Unsupported Kimi serialized model row")
             prices = row[3].split(",")
             if len(prices) != len(expected) - 1 or any(not re.fullmatch(r'`\$[0-9.]+ / MTok`', p) for p in prices):
                 raise ValueError("Incomplete Kimi token prices")
-            rows.append((row[2], [p.strip("`") for p in prices]))
+            rows.append((row[1] or row[2], [p.strip("`") for p in prices]))
         if len(rows) != 3 or len({mid for mid, _ in rows}) != len(rows):
             raise ValueError("Duplicate or incomplete Kimi model table")
         result.append((expected, rows))
