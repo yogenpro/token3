@@ -32,7 +32,7 @@ test('new direct sources expose reviewed prices without downloading native catal
   for (const [model, provider] of [['mistral/mistral-large-4', 'Mistral API'], ['meta/muse-spark-1.3', 'Meta Model API'], ['moonshotai/kimi-k2.6', 'Moonshot AI']]) {
     await page.getByLabel('SELECT A MODEL').selectOption(model);
     await expect(page.getByTestId('offering-row').first()).toBeVisible();
-    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true }).first()).toBeVisible();
+    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
   }
   expect(nativeRequests).toEqual([]);
   expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
