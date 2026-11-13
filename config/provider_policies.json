@@ -3,5 +3,14 @@
     "comparisons": "paused",
     "collection": "documents_only",
     "reason": "Together comparisons are paused: its free document no longer refreshes all retained quotes, and enabling the authenticated catalog requires a deposit we have not authorized. Free document inventory and historical observations are retained."
+  },
+  "castform": {
+    "comparisons": "paused",
+    "collection": "disabled",
+    "reason": "Castform collection and current comparisons are stopped by operator decision (2026-11-13). The former pricing host is unavailable; current official pricing and docs describe GPU-hour compute, with no verified replacement token-pricing feed. Retained quotes, native evidence and history are preserved. Resumption requires a verified source and separate review."
+  },
+  "arcee": {
+    "excluded_model_ids": ["deepseek/deepseek-v4-pro-0813", "zai-org/glm-5.2"],
+    "reason": "Arcee's deepseek/deepseek-v4-pro-0813 and zai-org/glm-5.2 quotes are excluded by operator decision (2026-11-13) after disappearing from its pricing document. Possible retirement is unconfirmed. Other tracked Arcee quotes remain required; excluded identities, prices, native evidence and history are retained. Resumption requires separate review."
   }
 }

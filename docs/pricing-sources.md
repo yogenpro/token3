@@ -42,16 +42,37 @@ the separate API catalog still has unknown currency. Bounded public fixture
 excerpts retain independent parent-response and excerpt hashes in
 `tests/fixtures/issue-35/manifest.json`.
 
-Two other failures remain source limitations, not layout repairs. Arcee's
+Two other failures required a separate operator decision after the parser repair. Arcee's
 [pricing document](https://docs.arcee.ai/get-started/pricing.md), fetched during
 this investigation, omits the tracked `deepseek/deepseek-v4-pro-0813` and
 `zai-org/glm-5.2` rows. This document alone does not authorize retirement, ID
-substitution or dropping the complete tracked-binding requirement. Castform's
+substitution or dropping arbitrary tracked-binding requirements. Castform's
 configured [public pricing host](https://api.castform.com/v1/pricing) fails DNS
 resolution during the live dry-run. No replacement endpoint is inferred.
-Both collectors continue to fail strictly and retain last-good reviewed data;
-Arcee's valid fetched native evidence can still be retained. Full strict
-collection cannot be claimed successful until those source issues are resolved.
+The user subsequently authorized the following bounded policy in
+`config/provider_policies.json` on November 13:
+
+- Exclude only those two exact Arcee served IDs from current quote collection,
+  completeness requirements and comparisons. The remaining three reviewed IDs
+  must all remain present and valid. Native evidence, original quote identities,
+  prices, history and availability flags remain intact. Possible retirement is
+  unconfirmed; reappearance does not automatically resume excluded quotes.
+- Find a verified replacement Castform token-pricing source, or stop collection
+  if none can be found. Live requests to its [pricing page](https://www.castform.com/pricing/),
+  [current docs](https://castform.com/docs/) and [documentation index](https://castform.com/llms.txt)
+  now describe GPU-hour compute. Older search-engine pricing excerpts are stale,
+  not a live replacement token feed. Bounded research found no verified replacement,
+  so Castform collection is disabled and current comparisons are paused. No new
+  GPU collector, hourly-to-token conversion or inferred endpoint is introduced.
+
+There are 46 enabled collectors and 47 retained source groups. Default collection
+skips Castform before submitting network work; an explicitly selected Castform
+run reports the policy skip, writes nothing and creates no successful observation
+or check. Old health/errors remain historical evidence, with collection shown
+as stopped in the dashboard. Arcee's three remaining quotes pass a live strict
+dry-run under the bounded exclusion. Other source failures still fail strictly.
+Resumption requires separate source review. Bounded live Castform evidence and
+parent/excerpt hashes are in `tests/fixtures/source-operating-policy/manifest.json`.
 
 The retained-coverage frontend test also distinguishes historical review from
 current availability: Liquid's `liquid/lfm-2.5-2.6b` OpenRouter offer is retained

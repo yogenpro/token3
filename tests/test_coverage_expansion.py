@@ -45,6 +45,11 @@ def gateway_payload(provider):
 
 class CoverageExpansionTests(unittest.TestCase):
     def setUp(self):
+        # Dated enrollment fixtures exercise the originally reviewed scopes;
+        # current operator exclusions/stopped collection have separate tests.
+        policy = patch.dict('providers.policy.POLICIES', {}, clear=True)
+        policy.start()
+        self.addCleanup(policy.stop)
         self.models, self.aliases = catalog()
 
     def quotes(self, provider, data=None):

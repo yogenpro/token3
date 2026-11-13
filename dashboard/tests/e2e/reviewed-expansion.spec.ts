@@ -32,7 +32,7 @@ test('new direct sources expose reviewed prices without downloading native catal
   for (const [model, provider] of [['mistral/mistral-large-4', 'Mistral API'], ['meta/muse-spark-1.3', 'Meta Model API'], ['moonshotai/kimi-k2.6', 'Moonshot AI']]) {
     await page.getByLabel('SELECT A MODEL').selectOption(model);
     await expect(page.getByTestId('offering-row').first()).toBeVisible();
-    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
+    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true }).first()).toBeVisible();
   }
   expect(nativeRequests).toEqual([]);
   expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
@@ -57,8 +57,8 @@ test('expanded billing sources and unverified weights remain explicit without na
   await page.goto('./');
   for (const [model, provider] of [
     ['upstage/solar-pro4-260806', 'Upstage'], ['perplexity/sonar-agent', 'Perplexity API'],
-    ['qwen/qwen3.5-4b', 'Castform'], ['openai/gpt-oss-120b', 'Cerebras'], ['zai/glm-5.3-flash', 'Arcee AI'],
-    ['openai/gpt-5.4', 'Castform'],
+    ['openai/gpt-oss-120b', 'Cerebras'], ['zai/glm-5.3-flash', 'Arcee AI'],
+    ['openai/gpt-5.4', 'OpenAI API'],
   ]) {
     await page.getByLabel('SELECT A MODEL').selectOption(model);
     await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
