@@ -341,8 +341,10 @@ def ovhcloud_quotes(payload, aliases, source):
         if len(matches)!=1:
             raise ValueError("Missing/duplicate OVHcloud reviewed EUR price card")
         text=matches[0]
-        amounts=re.findall(r'([0-9]+(?:\.[0-9]+)?)\s*€\s*/\s*Mtoken\s*\(\s*(input|output)\s*\)',text)
-        rates=dict((k,number(v)) for v,k in amounts)
+        # Both witnessed layouts state EUR explicitly; the catalog API's
+        # currency remains unknown. Do not match fragments of malformed money.
+        amounts=re.findall(r'(?<![\w.€$+\-])(?:([0-9]+(?:\.[0-9]+)?)\s*€|€\s*([0-9]+(?:\.[0-9]+)?))\s*/\s*Mtoken\s*\(\s*(input|output)\s*\)',text)
+        rates=dict((k,number(suffix or prefix)) for suffix,prefix,k in amounts)
         if len(amounts)!=2 or set(rates)!={'input','output'}:
             raise ValueError("OVHcloud explicit EUR/token price card changed")
         records.append(quote('ovhcloud',mid,[rates['input'],rates['output']],page['source_url'],unit='EUR',region='public EUR price cards',
