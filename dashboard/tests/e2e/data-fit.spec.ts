@@ -55,7 +55,8 @@ test('large history opens as batches and an event page loads only intersecting c
   // the largest real catalog batch; do not fabricate events or relax paging.
   const response = await page.request.get('./catalog/changes/catalog.json');
   const manifest = historyManifestSchema.parse(await response.json());
-  const batch = manifest.batches.filter((b: { provider: string }) => b.provider === 'vertex')
+  const providerBatches = manifest.batches.filter((b) => b.provider === 'vertex');
+  const batch = [...providerBatches]
     .sort((a: { event_count: number }, b: { event_count: number }) => b.event_count - a.event_count)[0];
   expect(batch.event_count).toBeGreaterThan(50);
   expect(batch.chunks.length).toBeGreaterThan(2);
@@ -66,6 +67,16 @@ test('large history opens as batches and an event page loads only intersecting c
   await expect(page.locator('.history-batch').first()).toBeVisible();
   expect(requested).toEqual([]);
   await page.getByLabel('Filter native changes by provider').selectOption('vertex');
+  // New daily observations can push the largest historical batch beyond the
+  // first page. Navigate its real batch index without loading event chunks.
+  const batchPage = Math.floor(providerBatches.findIndex((b) => b.id === batch.id) / 25) + 1;
+  const pageCount = Math.ceil(providerBatches.length / 25);
+  await expect(page.getByText(`Page 1 of ${pageCount}`, { exact: true })).toBeVisible();
+  for (let current = 1; current < batchPage; current++) {
+    await page.getByRole('button', { name: 'Next page', exact: true }).click();
+    await expect(page.getByText(`Page ${current + 1} of ${pageCount}`, { exact: true })).toBeVisible();
+  }
+  expect(requested).toEqual([]);
   await page.getByRole('button', { name: `Open vertex catalog observation batch ${batch.observed_at}`, exact: true }).click();
   await expect(page.locator('.native-change')).toHaveCount(25);
   expect(requested.sort()).toEqual(expectedChunks.sort());

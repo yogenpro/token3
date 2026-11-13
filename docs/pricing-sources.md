@@ -58,6 +58,10 @@ current availability: Liquid's `liquid/lfm-2.5-2.6b` OpenRouter offer is retaine
 but inactive in the current data. Tests require retained identities and usable
 last-good prices, and independently assert that inactive offers cannot enter
 current rankings. No production availability or price is changed to satisfy tests.
+The real-data history browser test likewise navigates observation-batch pages
+when newer collections move its largest historical batch beyond the first page.
+It still requires zero event-chunk downloads before selection and exactly the
+intersecting chunks afterward, with unchanged event-count and accessibility checks.
 
 ### OpenRouter public catalog availability
 
