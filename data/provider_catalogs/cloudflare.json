@@ -1400,6 +1400,78 @@
       "comparison_eligible": false
     },
     {
+      "id": "cloudflare-60db1b43b8f0deb8faa34792",
+      "provider": "cloudflare",
+      "native_id": "e055ee9fd0f03bed3419af14",
+      "kind": "document_row",
+      "label": "@cf/thinkingmachines/inkling-2-small",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Pricing",
+          "LLM model pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Price in Tokens",
+          "Price in Neurons"
+        ],
+        "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md"
+      },
+      "billing": {
+        "cells": [
+          "@cf/thinkingmachines/inkling-2-small",
+          "$0.300 per M input tokens <br> $0.100 per M cached input tokens <br> $1.000 per M output tokens",
+          "27273 neurons per M input tokens <br> 9091 neurons per M cached input tokens <br> 90909 neurons per M output tokens"
+        ],
+        "columns": [
+          "Model",
+          "Price in Tokens",
+          "Price in Neurons"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price in Tokens:0",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.300 per M input tokens <br> $0.100 per M cached input tokens <br> $1.000 per M output tokens",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Price in Tokens:1",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.300 per M input tokens <br> $0.100 per M cached input tokens <br> $1.000 per M output tokens",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Price in Tokens:2",
+          "amount": "1",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.300 per M input tokens <br> $0.100 per M cached input tokens <br> $1.000 per M output tokens",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "cloudflare-62e86a9fddd3af96716a0b5c",
       "provider": "cloudflare",
       "native_id": "f7af78ea803ad548f6f04f2c",
@@ -2992,6 +3064,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "cloudflare-b0d20bff2f4716991ab81d10",
+      "provider": "cloudflare",
+      "native_id": "b0b5d7522771ec76a0993893",
+      "kind": "document_row",
+      "label": "@cf/google/embeddinggemma-2",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Pricing",
+          "Embeddings model pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Price in Tokens",
+          "Price in Neurons"
+        ],
+        "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md"
+      },
+      "billing": {
+        "cells": [
+          "@cf/google/embeddinggemma-2",
+          "$0.0017 per M input tokens",
+          "154 neurons per M input tokens"
+        ],
+        "columns": [
+          "Model",
+          "Price in Tokens",
+          "Price in Neurons"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Price in Tokens:0",
+          "amount": "0.0017",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.0017 per M input tokens",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "cloudflare-b3d8a9d8e2faf4ef1ed3abc0",
       "provider": "cloudflare",
       "native_id": "48aae1ff78dccc07f15c0b8a",
@@ -4281,9 +4403,9 @@
   ],
   "billing_notes": [
     "Public Workers AI price tables and neuron billing rules, including non-token modalities. Neurons and tokens are not assumed interchangeable.",
-    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Last updated Oct 20, 2026|Copy as Markdown| [View as Markdown](https://developers.cloudflare.com/workers-ai/platform/pricing/index.md)| [Agent setup](https://developers.cloudflare.com/agent-setup/)",
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Last updated Nov 12, 2026|Copy as Markdown| [View as Markdown](https://developers.cloudflare.com/workers-ai/platform/pricing/index.md)| [Agent setup](https://developers.cloudflare.com/agent-setup/)",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Our free allocation allows anyone to use a total of **10,000 Neurons per day at no charge**. To use more than 10,000 Neurons per day, you need to sign up for the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/#workers). On Workers Paid, you will be charged at $0.011 / 1,000 Neurons for any usage above the free allocation of 10,000 Neurons per day.",
-    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/zai-org/glm-5.3`, `@cf/zai-org/glm-5.3-flash`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, `@cf/deepseek-ai/deepseek-v4.1-flash-1017`, and `@cf/deepseek-ai/deepseek-v4-pro-0813`. You can access these models with either the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/#workers) or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).",
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Some models require a paid billing method. This applies to `@cf/moonshotai/kimi-k2.6`, `@cf/moonshotai/kimi-k2.7-code`, `@cf/zai-org/glm-5.2`, `@cf/zai-org/glm-5.3`, `@cf/zai-org/glm-5.3-flash`, `@cf/deepseek-ai/deepseek-v4-flash-0731`, `@cf/deepseek-ai/deepseek-v4.1-flash-1017`, `@cf/deepseek-ai/deepseek-v4-pro-0813`, and `@cf/thinkingmachines/inkling-2-small`. You can access these models with either the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/#workers) or prepaid [AI Gateway credits](https://developers.cloudflare.com/ai-gateway/features/unified-billing/).",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: The Price in Tokens column is equivalent to the Price in Neurons column - the different units are displayed so you can easily compare and understand pricing.",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Workers AI has updated pricing to be more granular, with per-model unit-based pricing presented, but still billing in neurons in the back end.",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: Workers AI is included in both the [Free and Paid Workers plans](https://developers.cloudflare.com/workers/platform/pricing/) and is priced at **$0.011 per 1,000 Neurons**.",
@@ -4291,15 +4413,22 @@
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: description: Workers AI pricing is based on Neurons, with a free daily allocation and per-model rates.",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: image: https://developers.cloudflare.com/workers-ai/platform/pricing/og.png?v=c0f09dd6cf3238d9",
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: title: Pricing",
-    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: {\"@context\":\"https://schema.org\",\"@type\":\"TechArticle\",\"@id\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/#page\",\"headline\":\"Pricing\",\"description\":\"Workers AI pricing is based on Neurons, with a free daily allocation and per-model rates.\",\"url\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/\",\"inLanguage\":\"en\",\"image\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/og.png?v=c0f09dd6cf3238d9\",\"dateModified\":\"2026-10-20\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Cloudflare\",\"description\":\"One platform for your apps, agents, and workforce. Build, secure, and scale without managing infrastructure\",\"url\":\"https://www.cloudflare.com/\",\"sameAs\":[\"https://github.com/cloudflare\",\"https://www.linkedin.com/company/cloudflare\",\"https://x.com/cloudflare\"],\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://developers.cloudflare.com/logo.svg\"},\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"101 Townsend St\",\"addressLocality\":\"San Francisco\",\"addressRegion\":\"CA\",\"postalCode\":\"94107\",\"addressCountry\":\"US\"},\"contactPoint\":[{\"@type\":\"ContactPoint\",\"contactType\":\"Customer Support\",\"url\":\"https://support.cloudflare.com/\",\"availableLanguage\":[\"English\"]},{\"@type\":\"ContactPoint\",\"contactType\":\"Sales\",\"url\":\"https://www.cloudflare.com/contact/\",\"availableLanguage\":[\"English\"]}]},\"isPartOf\":{\"@type\":\"WebSite\",\"@id\":\"https://developers.cloudflare.com/#website\",\"name\":\"Cloudflare Docs\",\"url\":\"https://developers.cloudflare.com/\"}}"
+    "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md: {\"@context\":\"https://schema.org\",\"@type\":\"TechArticle\",\"@id\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/#page\",\"headline\":\"Pricing\",\"description\":\"Workers AI pricing is based on Neurons, with a free daily allocation and per-model rates.\",\"url\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/\",\"inLanguage\":\"en\",\"image\":\"https://developers.cloudflare.com/workers-ai/platform/pricing/og.png?v=c0f09dd6cf3238d9\",\"dateModified\":\"2026-11-12\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Cloudflare\",\"description\":\"One platform for your apps, agents, and workforce. Build, secure, and scale without managing infrastructure\",\"url\":\"https://www.cloudflare.com/\",\"sameAs\":[\"https://github.com/cloudflare\",\"https://www.linkedin.com/company/cloudflare\",\"https://x.com/cloudflare\"],\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://developers.cloudflare.com/logo.svg\"},\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"101 Townsend St\",\"addressLocality\":\"San Francisco\",\"addressRegion\":\"CA\",\"postalCode\":\"94107\",\"addressCountry\":\"US\"},\"contactPoint\":[{\"@type\":\"ContactPoint\",\"contactType\":\"Customer Support\",\"url\":\"https://support.cloudflare.com/\",\"availableLanguage\":[\"English\"]},{\"@type\":\"ContactPoint\",\"contactType\":\"Sales\",\"url\":\"https://www.cloudflare.com/contact/\",\"availableLanguage\":[\"English\"]}]},\"isPartOf\":{\"@type\":\"WebSite\",\"@id\":\"https://developers.cloudflare.com/#website\",\"name\":\"Cloudflare Docs\",\"url\":\"https://developers.cloudflare.com/\"}}"
   ],
-  "catalog_sha256": "b63d82c3ddf3a69364d8a4040a75b781e8c7ea2a74c3e92f65752da544f35240",
-  "revision": 4,
-  "changed_at": "2026-10-20T11:37:10Z",
+  "catalog_sha256": "a6a45f541c3b84c27275f2fd130201a7e4f8e4c09a83f27096c14f2ab9d8c095",
+  "revision": 5,
+  "changed_at": "2026-11-13T14:36:45Z",
   "source_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
   "source_urls": [
     "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md"
   ],
-  "source_sha256": "fb11c5b9e9c7d42cce2c7e155700fd564bf26f9e9323c1a3f7787ab81c3c1c00",
-  "archive_reference": null
+  "source_sha256": "bfd5caab130df0c3d3705d759331d95bd2e404a8888b91e44fd9f5d0afb3d346",
+  "archive_reference": {
+    "state": "content_mismatch",
+    "target_url": "https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
+    "url": "https://web.archive.org/web/20261024043510/https://developers.cloudflare.com/workers-ai/platform/pricing/index.md",
+    "capture_at": "2026-10-24T04:35:10Z",
+    "checked_at": "2026-11-13T14:36:45Z",
+    "verification": null
+  }
 }

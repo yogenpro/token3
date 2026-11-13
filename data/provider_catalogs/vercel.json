@@ -1211,20 +1211,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -1904,6 +1890,117 @@
           }
         ],
         "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-0acd74c25afd8134f1ab2f86",
+      "provider": "vercel",
+      "native_id": "google/gemini-4-hydrogen",
+      "kind": "model",
+      "label": "Gemini 4 Hydrogen",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000015",
+          "input_cache_read": "0.000000075",
+          "maps_search": "14",
+          "output": "0.0000075",
+          "regional": {
+            "eu": {
+              "input": "0.00000165",
+              "input_cache_read": "0.0000000825",
+              "output": "0.00000825"
+            },
+            "us": {
+              "input": "0.00000165",
+              "input_cache_read": "0.0000000825",
+              "output": "0.00000825"
+            }
+          },
+          "service_tiers": {
+            "priority": {
+              "input": "0.0000027",
+              "input_cache_read": "0.000000135",
+              "output": "0.0000135"
+            }
+          },
+          "web_search": "14"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 4 Hydrogen",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -3607,8 +3704,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -3626,20 +3721,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "some",
         "no_training": "all"
       },
@@ -4288,18 +4369,15 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
             ]
           },
           {
+            "min": 128,
             "type": "budget_tokens"
           }
         ],
@@ -4395,7 +4473,8 @@
       "billing": {
         "rules": {
           "input": "0.00000001",
-          "output": "0"
+          "output": "0",
+          "web_search": "1"
         },
         "currency": "USD",
         "state": "reported",
@@ -4826,9 +4905,12 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
-              "low",
+              "minimal",
               "high"
             ]
           }
@@ -4985,6 +5067,7 @@
             ]
           },
           {
+            "min": 512,
             "type": "budget_tokens"
           }
         ],
@@ -5163,7 +5246,8 @@
         "modalities": {
           "input": [
             "text",
-            "image"
+            "image",
+            "pdf"
           ],
           "output": [
             "text"
@@ -5489,6 +5573,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -6723,9 +6808,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -6903,12 +6993,8 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
@@ -7030,20 +7116,6 @@
             "video"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -7175,15 +7247,10 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
-              "medium",
-              "high"
+              "medium"
             ]
           }
         ],
@@ -8270,6 +8337,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-2e043088ebd087d90e90abca",
+      "provider": "vercel",
+      "native_id": "paperinstruments/ultramarine-1-flash",
+      "kind": "model",
+      "label": "Ultramarine 1 Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000015",
+          "input_cache_read": "0.00000003",
+          "output": "0.0000005"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000005",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Ultramarine 1 Flash",
+        "owned_by": "paperinstruments",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 131000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high",
+              "max"
+            ]
+          },
+          {
+            "min": 1024,
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-2e06145a0fc6ca6b364d3b48",
       "provider": "vercel",
       "native_id": "microsoft/mai-voice-2.1-flash",
@@ -8916,20 +9074,6 @@
             "video"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -9163,20 +9307,6 @@
             "audio"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -9597,6 +9727,63 @@
         },
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-34ffce00ddb65d5683151dab",
+      "provider": "vercel",
+      "native_id": "perplexity/pplx-decider-flash-v1.3",
+      "kind": "model",
+      "label": "Decider Flash V1.3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000001",
+          "output": "0",
+          "web_search": "1"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decider Flash V1.3",
+        "owned_by": "perplexity",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -10929,9 +11116,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -10991,20 +11183,6 @@
             "audio"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -11232,6 +11410,7 @@
             ]
           },
           {
+            "min": 512,
             "type": "budget_tokens"
           }
         ],
@@ -11384,6 +11563,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -11578,20 +11758,6 @@
             "video"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -11792,9 +11958,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -11867,20 +12038,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -12135,20 +12292,6 @@
             "video"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -13637,8 +13780,8 @@
             "values": [
               "none",
               "low",
-              "medium",
-              "high"
+              "high",
+              "max"
             ]
           }
         ],
@@ -14158,8 +14301,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -14178,20 +14319,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -14618,9 +14745,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -15890,6 +16022,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -16763,20 +16896,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -17773,20 +17892,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -17899,9 +18004,7 @@
           "temperature",
           "stop",
           "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
+          "tool_choice"
         ],
         "supported_specifications": [
           "v2",
@@ -17916,20 +18019,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -20193,8 +20282,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -20211,20 +20298,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "some",
         "no_training": "some"
       },
@@ -20291,20 +20364,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -22271,12 +22330,8 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
@@ -22374,8 +22429,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -22392,20 +22445,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "none",
         "no_training": "all"
       },
@@ -22612,20 +22651,6 @@
             "image"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -23161,20 +23186,6 @@
             "video"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "some",
         "no_training": "all"
       },
@@ -23784,9 +23795,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -24830,7 +24846,9 @@
           {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -26027,9 +26045,12 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
-              "low",
+              "minimal",
               "high"
             ]
           }
@@ -26640,6 +26661,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -26827,9 +26849,7 @@
           "temperature",
           "stop",
           "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
+          "tool_choice"
         ],
         "supported_specifications": [
           "v2",
@@ -26844,20 +26864,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -28187,20 +28193,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -28950,6 +28942,98 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-a24eea91dd83ac2b90f40951",
+      "provider": "vercel",
+      "native_id": "thinkingmachines/inkling-2-small",
+      "kind": "model",
+      "label": "Inkling 2 Small",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000003",
+          "input_cache_read": "0.00000003",
+          "output": "0.000001",
+          "varies_by_provider": true
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Inkling 2 Small",
+        "owned_by": "thinkingmachines",
+        "type": "language",
+        "context_window": 1048576,
+        "max_tokens": 262144,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-a26b0002de2b7f3a9c4d87e9",
       "provider": "vercel",
       "native_id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -29393,6 +29477,9 @@
           ]
         },
         "reasoning_options": [
+          {
+            "type": "toggle"
+          },
           {
             "type": "budget_tokens"
           }
@@ -29862,12 +29949,8 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
@@ -30168,20 +30251,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -30409,18 +30478,15 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
             ]
           },
           {
+            "min": 128,
             "type": "budget_tokens"
           }
         ],
@@ -30998,89 +31064,13 @@
               "medium",
               "high"
             ]
+          },
+          {
+            "type": "budget_tokens"
           }
         ],
         "zdr": "some",
         "no_training": "some"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "vercel-a9d384dcb3b1f53c001a94c4",
-      "provider": "vercel",
-      "native_id": "poolside/laguna-s-2.1",
-      "kind": "model",
-      "label": "Laguna S 2.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000009",
-          "input_cache_read": "0.000000009",
-          "output": "0.00000018"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000009",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.00000018",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000009",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Laguna S 2.1",
-        "owned_by": "poolside",
-        "type": "language",
-        "context_window": 1000000,
-        "max_tokens": 131072,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          }
-        ],
-        "zdr": "none",
-        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -32130,11 +32120,6 @@
             }
           },
           "service_tiers": {
-            "flex": {
-              "input": "0.000001",
-              "input_cache_read": "0.00000005",
-              "output": "0.000005"
-            },
             "priority": {
               "input": "0.0000036",
               "input_cache_read": "0.00000018",
@@ -33384,8 +33369,6 @@
           "stop",
           "tools",
           "tool_choice",
-          "reasoning",
-          "include_reasoning",
           "response_format",
           "structured_outputs"
         ],
@@ -33404,20 +33387,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -34370,6 +34339,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -34590,7 +34560,7 @@
           {
             "type": "effort",
             "values": [
-              "none",
+              "minimal",
               "low",
               "medium",
               "high"
@@ -35094,7 +35064,9 @@
           {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -35614,20 +35586,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -35696,6 +35654,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -36310,6 +36269,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -37211,6 +37171,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -37518,6 +37479,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -37827,7 +37789,8 @@
       "billing": {
         "rules": {
           "input": "0.00000002",
-          "output": "0"
+          "output": "0",
+          "web_search": "1"
         },
         "currency": "USD",
         "state": "reported",
@@ -38391,20 +38354,6 @@
             "image"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -38989,12 +38938,8 @@
         },
         "reasoning_options": [
           {
-            "type": "toggle"
-          },
-          {
             "type": "effort",
             "values": [
-              "none",
               "low",
               "medium",
               "high"
@@ -39111,11 +39056,6 @@
             }
           },
           "service_tiers": {
-            "flex": {
-              "input": "0.000001",
-              "input_cache_read": "0.00000005",
-              "output": "0.000005"
-            },
             "priority": {
               "input": "0.0000036",
               "input_cache_read": "0.00000018",
@@ -40045,6 +39985,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -40145,6 +40086,9 @@
               "medium",
               "high"
             ]
+          },
+          {
+            "type": "budget_tokens"
           }
         ],
         "zdr": "all",
@@ -40293,6 +40237,10 @@
               "high",
               "max"
             ]
+          },
+          {
+            "min": 1024,
+            "type": "budget_tokens"
           }
         ],
         "zdr": "all",
@@ -41683,9 +41631,14 @@
         },
         "reasoning_options": [
           {
+            "type": "toggle"
+          },
+          {
             "type": "effort",
             "values": [
+              "minimal",
               "low",
+              "medium",
               "high"
             ]
           }
@@ -42358,6 +42311,7 @@
             "type": "effort",
             "values": [
               "low",
+              "medium",
               "high"
             ]
           }
@@ -44527,6 +44481,63 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f99a94902585309277d4c754",
+      "provider": "vercel",
+      "native_id": "perplexity/pplx-decider-v1.3",
+      "kind": "model",
+      "label": "Decider V1.3",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000002",
+          "output": "0",
+          "web_search": "1"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Decider V1.3",
+        "owned_by": "perplexity",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-fab5bc295fc8378fbda8830b",
       "provider": "vercel",
       "native_id": "openai/gpt-4.1-batch",
@@ -45441,9 +45452,7 @@
           "temperature",
           "stop",
           "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
+          "tool_choice"
         ],
         "supported_specifications": [
           "v2",
@@ -45459,20 +45468,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -45862,20 +45857,6 @@
             "text"
           ]
         },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
         "zdr": "all",
         "no_training": "all"
       },
@@ -45976,14 +45957,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "1efd74cd02f86835038978a7a18315f32ad81c4dcd6c50d58b070e2ebf47a8e5",
-  "revision": 42,
-  "changed_at": "2026-11-12T15:16:07Z",
+  "catalog_sha256": "fe9434def79ad50be9a71775ff21946e50e577c0a9881bec67a45b0a6b62fcd0",
+  "revision": 43,
+  "changed_at": "2026-11-13T14:36:45Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "aa4c11b5623155b7a86c92ba2b3373fff589d32d0460600adcbd2c9ecb313ad0",
+  "source_sha256": "bdd4c8a06a9654f65c69d857b3e61085e8002629385e1404b361953a23b24a48",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

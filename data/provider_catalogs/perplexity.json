@@ -648,12 +648,55 @@
         "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md"
       },
       "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nPricing\nUnderstand Perplexity API pricing, model rates, request fees, billing setup, and rate-limit references.\nEach Perplexity API bills differently. The rates are in the sections below.\n* Orchestrator API: per token, at each model's rates. No per-request fees. Requests rejected with a 429 are not billed.\n* Agent API: per token, at each model's rates, plus tool fees. Most tools bill per call; sandbox bills per session, plus each SDK search query made inside it. The flex (0.5×) and priority (2×) service tiers change the token rates only for models that list that tier on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Other models always bill at the listed rate.\n* Search API: per successful request.\n* Embeddings API: per token.\n* Decisions API: per input token. Output tokens are free. With mode: \"web_grounding\", each web search adds $0.001.\nFor billing setup, payment methods, and usage monitoring, see the Admin section (https://docs.perplexity.ai/docs/getting-started/projects.md). For rate limits, see Rate Limits & Usage Tiers (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md).\nOrchestrator API Pricing\nOrchestrator API usage is billed per token at each model's published rates — there are no per-request fees. Every model has its own input and output rate, with cache reads billed at the model's discounted cache-read rate and reasoning tokens billed at the output rate. You are always billed at the requested model's rates, regardless of how the request is served.\nSee Orchestrator Models & Pricing (https://docs.perplexity.ai/docs/orchestrator/models.md) for the full per-model rate card, including cache-read rates.\nAgent API Pricing\nThe Agent API provides access to third-party models from providers including OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates.\nModel Pricing\nAgent API pricing varies by provider and model, with each provider offering multiple models at different price points.\nThe input, output, and cache-read rate for each model is on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md).\nTool Pricing\nWhen using tools with the Agent API:\n[!NOTE]\nMost tool costs are per invocation. sandbox is billed per container session — a 20-minute billing window per container, not a runtime cap — plus per SDK search query made from inside it. Tool costs are separate from model token costs.\nSearch API Pricing\n[!NOTE]\nBilling unit: Search API charges for each successful POST /search request, not for each query in the request. A successful request containing an array of up to five queries is one billing unit. Invalid requests, rate-limited requests, and upstream failures are not billed. A successful response is billed even when it returns no results. There are no additional token-based charges.\nSearch API cost = successful requests ÷ 1,000 × the price per 1K requests. The amount of extracted text (max_tokens, max_tokens_per_page) does not change the price.\nWhat a result contains, the request controls, and the limits on queries, results, and extracted text are in the Search API overview (https://docs.perplexity.ai/docs/search/overview.md).\nEmbeddings API Pricing\nGenerate high-quality text embeddings for semantic search, retrieval-augmented generation (RAG), and other machine learning applications.\nStandard Embeddings\nContextualized Embeddings\nEmbeddings cost = tokens ÷ 1,000,000 × the model's rate. For example, 40M tokens on pplx-embed-context-v1-4b cost 40 × $0.05 = $2.00.\nTo use the Embeddings API, see the Embeddings quickstart (https://docs.perplexity.ai/docs/embeddings/quickstart.md).\nDecisions API Pricing\nThe Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities.\n[!NOTE]\nAliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.2. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.2. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.\nBilling unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.2.\nWeb grounding\nA request with mode: \"web_grounding\" runs one Fast Search (https://docs.perplexity.ai/docs/search/fast-search.md) for each of its questions, up to 100, before the model answers. Each search costs $0.001 ($1 per 1,000), in addition to input tokens, so at most $0.10 in searches per request. Questions that produce the same search query share one search.\nWhen state is a page URL, the API also fetches the page before searching. Each successful URL fetch costs $0.001; a failed fetch is not billed. One successful fetch and three successful searches cost $0.004, plus input tokens.\n* Billed: every search that returns, even with no results. Completed searches and successful URL fetches remain billable if the request later fails, for example because the input exceeds the token limit.\n* Not billed: a search that fails or runs out of time, a question with no text to search, and requests rejected before search: an invalid mode, more than 100 questions, a missing or unknown model, or a state that is not a string, object, or array. A request can be billed for fewer searches than it has questions.\n* Input tokens: fetched page text and search evidence are billed as input tokens and included in usage.input_tokens.\nSee Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).\nTo use the Decisions API, see the Decisions quickstart (https://docs.perplexity.ai/docs/decisions/quickstart.md).\nToken counts: 1 token is about 4 characters of English text. The exact count varies with language and content.\nCost Examples\nTo estimate an Agent API request, add these parts:\n* uncached input tokens × the model's input rate ÷ 1,000,000\n* cached input tokens × the model's cache-read rate ÷ 1,000,000\n* output tokens × the model's output rate ÷ 1,000,000. The response reports reasoning tokens in usage.output_tokens_details.reasoning_tokens; the Models page notes where they bill at the output rate.\n* the price of each tool call (from the Tool Pricing table)\n* $0.03 per sandbox session, plus $0.0025 per SDK search query made inside it\nModel rates are per 1M tokens, on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Where a rate lists a context-length range, use the rate that matches the request's input size. With flex or priority on a model that lists that tier, multiply the token cost by 0.5 or 2. Tool fees don't change.\nActual effort level costs vary with the selected model, token usage, and tool invocations. When present on a completed response, usage.cost.total_cost reports the calculated request cost.\nPurchase Options\n* Perplexity API Platform on AWS Marketplace (https://docs.perplexity.ai/docs/resources/aws-marketplace.md): buy API credits through AWS Marketplace with consolidated billing and enterprise procurement.\n* Contact the sales team (https://perplexity.typeform.com/to/m3WnMaG6): ask about custom pricing, dedicated support, and enterprise features.",
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nPricing\nUnderstand Perplexity API pricing, model rates, request fees, billing setup, and rate-limit references.\nEach Perplexity API bills differently. The rates are in the sections below.\n* Orchestrator API: per token, at each model's rates. No per-request fees. Requests rejected with a 429 are not billed.\n* Agent API: per token, at each model's rates, plus tool fees. Most tools bill per call; sandbox bills per session, plus each SDK search query made inside it. The flex (0.5×) and priority (2×) service tiers change the token rates only for models that list that tier on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Other models always bill at the listed rate.\n* Search API: per successful request.\n* Embeddings API: per token.\n* Decisions API: per input token. Output tokens are free. With mode: \"web_grounding\", each web search adds $0.001.\nFor billing setup, payment methods, and usage monitoring, see the Admin section (https://docs.perplexity.ai/docs/getting-started/projects.md). For rate limits, see Rate Limits & Usage Tiers (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md).\nOrchestrator API Pricing\nOrchestrator API usage is billed per token at each model's published rates — there are no per-request fees. Every model has its own input and output rate, with cache reads billed at the model's discounted cache-read rate and reasoning tokens billed at the output rate. You are always billed at the requested model's rates, regardless of how the request is served.\nSee Orchestrator Models & Pricing (https://docs.perplexity.ai/docs/orchestrator/models.md) for the full per-model rate card, including cache-read rates.\nAgent API Pricing\nThe Agent API provides access to third-party models from providers including OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates.\nModel Pricing\nAgent API pricing varies by provider and model, with each provider offering multiple models at different price points.\nThe input, output, and cache-read rate for each model is on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md).\nTool Pricing\nWhen using tools with the Agent API:\n[!NOTE]\nMost tool costs are per invocation. sandbox is billed per container session — a 20-minute billing window per container, not a runtime cap — plus per SDK search query made from inside it. Tool costs are separate from model token costs.\nSearch API Pricing\n[!NOTE]\nBilling unit: Search API charges for each successful POST /search request, not for each query in the request. A successful request containing an array of up to five queries is one billing unit. Invalid requests, rate-limited requests, and upstream failures are not billed. A successful response is billed even when it returns no results. There are no additional token-based charges.\nSearch API cost = successful requests ÷ 1,000 × the price per 1K requests. The amount of extracted text (max_tokens, max_tokens_per_page) does not change the price.\nWhat a result contains, the request controls, and the limits on queries, results, and extracted text are in the Search API overview (https://docs.perplexity.ai/docs/search/overview.md).\nEmbeddings API Pricing\nGenerate high-quality text embeddings for semantic search, retrieval-augmented generation (RAG), and other machine learning applications.\nStandard Embeddings\nContextualized Embeddings\nEmbeddings cost = tokens ÷ 1,000,000 × the model's rate. For example, 40M tokens on pplx-embed-context-v1-4b cost 40 × $0.05 = $2.00.\nTo use the Embeddings API, see the Embeddings quickstart (https://docs.perplexity.ai/docs/embeddings/quickstart.md).\nDecisions API Pricing\nThe Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities, and finds matching text spans with locate questions.\n[!NOTE]\nAliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.3. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.3. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.\nBilling unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.3 or pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.3 or pplx-decider-flash-v1.2.\nWeb grounding\nA request with mode: \"web_grounding\" runs one Fast Search (https://docs.perplexity.ai/docs/search/fast-search.md) for each of its questions, up to 100, before the model answers. Each search costs $0.001 ($1 per 1,000), in addition to input tokens, so at most $0.10 in searches per request. Questions that produce the same search query share one search.\nWhen state is a page URL, the API also fetches the page before searching. Each successful URL fetch costs $0.001; a failed fetch is not billed. One successful fetch and three successful searches cost $0.004, plus input tokens.\n* Billed: every search that returns, even with no results. Completed searches and successful URL fetches remain billable if the request later fails, for example because the input exceeds the token limit.\n* Not billed: a search that fails or runs out of time, a question with no text to search, and requests rejected before search: an invalid mode, more than 100 questions, a missing or unknown model, or a state that is not a string, object, or array. A request can be billed for fewer searches than it has questions.\n* Input tokens: fetched page text and search evidence are billed as input tokens and included in usage.input_tokens.\nSee Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).\nTo use the Decisions API, see the Decisions quickstart (https://docs.perplexity.ai/docs/decisions/quickstart.md).\nToken counts: 1 token is about 4 characters of English text. The exact count varies with language and content.\nCost Examples\nTo estimate an Agent API request, add these parts:\n* uncached input tokens × the model's input rate ÷ 1,000,000\n* cached input tokens × the model's cache-read rate ÷ 1,000,000\n* output tokens × the model's output rate ÷ 1,000,000. The response reports reasoning tokens in usage.output_tokens_details.reasoning_tokens; the Models page notes where they bill at the output rate.\n* the price of each tool call (from the Tool Pricing table)\n* $0.03 per sandbox session, plus $0.0025 per SDK search query made inside it\nModel rates are per 1M tokens, on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Where a rate lists a context-length range, use the rate that matches the request's input size. With flex or priority on a model that lists that tier, multiply the token cost by 0.5 or 2. Tool fees don't change.\nActual effort level costs vary with the selected model, token usage, and tool invocations. When present on a completed response, usage.cost.total_cost reports the calculated request cost.\nPurchase Options\n* Perplexity API Platform on AWS Marketplace (https://docs.perplexity.ai/docs/resources/aws-marketplace.md): buy API credits through AWS Marketplace with consolidated billing and enterprise procurement.\n* Contact the sales team (https://perplexity.typeform.com/to/m3WnMaG6): ask about custom pricing, dedicated support, and enterprise features.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
       "metadata": {
         "table_alignment_verified": false
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "perplexity-4b70968fb7e7a124336d78e8",
+      "provider": "perplexity",
+      "native_id": "5a62f9f5b3b4d23b66e55091",
+      "kind": "document_row",
+      "label": "`pplx-decider-v1.3`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Pricing",
+          "Decisions API Pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Price ($/1M input tokens)",
+          "Output tokens",
+          "Per-request fee"
+        ],
+        "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`pplx-decider-v1.3`",
+          "$0.02",
+          "Free",
+          "None"
+        ],
+        "columns": [
+          "Model",
+          "Price ($/1M input tokens)",
+          "Output tokens",
+          "Per-request fee"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "pplx-decider-v1.3"
       },
       "comparison_eligible": false
     },
@@ -1746,6 +1789,49 @@
       "comparison_eligible": false
     },
     {
+      "id": "perplexity-c1b4915171637d533f19e43e",
+      "provider": "perplexity",
+      "native_id": "8460c57c15a0b3e6b4ecb1ad",
+      "kind": "document_row",
+      "label": "`pplx-decider-flash-v1.3`",
+      "scope": {
+        "table": 5,
+        "headings": [
+          "Pricing",
+          "Decisions API Pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Price ($/1M input tokens)",
+          "Output tokens",
+          "Per-request fee"
+        ],
+        "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "`pplx-decider-flash-v1.3`",
+          "$0.01",
+          "Free",
+          "None"
+        ],
+        "columns": [
+          "Model",
+          "Price ($/1M input tokens)",
+          "Output tokens",
+          "Per-request fee"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "pplx-decider-flash-v1.3"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "perplexity-c2c5146451de24b973e04e3e",
       "provider": "perplexity",
       "native_id": "beac1fb9131e21b5c0bc86db",
@@ -2378,9 +2464,9 @@
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Actual effort level costs vary with the selected model, token usage, and tool invocations. When present on a completed response, usage.cost.total_cost reports the calculated request cost.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Agent API Pricing",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Agent API pricing varies by provider and model, with each provider offering multiple models at different price points.",
-    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Aliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.2. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.2. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.",
+    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Aliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.3. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.3. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Billing unit: Search API charges for each successful POST /search request, not for each query in the request. A successful request containing an array of up to five queries is one billing unit. Invalid requests, rate-limited requests, and upstream failures are not billed. A successful response is billed even when it returns no results. There are no additional token-based charges.",
-    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Billing unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.2.",
+    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Billing unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.3 or pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.3 or pplx-decider-flash-v1.2.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Contextualized Embeddings",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Cost Examples",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Decisions API Pricing",
@@ -2404,7 +2490,7 @@
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: See Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Standard Embeddings",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: The Agent API provides access to third-party models from providers including OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates.",
-    "https://docs.perplexity.ai/docs/getting-started/pricing.md: The Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities.",
+    "https://docs.perplexity.ai/docs/getting-started/pricing.md: The Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities, and finds matching text spans with locate questions.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: The input, output, and cache-read rate for each model is on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md).",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: To estimate an Agent API request, add these parts:",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: To use the Decisions API, see the Decisions quickstart (https://docs.perplexity.ai/docs/decisions/quickstart.md).",
@@ -2440,22 +2526,22 @@
     "https://docs.perplexity.ai/docs/router/models.md: [card] Quickstart (https://docs.perplexity.ai/docs/orchestrator/quickstart.md)",
     "https://docs.perplexity.ai/docs/router/models.md: perplexity/glm-5.3-flash supports cache reads but not cache writes."
   ],
-  "catalog_sha256": "99d6f5e8c16b709271a93cfb84d2be9d1ef50ce6c75ec375e57286680e4fe2cc",
-  "revision": 8,
-  "changed_at": "2026-11-12T15:16:07Z",
+  "catalog_sha256": "d9b2311048ee0d6707ab7b1169482ff132ac9dd2f49fc829673125fdb8a4974d",
+  "revision": 9,
+  "changed_at": "2026-11-13T14:36:45Z",
   "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
   "source_urls": [
     "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
     "https://docs.perplexity.ai/docs/router/models.md"
   ],
-  "source_sha256": "f428d9eaab9a587ac0311716b4e2e9ee6cc6cf078144447051130131bbd4fad7",
+  "source_sha256": "91495cf5190797085700953c059a75e46993d84b98408a3e3ed512feea75337a",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "url": "https://web.archive.org/web/20260520194121/https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "capture_at": "2026-05-20T19:41:21Z",
-    "checked_at": "2026-11-12T15:16:07Z",
+    "checked_at": "2026-11-13T14:36:45Z",
     "verification": null
   }
 }

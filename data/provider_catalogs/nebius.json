@@ -205,6 +205,73 @@
       "comparison_eligible": false
     },
     {
+      "id": "nebius-23b371995e7d2c16c2acbaff",
+      "provider": "nebius",
+      "native_id": "thinkingmachines/Inkling-2-Small",
+      "kind": "model_flavor",
+      "label": "Inkling-2-Small",
+      "scope": {
+        "flavor": "cheap",
+        "region": {
+          "country_code": "FR",
+          "name": "eu-west2"
+        }
+      },
+      "billing": {
+        "rules": {
+          "input_cached_price_per_million_tokens": 0.06,
+          "input_price_per_million_tokens": 0.3,
+          "output_price_per_million_tokens": 1
+        },
+        "state": "reported",
+        "currency": "USD"
+      },
+      "rates": [
+        {
+          "dimension": "input_price_per_million_tokens",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output_price_per_million_tokens",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "model_type": "image2text",
+        "model_name": "Inkling-2-Small",
+        "max_model_len": 1048576,
+        "context_window_k": 1048,
+        "quantization": "fp4",
+        "external_provider": false,
+        "tags": [],
+        "use_cases": [
+          "dedicated-endpoint",
+          "text",
+          "image",
+          "function_calling",
+          "reasoning",
+          "json_mode",
+          "responses_api"
+        ],
+        "status": "active",
+        "license": {
+          "name": "Apache 2.0",
+          "type": "",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "vendor": "thinkingmachines",
+        "huggingface_url": "https://huggingface.co/thinkingmachines/Inkling-2-Small",
+        "size_b": 0
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "nebius-2fe4571e53b8eff6dc7b109b",
       "provider": "nebius",
       "native_id": "zai-org/GLM-5.3",
@@ -818,79 +885,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "nebius-6e1aaf7d0de1139be6c4a7e5",
-      "provider": "nebius",
-      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "kind": "model_flavor",
-      "label": "DeepSeek-V4-Flash-0731",
-      "scope": {
-        "flavor": "cheap",
-        "region": {
-          "country_code": "US",
-          "name": "us-central1"
-        }
-      },
-      "billing": {
-        "rules": {
-          "input_cached_price_per_million_tokens": 0.01,
-          "input_price_per_million_tokens": 0.14,
-          "output_price_per_million_tokens": 0.28
-        },
-        "state": "reported",
-        "currency": "USD"
-      },
-      "rates": [
-        {
-          "dimension": "input_price_per_million_tokens",
-          "amount": "0.14",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output_price_per_million_tokens",
-          "amount": "0.28",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "model_type": "text2text",
-        "model_name": "DeepSeek-V4-Flash-0731",
-        "max_model_len": 1048576,
-        "context_window_k": 1024,
-        "quantization": "fp8",
-        "external_provider": false,
-        "tags": [
-          "1M context",
-          "reasoning",
-          "JSON mode",
-          "code",
-          "math"
-        ],
-        "use_cases": [
-          "text",
-          "reasoning",
-          "function_calling",
-          "code",
-          "context_and_rag",
-          "responses_api",
-          "fine_tune"
-        ],
-        "status": "active",
-        "license": {
-          "name": "MIT License",
-          "type": "",
-          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/blob/main/LICENSE"
-        },
-        "vendor": "deepseek",
-        "huggingface_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
-        "size_b": 304
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "nebius-6e487865bdab25be054f0181",
       "provider": "nebius",
       "native_id": "MiniMaxAI/MiniMax-M3",
@@ -1002,7 +996,7 @@
         "model_name": "Nemotron 3.5 Super VL",
         "max_model_len": 1048576,
         "context_window_k": 1024,
-        "quantization": "bf16",
+        "quantization": "fp4",
         "external_provider": false,
         "tags": [],
         "use_cases": [
@@ -1024,6 +1018,7 @@
           "url": "https://openmdw.ai/license/1-1/"
         },
         "vendor": "nvidia",
+        "huggingface_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-NVFP4",
         "size_b": 0
       },
       "comparison_eligible": false
@@ -1648,14 +1643,14 @@
   "billing_notes": [
     "Public Token Factory catalog, every exposed flavor and region. No private custom models, GPU infrastructure price list or performance benchmark collection."
   ],
-  "catalog_sha256": "f53115679955b08a65ecbd71deec21c5f0c2a06e041041214096e0b4a3f90dbd",
-  "revision": 24,
-  "changed_at": "2026-11-12T15:16:07Z",
+  "catalog_sha256": "c31ba3dcebccf0e85abb03a31f0c0417fcbf129126b15ac3d41d0a8b52b46d98",
+  "revision": 25,
+  "changed_at": "2026-11-13T14:36:45Z",
   "source_url": "https://tokenfactory.nebius.com/api/public/models_info",
   "source_urls": [
     "https://tokenfactory.nebius.com/api/public/models_info"
   ],
-  "source_sha256": "9a42b546a2adc7343f35e28a9c7c1c98448ee29bf9f25d8aba6b04ff65fb8453",
+  "source_sha256": "7f2004da99d008895e3fa204abbb1d16d7ac4a7ce8d989f691216e9fdcbbd24f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
