@@ -14,6 +14,23 @@ credentials, inference calls, deposits, paid services or release-gate changes.
 
 ## Exact review selections
 
+**November 13 operating update:** the original selections below remain retained
+review evidence. Castform collection/current comparisons are stopped after no
+verified replacement token-pricing feed was found. Arcee excludes only
+`deepseek/deepseek-v4-pro-0813` and `zai-org/glm-5.2` from current quotes and
+comparisons; the other three reviewed bindings remain mandatory. Native/history
+evidence and availability flags are retained, without asserting retirement.
+There are 46 enabled collectors within the retained 47-group directory. See
+[source research and the operator policy](pricing-sources.md#november-13-collection-investigation-issue-35).
+
+**November 14 operating update:** Vercel's exact `nvidia/nemotron-3-nano-30b-a3b`
+binding is also excluded from current quote/completeness requirements and
+comparisons by operator approval, without changing the retained review baseline,
+availability flags or other providers' quotes. Its public API omits it while its
+model page still advertises it; retirement is unconfirmed. Other Vercel bindings
+remain mandatory, and resumption requires separate review even on reappearance.
+See the [source conflict](pricing-sources.md#november-14-vercel-source-conflict-issue-38).
+
 The [dated manifest](research/provider-model-expansion-2026-11-04.json) and
 `tests/fixtures/provider-model-expansion/review.json` record the baseline, every
 new identity and exact source bindings. Aliases in `catalog/aliases.yaml` grant

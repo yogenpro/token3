@@ -6,6 +6,7 @@ from decimal import Decimal
 from .common import HTMLTables, markdown_tables, money, number, observation, provider_aliases
 from .comparison_expansion import exact_rows
 from .public_pricing import require_models, unique_records
+from .policy import excluded_model_ids
 
 REVIEWED_PROVIDERS = frozenset(("arcee", "castform", "cerebras", "perplexity", "upstage"))
 NOTES = "Selected text-token API rates only. Tools, storage, training, subscriptions, purchase bonuses and tax are excluded. Unknown cache rates and workload limits are not inferred. "
@@ -34,6 +35,7 @@ def quote(provider, mid, rates, source, notes, **metadata):
 
 def reviewed_quotes(provider, payload, aliases):
     aliases = provider_aliases(aliases, provider)
+    aliases = {mid: canonical for mid, canonical in aliases.items() if mid not in excluded_model_ids(provider)}
     records = []
     if provider == "cerebras":
         units = document(payload, CEREBRAS_UNITS)

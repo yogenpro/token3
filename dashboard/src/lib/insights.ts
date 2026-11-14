@@ -26,5 +26,5 @@ export function workloadPriceMap(data: Dataset, workload: Workload, tier: string
 }
 
 export function comparisonProviders(data: Dataset, modelIds?: Set<string>, unit: QuoteUnit = 'USD') {
-  return [...new Set(data.offerings.filter((o) => o.active && !comparisonsPaused(o.provider) && quoteUnit(o) === unit && (!modelIds || modelIds.has(o.model_id))).map((o) => o.provider))].sort();
+  return [...new Set(data.offerings.filter((o) => o.active && !comparisonsPaused(o.provider, o.provider_model_id) && quoteUnit(o) === unit && (!modelIds || modelIds.has(o.model_id))).map((o) => o.provider))].sort();
 }

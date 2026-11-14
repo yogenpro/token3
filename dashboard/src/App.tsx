@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Download, ExternalLink, Info, Moon, RefreshCw, Sun } from 'lucide-react';
-import { isStale, loadDataset, providerPolicies, type Dataset } from './lib/data';
+import { collectionDisabled, isStale, loadDataset, providerPolicies, type Dataset } from './lib/data';
 import { dateLabel, defaultWorkload, downloadFile, normalizeWorkload, type Workload, type QuoteUnit } from './lib/pricing';
 import { Compare } from './components/Compare';
 import { ChangesView } from './components/Changes';
@@ -98,7 +98,7 @@ export function App() {
     setView(next);
   };
   const model = data?.models.find((m) => m.id === modelId);
-  const failed = data?.status.providers.filter((p) => p.state === 'error' || isStale(p.last_success_at)).length ?? 0;
+  const failed = data?.status.providers.filter((p) => !collectionDisabled(p.id) && (p.state === 'error' || isStale(p.last_success_at))).length ?? 0;
   const latestObservedAt = data?.prices.reduce((latest, p) => p.observed_at > latest ? p.observed_at : latest, '') ?? '';
   const layerBadge = view === 'compare' || (view === 'models' && directory === 'reviewed') || (view === 'changes' && feed === 'reviewed')
     ? { label: 'Reviewed Layer', tone: 'reviewed' }

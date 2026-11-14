@@ -6,6 +6,7 @@ regional, batch and non-token charges remain in the complete native inventory.
 """
 from .common import number, observation, provider_aliases
 from .public_pricing import require_models, unique_records
+from .policy import excluded_model_ids
 
 from .comparison_expansion import PROVIDERS as EXPANDED_COMPARISON_PROVIDERS
 from .coverage_quotes import REVIEWED_PROVIDERS as COVERAGE_REVIEWED_PROVIDERS
@@ -88,6 +89,7 @@ def service_bands(pricing):
 
 
 def vercel_quotes(payload, aliases, source):
+    aliases = {key: value for key, value in aliases.items() if key not in excluded_model_ids("vercel")}
     rows = payload["catalog"]["data"]
     records = []
     for model in rows:
