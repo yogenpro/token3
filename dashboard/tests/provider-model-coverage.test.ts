@@ -16,7 +16,7 @@ const data = datasetSchema.parse({ models, offerings, prices, history, changes, 
 describe('current provider and model coverage', () => {
   it('preserves the retained baseline and binds every new selection to its reviewed billing source', () => {
     expect(data.models).toHaveLength(169);
-    expect(data.offerings).toHaveLength(447);
+    expect(data.offerings).toHaveLength(449);
     expect(new Set(data.offerings.map((o) => o.provider)).size).toBe(34);
     expect(inventory.providers).toHaveLength(47);
     for (const id of review.new_model_ids) {

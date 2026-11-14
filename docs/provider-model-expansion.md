@@ -1,10 +1,19 @@
 # Provider and model coverage expansion — 2026-11-04
 
 This review adds **18 public source groups**, **66 reviewed canonical identities**
-and **100 first-observed offerings**. Retained coverage is **169 models / 447
+and **100 first-observed offerings**. Retained coverage is **169 models / 449
 offerings across 34 reviewed billing groups**, with bounded native evidence across
 **47 source groups**. These are retained reviewed identities and source groups,
 not counts of currently accessible endpoints or unique native models.
+
+The November 14, 2026 collection added two observed Vercel MiniMax M3 Standard
+prompt-band identities (`0–511,999` and `512,000+` input tokens) through its
+existing reviewed adapter and exact source binding. The original unbanded
+identity, observations and availability flag remain retained. This raises the
+retained offering baseline from 447 to 449 without adding canonical models or
+billing providers, rewriting the original 100-offering enrollment, or asserting
+absence-based retirement. These are Vercel's gateway bands, not the direct
+MiniMax billing schedule. See the [Vercel source scope](pricing-sources.md#vercel-ai-gateway).
 
 At this review, historical evidence remained scoped to the original **26 groups**.
 The separately authorized [November 5 backfill](recent-provider-history.md)

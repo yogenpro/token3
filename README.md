@@ -86,9 +86,9 @@ OpenAI, Anthropic, Gemini Developer API and Groq's documented model-list respons
 
 ### Reviewed coverage and collection scope
 
-Reviewed baseline: **169 canonical models / 447 recorded offerings / 34 reviewed providers**.
+Reviewed baseline: **169 canonical models / 449 recorded offerings / 34 reviewed providers** (2026-11-14).
 
-These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 447 currently available or healthy comparisons. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
+These are identities retained in the checked-in reviewed dataset, **including inactive offerings**, not a promise of 449 currently available or healthy comparisons. The November 14 collection observed two additional Vercel MiniMax M3 Standard prompt-band identities while retaining the original unbanded identity and history; model and provider counts are unchanged. The dashboard and `data/offerings.json` / `data/status.json` show current active coverage and health. The model/provider table below includes retained historical reviewed relationships; a no-longer-listed offering is not proof of vendor discontinuation. Together's recorded relationships remain in the baseline, but current comparisons are explicitly paused by `config/provider_policies.json`; free document inventory continues.
 
 Retained base quotes with unreviewed required billing conditions are marked explicitly and excluded from estimates, cheapest-price results and comparable chart series. Comparison CSVs include `pricing_scope_verified`; unverified rows have blank estimates. Original base observations remain available without assigning a historical peak/off-peak period.
 
