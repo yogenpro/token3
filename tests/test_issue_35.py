@@ -70,11 +70,16 @@ class Issue35Tests(unittest.TestCase):
             with self.subTest(source=bad), self.assertRaises(ValueError):
                 self.ovh_quotes(bad)
 
-    def test_arcee_missing_tracked_ids_remain_a_strict_failure(self):
+    def test_arcee_missing_ids_are_only_ignored_under_the_exact_operator_policy(self):
         body = (CAPTURES / 'arcee.md').read_text()
         payload = {'documents': [{'source_url': 'https://docs.arcee.ai/get-started/pricing.md', 'body': body}]}
-        with self.assertRaisesRegex(ValueError, 'Tracked model.*missing.*deepseek/deepseek-v4-pro-0813.*zai-org/glm-5.2'):
-            reviewed_quotes('arcee', copy.deepcopy(payload), self.aliases)
+        rows = reviewed_quotes('arcee', copy.deepcopy(payload), self.aliases)
+        self.assertEqual({r['provider_model_id'] for r in rows},
+                         {'zai-org/glm-5.3', 'zai-org/glm-5.3-flash', 'moonshotai/kimi-k3'})
+        from unittest.mock import patch
+        with patch.dict('providers.policy.POLICIES', {}, clear=True):
+            with self.assertRaisesRegex(ValueError, 'Tracked model.*missing.*deepseek/deepseek-v4-pro-0813.*zai-org/glm-5.2'):
+                reviewed_quotes('arcee', payload, self.aliases)
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, g
 from providers.common import safe_error
 from providers.expanded import INVENTORY_PROVIDERS
 from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
-from providers.policy import comparisons_paused
+from providers.policy import collection_disabled, comparisons_paused
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
 from .provider_inventory import inventory_document as legacy_inventory_document, prepare_source
@@ -97,6 +97,13 @@ def apply_snapshot(provider, result, aliases, observed_at, offerings, latest, hi
 
 
 def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=False, response_dir=None, archive_lookups=False):
+    requested = list(PROVIDERS) if selected is None else selected
+    selected = [name for name in requested if not collection_disabled(name)]
+    for name in requested:
+        if collection_disabled(name):
+            print("{}: collection stopped by operator policy; previous data/check status retained, no source requested".format(PROVIDER_NAMES[name]))
+    if not selected:
+        return 0
     models, aliases = catalog()
     data_dir.mkdir(parents=True, exist_ok=True)
     offerings = {row["id"]: row for row in load_json(data_dir / "offerings.json", [])}
@@ -113,7 +120,6 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
     checks = []
     inventory_touched = False
     reviewed_touched = False
-    selected = selected or list(PROVIDERS)
     observed_at = utc_now()
     failures = 0
     secrets = [os.environ.get(key, "") for key in ("TOGETHER_API_KEY", "FIREWORKS_API_KEY", "GOOGLE_CLOUD_BILLING_API_KEY")]

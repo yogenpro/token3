@@ -1,8 +1,19 @@
 import { z } from 'zod';
 import policyConfig from '../../../config/provider_policies.json' with { type: 'json' };
 
-export const providerPolicies: Record<string, { comparisons: 'paused'; collection: 'documents_only'; reason: string }> = z.record(z.string(), z.object({ comparisons: z.literal('paused'), collection: z.literal('documents_only'), reason: z.string().min(1) })).parse(policyConfig);
-export function comparisonsPaused(provider: string) { return providerPolicies[provider]?.comparisons === 'paused'; }
+const providerPolicySchema = z.union([
+  z.object({ comparisons: z.literal('paused'), collection: z.enum(['documents_only', 'disabled']), reason: z.string().trim().min(1) }).strict(),
+  z.object({ excluded_model_ids: z.array(z.string().min(1).refine((id) => id.trim() === id)).min(1).refine((ids) => new Set(ids).size === ids.length), reason: z.string().trim().min(1) }).strict(),
+]);
+export const providerPolicies: Record<string, z.infer<typeof providerPolicySchema>> = z.record(z.string(), providerPolicySchema).parse(policyConfig);
+export function comparisonsPaused(provider: string, modelId?: string) {
+  const policy = providerPolicies[provider];
+  return !!policy && ('comparisons' in policy ? policy.comparisons === 'paused' : modelId !== undefined && policy.excluded_model_ids.includes(modelId));
+}
+export function collectionDisabled(provider: string) {
+  const policy = providerPolicies[provider];
+  return !!policy && 'collection' in policy && policy.collection === 'disabled';
+}
 
 const url = z.url().refine((value) => /^https?:\/\//.test(value), 'Source must be an HTTP(S) URL');
 const timestamp = z.iso.datetime();
