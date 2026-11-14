@@ -8592,7 +8592,7 @@
             "output": "0.0000024"
           },
           "input": "0.0000003",
-          "input_cache_read": "0.000000007",
+          "input_cache_read": "0.000000006",
           "output": "0.0000012",
           "regional": {
             "us": {
@@ -8625,7 +8625,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000007",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -8636,7 +8636,7 @@
         "owned_by": "deepseek",
         "type": "language",
         "context_window": 1048576,
-        "max_tokens": 32768,
+        "max_tokens": 1048576,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -10304,8 +10304,17 @@
         "rules": {
           "input": "0.000004",
           "input_cache_read": "0.0000002",
-          "input_cache_write": "0.000004",
-          "output": "0.00002"
+          "input_cache_write": "0.000005",
+          "output": "0.00002",
+          "regional": {
+            "us": {
+              "input": "0.0000044",
+              "input_cache_read": "0.00000022",
+              "input_cache_write": "0.0000055",
+              "output": "0.000022"
+            }
+          },
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -10336,7 +10345,7 @@
         },
         {
           "dimension": "input_cache_write",
-          "amount": "0.000004",
+          "amount": "0.000005",
           "currency": "USD",
           "unit": "cache-write token",
           "conditions": {}
@@ -10553,8 +10562,7 @@
         "rules": {
           "input": "0.000002",
           "input_cache_read": "0.00000025",
-          "output": "0.000006",
-          "varies_by_provider": true
+          "output": "0.000006"
         },
         "currency": "USD",
         "state": "reported",
@@ -10589,7 +10597,7 @@
         "owned_by": "alibaba",
         "type": "language",
         "context_window": 262144,
-        "max_tokens": 128000,
+        "max_tokens": 131072,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -13419,8 +13427,7 @@
         "rules": {
           "input": "0.000000075",
           "input_cache_read": "0.000000015",
-          "output": "0.00000022",
-          "varies_by_provider": true
+          "output": "0.00000022"
         },
         "currency": "USD",
         "state": "reported",
@@ -13463,9 +13470,7 @@
           "tools",
           "tool_choice",
           "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
+          "include_reasoning"
         ],
         "supported_specifications": [
           "v2",
@@ -13486,7 +13491,7 @@
           }
         ],
         "zdr": "none",
-        "no_training": "some"
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -25010,8 +25015,7 @@
         "rules": {
           "input": "0.0000002156",
           "input_cache_read": "0.0000000068",
-          "output": "0.0000006468",
-          "varies_by_provider": true
+          "output": "0.0000006468"
         },
         "currency": "USD",
         "state": "reported",
@@ -25087,7 +25091,7 @@
           }
         ],
         "zdr": "none",
-        "no_training": "some"
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -28293,6 +28297,7 @@
         "rules": {
           "input": "0.000002",
           "input_cache_read": "0.00000025",
+          "input_cache_write": "0.0000025",
           "output": "0.000006",
           "regional": {
             "us": {
@@ -28329,13 +28334,20 @@
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
         }
       ],
       "metadata": {
         "name": "Qwen 3.8 Max",
         "owned_by": "alibaba",
         "type": "language",
-        "context_window": 262144,
+        "context_window": 1000000,
         "max_tokens": 128000,
         "supported_parameters": [
           "max_tokens",
@@ -29028,7 +29040,7 @@
             ]
           }
         ],
-        "zdr": "all",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -29413,7 +29425,40 @@
         "rules": {
           "input": "0.0000003",
           "input_cache_read": "0.00000006",
+          "input_cache_read_tiers": [
+            {
+              "cost": "0.00000006",
+              "max": 512000,
+              "min": 0
+            },
+            {
+              "cost": "0.00000024",
+              "min": 512000
+            }
+          ],
+          "input_tiers": [
+            {
+              "cost": "0.0000003",
+              "max": 512000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000012",
+              "min": 512000
+            }
+          ],
           "output": "0.0000012",
+          "output_tiers": [
+            {
+              "cost": "0.0000012",
+              "max": 512000,
+              "min": 0
+            },
+            {
+              "cost": "0.0000048",
+              "min": 512000
+            }
+          ],
           "varies_by_provider": true
         },
         "currency": "USD",
@@ -29448,8 +29493,8 @@
         "name": "MiniMax M3",
         "owned_by": "minimax",
         "type": "language",
-        "context_window": 512000,
-        "max_tokens": 512000,
+        "context_window": 1000000,
+        "max_tokens": 1000000,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -34076,8 +34121,8 @@
       "billing": {
         "rules": {
           "fast": {
-            "input": "0.0000045",
-            "input_cache_read": "0.00000045",
+            "input": "0.000006",
+            "input_cache_read": "0.0000006",
             "output": "0.0000225"
           },
           "input": "0.000003",
@@ -36874,94 +36919,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-c8aa74ac290a5e30c9b3f0e5",
-      "provider": "vercel",
-      "native_id": "nvidia/nemotron-3-nano-30b-a3b",
-      "kind": "model",
-      "label": "Nemotron 3 Nano 30B A3B",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000005",
-          "input_cache_read": "0.000000025",
-          "output": "0.0000002"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000005",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.0000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000025",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Nemotron 3 Nano 30B A3B",
-        "owned_by": "nvidia",
-        "type": "language",
-        "context_window": 262144,
-        "max_tokens": 262144,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "reasoning_options": [
-          {
-            "type": "toggle"
-          },
-          {
-            "type": "effort",
-            "values": [
-              "none",
-              "low",
-              "medium",
-              "high"
-            ]
-          }
-        ],
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-c8ad872c46c2aacff8f333b1",
       "provider": "vercel",
       "native_id": "stepfun/step-5-preview",
@@ -37006,8 +36963,8 @@
         "name": "Step 5 Preview",
         "owned_by": "stepfun",
         "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 1048576,
+        "context_window": 1000000,
+        "max_tokens": 1000000,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -37027,8 +36984,7 @@
         "modalities": {
           "input": [
             "text",
-            "image",
-            "video"
+            "image"
           ],
           "output": [
             "text"
@@ -37045,7 +37001,7 @@
           }
         ],
         "zdr": "none",
-        "no_training": "some"
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -39488,8 +39444,8 @@
         "name": "MiniMax-M3.1-Flash",
         "owned_by": "minimax",
         "type": "language",
-        "context_window": 1048576,
-        "max_tokens": 1048576,
+        "context_window": 1000000,
+        "max_tokens": 524288,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -40160,8 +40116,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.0000045",
-          "input_cache_read": "0.00000045",
+          "input": "0.000006",
+          "input_cache_read": "0.0000006",
           "output": "0.0000225",
           "varies_by_provider": true
         },
@@ -40173,7 +40129,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0000045",
+          "amount": "0.000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -40187,7 +40143,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000045",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -40198,7 +40154,7 @@
         "owned_by": "moonshotai",
         "type": "language",
         "context_window": 1000000,
-        "max_tokens": 131072,
+        "max_tokens": 1000000,
         "supported_parameters": [
           "max_tokens",
           "stop",
@@ -40237,10 +40193,6 @@
               "high",
               "max"
             ]
-          },
-          {
-            "min": 1024,
-            "type": "budget_tokens"
           }
         ],
         "zdr": "all",
@@ -43859,7 +43811,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "request": "0.001"
+          "request": "0"
         },
         "currency": "USD",
         "state": "native_rules_only",
@@ -45957,14 +45909,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "fe9434def79ad50be9a71775ff21946e50e577c0a9881bec67a45b0a6b62fcd0",
-  "revision": 43,
-  "changed_at": "2026-11-13T14:36:45Z",
+  "catalog_sha256": "442020a8d4627af75ebfb023c1200539416253ceb5776a5b59ad80b7655385fe",
+  "revision": 44,
+  "changed_at": "2026-11-14T13:32:18Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "bdd4c8a06a9654f65c69d857b3e61085e8002629385e1404b361953a23b24a48",
+  "source_sha256": "1d2d58a4a955b406762f62f753ab0e4211d3339e7d7da5bcf34b57dbb49c03ee",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

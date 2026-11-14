@@ -188,56 +188,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "perplexity-140c7a5cea8d56b6040c7672",
-      "provider": "perplexity",
-      "native_id": "a54aa0ae80785ec320387673",
-      "kind": "document_row",
-      "label": "`google/gemini-3.8-flash`",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Agent API Models",
-          "Available Models",
-          "Google"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
-      },
-      "billing": {
-        "cells": [
-          "`google/gemini-3.8-flash`",
-          "0.75",
-          "3.75",
-          "0.075",
-          "—",
-          "[Gemini models](https://ai.google.dev/gemini-api/docs/models)"
-        ],
-        "columns": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "google/gemini-3.8-flash"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "perplexity-1c3e5bc03af0c2924076a598",
       "provider": "perplexity",
       "native_id": "https://docs.perplexity.ai/docs/agent-api/models.md",
@@ -247,7 +197,7 @@
         "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
       },
       "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nAgent API Models\nCompare Agent API models, token pricing, supported service tiers, and provider documentation.\n[!NOTE]\nLooking for ranked web results instead of a generated answer? Use the Search API at POST /search. It takes no model parameter and bills per successful request, not per token. Start with the Search API quickstart (https://docs.perplexity.ai/docs/search/quickstart.md).\nAvailable Models\nThe Agent API provides a unified interface to models from multiple providers with transparent token-based pricing.\nPricing rates are published per model and may differ from provider list prices. All charges are based on actual token consumption, and every API response includes exact token counts so you know your costs per request.\nThe Service tiers column lists optional non-default tiers. An em dash means the model uses default processing only.\nA rate with a context-length range, such as (≤272k), changes when the input is above that range. A single value applies at every context length.\n[!TIP]\nLooking for pre-configured model setups? See Effort Levels (https://docs.perplexity.ai/docs/agent-api/effort.md) — optimized for specific use cases.\n[tab] Anthropic\n[card] Anthropic\nClaude Opus (highest reasoning), Sonnet (balanced), and Haiku (fastest, cheapest).\n[!NOTE]\nmax_output_tokens is optional for all models, including Anthropic models. When omitted, each generation can produce up to 128,000 output tokens, capped by the model's supported limit. Set it to impose a total output-token budget across the run. An effort level or saved profile with an explicit budget still supplies that budget.\nClaude Fable 5.2 requires non-Zero Data Retention (non-ZDR) model access. Contact api@perplexity.ai (mailto:api@perplexity.ai) to request access.\n[tab] OpenAI\n[card] OpenAI\nOpenAI GPT models.\n[tab] Google\n[card] Google\nGemini 4 Argon, Gemini 4 Carbon, and Gemini 3.6, 3.7, and 3.8 Flash.\nGemini 4 Argon and Gemini 4 Carbon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.\n[tab] xAI\n[card] xAI\nGrok 4.7, 4.6, and 4.5.\n[tab] Z.AI\n[card] Z.AI\nGLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.\n[tab] DeepSeek\n[card] DeepSeek\nDeepSeek V4 Pro, hosted by Perplexity.\n[tab] Moonshot AI\n[card] Moonshot AI\nKimi K3 — Moonshot AI's flagship reasoning model.\n[!NOTE]\nKimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.\n[tab] NVIDIA\n[card] NVIDIA\nNemotron 3.5 Super is a reasoning model with a 1,048,576-token context window and up to 131,072 output tokens. It accepts text input only.\n[tab] Perplexity\n[card] Perplexity\nPerplexity's grounded search model.\nService tiers\nOmit service_tier, or set it to auto or default, to use default processing. flex uses lower-cost, best-effort capacity at 0.5× the listed token prices. priority uses higher-priority processing at 2× the listed token prices. fast is accepted as an alias for priority. These multipliers apply only to models that list the tier in the Service tiers column. Other models always bill at the listed rate.\nWhen you provide model or models, the Agent API applies flex or priority only if the selected model—or every model in a fallback list—supports that tier. An unsupported tier does not cause the request to be rejected; the API ignores service_tier and uses default processing. Requests that specify only an effort level or profile retain the tier until the model is resolved. The response's service_tier field reports the tier that served the request.\n[!WARNING]\nNot all third-party models support all features (e.g., reasoning, tools). Check model documentation for specific capabilities.\nUsing a Model\n[accordion] Response\n[!TIP]\nSee Your Costs in Real-Time: Every response includes a usage field with exact input tokens, output tokens, and cache read tokens. Calculate your cost instantly using the pricing table above.\nModel Fallback\nFor high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.\n[card] Model Fallback Chain (https://docs.perplexity.ai/docs/agent-api/model-fallback.md)\nLearn how to use model fallback chains to ensure high availability and reliability by automatically trying multiple models when one fails.\n[!NOTE]\nExample:\nFor detailed examples, pricing information, and best practices, see the Model Fallback documentation (https://docs.perplexity.ai/docs/agent-api/model-fallback.md).\nNext Steps\n[card] Web Search (https://docs.perplexity.ai/docs/agent-api/tools/web-search.md)\nEquip your model with web search for source-grounded context.\n[card] Prompt Guide (https://docs.perplexity.ai/docs/agent-api/prompt-guide.md)\nWrite prompts that get the most out of the Agent API.\n[card] Output Control (https://docs.perplexity.ai/docs/agent-api/output-control.md)\nShape responses with structured outputs and JSON schemas.\n[card] Finance Search (https://docs.perplexity.ai/docs/agent-api/tools/finance-search.md)\nQuery market data, filings, and ticker-level information.",
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nAgent API Models\nCompare Agent API models, token pricing, supported service tiers, and provider documentation.\n[!NOTE]\nLooking for ranked web results instead of a generated answer? Use the Search API at POST /search. It takes no model parameter and bills per successful request, not per token. Start with the Search API quickstart (https://docs.perplexity.ai/docs/search/quickstart.md).\nAvailable Models\nThe Agent API provides a unified interface to models from multiple providers with transparent token-based pricing.\nPricing rates are published per model and may differ from provider list prices. All charges are based on actual token consumption, and every API response includes exact token counts so you know your costs per request.\nThe Service tiers column lists optional non-default tiers. An em dash means the model uses default processing only.\nA rate with a context-length range, such as (≤272k), changes when the input is above that range. A single value applies at every context length.\n[!TIP]\nLooking for pre-configured model setups? See Effort Levels (https://docs.perplexity.ai/docs/agent-api/effort.md) — optimized for specific use cases.\n[tab] Anthropic\n[card] Anthropic\nClaude Opus (highest reasoning), Sonnet (balanced), and Haiku (fastest, cheapest).\n[!NOTE]\nmax_output_tokens is optional for all models, including Anthropic models. When omitted, each generation can produce up to 128,000 output tokens, capped by the model's supported limit. Set it to impose a total output-token budget across the run. An effort level or saved profile with an explicit budget still supplies that budget.\nClaude Fable 5.2 requires non-Zero Data Retention (non-ZDR) model access. Contact api@perplexity.ai (mailto:api@perplexity.ai) to request access.\n[tab] OpenAI\n[card] OpenAI\nOpenAI GPT models.\n[tab] Google\n[card] Google\nGemini 4 Argon, Gemini 4 Carbon, and Gemini 4 Hydrogen.\nGemini 4 Argon and Gemini 4 Carbon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.\n[tab] xAI\n[card] xAI\nGrok 4.7, 4.6, and 4.5.\n[tab] Z.AI\n[card] Z.AI\nGLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.\n[tab] DeepSeek\n[card] DeepSeek\nDeepSeek V4 Pro, hosted by Perplexity.\n[tab] Moonshot AI\n[card] Moonshot AI\nKimi K3 — Moonshot AI's flagship reasoning model.\n[!NOTE]\nKimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.\n[tab] NVIDIA\n[card] NVIDIA\nNemotron 3.5 Super is a reasoning model with a 1,048,576-token context window and up to 131,072 output tokens. It accepts text input only.\n[tab] Perplexity\n[card] Perplexity\nPerplexity's grounded search model.\nService tiers\nOmit service_tier, or set it to auto or default, to use default processing. flex uses lower-cost, best-effort capacity at 0.5× the listed token prices. priority uses higher-priority processing at 2× the listed token prices. fast is accepted as an alias for priority. These multipliers apply only to models that list the tier in the Service tiers column. Other models always bill at the listed rate.\nWhen you provide model or models, the Agent API applies flex or priority only if the selected model—or every model in a fallback list—supports that tier. An unsupported tier does not cause the request to be rejected; the API ignores service_tier and uses default processing. Requests that specify only an effort level or profile retain the tier until the model is resolved. The response's service_tier field reports the tier that served the request.\n[!WARNING]\nNot all third-party models support all features (e.g., reasoning, tools). Check model documentation for specific capabilities.\nUsing a Model\n[accordion] Response\n[!TIP]\nSee Your Costs in Real-Time: Every response includes a usage field with exact input tokens, output tokens, and cache read tokens. Calculate your cost instantly using the pricing table above.\nModel Fallback\nFor high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.\n[card] Model Fallback Chain (https://docs.perplexity.ai/docs/agent-api/model-fallback.md)\nLearn how to use model fallback chains to ensure high availability and reliability by automatically trying multiple models when one fails.\n[!NOTE]\nExample:\nFor detailed examples, pricing information, and best practices, see the Model Fallback documentation (https://docs.perplexity.ai/docs/agent-api/model-fallback.md).\nNext Steps\n[card] Web Search (https://docs.perplexity.ai/docs/agent-api/tools/web-search.md)\nEquip your model with web search for source-grounded context.\n[card] Prompt Guide (https://docs.perplexity.ai/docs/agent-api/prompt-guide.md)\nWrite prompts that get the most out of the Agent API.\n[card] Output Control (https://docs.perplexity.ai/docs/agent-api/output-control.md)\nShape responses with structured outputs and JSON schemas.\n[card] Finance Search (https://docs.perplexity.ai/docs/agent-api/tools/finance-search.md)\nQuery market data, filings, and ticker-level information.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
@@ -648,7 +598,7 @@
         "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md"
       },
       "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nPricing\nUnderstand Perplexity API pricing, model rates, request fees, billing setup, and rate-limit references.\nEach Perplexity API bills differently. The rates are in the sections below.\n* Orchestrator API: per token, at each model's rates. No per-request fees. Requests rejected with a 429 are not billed.\n* Agent API: per token, at each model's rates, plus tool fees. Most tools bill per call; sandbox bills per session, plus each SDK search query made inside it. The flex (0.5×) and priority (2×) service tiers change the token rates only for models that list that tier on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Other models always bill at the listed rate.\n* Search API: per successful request.\n* Embeddings API: per token.\n* Decisions API: per input token. Output tokens are free. With mode: \"web_grounding\", each web search adds $0.001.\nFor billing setup, payment methods, and usage monitoring, see the Admin section (https://docs.perplexity.ai/docs/getting-started/projects.md). For rate limits, see Rate Limits & Usage Tiers (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md).\nOrchestrator API Pricing\nOrchestrator API usage is billed per token at each model's published rates — there are no per-request fees. Every model has its own input and output rate, with cache reads billed at the model's discounted cache-read rate and reasoning tokens billed at the output rate. You are always billed at the requested model's rates, regardless of how the request is served.\nSee Orchestrator Models & Pricing (https://docs.perplexity.ai/docs/orchestrator/models.md) for the full per-model rate card, including cache-read rates.\nAgent API Pricing\nThe Agent API provides access to third-party models from providers including OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates.\nModel Pricing\nAgent API pricing varies by provider and model, with each provider offering multiple models at different price points.\nThe input, output, and cache-read rate for each model is on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md).\nTool Pricing\nWhen using tools with the Agent API:\n[!NOTE]\nMost tool costs are per invocation. sandbox is billed per container session — a 20-minute billing window per container, not a runtime cap — plus per SDK search query made from inside it. Tool costs are separate from model token costs.\nSearch API Pricing\n[!NOTE]\nBilling unit: Search API charges for each successful POST /search request, not for each query in the request. A successful request containing an array of up to five queries is one billing unit. Invalid requests, rate-limited requests, and upstream failures are not billed. A successful response is billed even when it returns no results. There are no additional token-based charges.\nSearch API cost = successful requests ÷ 1,000 × the price per 1K requests. The amount of extracted text (max_tokens, max_tokens_per_page) does not change the price.\nWhat a result contains, the request controls, and the limits on queries, results, and extracted text are in the Search API overview (https://docs.perplexity.ai/docs/search/overview.md).\nEmbeddings API Pricing\nGenerate high-quality text embeddings for semantic search, retrieval-augmented generation (RAG), and other machine learning applications.\nStandard Embeddings\nContextualized Embeddings\nEmbeddings cost = tokens ÷ 1,000,000 × the model's rate. For example, 40M tokens on pplx-embed-context-v1-4b cost 40 × $0.05 = $2.00.\nTo use the Embeddings API, see the Embeddings quickstart (https://docs.perplexity.ai/docs/embeddings/quickstart.md).\nDecisions API Pricing\nThe Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities, and finds matching text spans with locate questions.\n[!NOTE]\nAliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.3. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.3. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.\nBilling unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.3 or pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.3 or pplx-decider-flash-v1.2.\nWeb grounding\nA request with mode: \"web_grounding\" runs one Fast Search (https://docs.perplexity.ai/docs/search/fast-search.md) for each of its questions, up to 100, before the model answers. Each search costs $0.001 ($1 per 1,000), in addition to input tokens, so at most $0.10 in searches per request. Questions that produce the same search query share one search.\nWhen state is a page URL, the API also fetches the page before searching. Each successful URL fetch costs $0.001; a failed fetch is not billed. One successful fetch and three successful searches cost $0.004, plus input tokens.\n* Billed: every search that returns, even with no results. Completed searches and successful URL fetches remain billable if the request later fails, for example because the input exceeds the token limit.\n* Not billed: a search that fails or runs out of time, a question with no text to search, and requests rejected before search: an invalid mode, more than 100 questions, a missing or unknown model, or a state that is not a string, object, or array. A request can be billed for fewer searches than it has questions.\n* Input tokens: fetched page text and search evidence are billed as input tokens and included in usage.input_tokens.\nSee Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).\nTo use the Decisions API, see the Decisions quickstart (https://docs.perplexity.ai/docs/decisions/quickstart.md).\nToken counts: 1 token is about 4 characters of English text. The exact count varies with language and content.\nCost Examples\nTo estimate an Agent API request, add these parts:\n* uncached input tokens × the model's input rate ÷ 1,000,000\n* cached input tokens × the model's cache-read rate ÷ 1,000,000\n* output tokens × the model's output rate ÷ 1,000,000. The response reports reasoning tokens in usage.output_tokens_details.reasoning_tokens; the Models page notes where they bill at the output rate.\n* the price of each tool call (from the Tool Pricing table)\n* $0.03 per sandbox session, plus $0.0025 per SDK search query made inside it\nModel rates are per 1M tokens, on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Where a rate lists a context-length range, use the rate that matches the request's input size. With flex or priority on a model that lists that tier, multiply the token cost by 0.5 or 2. Tool fees don't change.\nActual effort level costs vary with the selected model, token usage, and tool invocations. When present on a completed response, usage.cost.total_cost reports the calculated request cost.\nPurchase Options\n* Perplexity API Platform on AWS Marketplace (https://docs.perplexity.ai/docs/resources/aws-marketplace.md): buy API credits through AWS Marketplace with consolidated billing and enterprise procurement.\n* Contact the sales team (https://perplexity.typeform.com/to/m3WnMaG6): ask about custom pricing, dedicated support, and enterprise features.",
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nPricing\nUnderstand Perplexity API pricing, model rates, request fees, billing setup, and rate-limit references.\nEach Perplexity API bills differently. The rates are in the sections below.\n* Orchestrator API: per token, at each model's rates. No per-request fees. Requests rejected with a 429 are not billed.\n* Agent API: per token, at each model's rates, plus tool fees. Most tools bill per call; sandbox bills per session, plus each SDK search query made inside it. The flex (0.5×) and priority (2×) service tiers change the token rates only for models that list that tier on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Other models always bill at the listed rate.\n* Search API: per successful request.\n* Embeddings API: per token.\n* Decisions API: per input token. Output tokens are free. With mode: \"web_grounding\", each web search adds $0.001.\nFor billing setup, payment methods, and usage monitoring, see the Admin section (https://docs.perplexity.ai/docs/getting-started/projects.md). For rate limits, see Rate Limits & Usage Tiers (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md).\nOrchestrator API Pricing\nOrchestrator API usage is billed per token at each model's published rates — there are no per-request fees. Every model has its own input and output rate, with cache reads billed at the model's discounted cache-read rate and reasoning tokens billed at the output rate. You are always billed at the requested model's rates, regardless of how the request is served.\nSee Orchestrator Models & Pricing (https://docs.perplexity.ai/docs/orchestrator/models.md) for the full per-model rate card, including cache-read rates.\nAgent API Pricing\nThe Agent API provides access to third-party models from providers including OpenAI, Anthropic, Google, xAI, Z.AI, Moonshot AI, and NVIDIA with transparent, token-based pricing at each model's published rates.\nModel Pricing\nAgent API pricing varies by provider and model, with each provider offering multiple models at different price points.\nThe input, output, and cache-read rate for each model is on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md).\nTool Pricing\nWhen using tools with the Agent API:\n[!NOTE]\nMost tool costs are per invocation. sandbox is billed per container session — a 20-minute billing window per container, not a runtime cap — plus per SDK search query made from inside it. Tool costs are separate from model token costs.\nSearch API Pricing\n[!NOTE]\nBilling unit: Search API charges for each successful POST /search request, not for each query in the request. A successful request containing an array of up to five queries is one billing unit. Invalid requests, rate-limited requests, and upstream failures are not billed. A successful response is billed even when it returns no results. There are no additional token-based charges.\nSearch API cost = successful requests ÷ 1,000 × the price per 1K requests.\nWhat a result contains, the request controls, and the limits on queries, results, and extracted text are in the Search API overview (https://docs.perplexity.ai/docs/search/overview.md).\nEmbeddings API Pricing\nGenerate high-quality text embeddings for semantic search, retrieval-augmented generation (RAG), and other machine learning applications.\nStandard Embeddings\nContextualized Embeddings\nEmbeddings cost = tokens ÷ 1,000,000 × the model's rate. For example, 40M tokens on pplx-embed-context-v1-4b cost 40 × $0.05 = $2.00.\nTo use the Embeddings API, see the Embeddings quickstart (https://docs.perplexity.ai/docs/embeddings/quickstart.md).\nDecisions API Pricing\nThe Decisions API answers yes/no, multiple-choice, and scored questions about text and images with calibrated probabilities, and finds matching text spans with locate questions.\n[!NOTE]\nAliases: pplx-decider-latest and perplexity/pplx-decider-latest select pplx-decider-v1.3. pplx-decider-flash-latest and perplexity/pplx-decider-flash-latest select pplx-decider-flash-v1.3. An alias bills at the rate of the model it selects. Requests that name pplx-decider-v1.1-27b or pplx-decider-v1-27b select pplx-decider-v1.2 and bill at $0.02.\nBilling unit: you pay for input tokens, plus web searches and URL fetches if you set mode: \"web_grounding\". The state, every question, any images, fetched page text, and any search results added to the state count as input; the response reports the exact number as usage.input_tokens, so you can compute the token cost of a request from the response you already receive. A request with 600 input tokens costs $0.000012 on pplx-decider-v1.3 or pplx-decider-v1.2 and $0.000006 on pplx-decider-flash-v1.3 or pplx-decider-flash-v1.2.\nWeb grounding\nA request with mode: \"web_grounding\" runs one Fast Search (https://docs.perplexity.ai/docs/search/fast-search.md) for each of its questions, up to 100, before the model answers. Each search costs $0.001 ($1 per 1,000), in addition to input tokens, so at most $0.10 in searches per request. Questions that produce the same search query share one search.\nWhen state is a page URL, the API also fetches the page before searching. Each successful URL fetch costs $0.001; a failed fetch is not billed. One successful fetch and three successful searches cost $0.004, plus input tokens.\n* Billed: every search that returns, even with no results. Completed searches and successful URL fetches remain billable if the request later fails, for example because the input exceeds the token limit.\n* Not billed: a search that fails or runs out of time, a question with no text to search, and requests rejected before search: an invalid mode, more than 100 questions, a missing or unknown model, or a state that is not a string, object, or array. A request can be billed for fewer searches than it has questions.\n* Input tokens: fetched page text and search evidence are billed as input tokens and included in usage.input_tokens.\nSee Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).\nTo use the Decisions API, see the Decisions quickstart (https://docs.perplexity.ai/docs/decisions/quickstart.md).\nToken counts: 1 token is about 4 characters of English text. The exact count varies with language and content.\nCost Examples\nTo estimate an Agent API request, add these parts:\n* uncached input tokens × the model's input rate ÷ 1,000,000\n* cached input tokens × the model's cache-read rate ÷ 1,000,000\n* output tokens × the model's output rate ÷ 1,000,000. The response reports reasoning tokens in usage.output_tokens_details.reasoning_tokens; the Models page notes where they bill at the output rate.\n* the price of each tool call (from the Tool Pricing table)\n* $0.03 per sandbox session, plus $0.0025 per SDK search query made inside it\nModel rates are per 1M tokens, on the Agent API Models page (https://docs.perplexity.ai/docs/agent-api/models.md). Where a rate lists a context-length range, use the rate that matches the request's input size. With flex or priority on a model that lists that tier, multiply the token cost by 0.5 or 2. Tool fees don't change.\nActual effort level costs vary with the selected model, token usage, and tool invocations. When present on a completed response, usage.cost.total_cost reports the calculated request cost.\nPurchase Options\n* Perplexity API Platform on AWS Marketplace (https://docs.perplexity.ai/docs/resources/aws-marketplace.md): buy API credits through AWS Marketplace with consolidated billing and enterprise procurement.\n* Contact the sales team (https://perplexity.typeform.com/to/m3WnMaG6): ask about custom pricing, dedicated support, and enterprise features.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
@@ -1093,56 +1043,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "perplexity-77b90b49a7be6ab0144fb91b",
-      "provider": "perplexity",
-      "native_id": "a1c8d91d8b6e0426480fc96e",
-      "kind": "document_row",
-      "label": "`google/gemini-3.7-flash`",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Agent API Models",
-          "Available Models",
-          "Google"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
-      },
-      "billing": {
-        "cells": [
-          "`google/gemini-3.7-flash`",
-          "0.75",
-          "3.75",
-          "0.075",
-          "—",
-          "[Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash)"
-        ],
-        "columns": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "google/gemini-3.7-flash"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "perplexity-7a9b89523f0df716660d0d2c",
       "provider": "perplexity",
       "native_id": "69e8028ae514e845309be24b",
@@ -1408,6 +1308,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "perplexity-986d42d8a5c3260f660f22a9",
+      "provider": "perplexity",
+      "native_id": "43649b1818108b410c552432",
+      "kind": "document_row",
+      "label": "`google/gemini-4-hydrogen`",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Agent API Models",
+          "Available Models",
+          "Google"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)",
+          "Service tiers",
+          "Docs"
+        ],
+        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
+      },
+      "billing": {
+        "cells": [
+          "`google/gemini-4-hydrogen`",
+          "1.50",
+          "7.50",
+          "0.075",
+          "—",
+          "[Gemini models](https://ai.google.dev/gemini-api/docs/models)"
+        ],
+        "columns": [
+          "Model",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)",
+          "Service tiers",
+          "Docs"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "google/gemini-4-hydrogen"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "perplexity-98fc527380dfc50db292d759",
       "provider": "perplexity",
       "native_id": "4fbcfdca2ebd1b9041892119",
@@ -1636,56 +1586,6 @@
       },
       "rates": [],
       "metadata": {},
-      "comparison_eligible": false
-    },
-    {
-      "id": "perplexity-b26d6794381de26c51fc1a4e",
-      "provider": "perplexity",
-      "native_id": "7d67a1888fcbaca0c34dbd4d",
-      "kind": "document_row",
-      "label": "`google/gemini-3.6-flash`",
-      "scope": {
-        "table": 2,
-        "headings": [
-          "Agent API Models",
-          "Available Models",
-          "Google"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "source_url": "https://docs.perplexity.ai/docs/agent-api/models.md"
-      },
-      "billing": {
-        "cells": [
-          "`google/gemini-3.6-flash`",
-          "1.50",
-          "7.50",
-          "0.15",
-          "—",
-          "[Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash)"
-        ],
-        "columns": [
-          "Model",
-          "Input ($/1M)",
-          "Output ($/1M)",
-          "Cache read ($/1M)",
-          "Service tiers",
-          "Docs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
-      },
-      "rates": [],
-      "metadata": {
-        "source_model_id": "google/gemini-3.6-flash"
-      },
       "comparison_eligible": false
     },
     {
@@ -2392,7 +2292,7 @@
     "https://docs.perplexity.ai/docs/agent-api/models.md: For high-availability applications, you can specify multiple models in a fallback chain. When one model fails or is unavailable, the API automatically tries the next model in the chain.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: GLM 5.3 and GLM 5.3 Flash — Z.AI reasoning models.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon and Gemini 4 Carbon rates are introductory pricing through November 30, 2026. Reasoning tokens are billed at the output-token rate.",
-    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon, Gemini 4 Carbon, and Gemini 3.6, 3.7, and 3.8 Flash.",
+    "https://docs.perplexity.ai/docs/agent-api/models.md: Gemini 4 Argon, Gemini 4 Carbon, and Gemini 4 Hydrogen.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Grok 4.7, 4.6, and 4.5.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Kimi K3 accepts minimal, low, medium, high, xhigh, and max reasoning effort. minimal uses low effort, while xhigh and max use maximum effort. Reasoning tokens are billed at the output-token rate.",
     "https://docs.perplexity.ai/docs/agent-api/models.md: Kimi K3 — Moonshot AI's flagship reasoning model.",
@@ -2485,7 +2385,7 @@
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Pricing",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Purchase Options",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Search API Pricing",
-    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Search API cost = successful requests ÷ 1,000 × the price per 1K requests. The amount of extracted text (max_tokens, max_tokens_per_page) does not change the price.",
+    "https://docs.perplexity.ai/docs/getting-started/pricing.md: Search API cost = successful requests ÷ 1,000 × the price per 1K requests.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: See Orchestrator Models & Pricing (https://docs.perplexity.ai/docs/orchestrator/models.md) for the full per-model rate card, including cache-read rates.",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: See Web grounding (https://docs.perplexity.ai/docs/decisions/quickstart.md#web-grounding).",
     "https://docs.perplexity.ai/docs/getting-started/pricing.md: Standard Embeddings",
@@ -2526,22 +2426,22 @@
     "https://docs.perplexity.ai/docs/router/models.md: [card] Quickstart (https://docs.perplexity.ai/docs/orchestrator/quickstart.md)",
     "https://docs.perplexity.ai/docs/router/models.md: perplexity/glm-5.3-flash supports cache reads but not cache writes."
   ],
-  "catalog_sha256": "d9b2311048ee0d6707ab7b1169482ff132ac9dd2f49fc829673125fdb8a4974d",
-  "revision": 9,
-  "changed_at": "2026-11-13T14:36:45Z",
+  "catalog_sha256": "c3daaddbf83157b4c35caaa36df57ee9daf1968e2bbade022b85538647440c76",
+  "revision": 10,
+  "changed_at": "2026-11-14T13:32:18Z",
   "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
   "source_urls": [
     "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
     "https://docs.perplexity.ai/docs/router/models.md"
   ],
-  "source_sha256": "91495cf5190797085700953c059a75e46993d84b98408a3e3ed512feea75337a",
+  "source_sha256": "148bb28ab445f14c4aae37425c5181b77b3276010f0f0b4263945dce6db0ac6b",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
-    "url": "https://web.archive.org/web/20260520194121/https://docs.perplexity.ai/docs/getting-started/pricing.md",
-    "capture_at": "2026-05-20T19:41:21Z",
-    "checked_at": "2026-11-13T14:36:45Z",
+    "url": "https://web.archive.org/web/20261109132904/https://docs.perplexity.ai/docs/getting-started/pricing.md",
+    "capture_at": "2026-11-09T13:29:04Z",
+    "checked_at": "2026-11-14T13:32:18Z",
     "verification": null
   }
 }
