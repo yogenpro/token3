@@ -9,6 +9,7 @@ from dataclasses import dataclass
 
 from .common import Collection, fetch_text, safe_error
 from .pricing_api import encode_payload
+from .policy import collection_disabled
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,8 @@ class PublicSource:
     scope_note: str = ""
 
     def collect(self, aliases=None):
+        if collection_disabled(self.provider):
+            raise ValueError("Collection disabled by operator policy: " + self.provider)
         payload = dict(format="token3.inventory-sources.v1", adapter=self.adapter,
                        scope_note=self.scope_note)
         urls = []

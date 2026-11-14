@@ -57,11 +57,11 @@ test('expanded billing sources and unverified weights remain explicit without na
   await page.goto('./');
   for (const [model, provider] of [
     ['upstage/solar-pro4-260806', 'Upstage'], ['perplexity/sonar-agent', 'Perplexity API'],
-    ['qwen/qwen3.5-4b', 'Castform'], ['openai/gpt-oss-120b', 'Cerebras'], ['zai/glm-5.3-flash', 'Arcee AI'],
-    ['openai/gpt-5.4', 'Castform'],
+    ['openai/gpt-oss-120b', 'Cerebras'], ['zai/glm-5.3-flash', 'Arcee AI'],
+    ['openai/gpt-5.4', 'OpenAI API'],
   ]) {
     await page.getByLabel('SELECT A MODEL').selectOption(model);
-    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true })).toBeVisible();
+    await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true }).first()).toBeVisible();
     for (const theme of ['light', 'dark']) {
       await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
       expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);

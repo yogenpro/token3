@@ -33,7 +33,7 @@ export function quoteUnit(offering: Offering): QuoteUnit { return offering.quote
 export function unitLabel(unit: QuoteUnit) { return unit === 'AI_CREDIT' ? 'AI Credits' : unit; }
 export function rankOfferings(dataset: Dataset, modelId: string, workload: Workload, tier = 'standard', unit: QuoteUnit = 'USD', period = 'peak'): RankedOffering[] {
   const prices = new Map(dataset.prices.map((price) => [price.offering_id, price]));
-  return dataset.offerings.filter((o) => o.active && !comparisonsPaused(o.provider) && o.model_id === modelId && quoteUnit(o) === unit && (o.provider !== 'deepseek' || o.variant === period) && (tier === 'all' || o.service_tier === tier))
+  return dataset.offerings.filter((o) => o.active && !comparisonsPaused(o.provider, o.provider_model_id) && o.model_id === modelId && quoteUnit(o) === unit && (o.provider !== 'deepseek' || o.variant === period) && (tier === 'all' || o.service_tier === tier))
     .flatMap((offering) => {
       const price = prices.get(offering.id);
       return price ? [{ offering, price, cost: estimateCost(offering, price, workload) }] : [];

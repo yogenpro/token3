@@ -14,6 +14,15 @@ credentials, inference calls, deposits, paid services or release-gate changes.
 
 ## Exact review selections
 
+**November 13 operating update:** the original selections below remain retained
+review evidence. Castform collection/current comparisons are stopped after no
+verified replacement token-pricing feed was found. Arcee excludes only
+`deepseek/deepseek-v4-pro-0813` and `zai-org/glm-5.2` from current quotes and
+comparisons; the other three reviewed bindings remain mandatory. Native/history
+evidence and availability flags are retained, without asserting retirement.
+There are 46 enabled collectors within the retained 47-group directory. See
+[source research and the operator policy](pricing-sources.md#november-13-collection-investigation-issue-35).
+
 The [dated manifest](research/provider-model-expansion-2026-11-04.json) and
 `tests/fixtures/provider-model-expansion/review.json` record the baseline, every
 new identity and exact source bindings. Aliases in `catalog/aliases.yaml` grant

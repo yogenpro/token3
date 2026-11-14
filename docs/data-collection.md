@@ -8,6 +8,24 @@ Normalization here means **a common storage schema with stable source-local iden
 
 Together's reviewed quotes are currently paused by `config/provider_policies.json`. Its free document inventory remains active, without contacting the deposit-gated API even when a local key exists. Retained quotes/history and availability flags stay intact; current calculators/rankings exclude them. Inventory-only checks do not rewrite reviewed files.
 
+The same explicit operator policy disables Castform collection and pauses its
+current comparisons as of November 13, 2026: no verified replacement token-pricing
+feed was found after the former API hostname stopped resolving. Its current
+GPU-hour product is not a replacement billing basis. The retained directory has
+47 groups, with 46 enabled collectors. Disabled providers are skipped before
+submitting network requests, even when explicitly selected; a skip makes no new
+check/observation and preserves the prior status, errors, evidence, quotes and
+availability flags. Dashboard labels distinguish stopped collection from health.
+
+Arcee's two exact source IDs `deepseek/deepseek-v4-pro-0813` and `zai-org/glm-5.2`
+are excluded from current quote collection, completeness requirements and
+comparisons by the same dated operator decision. All other tracked bindings
+remain required. Original identities/prices/history and availability flags stay
+retained, and native evidence remains independent. This does not assert vendor
+retirement or permit arbitrary source omissions. Neither scope automatically
+resumes when a record or endpoint reappears; resumption needs separate review.
+See [source research and the bounded policy](pricing-sources.md#november-13-collection-investigation-issue-35).
+
 DeepSeek validates a complete transposed model table, exact model columns, versions and six peak/off-peak token components before accepting a source. Tool-only/partial pages fail closed. Additional native model records preserve the explicit rates, served version, original context strings, UTC peak schedule and Chinese-public-holiday exception; all original document rows remain. These native records are not reviewed quotes, aliases, a holiday calendar or inferred currently applicable rates. A separate reviewed adapter now emits exact served-version quotes for explicitly selected peak/off-peak scenarios; its request uses the canonical trailing-slash pricing URL while the historic native document identity remains unchanged. New records start at their real next collection; no prior change/observation is backfilled.
 
 Records contain:
@@ -22,7 +40,7 @@ Do not rank unreviewed records by their numerical components: those components m
 
 ## Additional public document and feed sources
 
-The [current expansion](provider-model-expansion.md) adds bounded public document/model scopes alongside explicit Cerebras and Castform price feeds. Document cells remain source-native expressions with no inferred per-cell currency/denominator/current applicability; an empty `rates` list means unparsed or unknown, not zero. Bounded context records preserve surrounding schedules, plan restrictions and formulas as normalized visible text. Scripts/styles and fenced SDK/request/response examples are not interpreted as tariffs. Missing required pages, malformed feeds, pagination/private rows or oversized context fail closed. Document-only product scopes are not full authoritative model catalogs. Separately reviewed token adapters require exact catalog bindings and do not convert native credit, image, time or decision billing into comparable text rates.
+The [current expansion](provider-model-expansion.md) adds bounded public document/model scopes alongside explicit Cerebras and originally collected Castform price feeds; Castform is now stopped under the policy above. Document cells remain source-native expressions with no inferred per-cell currency/denominator/current applicability; an empty `rates` list means unparsed or unknown, not zero. Bounded context records preserve surrounding schedules, plan restrictions and formulas as normalized visible text. Scripts/styles and fenced SDK/request/response examples are not interpreted as tariffs. Missing required pages, malformed feeds, pagination/private rows or oversized context fail closed. Document-only product scopes are not full authoritative model catalogs. Separately reviewed token adapters require exact catalog bindings and do not convert native credit, image, time or decision billing into comparable text rates.
 
 ## Permanent files
 

@@ -68,7 +68,7 @@ describe('cloud and proprietary pricing rules', () => {
       expect(data.offerings.some((o) => o.provider === provider && o.active)).toBe(true);
     }
     expect(new Set(rankOfferings(data, 'anthropic/claude-sonnet-4.6', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['anthropic', 'vertex', 'bedrock']));
-    expect(new Set(rankOfferings(data, 'openai/gpt-5.4', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['openai', 'azure', 'castform']));
+    expect(new Set(rankOfferings(data, 'openai/gpt-5.4', defaultWorkload).map((r) => r.offering.provider))).toEqual(new Set(['openai', 'azure']));
   });
   it('retains last-good reviewed quotes without erasing collector failure status', () => {
     const failed = datasetSchema.parse({ ...data, status: { ...data.status, providers: data.status.providers.map((p) =>
