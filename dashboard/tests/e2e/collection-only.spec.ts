@@ -53,3 +53,12 @@ test('Arcee exclusions are exact, preserve other offers and explain the operator
   await page.goto('./?model=zai%2Fglm-5.3-flash');
   await expect(page.getByTestId('offering-row').filter({ hasText: 'Arcee AI' })).toBeVisible();
 });
+
+test('Vercel exact Nano exclusion explains conflicting sources and preserves other quotes', async ({ page }) => {
+  await page.goto('./?model=nvidia%2Fnemotron-3-nano-30b-a3b');
+  await expect(page.getByRole('note').filter({ hasText: 'its model page still advertises it' })).toBeVisible();
+  await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toHaveCount(0);
+  await expect(page.getByTestId('offering-row').filter({ hasText: 'DeepInfra' })).toBeVisible();
+  await page.goto('./?model=nvidia%2Fnemotron-3.5-lightning');
+  await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toBeVisible();
+});

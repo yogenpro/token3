@@ -27,6 +27,11 @@ def fixture(provider):
 class ReviewedExpansionTests(unittest.TestCase):
     def setUp(self):
         self.models, self.aliases = catalog()
+        # Replay the original enrollment policy for these dated quote fixtures.
+        # Current exact exclusions are independently checked in test_issue_38.
+        policy = patch.dict('providers.policy.POLICIES', {}, clear=True)
+        policy.start()
+        self.addCleanup(policy.stop)
         # October fixtures retain their original review scope; November's full
         # enrollment is independently checked in test_coverage_review.
         baseline = json.loads((FIXTURES / 'reviewed-bindings-2026-10-26.json').read_text())

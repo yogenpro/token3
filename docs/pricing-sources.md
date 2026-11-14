@@ -84,6 +84,33 @@ when newer collections move its largest historical batch beyond the first page.
 It still requires zero event-chunk downloads before selection and exactly the
 intersecting chunks afterward, with unchanged event-count and accessibility checks.
 
+### November 14 Vercel source conflict (issue #38)
+
+The [failed collection](https://github.com/yogenpro/token3/actions/runs/43600158518/attempts/1)
+includes the unresolved Arcee/Castform failures covered by the November 13
+policy above, plus a new missing Vercel binding. A strict Vercel dry-run against
+current main reproduced the missing exact `nvidia/nemotron-3-nano-30b-a3b` ID
+in the [public pricing API](https://ai-gateway.vercel.sh/v1/models). The
+[official model page](https://vercel.com/ai-gateway/models/nemotron-3-nano-30b-a3b)
+still advertises that ID and prices. This conflict does not prove retirement,
+rename the model or authorize substituting another tariff or source.
+
+On November 14 the user approved excluding only that exact Vercel ID from
+current quote collection, tracked-binding completeness requirements and
+comparisons in `config/provider_policies.json`. All other Vercel bindings remain
+required and valid; pricing, currency, bands and other scope checks still fail
+closed. Vercel is not made an authoritative absence-based retirement source.
+Original quote identities, aliases, prices, native evidence, history and
+availability flags remain retained. Other billing sources' Nano quotes are
+unaffected. An excluded ID's reappearance remains native-only until separate
+source review authorizes resumption. No existing failed check is rewritten;
+new successful health requires an actual collector run under the approved scope.
+
+Bounded public fixture fields and the conflicting model-page excerpt retain
+separate response/excerpt hashes and byte counts in
+`tests/fixtures/issue-38/manifest.json`. They are regression evidence, not
+production observations, recovered historical prices or a full API archive.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
