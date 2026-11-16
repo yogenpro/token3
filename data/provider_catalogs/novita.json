@@ -395,6 +395,128 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-0d9eb264fa4845d9dbb9ed36",
+      "provider": "novita",
+      "native_id": "qwen/qwen4-max",
+      "kind": "model",
+      "label": "Qwen4 Max",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 14130,
+              "price_per_m": 14130,
+              "origin_price_per_m_decimal": "1.413",
+              "price_per_m_decimal": "1.413"
+            },
+            "completion": {
+              "origin_price_per_m": 42400,
+              "price_per_m": 42400,
+              "origin_price_per_m_decimal": "4.24",
+              "price_per_m_decimal": "4.24"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 710,
+              "price_per_m": 710,
+              "origin_price_per_m_decimal": "0.071",
+              "price_per_m_decimal": "0.071"
+            },
+            "input_cache_write": {
+              "origin_price_per_m": 17670,
+              "price_per_m": 17670,
+              "origin_price_per_m_decimal": "1.767",
+              "price_per_m_decimal": "1.767"
+            },
+            "input_cache_write_1h": {
+              "origin_price_per_m": 28270,
+              "price_per_m": 28270,
+              "origin_price_per_m_decimal": "2.827",
+              "price_per_m_decimal": "2.827"
+            }
+          },
+          "native_input_billing_units": 14130,
+          "native_output_billing_units": 42400,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "1.413",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "4.24",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.071",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "1.767",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_write_1h",
+          "amount": "2.827",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1000000,
+        "max_output_tokens": 131000,
+        "status": 1,
+        "features": [
+          "serverless",
+          "reasoning",
+          "structured-outputs",
+          "function-calling"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-0e528ed116bb6d747c2428d8",
       "provider": "novita",
       "native_id": "zai-org/glm-5.3",
@@ -6441,6 +6563,97 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-c2776e8668271e2ddc9eb342",
+      "provider": "novita",
+      "native_id": "tencent/hy4-flash",
+      "kind": "model",
+      "label": "Hy4 Flash",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 700,
+              "price_per_m": 700,
+              "origin_price_per_m_decimal": "0.07",
+              "price_per_m_decimal": "0.07"
+            },
+            "completion": {
+              "origin_price_per_m": 2810,
+              "price_per_m": 2810,
+              "origin_price_per_m_decimal": "0.281",
+              "price_per_m_decimal": "0.281"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 30,
+              "price_per_m": 30,
+              "origin_price_per_m_decimal": "0.003",
+              "price_per_m_decimal": "0.003"
+            }
+          },
+          "native_input_billing_units": 700,
+          "native_output_billing_units": 2810,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.07",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.281",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.003",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1000000,
+        "max_output_tokens": 64000,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-c3c5b41a4ce57ce9a99acb7b",
       "provider": "novita",
       "native_id": "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
@@ -8399,14 +8612,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "2effbbabbb8e12ecf820fd49b820562607262ad87fb5bc6fef4f57c10f92c3d4",
-  "revision": 19,
-  "changed_at": "2026-11-10T14:54:12Z",
+  "catalog_sha256": "024f7005cf45fdb428c7fa40c68382f47595b260311a304260a926fffe5c8467",
+  "revision": 20,
+  "changed_at": "2026-11-16T15:48:19Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "b2f2dcaacac2e8bd37ba5a043f148191e6e9e2e92e65d59793b6b1de99ae3380",
+  "source_sha256": "0c01abbb67cb236ba436cf686fa41471307d32f3dc5c5c50b8931df359ec2f43",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -10552,6 +10552,95 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-3690de33b0e2862c9d15f366",
+      "provider": "vercel",
+      "native_id": "tencent/hy4-flash",
+      "kind": "model",
+      "label": "Tencent Hy4 Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000035",
+          "input_cache_read": "0.0000000015",
+          "output": "0.0000001405"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000035",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000001405",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Tencent Hy4 Flash",
+        "owned_by": "tencent",
+        "type": "language",
+        "context_window": 1024000,
+        "max_tokens": 64000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-372e7e456b0787a22aed102e",
       "provider": "vercel",
       "native_id": "alibaba/qwen3.8-2.4t-a95b",
@@ -24938,6 +25027,109 @@
         },
         "zdr": "none",
         "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-8cb16a07f9091e239658f350",
+      "provider": "vercel",
+      "native_id": "alibaba/qwen4-max",
+      "kind": "model",
+      "label": "Qwen 4 Max",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.0000015",
+          "input_cache_read": "0.000000075",
+          "input_cache_write": "0.000001875",
+          "output": "0.0000045"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.0000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.0000045",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_write",
+          "amount": "0.000001875",
+          "currency": "USD",
+          "unit": "cache-write token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Qwen 4 Max",
+        "owned_by": "alibaba",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 384000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "high",
+              "xhigh"
+            ]
+          },
+          {
+            "max": 262144,
+            "min": 0,
+            "type": "budget_tokens"
+          }
+        ],
+        "zdr": "all",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -45678,14 +45870,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "3b035596b57e8c12b0fca6324528822483c40e195477e89ac4a4f810a6718418",
-  "revision": 46,
-  "changed_at": "2026-11-15T13:57:14Z",
+  "catalog_sha256": "cc76ad72d75483380f983a9f0ac17478679c870b45f612a9b66dcace7439f8e5",
+  "revision": 47,
+  "changed_at": "2026-11-16T15:48:19Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "7bd18c3a7278a44c422f6dbe2b8462716840990e6ef6e004ed3630aa4fe62b01",
+  "source_sha256": "32004f072f741a5c87258419bb8c9c124fb330accd13b553e6d7a61b813699ae",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
