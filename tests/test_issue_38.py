@@ -8,7 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from providers.expanded import INVENTORY_PROVIDERS
-from providers.policy import excluded_model_ids
+from providers.policy import POLICIES, excluded_model_ids
 from providers.reviewed_inventory import vercel_quotes
 from scripts.catalog_inventory import normalize_inventory
 from scripts.collect import read_history, run
@@ -21,6 +21,10 @@ SOURCE = INVENTORY_PROVIDERS['vercel'].SOURCE
 
 class Issue38Tests(unittest.TestCase):
     def setUp(self):
+        # Keep the November 14 snapshot's policy explicit as later source reviews evolve.
+        self.assertIn(EXCLUDED, excluded_model_ids('vercel'))
+        previous = dict(POLICIES['vercel'], excluded_model_ids=[EXCLUDED])
+        self.enterContext(patch.dict(POLICIES, {'vercel': previous}))
         _, self.aliases = catalog()
         self.bindings = self.aliases.for_provider('vercel')
         self.payload = json.loads((CAPTURES / 'vercel-reviewed.json').read_text())
