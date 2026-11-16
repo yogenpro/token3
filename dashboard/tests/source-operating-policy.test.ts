@@ -23,7 +23,12 @@ describe('bounded source operating policies', () => {
       expect(comparisonsPaused('openrouter', id)).toBe(false);
       const rows = rankOfferings(data, id, defaultWorkload, 'all');
       expect(rows.some((r) => r.offering.provider === 'vercel')).toBe(false);
-      expect(rows.some((r) => r.offering.provider === (id.startsWith('inception/') ? 'openrouter' : 'deepinfra'))).toBe(true);
+      const otherSource = id.startsWith('inception/') ? 'openrouter' : 'deepinfra';
+      // OpenRouter's retained Mercury offers can be inactive independently.
+      // Use synthetic availability to verify this Vercel policy does not suppress another source.
+      const available = { ...data, offerings: data.offerings.map((o) =>
+        o.model_id === id && o.provider === otherSource ? { ...o, active: true } : o) };
+      expect(rankOfferings(available, id, defaultWorkload, 'all').some((r) => r.offering.provider === otherSource)).toBe(true);
       expect(comparisonCsv(rows)).not.toContain('Vercel AI Gateway');
       expect(comparisonProviders(data, new Set([id]))).not.toContain('vercel');
       expect(workloadPriceMap(data, defaultWorkload, 'all', 'all', '').find((r) => r.model.id === id)?.cells.has('vercel')).toBe(false);
