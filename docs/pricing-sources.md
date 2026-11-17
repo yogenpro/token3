@@ -29,6 +29,49 @@ The [2026-10-11 recent-model review](reviewed-model-review.md) added 33 identiti
 
 ## API details and limits
 
+### November 17 collection investigation (issue #43)
+
+The [failed run, attempt 1](https://github.com/yogenpro/token3/actions/runs/44120706636/attempts/1)
+at `cf73befe19412a93a2e1da9aac73f9591c3ec0f3` failed three reviewed collectors.
+Current main `2f7ae1b3959e79a1ca7a2d57ce3f674072a70567` contains the resulting
+legitimate data/check updates, with no intervening parser repair. Public-source
+strict dry-runs on that main reproduce Vercel and OVHcloud failures; Nebius passes.
+
+- **OVHcloud — draft source proposal, pending operator approval.** The previously
+  selected [English website](https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/)
+  renders dollar prices: `$0.09`/`$0.47` for GPT-OSS 120B and `$0.05`/`$0.18`
+  for 20B, per million input/output tokens. A dollar symbol alone does not
+  establish which dollar currency applies. These are not the retained EUR rates;
+  the parser correctly fails rather than relabeling or converting them. The
+  official [Ireland website](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/)
+  explicitly displays `€0.08`/`€0.40` and `€0.04`/`€0.15` on those same two model
+  cards. This draft pins collection to that exact URL and retains legacy EUR
+  capture compatibility. It preserves every reviewed quote field except the
+  actual source URL, including existing `public EUR price cards` scope; the
+  website locale is not treated as a new deployment region. This regional
+  website selection requires explicit operator approval before merge/activation.
+  No fallback to dollar cards, API-currency inference, FX or retrospective
+  reassignment is introduced. The source-native API remains unchanged and its
+  currency remains unknown.
+- **Nebius — recovered source state, no policy relaxation.** The failed capture
+  marks `Qwen/Qwen3.8-27B` as `error`. The later November 17 public capture marks
+  it `active`; all five exact reviewed cheap-flavor/region bindings validate.
+  The active-status guard remains mandatory. An error does not establish
+  retirement, authorize exclusion or justify pretending that the failed run
+  succeeded. Fixture replay verifies retained last-good quotes/history/flags
+  on failure; only future legitimate collection may update production health.
+- **Vercel — unresolved existing proposal.** The exact
+  `inception/mercury-2` and `inception/mercury-2.5` bindings remain missing on
+  current main. [Draft PR #42](https://github.com/yogenpro/token3/pull/42) proposes
+  bounded exclusions and still needs explicit operator approval. This change
+  neither applies that proposal nor expands any other exception.
+
+`tests/fixtures/issue-43/manifest.json` records bounded public card/model excerpts,
+distinct parent/excerpt hashes, retrieval precision and exact-attempt versus live
+origins. These are regression fixtures, not production observations or historical
+imports. No full strict main collection, merge or Pages release is implied by a
+provider dry-run or this draft proposal.
+
 ### November 13 collection investigation (issue #35)
 
 The [failed collection](https://github.com/yogenpro/token3/actions/runs/43444120572/attempts/1)

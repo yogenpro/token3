@@ -331,7 +331,12 @@ class PriceCards(HTMLParser):
 
 def ovhcloud_quotes(payload, aliases, source):
     page=payload['reviewed_price_cards']
-    if page['source_url'] != 'https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/':
+    # Keep legacy EUR captures readable; new collection pins the explicit EUR
+    # Ireland page. The /en/ page now renders dollar-denominated cards.
+    if page['source_url'] not in (
+        'https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/',
+        'https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/',
+    ):
         raise ValueError("Unreviewed OVHcloud price-card source")
     parser=PriceCards();parser.feed(page['body'])
     records=[]

@@ -147,7 +147,7 @@ class InventoryCollector:
         if self.provider == "ovhcloud":
             # Price cards are a separately reviewed quote source, not a table
             # pretending to expand the source-native API catalog's currency.
-            url = "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
+            url = "https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/"
             payload["reviewed_price_cards"] = dict(source_url=url, body=fetch_text(url))
             urls.append(url)
         if self.pdf_url:

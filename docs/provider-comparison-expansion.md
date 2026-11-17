@@ -44,6 +44,13 @@ fetched source, never a hardcoded price list or a native-record projection.
 
 ## Compare, history and exports
 
+The [November 17 issue #43 draft](pricing-sources.md#november-17-collection-investigation-issue-43)
+proposes replacing only OVHcloud's reviewed website URL above with its explicit
+[Ireland EUR cards](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/),
+pending operator approval. The former `/en/` cards now show dollar prices. The
+proposal preserves both reviewed IDs, EUR rates, token units and offering scopes,
+with actual new source provenance; the API's currency remains unknown.
+
 Compare has a shareable billing-basis selector: **USD, EUR, Databricks DBUs or
 Snowflake AI Credits**. Rankings, summary minima, workload maps, history and CSV
 exports use one basis at a time. EUR prices are never labeled dollars, and credits
