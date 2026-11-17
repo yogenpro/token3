@@ -2231,6 +2231,345 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-559d90fda16901e33c68fe7c",
+      "provider": "novita",
+      "native_id": "qwen/qwen3-vl-plus",
+      "kind": "model",
+      "label": "Qwen3 VL Plus",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 10000,
+              "price_per_m": 10000,
+              "origin_price_per_m_decimal": "1",
+              "price_per_m_decimal": "1"
+            },
+            "completion": {
+              "origin_price_per_m": 10000,
+              "price_per_m": 10000,
+              "origin_price_per_m_decimal": "1",
+              "price_per_m_decimal": "1"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 10000,
+              "price_per_m": 10000,
+              "origin_price_per_m_decimal": "1",
+              "price_per_m_decimal": "1"
+            }
+          },
+          "native_input_billing_units": 10000,
+          "native_output_billing_units": 10000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 32000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 1440,
+                  "price_per_m": 1440,
+                  "origin_price_per_m_decimal": "0.144",
+                  "price_per_m_decimal": "0.144"
+                },
+                "completion": {
+                  "origin_price_per_m": 14340,
+                  "price_per_m": 14340,
+                  "origin_price_per_m_decimal": "1.434",
+                  "price_per_m_decimal": "1.434"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 140,
+                  "price_per_m": 140,
+                  "origin_price_per_m_decimal": "0.014",
+                  "price_per_m_decimal": "0.014"
+                },
+                "input_cache_write": {
+                  "origin_price_per_m": 1800,
+                  "price_per_m": 1800,
+                  "origin_price_per_m_decimal": "0.18",
+                  "price_per_m_decimal": "0.18"
+                }
+              }
+            },
+            {
+              "min_tokens": 32000,
+              "max_tokens": 128000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 2160,
+                  "price_per_m": 2160,
+                  "origin_price_per_m_decimal": "0.216",
+                  "price_per_m_decimal": "0.216"
+                },
+                "completion": {
+                  "origin_price_per_m": 21510,
+                  "price_per_m": 21510,
+                  "origin_price_per_m_decimal": "2.151",
+                  "price_per_m_decimal": "2.151"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 220,
+                  "price_per_m": 220,
+                  "origin_price_per_m_decimal": "0.022",
+                  "price_per_m_decimal": "0.022"
+                },
+                "input_cache_write": {
+                  "origin_price_per_m": 2700,
+                  "price_per_m": 2700,
+                  "origin_price_per_m_decimal": "0.27",
+                  "price_per_m_decimal": "0.27"
+                }
+              }
+            },
+            {
+              "min_tokens": 128000,
+              "max_tokens": 256000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 4310,
+                  "price_per_m": 4310,
+                  "origin_price_per_m_decimal": "0.431",
+                  "price_per_m_decimal": "0.431"
+                },
+                "completion": {
+                  "origin_price_per_m": 43010,
+                  "price_per_m": 43010,
+                  "origin_price_per_m_decimal": "4.301",
+                  "price_per_m_decimal": "4.301"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 430,
+                  "price_per_m": 430,
+                  "origin_price_per_m_decimal": "0.043",
+                  "price_per_m_decimal": "0.043"
+                },
+                "input_cache_write": {
+                  "origin_price_per_m": 5390,
+                  "price_per_m": 5390,
+                  "origin_price_per_m_decimal": "0.539",
+                  "price_per_m_decimal": "0.539"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "0.144",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 32000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "1.434",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 32000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.014",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 32000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_write",
+          "amount": "0.18",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 32000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "0.216",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 32000,
+              "max_tokens": 128000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "2.151",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 32000,
+              "max_tokens": 128000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.022",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 32000,
+              "max_tokens": 128000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_write",
+          "amount": "0.27",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 32000,
+              "max_tokens": 128000
+            }
+          }
+        },
+        {
+          "dimension": "tier_2.prompt",
+          "amount": "0.431",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 128000,
+              "max_tokens": 256000
+            }
+          }
+        },
+        {
+          "dimension": "tier_2.completion",
+          "amount": "4.301",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 128000,
+              "max_tokens": 256000
+            }
+          }
+        },
+        {
+          "dimension": "tier_2.input_cache_read",
+          "amount": "0.043",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 128000,
+              "max_tokens": 256000
+            }
+          }
+        },
+        {
+          "dimension": "tier_2.input_cache_write",
+          "amount": "0.539",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 128000,
+              "max_tokens": 256000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 262000,
+        "max_output_tokens": 32000,
+        "status": 1,
+        "features": [
+          "serverless",
+          "reasoning",
+          "structured-outputs",
+          "function-calling"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "anthropic",
+          "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-5ab66115cdfa4b6e56ed632b",
       "provider": "novita",
       "native_id": "baichuan/baichuan-m2-32b",
@@ -7829,6 +8168,49 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-d18532f05211605b67e315b5",
+      "provider": "novita",
+      "native_id": "zai-org/glm-new",
+      "kind": "model",
+      "label": "zai-org/glm-new",
+      "scope": {},
+      "billing": {
+        "state": "source_native_or_unpriced",
+        "rules": {
+          "rules": null,
+          "native_input_billing_units": 0,
+          "native_output_billing_units": 0,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 198000,
+        "max_output_tokens": 131072,
+        "status": 1,
+        "features": [
+          "serverless",
+          "function-calling",
+          "structured-outputs",
+          "reasoning"
+        ],
+        "endpoints": [
+          "chat/completions",
+          "completions",
+          "anthropic"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-d3e86b3e53d912a40c73cfdc",
       "provider": "novita",
       "native_id": "minimax/minimax-m3.1-flash",
@@ -8612,14 +8994,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "024f7005cf45fdb428c7fa40c68382f47595b260311a304260a926fffe5c8467",
-  "revision": 20,
-  "changed_at": "2026-11-16T15:48:19Z",
+  "catalog_sha256": "9aec2653a63501d0d35275f17a60871549951b95cfc510097490cd35fd853648",
+  "revision": 21,
+  "changed_at": "2026-11-17T16:02:09Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "0c01abbb67cb236ba436cf686fa41471307d32f3dc5c5c50b8931df359ec2f43",
+  "source_sha256": "0007bfa3969361f24111b45a302ca9d3a920425408304ecd6579aa3661f4e9d7",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

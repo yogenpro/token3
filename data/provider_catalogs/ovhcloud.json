@@ -5,6 +5,462 @@
   "source_kind": "api+documentation",
   "records": [
     {
+      "id": "ovhcloud-0552a653da09ae8e6e4a121e",
+      "provider": "ovhcloud",
+      "native_id": "deepseek-v4-1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek-V4.1-Flash-1017",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.27,
+            "price_aud": 0.44,
+            "price_cad": 0.43,
+            "price_gbp": 0.23,
+            "price_inr": 30.28,
+            "price_mad": 2.92,
+            "price_pln": 1.15,
+            "price_sgd": 0.41,
+            "price_tnd": 0.91,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.31,
+            "price_xof": 177.11
+          },
+          {
+            "price": 1.08,
+            "price_aud": 1.77,
+            "price_cad": 1.74,
+            "price_gbp": 0.94,
+            "price_inr": 121.1,
+            "price_mad": 11.66,
+            "price_pln": 4.6,
+            "price_sgd": 1.62,
+            "price_tnd": 3.65,
+            "price_unit": "million_output_tokens",
+            "price_usd": 1.25,
+            "price_xof": 708.45
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.27",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "1.08",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "DeepSeek-V4.1-Flash-1017",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [
+          "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+          "DeepSeek-v4.1-Flash-1017",
+          "DeepSeek-V4.1-Flash",
+          "deepseek-v4.1-flash-1017",
+          "deepseek-v4.1-flash"
+        ],
+        "api_base_url": "https://deepseek-v4-1-flash-1017.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "vision",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 1024,
+              "max_images_per_prompt": 10,
+              "max_output_token_k": 384,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 748,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "12/11/2026",
+          "knowledge_cutoff": "31/05/2025",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "MIT",
+          "licence_url": "https://deepseek-v4-1-flash-1017.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "17/10/2026",
+          "publisher": "DeepSeek",
+          "series": "deepseek",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+        },
+        "availability": {
+          "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-0cac2875407599e22b80ee27",
+      "provider": "ovhcloud",
+      "native_id": "clef-flash",
+      "kind": "model",
+      "label": "clef-flash",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.03255,
+            "price_aud": 0.05,
+            "price_cad": 0.05,
+            "price_gbp": 0.03,
+            "price_inr": 3.65,
+            "price_mad": 0.35,
+            "price_pln": 0.14,
+            "price_sgd": 0.05,
+            "price_tnd": 0.11,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.04,
+            "price_xof": 21.35
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.03255",
+            "unit": "million_input_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "clef-flash",
+        "available": true,
+        "category": "Decision",
+        "category_v2": "Decision",
+        "tags": [
+          "Decision"
+        ],
+        "aliases": [],
+        "api_base_url": "https://clef-flash.endpoints.kepler.ai.cloud.ovh.net/api/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "decision"
+            ],
+            "reasoning": false,
+            "response_format": [],
+            "streaming": false,
+            "use_case_tag": [
+              "utility",
+              "decision"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "decision",
+            "params": {
+              "context_size": 16384,
+              "max_choices": 255,
+              "max_score_levels": 10,
+              "min_choices": 2,
+              "min_score_levels": 2
+            }
+          },
+          "nb_of_billion_parameters": 9,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://clef-flash.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "01/10/2026",
+          "publisher": "Cloudflare",
+          "series": "clef",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/Cloudflare/clef-flash"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-213b17a8c511112d86ea1870",
+      "provider": "ovhcloud",
+      "native_id": "qwen3-6-35b-a3b",
+      "kind": "model",
+      "label": "qwen3.6-35b-a3b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.17,
+            "price_aud": 0.28,
+            "price_cad": 0.27,
+            "price_gbp": 0.15,
+            "price_inr": 19.06,
+            "price_mad": 1.84,
+            "price_pln": 0.72,
+            "price_sgd": 0.26,
+            "price_tnd": 0.57,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.2,
+            "price_xof": 111.51
+          },
+          {
+            "price": 1.15,
+            "price_aud": 1.89,
+            "price_cad": 1.85,
+            "price_gbp": 1,
+            "price_inr": 128.95,
+            "price_mad": 12.42,
+            "price_pln": 4.9,
+            "price_sgd": 1.73,
+            "price_tnd": 3.89,
+            "price_unit": "million_output_tokens",
+            "price_usd": 1.33,
+            "price_xof": 754.37
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.17",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "1.15",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "qwen3.6-35b-a3b",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [],
+        "api_base_url": "https://qwen3-6-35b-a3b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 256,
+              "max_output_token_k": 64
+            }
+          },
+          "nb_of_billion_parameters": 35,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen3-6-35b-a3b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "16/04/2026",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "ovhcloud-27c243a90354216fa0ddecf0",
       "provider": "ovhcloud",
       "native_id": "nvr-tts-it-it",
@@ -749,6 +1205,496 @@
       "comparison_eligible": false
     },
     {
+      "id": "ovhcloud-4883854e56657fd4f80d5dbb",
+      "provider": "ovhcloud",
+      "native_id": "gemma-4-26b-a4b",
+      "kind": "model",
+      "label": "gemma-4-26b-a4b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.09,
+            "price_aud": 0.15,
+            "price_cad": 0.14,
+            "price_gbp": 0.08,
+            "price_inr": 10.09,
+            "price_mad": 0.97,
+            "price_pln": 0.38,
+            "price_sgd": 0.14,
+            "price_tnd": 0.3,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.1,
+            "price_xof": 59.04
+          },
+          {
+            "price": 0.35,
+            "price_aud": 0.57,
+            "price_cad": 0.56,
+            "price_gbp": 0.3,
+            "price_inr": 39.25,
+            "price_mad": 3.78,
+            "price_pln": 1.49,
+            "price_sgd": 0.53,
+            "price_tnd": 1.18,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0.41,
+            "price_xof": 229.59
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.09",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.35",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "gemma-4-26b-a4b",
+        "available": true,
+        "category": "Large Language Models (LLM)",
+        "category_v2": "Text Generation",
+        "tags": [],
+        "aliases": [],
+        "api_base_url": "https://gemma-4-26b-a4b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 256,
+              "max_output_token_k": 64
+            }
+          },
+          "nb_of_billion_parameters": 26,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://gemma-4-26b-a4b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "02/04/2026",
+          "publisher": "Google DeepMind",
+          "series": "gemma",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/nvidia/Gemma-4-26B-A4B-NVFP4"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-501c77b2d4eb396817f426a7",
+      "provider": "ovhcloud",
+      "native_id": "qwen3-vl-30b-a3b",
+      "kind": "model",
+      "label": "qwen3-vl-30b-a3b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.13,
+            "price_aud": 0.21,
+            "price_cad": 0.21,
+            "price_gbp": 0.11,
+            "price_inr": 14.58,
+            "price_mad": 1.4,
+            "price_pln": 0.55,
+            "price_sgd": 0.2,
+            "price_tnd": 0.44,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.15,
+            "price_xof": 85.28
+          },
+          {
+            "price": 0.5,
+            "price_aud": 0.82,
+            "price_cad": 0.81,
+            "price_gbp": 0.44,
+            "price_inr": 56.07,
+            "price_mad": 5.4,
+            "price_pln": 2.13,
+            "price_sgd": 0.75,
+            "price_tnd": 1.69,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0.58,
+            "price_xof": 327.99
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.13",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.5",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "qwen3-vl-30b-a3b",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision"
+        ],
+        "aliases": [],
+        "api_base_url": "https://qwen3-vl-30b-a3b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "vision",
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 32,
+              "max_images_per_prompt": 16,
+              "max_output_token_k": 16,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 30,
+          "quantization": "int4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://qwen3-vl-30b-a3b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "03/10/2025",
+          "publisher": "Qwen",
+          "series": "qwen",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/QuantTrio/Qwen3-VL-30B-A3B-Instruct-AWQ"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-580cacd6b8cc4392fdb6f39a",
+      "provider": "ovhcloud",
+      "native_id": "nemotron3-nano-30b",
+      "kind": "model",
+      "label": "nemotron3-nano-30b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.05,
+            "price_aud": 0.08,
+            "price_cad": 0.08,
+            "price_gbp": 0.04,
+            "price_inr": 5.61,
+            "price_mad": 0.54,
+            "price_pln": 0.21,
+            "price_sgd": 0.08,
+            "price_tnd": 0.17,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.06,
+            "price_xof": 32.8
+          },
+          {
+            "price": 0.2,
+            "price_aud": 0.33,
+            "price_cad": 0.32,
+            "price_gbp": 0.17,
+            "price_inr": 22.43,
+            "price_mad": 2.16,
+            "price_pln": 0.85,
+            "price_sgd": 0.3,
+            "price_tnd": 0.68,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0.23,
+            "price_xof": 131.19
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.05",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.2",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nemotron3-nano-30b",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [],
+        "api_base_url": "https://nemotron3-nano-30b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 256,
+              "max_output_token_k": 64
+            }
+          },
+          "nb_of_billion_parameters": 30,
+          "quantization": "fp4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "28/11/2025",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "NVIDIA Open Model License",
+          "licence_url": "https://nemotron3-nano-30b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "04/12/2025",
+          "publisher": "NVIDIA",
+          "series": "Nemotron 3",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "ovhcloud-5fcf83e017d909c30a92bc0c",
       "provider": "ovhcloud",
       "native_id": "nvr-tts-en-us",
@@ -920,7 +1866,7 @@
         "api_base_url": "https://qwen3-embedding-8b.endpoints.kepler.ai.cloud.ovh.net/api/",
         "model_specs": {
           "capabilities": {
-            "batch": true,
+            "batch": false,
             "fill_in_the_middle": false,
             "function_calling": false,
             "input_modality": [
@@ -945,11 +1891,11 @@
               "max_batch_size": 25,
               "output_dimension": 4096,
               "output_dimension_max": 4096,
-              "output_dimension_min": 32
+              "output_dimension_min": 16
             }
           },
           "nb_of_billion_parameters": 7.6,
-          "quantization": "fp16"
+          "quantization": "bf16"
         },
         "publishing_information": {
           "endpoint_publication_date": "26/03/2026",
@@ -964,9 +1910,10 @@
           "publisher": "Qwen",
           "series": "qwen",
           "source": "huggingface",
-          "source_link": "https://huggingface.co/Qwen/qwen3_embedding_8b"
+          "source_link": "https://huggingface.co/Qwen/Qwen3-Embedding-8B"
         },
         "availability": {
+          "status": "live",
           "statuses": [
             "live"
           ],
@@ -1296,6 +2243,179 @@
         },
         "availability": {
           "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-7cfa7287c3dc91f47e80dc3c",
+      "provider": "ovhcloud",
+      "native_id": "nemotron3-omni-30b",
+      "kind": "model",
+      "label": "nemotron3-omni-30b",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.16,
+            "price_aud": 0.26,
+            "price_cad": 0.26,
+            "price_gbp": 0.14,
+            "price_inr": 17.94,
+            "price_mad": 1.73,
+            "price_pln": 0.68,
+            "price_sgd": 0.24,
+            "price_tnd": 0.54,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.19,
+            "price_xof": 104.96
+          },
+          {
+            "price": 0.49,
+            "price_aud": 0.8,
+            "price_cad": 0.79,
+            "price_gbp": 0.43,
+            "price_inr": 54.94,
+            "price_mad": 5.29,
+            "price_pln": 2.09,
+            "price_sgd": 0.74,
+            "price_tnd": 1.66,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0.57,
+            "price_xof": 321.43
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.16",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.49",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "nemotron3-omni-30b",
+        "available": true,
+        "category": "Visual LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Vision",
+          "Reasoning"
+        ],
+        "aliases": [],
+        "api_base_url": "https://nemotron3-omni-30b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text",
+              "image"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "vision",
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation",
+              "multimodal"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "vlm",
+            "params": {
+              "context_size_k": 128,
+              "max_images_per_prompt": 16,
+              "max_output_token_k": 64,
+              "supported_aspect_ratios": [
+                "*"
+              ]
+            }
+          },
+          "nb_of_billion_parameters": 30,
+          "quantization": "int4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "NVIDIA Open Model Agreement",
+          "licence_url": "https://nemotron3-omni-30b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "27/04/2026",
+          "publisher": "NVIDIA",
+          "series": "Nemotron 3",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/drawais/Nemotron-3-Nano-Omni-30B-A3B-W4A16"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
             "live"
           ],
           "rate_limit": {
@@ -2158,6 +3278,162 @@
       "comparison_eligible": false
     },
     {
+      "id": "ovhcloud-a68d56de92be448814633432",
+      "provider": "ovhcloud",
+      "native_id": "laguna-xs-2-1",
+      "kind": "model",
+      "label": "laguna-xs-2.1",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.05,
+            "price_aud": 0.08,
+            "price_cad": 0.08,
+            "price_gbp": 0.04,
+            "price_inr": 5.61,
+            "price_mad": 0.54,
+            "price_pln": 0.21,
+            "price_sgd": 0.08,
+            "price_tnd": 0.17,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0.06,
+            "price_xof": 32.8
+          },
+          {
+            "price": 0.1,
+            "price_aud": 0.16,
+            "price_cad": 0.16,
+            "price_gbp": 0.09,
+            "price_inr": 11.21,
+            "price_mad": 1.08,
+            "price_pln": 0.43,
+            "price_sgd": 0.15,
+            "price_tnd": 0.34,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0.12,
+            "price_xof": 65.6
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.05",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0.1",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "laguna-xs-2.1",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [],
+        "api_base_url": "https://laguna-xs-2-1.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "multi_language_coding"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size_k": 128,
+              "max_output_token_k": 64
+            }
+          },
+          "nb_of_billion_parameters": 33,
+          "quantization": "int4"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "17/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "OpenMDW-1.1",
+          "licence_url": "https://laguna-xs-2-1.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "02/07/2026",
+          "publisher": "poolside",
+          "series": "Laguna",
+          "source": "huggingface",
+          "source_link": "https://huggingface.co/poolside/Laguna-XS-2.1-INT4"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "ovhcloud-aca8a80019b11c4f6135934b",
       "provider": "ovhcloud",
       "native_id": "qwen-guard-gen-06b",
@@ -2279,6 +3555,195 @@
           "status": "live",
           "statuses": [
             "beta"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-bf9d05de98b001d5cf08ba29",
+      "provider": "ovhcloud",
+      "native_id": "solaria-3",
+      "kind": "model",
+      "label": "solaria-3",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0.00018889,
+            "price_aud": 0.00030978,
+            "price_cad": 0.00030411,
+            "price_gbp": 0.00016433,
+            "price_inr": 0.02118024,
+            "price_mad": 0.00204001,
+            "price_pln": 0.00080467,
+            "price_sgd": 0.00028334,
+            "price_tnd": 0.00063845,
+            "price_unit": "audio_duration_seconds",
+            "price_usd": 0.00021911,
+            "price_xof": 0.12390617
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0.00018889",
+            "unit": "audio_duration_seconds",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "solaria-3",
+        "available": true,
+        "category": "Speech To Text",
+        "category_v2": "Speech To Text",
+        "tags": [
+          "Automatic Speech Recognition",
+          "Diarisation",
+          "Translation",
+          "Gladia"
+        ],
+        "aliases": [
+          "gladia/solaria-3"
+        ],
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "sound"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "json"
+            ],
+            "streaming": true,
+            "use_case_tag": [
+              "speech_to_text",
+              "diarisation",
+              "translation",
+              "multilingual",
+              "summarization",
+              "entity_extraction",
+              "sentiment_analysis"
+            ]
+          },
+          "model_parameters": {
+            "parameters_type": "asr",
+            "params": {
+              "input_languages": [
+                "ar",
+                "cs",
+                "da",
+                "de",
+                "el",
+                "en",
+                "es",
+                "fa",
+                "fi",
+                "fr",
+                "hi",
+                "hu",
+                "id",
+                "it",
+                "ja",
+                "ko",
+                "mk",
+                "ms",
+                "nl",
+                "pl",
+                "pt",
+                "ro",
+                "ru",
+                "sv",
+                "th",
+                "tl",
+                "tr",
+                "vi",
+                "zh"
+              ],
+              "max_audio_duration": 10800,
+              "max_audio_duration_unauthenticated": 60,
+              "max_audio_size": 2048,
+              "max_audio_size_unauthenticated": 10,
+              "output_languages": [
+                "*"
+              ],
+              "supported_formats": [
+                "aac",
+                "ac3",
+                "eac3",
+                "flac",
+                "m4a",
+                "mp2",
+                "mp3",
+                "ogg",
+                "opus",
+                "wav",
+                "3g2",
+                "3gp",
+                "avi",
+                "flv",
+                "m4v",
+                "matroska",
+                "mov",
+                "mp4",
+                "wmv"
+              ]
+            }
+          },
+          "quantization": "None"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "19/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "en",
+            "fr",
+            "de",
+            "es",
+            "it"
+          ],
+          "licence_name": "Proprietary (Gladia)",
+          "licence_url": null,
+          "model_eol_date": "None",
+          "model_publication_date": "None",
+          "publisher": "Gladia",
+          "series": "Solaria",
+          "source": "Gladia",
+          "source_link": "https://docs.gladia.io"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "live"
           ],
           "rate_limit": {
             "rate_limit_api": [
@@ -3052,15 +4517,15 @@
   "billing_notes": [
     "Complete public AI Endpoints catalog, including unavailable entries. Prices retain native units; the JSON does not identify currency, so no currency is invented from a locale or another product page."
   ],
-  "catalog_sha256": "1080e476b96e6e4bc921e2e41fbd44dbf15c0744c565fa67aa12a42114ae245d",
-  "revision": 12,
-  "changed_at": "2026-11-12T15:16:07Z",
+  "catalog_sha256": "e52e8981d76e71495ab01a1f9d31b4132cc6b9bc76293016adcd63e5b7b2f8ed",
+  "revision": 13,
+  "changed_at": "2026-11-17T16:02:09Z",
   "source_url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
   "source_urls": [
     "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
     "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
   ],
-  "source_sha256": "b7f8dc3b938085caec112961f23e81c552372439f965af94dfa0ab6a46e7ddaa",
+  "source_sha256": "e7c1fe59684ded903457ee717899598a5c6a546e3c71a399f1b55762e35de8d3",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

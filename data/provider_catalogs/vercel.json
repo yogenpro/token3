@@ -88,6 +88,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-011e5bba31e5c700ec4ba548",
+      "provider": "vercel",
+      "native_id": "liquid/d1.2-ultra",
+      "kind": "model",
+      "label": "Liquid d1.2 Ultra",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000000042",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000000042",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Liquid d1.2 Ultra",
+        "owned_by": "liquid",
+        "type": "evaluation",
+        "context_window": 65536,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-0163efaf36f105c3eb3b1b8c",
       "provider": "vercel",
       "native_id": "nace-ai/drex-v2.0",
@@ -1404,6 +1460,63 @@
             ]
           }
         ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-06fb2a9c1cea80647ab5c602",
+      "provider": "vercel",
+      "native_id": "heygen/heygen-decision-1-turbo",
+      "kind": "model",
+      "label": "HeyGen Decision 1 Turbo",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000009",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000009",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "HeyGen Decision 1 Turbo",
+        "owned_by": "heygen",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
         "zdr": "none",
         "no_training": "none"
       },
@@ -8064,7 +8177,7 @@
       "scope": {},
       "billing": {
         "rules": {
-          "image": "0.035",
+          "image": "0.09",
           "input": "0.000000003"
         },
         "currency": "USD",
@@ -16480,6 +16593,88 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-55c917fdbe501a4626e9133c",
+      "provider": "vercel",
+      "native_id": "recursive/flint-v1.0",
+      "kind": "model",
+      "label": "Flint",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Flint",
+        "owned_by": "recursive",
+        "type": "language",
+        "context_window": 262144,
+        "max_tokens": 262144,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "toggle"
+          },
+          {
+            "type": "effort",
+            "values": [
+              "none",
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        ],
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-5619ad2a81446266bb5764d9",
       "provider": "vercel",
       "native_id": "nvidia/nemotron-3.5-lightning",
@@ -20834,6 +21029,62 @@
         },
         "zdr": "all",
         "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-718de75096003ddee46ceed0",
+      "provider": "vercel",
+      "native_id": "liquid/d1.2",
+      "kind": "model",
+      "label": "Liquid d1.2",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000002",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Liquid d1.2",
+        "owned_by": "liquid",
+        "type": "evaluation",
+        "context_window": 65536,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
       },
       "comparison_eligible": false
     },
@@ -34415,6 +34666,63 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-b86410577effd3d47a839b9e",
+      "provider": "vercel",
+      "native_id": "heygen/heygen-decision-1",
+      "kind": "model",
+      "label": "HeyGen Decision 1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000014",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000014",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "HeyGen Decision 1",
+        "owned_by": "heygen",
+        "type": "evaluation",
+        "context_window": 131072,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-b8706b67811a1a2df5403c6f",
       "provider": "vercel",
       "native_id": "google/gemini-3.8-flash",
@@ -38081,6 +38389,69 @@
         ],
         "zdr": "some",
         "no_training": "some"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-cec4a32d5106c2d9b6f9b4e0",
+      "provider": "vercel",
+      "native_id": "bytedance/seedance-2.5-flash",
+      "kind": "model",
+      "label": "Seedance 2.5 Flash",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "video_token_pricing": {
+            "notes": "Pricing varies based on whether the input contains video. When video is included in the input, all tokens are billed at the reduced rate. Token count includes both input and output video and is subject to minimum token floors based on output duration.",
+            "tiers": [
+              {
+                "no_video_input": {
+                  "cost_per_million_tokens": "7"
+                },
+                "resolution": "480p",
+                "with_video_input": {
+                  "cost_per_million_tokens": "4.3"
+                }
+              },
+              {
+                "no_video_input": {
+                  "cost_per_million_tokens": "7"
+                },
+                "resolution": "720p",
+                "with_video_input": {
+                  "cost_per_million_tokens": "4.3"
+                }
+              }
+            ]
+          }
+        },
+        "currency": "USD",
+        "state": "native_rules_only",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Seedance 2.5 Flash",
+        "owned_by": "bytedance",
+        "type": "video",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "video"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "all"
       },
       "comparison_eligible": false
     },
@@ -45870,14 +46241,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "cc76ad72d75483380f983a9f0ac17478679c870b45f612a9b66dcace7439f8e5",
-  "revision": 47,
-  "changed_at": "2026-11-16T15:48:19Z",
+  "catalog_sha256": "0662cb4d520ef3c523f485c6bd8f26d40be44c258e60d34866791dcdbdc0c59d",
+  "revision": 48,
+  "changed_at": "2026-11-17T16:02:09Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "32004f072f741a5c87258419bb8c9c124fb330accd13b553e6d7a61b813699ae",
+  "source_sha256": "f8dcb23c45148953a831c6e4cd797212b9c93a5805a7108eb093a888ff81b78a",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
