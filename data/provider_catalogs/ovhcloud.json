@@ -1261,9 +1261,11 @@
       "metadata": {
         "name": "gemma-4-26b-a4b",
         "available": true,
-        "category": "Large Language Models (LLM)",
+        "category": "Reasoning LLM",
         "category_v2": "Text Generation",
-        "tags": [],
+        "tags": [
+          "Reasoning"
+        ],
         "aliases": [],
         "api_base_url": "https://gemma-4-26b-a4b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
         "model_specs": {
@@ -1277,7 +1279,12 @@
             "output_modality": [
               "text"
             ],
-            "reasoning": false,
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
             "response_format": [
               "raw_text",
               "json_object",
@@ -2170,7 +2177,7 @@
         "api_base_url": "https://qwen-3-5-9b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
         "model_specs": {
           "capabilities": {
-            "batch": true,
+            "batch": false,
             "fill_in_the_middle": false,
             "function_calling": true,
             "input_modality": [
@@ -2181,6 +2188,11 @@
               "text"
             ],
             "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
             "response_format": [
               "raw_text",
               "json_object",
@@ -2217,14 +2229,14 @@
             "params": {
               "context_size_k": 262,
               "max_images_per_prompt": 5,
-              "max_output_token_k": 262,
+              "max_output_token_k": 64,
               "supported_aspect_ratios": [
                 "*"
               ]
             }
           },
           "nb_of_billion_parameters": 9.7,
-          "quantization": "bf16"
+          "quantization": "int4"
         },
         "publishing_information": {
           "endpoint_publication_date": "15/04/2026",
@@ -2239,9 +2251,10 @@
           "publisher": "Qwen",
           "series": "qwen",
           "source": "huggingface",
-          "source_link": "https://huggingface.co/Qwen/Qwen3.5-9B"
+          "source_link": "https://huggingface.co/cyankiwi/Qwen3.5-9B-AWQ-4bit"
         },
         "availability": {
+          "status": "live",
           "statuses": [
             "live"
           ],
@@ -3186,7 +3199,7 @@
         "api_base_url": "https://gpt-oss-20b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
         "model_specs": {
           "capabilities": {
-            "batch": true,
+            "batch": false,
             "fill_in_the_middle": false,
             "function_calling": true,
             "input_modality": [
@@ -3207,6 +3220,12 @@
               "json_schema"
             ],
             "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
             "use_case_tag": [
               "code_chat",
               "code_completion",
@@ -3221,13 +3240,14 @@
               "text_generation",
               "text_only_compatible",
               "translation"
-            ]
+            ],
+            "web_search": false
           },
           "model_parameters": {
             "parameters_type": "llm",
             "params": {
               "context_size_k": 131,
-              "max_output_token_k": 131
+              "max_output_token_k": 64
             }
           },
           "nb_of_billion_parameters": 21,
@@ -4517,15 +4537,15 @@
   "billing_notes": [
     "Complete public AI Endpoints catalog, including unavailable entries. Prices retain native units; the JSON does not identify currency, so no currency is invented from a locale or another product page."
   ],
-  "catalog_sha256": "e52e8981d76e71495ab01a1f9d31b4132cc6b9bc76293016adcd63e5b7b2f8ed",
-  "revision": 13,
-  "changed_at": "2026-11-17T16:02:09Z",
+  "catalog_sha256": "9170df7ca3ec05596e77336b9242dff480e327cc82b20c5d22652f914b9018cd",
+  "revision": 14,
+  "changed_at": "2026-11-18T15:40:51Z",
   "source_url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
   "source_urls": [
     "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
     "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
   ],
-  "source_sha256": "e7c1fe59684ded903457ee717899598a5c6a546e3c71a399f1b55762e35de8d3",
+  "source_sha256": "5988d82100a4be15c091a9a0c2688c29ac09e75c648b06e480f8659a6486ae20",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

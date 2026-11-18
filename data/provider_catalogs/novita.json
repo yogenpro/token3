@@ -699,6 +699,224 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-161d902ac91b1e2b9c93466c",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-astra-es",
+      "kind": "model",
+      "label": "openai/gpt-6.2-astra-es",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 80000,
+              "price_per_m": 80000,
+              "origin_price_per_m_decimal": "8",
+              "price_per_m_decimal": "8"
+            },
+            "completion": {
+              "origin_price_per_m": 400000,
+              "price_per_m": 400000,
+              "origin_price_per_m_decimal": "40",
+              "price_per_m_decimal": "40"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 4000,
+              "price_per_m": 4000,
+              "origin_price_per_m_decimal": "0.4",
+              "price_per_m_decimal": "0.4"
+            }
+          },
+          "native_input_billing_units": 80000,
+          "native_output_billing_units": 400000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 80000,
+                  "price_per_m": 80000,
+                  "origin_price_per_m_decimal": "8",
+                  "price_per_m_decimal": "8"
+                },
+                "completion": {
+                  "origin_price_per_m": 400000,
+                  "price_per_m": 400000,
+                  "origin_price_per_m_decimal": "40",
+                  "price_per_m_decimal": "40"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 4000,
+                  "price_per_m": 4000,
+                  "origin_price_per_m_decimal": "0.4",
+                  "price_per_m_decimal": "0.4"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 160000,
+                  "price_per_m": 160000,
+                  "origin_price_per_m_decimal": "16",
+                  "price_per_m_decimal": "16"
+                },
+                "completion": {
+                  "origin_price_per_m": 600000,
+                  "price_per_m": 600000,
+                  "origin_price_per_m_decimal": "60",
+                  "price_per_m_decimal": "60"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 8000,
+                  "price_per_m": 8000,
+                  "origin_price_per_m_decimal": "0.8",
+                  "price_per_m_decimal": "0.8"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "16",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "60",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "compact"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-17176321a62d1e12a3b4dc55",
       "provider": "novita",
       "native_id": "zai-org/glm-4.6v",
@@ -1706,6 +1924,224 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-3b4f57f648f20e3bfbb397bf",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-sol-azure-dst",
+      "kind": "model",
+      "label": "openai/gpt-6.2-sol-azure-dst",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "completion": {
+              "origin_price_per_m": 100000,
+              "price_per_m": 100000,
+              "origin_price_per_m_decimal": "10",
+              "price_per_m_decimal": "10"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 1000,
+              "price_per_m": 1000,
+              "origin_price_per_m_decimal": "0.1",
+              "price_per_m_decimal": "0.1"
+            }
+          },
+          "native_input_billing_units": 20000,
+          "native_output_billing_units": 100000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 20000,
+                  "price_per_m": 20000,
+                  "origin_price_per_m_decimal": "2",
+                  "price_per_m_decimal": "2"
+                },
+                "completion": {
+                  "origin_price_per_m": 100000,
+                  "price_per_m": 100000,
+                  "origin_price_per_m_decimal": "10",
+                  "price_per_m_decimal": "10"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 1000,
+                  "price_per_m": 1000,
+                  "origin_price_per_m_decimal": "0.1",
+                  "price_per_m_decimal": "0.1"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 40000,
+                  "price_per_m": 40000,
+                  "origin_price_per_m_decimal": "4",
+                  "price_per_m_decimal": "4"
+                },
+                "completion": {
+                  "origin_price_per_m": 150000,
+                  "price_per_m": 150000,
+                  "origin_price_per_m_decimal": "15",
+                  "price_per_m_decimal": "15"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 2000,
+                  "price_per_m": 2000,
+                  "origin_price_per_m_decimal": "0.2",
+                  "price_per_m_decimal": "0.2"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "anthropic"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-3edc250eb8708c2d93e851a6",
       "provider": "novita",
       "native_id": "bunny",
@@ -1904,6 +2340,224 @@
           "chat/completions",
           "anthropic",
           "completions"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "novita-42ab39ec52ffda73d1194760",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-sol",
+      "kind": "model",
+      "label": "openai/gpt-6.2-sol",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "completion": {
+              "origin_price_per_m": 100000,
+              "price_per_m": 100000,
+              "origin_price_per_m_decimal": "10",
+              "price_per_m_decimal": "10"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 1000,
+              "price_per_m": 1000,
+              "origin_price_per_m_decimal": "0.1",
+              "price_per_m_decimal": "0.1"
+            }
+          },
+          "native_input_billing_units": 20000,
+          "native_output_billing_units": 100000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 20000,
+                  "price_per_m": 20000,
+                  "origin_price_per_m_decimal": "2",
+                  "price_per_m_decimal": "2"
+                },
+                "completion": {
+                  "origin_price_per_m": 100000,
+                  "price_per_m": 100000,
+                  "origin_price_per_m_decimal": "10",
+                  "price_per_m_decimal": "10"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 1000,
+                  "price_per_m": 1000,
+                  "origin_price_per_m_decimal": "0.1",
+                  "price_per_m_decimal": "0.1"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 40000,
+                  "price_per_m": 40000,
+                  "origin_price_per_m_decimal": "4",
+                  "price_per_m_decimal": "4"
+                },
+                "completion": {
+                  "origin_price_per_m": 150000,
+                  "price_per_m": 150000,
+                  "origin_price_per_m_decimal": "15",
+                  "price_per_m_decimal": "15"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 2000,
+                  "price_per_m": 2000,
+                  "origin_price_per_m_decimal": "0.2",
+                  "price_per_m_decimal": "0.2"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "anthropic"
         ]
       },
       "comparison_eligible": false
@@ -4091,49 +4745,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "novita-7c5d75068f831d7b25b4ab4e",
-      "provider": "novita",
-      "native_id": "apodex/apodex-1.1-mini",
-      "kind": "model",
-      "label": "Apodex 1.1 Mini",
-      "scope": {},
-      "billing": {
-        "state": "source_native_or_unpriced",
-        "rules": {
-          "rules": null,
-          "native_input_billing_units": 0,
-          "native_output_billing_units": 0,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 262144,
-        "max_output_tokens": 262144,
-        "status": 1,
-        "features": [
-          "serverless",
-          "function-calling",
-          "structured-outputs",
-          "reasoning"
-        ],
-        "endpoints": [
-          "chat/completions",
-          "anthropic",
-          "responses"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "novita-8005a6fd9536928b730c0e83",
       "provider": "novita",
       "native_id": "meta-llama/llama-3.1-8b-instruct",
@@ -4291,6 +4902,225 @@
           "chat/completions",
           "anthropic",
           "responses"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "novita-826ae4b251053874abbe032f",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.1-terra",
+      "kind": "model",
+      "label": "openai/gpt-6.1-terra",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 10000,
+              "price_per_m": 10000,
+              "origin_price_per_m_decimal": "1",
+              "price_per_m_decimal": "1"
+            },
+            "completion": {
+              "origin_price_per_m": 50000,
+              "price_per_m": 50000,
+              "origin_price_per_m_decimal": "5",
+              "price_per_m_decimal": "5"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 500,
+              "price_per_m": 500,
+              "origin_price_per_m_decimal": "0.05",
+              "price_per_m_decimal": "0.05"
+            }
+          },
+          "native_input_billing_units": 10000,
+          "native_output_billing_units": 50000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 10000,
+                  "price_per_m": 10000,
+                  "origin_price_per_m_decimal": "1",
+                  "price_per_m_decimal": "1"
+                },
+                "completion": {
+                  "origin_price_per_m": 50000,
+                  "price_per_m": 50000,
+                  "origin_price_per_m_decimal": "5",
+                  "price_per_m_decimal": "5"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 500,
+                  "price_per_m": 500,
+                  "origin_price_per_m_decimal": "0.05",
+                  "price_per_m_decimal": "0.05"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 20000,
+                  "price_per_m": 20000,
+                  "origin_price_per_m_decimal": "2",
+                  "price_per_m_decimal": "2"
+                },
+                "completion": {
+                  "origin_price_per_m": 100000,
+                  "price_per_m": 100000,
+                  "origin_price_per_m_decimal": "10",
+                  "price_per_m_decimal": "10"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 1000,
+                  "price_per_m": 1000,
+                  "origin_price_per_m_decimal": "0.1",
+                  "price_per_m_decimal": "0.1"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "anthropic",
+          "compact"
         ]
       },
       "comparison_eligible": false
@@ -4834,7 +5664,8 @@
         ],
         "endpoints": [
           "chat/completions",
-          "anthropic"
+          "anthropic",
+          "responses"
         ]
       },
       "comparison_eligible": false
@@ -6203,6 +7034,224 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-ba02557c247c44dd3b6b1a98",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-astra-azure-dst",
+      "kind": "model",
+      "label": "openai/gpt-6.2-astra-azure-dst",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 80000,
+              "price_per_m": 80000,
+              "origin_price_per_m_decimal": "8",
+              "price_per_m_decimal": "8"
+            },
+            "completion": {
+              "origin_price_per_m": 400000,
+              "price_per_m": 400000,
+              "origin_price_per_m_decimal": "40",
+              "price_per_m_decimal": "40"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 4000,
+              "price_per_m": 4000,
+              "origin_price_per_m_decimal": "0.4",
+              "price_per_m_decimal": "0.4"
+            }
+          },
+          "native_input_billing_units": 80000,
+          "native_output_billing_units": 400000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 80000,
+                  "price_per_m": 80000,
+                  "origin_price_per_m_decimal": "8",
+                  "price_per_m_decimal": "8"
+                },
+                "completion": {
+                  "origin_price_per_m": 400000,
+                  "price_per_m": 400000,
+                  "origin_price_per_m_decimal": "40",
+                  "price_per_m_decimal": "40"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 4000,
+                  "price_per_m": 4000,
+                  "origin_price_per_m_decimal": "0.4",
+                  "price_per_m_decimal": "0.4"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 160000,
+                  "price_per_m": 160000,
+                  "origin_price_per_m_decimal": "16",
+                  "price_per_m_decimal": "16"
+                },
+                "completion": {
+                  "origin_price_per_m": 600000,
+                  "price_per_m": 600000,
+                  "origin_price_per_m_decimal": "60",
+                  "price_per_m_decimal": "60"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 8000,
+                  "price_per_m": 8000,
+                  "origin_price_per_m_decimal": "0.8",
+                  "price_per_m_decimal": "0.8"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "16",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "60",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "compact"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-ba8341266abc248b6c45e615",
       "provider": "novita",
       "native_id": "mindai/macaron-v1-venti",
@@ -6988,79 +8037,6 @@
           "chat/completions",
           "anthropic",
           "responses"
-        ]
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "novita-c3c5b41a4ce57ce9a99acb7b",
-      "provider": "novita",
-      "native_id": "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
-      "kind": "model",
-      "label": "Llama 4 Maverick Instruct",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "rules": {
-            "prompt": {
-              "origin_price_per_m": 2700,
-              "price_per_m": 2700,
-              "origin_price_per_m_decimal": "0.27",
-              "price_per_m_decimal": "0.27"
-            },
-            "completion": {
-              "origin_price_per_m": 8500,
-              "price_per_m": 8500,
-              "origin_price_per_m_decimal": "0.85",
-              "price_per_m_decimal": "0.85"
-            }
-          },
-          "native_input_billing_units": 2700,
-          "native_output_billing_units": 8500,
-          "tiered_billing": false,
-          "tiered_billing_configs": []
-        }
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.27",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.85",
-          "currency": "USD",
-          "unit": "1M tokens",
-          "conditions": {
-            "source_field": "price_per_m_decimal"
-          }
-        }
-      ],
-      "metadata": {
-        "model_type": "chat",
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_size": 1048576,
-        "max_output_tokens": 8192,
-        "status": 1,
-        "features": [
-          "structured-outputs",
-          "serverless"
-        ],
-        "endpoints": [
-          "chat/completions",
-          "completions"
         ]
       },
       "comparison_eligible": false
@@ -8755,6 +9731,224 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-f3de9fe4792ec4ddb1c0e39c",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-sol-es",
+      "kind": "model",
+      "label": "openai/gpt-6.2-sol-es",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "completion": {
+              "origin_price_per_m": 100000,
+              "price_per_m": 100000,
+              "origin_price_per_m_decimal": "10",
+              "price_per_m_decimal": "10"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 1000,
+              "price_per_m": 1000,
+              "origin_price_per_m_decimal": "0.1",
+              "price_per_m_decimal": "0.1"
+            }
+          },
+          "native_input_billing_units": 20000,
+          "native_output_billing_units": 100000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 20000,
+                  "price_per_m": 20000,
+                  "origin_price_per_m_decimal": "2",
+                  "price_per_m_decimal": "2"
+                },
+                "completion": {
+                  "origin_price_per_m": 100000,
+                  "price_per_m": 100000,
+                  "origin_price_per_m_decimal": "10",
+                  "price_per_m_decimal": "10"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 1000,
+                  "price_per_m": 1000,
+                  "origin_price_per_m_decimal": "0.1",
+                  "price_per_m_decimal": "0.1"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 40000,
+                  "price_per_m": 40000,
+                  "origin_price_per_m_decimal": "4",
+                  "price_per_m_decimal": "4"
+                },
+                "completion": {
+                  "origin_price_per_m": 150000,
+                  "price_per_m": 150000,
+                  "origin_price_per_m_decimal": "15",
+                  "price_per_m_decimal": "15"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 2000,
+                  "price_per_m": 2000,
+                  "origin_price_per_m_decimal": "0.2",
+                  "price_per_m_decimal": "0.2"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "10",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "anthropic"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-f5ce68e4eefc8b3999d4319b",
       "provider": "novita",
       "native_id": "minimaxai/minimax-m1-80k",
@@ -8991,17 +10185,235 @@
         ]
       },
       "comparison_eligible": false
+    },
+    {
+      "id": "novita-fe0a7bf4717f09d2ac29aa3d",
+      "provider": "novita",
+      "native_id": "openai/gpt-6.2-astra",
+      "kind": "model",
+      "label": "openai/gpt-6.2-astra",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "prompt": {
+              "origin_price_per_m": 80000,
+              "price_per_m": 80000,
+              "origin_price_per_m_decimal": "8",
+              "price_per_m_decimal": "8"
+            },
+            "completion": {
+              "origin_price_per_m": 400000,
+              "price_per_m": 400000,
+              "origin_price_per_m_decimal": "40",
+              "price_per_m_decimal": "40"
+            },
+            "input_cache_read": {
+              "origin_price_per_m": 4000,
+              "price_per_m": 4000,
+              "origin_price_per_m_decimal": "0.4",
+              "price_per_m_decimal": "0.4"
+            }
+          },
+          "native_input_billing_units": 80000,
+          "native_output_billing_units": 400000,
+          "tiered_billing": true,
+          "tiered_billing_configs": [
+            {
+              "min_tokens": 1,
+              "max_tokens": 272000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 80000,
+                  "price_per_m": 80000,
+                  "origin_price_per_m_decimal": "8",
+                  "price_per_m_decimal": "8"
+                },
+                "completion": {
+                  "origin_price_per_m": 400000,
+                  "price_per_m": 400000,
+                  "origin_price_per_m_decimal": "40",
+                  "price_per_m_decimal": "40"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 4000,
+                  "price_per_m": 4000,
+                  "origin_price_per_m_decimal": "0.4",
+                  "price_per_m_decimal": "0.4"
+                }
+              }
+            },
+            {
+              "min_tokens": 272000,
+              "max_tokens": 1050000,
+              "pricing": {
+                "prompt": {
+                  "origin_price_per_m": 160000,
+                  "price_per_m": 160000,
+                  "origin_price_per_m_decimal": "16",
+                  "price_per_m_decimal": "16"
+                },
+                "completion": {
+                  "origin_price_per_m": 600000,
+                  "price_per_m": 600000,
+                  "origin_price_per_m_decimal": "60",
+                  "price_per_m_decimal": "60"
+                },
+                "input_cache_read": {
+                  "origin_price_per_m": 8000,
+                  "price_per_m": 8000,
+                  "origin_price_per_m_decimal": "0.8",
+                  "price_per_m_decimal": "0.8"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        },
+        {
+          "dimension": "tier_0.prompt",
+          "amount": "8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.completion",
+          "amount": "40",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_0.input_cache_read",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 1,
+              "max_tokens": 272000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.prompt",
+          "amount": "16",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.completion",
+          "amount": "60",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        },
+        {
+          "dimension": "tier_1.input_cache_read",
+          "amount": "0.8",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal",
+            "source_tier_bounds": {
+              "min_tokens": 272000,
+              "max_tokens": 1050000
+            }
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_size": 1050000,
+        "max_output_tokens": 128000,
+        "status": 1,
+        "features": [
+          "function-calling",
+          "structured-outputs",
+          "reasoning",
+          "serverless"
+        ],
+        "endpoints": [
+          "responses",
+          "chat/completions",
+          "compact"
+        ]
+      },
+      "comparison_eligible": false
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "9aec2653a63501d0d35275f17a60871549951b95cfc510097490cd35fd853648",
-  "revision": 21,
-  "changed_at": "2026-11-17T16:02:09Z",
+  "catalog_sha256": "42edafc8d70d8205bab1fe387f9a4c34108e70d3780575a63ef7f354fde7c977",
+  "revision": 22,
+  "changed_at": "2026-11-18T15:40:51Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "0007bfa3969361f24111b45a302ca9d3a920425408304ecd6579aa3661f4e9d7",
+  "source_sha256": "542c54307924cca1411aecf298ca0d629e77d43d09e69e34bf4a79065f48cd23",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
