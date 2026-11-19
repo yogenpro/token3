@@ -35,6 +35,15 @@ native normalization is unaffected, and reappearance does not resume the quote.
 Other providers' Nano quotes are unaffected. See the
 [Vercel investigation](pricing-sources.md#november-14-vercel-source-conflict-issue-38).
 
+The [November 16 Mercury proposal](pricing-sources.md#november-16-vercel-mercury-source-conflict-issue-41)
+is pending operator approval. It adds only Vercel's exact `inception/mercury-2`
+and `inception/mercury-2.5` source IDs to the exclusion in this branch after the
+same API/model-page conflict. It preserves native evidence, original quotes,
+history and availability flags, leaves other billing sources unaffected and
+requires all remaining Vercel bindings. Reappearance does not resume quotes.
+No production data or check is rewritten, and the proposal must not be merged
+or activated without explicit approval.
+
 DeepSeek validates a complete transposed model table, exact model columns, versions and six peak/off-peak token components before accepting a source. Tool-only/partial pages fail closed. Additional native model records preserve the explicit rates, served version, original context strings, UTC peak schedule and Chinese-public-holiday exception; all original document rows remain. These native records are not reviewed quotes, aliases, a holiday calendar or inferred currently applicable rates. A separate reviewed adapter now emits exact served-version quotes for explicitly selected peak/off-peak scenarios; its request uses the canonical trailing-slash pricing URL while the historic native document identity remains unchanged. New records start at their real next collection; no prior change/observation is backfilled.
 
 Records contain:

@@ -111,6 +111,40 @@ separate response/excerpt hashes and byte counts in
 `tests/fixtures/issue-38/manifest.json`. They are regression evidence, not
 production observations, recovered historical prices or a full API archive.
 
+### November 16 Vercel Mercury source conflict (issue #41)
+
+The [failed collection](https://github.com/yogenpro/token3/actions/runs/43900129065/attempts/1)
+ran at `147c7ee513ea88a5981d28a48ce15e4e6641c6f8`. Current main at investigation,
+`cf73bef`, contains only subsequent collected data, with no parser repair.
+A live strict Vercel dry-run reproduced both missing tracked IDs:
+`inception/mercury-2` and `inception/mercury-2.5`. The
+[public pricing API](https://ai-gateway.vercel.sh/v1/models) omits both, while the
+[Mercury 2 model page](https://vercel.com/ai-gateway/models/mercury-2) and
+[Mercury 2.5 model page](https://vercel.com/ai-gateway/models/mercury-2.5) still
+advertise those exact IDs and token prices. This is a source conflict, not a
+parser-layout bug or proof of retirement. No model-page fallback, alias
+substitution or general absence-based retirement is introduced.
+
+**Proposed policy, pending operator approval:** this branch adds only those two
+exact Vercel IDs to `config/provider_policies.json`, retaining the separately
+approved Nano exclusion. The proposal excludes their current quotes,
+tracked-binding completeness requirements and comparisons while preserving
+original identities, prices, native evidence, history and availability flags.
+Other Vercel bindings, including `inception/mercury-3`, remain required; currency,
+unit, prompt-band, tier and scope validation stay strict. Other billing sources'
+Mercury quotes remain unaffected. Reappearance stays native-only until separate
+source review authorizes resumption. Do not merge or activate this proposal
+without explicit operator approval. No existing failed check is rewritten;
+new successful health still requires a legitimate collection.
+
+Bounded public fixture fields and model-page excerpts are in
+`tests/fixtures/issue-41/`, with separate response/excerpt hashes and byte counts
+in its manifest. These are regression evidence, not production observations,
+historical imports or a full API archive. Tests reproduce the failure under the
+previous Nano-only policy and verify unchanged remaining quote fields, retained
+history/flags/other-source prices, strict failure reporting and native-only
+reappearance under the proposal.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
