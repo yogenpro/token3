@@ -556,89 +556,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "together-130423c7a2688d393abb3e12",
-      "provider": "together",
-      "native_id": "d7427459f08120199844783e",
-      "kind": "document_row",
-      "label": "Ricursive",
-      "scope": {
-        "table": 0,
-        "headings": [
-          "Available models",
-          "Chat models"
-        ],
-        "tabs": [],
-        "headers": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "Ricursive",
-          "Ripple 65B Preview",
-          "ricursive-ai/Ripple-65B-Preview",
-          "131072",
-          "$0.20",
-          "-",
-          "$0.60",
-          "-",
-          "-",
-          "-"
-        ],
-        "columns": [
-          "Organization",
-          "Model name",
-          "API model string",
-          "Context length",
-          "Input pricing (per 1M tokens)",
-          "Cached input pricing (per 1M tokens)",
-          "Output pricing (per 1M tokens)",
-          "Quantization",
-          "Function calling",
-          "Structured outputs"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Input pricing (per 1M tokens):0",
-          "amount": "0.2",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.20",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        },
-        {
-          "dimension": "Output pricing (per 1M tokens):0",
-          "amount": "0.6",
-          "currency": "USD",
-          "unit": "per 1M tokens",
-          "conditions": {
-            "source_expression": "$0.60",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {
-        "source_model_id": "ricursive-ai/Ripple-65B-Preview"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "together-139ac0f8604c74d347b3fb01",
       "provider": "together",
       "native_id": "e72197a0d40c9cf10f8468a6",
@@ -4284,6 +4201,80 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-8f2abf971b93513c90124ff3",
+      "provider": "together",
+      "native_id": "cb37d968d5cfba197e5d1bac",
+      "kind": "document_row",
+      "label": "Kimi K3.1 Pro (US-only)",
+      "scope": {
+        "table": 1,
+        "headings": [
+          "Available models",
+          "US-only inference"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Kimi K3.1 Pro (US-only)",
+          "$2.50",
+          "$0.25",
+          "$12.50"
+        ],
+        "columns": [
+          "Model",
+          "Input",
+          "Cached input",
+          "Output"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input:0",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$2.50",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input:0",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$0.25",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output:0",
+          "amount": "12.5",
+          "currency": "USD",
+          "unit": null,
+          "conditions": {
+            "source_expression": "$12.50",
+            "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "together-90630754d745ee6319d82137",
       "provider": "together",
       "native_id": "470e2e0077e4a1877b216dab",
@@ -5147,6 +5138,100 @@
       ],
       "metadata": {
         "source_model_id": "google/veo-3.1-lite"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-be537fd9cd10780343258e01",
+      "provider": "together",
+      "native_id": "1946d4427fc4289e5f029fc0",
+      "kind": "document_row",
+      "label": "Ricursive",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Available models",
+          "Chat models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Ricursive",
+          "Ripple 65B Preview",
+          "ricursive-ai/Ripple-65B-Preview",
+          "131072",
+          "$0.20",
+          "$0.02",
+          "$0.60",
+          "NVFP4",
+          "Yes",
+          "Yes"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.20",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input pricing (per 1M tokens):0",
+          "amount": "0.02",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.02",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.60",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "ricursive-ai/Ripple-65B-Preview"
       },
       "comparison_eligible": false
     },
@@ -6789,13 +6874,13 @@
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "1ba22ea2da736b494ede8393c8bb043f30b62900e2088db5110e2493f45e062c",
-  "revision": 22,
-  "changed_at": "2026-11-18T15:40:51Z",
+  "catalog_sha256": "12d6c51c629d0e216e36cc86f9218536cf7ebbe75a4f10d037881cfb5ceda1fc",
+  "revision": 23,
+  "changed_at": "2026-11-19T15:45:31Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "97230c38767301ff35469163b1d6d48ca01ac8c294dc626b6401200bb7c061fa",
+  "source_sha256": "26864f53debbd03458ee4003c8ce518100685a4443704d691b1e872c14417b9c",
   "archive_reference": null
 }

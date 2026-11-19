@@ -12403,18 +12403,6 @@
           "input_cache_read": "0.000000075",
           "maps_search": "14",
           "output": "0.00000375",
-          "regional": {
-            "eu": {
-              "input": "0.000000825",
-              "input_cache_read": "0.0000000825",
-              "output": "0.000004125"
-            },
-            "us": {
-              "input": "0.000000825",
-              "input_cache_read": "0.0000000825",
-              "output": "0.000004125"
-            }
-          },
           "service_tiers": {
             "flex": {
               "input": "0.000000375",
@@ -12504,7 +12492,7 @@
             ]
           }
         ],
-        "zdr": "some",
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -13622,7 +13610,107 @@
             }
           ],
           "regional": {
+            "au": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000022",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000275",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000022",
+                  "min": 272001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000825",
+                  "min": 272001
+                }
+              ]
+            },
             "eu": {
+              "input": "0.00000011",
+              "input_cache_read": "0.000000011",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.000000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000022",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.0000001375",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.0000001375",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000275",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.00000011",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000022",
+                  "min": 272001
+                }
+              ],
+              "output": "0.00000055",
+              "output_tiers": [
+                {
+                  "cost": "0.00000055",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.000000825",
+                  "min": 272001
+                }
+              ]
+            },
+            "jp": {
               "input": "0.00000011",
               "input_cache_read": "0.000000011",
               "input_cache_read_tiers": [
@@ -25143,6 +25231,63 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-84735880d153dc597606608b",
+      "provider": "vercel",
+      "native_id": "scaledown/extract-1",
+      "kind": "model",
+      "label": "Extract-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000005",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000005",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Extract-1",
+        "owned_by": "scaledown",
+        "type": "extraction",
+        "context_window": 1000000,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-85a524bb127b9ad41dc7a78f",
       "provider": "vercel",
       "native_id": "google/gemini-3-flash",
@@ -29792,7 +29937,107 @@
             }
           ],
           "regional": {
+            "au": {
+              "input": "0.0000002",
+              "input_cache_read": "0.00000002",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000002",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000004",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.00000025",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.00000025",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000005",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000002",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000004",
+                  "min": 272001
+                }
+              ],
+              "output": "0.000001",
+              "output_tiers": [
+                {
+                  "cost": "0.000001",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000015",
+                  "min": 272001
+                }
+              ]
+            },
             "eu": {
+              "input": "0.0000002",
+              "input_cache_read": "0.00000002",
+              "input_cache_read_tiers": [
+                {
+                  "cost": "0.00000002",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.00000004",
+                  "min": 272001
+                }
+              ],
+              "input_cache_write": "0.00000025",
+              "input_cache_write_tiers": [
+                {
+                  "cost": "0.00000025",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000005",
+                  "min": 272001
+                }
+              ],
+              "input_tiers": [
+                {
+                  "cost": "0.0000002",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000004",
+                  "min": 272001
+                }
+              ],
+              "output": "0.000001",
+              "output_tiers": [
+                {
+                  "cost": "0.000001",
+                  "max": 272001,
+                  "min": 0
+                },
+                {
+                  "cost": "0.0000015",
+                  "min": 272001
+                }
+              ]
+            },
+            "jp": {
               "input": "0.0000002",
               "input_cache_read": "0.00000002",
               "input_cache_read_tiers": [
@@ -45005,6 +45250,117 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f60561d75a5f340f460e0863",
+      "provider": "vercel",
+      "native_id": "google/gemini-4-neon",
+      "kind": "model",
+      "label": "Gemini 4 Neon",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000003",
+          "input_cache_read": "0.00000015",
+          "maps_search": "14",
+          "output": "0.000015",
+          "regional": {
+            "eu": {
+              "input": "0.0000033",
+              "input_cache_read": "0.000000165",
+              "output": "0.0000165"
+            },
+            "us": {
+              "input": "0.0000033",
+              "input_cache_read": "0.000000165",
+              "output": "0.0000165"
+            }
+          },
+          "service_tiers": {
+            "priority": {
+              "input": "0.0000054",
+              "input_cache_read": "0.00000027",
+              "output": "0.000027"
+            }
+          },
+          "web_search": "14"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.000015",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Gemini 4 Neon",
+        "owned_by": "google",
+        "type": "language",
+        "context_window": 1000000,
+        "max_tokens": 1000000,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop",
+          "tools",
+          "tool_choice",
+          "reasoning",
+          "include_reasoning",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image",
+            "pdf",
+            "video"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "reasoning_options": [
+          {
+            "type": "effort",
+            "values": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ]
+          }
+        ],
+        "zdr": "some",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f670f845c2bb03a8df8b8cd3",
       "provider": "vercel",
       "native_id": "openai/gpt-5.6-luna-fast",
@@ -47128,14 +47484,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "e7563fe505996fb76c23f63995dbb2f70bdbf1ea348d5ce3e779ddfe2927f9cc",
-  "revision": 49,
-  "changed_at": "2026-11-18T15:40:51Z",
+  "catalog_sha256": "6a095ffdab26cad277c9f268840d69dec95da393677bb1d0a5051fa96b642e47",
+  "revision": 50,
+  "changed_at": "2026-11-19T15:45:31Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "7822c9bae8014d12646357cc61e4c4c82fad38dff5239860484561b169f7aa52",
+  "source_sha256": "6d47bcec658e919c3f3136f2a5ae38a4da4d6fd8b2e826073fd0069ba2f0af86",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

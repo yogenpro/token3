@@ -147,6 +147,7 @@
         },
         "availability": {
           "statuses": [
+            "new",
             "live"
           ],
           "rate_limit": {
@@ -1030,6 +1031,163 @@
         "availability": {
           "status": "live",
           "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-3c903e1bd61053abe0557b7a",
+      "provider": "ovhcloud",
+      "native_id": "olala-v1-0-summarise",
+      "kind": "model",
+      "label": "Olala-v1.0-summarise",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          },
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Olala-v1.0-summarise",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [
+          "olala-v1.0-summarise"
+        ],
+        "api_base_url": "https://olala-v1-0-summarise.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "summarization",
+              "text_generation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size": 63648,
+              "context_size_k": 62,
+              "max_output_token_k": 16
+            }
+          },
+          "nb_of_billion_parameters": 6.8,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "18/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://olala-v1-0-summarise.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "18/11/2026",
+          "publisher": "OVHcloud",
+          "series": "olala",
+          "source": "OVHcloud",
+          "source_link": "None"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
             "live"
           ],
           "rate_limit": {
@@ -3763,6 +3921,7 @@
         "availability": {
           "status": "live",
           "statuses": [
+            "new",
             "live"
           ],
           "rate_limit": {
@@ -3931,6 +4090,174 @@
         "availability": {
           "status": "live",
           "statuses": [
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "ovhcloud-c92c61c330c71f600b2264f9",
+      "provider": "ovhcloud",
+      "native_id": "olala-v1-0-mini-7a1b",
+      "kind": "model",
+      "label": "Olala-v1.0-mini-7A1B",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          },
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Olala-v1.0-mini-7A1B",
+        "available": true,
+        "category": "Reasoning LLM",
+        "category_v2": "Text Generation",
+        "tags": [
+          "Reasoning"
+        ],
+        "aliases": [
+          "olala-v1.0-mini-7a1b"
+        ],
+        "api_base_url": "https://olala-v1-0-mini-7a1b.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": true,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": true,
+            "reasoning_efforts": [
+              "low",
+              "medium",
+              "high"
+            ],
+            "response_format": [
+              "raw_text",
+              "json_object",
+              "json_schema"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "code_chat",
+              "code_completion",
+              "code_explanation",
+              "emotion_detection",
+              "entity_extraction",
+              "multi_language_coding",
+              "multilingual",
+              "paraphrasing",
+              "sentiment_analysis",
+              "summarization",
+              "text_generation",
+              "text_only_compatible",
+              "translation"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size": 32688,
+              "context_size_k": 32,
+              "max_output_token_k": 16
+            }
+          },
+          "nb_of_billion_parameters": 6.8,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "18/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://olala-v1-0-mini-7a1b.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "18/11/2026",
+          "publisher": "OVHcloud",
+          "series": "olala",
+          "source": "OVHcloud",
+          "source_link": "None"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
             "live"
           ],
           "rate_limit": {
@@ -4359,6 +4686,154 @@
       "comparison_eligible": false
     },
     {
+      "id": "ovhcloud-fbadaee95e6e65fdb5e9b003",
+      "provider": "ovhcloud",
+      "native_id": "olala-v1-0-translate",
+      "kind": "model",
+      "label": "Olala-v1.0-translate",
+      "scope": {},
+      "billing": {
+        "rules": [
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_input_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          },
+          {
+            "price": 0,
+            "price_aud": 0,
+            "price_cad": 0,
+            "price_gbp": 0,
+            "price_inr": 0,
+            "price_mad": 0,
+            "price_pln": 0,
+            "price_sgd": 0,
+            "price_tnd": 0,
+            "price_unit": "million_output_tokens",
+            "price_usd": 0,
+            "price_xof": 0
+          }
+        ],
+        "native_rates": [
+          {
+            "amount": "0",
+            "unit": "million_input_tokens",
+            "currency": null
+          },
+          {
+            "amount": "0",
+            "unit": "million_output_tokens",
+            "currency": null
+          }
+        ],
+        "currency_state": "not_provided",
+        "state": "native_price_currency_unverified"
+      },
+      "rates": [],
+      "metadata": {
+        "name": "Olala-v1.0-translate",
+        "available": true,
+        "category": "Large Language Models (LLM)",
+        "category_v2": "Text Generation",
+        "tags": [],
+        "aliases": [
+          "olala-v1.0-translate"
+        ],
+        "api_base_url": "https://olala-v1-0-translate.endpoints.kepler.ai.cloud.ovh.net/api/openai_compat/",
+        "model_specs": {
+          "capabilities": {
+            "batch": false,
+            "fill_in_the_middle": false,
+            "function_calling": false,
+            "input_modality": [
+              "text"
+            ],
+            "output_modality": [
+              "text"
+            ],
+            "reasoning": false,
+            "response_format": [
+              "raw_text"
+            ],
+            "streaming": true,
+            "supported_sampling_parameters": [
+              "temperature",
+              "stop",
+              "top_p",
+              "seed"
+            ],
+            "use_case_tag": [
+              "translation",
+              "multilingual"
+            ],
+            "web_search": false
+          },
+          "model_parameters": {
+            "parameters_type": "llm",
+            "params": {
+              "context_size": 8208,
+              "context_size_k": 8,
+              "max_output_token_k": 8
+            }
+          },
+          "nb_of_billion_parameters": 6.8,
+          "quantization": "bf16"
+        },
+        "publishing_information": {
+          "endpoint_publication_date": "18/11/2026",
+          "knowledge_cutoff": "None",
+          "languages": [
+            "*"
+          ],
+          "licence_name": "Apache 2.0",
+          "licence_url": "https://olala-v1-0-translate.endpoints.kepler.ai.cloud.ovh.net/doc/license",
+          "model_eol_date": "None",
+          "model_publication_date": "18/11/2026",
+          "publisher": "OVHcloud",
+          "series": "olala",
+          "source": "OVHcloud",
+          "source_link": "None"
+        },
+        "availability": {
+          "status": "live",
+          "statuses": [
+            "new",
+            "live"
+          ],
+          "rate_limit": {
+            "rate_limit_api": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 400
+              }
+            ],
+            "rate_limit_api_anonymous": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ],
+            "rate_limit_playground": [
+              {
+                "rate_limit_unit": "req/m",
+                "rate_limit_value": 2
+              }
+            ]
+          }
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "ovhcloud-fec5c4fb8b7dff23bf31333c",
       "provider": "ovhcloud",
       "native_id": "qwen-3-8-27b",
@@ -4537,15 +5012,15 @@
   "billing_notes": [
     "Complete public AI Endpoints catalog, including unavailable entries. Prices retain native units; the JSON does not identify currency, so no currency is invented from a locale or another product page."
   ],
-  "catalog_sha256": "9170df7ca3ec05596e77336b9242dff480e327cc82b20c5d22652f914b9018cd",
-  "revision": 14,
-  "changed_at": "2026-11-18T15:40:51Z",
+  "catalog_sha256": "30e574e8dc3469056969756a8707ab32d4c71849816cced85ede46a2e5a0ed81",
+  "revision": 15,
+  "changed_at": "2026-11-19T15:45:31Z",
   "source_url": "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
   "source_urls": [
     "https://catalog.endpoints.ai.ovh.net/rest/v1/models_v2",
     "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
   ],
-  "source_sha256": "5988d82100a4be15c091a9a0c2688c29ac09e75c648b06e480f8659a6486ae20",
+  "source_sha256": "f0630e836fdf5c907aa62380c25bbdc727546f56838662f5b4d17ad1a4c413b3",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
