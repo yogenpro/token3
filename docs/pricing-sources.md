@@ -142,6 +142,17 @@ from issue #46. All other Vercel bindings remain required. The exclusions preser
 retained observations and availability flags. Reappearance requires separate
 source review. Vendor retirement remains unconfirmed.
 
+### November 20 xAI source omission (issue #48)
+
+The [November 20 collection](https://github.com/yogenpro/token3/actions/runs/44703547252/attempts/1)
+found `grok-build-0.1` absent from the [official pricing page](https://docs.x.ai/developers/pricing).
+Its former [model page](https://docs.x.ai/developers/models/grok-build-0.1)
+redirected to the general model directory in a live HTML request. The user
+approved excluding that exact binding from current reviewed quotes, completeness
+checks and comparisons. The four other reviewed xAI IDs retain both standard
+USD prompt bands. The omission leaves retirement unconfirmed. Prior data and
+availability flags remain retained, and reappearance requires separate review.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
