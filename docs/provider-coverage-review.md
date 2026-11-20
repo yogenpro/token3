@@ -70,6 +70,11 @@ The mixed Markdown/HTML reader also preserves escaped prompt inequalities as
 literal native cell text. Existing observations remain unchanged; a legitimate
 collection records the corrected current evidence without changing reviewed rates.
 
+Alibaba's November 19 Singapore document uses revised headings and Qwen labels.
+The reviewed parser accepts the witnessed wording for the same billing definitions,
+including the shared Flash columns and the unchanged limited-time Qwen3.7 Plus
+discount expression. The set of reviewed identities, variants and bands is unchanged.
+
 Kimi's Markdown omits its custom tables. A bounded grammar reads serialized
 `DocTable` literals in the public HTML without executing JavaScript/MDX. Native
 evidence retains all six rows, including unreviewed Highspeed/K3.1 variants, and

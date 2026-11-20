@@ -230,18 +230,35 @@ def snowflake_quotes(payload, aliases, source):
     all_text = '\n'.join(p['text'] for p in pdf.get('pages', []))
     if not re.search(r'\b5\s+This feature is available as a Preview, subject to the Preview Terms', all_text):
         raise ValueError("Snowflake model footnote 5 requires new review")
-    pages = [p['text'] for p in pdf.get('pages',[]) if re.search(r'^\s*Table 6\(b\): Snowflake AI Features Table, Cortex Inference with Prompt Caching\s*$',p['text'],re.M)]
-    if not pages or len(pages) > 3:
+    heading = 'Table 6(b): Snowflake AI Features Table, Cortex Inference with Prompt Caching'
+    sections = re.compile(r'^[ \t]*Table 6\([a-z]\):[^\n]*', re.M)
+    captions, table_pages = set(), []
+    for page in pdf['pages']:
+        text = page['text']
+        matches = list(sections.finditer(text))
+        for index, match in enumerate(matches):
+            caption = match.group().strip()
+            if not caption.startswith('Table 6(b):'):
+                continue
+            captions.add(caption)
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+            table_pages.append(text[match.end():end])
+    if captions not in ({heading}, {heading + ', Cortex Sense'}) or not 1 <= len(table_pages) <= 3:
         raise ValueError("Snowflake complete aligned Table 6(b) unavailable")
-    text = '\n'.join(p.split('Table 6(b):',1)[1].split('Table 6(c):',1)[0] for p in pages)
-    if not re.search(r'AI Credits per one million Tokens',text) or not re.search(r'Input\s+Output\s+Cache Write\s+Cache Read',text):
+    headers = re.compile(r'\s*Model[ \t]+Snowflake-managed compute \(AI Credits per one million Tokens\)'
+                         r'\s*Input[ \t]+Output[ \t]+Cache Write[ \t]+Cache Read[ \t]*\n')
+    if any(not headers.match(page) for page in table_pages):
         raise ValueError("Snowflake credit unit/columns changed")
+    text = '\n'.join(table_pages)
+    amount = r'[0-9]+(?:\.[0-9]+)?'
+    amounts = rf'({amount})[ \t]+({amount})[ \t]+({amount}|-)[ \t]+({amount})[ \t]*$'
     records = []
     for mid in aliases:
         # The superscript 5 footnote is attached to selected model names in
         # PDF layout extraction. It is explicitly matched, never stripped from
         # arbitrary IDs. Other footnotes or long-context suffixes fail review.
-        matches = re.findall(r'^\s*' + re.escape(mid) + r'5\s+([0-9.]+)\s+([0-9.]+)\s+([0-9.]+|-)\s+([0-9.]+)\s*$',text,re.M)
+        row = r'^[ \t]*' + re.escape(mid) + r'5[ \t]+'
+        matches = re.findall(row + amounts, text, re.M)
         if len(matches) != 1:
             raise ValueError("Missing or ambiguous Snowflake reviewed model row: " + mid)
         inp,out,write,read = matches[0]
@@ -363,16 +380,89 @@ QWEN_LABELS = {
     'qwen3.5-flash': 'qwen3.5-flash > Currently equivalent to qwen3.5-flash-2026-02-23 > 50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount > [context caching discount](/en/model-studio/context-cache)',
 }
 
+ALIBABA_HEADER_WORDING = {
+    'Service Deployment Scope': 'Deployment scope',
+    'Pattern': 'Mode',
+    'Input token range per request': 'Input tokens per request',
+    'Input unit price (per million tokens)': 'Input price (per 1 million tokens)',
+    'Output unit price (per million tokens)': 'Output price (per 1 million tokens)',
+    'Output unit price (per million tokens) > Chain-of-thought + response':
+        'Output price (per 1 million tokens) > Chain of thought + answer',
+    'Output unit price (per million tokens) > Chain-of-thought and response':
+        'Output price (per 1 million tokens) > Chain of thought and answer',
+    'Non-thinking mode': 'Non-Thinking mode',
+    'Thinking mode (chain-of-thought + response)': 'Thinking mode (chain of thought + answer)',
+}
+ALIBABA_FLASH_HEADER = [
+    'Model ID', 'Service Deployment Scope', 'Pattern', 'Input token range per request',
+    'Input unit price (per million tokens)', 'Output unit price (per million tokens)',
+]
 
-def alibaba_qwen_quotes(body, aliases, source):
+
+def revised_qwen_label(label):
+    # Construct exact alternate labels with the same source IDs and served versions.
+    return (label.replace('Currently equivalent to', 'Current capabilities are equivalent to')
+            .replace('50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount',
+                     '[Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price')
+            .replace('[context caching discount](/en/model-studio/context-cache)',
+                     '[Context cache](/zh/model-studio/context-cache) enjoys a discount'))
+
+
+def alibaba_singapore_tables(body, aliases):
+    # Read inert JSX spans and protect escaped inequalities from HTMLParser.
+    view = re.sub(r'(rowSpan|colSpan)=\{(\d+)\}', r'\1="\2"', body.replace('\\<', '&lt;'))
+    revised_labels = {revised_qwen_label(label): (mid, label)
+                      for mid, label in QWEN_LABELS.items() if mid in aliases}
+    for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>', view, re.S):
+        parser = Tables()
+        parser.feed(block)
+        for table in parser.tables:
+            rows = expand(table)
+            if not rows or not rows[0]:
+                continue
+            flash_table = rows[0][:-1] == ALIBABA_FLASH_HEADER
+            if flash_table:
+                # The shared Flash table adds a mode column. The 3.5 row
+                # still has its original alignment plus a trailing empty cell.
+                rows[0] = rows[0][:2] + rows[0][3:]
+            for index, cells in enumerate(rows):
+                if not cells:
+                    continue
+                if cells[0] == 'Model ID':
+                    rows[index] = [ALIBABA_HEADER_WORDING.get(cell, cell) for cell in cells]
+                    continue
+                recognized = revised_labels.get(cells[0])
+                if recognized:
+                    mid, label = recognized
+                    if flash_table and mid in ('qwen3.8-flash', 'qwen3.7-flash', 'qwen3.5-flash'):
+                        if len(cells) != 7:
+                            raise ValueError('Alibaba Qwen Flash token row is unaligned')
+                        if mid == 'qwen3.5-flash' and cells[-1] == '':
+                            cells = cells[:-1]
+                        elif mid != 'qwen3.5-flash' and cells[2] == 'Non-thinking and thinking modes':
+                            cells = cells[:2] + cells[3:]
+                        else:
+                            raise ValueError('Alibaba Qwen Flash deployment/mode/prompt scope changed')
+                        rows[index] = cells
+                    cells[0] = label
+                if (recognized or cells[0] == 'glm-5.3') and len(cells) == 7:
+                    if cells[2] == 'Non-thinking and thinking modes':
+                        cells[2] = 'Non-Thinking and Thinking modes'
+                    if cells[0] == 'glm-5.3' and cells[3] == 'No tier distinction':
+                        cells[3] = 'flat-rate pricing'
+            yield rows
+
+
+def alibaba_qwen_quotes(body, tables, aliases, source):
     selected = set(QWEN_LABELS) & set(aliases)
     if not selected:
         return []
-    if 'In the pricing tiers, K means 1,000 and M means 1,000,000.' not in body:
+    band_units = (
+        'In the pricing tiers, K means 1,000 and M means 1,000,000.',
+        'In the billing ranges, K indicates 1,000 and M indicates 1,000,000.',
+    )
+    if not any(line.startswith(band_units) for line in body.splitlines()):
         raise ValueError('Alibaba token-band multiplier requires review')
-    # Read inert JSX span attributes and escaped inequalities without allowing
-    # HTMLParser to consume '<Token' as an HTML tag.
-    view = re.sub(r'(rowSpan|colSpan)=\{(\d+)\}', r'\1="\2"', body.replace('\\<', '&lt;'))
     lookup = {QWEN_LABELS[mid]: mid for mid in selected}
     expected_bands = {
         'qwen3.7-flash': [(1, 32000), (32001, 256000), (256001, 1000000)],
@@ -382,44 +472,42 @@ def alibaba_qwen_quotes(body, aliases, source):
     bands = {'0<Token≤1M': (1, 1000000), '0<Token≤32K': (1, 32000), '32K<Token≤256K': (32001, 256000),
              '256K<Token≤1M': (256001, 1000000), '0<Token≤256K': (1, 256000)}
     records, seen = [], {mid: [] for mid in selected}
-    for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>', view, re.S):
-        parser = Tables(); parser.feed(block)
-        for table in parser.tables:
-            rows = expand(table)
-            for cells in rows[1:]:
-                mid = lookup.get(cells[0])
-                if mid is None:
-                    continue
-                modes = mid in ('qwen3.7-plus', 'qwen3.5-plus')
-                mode_column = mid in ('qwen3.8-max', 'qwen3.8-27b', 'qwen3.7-max')
-                headers = ['Model ID', 'Deployment scope'] + (['Mode'] if mode_column else []) + ['Input tokens per request', 'Input price (per 1 million tokens)', 'Output price (per 1 million tokens)' + (' > Chain of thought + answer' if mode_column else '')] + (['Output price (per 1 million tokens)'] if modes else [])
-                if rows[0][:-1] != headers or not rows[0][-1].startswith('Free quota') or len(cells) != len(headers) + 1:
-                    raise ValueError('Alibaba Qwen token headers changed')
-                if modes and rows[1][:-1] != headers[:4] + ['Non-Thinking mode', 'Thinking mode (chain of thought + answer)']:
-                    raise ValueError('Alibaba Qwen thinking mode headers changed')
-                offset = 3 if mode_column else 2
-                if cells[1] != 'International' or (mode_column and cells[2] != 'Non-Thinking and Thinking modes') or cells[offset] not in bands:
-                    raise ValueError('Alibaba Qwen deployment/mode/prompt scope changed')
-                band = bands[cells[offset]]
-                if band in seen[mid]:
-                    raise ValueError('Duplicate Alibaba Qwen prompt band')
-                seen[mid].append(band)
-                rates = []
-                for cell in cells[offset+1:offset+3+(1 if modes else 0)]:
-                    cell = cell.replace('\\', '')
-                    if mid == 'qwen3.7-plus':
-                        discount = re.fullmatch(r'List price \$([0-9.]+) \(Limited-time 20% off\)', cell)
-                        if not discount:
-                            raise ValueError('Alibaba Qwen discount requires review')
-                        rates.append(float(Decimal(discount[1]) * Decimal('0.8')))
-                    else:
-                        rates.append(money(cell))
-                for index, variant in enumerate(('non-thinking', 'thinking') if modes else ('standard',)):
-                    records.append(quote('alibaba', mid, [rates[0], rates[1+index]], source,
-                        region='Singapore / International', variant=variant, min_input_tokens=band[0], max_input_tokens=band[1],
-                        pricing_notes='Model Studio Singapore International USD per million text tokens; full-prompt bands and explicit thinking modes retained. Source identity: ' + QWEN_LABELS[mid] + '. ' +
-                        ('Published limited-time 20% discount, with no stated end date; refresh from source rather than assuming continuity. ' if mid == 'qwen3.7-plus' else '') +
-                        'Other regions, Batch, free quotas and caching discounts excluded; cache rates remain unknown. Mutable source IDs are not aliases for their dated served versions.'))
+    for rows in tables:
+        for cells in rows[1:]:
+            mid = lookup.get(cells[0]) if cells else None
+            if mid is None:
+                continue
+            modes = mid in ('qwen3.7-plus', 'qwen3.5-plus')
+            mode_column = mid in ('qwen3.8-max', 'qwen3.8-27b', 'qwen3.7-max')
+            headers = ['Model ID', 'Deployment scope'] + (['Mode'] if mode_column else []) + ['Input tokens per request', 'Input price (per 1 million tokens)', 'Output price (per 1 million tokens)' + (' > Chain of thought + answer' if mode_column else '')] + (['Output price (per 1 million tokens)'] if modes else [])
+            if rows[0][:-1] != headers or not rows[0][-1].startswith('Free quota') or len(cells) != len(headers) + 1:
+                raise ValueError('Alibaba Qwen token headers changed')
+            if modes and rows[1][:-1] != headers[:4] + ['Non-Thinking mode', 'Thinking mode (chain of thought + answer)']:
+                raise ValueError('Alibaba Qwen thinking mode headers changed')
+            offset = 3 if mode_column else 2
+            if cells[1] != 'International' or (mode_column and cells[2] != 'Non-Thinking and Thinking modes') or cells[offset] not in bands:
+                raise ValueError('Alibaba Qwen deployment/mode/prompt scope changed')
+            band = bands[cells[offset]]
+            if band in seen[mid]:
+                raise ValueError('Duplicate Alibaba Qwen prompt band')
+            seen[mid].append(band)
+            rates = []
+            for cell in cells[offset+1:offset+3+(1 if modes else 0)]:
+                cell = cell.replace('\\', '')
+                if mid == 'qwen3.7-plus':
+                    discount = (re.fullmatch(r'List price \$([0-9]+(?:\.[0-9]+)?) \(Limited-time 20% off\)', cell)
+                                or re.fullmatch(r'Original\$([0-9]+(?:\.[0-9]+)?) \(20% off for a limited time\)', cell))
+                    if not discount:
+                        raise ValueError('Alibaba Qwen discount requires review')
+                    rates.append(float(Decimal(discount[1]) * Decimal('0.8')))
+                else:
+                    rates.append(money(cell))
+            for index, variant in enumerate(('non-thinking', 'thinking') if modes else ('standard',)):
+                records.append(quote('alibaba', mid, [rates[0], rates[1+index]], source,
+                    region='Singapore / International', variant=variant, min_input_tokens=band[0], max_input_tokens=band[1],
+                    pricing_notes='Model Studio Singapore International USD per million text tokens; full-prompt bands and explicit thinking modes retained. Source identity: ' + QWEN_LABELS[mid] + '. ' +
+                    ('Published limited-time 20% discount, with no stated end date; refresh from source rather than assuming continuity. ' if mid == 'qwen3.7-plus' else '') +
+                    'Other regions, Batch, free quotas and caching discounts excluded; cache rates remain unknown. Mutable source IDs are not aliases for their dated served versions.'))
     if any(sorted(seen[mid]) != expected_bands.get(mid, [(1, 1000000)]) for mid in selected):
         raise ValueError('Incomplete Alibaba reviewed Qwen snapshot')
     return records
@@ -451,17 +539,10 @@ def expanded_quotes(provider,payload,aliases,source):
         records=[]
         body=document(payload)
         qwen_ids = set(QWEN_LABELS) & set(aliases)
-        records.extend(alibaba_qwen_quotes(body, aliases, source))
+        tables = list(alibaba_singapore_tables(body, aliases))
+        records.extend(alibaba_qwen_quotes(body, tables, aliases, source))
         glm_aliases = {mid: value for mid, value in aliases.items() if mid not in qwen_ids}
-        candidates=[]
-        for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>',body,re.S):
-            if not re.search(r'>\s*glm-5\.3\s*<',block):
-                continue
-            parser=Tables();parser.feed(block)
-            for table in parser.tables:
-                rows=expand(table)
-                if any(row and row[0] in glm_aliases for row in rows[1:]):
-                    candidates.append(rows)
+        candidates = [rows for rows in tables if any(row and row[0] in glm_aliases for row in rows[1:])]
         if len(candidates)!=1:
             raise ValueError("Alibaba reviewed Singapore table missing/duplicated")
         rows=candidates[0]

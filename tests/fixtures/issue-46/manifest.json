@@ -1,0 +1,34 @@
+{
+  "failed_attempt": "https://github.com/yogenpro/token3/actions/runs/44558195094/attempts/1",
+  "prior_attempt": "https://github.com/yogenpro/token3/actions/runs/44120706636/attempts/1",
+  "prior_attempt_scope": "Alibaba and Snowflake both returned complete reviewed quotes. The overall collection failed on other providers.",
+  "sources": {
+    "alibaba": {
+      "url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
+      "failed_document_sha256": "1ec15baab950bcc13ac034088b68c6f6e1949e48d98936ceeca66b9b6b56c63a",
+      "last_good_document_sha256": "274030c9f5e42b24dee96b07058d64a2d1df8037ba4311f91d025f6eaeee6d31"
+    },
+    "snowflake": {
+      "url": "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf",
+      "failed_document_sha256": "f9637a1996de1a03aa25faa47307a208cc1bc584c00cc9375babe0310c851dc7",
+      "last_good_document_sha256": "55f13e7f46735b3653c5ca8b71f32210fc09758843da41adba26df336180dd02"
+    }
+  },
+  "fixtures": {
+    "alibaba-singapore.md": {
+      "bytes": 6951,
+      "sha256": "5dc5238cf28bcbec33c2884e1b720370edd5b9960404696ca6d38c128cc15e36",
+      "selection": "Exact multiplier statement and the Singapore tables’ expanded header cells plus the nine reviewed model IDs and their rows, reserialized as bounded HTML with original cell alignment."
+    },
+    "snowflake-table.json": {
+      "bytes": 3238,
+      "sha256": "474ea3d70216a8393f0dae41494885dad8aef794cd0f8cce03e635f9f8d662c9",
+      "selection": "PDF layout lines from pages 2, 20 and 21 showing the Preview footnote, Table 6(b) title, unit, column order, selected rows and adjacent table boundaries."
+    },
+    "last-good-quotes.json": {
+      "bytes": 1311,
+      "sha256": "0e7b3d12c6440655f64bbcd0d3a304e9ebbbc6bc41bef136216ccdac38ac7891",
+      "selection": "Selected parsed fields from the complete prior public responses, ordered by model, minimum input and variant. Columns match QUOTE_FIELDS in test_issue_46.py."
+    }
+  }
+}

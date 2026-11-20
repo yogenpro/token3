@@ -63,6 +63,12 @@ the basis. Offering IDs distinguish non-USD bases, preserving every original ID.
 Comparison CSV column names identify the selected basis and append `quote_unit`.
 No export joins unlike currencies into an apparent monetary comparison.
 
+Snowflake's November 17 PDF uses a shared Cortex Inference with Prompt Caching
+and Cortex Sense caption for Table 6(b). The reviewed selection still describes
+Cortex Inference with Prompt Caching. Continuation pages independently establish
+the same AI Credit denominator and the complete ordered billing header. Other
+Cortex product tables remain outside this selection.
+
 DeepSeek defaults to the explicitly labeled **peak scenario**. Visitors can choose
 off-peak; the selector is preserved in the URL and applied to rankings, the price
 map and history. This is a scenario, not a claim that the selected period currently

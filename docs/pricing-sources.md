@@ -111,6 +111,28 @@ separate response/excerpt hashes and byte counts in
 `tests/fixtures/issue-38/manifest.json`. They are regression evidence, not
 production observations, recovered historical prices or a full API archive.
 
+### November 19 collection investigation (issue #46)
+
+The [failed attempt](https://github.com/yogenpro/token3/actions/runs/44558195094/attempts/1)
+exposed two presentation changes. Alibaba reworded the Singapore pricing
+document; the revised headings and rows preserve the 17 reviewed USD quotes,
+including the exact prompt bands, thinking columns and Qwen3.7 Plus discount.
+Snowflake added Cortex Sense to the caption of the shared Table 6(b) in its
+November 17 PDF. The revised caption still explicitly includes Cortex Inference
+with Prompt Caching. Each page must identify the same AI Credit unit and billing
+columns. The three reviewed model rows and their Preview terms are unchanged.
+Bounded public regression excerpts and provenance are in
+[`tests/fixtures/issue-46`](../tests/fixtures/issue-46).
+
+This incident also reproduced two separate source conflicts. OVHcloud's default
+English page returned dollar cards, while the [Ireland catalog](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/)
+retained the reviewed EUR amounts. [PR #44](https://github.com/yogenpro/token3/pull/44)
+proposes that source change. Vercel's public API omitted the two Mercury bindings
+investigated in [PR #42](https://github.com/yogenpro/token3/pull/42) and also
+omitted `minimax/minimax-m2`, whose [model page](https://vercel.com/ai-gateway/models/minimax/minimax-m2)
+still advertises a tariff. These source conflicts require separate operator
+decisions. Existing strict completeness checks and retained observations apply.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
