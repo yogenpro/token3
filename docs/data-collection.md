@@ -26,14 +26,16 @@ retirement or permit arbitrary source omissions. Neither scope automatically
 resumes when a record or endpoint reappears; resumption needs separate review.
 See [source research and the bounded policy](pricing-sources.md#november-13-collection-investigation-issue-35).
 
-The November 14 operator decision additionally excludes only Vercel's exact
-`nvidia/nemotron-3-nano-30b-a3b` source ID from current reviewed quotes,
-completeness requirements and comparisons. Its API and model page conflict;
-retirement is unconfirmed. All other Vercel bindings remain required. Original
-quotes, history, native evidence and availability flags remain retained;
-native normalization is unaffected, and reappearance does not resume the quote.
-Other providers' Nano quotes are unaffected. See the
-[Vercel investigation](pricing-sources.md#november-14-vercel-source-conflict-issue-38).
+The Vercel operator decisions exclude exact IDs from current reviewed quotes,
+completeness requirements and comparisons. The November 14 decision covers
+`nvidia/nemotron-3-nano-30b-a3b`. The November 19 decision covers
+`inception/mercury-2`, `inception/mercury-2.5` and `minimax/minimax-m2`.
+All other bindings remain required. Original quotes, history, native evidence
+and availability flags stay retained. Reappearance requires separate source
+review, and other billing sources are unaffected. See the
+[November 14](pricing-sources.md#november-14-vercel-source-conflict-issue-38)
+and [November 19](pricing-sources.md#november-19-collection-investigation-issue-46)
+investigations.
 
 DeepSeek validates a complete transposed model table, exact model columns, versions and six peak/off-peak token components before accepting a source. Tool-only/partial pages fail closed. Additional native model records preserve the explicit rates, served version, original context strings, UTC peak schedule and Chinese-public-holiday exception; all original document rows remain. These native records are not reviewed quotes, aliases, a holiday calendar or inferred currently applicable rates. A separate reviewed adapter now emits exact served-version quotes for explicitly selected peak/off-peak scenarios; its request uses the canonical trailing-slash pricing URL while the historic native document identity remains unchanged. New records start at their real next collection; no prior change/observation is backfilled.
 

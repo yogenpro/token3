@@ -37,7 +37,7 @@ fetched source, never a hardcoded price list or a native-record projection.
 | Nebius Token Factory | GPT-OSS 120B, Qwen3.8 27B, GLM-5.3/Flash, dated DeepSeek V4 Pro 0813 | [Official catalog](https://tokenfactory.nebius.com/api/public/models_info), USD/1M for explicitly reviewed `cheap` flavors and regions; actual precision, context and cached-input rates preserved. No private/external flavor or inferred mutable-version equivalence. |
 | xAI | Grok 4.7 | [Official text API table](https://docs.x.ai/developers/pricing), Standard USD/1M; `<200,000` and `≥200,000` full-prompt schedules remain separate. Priority, regional, Batch, voice and tools are excluded. |
 | Z.ai | GLM-5.3, Flash, FlashX | [International API pricing](https://docs.z.ai/guides/overview/pricing.md), explicit USD/1M input/output/cache-read columns. Storage promotions, Coding Plan subscriptions and Chinese Zhipu billing are separate. |
-| OVHcloud AI Endpoints | GPT-OSS 120B/20B | [Explicit EUR website price cards](https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/), EUR per million input/output tokens. These are independently collected reviewed quotes. The original API catalog's absent currency remains unverified; no currency is assigned to its native amounts by association. |
+| OVHcloud AI Endpoints | GPT-OSS 120B/20B | [Explicit EUR Ireland website price cards](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/), EUR per million input/output tokens. These are independently collected reviewed quotes. The original API catalog's absent currency remains unverified; no currency is assigned to its native amounts by association. |
 | Scaleway Generative APIs | GPT-OSS 120B | [Public catalog](https://api.scaleway.com/product-catalog/v2alpha1/public-catalog/products?page_size=1000), realtime `fr-par` EUR retail input/output SKU pair. EUR money per 1,000 tokens × 1,000; no FX conversion. Batch, dedicated nodes and unreviewed statuses remain native-only. |
 | MiniMax | MiniMax M3 | [International pay-as-you-go table](https://platform.minimax.io/docs/guides/pricing-paygo.md), published permanent-discount USD/1M, Standard/Priority × `≤512,000`/`>512,000` full-prompt bands. Original struck-out rates are validated against the explicit 50% expression; they are not current quotes. Missing bands fail the complete snapshot. Both legacy bold tier labels and quoted Markdown tabs are accepted without changing billing semantics. |
 | DeepSeek | Flash served as V4.1-Flash-1017, Pro served as V4-Pro-0813 | [Canonical pricing URL](https://api-docs.deepseek.com/quick_start/pricing/), USD/1M with both peak/off-peak scenarios, cache hit/miss, served versions and exact UTC/Chinese-public-holiday schedule. No local-time or holiday-calendar inference. Mutable served-version or schedule changes require new review. |
@@ -62,6 +62,12 @@ with an empty currency for credit units; join offering IDs to `offerings.json` f
 the basis. Offering IDs distinguish non-USD bases, preserving every original ID.
 Comparison CSV column names identify the selected basis and append `quote_unit`.
 No export joins unlike currencies into an apparent monetary comparison.
+
+Snowflake's November 17 PDF uses a shared Cortex Inference with Prompt Caching
+and Cortex Sense caption for Table 6(b). The reviewed selection still describes
+Cortex Inference with Prompt Caching. Continuation pages independently establish
+the same AI Credit denominator and the complete ordered billing header. Other
+Cortex product tables remain outside this selection.
 
 DeepSeek defaults to the explicitly labeled **peak scenario**. Visitors can choose
 off-peak; the selector is preserved in the URL and applied to rankings, the price

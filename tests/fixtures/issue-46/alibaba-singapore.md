@@ -1,0 +1,40 @@
+In the billing ranges, K indicates 1,000 and M indicates 1,000,000. For example, 128K means 128,000 tokens, 256K means 256,000 tokens, and 1M means 1,000,000 tokens.
+<Tab title="Singapore">
+<table>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Pattern</th><th>Input tokens per request</th><th>Input unit price (per million tokens)</th><th>Output unit price (per million tokens) &gt; Chain-of-thought + response</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><td>qwen3.8-max &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>0&lt;Token≤1M</td><td>\$2</td><td>\$6</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.7-max &gt; Current capabilities are equivalent to qwen3.7-max-2026-05-20 &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>0&lt;Token≤1M</td><td>\$2.5</td><td>\$7.5</td><td>1 million Tokens</td></tr>
+</table>
+</Tab>
+<Tab title="Singapore">
+<table>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Input token range per request</th><th>Input unit price (per million tokens)</th><th>Output unit price (per million tokens)</th><th>Output unit price (per million tokens)</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Input token range per request</th><th>Input unit price (per million tokens)</th><th>Non-thinking mode</th><th>Thinking mode (chain-of-thought + response)</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><td>qwen3.7-plus &gt; Current capabilities are equivalent to qwen3.7-plus-2026-05-26 &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>0&lt;Token≤256K</td><td>Original\$0.4 (20% off for a limited time)</td><td>Original\$1.6 (20% off for a limited time)</td><td>Original\$1.6 (20% off for a limited time)</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.7-plus &gt; Current capabilities are equivalent to qwen3.7-plus-2026-05-26 &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>256K&lt;Token≤1M</td><td>Original\$1.2 (20% off for a limited time)</td><td>Original\$4.8 (20% off for a limited time)</td><td>Original\$4.8 (20% off for a limited time)</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.5-plus &gt; Current capabilities are equivalent to qwen3.5-plus-2026-02-15</td><td>International</td><td>0&lt;Token≤256K</td><td>\$0.4</td><td>\$2.4</td><td>\$2.4</td><td>None</td></tr>
+<tr><td>qwen3.5-plus &gt; Current capabilities are equivalent to qwen3.5-plus-2026-02-15</td><td>International</td><td>256K&lt;Token≤1M</td><td>\$0.5</td><td>\$3</td><td>\$3</td><td>None</td></tr>
+</table>
+</Tab>
+<Tab title="Singapore">
+<table>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Pattern</th><th>Input token range per request</th><th>Input unit price (per million tokens)</th><th>Output unit price (per million tokens)</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><td>qwen3.8-flash &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>0&lt;Token≤1M</td><td>\$0.15</td><td>\$0.47</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.7-flash &gt; Current capabilities are equivalent to qwen3.7-flash-2026-07-15 &gt; [Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>0&lt;Token≤32K</td><td>\$0.030</td><td>\$0.130</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.7-flash &gt; Current capabilities are equivalent to qwen3.7-flash-2026-07-15 &gt; [Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>32K&lt;Token≤256K</td><td>\$0.100</td><td>\$0.400</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.7-flash &gt; Current capabilities are equivalent to qwen3.7-flash-2026-07-15 &gt; [Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>256K&lt;Token≤1M</td><td>\$0.200</td><td>\$0.800</td><td>1 million Tokens</td></tr>
+<tr><td>qwen3.5-flash &gt; Current capabilities are equivalent to qwen3.5-flash-2026-02-23 &gt; [Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>0&lt;Token≤1M</td><td>\$0.1</td><td>\$0.4</td><td>1 million Tokens</td><td></td></tr>
+</table>
+</Tab>
+<Tab title="Singapore">
+<table>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Pattern</th><th>Input tokens per request</th><th>Input unit price (per million tokens)</th><th>Output unit price (per million tokens) &gt; Chain-of-thought + response</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><td>qwen3.8-27b &gt; [Context cache](/zh/model-studio/context-cache) enjoys a discount</td><td>International</td><td>Non-thinking and thinking modes</td><td>0&lt;Token≤1M</td><td>\$0.5</td><td>\$3</td><td>1 million Tokens</td></tr>
+</table>
+</Tab>
+<Tab title="Singapore">
+<table>
+<tr><th>Model ID</th><th>Service Deployment Scope</th><th>Pattern</th><th>Input tokens per request</th><th>Input unit price (per million tokens)</th><th>Output unit price (per million tokens) &gt; Chain-of-thought and response</th><th>Free quota [(Note)](/zh/model-studio/new-free-quota#591f3dfedfyzj) Validity: Within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)</th></tr>
+<tr><td>glm-5.3</td><td>International</td><td>Non-thinking and thinking modes</td><td>No tier distinction</td><td>\$1.400</td><td>\$4.400</td><td>1 million Tokens</td></tr>
+</table>
+</Tab>

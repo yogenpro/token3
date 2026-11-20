@@ -12,21 +12,30 @@ import status from '../../data/status.json';
 const data = datasetSchema.parse({ models, offerings, prices, history, changes, status });
 
 describe('bounded source operating policies', () => {
-  it('pauses only Vercel Nemotron Nano, preserving other billing sources and Vercel models', () => {
-    const id = 'nvidia/nemotron-3-nano-30b-a3b';
-    expect(comparisonsPaused('vercel', id)).toBe(true);
-    expect(comparisonsPaused('vercel')).toBe(false);
-    expect(collectionDisabled('vercel')).toBe(false);
-    expect(comparisonsPaused('vercel', `${id}-other`)).toBe(false);
-    expect(comparisonsPaused('novita', id)).toBe(false);
-    const rows = rankOfferings(data, id, defaultWorkload, 'all');
-    expect(rows.some((r) => r.offering.provider === 'vercel')).toBe(false);
-    expect(rows.some((r) => r.offering.provider === 'deepinfra')).toBe(true);
-    expect(comparisonCsv(rows)).not.toContain('Vercel AI Gateway');
-    expect(comparisonProviders(data, new Set([id]))).not.toContain('vercel');
-    expect(workloadPriceMap(data, defaultWorkload, 'all', 'all', '').find((r) => r.model.id === id)?.cells.has('vercel')).toBe(false);
-    expect(rankOfferings(data, 'nvidia/nemotron-3.5-lightning', defaultWorkload).some((r) => r.offering.provider === 'vercel')).toBe(true);
-    expect(providerPolicies.vercel).toMatchObject({ excluded_model_ids: [id] });
+  it('pauses the exact Vercel Nano, Mercury and MiniMax M2 IDs, preserving other sources and models', () => {
+    const excluded = ['nvidia/nemotron-3-nano-30b-a3b', 'inception/mercury-2', 'inception/mercury-2.5', 'minimax/minimax-m2'];
+    expect(providerPolicies.vercel).toMatchObject({ excluded_model_ids: excluded });
+    for (const id of excluded) {
+      expect(comparisonsPaused('vercel', id)).toBe(true);
+      expect(comparisonsPaused('vercel')).toBe(false);
+      expect(collectionDisabled('vercel')).toBe(false);
+      expect(comparisonsPaused('vercel', `${id}-other`)).toBe(false);
+      expect(comparisonsPaused('openrouter', id)).toBe(false);
+      const rows = rankOfferings(data, id, defaultWorkload, 'all');
+      expect(rows.some((r) => r.offering.provider === 'vercel')).toBe(false);
+      const otherSource = id.startsWith('nvidia/') ? 'deepinfra' : 'openrouter';
+      // OpenRouter's retained Mercury and MiniMax offers can be inactive independently.
+      // Use synthetic availability to verify this Vercel policy does not suppress another source.
+      const available = { ...data, offerings: data.offerings.map((o) =>
+        o.model_id === id && o.provider === otherSource ? { ...o, active: true } : o) };
+      expect(rankOfferings(available, id, defaultWorkload, 'all').some((r) => r.offering.provider === otherSource)).toBe(true);
+      expect(comparisonCsv(rows)).not.toContain('Vercel AI Gateway');
+      expect(comparisonProviders(data, new Set([id]))).not.toContain('vercel');
+      expect(workloadPriceMap(data, defaultWorkload, 'all', 'all', '').find((r) => r.model.id === id)?.cells.has('vercel')).toBe(false);
+    }
+    for (const id of ['nvidia/nemotron-3.5-lightning', 'inception/mercury-3', 'minimax/minimax-m2.1', 'minimax/minimax-m2.5']) {
+      expect(rankOfferings(data, id, defaultWorkload).some((r) => r.offering.provider === 'vercel')).toBe(true);
+    }
   });
 
   it('pauses Castform and only the exact Arcee served IDs, independently of health or availability', () => {
@@ -66,7 +75,7 @@ describe('bounded source operating policies', () => {
     const excluded = data.offerings.filter((o) => comparisonsPaused(o.provider, o.provider_model_id));
     expect(excluded.filter((o) => o.provider === 'castform')).toHaveLength(11);
     expect(excluded.filter((o) => o.provider === 'arcee')).toHaveLength(2);
-    expect(excluded.filter((o) => o.provider === 'vercel')).toHaveLength(1);
+    expect(excluded.filter((o) => o.provider === 'vercel')).toHaveLength(4);
     for (const offering of excluded) {
       expect(data.prices.some((p) => p.offering_id === offering.id)).toBe(true);
       expect(data.history.some((p) => p.offering_id === offering.id)).toBe(true);

@@ -111,6 +111,37 @@ separate response/excerpt hashes and byte counts in
 `tests/fixtures/issue-38/manifest.json`. They are regression evidence, not
 production observations, recovered historical prices or a full API archive.
 
+### November 19 collection investigation (issue #46)
+
+The [failed attempt](https://github.com/yogenpro/token3/actions/runs/44558195094/attempts/1)
+exposed two presentation changes. Alibaba reworded the Singapore pricing
+document; the revised headings and rows preserve the 17 reviewed USD quotes,
+including the exact prompt bands, thinking columns and Qwen3.7 Plus discount.
+Snowflake added Cortex Sense to the caption of the shared Table 6(b) in its
+November 17 PDF. The revised caption still explicitly includes Cortex Inference
+with Prompt Caching. Each page must identify the same AI Credit unit and billing
+columns. The three reviewed model rows and their Preview terms are unchanged.
+Bounded public regression excerpts and provenance are in
+[`tests/fixtures/issue-46`](../tests/fixtures/issue-46).
+
+OVHcloud's default English page returned dollar cards. On November 19 the user
+approved the [Ireland catalog](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/)
+for the two reviewed GPT-OSS quotes, as proposed in
+[PR #44](https://github.com/yogenpro/token3/pull/44). The Ireland page explicitly
+publishes the same EUR amounts per million input/output tokens. The native API
+catalog still has unverified currency. Legacy EUR captures remain readable.
+
+Vercel's public API omitted `inception/mercury-2`, `inception/mercury-2.5` and
+`minimax/minimax-m2`. The same three IDs returned HTTP 404 from the documented
+[per-model routes](https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api#get-model-endpoints),
+while their public model pages still advertise pricing. The user approved
+excluding these exact IDs from current reviewed quotes, completeness requirements
+and comparisons on November 19. This incorporates the Mercury proposal from
+[PR #42](https://github.com/yogenpro/token3/pull/42) and the MiniMax M2 finding
+from issue #46. All other Vercel bindings remain required. The exclusions preserve
+retained observations and availability flags. Reappearance requires separate
+source review. Vendor retirement remains unconfirmed.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)

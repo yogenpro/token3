@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from urllib.parse import urlencode
 
 from .common import Collection, fetch_bytes, fetch_text, safe_error
+from .comparison_expansion import OVHCLOUD_EUR_CARDS
 from .pricing_api import MAX_CATALOG_BYTES, encode_payload
 from .openrouter_catalog import complete_model_ids
 from .reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS, reviewed_quotes
@@ -147,7 +148,7 @@ class InventoryCollector:
         if self.provider == "ovhcloud":
             # Price cards are a separately reviewed quote source, not a table
             # pretending to expand the source-native API catalog's currency.
-            url = "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/"
+            url = OVHCLOUD_EUR_CARDS
             payload["reviewed_price_cards"] = dict(source_url=url, body=fetch_text(url))
             urls.append(url)
         if self.pdf_url:

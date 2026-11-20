@@ -54,11 +54,18 @@ test('Arcee exclusions are exact, preserve other offers and explain the operator
   await expect(page.getByTestId('offering-row').filter({ hasText: 'Arcee AI' })).toBeVisible();
 });
 
-test('Vercel exact Nano exclusion explains conflicting sources and preserves other quotes', async ({ page }) => {
-  await page.goto('./?model=nvidia%2Fnemotron-3-nano-30b-a3b');
-  await expect(page.getByRole('note').filter({ hasText: 'its model page still advertises it' })).toBeVisible();
-  await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toHaveCount(0);
-  await expect(page.getByTestId('offering-row').filter({ hasText: 'DeepInfra' })).toBeVisible();
-  await page.goto('./?model=nvidia%2Fnemotron-3.5-lightning');
-  await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toBeVisible();
+test('Vercel exact Nano, Mercury and MiniMax M2 exclusions explain conflicting sources and preserve other quotes', async ({ page }) => {
+  for (const id of ['nvidia/nemotron-3-nano-30b-a3b', 'inception/mercury-2', 'inception/mercury-2.5', 'minimax/minimax-m2']) {
+    await page.goto(`./?model=${encodeURIComponent(id)}`);
+    const notice = page.getByRole('note').filter({ hasText: 'their model pages still advertise them' });
+    await expect(notice).toBeVisible();
+    await expect(notice).toContainText(id);
+    await expect(notice).toContainText('Retirement is unconfirmed');
+    await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toHaveCount(0);
+    if (id.startsWith('nvidia/')) await expect(page.getByTestId('offering-row').filter({ hasText: 'DeepInfra' })).toBeVisible();
+  }
+  for (const id of ['nvidia/nemotron-3.5-lightning', 'inception/mercury-3', 'minimax/minimax-m2.1', 'minimax/minimax-m2.5']) {
+    await page.goto(`./?model=${encodeURIComponent(id)}`);
+    await expect(page.getByTestId('offering-row').filter({ hasText: 'Vercel AI Gateway' })).toBeVisible();
+  }
 });
