@@ -156,6 +156,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-01e7be522e705feba186a8d9",
+      "provider": "huggingface",
+      "native_id": "tencent/Hy4-preview",
+      "kind": "provider_route",
+      "label": "tencent/Hy4-preview",
+      "scope": {
+        "upstream_provider": "siliconflow"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.834,
+          "output": 2.501
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.834",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.501",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-02bd46e3ebdb7fb20c509aa2",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3-Flash",
@@ -547,6 +597,36 @@
         "supports_tools": true,
         "supports_structured_output": true,
         "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-05f476e73629168aff59afa7",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3-VL-8B-Instruct",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3-VL-8B-Instruct",
+      "scope": {
+        "upstream_provider": "featherless-ai"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "is_model_author": false,
         "architecture": {
           "input_modalities": [
             "text",
@@ -1388,7 +1468,7 @@
       "billing": {
         "rules": {
           "input": 0.08,
-          "output": 0.635
+          "output": 0.666
         },
         "state": "reported"
       },
@@ -1402,7 +1482,7 @@
         },
         {
           "dimension": "output",
-          "amount": "0.635",
+          "amount": "0.666",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -1520,7 +1600,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.1824,
+          "input": 0.1805,
           "output": 11.0055
         },
         "state": "reported"
@@ -1528,7 +1608,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.1824",
+          "amount": "0.1805",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -1813,57 +1893,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-0fa4a3eafde8d4766bf9e43f",
-      "provider": "huggingface",
-      "native_id": "Qwen/Qwen3.6-27B",
-      "kind": "provider_route",
-      "label": "Qwen/Qwen3.6-27B",
-      "scope": {
-        "upstream_provider": "siliconflow"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.3,
-          "output": 3.2
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.3",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "3.2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-102d00fc7e24d191a9eb2ccc",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5",
@@ -2095,6 +2124,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-11bfa7c9a05ccdad6980df0e",
+      "provider": "huggingface",
+      "native_id": "inclusionAI/Ling-3.0-tiny",
+      "kind": "provider_route",
+      "label": "inclusionAI/Ling-3.0-tiny",
+      "scope": {
+        "upstream_provider": "antdigital"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.015,
+          "output": 0.045
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.015",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.045",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-11c198888301652f06384660",
       "provider": "huggingface",
       "native_id": "moonshotai/Kimi-K2.6",
@@ -2105,22 +2184,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.5453,
-          "output": 2.87
+          "input": 0.546,
+          "output": 3.15
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.5453",
+          "amount": "0.546",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.87",
+          "amount": "3.15",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -3425,32 +3504,32 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-1a6602da93da9769ee125373",
+      "id": "huggingface-1a00c8087c86ff028a379174",
       "provider": "huggingface",
-      "native_id": "google/gemma-4-26B-A4B-it",
+      "native_id": "tencent/Hy4-preview",
       "kind": "provider_route",
-      "label": "google/gemma-4-26B-A4B-it",
+      "label": "tencent/Hy4-preview",
       "scope": {
-        "upstream_provider": "cloudflare"
+        "upstream_provider": "tencent"
       },
       "billing": {
         "rules": {
-          "input": 0.1,
-          "output": 0.3
+          "input": 0.834,
+          "output": 2.501
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.1",
+          "amount": "0.834",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.3",
+          "amount": "2.501",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -3458,15 +3537,14 @@
       ],
       "metadata": {
         "status": "live",
-        "context_length": 256000,
+        "context_length": 1048576,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
+        "supports_structured_output": true,
+        "is_model_author": true,
         "architecture": {
           "input_modalities": [
-            "text",
-            "image"
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -3502,57 +3580,6 @@
         {
           "dimension": "output",
           "amount": "0.5",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-1a870e4c8274dcf31a73f810",
-      "provider": "huggingface",
-      "native_id": "google/gemma-4-31B-it",
-      "kind": "provider_route",
-      "label": "google/gemma-4-31B-it",
-      "scope": {
-        "upstream_provider": "siliconflow"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.75,
-          "output": 1
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.75",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -3894,7 +3921,7 @@
         "status": "live",
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -4223,6 +4250,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-1fc32ebae0d577b05419c178",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3.8-27B",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3.8-27B",
+      "scope": {
+        "upstream_provider": "dekallm"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.04,
+          "output": 2.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.04",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-20496e83310e98aa0ab0138a",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3-Flash",
@@ -4315,57 +4393,6 @@
         "architecture": {
           "input_modalities": [
             "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-2190d4e41c19ddd293939e12",
-      "provider": "huggingface",
-      "native_id": "google/gemma-4-26B-A4B-it",
-      "kind": "provider_route",
-      "label": "google/gemma-4-26B-A4B-it",
-      "scope": {
-        "upstream_provider": "google-vertex"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.15,
-          "output": 0.6
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.6",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
           ],
           "output_modalities": [
             "text"
@@ -4561,6 +4588,56 @@
       "metadata": {
         "status": "live",
         "context_length": 163840,
+        "is_free": false,
+        "supports_tools": false,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-23a48ef8e1aa248c53575c88",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.3,
+          "output": 1
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -4931,6 +5008,108 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-270d747efffb58bbc381acad",
+      "provider": "huggingface",
+      "native_id": "google/gemma-4-26B-A4B-it",
+      "kind": "provider_route",
+      "label": "google/gemma-4-26B-A4B-it",
+      "scope": {
+        "upstream_provider": "dekallm"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.06,
+          "output": 0.33
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.33",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-2721aaa18e479517c19c11d4",
+      "provider": "huggingface",
+      "native_id": "tencent/Hy4",
+      "kind": "provider_route",
+      "label": "tencent/Hy4",
+      "scope": {
+        "upstream_provider": "tencent"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.417,
+          "output": 1.2505
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.417",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.2505",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-272ed014dd120abb56d46902",
       "provider": "huggingface",
       "native_id": "google/gemma-3-4b-it",
@@ -5196,6 +5375,7 @@
       ],
       "metadata": {
         "status": "live",
+        "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -5283,6 +5463,57 @@
         "supports_tools": true,
         "supports_structured_output": false,
         "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-29f740fc25086e5c828dbea5",
+      "provider": "huggingface",
+      "native_id": "tencent/Hy4",
+      "kind": "provider_route",
+      "label": "tencent/Hy4",
+      "scope": {
+        "upstream_provider": "together"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.834,
+          "output": 2.501
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.834",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.501",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
         "architecture": {
           "input_modalities": [
             "text",
@@ -5438,56 +5669,6 @@
           "input_modalities": [
             "text",
             "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-2b4309e7c748ffe4119f23bd",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "scope": {
-        "upstream_provider": "reka"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.1,
-          "output": 0.42
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.1",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.42",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
           ],
           "output_modalities": [
             "text"
@@ -6858,7 +7039,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0999,
+          "input": 0.2565,
           "output": 8
         },
         "state": "reported"
@@ -6866,7 +7047,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0999",
+          "amount": "0.2565",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -7352,7 +7533,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.062,
+          "input": 0.047,
           "output": 0.3
         },
         "state": "reported"
@@ -7360,7 +7541,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.062",
+          "amount": "0.047",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -7453,22 +7634,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.21,
-          "output": 0.84
+          "input": 0.15,
+          "output": 0.6
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.21",
+          "amount": "0.15",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.84",
+          "amount": "0.6",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -8766,22 +8947,22 @@
       },
       "billing": {
         "rules": {
-          "input": 1.9,
-          "output": 9.5
+          "input": 2,
+          "output": 10
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.9",
+          "amount": "2",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "9.5",
+          "amount": "10",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -9023,6 +9204,56 @@
           "input_modalities": [
             "text",
             "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-447daa922aa672d07ddbbeb5",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "scope": {
+        "upstream_provider": "dekallm"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.09,
+          "output": 0.3
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.09",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -9373,22 +9604,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.98,
-          "output": 3.08
+          "input": 0.7,
+          "output": 2.2
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.98",
+          "amount": "0.7",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "3.08",
+          "amount": "2.2",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -9605,7 +9836,7 @@
       "billing": {
         "rules": {
           "input": 0.32,
-          "output": 0.8899999999999999
+          "output": 0.89
         },
         "state": "reported"
       },
@@ -9619,7 +9850,7 @@
         },
         {
           "dimension": "output",
-          "amount": "0.8899999999999999",
+          "amount": "0.89",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -9631,6 +9862,56 @@
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-49ccaa1934ec62c2e88ed803",
+      "provider": "huggingface",
+      "native_id": "openai/gpt-oss-safeguard-20b",
+      "kind": "provider_route",
+      "label": "openai/gpt-oss-safeguard-20b",
+      "scope": {
+        "upstream_provider": "amazon-bedrock"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.07,
+          "output": 0.2
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.07",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -9757,6 +10038,56 @@
       "metadata": {
         "status": "live",
         "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-4b71bf4170464d4f7dbaaab4",
+      "provider": "huggingface",
+      "native_id": "tencent/Hy4-preview",
+      "kind": "provider_route",
+      "label": "tencent/Hy4-preview",
+      "scope": {
+        "upstream_provider": "venice"
+      },
+      "billing": {
+        "rules": {
+          "input": 1.0425,
+          "output": 3.12625
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "1.0425",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "3.12625",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -9985,22 +10316,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.24,
-          "output": 0.96
+          "input": 0.3,
+          "output": 1.2
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.24",
+          "amount": "0.3",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.96",
+          "amount": "1.2",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -10177,6 +10508,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-4ec17adefc0539113ffb4f1d",
+      "provider": "huggingface",
+      "native_id": "openai/gpt-oss-20b",
+      "kind": "provider_route",
+      "label": "openai/gpt-oss-20b",
+      "scope": {
+        "upstream_provider": "dekallm"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.029,
+          "output": 0.14
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.029",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-4f422808c64110826270fe07",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.5-27B",
@@ -10315,7 +10696,7 @@
         "context_length": 131072,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -11285,7 +11666,7 @@
         "context_length": 202752,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -11584,57 +11965,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-59e23fe7350100cf03fb3d4e",
-      "provider": "huggingface",
-      "native_id": "google/gemma-4-31B-it",
-      "kind": "provider_route",
-      "label": "google/gemma-4-31B-it",
-      "scope": {
-        "upstream_provider": "sambanova"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.38,
-          "output": 1.15
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.38",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.15",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 131072,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-5b38991e1c9a978a3314338b",
       "provider": "huggingface",
       "native_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
@@ -11677,56 +12007,6 @@
           "input_modalities": [
             "text",
             "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-5b4984b63668b2eec4428c9f",
-      "provider": "huggingface",
-      "native_id": "meta-llama/Llama-3.2-1B-Instruct",
-      "kind": "provider_route",
-      "label": "meta-llama/Llama-3.2-1B-Instruct",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.027,
-          "output": 0.201
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.027",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.201",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 60000,
-        "is_free": false,
-        "supports_tools": false,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
           ],
           "output_modalities": [
             "text"
@@ -11975,7 +12255,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -12000,22 +12280,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.367,
-          "output": 2.611
+          "input": 0.45,
+          "output": 3.2
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.367",
+          "amount": "0.45",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.611",
+          "amount": "3.2",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -12816,7 +13096,7 @@
       "billing": {
         "rules": {
           "input": 0.834,
-          "output": 2.5010000000000003
+          "output": 2.501
         },
         "state": "reported"
       },
@@ -12830,7 +13110,7 @@
         },
         {
           "dimension": "output",
-          "amount": "2.5010000000000003",
+          "amount": "2.501",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -12995,22 +13275,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.3,
-          "output": 1.2
+          "input": 0.15,
+          "output": 0.6
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.3",
+          "amount": "0.15",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "1.2",
+          "amount": "0.6",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -13821,6 +14101,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-6ac77ada4219dccae6e21aa4",
+      "provider": "huggingface",
+      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
+      "kind": "provider_route",
+      "label": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
+      "scope": {
+        "upstream_provider": "io-net"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.75,
+          "output": 2.3
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.75",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.3",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-6b0092835640939f90433f72",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen2.5-72B-Instruct",
@@ -14246,7 +14577,7 @@
       "billing": {
         "rules": {
           "input": 0.06,
-          "output": 0.9
+          "output": 0.8
         },
         "state": "reported"
       },
@@ -14260,7 +14591,7 @@
         },
         {
           "dimension": "output",
-          "amount": "0.9",
+          "amount": "0.8",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -15186,7 +15517,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0363,
+          "input": 0.05,
           "output": 0.45
         },
         "state": "reported"
@@ -15194,7 +15525,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0363",
+          "amount": "0.05",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -15268,56 +15599,6 @@
           "input_modalities": [
             "text",
             "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-7722cf1c9b6721be50654244",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.44,
-          "output": 1.32
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.44",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.32",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
           ],
           "output_modalities": [
             "text"
@@ -15608,56 +15889,6 @@
       "metadata": {
         "status": "live",
         "is_free": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-7a7fd9d6439ef00fbef14158",
-      "provider": "huggingface",
-      "native_id": "meta-llama/Llama-3.2-3B-Instruct",
-      "kind": "provider_route",
-      "label": "meta-llama/Llama-3.2-3B-Instruct",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.0509,
-          "output": 0.335
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.0509",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.335",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 80000,
-        "is_free": false,
-        "supports_tools": false,
-        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -17722,6 +17953,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-8a9975cef978ff3b9f653b65",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+      "scope": {
+        "upstream_provider": "venice"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.35,
+          "output": 1.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.35",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 256000,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-8aa1712ee7f05b5d846300f2",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-4.5-Air",
@@ -17808,7 +18089,7 @@
         "context_length": 1000000,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -17985,7 +18266,7 @@
       "billing": {
         "rules": {
           "input": 1.05,
-          "output": 3.5
+          "output": 3.4
         },
         "state": "reported"
       },
@@ -17999,7 +18280,7 @@
         },
         {
           "dimension": "output",
-          "amount": "3.5",
+          "amount": "3.4",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -18114,7 +18395,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.095,
+          "input": 0.085,
           "output": 0.375
         },
         "state": "reported"
@@ -18122,7 +18403,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.095",
+          "amount": "0.085",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -18622,7 +18903,7 @@
         "context_length": 64000,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -18697,22 +18978,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.15,
-          "output": 0.5
+          "input": 0.105,
+          "output": 0.34
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.15",
+          "amount": "0.105",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.5",
+          "amount": "0.34",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -18779,6 +19060,57 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-925c7dfc269ab42edfb69c2f",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-5.3-Flash",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-5.3-Flash",
+      "scope": {
+        "upstream_provider": "dekallm"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.1,
+          "output": 0.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.1",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -19331,22 +19663,22 @@
       },
       "billing": {
         "rules": {
-          "input": 1.108,
-          "output": 16.618
+          "input": 1.306,
+          "output": 8.55
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.108",
+          "amount": "1.306",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "16.618",
+          "amount": "8.55",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -19441,6 +19773,38 @@
         "supports_tools": false,
         "supports_structured_output": true,
         "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-985b541ec2d2df4e37495fb1",
+      "provider": "huggingface",
+      "native_id": "RadixArk/DaisyRose-27B",
+      "kind": "provider_route",
+      "label": "RadixArk/DaisyRose-27B",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": null,
+        "state": "source_native_or_unpriced"
+      },
+      "rates": [],
+      "metadata": {
+        "status": "live",
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
         "architecture": {
           "input_modalities": [
             "text",
@@ -19894,7 +20258,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -20070,22 +20434,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.43999999999999995,
-          "output": 1.32
+          "input": 0.2156,
+          "output": 0.6468
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.43999999999999995",
+          "amount": "0.2156",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "1.32",
+          "amount": "0.6468",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20121,22 +20485,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.111,
-          "output": 4.44
+          "input": 0.285,
+          "output": 4.3
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.111",
+          "amount": "0.285",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "4.44",
+          "amount": "4.3",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20272,22 +20636,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.62,
-          "output": 1.99
+          "input": 0.56,
+          "output": 1.81
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.62",
+          "amount": "0.56",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "1.99",
+          "amount": "1.81",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20322,22 +20686,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.15,
-          "output": 0.5
+          "input": 0.115,
+          "output": 0.4
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.15",
+          "amount": "0.115",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.5",
+          "amount": "0.4",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20346,57 +20710,6 @@
       "metadata": {
         "status": "live",
         "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-9f5ba386dcbed3427261368b",
-      "provider": "huggingface",
-      "native_id": "Qwen/Qwen3.6-27B",
-      "kind": "provider_route",
-      "label": "Qwen/Qwen3.6-27B",
-      "scope": {
-        "upstream_provider": "venice"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.325,
-          "output": 3.25
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.325",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "3.25",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 256000,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -20525,22 +20838,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.57,
-          "output": 2.85
+          "input": 0.6,
+          "output": 3
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.57",
+          "amount": "0.6",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.85",
+          "amount": "3",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20819,6 +21132,57 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-a382168c746c61f836536f57",
+      "provider": "huggingface",
+      "native_id": "mistralai/Mistral-Large-4-1T-A52B",
+      "kind": "provider_route",
+      "label": "mistralai/Mistral-Large-4-1T-A52B",
+      "scope": {
+        "upstream_provider": "mistral"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.7,
+          "output": 2.1
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.7",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.1",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": true,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -21248,22 +21612,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.15,
-          "output": 0.5
+          "input": 0.135,
+          "output": 0.45
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.15",
+          "amount": "0.135",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.5",
+          "amount": "0.45",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -21300,57 +21664,6 @@
       "billing": {
         "rules": {
           "input": 0.06,
-          "output": 0.9
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.06",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.9",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-a6b445a9b7df04dbb8d893ff",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "scope": {
-        "upstream_provider": "makora"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.15,
           "output": 0.8
         },
         "state": "reported"
@@ -21358,7 +21671,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.15",
+          "amount": "0.06",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -21615,6 +21928,56 @@
           "input_modalities": [
             "text",
             "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-a9aba175b054ea7fb6bade4e",
+      "provider": "huggingface",
+      "native_id": "meta-llama/Llama-3.3-70B-Instruct",
+      "kind": "provider_route",
+      "label": "meta-llama/Llama-3.3-70B-Instruct",
+      "scope": {
+        "upstream_provider": "amazon-bedrock"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.72,
+          "output": 0.72
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.72",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.72",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -22289,22 +22652,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.186,
-          "output": 0.278
+          "input": 0.166,
+          "output": 0.249
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.186",
+          "amount": "0.166",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.278",
+          "amount": "0.249",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -22481,32 +22844,32 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-ae41ca706db9a43c05e8f60f",
+      "id": "huggingface-aecd67c3f8f5b40783fe7fcf",
       "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+      "native_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.6-Flash-RL",
+      "label": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "scope": {
-        "upstream_provider": "venice"
+        "upstream_provider": "tenstorrent"
       },
       "billing": {
         "rules": {
-          "input": 0.175,
-          "output": 0.35
+          "input": 0.1,
+          "output": 0.4
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.175",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.35",
+          "amount": "0.4",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -22514,14 +22877,15 @@
       ],
       "metadata": {
         "status": "live",
-        "context_length": 1000000,
+        "context_length": 1048576,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
-            "text"
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -22693,22 +23057,22 @@
       },
       "billing": {
         "rules": {
-          "input": 1.007,
-          "output": 4.698
+          "input": 1.045,
+          "output": 4.876
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.007",
+          "amount": "1.045",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "4.698",
+          "amount": "4.876",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -23421,6 +23785,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-b544948e02e9096ee987de6c",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+      "scope": {
+        "upstream_provider": "siliconflow"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.09,
+          "output": 0.3
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.09",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.3",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-b57cf8e82e3ea84c199506b2",
       "provider": "huggingface",
       "native_id": "moonshotai/Kimi-K2.6",
@@ -23786,22 +24200,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.14,
-          "output": 0.28
+          "input": 0.11,
+          "output": 0.22
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.14",
+          "amount": "0.11",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.28",
+          "amount": "0.22",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -24913,6 +25327,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-c2c1ef61efbbcab8ebb107ca",
+      "provider": "huggingface",
+      "native_id": "openai/gpt-oss-20b",
+      "kind": "provider_route",
+      "label": "openai/gpt-oss-20b",
+      "scope": {
+        "upstream_provider": "parasail"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.03,
+          "output": 0.15
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.03",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-c340001d9a13c8295ea84690",
       "provider": "huggingface",
       "native_id": "moonshotai/Kimi-K3",
@@ -25825,22 +26289,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.84375,
-          "output": 2.7
+          "input": 0.5625,
+          "output": 1.8
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.84375",
+          "amount": "0.5625",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.7",
+          "amount": "1.8",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -26487,7 +26951,7 @@
         "context_length": 1048576,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -27469,22 +27933,22 @@
       },
       "billing": {
         "rules": {
-          "input": 4,
-          "output": 8
+          "input": 2.64,
+          "output": 5.28
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "4",
+          "amount": "2.64",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "8",
+          "amount": "5.28",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -28288,31 +28752,12 @@
         "upstream_provider": "zai-org"
       },
       "billing": {
-        "rules": {
-          "input": 0.3,
-          "output": 0.9
-        },
-        "state": "reported"
+        "rules": null,
+        "state": "source_native_or_unpriced"
       },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.3",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.9",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
+      "rates": [],
       "metadata": {
         "status": "live",
-        "context_length": 131072,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": false,
@@ -29462,22 +29907,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.17,
-          "output": 0.25
+          "input": 0.134,
+          "output": 0.197
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.17",
+          "amount": "0.134",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.25",
+          "amount": "0.197",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -29866,107 +30311,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-e89e9af8d766c1a3bc20d282",
-      "provider": "huggingface",
-      "native_id": "moonshotai/Kimi-K2.6",
-      "kind": "provider_route",
-      "label": "moonshotai/Kimi-K2.6",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.95,
-          "output": 4
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.95",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-e8c85f915a6b90c516e8c0d6",
-      "provider": "huggingface",
-      "native_id": "meta-llama/Llama-3.3-70B-Instruct",
-      "kind": "provider_route",
-      "label": "meta-llama/Llama-3.3-70B-Instruct",
-      "scope": {
-        "upstream_provider": "novita"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.135,
-          "output": 0.4
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.135",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 12288,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-e92122274fc3a2cd51c464b0",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.8-27B",
@@ -30169,6 +30513,56 @@
           "input_modalities": [
             "text",
             "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-ebcd614c9e0d76b8ceabcf39",
+      "provider": "huggingface",
+      "native_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "kind": "provider_route",
+      "label": "meta-llama/Llama-3.1-8B-Instruct",
+      "scope": {
+        "upstream_provider": "amazon-bedrock"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.22,
+          "output": 0.22
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.22",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.22",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -30418,13 +30812,34 @@
         "upstream_provider": "featherless-ai"
       },
       "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
+        "rules": {
+          "input": 0.42,
+          "output": 1.32
+        },
+        "state": "reported"
       },
-      "rates": [],
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.42",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.32",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
       "metadata": {
         "status": "live",
+        "context_length": 262144,
         "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -31986,7 +32401,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.06,
+          "input": 0.060000000000000005,
           "output": 0.18
         },
         "state": "reported"
@@ -31994,7 +32409,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.06",
+          "amount": "0.060000000000000005",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -32063,36 +32478,7 @@
         "context_length": 163840,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-fb0da48503f898a2bd82cdd3",
-      "provider": "huggingface",
-      "native_id": "meta-llama/Llama-3.2-1B-Instruct",
-      "kind": "provider_route",
-      "label": "meta-llama/Llama-3.2-1B-Instruct",
-      "scope": {
-        "upstream_provider": "featherless-ai"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -32191,57 +32577,6 @@
       "metadata": {
         "status": "live",
         "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-fbb48de8aac67c9a9b31a4bd",
-      "provider": "huggingface",
-      "native_id": "moonshotai/Kimi-K2.7-Code",
-      "kind": "provider_route",
-      "label": "moonshotai/Kimi-K2.7-Code",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.95,
-          "output": 4
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.95",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -32461,56 +32796,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-fdb0db74584aaa54cc6f9117",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-5.2",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-5.2",
-      "scope": {
-        "upstream_provider": "cloudflare"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.19,
-          "output": 8
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.19",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "8",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-fe0da95a40bf4b7bf1dd9a61",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.5-397B-A17B",
@@ -32572,22 +32857,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0966,
-          "output": 0.1925
+          "input": 0.138,
+          "output": 0.275
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0966",
+          "amount": "0.138",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.1925",
+          "amount": "0.275",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -32745,15 +33030,15 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "737d55d5de0c1ec1c195d831ac700b7e3346e00c54111778cd1d0ee8dec68509",
-  "revision": 61,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "21b0a396845eee17182e2d251870140baf920933934593966e4ed999d0f37ed9",
+  "revision": 62,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "78bbda7a5cf694f2fc09957cc074cb98e4821d83baa2ed4ad60fe283ae59930f",
+  "source_sha256": "028cb9d9c7af1c12c6792f97cffcfa1307588e8a26c389a83dd167e8f4177d70",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

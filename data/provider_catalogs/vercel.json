@@ -6442,6 +6442,62 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-227cc26061be185b242577a4",
+      "provider": "vercel",
+      "native_id": "modaic/mo",
+      "kind": "model",
+      "label": "Mo",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000004",
+          "output": "0"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000004",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mo",
+        "owned_by": "modaic",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-23418c6b7b30e816a1cb40aa",
       "provider": "vercel",
       "native_id": "xiaomi/mimo-v2.6-pro-ultraspeed",
@@ -16036,45 +16092,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-51c12565f217974d4b5e7898",
-      "provider": "vercel",
-      "native_id": "prodia/flux-fast-schnell",
-      "kind": "model",
-      "label": "Flux Schnell",
-      "scope": {},
-      "billing": {
-        "rules": {},
-        "currency": "USD",
-        "state": "native_rules_only",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [],
-      "metadata": {
-        "name": "Flux Schnell",
-        "owned_by": "prodia",
-        "type": "image",
-        "context_window": 512,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text"
-          ],
-          "output": [
-            "image"
-          ]
-        },
-        "zdr": "none",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-51ea9d532d7f1765292977b6",
       "provider": "vercel",
       "native_id": "klingai/kling-v3.0-t2v",
@@ -18880,7 +18897,7 @@
         "name": "DeepSeek V4 Pro 0813",
         "owned_by": "deepseek",
         "type": "language",
-        "context_window": 1000000,
+        "context_window": 1048600,
         "max_tokens": 384000,
         "supported_parameters": [
           "max_tokens",
@@ -27129,6 +27146,63 @@
           ]
         },
         "zdr": "all",
+        "no_training": "all"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "vercel-90c6c0d88f9c925f48911b24",
+      "provider": "vercel",
+      "native_id": "openai/gpt-live-1.1",
+      "kind": "model",
+      "label": "GPT-Live 1.1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "realtime_session_duration_cost_per_second": "0.0008334",
+          "web_search": "10"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "realtime_session_duration_cost_per_second",
+          "amount": "0.0008334",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "GPT-Live 1.1",
+        "owned_by": "openai",
+        "type": "realtime",
+        "context_window": 0,
+        "max_tokens": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "stop"
+        ],
+        "supported_specifications": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "audio"
+          ],
+          "output": [
+            "text",
+            "audio"
+          ]
+        },
+        "zdr": "none",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -47266,130 +47340,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-fdc8cbda0189c247f3fb6d23",
-      "provider": "vercel",
-      "native_id": "spacexai/grok-build-0.1",
-      "kind": "model",
-      "label": "Grok Build 0.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.000001",
-          "input_cache_read": "0.0000002",
-          "input_cache_read_tiers": [
-            {
-              "cost": "0.0000002",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.0000004",
-              "min": 200001
-            }
-          ],
-          "input_tiers": [
-            {
-              "cost": "0.000001",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.000002",
-              "min": 200001
-            }
-          ],
-          "output": "0.000002",
-          "output_tiers": [
-            {
-              "cost": "0.000002",
-              "max": 200001,
-              "min": 0
-            },
-            {
-              "cost": "0.000004",
-              "min": 200001
-            }
-          ],
-          "service_tiers": {
-            "priority": {
-              "input": "0.000002",
-              "input_cache_read": "0.0000004",
-              "long_context": {
-                "input": "0.000004",
-                "input_cache_read": "0.0000008",
-                "output": "0.000008",
-                "threshold": 200001
-              },
-              "output": "0.000004"
-            }
-          },
-          "web_search": "5"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0000002",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Grok Build 0.1",
-        "owned_by": "spacexai",
-        "type": "language",
-        "context_window": 256000,
-        "max_tokens": 256000,
-        "supported_parameters": [
-          "max_tokens",
-          "temperature",
-          "stop",
-          "tools",
-          "tool_choice",
-          "reasoning",
-          "include_reasoning",
-          "response_format",
-          "structured_outputs"
-        ],
-        "supported_specifications": [
-          "v2",
-          "v3",
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "all",
-        "no_training": "all"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-feebae25363b64768cc7c8d6",
       "provider": "vercel",
       "native_id": "elevenlabs/eleven-flash-v2.5",
@@ -47484,14 +47434,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "6a095ffdab26cad277c9f268840d69dec95da393677bb1d0a5051fa96b642e47",
-  "revision": 50,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "c22cf468797455ec49bf769d3d951fef2221bff6bf5a50fffc6a8e699bd3fde6",
+  "revision": 51,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "6d47bcec658e919c3f3136f2a5ae38a4da4d6fd8b2e826073fd0069ba2f0af86",
+  "source_sha256": "92163e76c3f8cf2a181e9b2aa1359b898636877b1a2ca19271ab35130a1240c5",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

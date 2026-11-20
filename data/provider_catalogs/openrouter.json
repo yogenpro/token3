@@ -377,9 +377,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000336",
-          "input_cache_read": "0.00000000336",
-          "prompt": "0.000000112"
+          "completion": "0.00000015",
+          "input_cache_read": "0.000000004",
+          "prompt": "0.00000005"
         },
         "currency": "USD",
         "state": "reported",
@@ -389,21 +389,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000112",
+          "amount": "0.00000005",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000336",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000000336",
+          "amount": "0.000000004",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -429,7 +429,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 384000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -2677,9 +2677,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000444",
-          "input_cache_read": "0.000000097",
-          "prompt": "0.000000111"
+          "completion": "0.00000396",
+          "input_cache_read": "0.000000044",
+          "prompt": "0.00000132"
         },
         "currency": "USD",
         "state": "reported",
@@ -2689,21 +2689,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000111",
+          "amount": "0.00000132",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000444",
+          "amount": "0.00000396",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000097",
+          "amount": "0.000000044",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -3302,88 +3302,6 @@
           "temperature": 1,
           "top_k": 20,
           "top_p": 0.95
-        },
-        "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-13a5185dc77c7fdbfb25781a",
-      "provider": "openrouter",
-      "native_id": "cohere/north-mini-code:free",
-      "kind": "model",
-      "label": "Cohere: North Mini Code (free)",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0",
-          "prompt": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Cohere: North Mini Code (free)",
-        "canonical_slug": "cohere/north-mini-code-20260617",
-        "hugging_face_id": "CohereLabs/North-Mini-Code-1.0",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": null,
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Cohere"
-        },
-        "context_length": 256000,
-        "top_provider": {
-          "context_length": 256000,
-          "is_moderated": true,
-          "max_completion_tokens": 64000
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "include_reasoning",
-          "max_tokens",
-          "presence_penalty",
-          "reasoning",
-          "seed",
-          "stop",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null,
-          "temperature": null,
-          "top_k": null,
-          "top_p": null
         },
         "expiration_date": null,
         "knowledge_cutoff": null
@@ -6680,9 +6598,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000015",
-          "input_cache_read": "0.000000003",
-          "prompt": "0.000000036"
+          "completion": "0.000000149",
+          "input_cache_read": "0.0000000029",
+          "prompt": "0.000000035"
         },
         "currency": "USD",
         "state": "reported",
@@ -6692,21 +6610,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000036",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000015",
+          "amount": "0.000000149",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000003",
+          "amount": "0.0000000029",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -8335,7 +8253,7 @@
         "top_provider": {
           "context_length": null,
           "is_moderated": false,
-          "max_completion_tokens": 64000
+          "max_completion_tokens": 128000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -9691,9 +9609,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000075",
-          "prompt": "0.00000015"
+          "completion": "0.00000036",
+          "prompt": "0.00000009"
         },
         "currency": "USD",
         "state": "reported",
@@ -9703,23 +9620,16 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.00000009",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.00000036",
           "currency": "USD",
           "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.000000075",
-          "currency": "USD",
-          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -9742,7 +9652,7 @@
         "top_provider": {
           "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 117964
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -10226,6 +10136,7 @@
           "temperature",
           "tool_choice",
           "tools",
+          "top_k",
           "top_p"
         ],
         "default_parameters": {},
@@ -10507,8 +10418,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000003",
+          "completion": "0.0000012",
+          "input_cache_read": "0.000000006",
           "overrides": [
             {
               "completion": "0.0000006",
@@ -10590,7 +10501,7 @@
               "utc_start": 1000
             }
           ],
-          "prompt": "0.00000015"
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -10600,21 +10511,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000003",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -11722,17 +11633,26 @@
         },
         "per_request_limits": null,
         "supported_parameters": [
+          "frequency_penalty",
           "include_reasoning",
+          "logit_bias",
+          "logprobs",
           "max_completion_tokens",
           "max_tokens",
+          "min_p",
+          "presence_penalty",
           "reasoning",
           "reasoning_effort",
+          "repetition_penalty",
           "response_format",
           "stop",
           "structured_outputs",
           "temperature",
           "tool_choice",
-          "tools"
+          "tools",
+          "top_k",
+          "top_logprobs",
+          "top_p"
         ],
         "default_parameters": {},
         "expiration_date": null,
@@ -12050,7 +11970,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.20",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.20",
+      "label": "SpaceXSI: Grok 4.20",
       "scope": {},
       "billing": {
         "rules": {
@@ -12103,7 +12023,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.20",
+        "name": "SpaceXSI: Grok 4.20",
         "canonical_slug": "x-ai/grok-4.20-20260309",
         "hugging_face_id": "",
         "architecture": {
@@ -14979,7 +14899,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.3",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.3",
+      "label": "SpaceXSI: Grok 4.3",
       "scope": {},
       "billing": {
         "rules": {
@@ -15032,7 +14952,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.3",
+        "name": "SpaceXSI: Grok 4.3",
         "canonical_slug": "x-ai/grok-4.3-20260430",
         "hugging_face_id": null,
         "architecture": {
@@ -15564,7 +15484,7 @@
         "top_provider": {
           "context_length": null,
           "is_moderated": false,
-          "max_completion_tokens": 64000
+          "max_completion_tokens": 128000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -16536,7 +16456,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.7:batch",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.7 (batch)",
+      "label": "SpaceXSI: Grok 4.7 (batch)",
       "scope": {},
       "billing": {
         "rules": {
@@ -16589,7 +16509,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.7 (batch)",
+        "name": "SpaceXSI: Grok 4.7 (batch)",
         "canonical_slug": "x-ai/grok-4.7-20260916",
         "hugging_face_id": null,
         "architecture": {
@@ -16926,8 +16846,8 @@
       "billing": {
         "rules": {
           "completion": "0.000001",
-          "input_cache_read": "0.00000004",
-          "prompt": "0.0000003"
+          "input_cache_read": "0.00000005",
+          "prompt": "0.00000025"
         },
         "currency": "USD",
         "state": "reported",
@@ -16937,7 +16857,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000003",
+          "amount": "0.00000025",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -16951,7 +16871,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000004",
+          "amount": "0.00000005",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -16976,7 +16896,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 131072
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -17609,7 +17529,7 @@
         "context_length": 1050000,
         "top_provider": {
           "context_length": 1050000,
-          "is_moderated": true,
+          "is_moderated": false,
           "max_completion_tokens": 128000
         },
         "per_request_limits": null,
@@ -17885,80 +17805,6 @@
         "default_parameters": {},
         "expiration_date": null,
         "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-69704f8db2f5f5ccd15fde3c",
-      "provider": "openrouter",
-      "native_id": "meta-llama/llama-3.2-1b-instruct",
-      "kind": "model",
-      "label": "Meta: Llama 3.2 1B Instruct",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.000000201",
-          "prompt": "0.000000027"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.000000027",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.000000201",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Meta: Llama 3.2 1B Instruct",
-        "canonical_slug": "meta-llama/llama-3.2-1b-instruct",
-        "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "instruct_type": "llama3",
-          "modality": "text->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Llama3"
-        },
-        "context_length": 60000,
-        "top_provider": {
-          "context_length": 60000,
-          "is_moderated": false,
-          "max_completion_tokens": 54000
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "frequency_penalty",
-          "logit_bias",
-          "max_tokens",
-          "min_p",
-          "presence_penalty",
-          "repetition_penalty",
-          "seed",
-          "stop",
-          "temperature",
-          "top_k",
-          "top_p"
-        ],
-        "default_parameters": {},
-        "expiration_date": "2026-11-20",
-        "knowledge_cutoff": "2023-12-31"
       },
       "comparison_eligible": false
     },
@@ -19443,9 +19289,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000005",
+          "completion": "0.0000000784",
           "input_cache_read": "0.00000003",
-          "prompt": "0.00000015"
+          "prompt": "0.0000000399"
         },
         "currency": "USD",
         "state": "reported",
@@ -19455,14 +19301,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.0000000399",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000005",
+          "amount": "0.0000000784",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -19494,9 +19340,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048575,
+          "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 943717
+          "max_completion_tokens": 131072
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -21324,7 +21170,7 @@
       "billing": {
         "rules": {
           "completion": "0.0000015",
-          "input_cache_read": "0.00000025",
+          "input_cache_read": "0.0000002",
           "prompt": "0.0000009"
         },
         "currency": "USD",
@@ -21349,7 +21195,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000025",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21928,9 +21774,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000002028",
-          "input_cache_read": "0.000000001014",
-          "prompt": "0.0000000507"
+          "completion": "0.0000012",
+          "input_cache_read": "0.000000006",
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -21940,21 +21786,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000507",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000002028",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001014",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21980,7 +21826,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 393216
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -22121,7 +21967,7 @@
         "rules": {
           "completion": "0.0000003",
           "input_cache_read": "0.000000035",
-          "prompt": "0.000000062"
+          "prompt": "0.000000047"
         },
         "currency": "USD",
         "state": "reported",
@@ -22131,7 +21977,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000062",
+          "amount": "0.000000047",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -22780,7 +22626,7 @@
         "context_length": 1050000,
         "top_provider": {
           "context_length": 1050000,
-          "is_moderated": true,
+          "is_moderated": false,
           "max_completion_tokens": 128000
         },
         "per_request_limits": null,
@@ -23175,7 +23021,7 @@
         "top_provider": {
           "context_length": null,
           "is_moderated": false,
-          "max_completion_tokens": 64000
+          "max_completion_tokens": 128000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -23588,9 +23434,13 @@
           "reasoning",
           "reasoning_effort",
           "repetition_penalty",
+          "response_format",
           "seed",
           "stop",
+          "structured_outputs",
           "temperature",
+          "tool_choice",
+          "tools",
           "top_k",
           "top_p"
         ],
@@ -24963,8 +24813,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000335",
-          "prompt": "0.0000000509"
+          "completion": "0.00000033",
+          "prompt": "0.00000005"
         },
         "currency": "USD",
         "state": "reported",
@@ -24974,14 +24824,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000509",
+          "amount": "0.00000005",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000335",
+          "amount": "0.00000033",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -25004,9 +24854,9 @@
         },
         "context_length": 131072,
         "top_provider": {
-          "context_length": 80000,
+          "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 72000
+          "max_completion_tokens": 117964
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -25014,7 +24864,6 @@
           "logit_bias",
           "logprobs",
           "max_tokens",
-          "min_p",
           "presence_penalty",
           "repetition_penalty",
           "seed",
@@ -25026,7 +24875,7 @@
           "top_p"
         ],
         "default_parameters": {},
-        "expiration_date": "2026-11-20",
+        "expiration_date": null,
         "knowledge_cutoff": "2023-12-31"
       },
       "comparison_eligible": false
@@ -25602,7 +25451,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.6",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.6",
+      "label": "SpaceXSI: Grok 4.6",
       "scope": {},
       "billing": {
         "rules": {
@@ -25655,7 +25504,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.6",
+        "name": "SpaceXSI: Grok 4.6",
         "canonical_slug": "x-ai/grok-4.6-20260810",
         "hugging_face_id": null,
         "architecture": {
@@ -26752,7 +26601,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.3:batch",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.3 (batch)",
+      "label": "SpaceXSI: Grok 4.3 (batch)",
       "scope": {},
       "billing": {
         "rules": {
@@ -26805,7 +26654,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.3 (batch)",
+        "name": "SpaceXSI: Grok 4.3 (batch)",
         "canonical_slug": "x-ai/grok-4.3-20260430",
         "hugging_face_id": null,
         "architecture": {
@@ -26923,8 +26772,8 @@
       "billing": {
         "rules": {
           "completion": "0.0000005",
-          "input_cache_read": "0.000000003",
-          "prompt": "0.00000006"
+          "input_cache_read": "0.000000006",
+          "prompt": "0.00000007"
         },
         "currency": "USD",
         "state": "reported",
@@ -26934,7 +26783,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000006",
+          "amount": "0.00000007",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -26948,7 +26797,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000003",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -27490,8 +27339,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000003",
-          "input_cache_read": "0.0000000075",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000015",
           "overrides": [
             {
               "completion": "0.0000003",
@@ -27508,7 +27357,7 @@
               "utc_start": 100
             }
           ],
-          "prompt": "0.000000075"
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -27518,21 +27367,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000075",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000003",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000075",
+          "amount": "0.000000015",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -31018,7 +30867,7 @@
         "rules": {
           "completion": "0.0000110055",
           "input_cache_read": "0.00000018",
-          "prompt": "0.0000001824"
+          "prompt": "0.0000001805"
         },
         "currency": "USD",
         "state": "reported",
@@ -31028,7 +30877,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000001824",
+          "amount": "0.0000001805",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -32321,9 +32170,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000035",
-          "input_cache_read": "0.00000016",
-          "prompt": "0.00000065"
+          "completion": "0.000003",
+          "input_cache_read": "0.00000012",
+          "prompt": "0.0000006"
         },
         "currency": "USD",
         "state": "reported",
@@ -32333,21 +32182,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000065",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000035",
+          "amount": "0.000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000016",
+          "amount": "0.00000012",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -32382,7 +32231,6 @@
           "logit_bias",
           "logprobs",
           "max_tokens",
-          "min_p",
           "parallel_tool_calls",
           "presence_penalty",
           "reasoning",
@@ -32787,7 +32635,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.7",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.7",
+      "label": "SpaceXSI: Grok 4.7",
       "scope": {},
       "billing": {
         "rules": {
@@ -32840,7 +32688,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.7",
+        "name": "SpaceXSI: Grok 4.7",
         "canonical_slug": "x-ai/grok-4.7-20260916",
         "hugging_face_id": null,
         "architecture": {
@@ -33224,9 +33072,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000000069",
-          "input_cache_read": "0.00000001",
-          "prompt": "0.000000024"
+          "completion": "0.000000068",
+          "input_cache_read": "0.000000009",
+          "prompt": "0.000000023"
         },
         "currency": "USD",
         "state": "reported",
@@ -33236,21 +33084,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000024",
+          "amount": "0.000000023",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000000069",
+          "amount": "0.000000068",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000001",
+          "amount": "0.000000009",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -33275,9 +33123,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048576,
+          "context_length": 1048575,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 943717
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -33532,8 +33380,8 @@
       "billing": {
         "rules": {
           "completion": "0.000008",
-          "input_cache_read": "0.0000000999",
-          "prompt": "0.0000000999"
+          "input_cache_read": "0.00000026",
+          "prompt": "0.0000002565"
         },
         "currency": "USD",
         "state": "reported",
@@ -33543,7 +33391,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000999",
+          "amount": "0.0000002565",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -33557,7 +33405,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000999",
+          "amount": "0.00000026",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -33700,114 +33548,6 @@
           "top_p"
         ],
         "default_parameters": {},
-        "expiration_date": null,
-        "knowledge_cutoff": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "openrouter-bdefd7a54388bdff5b0a9021",
-      "provider": "openrouter",
-      "native_id": "x-ai/grok-build-0.1",
-      "kind": "model",
-      "label": "SpaceXAI: Grok Build 0.1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "completion": "0.000002",
-          "input_cache_read": "0.0000002",
-          "overrides": [
-            {
-              "completion": "0.000004",
-              "input_cache_read": "0.0000004",
-              "min_prompt_tokens": 200000,
-              "prompt": "0.000002"
-            }
-          ],
-          "prompt": "0.000001",
-          "web_search": "0.005"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "prompt",
-          "amount": "0.000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "completion",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        },
-        {
-          "dimension": "input_cache_read",
-          "amount": "0.0000002",
-          "currency": "USD",
-          "unit": "cached input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "web_search",
-          "amount": "0.005",
-          "currency": "USD",
-          "unit": "search",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "SpaceXAI: Grok Build 0.1",
-        "canonical_slug": "x-ai/grok-build-0.1-20260520",
-        "hugging_face_id": null,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image",
-            "file"
-          ],
-          "instruct_type": null,
-          "modality": "text+image+file->text",
-          "output_modalities": [
-            "text"
-          ],
-          "tokenizer": "Grok"
-        },
-        "context_length": 256000,
-        "top_provider": {
-          "context_length": 256000,
-          "is_moderated": false,
-          "max_completion_tokens": 230400
-        },
-        "per_request_limits": null,
-        "supported_parameters": [
-          "include_reasoning",
-          "logprobs",
-          "max_tokens",
-          "reasoning",
-          "response_format",
-          "seed",
-          "structured_outputs",
-          "temperature",
-          "tool_choice",
-          "tools",
-          "top_logprobs",
-          "top_p"
-        ],
-        "default_parameters": {
-          "frequency_penalty": null,
-          "presence_penalty": null,
-          "repetition_penalty": null,
-          "temperature": null,
-          "top_k": null,
-          "top_p": null
-        },
         "expiration_date": null,
         "knowledge_cutoff": null
       },
@@ -35266,9 +35006,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000013992",
-          "input_cache_read": "0.000000001484",
-          "prompt": "0.00000004664"
+          "completion": "0.0000003",
+          "input_cache_read": "0.000000035",
+          "prompt": "0.000000047"
         },
         "currency": "USD",
         "state": "reported",
@@ -35278,21 +35018,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000004664",
+          "amount": "0.000000047",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000013992",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001484",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -35317,7 +35057,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -36966,7 +36706,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.6:batch",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.6 (batch)",
+      "label": "SpaceXSI: Grok 4.6 (batch)",
       "scope": {},
       "billing": {
         "rules": {
@@ -37019,7 +36759,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.6 (batch)",
+        "name": "SpaceXSI: Grok 4.6 (batch)",
         "canonical_slug": "x-ai/grok-4.6-20260810",
         "hugging_face_id": null,
         "architecture": {
@@ -38903,7 +38643,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.5",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.5",
+      "label": "SpaceXSI: Grok 4.5",
       "scope": {},
       "billing": {
         "rules": {
@@ -38956,7 +38696,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.5",
+        "name": "SpaceXSI: Grok 4.5",
         "canonical_slug": "x-ai/grok-4.5-20260708",
         "hugging_face_id": null,
         "architecture": {
@@ -39096,8 +38836,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000156",
-          "prompt": "0.000000195"
+          "completion": "0.0000026",
+          "prompt": "0.00000026"
         },
         "currency": "USD",
         "state": "reported",
@@ -39107,14 +38847,14 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000195",
+          "amount": "0.00000026",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000156",
+          "amount": "0.0000026",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
@@ -39141,7 +38881,7 @@
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
-          "max_completion_tokens": 65536
+          "max_completion_tokens": 81920
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -40191,9 +39931,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000125",
-          "input_cache_read": "0.000000062",
-          "prompt": "0.000000281"
+          "completion": "0.000001249",
+          "input_cache_read": "0.000000061",
+          "prompt": "0.00000028"
         },
         "currency": "USD",
         "state": "reported",
@@ -40203,21 +39943,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000281",
+          "amount": "0.00000028",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000125",
+          "amount": "0.000001249",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000062",
+          "amount": "0.000000061",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -40240,9 +39980,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048576,
+          "context_length": 1048575,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 943717
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -40373,6 +40113,75 @@
           "top_k": null,
           "top_p": null
         },
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-e19ca68c76e7d8e84e89e74d",
+      "provider": "openrouter",
+      "native_id": "mistralai/pixtral-large-2502",
+      "kind": "model",
+      "label": "Mistral: Pixtral Large 2502",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.000006",
+          "prompt": "0.000002"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000006",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mistral: Pixtral Large 2502",
+        "canonical_slug": "mistralai/pixtral-large-2502",
+        "hugging_face_id": null,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "instruct_type": null,
+          "modality": "text+image->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral"
+        },
+        "context_length": 128000,
+        "top_provider": {
+          "context_length": 128000,
+          "is_moderated": true,
+          "max_completion_tokens": 102400
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "max_tokens",
+          "stop",
+          "temperature",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
         "expiration_date": null,
         "knowledge_cutoff": null
       },
@@ -41197,9 +41006,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000015",
-          "input_cache_read": "0.0000000015",
-          "prompt": "0.000000035"
+          "completion": "0.0000005",
+          "input_cache_read": "0.00000001",
+          "prompt": "0.000000036"
         },
         "currency": "USD",
         "state": "reported",
@@ -41209,21 +41018,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000035",
+          "amount": "0.000000036",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000015",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000015",
+          "amount": "0.00000001",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -44966,7 +44775,7 @@
       "provider": "openrouter",
       "native_id": "x-ai/grok-4.20-multi-agent",
       "kind": "model",
-      "label": "SpaceXAI: Grok 4.20 Multi-Agent",
+      "label": "SpaceXSI: Grok 4.20 Multi-Agent",
       "scope": {},
       "billing": {
         "rules": {
@@ -45019,7 +44828,7 @@
         }
       ],
       "metadata": {
-        "name": "SpaceXAI: Grok 4.20 Multi-Agent",
+        "name": "SpaceXSI: Grok 4.20 Multi-Agent",
         "canonical_slug": "x-ai/grok-4.20-multi-agent-20260309",
         "hugging_face_id": "",
         "architecture": {
@@ -45276,14 +45085,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "981f83c2424ceeab5b50305c65cf1eca888b68570473e4352e68d1fa772379e5",
-  "revision": 61,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "07a84d88b8e330ba947ea20d3f7a6f3138209bfe02d08fd1a3b57d5b31c31133",
+  "revision": 62,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "50c0a8db27012fe7b8a8ca647667814cc0e117a6e1d06ab6795dfe617118b5be",
+  "source_sha256": "44a059991b934ac87306306c054bb6344b22255aeb87ab3dcb6c61627f42d352",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -1031,6 +1031,8 @@
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Agents are billed in AI Credits per million tokens processed. Because agents orchestrate multi-step workflows, costs are additive across the underlying services the agent invokes (such as Cortex Analyst and Cortex Search). The specific rate depends on the model selected for orchestration. You can monitor per-agent usage through the [CORTEX_AGENT_USAGE_HISTORY](/sql-reference/account-usage/cortex_agent_usage_history) view.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Batch Search is billed Credits per GB per hour of indexed data for the duration of the batch job. Unlike interactive Cortex Search, serving compute only runs while the batch job is active rather than continuously. Additional costs include query embedding tokens and virtual warehouse compute for orchestration.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Search is billed based on two components: serving compute and embedding compute. Serving compute is charged Credits per GB per month of indexed data (including vector embeddings) and runs continuously while the service is resumed. Embedding compute is charged per token when data is inserted or updated. For more details, see [Understanding cost for Cortex Search Services](/user-guide/snowflake-cortex/cortex-search/cortex-search-costs).",
+    "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Cortex Search is currently billed only at the regional routing AI Credit price, regardless of the `CORTEX_ENABLED_CROSS_REGION` setting. Cortex Search indexes are always created and served in your account's region, and index serving is the dominant cost of a Cortex Search Service.",
+    "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Like Cortex Search, Cortex Batch Search is currently billed only at the regional routing AI Credit price, regardless of the `CORTEX_ENABLED_CROSS_REGION` setting, because indexes are always served in your account's region.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: No action is required to receive the ACV based discounts. Note that capacity discounts don't apply to AI Credits.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Platform Credits. Platform Credit prices may vary by edition and region.",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: Snowflake AI features use **AI Credit pricing**, a flat, simplified pricing model for AI services.",
@@ -1043,19 +1045,19 @@
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: provide a flat pricing model regardless of edition (Standard, Enterprise, Business Critical, or VPS)",
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md: storage, and data transfer continue to use Platform Credit pricing. Your existing capacity balance"
   ],
-  "catalog_sha256": "147950cf06be8b76090043da48e01aeab777e89fd19da920432e7a90ced65f2e",
-  "revision": 11,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "e42203ae0fdf3fae5b733d5f264a44845e03155eda25d802c0a4674a8d73887b",
+  "revision": 12,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
   "source_urls": [
     "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
     "https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf"
   ],
-  "source_sha256": "4b12919e2e32b090d9a7a25715cbfad02e3acca5c6f960cae752fc119424c1a4",
+  "source_sha256": "781e02270edc3ba1337ebe2a478cb4effba3e129b846d6c137f9759c445a12b8",
   "archive_reference": {
     "state": "unavailable",
     "target_url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing.md",
-    "checked_at": "2026-11-19T15:45:31Z"
+    "checked_at": "2026-11-20T08:35:09Z"
   },
   "source_evidence": [
     {

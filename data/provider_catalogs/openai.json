@@ -4165,6 +4165,66 @@
       "comparison_eligible": false
     },
     {
+      "id": "openai-2fade1be07ac17e04651560e",
+      "provider": "openai",
+      "native_id": "0b92cf0583c269f01ab2ff8d",
+      "kind": "document_row",
+      "label": "gpt-live-1",
+      "scope": {
+        "table": 13,
+        "headings": [
+          "Pricing",
+          "Pricing Table data"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Active rate",
+          "Standby rate"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "gpt-live-1",
+          "$0.05 / minute",
+          "$0.02 / minute"
+        ],
+        "columns": [
+          "Model",
+          "Active rate",
+          "Standby rate"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Active rate:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "/ minute",
+          "conditions": {
+            "source_expression": "$0.05 / minute",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Standby rate:0",
+          "amount": "0.02",
+          "currency": "USD",
+          "unit": "/ minute",
+          "conditions": {
+            "source_expression": "$0.02 / minute",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "openai-30469bf769a91010c016909c",
       "provider": "openai",
       "native_id": "69b1c7aede51c487410ac653",
@@ -6398,52 +6458,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "openai-5af5c9550e565b03863e7ca1",
-      "provider": "openai",
-      "native_id": "0b92cf0583c269f01ab2ff8d",
-      "kind": "document_row",
-      "label": "gpt-live-1",
-      "scope": {
-        "table": 13,
-        "headings": [
-          "Pricing",
-          "Pricing Table data"
-        ],
-        "tabs": [],
-        "headers": [
-          "Model",
-          "Price per minute"
-        ]
-      },
-      "billing": {
-        "cells": [
-          "gpt-live-1",
-          "$0.05"
-        ],
-        "columns": [
-          "Model",
-          "Price per minute"
-        ],
-        "alignment_verified": true,
-        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
-      },
-      "rates": [
-        {
-          "dimension": "Price per minute:0",
-          "amount": "0.05",
-          "currency": "USD",
-          "unit": "per minute",
-          "conditions": {
-            "source_expression": "$0.05",
-            "unit_verified": true,
-            "active_rate_not_inferred": true
-          }
-        }
-      ],
-      "metadata": {},
-      "comparison_eligible": false
-    },
-    {
       "id": "openai-5c44e4a41f601a31c19fdcdc",
       "provider": "openai",
       "native_id": "252c6f24fc78652ef1cfdfcf",
@@ -8631,6 +8645,66 @@
           "conditions": {
             "source_expression": "$0.625",
             "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "openai-75a387cd2020ff812ed5090c",
+      "provider": "openai",
+      "native_id": "63517ae4bff215ecffce65a7",
+      "kind": "document_row",
+      "label": "gpt-live-1.1",
+      "scope": {
+        "table": 13,
+        "headings": [
+          "Pricing",
+          "Pricing Table data"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Active rate",
+          "Standby rate"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "gpt-live-1.1",
+          "$0.05 / minute",
+          "$0.02 / minute"
+        ],
+        "columns": [
+          "Model",
+          "Active rate",
+          "Standby rate"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Active rate:0",
+          "amount": "0.05",
+          "currency": "USD",
+          "unit": "/ minute",
+          "conditions": {
+            "source_expression": "$0.05 / minute",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Standby rate:0",
+          "amount": "0.02",
+          "currency": "USD",
+          "unit": "/ minute",
+          "conditions": {
+            "source_expression": "$0.02 / minute",
+            "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
@@ -20348,6 +20422,7 @@
     "For GPT‑6.2 Astra, GPT‑6.2 Sol, GPT‑6.1 Terra, and GPT‑6 Luna, model token rates for [eligible background requests](https://developers.openai.com/api/docs/guides/background#use-discounted-completion-windows) are 30% below Standard for the 2‑hour completion window and 40% below Standard for the 8‑hour completion window.",
     "For `gpt-4o-mini` and `gpt-4.1-mini` with the non-preview web search tool, search content tokens are billed as a fixed block of 8,000 input tokens per call.",
     "GPT-6 Astra for Law, GPT-6.2 Astra for Law, and GPT-6 Rosalind promotional pricing is available at least through December 31, 2026. Regional processing (data residency) endpoints are charged a 10% uplift for models released on or after March 5, 2026. For standalone FedRAMP endpoints, GPT-6 Rosalind rates are 10% above the corresponding global rates.",
+    "GPT-Live bills voice sessions per second.",
     "OpenAI models on Amazon Bedrock and Microsoft Azure are billed through those services.",
     "Prices per 1M tokens unless noted.",
     "Prices per 1M tokens.",
@@ -20355,21 +20430,22 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for models released on or after March 5, 2026. FedRAMP endpoints are also charged a 10% uplift. Priority processing was renamed Fast mode on July 30, 2026. GPT-5.6 Sol’s promotional pricing is available until November 30, 2026.",
     "Short context: ≤272K input tokens. Long context: >272K input tokens.",
     "Tokens used for built-in tools are billed at the chosen model's per-token rates.",
-    "Web search content tokens are tokens retrieved from the search index and fed to the model alongside your prompt to generate an answer.",
-    "[GPT-Live-1](https://developers.openai.com/api/docs/models/gpt-live-1) voice sessions are billed per second,",
-    "without rounding up to a whole minute. Backend model and tool usage is charged"
+    "Web search content tokens are tokens retrieved from the search index and fed to the model alongside your prompt to generate an answer."
   ],
-  "catalog_sha256": "867f6c2f9f75ebd763319e20e96ac67c60e86c42a8798c5ea85b9456d2e05a64",
-  "revision": 17,
-  "changed_at": "2026-11-18T15:40:51Z",
+  "catalog_sha256": "aa461ac1412a54f94f4eff9d4e97c527d126b75be1fcf4817f549b65ded24b47",
+  "revision": 18,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://developers.openai.com/api/docs/pricing",
   "source_urls": [
     "https://developers.openai.com/api/docs/pricing.md"
   ],
-  "source_sha256": "427698a0c4f1cf4abb2569cb0f9a4ca7fcacfa2f45d61a75f221f0b590ac5114",
+  "source_sha256": "88f7825ffddb006fefea4d3838831bd3deaed6f72df6914ad79aefa021d51355",
   "archive_reference": {
-    "state": "unavailable",
+    "state": "content_mismatch",
     "target_url": "https://developers.openai.com/api/docs/pricing.md",
-    "checked_at": "2026-11-18T15:40:51Z"
+    "url": "https://web.archive.org/web/20261117181118/https://developers.openai.com/api/docs/pricing.md",
+    "capture_at": "2026-11-17T18:11:18Z",
+    "checked_at": "2026-11-20T08:35:09Z",
+    "verification": null
   }
 }

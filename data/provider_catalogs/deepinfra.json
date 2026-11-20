@@ -7856,6 +7856,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-6219908f408b1ae6edf56889",
+      "provider": "deepinfra",
+      "native_id": "RadixArk/DaisyRose-27B",
+      "kind": "model",
+      "label": "RadixArk/DaisyRose-27B",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": 0.25,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 2e-05,
+          "cents_per_output_token": 0.00025,
+          "rate_per_input_token_cached": 0.25,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.0000025",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 262144,
+        "quantization": null
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-624b478fc7fc14f80fcb1a32",
       "provider": "deepinfra",
       "native_id": "XiaomiMiMo/MiMo-V2.6-Flash",
@@ -12603,7 +12656,7 @@
       "billing": {
         "state": "reported",
         "rules": {
-          "discount": null,
+          "discount": 0.33,
           "discount_ends_at": null,
           "short": null,
           "full": null,
@@ -19606,14 +19659,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "2d0a2aaa1498a6e7f825e46299157e8d1758a92391df2bb5bc8c67847d856484",
-  "revision": 31,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "e58bd1c30d76352564c8a2c2a7aaf64b066d8d5531c4893a8861b06ab3f0f45d",
+  "revision": 32,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "e3e984386529787f54bc214eb617d689496f0bff321220d619f67ddab18b0c13",
+  "source_sha256": "358d72cfe78ab652740eb7e1c10108a53ddffdc29e9016213491dd2057599084",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

@@ -3603,6 +3603,171 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-79bf327ff36695c7a97073fa",
+      "provider": "together",
+      "native_id": "694fffbdb619b8c23d3b6ad8",
+      "kind": "document_row",
+      "label": "Tencent",
+      "scope": {
+        "table": 3,
+        "headings": [
+          "Available models",
+          "Vision models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Tencent",
+          "Hy4",
+          "tencent/Hy4",
+          "1048576",
+          "$0.834",
+          "$2.501"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.834",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.834",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "2.501",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.501",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "tencent/Hy4"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "together-7bfe20652959b4f5745dd6a7",
+      "provider": "together",
+      "native_id": "9f1b25a9a54cdc9664d836e9",
+      "kind": "document_row",
+      "label": "Tencent",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Available models",
+          "Chat models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "Tencent",
+          "Hy4",
+          "tencent/Hy4",
+          "1048576",
+          "$0.834",
+          "$0.042",
+          "$2.501",
+          "NVFP4",
+          "Yes",
+          "Yes"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.834",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.834",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input pricing (per 1M tokens):0",
+          "amount": "0.042",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.042",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "2.501",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.501",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "tencent/Hy4"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-7cfc7f607bbdca4cdf281675",
       "provider": "together",
       "native_id": "53e03dab03fc131430ba8be7",
@@ -6874,13 +7039,13 @@
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "12d6c51c629d0e216e36cc86f9218536cf7ebbe75a4f10d037881cfb5ceda1fc",
-  "revision": 23,
-  "changed_at": "2026-11-19T15:45:31Z",
+  "catalog_sha256": "abf42d8fd81f51d75f2553a05b89d796ef4f7b8acf93af5dd24d735e38e311fe",
+  "revision": 24,
+  "changed_at": "2026-11-20T08:35:09Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "26864f53debbd03458ee4003c8ce518100685a4443704d691b1e872c14417b9c",
+  "source_sha256": "92879aaba95c05ab6439d8c7fc87abae805aa3c4b09bcd44025029cd132e3826",
   "archive_reference": null
 }
