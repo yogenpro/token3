@@ -15,6 +15,8 @@ from .public_pricing import require_models, section
 PROVIDERS = frozenset(("openrouter", "alibaba", "huggingface", "snowflake", "cloudflare",
                        "databricks", "oracle", "nebius", "xai", "zai", "ovhcloud", "scaleway", "minimax", "deepseek"))
 NOTES = "Selected text-token list rates. Tools, storage, cache writes, subscriptions, account fees, tax and negotiated discounts are excluded from workload estimates. "
+OVHCLOUD_EUR_CARDS = 'https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/'
+OVHCLOUD_LEGACY_CARDS = 'https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/'
 
 
 def quote(provider, mid, rates, source, unit="USD", **metadata):
@@ -348,7 +350,8 @@ class PriceCards(HTMLParser):
 
 def ovhcloud_quotes(payload, aliases, source):
     page=payload['reviewed_price_cards']
-    if page['source_url'] != 'https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/':
+    # Historical EUR captures from the default English page remain readable.
+    if page['source_url'] not in (OVHCLOUD_EUR_CARDS, OVHCLOUD_LEGACY_CARDS):
         raise ValueError("Unreviewed OVHcloud price-card source")
     parser=PriceCards();parser.feed(page['body'])
     records=[]

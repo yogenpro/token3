@@ -124,14 +124,23 @@ columns. The three reviewed model rows and their Preview terms are unchanged.
 Bounded public regression excerpts and provenance are in
 [`tests/fixtures/issue-46`](../tests/fixtures/issue-46).
 
-This incident also reproduced two separate source conflicts. OVHcloud's default
-English page returned dollar cards, while the [Ireland catalog](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/)
-retained the reviewed EUR amounts. [PR #44](https://github.com/yogenpro/token3/pull/44)
-proposes that source change. Vercel's public API omitted the two Mercury bindings
-investigated in [PR #42](https://github.com/yogenpro/token3/pull/42) and also
-omitted `minimax/minimax-m2`, whose [model page](https://vercel.com/ai-gateway/models/minimax/minimax-m2)
-still advertises a tariff. These source conflicts require separate operator
-decisions. Existing strict completeness checks and retained observations apply.
+OVHcloud's default English page returned dollar cards. On November 19 the user
+approved the [Ireland catalog](https://www.ovhcloud.com/en-ie/public-cloud/ai-endpoints/catalog/)
+for the two reviewed GPT-OSS quotes, as proposed in
+[PR #44](https://github.com/yogenpro/token3/pull/44). The Ireland page explicitly
+publishes the same EUR amounts per million input/output tokens. The native API
+catalog still has unverified currency. Legacy EUR captures remain readable.
+
+Vercel's public API omitted `inception/mercury-2`, `inception/mercury-2.5` and
+`minimax/minimax-m2`. The same three IDs returned HTTP 404 from the documented
+[per-model routes](https://vercel.com/docs/ai-gateway/sdks-and-apis/rest-api#get-model-endpoints),
+while their public model pages still advertise pricing. The user approved
+excluding these exact IDs from current reviewed quotes, completeness requirements
+and comparisons on November 19. This incorporates the Mercury proposal from
+[PR #42](https://github.com/yogenpro/token3/pull/42) and the MiniMax M2 finding
+from issue #46. All other Vercel bindings remain required. The exclusions preserve
+retained observations and availability flags. Reappearance requires separate
+source review. Vendor retirement remains unconfirmed.
 
 ### OpenRouter public catalog availability
 
