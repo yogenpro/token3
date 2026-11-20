@@ -1,4 +1,4 @@
-"""The xAI operator exclusion preserves the other reviewed prompt schedules."""
+"""Regression evidence for the xAI exclusion and DeepSeek unit wording."""
 import hashlib
 import json
 import unittest
@@ -61,3 +61,37 @@ class Issue48Tests(unittest.TestCase):
             partial = '\n'.join(line for line in self.current.splitlines() if changed not in line)
             with self.subTest(changed=changed), self.assertRaisesRegex(ValueError, 'Incomplete xAI prompt schedule'):
                 self.quotes(partial)
+
+
+class DeepSeekIssue48Tests(unittest.TestCase):
+    def setUp(self):
+        _, self.aliases = catalog()
+        self.collector = INVENTORY_PROVIDERS['deepseek']
+        self.current = (FIXTURES / 'issue-48/deepseek.html').read_text()
+
+    def quotes(self, body):
+        payload = {'documents': [{'body': body, 'source_url': self.collector.SOURCE}]}
+        return reviewed_quotes('deepseek', payload, self.aliases, self.collector.fetch_source)
+
+    def test_revised_unit_wording_matches_all_four_previous_quotes(self):
+        excerpt = self.current.encode()
+        manifest = json.loads((FIXTURES / 'issue-48/deepseek-manifest.json').read_text())
+        self.assertEqual(manifest['official_source'], self.collector.fetch_source)
+        self.assertEqual(len(excerpt), manifest['excerpt_bytes'])
+        self.assertEqual(hashlib.sha256(excerpt).hexdigest(), manifest['excerpt_sha256'])
+        previous = json.loads((FIXTURES / 'provider-comparisons/deepseek.json').read_text())
+        expected = self.quotes(previous['documents'][0]['body'])
+        self.assertEqual(len(expected), 4)
+        self.assertEqual(self.quotes(self.current), expected)
+
+    def test_revised_document_still_requires_expected_units_schedule_and_version(self):
+        for old, new in [
+            ('Model prices are listed per 1M tokens.', 'Model prices are listed per 1K tokens.'),
+            ('Model prices are listed per 1M tokens.', 'Model prices are listed below.'),
+            ('Peak hours are 01:00', 'Peak hours are 02:00'),
+            ('DeepSeek-V4.1-Flash-1017', 'DeepSeek-V4.1-Flash-1026'),
+            ('1M OUTPUT TOKENS', '1K OUTPUT TOKENS'),
+        ]:
+            self.assertIn(old, self.current)
+            with self.subTest(new=new), self.assertRaises(ValueError):
+                self.quotes(self.current.replace(old, new))

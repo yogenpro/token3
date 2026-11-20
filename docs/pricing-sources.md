@@ -224,6 +224,13 @@ If separately resumed, the retained API adapter fetches the entire response for 
 
 The [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) is collected separately from all gateways. Its transposed model table is now validated for completeness and aligned into additional native model records; original rows remain. Six explicit cache-hit/cache-miss/output rates retain peak/off-peak conditions, exact served versions, UTC windows and the Chinese-public-holiday exception. The separate 2026-10-26 review adds explicit peak/off-peak scenario quotes, with exact served versions and schedule validation. It does not infer current applicability or rewrite history. Retrieval now uses the working [canonical trailing-slash URL](https://api-docs.deepseek.com/quick_start/pricing/), preserving the historic native document identity.
 
+The November 20 collection encountered a revised per-million-token declaration.
+The parser accepts both witnessed phrasings and still validates every price
+dimension and both periods. The four reviewed quotes match the prior source
+with the same served versions and time-of-use schedule. See the
+[failed attempt](https://github.com/yogenpro/token3/actions/runs/44703547252/attempts/1)
+and [bounded regression evidence](../tests/fixtures/issue-48).
+
 Evidence review on **2026-10-18** found Flash input/output rates of USD 0.15/0.60 off-peak and 0.30/1.20 peak per million tokens, matching our retained October 6 capture. The October 17 capture changed the served version to `DeepSeek-V4.1-Flash-1017` and added Search/Fetch rows. The October 18 Vercel reduction is a gateway quote, not evidence of a direct DeepSeek tariff reduction. These are dated findings, not permanent prices. No missing historical cut is fabricated or backfilled. Tool-only/partial snapshots now fail rather than replacing complete model evidence.
 
 ### Fireworks
