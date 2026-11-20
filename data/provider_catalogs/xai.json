@@ -1138,6 +1138,84 @@
       "comparison_eligible": false
     },
     {
+      "id": "xai-78104ae8b2e8ec89258346d1",
+      "provider": "xai",
+      "native_id": "4ba98d8478a4788dad7d8206",
+      "kind": "document_row",
+      "label": "grok-build-0.1 (< 200k prompt tokens)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Pricing",
+          "Text API Pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Context",
+          "Input / 1M tokens",
+          "Cached input / 1M tokens",
+          "Output / 1M tokens"
+        ],
+        "source_url": "https://docs.x.ai/developers/pricing"
+      },
+      "billing": {
+        "cells": [
+          "grok-build-0.1 (< 200k prompt tokens)",
+          "500k",
+          "$1.00",
+          "$0.20",
+          "$2.00"
+        ],
+        "columns": [
+          "Model",
+          "Context",
+          "Input / 1M tokens",
+          "Cached input / 1M tokens",
+          "Output / 1M tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input / 1M tokens:0",
+          "amount": "1",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$1.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input / 1M tokens:0",
+          "amount": "0.2",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$0.20",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output / 1M tokens:0",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$2.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "xai-7bfba4117a6cd57a58d398c7",
       "provider": "xai",
       "native_id": "98a0b71ce495b2d29b3075cc",
@@ -2603,6 +2681,84 @@
       "comparison_eligible": false
     },
     {
+      "id": "xai-f399b5505ca8c3456c80ed3f",
+      "provider": "xai",
+      "native_id": "a658248ede035e2c59d2f86e",
+      "kind": "document_row",
+      "label": "grok-build-0.1 (≥ 200k prompt tokens)",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Pricing",
+          "Text API Pricing"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Context",
+          "Input / 1M tokens",
+          "Cached input / 1M tokens",
+          "Output / 1M tokens"
+        ],
+        "source_url": "https://docs.x.ai/developers/pricing"
+      },
+      "billing": {
+        "cells": [
+          "grok-build-0.1 (≥ 200k prompt tokens)",
+          "500k",
+          "$2.00",
+          "$0.40",
+          "$4.00"
+        ],
+        "columns": [
+          "Model",
+          "Context",
+          "Input / 1M tokens",
+          "Cached input / 1M tokens",
+          "Output / 1M tokens"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input / 1M tokens:0",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$2.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input / 1M tokens:0",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$0.40",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output / 1M tokens:0",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "/ 1M tokens",
+          "conditions": {
+            "source_expression": "$4.00",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "xai-f8a89f2e5358d0276debf785",
       "provider": "xai",
       "native_id": "390be0d16106340b8feb481d",
@@ -2703,20 +2859,20 @@
     "https://docs.x.ai/developers/pricing: You can view and manage your [files](https://console.x.ai/team/default/files?utm_source=docs\\&utm_medium=referral\\&utm_campaign=developers-pricing\\&utm_content=files) and [collections](https://console.x.ai/team/default/collections?utm_source=docs\\&utm_medium=referral\\&utm_campaign=developers-pricing\\&utm_content=collections) through the xAI console or the [xAI API](/developers/files/managing-files).",
     "https://docs.x.ai/developers/pricing: [Priority Processing](/developers/advanced-api-usage/priority-processing) gives text requests higher scheduling priority for lower latency. Priority requests are billed at a **2x** premium over standard rates."
   ],
-  "catalog_sha256": "eff677cdc44064725efe2daaafa9f76b55664dcedefd32a3434046661000ff0a",
-  "revision": 6,
-  "changed_at": "2026-11-20T08:35:09Z",
+  "catalog_sha256": "0bac4830b7fef1695ad90efa81c0f4922ac7c303c6314d5683672ea45ef4c39c",
+  "revision": 7,
+  "changed_at": "2026-11-20T15:28:34Z",
   "source_url": "https://docs.x.ai/developers/pricing",
   "source_urls": [
     "https://docs.x.ai/developers/pricing"
   ],
-  "source_sha256": "a79a4871bc1cbc07f6805cb453ecb0cf451286981de13197bf919351602565c8",
+  "source_sha256": "5365a493341665e77fbd3889c189041b9fb610e0599c443a6138b8dcab354afb",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://docs.x.ai/developers/pricing",
-    "url": "https://web.archive.org/web/20261114113202/https://docs.x.ai/developers/pricing",
-    "capture_at": "2026-11-14T11:32:02Z",
-    "checked_at": "2026-11-20T08:35:09Z",
+    "url": "https://web.archive.org/web/20261120113201/https://docs.x.ai/developers/pricing",
+    "capture_at": "2026-11-20T11:32:01Z",
+    "checked_at": "2026-11-20T15:28:34Z",
     "verification": null
   }
 }
