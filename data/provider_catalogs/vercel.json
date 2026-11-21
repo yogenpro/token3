@@ -4429,62 +4429,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "vercel-1871e39e8a9a7e0e7a800ce9",
-      "provider": "vercel",
-      "native_id": "liquid/d1",
-      "kind": "model",
-      "label": "Liquid d1",
-      "scope": {},
-      "billing": {
-        "rules": {
-          "input": "0.00000002",
-          "output": "0"
-        },
-        "currency": "USD",
-        "state": "reported",
-        "unknown_price_dimensions": [],
-        "source_scope": "advertised gateway catalog, not a selected upstream route"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.00000002",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "name": "Liquid d1",
-        "owned_by": "liquid",
-        "type": "evaluation",
-        "context_window": 65536,
-        "max_tokens": 0,
-        "supported_specifications": [
-          "v4"
-        ],
-        "modalities": {
-          "input": [
-            "text",
-            "image"
-          ],
-          "output": [
-            "text"
-          ]
-        },
-        "zdr": "none",
-        "no_training": "none"
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "vercel-191e551c7cea7286e6e4b18e",
       "provider": "vercel",
       "native_id": "openai/gpt-4o-mini-fast",
@@ -5089,9 +5033,9 @@
           "output": "0.0000012",
           "regional": {
             "eu": {
-              "input": "0.00000024",
-              "input_cache_read": "0.0000000048",
-              "output": "0.00000096"
+              "input": "0.00000033",
+              "input_cache_read": "0.0000000077",
+              "output": "0.00000132"
             },
             "us": {
               "input": "0.0000003",
@@ -6358,6 +6302,11 @@
           "input_cache_read": "0.00000003",
           "output": "0.0000005",
           "regional": {
+            "eu": {
+              "input": "0.000000165",
+              "input_cache_read": "0.000000033",
+              "output": "0.00000055"
+            },
             "us": {
               "input": "0.00000015",
               "input_cache_read": "0.00000003",
@@ -18844,18 +18793,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000066",
-          "input_cache_read": "0.000000066",
-          "output": "0.00000198",
-          "peak_pricing": {
-            "multiplier": 2,
-            "windows": [
-              {
-                "end_minute_utc": 840,
-                "start_minute_utc": 0
-              }
-            ]
-          },
+          "input": "0.00000132",
+          "input_cache_read": "0.000000132",
+          "output": "0.00000396",
           "regional": {
             "us": {
               "input": "0.00000132",
@@ -18873,21 +18813,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000066",
+          "amount": "0.00000132",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000198",
+          "amount": "0.00000396",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000066",
+          "amount": "0.000000132",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -18898,7 +18838,7 @@
         "owned_by": "deepseek",
         "type": "language",
         "context_window": 1048600,
-        "max_tokens": 384000,
+        "max_tokens": 1048600,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -21354,8 +21294,8 @@
             "multiplier": 2,
             "windows": [
               {
-                "end_minute_utc": 30,
-                "start_minute_utc": 480
+                "end_minute_utc": 90,
+                "start_minute_utc": 540
               }
             ]
           },
@@ -32296,6 +32236,11 @@
           "input_cache_read": "0.00000014",
           "output": "0.0000044",
           "regional": {
+            "eu": {
+              "input": "0.00000154",
+              "input_cache_read": "0.000000154",
+              "output": "0.00000484"
+            },
             "us": {
               "input": "0.0000014",
               "input_cache_read": "0.00000014",
@@ -35280,7 +35225,7 @@
       "provider": "vercel",
       "native_id": "google/gemma-4-26b-a4b-it",
       "kind": "model",
-      "label": "Google Gemma 4 26B A4B",
+      "label": "Gemma 4 26B A4B IT",
       "scope": {},
       "billing": {
         "rules": {
@@ -35318,7 +35263,7 @@
         }
       ],
       "metadata": {
-        "name": "Google Gemma 4 26B A4B",
+        "name": "Gemma 4 26B A4B IT",
         "owned_by": "google",
         "type": "language",
         "context_window": 262144,
@@ -38348,10 +38293,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0.00000021",
-          "input_cache_read": "0.000000042",
-          "output": "0.00000084",
-          "varies_by_provider": true
+          "input": "0.0000003",
+          "input_cache_read": "0.00000006",
+          "output": "0.0000012"
         },
         "currency": "USD",
         "state": "reported",
@@ -38361,21 +38305,21 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.00000021",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.00000084",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000042",
+          "amount": "0.00000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -38385,8 +38329,8 @@
         "name": "MiniMax M2.7",
         "owned_by": "minimax",
         "type": "language",
-        "context_window": 196608,
-        "max_tokens": 196608,
+        "context_window": 204800,
+        "max_tokens": 131072,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -47434,14 +47378,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "44578ac707cd0db1348568866e14a4ac35b918f7608c917b5056390c41b480ea",
-  "revision": 52,
-  "changed_at": "2026-11-20T15:28:34Z",
+  "catalog_sha256": "6f57a090d2e966361d05f7498936c6239816d41a7b56cb046032dadcb65518a3",
+  "revision": 53,
+  "changed_at": "2026-11-21T14:40:28Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "b993f008d7dc576596ec3b400985d8c4f89e3ee998e8e1ed0b47fc43741bf3ee",
+  "source_sha256": "850ecce53cb6edbbf42c810be62ea28810e03225d72349359d257656c68be8c7",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
