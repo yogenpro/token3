@@ -88,11 +88,14 @@ describe('current provider and model coverage', () => {
     expect(values[header.indexOf('pricing_scope_verified')]).toBe('false');
   });
   it('quarantines the retained scheduled gateway base quote in both scenarios', () => {
+    const modelId = 'deepseek/deepseek-v4-pro-0813';
     for (const period of ['peak', 'off_peak']) {
-      const rows = rankOfferings(data, 'deepseek/deepseek-v4-pro-0813', defaultWorkload, 'standard', 'USD', period);
-      const scheduled = rows.find((r) => r.offering.provider === 'vercel')!;
+      const rows = rankOfferings(data, modelId, defaultWorkload, 'standard', 'USD', period);
+      const scheduled = rows.find((r) => r.offering.provider === 'vercel' && r.offering.provider_model_id === modelId)!;
+      const advertised = data.prices.find((price) => price.offering_id === scheduled.offering.id);
       expect(scheduled.offering.pricing_scope_unverified).toBe(true);
-      expect(scheduled.price.input_per_million).toBe(.66);
+      expect(scheduled.price).toEqual(advertised);
+      expect(data.history.some((price) => price.offering_id === scheduled.offering.id && price.input_per_million === .66)).toBe(true);
       expect(scheduled.cost.eligible).toBe(false);
       expect(eligibilityReason(scheduled.cost)).toBe('Pricing scope unverified');
       expect(isBestCost(scheduled, rows[0])).toBe(false);
