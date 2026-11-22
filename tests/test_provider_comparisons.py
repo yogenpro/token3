@@ -115,6 +115,44 @@ class ProviderComparisonTests(unittest.TestCase):
         self.assertTrue(INVENTORY_PROVIDERS['deepseek'].fetch_source.endswith('/pricing/'))
         self.assertFalse(INVENTORY_PROVIDERS['deepseek'].SOURCE.endswith('/'))
 
+    def test_huggingface_explicitly_route_less_model_preserves_existing_quotes_and_routes(self):
+        capture = FIXTURES.parent / 'issue-54'
+        excerpt = (capture / 'route-less-model.json').read_bytes()
+        manifest = json.loads((capture / 'manifest.json').read_text())
+        self.assertEqual(manifest['official_source'], INVENTORY_PROVIDERS['huggingface'].SOURCE)
+        self.assertEqual(len(excerpt), manifest['excerpt_bytes'])
+        self.assertEqual(hashlib.sha256(excerpt).hexdigest(), manifest['excerpt_sha256'])
+        model = json.loads(excerpt)
+        self.assertEqual(model['providers'], [])
+        self.assertNotIn(model['id'], self.aliases.for_provider('huggingface'))
+
+        payload = fixture('huggingface')
+        expected = normalize_inventory('huggingface', json.dumps(payload), 'api+documentation')
+        expected_quotes = self.quotes('huggingface', payload)
+        self.assertEqual(len(expected_quotes), 5)
+        payload['catalog']['data'].append(model)
+        self.assertEqual(normalize_inventory('huggingface', json.dumps(payload), 'api+documentation'), expected)
+        self.assertEqual(self.quotes('huggingface', payload), expected_quotes)
+
+        reviewed = next(row for row in payload['catalog']['data'] if row['id'] == expected_quotes[0]['provider_model_id'])
+        reviewed['providers'] = []
+        with self.assertRaisesRegex(ValueError, 'Reviewed Hugging Face Novita route missing or unavailable'):
+            self.quotes('huggingface', payload)
+
+    def test_huggingface_rejects_malformed_routes_and_catalogs_with_no_routes(self):
+        payload = fixture('huggingface')
+        for row in payload['catalog']['data']:
+            row['providers'] = []
+        with self.assertRaisesRegex(ValueError, 'Hugging Face catalog has no provider routes'):
+            normalize_inventory('huggingface', json.dumps(payload), 'api+documentation')
+
+        payload = fixture('huggingface')
+        for invalid in ({}, {'providers': None}, {'providers': {}}, {'providers': [None]}):
+            payload['catalog']['data'].append({'id': 'unreviewed/model', **invalid})
+            with self.subTest(invalid=invalid), self.assertRaisesRegex(ValueError, 'provider routes must be a nonempty object list'):
+                normalize_inventory('huggingface', json.dumps(payload), 'api+documentation')
+            payload['catalog']['data'].pop()
+
     def test_dynamic_extra_components_duplicates_missing_routes_and_units_fail_closed(self):
         cases = []
         p = fixture('openrouter'); p['catalog']['data'][0]['pricing']['prompt'] = '-1'; cases.append(('openrouter', p))
