@@ -71,7 +71,10 @@ def _huggingface(catalog):
     records = []
     for row in _objects(catalog.get("data"), "Hugging Face chat models"):
         mid = _model_id(row)
-        for route in _objects(row.get("providers"), "Hugging Face provider routes"):
+        routes = row.get("providers")
+        if routes == []:
+            continue
+        for route in _objects(routes, "Hugging Face provider routes"):
             provider = _model_id(route, "provider")
             pricing = route.get("pricing")
             rates = _scalar_rates(pricing, {"input": "1M input tokens", "output": "1M output tokens"})[0] if pricing is not None else []
@@ -82,6 +85,8 @@ def _huggingface(catalog):
             metadata["architecture"] = row.get("architecture")
             records.append(entry("huggingface", mid, "provider_route", mid, {"upstream_provider": provider},
                                  dict(rules=pricing, state="reported" if rates else "source_native_or_unpriced"), metadata, rates))
+    if not records:
+        raise ValueError("Hugging Face catalog has no provider routes")
     return records
 
 
