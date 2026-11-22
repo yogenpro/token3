@@ -215,6 +215,12 @@ The [official pricing page](https://api-docs.deepseek.com/quick_start/pricing) i
 
 Evidence review on **2026-10-18** found Flash input/output rates of USD 0.15/0.60 off-peak and 0.30/1.20 peak per million tokens, matching our retained October 6 capture. The October 17 capture changed the served version to `DeepSeek-V4.1-Flash-1017` and added Search/Fetch rows. The October 18 Vercel reduction is a gateway quote, not evidence of a direct DeepSeek tariff reduction. These are dated findings, not permanent prices. No missing historical cut is fabricated or backfilled. Tool-only/partial snapshots now fail rather than replacing complete model evidence.
 
+The November 20 pricing capture replaces the model-table introduction with
+“Model prices are listed per 1M tokens.” The collector accepts both exact
+phrasings and still validates the complete token table, explicit dollar
+amounts and time-of-use schedule. The native model rates and all four reviewed
+quotes match the previous capture. See the [official pricing page](https://api-docs.deepseek.com/quick_start/pricing/).
+
 ### Fireworks
 
 The generic [List Models schema](https://docs.fireworks.ai/api-reference/list-models) describes `serverlessModes[].skuInfos`, but explicitly notes that pricing is populated by **ListServerlessModels**, not necessarily the generic management listing. The first-party [FireConnect client](https://github.com/fw-ai/fireconnect/blob/main/packages/setup-cli/lib/fireworks/models.mjs) uses `/v1/serverless/models` and opaque `nextPageToken`/`next_page_token` pagination. It documents flat USD decimal amounts and the `LLM input tokens (uncached)`, `LLM input tokens (cached)` and `LLM output tokens` SKU names.
