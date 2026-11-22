@@ -100,8 +100,9 @@ def parse_models(body):
     if any(len(row) != len(header) for row in rows):
         raise ValueError("DeepSeek model table is incomplete or unaligned")
     prose = clean(" ".join(parser.all_text))
+    denominator = re.search(r"(?:^| )Model prices are listed (?:in units of )?per 1M tokens\.(?= |$)", prose)
     schedule = re.search(r"Peak hours are .+?holidays in full\.", prose)
-    if not schedule or "units of per 1M tokens" not in prose:
+    if not denominator or not schedule:
         raise ValueError("DeepSeek token denominator or time-of-use schedule is missing")
     versions = [r for r in rows if r[0] == "MODEL VERSION"]
     contexts = [r for r in rows if r[0] == "CONTEXT LENGTH"]

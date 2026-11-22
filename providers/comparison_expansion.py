@@ -10,6 +10,7 @@ from html.parser import HTMLParser
 from .common import markdown_tables, money, number, observation
 from .deepseek_pricing import Tables, expand, parse_models
 from .openrouter_catalog import complete_model_ids
+from .policy import excluded_model_ids
 from .public_pricing import require_models, section
 
 PROVIDERS = frozenset(("openrouter", "alibaba", "huggingface", "snowflake", "cloudflare",
@@ -517,6 +518,9 @@ def alibaba_qwen_quotes(body, tables, aliases, source):
 
 
 def expanded_quotes(provider,payload,aliases,source):
+    if provider == 'xai':
+        excluded = excluded_model_ids('xai')
+        aliases = {mid: canonical for mid, canonical in aliases.items() if mid not in excluded}
     if not aliases:
         raise ValueError("Provider requires explicit reviewed source bindings")
     if provider == 'openrouter':
