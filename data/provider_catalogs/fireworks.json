@@ -2258,6 +2258,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-ed0e629aa60a2cfbecdf2cc2",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/hy4-flash",
+      "kind": "model",
+      "label": "Hy4 Flash",
+      "scope": {
+        "serving_mode": "priority"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.00375",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.0875",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.35125",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.00375",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.0875",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.35125",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 262144,
+        "service_tier": "priority"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-ed6fa57b3a23f1396d2d5c4c",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/muse-spark-open",
@@ -2668,14 +2733,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "5694960dee332d7080122c5b41046cf01aad1254268569fa49ad0a0b44d0e6cd",
-  "revision": 22,
-  "changed_at": "2026-11-24T17:46:05Z",
+  "catalog_sha256": "2a5ce0ef722ea40e291542af016096261bb4ca54515581251e36fc46441c16b8",
+  "revision": 23,
+  "changed_at": "2026-11-24T21:05:11Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "7f03653f1755833633d7d46e69605f3235322c919ae8c7c5d53109330ee22802",
+  "source_sha256": "cda92855f14ad07142b46129385324ad71586bd43ee7b168288cdbe3ed6eb392",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
