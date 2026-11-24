@@ -3105,6 +3105,111 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-72c9a141a3b7dd9bbbe77c7a",
+      "provider": "novita",
+      "native_id": "ming-image-0.1-design",
+      "kind": "model",
+      "label": "ming image 0.1 design",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "completion": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "multimodal_input": [
+              {
+                "modals": [
+                  "text"
+                ]
+              },
+              {
+                "modals": [
+                  "image"
+                ]
+              },
+              {
+                "modals": [
+                  "video"
+                ]
+              },
+              {
+                "modals": [
+                  "audio"
+                ]
+              }
+            ],
+            "multimodal_output": [
+              {
+                "modals": [
+                  "text"
+                ],
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
+              },
+              {
+                "modals": [
+                  "image"
+                ],
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
+              },
+              {
+                "modals": [
+                  "video"
+                ]
+              },
+              {
+                "modals": [
+                  "audio"
+                ]
+              }
+            ]
+          },
+          "native_input_billing_units": 0,
+          "native_output_billing_units": 20000,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "completion",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
+        ],
+        "output_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
+        ],
+        "context_size": 0,
+        "status": 1,
+        "features": [
+          "serverless"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-78f328765b862022ef0c385f",
       "provider": "novita",
       "native_id": "zai-org/glm-5.3-flashX",
@@ -6773,6 +6878,111 @@
       "comparison_eligible": false
     },
     {
+      "id": "novita-f0ec09e3f8563f5fe9cdacb9",
+      "provider": "novita",
+      "native_id": "ming-image-0.1-design-layer",
+      "kind": "model",
+      "label": "ming image 0.1 design layer",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "rules": {
+            "completion": {
+              "origin_price_per_m": 20000,
+              "price_per_m": 20000,
+              "origin_price_per_m_decimal": "2",
+              "price_per_m_decimal": "2"
+            },
+            "multimodal_input": [
+              {
+                "modals": [
+                  "text"
+                ]
+              },
+              {
+                "modals": [
+                  "image"
+                ]
+              },
+              {
+                "modals": [
+                  "video"
+                ]
+              },
+              {
+                "modals": [
+                  "audio"
+                ]
+              }
+            ],
+            "multimodal_output": [
+              {
+                "modals": [
+                  "text"
+                ],
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
+              },
+              {
+                "modals": [
+                  "image"
+                ],
+                "output_token_base_price": 20000,
+                "output_token_discount_price": 20000
+              },
+              {
+                "modals": [
+                  "video"
+                ]
+              },
+              {
+                "modals": [
+                  "audio"
+                ]
+              }
+            ]
+          },
+          "native_input_billing_units": 0,
+          "native_output_billing_units": 20000,
+          "tiered_billing": false,
+          "tiered_billing_configs": []
+        }
+      },
+      "rates": [
+        {
+          "dimension": "completion",
+          "amount": "2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {
+            "source_field": "price_per_m_decimal"
+          }
+        }
+      ],
+      "metadata": {
+        "model_type": "chat",
+        "input_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
+        ],
+        "output_modalities": [
+          "text",
+          "image",
+          "video",
+          "audio"
+        ],
+        "context_size": 0,
+        "status": 1,
+        "features": [
+          "serverless"
+        ]
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "novita-f627187a8f4ebb89dde36b25",
       "provider": "novita",
       "native_id": "deepseek/deepseek-v4-pro",
@@ -6939,14 +7149,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "4974219fed4de961c750977a6c2ead0dc2505f1153e97127428e7d4971eb97fe",
-  "revision": 24,
-  "changed_at": "2026-11-21T14:40:28Z",
+  "catalog_sha256": "b9ee4a374a1d024717bb8a5d8810afdd93eccd06deb499b8548907176c15314c",
+  "revision": 25,
+  "changed_at": "2026-11-24T17:46:05Z",
   "source_url": "https://api.novita.ai/v3/openai/models",
   "source_urls": [
     "https://api.novita.ai/v3/openai/models"
   ],
-  "source_sha256": "f20c0d954ba685f6b521ce7b27131152924c096a7da8892f71fc0860acd4162f",
+  "source_sha256": "2d170ae6f265a1f0fcd8199f5d4c63a2ff439a9c74f0cc91f62b16263dbb80dd",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

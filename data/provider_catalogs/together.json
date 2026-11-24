@@ -6140,6 +6140,100 @@
       "comparison_eligible": false
     },
     {
+      "id": "together-de403e91b09f5ec4117df03b",
+      "provider": "together",
+      "native_id": "baed9cf72e96711137252102",
+      "kind": "document_row",
+      "label": "DeepSeek",
+      "scope": {
+        "table": 0,
+        "headings": [
+          "Available models",
+          "Chat models"
+        ],
+        "tabs": [],
+        "headers": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ]
+      },
+      "billing": {
+        "cells": [
+          "DeepSeek",
+          "DeepSeek V4.1 Flash 1017 Fast",
+          "deepseek-ai/DeepSeek-V4.1-Flash-1017-fast",
+          "1000000",
+          "$0.60",
+          "$0.012",
+          "$2.40",
+          "FP8",
+          "Yes",
+          "Yes"
+        ],
+        "columns": [
+          "Organization",
+          "Model name",
+          "API model string",
+          "Context length",
+          "Input pricing (per 1M tokens)",
+          "Cached input pricing (per 1M tokens)",
+          "Output pricing (per 1M tokens)",
+          "Quantization",
+          "Function calling",
+          "Structured outputs"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input pricing (per 1M tokens):0",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.60",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Cached input pricing (per 1M tokens):0",
+          "amount": "0.012",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$0.012",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        },
+        {
+          "dimension": "Output pricing (per 1M tokens):0",
+          "amount": "2.4",
+          "currency": "USD",
+          "unit": "per 1M tokens",
+          "conditions": {
+            "source_expression": "$2.40",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {
+        "source_model_id": "deepseek-ai/DeepSeek-V4.1-Flash-1017-fast"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "together-e07401d30d662b17039d7b96",
       "provider": "together",
       "native_id": "5e4a086e10a51d7861d7b0be",
@@ -7016,13 +7110,13 @@
     "This applies only to models whose **Unit** column reads `megapixel`. It does not describe how the others are billed.",
     "[Geo-specific inference](https://docs.together.ai/docs/serverless/geo-specific-inference.md) keeps inference processing in the United States for requests sent to `us-api.together.ai`. These requests cost 25% more than the standard rates in the [chat models](#chat-models) table. All prices are in USD per 1M tokens."
   ],
-  "catalog_sha256": "ba8d0dd4423740e3745f92cdfbfbf2cf3cccdfda46fd8a3abca4716dc4caca10",
-  "revision": 26,
-  "changed_at": "2026-11-23T18:10:07Z",
+  "catalog_sha256": "30f6607927a3041c881ff39d6b6b88acbce574d73e43b39aa77cae6d7278e8a0",
+  "revision": 27,
+  "changed_at": "2026-11-24T17:46:05Z",
   "source_url": "https://docs.together.ai/docs/serverless-models",
   "source_urls": [
     "https://docs.together.ai/docs/serverless-models.md"
   ],
-  "source_sha256": "be2a78383aa3bd10670b471e6a24546f79e77c58618ed262a6bbccdc0dc95619",
+  "source_sha256": "fa92aab47a2af4009210a176f54b05c6c667761a06dc33b8b0766d3d9bbbfc5a",
   "archive_reference": null
 }

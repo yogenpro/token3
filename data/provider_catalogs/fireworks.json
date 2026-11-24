@@ -136,6 +136,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-14b9ca4073e86859ef7923e2",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/qwen4-max",
+      "kind": "model",
+      "label": "Qwen4 Max",
+      "scope": {
+        "serving_mode": "priority"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.09375",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "1.875",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "5.625",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.09375",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "1.875",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "5.625",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 262144,
+        "service_tier": "priority"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-1eda70806945b7f0ce7ff87d",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/minimax-m3p1-flash",
@@ -1471,6 +1536,70 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-a07b458f1ae0b44ea2055726",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/qwen4-max",
+      "kind": "model",
+      "label": "Qwen4 Max",
+      "scope": {
+        "serving_mode": "standard"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.075",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "1.5",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "4.5",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.075",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "1.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "4.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 262144
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-abe81d876fce3b81738b3cc4",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/gpt-oss-120b",
@@ -2539,14 +2668,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "f3eea187952d8aaf97a3d285fea931bd6fddb6bac899a419b88b7064a45481af",
-  "revision": 21,
-  "changed_at": "2026-11-20T08:35:09Z",
+  "catalog_sha256": "5694960dee332d7080122c5b41046cf01aad1254268569fa49ad0a0b44d0e6cd",
+  "revision": 22,
+  "changed_at": "2026-11-24T17:46:05Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "b16e9f7798d206132250737d5d10eea26bd00e5ddb6b35da667db0de8cb35404",
+  "source_sha256": "7f03653f1755833633d7d46e69605f3235322c919ae8c7c5d53109330ee22802",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

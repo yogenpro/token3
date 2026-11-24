@@ -874,57 +874,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-0b2c71290b038ccd252fe13a",
-      "provider": "huggingface",
-      "native_id": "google/gemma-4-31B-it",
-      "kind": "provider_route",
-      "label": "google/gemma-4-31B-it",
-      "scope": {
-        "upstream_provider": "primeintellect"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.2,
-          "output": 0.335
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.2",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.335",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-0b9f86244225de6fac57ece1",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen3.5-122B-A10B",
@@ -967,6 +916,56 @@
           "input_modalities": [
             "text",
             "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-0be1fd615d79b7a0107e51fc",
+      "provider": "huggingface",
+      "native_id": "deepseek-ai/DeepSeek-V4-Flash",
+      "kind": "provider_route",
+      "label": "deepseek-ai/DeepSeek-V4-Flash",
+      "scope": {
+        "upstream_provider": "fireworks-ai"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.07,
+          "output": 0.14
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.07",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.14",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
           ],
           "output_modalities": [
             "text"
@@ -1814,57 +1813,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-1108a315cdfdd7c4a9f0c0b7",
-      "provider": "huggingface",
-      "native_id": "moonshotai/Kimi-K3.1-Pro",
-      "kind": "provider_route",
-      "label": "moonshotai/Kimi-K3.1-Pro",
-      "scope": {
-        "upstream_provider": "relace"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.2403,
-          "output": 8.4023
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.2403",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "8.4023",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-11180bcd72191bf58314aea4",
       "provider": "huggingface",
       "native_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
@@ -1904,22 +1852,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.5648,
-          "output": 2.788
+          "input": 0.5655,
+          "output": 3.06
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.5648",
+          "amount": "0.5655",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.788",
+          "amount": "3.06",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -2257,56 +2205,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-13d63cc59c352995a22ff323",
-      "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.5-Pro",
-      "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.5-Pro",
-      "scope": {
-        "upstream_provider": "digitalocean"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.48,
-          "output": 1.8
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.48",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.8",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-14ae8ece64b6949fe8bb8630",
       "provider": "huggingface",
       "native_id": "openai/gpt-oss-120b",
@@ -2407,57 +2305,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-15e042011842cd8e8711cd63",
-      "provider": "huggingface",
-      "native_id": "google/gemma-3-27b-it",
-      "kind": "provider_route",
-      "label": "google/gemma-3-27b-it",
-      "scope": {
-        "upstream_provider": "nextbit"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.08,
-          "output": 0.35
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.08",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.35",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 131072,
-        "is_free": false,
-        "supports_tools": false,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-1610f022f981d89056a9964e",
       "provider": "huggingface",
       "native_id": "openai/gpt-oss-20b",
@@ -2468,22 +2315,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.075,
-          "output": 0.3
+          "input": 0.1,
+          "output": 0.5
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.075",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.3",
+          "amount": "0.5",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -2724,7 +2571,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -3062,57 +2909,6 @@
         "architecture": {
           "input_modalities": [
             "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-190a178827ff669449b369e3",
-      "provider": "huggingface",
-      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
-      "kind": "provider_route",
-      "label": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
-      "scope": {
-        "upstream_provider": "primeintellect"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.15,
-          "output": 0.45
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.15",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.45",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
           ],
           "output_modalities": [
             "text"
@@ -3747,34 +3543,13 @@
         "upstream_provider": "featherless-ai"
       },
       "billing": {
-        "rules": {
-          "input": 0.55,
-          "output": 2.2
-        },
-        "state": "reported"
+        "rules": null,
+        "state": "source_native_or_unpriced"
       },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.55",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "2.2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
+      "rates": [],
       "metadata": {
         "status": "live",
-        "context_length": 262144,
         "is_free": false,
-        "supports_tools": false,
-        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -4033,22 +3808,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.09,
-          "output": 0.55
+          "input": 0.135,
+          "output": 0.825
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.09",
+          "amount": "0.135",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.55",
+          "amount": "0.825",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -4363,7 +4138,7 @@
         "context_length": 163840,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -4930,7 +4705,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -5180,6 +4955,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-2b621318ff58287ed7326fe7",
+      "provider": "huggingface",
+      "native_id": "Qwen/Qwen3.8-27B",
+      "kind": "provider_route",
+      "label": "Qwen/Qwen3.8-27B",
+      "scope": {
+        "upstream_provider": "wafer"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.06,
+          "output": 1.96
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.06",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.96",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 262144,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-2cae338af22f7b32c9f0eb29",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3-Flash",
@@ -5241,22 +5067,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.9,
-          "output": 1.5
+          "input": 0.75557,
+          "output": 1.5911
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.9",
+          "amount": "0.75557",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "1.5",
+          "amount": "1.5911",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -5342,22 +5168,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.08,
-          "output": 0.288
+          "input": 0.1,
+          "output": 0.36
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.08",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.288",
+          "amount": "0.36",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -5852,7 +5678,7 @@
         "context_length": 202752,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -6127,57 +5953,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-345d0c43b7298c79c847c031",
-      "provider": "huggingface",
-      "native_id": "Qwen/Qwen3.8-27B",
-      "kind": "provider_route",
-      "label": "Qwen/Qwen3.8-27B",
-      "scope": {
-        "upstream_provider": "venice"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.45,
-          "output": 3.2
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.45",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "3.2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-3504ae4a3e6284fcd5350c3b",
       "provider": "huggingface",
       "native_id": "deepseek-ai/DeepSeek-V4.1-Flash",
@@ -6269,7 +6044,7 @@
       "billing": {
         "rules": {
           "input": 0.05,
-          "output": 0.45
+          "output": 0.5
         },
         "state": "reported"
       },
@@ -6283,7 +6058,7 @@
         },
         {
           "dimension": "output",
-          "amount": "0.45",
+          "amount": "0.5",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -6622,56 +6397,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-383133a3a4e73f5d183bb44a",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V4-Flash-0731",
-      "scope": {
-        "upstream_provider": "primeintellect"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.44,
-          "output": 1.32
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.44",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.32",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1048576,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-3933a6815fba5c0d9b09f6b7",
       "provider": "huggingface",
       "native_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
@@ -6763,7 +6488,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0434,
+          "input": 0.0456,
           "output": 0.3
         },
         "state": "reported"
@@ -6771,7 +6496,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0434",
+          "amount": "0.0456",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -6971,6 +6696,56 @@
       "metadata": {
         "status": "live",
         "is_free": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-3c31d1c0a42e40a9517d8eb8",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.7",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.7",
+      "scope": {
+        "upstream_provider": "venice"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.4004,
+          "output": 1.9292
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.4004",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.9292",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 198000,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -8414,22 +8189,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.195,
-          "output": 0.78
+          "input": 0.225,
+          "output": 0.9
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.195",
+          "amount": "0.225",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.78",
+          "amount": "0.9",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -9783,22 +9558,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0399,
-          "output": 0.074
+          "input": 0.0356,
+          "output": 0.0815
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0399",
+          "amount": "0.0356",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.074",
+          "amount": "0.0815",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -10602,22 +10377,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.1,
-          "output": 0.6
+          "input": 0.075,
+          "output": 0.3
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.1",
+          "amount": "0.075",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.6",
+          "amount": "0.3",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -10836,22 +10611,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.124,
-          "output": 0.356
+          "input": 0.12,
+          "output": 0.345
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.124",
+          "amount": "0.12",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.356",
+          "amount": "0.345",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -10911,6 +10686,57 @@
       "metadata": {
         "status": "live",
         "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-5c7f040026a4437ccc1d38bb",
+      "provider": "huggingface",
+      "native_id": "moonshotai/Kimi-K3.1-Pro",
+      "kind": "provider_route",
+      "label": "moonshotai/Kimi-K3.1-Pro",
+      "scope": {
+        "upstream_provider": "io-net"
+      },
+      "billing": {
+        "rules": {
+          "input": 2.8,
+          "output": 12
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "2.8",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "12",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048320,
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
@@ -11794,6 +11620,57 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-63003ae79468d20c83b151ee",
+      "provider": "huggingface",
+      "native_id": "tencent/Hy4-flash",
+      "kind": "provider_route",
+      "label": "tencent/Hy4-flash",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.07,
+          "output": 0.281
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.07",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0.281",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-639a793e309e3845249a20f9",
       "provider": "huggingface",
       "native_id": "tencent/Hy3",
@@ -12590,57 +12467,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-6ac77ada4219dccae6e21aa4",
-      "provider": "huggingface",
-      "native_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
-      "kind": "provider_route",
-      "label": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
-      "scope": {
-        "upstream_provider": "io-net"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.51,
-          "output": 1.53
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.51",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.53",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-6b0092835640939f90433f72",
       "provider": "huggingface",
       "native_id": "Qwen/Qwen2.5-72B-Instruct",
@@ -12912,7 +12738,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.17,
+          "input": 0.185,
           "output": 0.5
         },
         "state": "reported"
@@ -12920,7 +12746,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.17",
+          "amount": "0.185",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -12963,22 +12789,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.072,
-          "output": 0.75
+          "input": 0.052,
+          "output": 0.8
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.072",
+          "amount": "0.052",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.75",
+          "amount": "0.8",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -13065,22 +12891,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.7,
-          "output": 2.2
+          "input": 0.56,
+          "output": 1.76
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.7",
+          "amount": "0.56",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.2",
+          "amount": "1.76",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -13450,22 +13276,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.2,
-          "output": 0.4
+          "input": 0.14,
+          "output": 0.28
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.2",
+          "amount": "0.14",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.4",
+          "amount": "0.28",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -13609,7 +13435,7 @@
         "status": "live",
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": true,
         "architecture": {
           "input_modalities": [
@@ -13725,56 +13551,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-76c852f293c918b785875241",
-      "provider": "huggingface",
-      "native_id": "XiaomiMiMo/MiMo-V2.5",
-      "kind": "provider_route",
-      "label": "XiaomiMiMo/MiMo-V2.5",
-      "scope": {
-        "upstream_provider": "venice"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.4,
-          "output": 2
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.4",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 1000000,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-76e80f9f1dc3a26b62f05d75",
       "provider": "huggingface",
       "native_id": "deepseek-ai/DeepSeek-V4-Flash",
@@ -13785,7 +13561,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.0138,
+          "input": 0.0474,
           "output": 0.45
         },
         "state": "reported"
@@ -13793,7 +13569,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.0138",
+          "amount": "0.0474",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -14025,6 +13801,57 @@
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-7921cd57214a68a514ff395e",
+      "provider": "huggingface",
+      "native_id": "thinkingmachines/Inkling",
+      "kind": "provider_route",
+      "label": "thinkingmachines/Inkling",
+      "scope": {
+        "upstream_provider": "modal"
+      },
+      "billing": {
+        "rules": {
+          "input": 1.2,
+          "output": 5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "1.2",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -15442,22 +15269,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.17,
-          "output": 0.67
+          "input": 0.1,
+          "output": 0.5
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.17",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.67",
+          "amount": "0.5",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -15520,57 +15347,6 @@
         "is_free": false,
         "supports_tools": true,
         "supports_structured_output": true,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-864fb77b5bc750fb00b950e8",
-      "provider": "huggingface",
-      "native_id": "MiniMaxAI/MiniMax-M3",
-      "kind": "provider_route",
-      "label": "MiniMaxAI/MiniMax-M3",
-      "scope": {
-        "upstream_provider": "venice"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.3,
-          "output": 1.2
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.3",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "1.2",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 524288,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -15838,32 +15614,32 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-88b9d74f299cf3c3a0fbf8fc",
+      "id": "huggingface-890b39419013daa0dfafde5a",
       "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V4-Pro",
+      "native_id": "MiniMaxAI/MiniMax-M3",
       "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V4-Pro",
+      "label": "MiniMaxAI/MiniMax-M3",
       "scope": {
-        "upstream_provider": "digitalocean"
+        "upstream_provider": "coreweave"
       },
       "billing": {
         "rules": {
-          "input": 1.044,
-          "output": 2.088
+          "input": 0.23,
+          "output": 0.96
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.044",
+          "amount": "0.23",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "2.088",
+          "amount": "0.96",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -15871,14 +15647,15 @@
       ],
       "metadata": {
         "status": "live",
-        "context_length": 1048576,
+        "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
-            "text"
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -16312,7 +16089,7 @@
       },
       "billing": {
         "rules": {
-          "input": 1.05,
+          "input": 1,
           "output": 3.5
         },
         "state": "reported"
@@ -16320,7 +16097,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.05",
+          "amount": "1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -17559,22 +17336,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.15,
-          "output": 0.6
+          "input": 0.195,
+          "output": 0.78
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.15",
+          "amount": "0.195",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.6",
+          "amount": "0.78",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -17986,56 +17763,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "huggingface-9b495d7bde2d4c93e0d90722",
-      "provider": "huggingface",
-      "native_id": "deepseek-ai/DeepSeek-V3.2",
-      "kind": "provider_route",
-      "label": "deepseek-ai/DeepSeek-V3.2",
-      "scope": {
-        "upstream_provider": "digitalocean"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.3,
-          "output": 0.96
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.3",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.96",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 163840,
-        "is_free": false,
-        "supports_tools": false,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "huggingface-9bf785d4dbb22da6765c7ffc",
       "provider": "huggingface",
       "native_id": "moonshotai/Kimi-K3.1-Pro",
@@ -18350,22 +18077,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.2156,
-          "output": 0.6468
+          "input": 0.43999999999999995,
+          "output": 1.32
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.2156",
+          "amount": "0.43999999999999995",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.6468",
+          "amount": "1.32",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -18831,7 +18558,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -19661,22 +19388,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.05,
-          "output": 0.9
+          "input": 0.047,
+          "output": 0.8
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.05",
+          "amount": "0.047",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.9",
+          "amount": "0.8",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -19839,7 +19566,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -20225,6 +19952,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-aaf4eaf499be64545fcd342e",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.7",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.7",
+      "scope": {
+        "upstream_provider": "deepinfra"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.4,
+          "output": 1.75
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.4",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "1.75",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 202752,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": true,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-aaf76e6d7be347a57b28ceb6",
       "provider": "huggingface",
       "native_id": "moonshotai/Kimi-K2.5",
@@ -20531,22 +20308,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.2,
-          "output": 0.3
+          "input": 0.179,
+          "output": 0.268
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.2",
+          "amount": "0.179",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.3",
+          "amount": "0.268",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -20986,22 +20763,22 @@
       },
       "billing": {
         "rules": {
-          "input": 1.02,
-          "output": 4.761
+          "input": 1.029,
+          "output": 4.802
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.02",
+          "amount": "1.029",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "4.761",
+          "amount": "4.802",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -21036,22 +20813,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.14,
-          "output": 0.6
+          "input": 0.1,
+          "output": 0.4
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.14",
+          "amount": "0.1",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.6",
+          "amount": "0.4",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -21520,7 +21297,7 @@
       },
       "billing": {
         "rules": {
-          "input": 0.075,
+          "input": 0.175,
           "output": 0.7
         },
         "state": "reported"
@@ -21528,7 +21305,7 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.075",
+          "amount": "0.175",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
@@ -22518,22 +22295,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.35,
-          "output": 0.75
+          "input": 0.337,
+          "output": 0.722
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.35",
+          "amount": "0.337",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0.75",
+          "amount": "0.722",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -22989,38 +22766,6 @@
         "supports_tools": true,
         "supports_structured_output": true,
         "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-c4271144eb2dba13c69ff828",
-      "provider": "huggingface",
-      "native_id": "zai-org/GLM-4.6V-Flash",
-      "kind": "provider_route",
-      "label": "zai-org/GLM-4.6V-Flash",
-      "scope": {
-        "upstream_provider": "zai-org"
-      },
-      "billing": {
-        "rules": null,
-        "state": "source_native_or_unpriced"
-      },
-      "rates": [],
-      "metadata": {
-        "status": "live",
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": true,
         "architecture": {
           "input_modalities": [
             "text",
@@ -23660,22 +23405,22 @@
       },
       "billing": {
         "rules": {
-          "input": 0.5625,
-          "output": 1.8
+          "input": 0.84375,
+          "output": 2.7
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "0.5625",
+          "amount": "0.84375",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "1.8",
+          "amount": "2.7",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -23691,6 +23436,57 @@
         "architecture": {
           "input_modalities": [
             "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "huggingface-cc1124c1439fb2ca2faa2446",
+      "provider": "huggingface",
+      "native_id": "moonshotai/Kimi-K3.1-Pro",
+      "kind": "provider_route",
+      "label": "moonshotai/Kimi-K3.1-Pro",
+      "scope": {
+        "upstream_provider": "amazon-bedrock"
+      },
+      "billing": {
+        "rules": {
+          "input": 4,
+          "output": 20
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "4",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "20",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 1048576,
+        "is_free": false,
+        "supports_tools": true,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
           ],
           "output_modalities": [
             "text"
@@ -25875,6 +25671,56 @@
       "comparison_eligible": false
     },
     {
+      "id": "huggingface-e0c738f1d066eeaa7347656c",
+      "provider": "huggingface",
+      "native_id": "zai-org/GLM-4.7",
+      "kind": "provider_route",
+      "label": "zai-org/GLM-4.7",
+      "scope": {
+        "upstream_provider": "mancer"
+      },
+      "billing": {
+        "rules": {
+          "input": 0.7,
+          "output": 2.5
+        },
+        "state": "reported"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.7",
+          "currency": "USD",
+          "unit": "1M input tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "2.5",
+          "currency": "USD",
+          "unit": "1M output tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "status": "live",
+        "context_length": 131072,
+        "is_free": false,
+        "supports_tools": false,
+        "supports_structured_output": false,
+        "is_model_author": false,
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "output_modalities": [
+            "text"
+          ]
+        }
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "huggingface-e0f13c2f768b4b7b466efda9",
       "provider": "huggingface",
       "native_id": "zai-org/GLM-5.3",
@@ -26268,22 +26114,22 @@
       },
       "billing": {
         "rules": {
-          "input": 1.25,
-          "output": 5
+          "input": 0.6,
+          "output": 2.4
         },
         "state": "reported"
       },
       "rates": [
         {
           "dimension": "input",
-          "amount": "1.25",
+          "amount": "0.6",
           "currency": "USD",
           "unit": "1M input tokens",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "5",
+          "amount": "2.4",
           "currency": "USD",
           "unit": "1M output tokens",
           "conditions": {}
@@ -26344,7 +26190,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": false,
+        "supports_structured_output": true,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -26497,7 +26343,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -28410,7 +28256,7 @@
         "context_length": 262144,
         "is_free": false,
         "supports_tools": true,
-        "supports_structured_output": true,
+        "supports_structured_output": false,
         "is_model_author": false,
         "architecture": {
           "input_modalities": [
@@ -28758,57 +28604,6 @@
         "architecture": {
           "input_modalities": [
             "text"
-          ],
-          "output_modalities": [
-            "text"
-          ]
-        }
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "huggingface-f60fa20a95226c3b060952d9",
-      "provider": "huggingface",
-      "native_id": "google/gemma-4-26B-A4B-it",
-      "kind": "provider_route",
-      "label": "google/gemma-4-26B-A4B-it",
-      "scope": {
-        "upstream_provider": "novita"
-      },
-      "billing": {
-        "rules": {
-          "input": 0.13,
-          "output": 0.4
-        },
-        "state": "reported"
-      },
-      "rates": [
-        {
-          "dimension": "input",
-          "amount": "0.13",
-          "currency": "USD",
-          "unit": "1M input tokens",
-          "conditions": {}
-        },
-        {
-          "dimension": "output",
-          "amount": "0.4",
-          "currency": "USD",
-          "unit": "1M output tokens",
-          "conditions": {}
-        }
-      ],
-      "metadata": {
-        "status": "live",
-        "context_length": 262144,
-        "is_free": false,
-        "supports_tools": true,
-        "supports_structured_output": false,
-        "is_model_author": false,
-        "architecture": {
-          "input_modalities": [
-            "text",
-            "image"
           ],
           "output_modalities": [
             "text"
@@ -29698,15 +29493,15 @@
     "https://huggingface.co/docs/inference-providers/pricing: extra_headers={\"X-HF-Bill-To\": \"my-org-name\"},",
     "https://huggingface.co/docs/inference-providers/pricing: headers = {\"Authorization\": f\"Bearer {os.environ['HF_TOKEN']}\", \"X-HF-Bill-To\": \"my-org-name\"}"
   ],
-  "catalog_sha256": "38c86d635cd419a65b08cb382814ee50eafa463c8b0bb0fb4e2adf3aac94f1d3",
-  "revision": 67,
-  "changed_at": "2026-11-23T18:10:07Z",
+  "catalog_sha256": "f8d3e5cee520e5e48bf61d621441143e35842636c5def59142e6ea64e152a7aa",
+  "revision": 68,
+  "changed_at": "2026-11-24T17:46:05Z",
   "source_url": "https://router.huggingface.co/v1/models",
   "source_urls": [
     "https://router.huggingface.co/v1/models",
     "https://huggingface.co/docs/inference-providers/pricing"
   ],
-  "source_sha256": "475b6b586ac7ebaae49dcae5edffb3069922bb4db4f3294ab42c9318a443fcfe",
+  "source_sha256": "26394ff027d2b990711c519408b7d90bc1fd51f9199e9b4de20c1b61bd39038d",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
