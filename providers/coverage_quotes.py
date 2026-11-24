@@ -5,7 +5,7 @@ from decimal import Decimal
 
 from .common import HTMLTables, markdown_tables, money, number, observation, provider_aliases
 from .comparison_expansion import exact_rows
-from .public_pricing import require_models, unique_records
+from .public_pricing import require_models, section, unique_records
 from .policy import excluded_model_ids
 
 REVIEWED_PROVIDERS = frozenset(("arcee", "castform", "cerebras", "perplexity", "upstage"))
@@ -14,10 +14,19 @@ AGENT_MODELS = "https://docs.perplexity.ai/docs/agent-api/models.md"
 CEREBRAS_MODELS = "https://api.cerebras.ai/public/v1/models"
 CEREBRAS_UNITS = "https://inference-docs.cerebras.ai/api-reference/models/public-models.md"
 UPSTAGE_PRICES = "https://www.upstage.ai/pricing/api"
+UPSTAGE_COMPATIBILITY = "https://console.upstage.ai/docs/capabilities/generate/chat.md"
+UPSTAGE_COMPATIBILITY_LINE = (
+    "> `solar-pro4` and `solar-mini4`, along with their snapshots `solar-pro4-260806` and "
+    "`solar-mini4-260922`, are the previous names of `solar-pro-4` and `solar-mini-4`. "
+    "They continue to work, so existing integrations need no changes."
+)
 UPSTAGE_VERSIONS = {
-    "solar-pro4-260806": ("https://console.upstage.ai/docs/models/solar-pro-4.md", "solar-pro4"),
-    "solar-mini4-260922": ("https://console.upstage.ai/docs/models/solar-mini-4.md", "solar-mini4"),
+    "solar-pro4-260806": ("https://console.upstage.ai/docs/models/solar-pro-4.md", "solar-pro4",
+                         "solar-pro-4-260806", "solar-pro-4"),
+    "solar-mini4-260922": ("https://console.upstage.ai/docs/models/solar-mini-4.md", "solar-mini4",
+                          "solar-mini-4-260922", "solar-mini-4"),
 }
+DOLLAR_AMOUNT = r"\$([0-9]+(?:\.[0-9]+)?)"
 
 
 def document(payload, url):
@@ -31,6 +40,44 @@ def quote(provider, mid, rates, source, notes, **metadata):
     return observation(provider, mid, number(rates[0]), number(rates[1]), source,
         cache_read_per_million=None if len(rates) < 3 or rates[2] is None else number(rates[2]),
         pricing_notes=NOTES + notes, **metadata)
+
+
+def upstage_rates(body, mid, legacy_alias, published_id, published_alias, payload):
+    headings = section(body, "Versions").splitlines()
+    legacy = f"### {mid} (Alias: {legacy_alias})"
+    current = f"### {published_id} (Alias: {published_alias})"
+    if headings.count(legacy) + headings.count(current) != 1:
+        raise ValueError("Upstage current version/alias binding changed")
+    current_capture = any(d.get("source_url") == UPSTAGE_COMPATIBILITY for d in payload.get("documents", []))
+    if current in headings or current_capture:
+        witness = document(payload, UPSTAGE_COMPATIBILITY)
+        if witness.splitlines().count(UPSTAGE_COMPATIBILITY_LINE) != 1:
+            raise ValueError("Upstage legacy ID compatibility needs a current source witness")
+
+    summary_rates = re.findall(
+        rf"(?m)^- \*\*Price\*\*: {DOLLAR_AMOUNT}/1M tokens \((Input Token|Output Token|Cached Token)\)$", body,
+    )
+    if len(summary_rates) != 3 or len({label for _, label in summary_rates}) != 3:
+        raise ValueError("Upstage selected per-million token fields changed")
+    rates = {label: number(value) for value, label in summary_rates}
+    summary = [rates[k] for k in ("Input Token", "Output Token", "Cached Token")]
+
+    list_sections = body.splitlines().count("## List price")
+    if legacy in headings and not current_capture and not list_sections:
+        # Original public layout put the list amounts in the summary fields.
+        return summary
+    list_price = re.fullmatch(
+        rf"{DOLLAR_AMOUNT} input / {DOLLAR_AMOUNT} output / {DOLLAR_AMOUNT} cached per 1M tokens\."
+        r"( A promotional discount is currently applied\.)?",
+        section(body, "List price").strip(),
+    )
+    if list_sections != 1 or not list_price:
+        raise ValueError("Upstage selected list-price scope changed")
+    base = [number(value) for value in list_price.groups()[:3]]
+    if ((not list_price[4] and summary != base)
+            or (list_price[4] and any(active > listed for active, listed in zip(summary, base)))):
+        raise ValueError("Upstage promotional and list-priced fields disagree")
+    return base
 
 
 def reviewed_quotes(provider, payload, aliases):
@@ -100,16 +147,13 @@ def reviewed_quotes(provider, payload, aliases):
         for mid in aliases:
             if mid not in UPSTAGE_VERSIONS:
                 raise ValueError("Unreviewed Upstage served version")
-            source, alias = UPSTAGE_VERSIONS[mid]
-            body = document(payload, source)
-            if "### " + mid + " (Alias: " + alias + ")" not in body:
-                raise ValueError("Upstage current version/alias binding changed")
-            values = re.findall(r"(?m)^- \*\*Price\*\*: \$([0-9.]+)/1M tokens \((Input Token|Output Token|Cached Token)\)$", body)
-            if len(values) != 3 or len({label for _, label in values}) != 3:
-                raise ValueError("Upstage selected per-million token fields changed")
-            rates = {label: number(value) for value, label in values}
-            records.append(quote(provider, mid, [rates[k] for k in ("Input Token", "Output Token", "Cached Token")], source,
-                "Upstage current versioned API token quote. The same provider's API pricing page explicitly sets currencyCode USD. Cached-token reads, taxes, prepaid bonus credits and Studio subscriptions stay separate; context shorthand is left unverified.", region="Upstage Console API"))
+            source, legacy_alias, published_id, published_alias = UPSTAGE_VERSIONS[mid]
+            rates = upstage_rates(document(payload, source), mid, legacy_alias, published_id, published_alias, payload)
+            records.append(quote(provider, mid, rates, source,
+                "Published Upstage Console API list rates. A separate review is required for promotional scheduling "
+                "and applicability. Contributor, prepaid bonus credits, taxes and Studio subscriptions are separate. "
+                "The quote is excluded from workload estimates and cheapest-price results.",
+                region="Upstage Console API", pricing_scope_unverified=True))
     else:
         raise ValueError("No comparable quote selection for this provider")
     require_models(records, aliases.keys(), aliases)
