@@ -11,6 +11,7 @@ from .common import markdown_tables, money, number, observation
 from .deepseek_pricing import Tables, expand, parse_models
 from .openrouter_catalog import complete_model_ids
 from .public_pricing import require_models, section
+from .policy import excluded_model_ids
 
 PROVIDERS = frozenset(("openrouter", "alibaba", "huggingface", "snowflake", "cloudflare",
                        "databricks", "oracle", "nebius", "xai", "zai", "ovhcloud", "scaleway", "minimax", "deepseek"))
@@ -402,20 +403,21 @@ ALIBABA_FLASH_HEADER = [
 ]
 
 
-def revised_qwen_label(label):
+def revised_qwen_label(label, locale):
     # Construct exact alternate labels with the same source IDs and served versions.
     return (label.replace('Currently equivalent to', 'Current capabilities are equivalent to')
             .replace('50% [batch inference](/en/model-studio/batch-interfaces-compatible-with-openai) discount',
-                     '[Batch calls](/zh/model-studio/batch-interfaces-compatible-with-openai) at half price')
+                     f'[Batch calls](/{locale}/model-studio/batch-interfaces-compatible-with-openai) at half price')
             .replace('[context caching discount](/en/model-studio/context-cache)',
-                     '[Context cache](/zh/model-studio/context-cache) enjoys a discount'))
+                     f'[Context cache](/{locale}/model-studio/context-cache) enjoys a discount'))
 
 
 def alibaba_singapore_tables(body, aliases):
     # Read inert JSX spans and protect escaped inequalities from HTMLParser.
     view = re.sub(r'(rowSpan|colSpan)=\{(\d+)\}', r'\1="\2"', body.replace('\\<', '&lt;'))
-    revised_labels = {revised_qwen_label(label): (mid, label)
-                      for mid, label in QWEN_LABELS.items() if mid in aliases}
+    revised_labels = {revised_qwen_label(label, locale): (mid, label)
+                      for mid, label in QWEN_LABELS.items() if mid in aliases
+                      for locale in ('en', 'zh')}
     for block in re.findall(r'<Tab title="Singapore">(.*?)</Tab>', view, re.S):
         parser = Tables()
         parser.feed(block)
@@ -517,6 +519,9 @@ def alibaba_qwen_quotes(body, tables, aliases, source):
 
 
 def expanded_quotes(provider,payload,aliases,source):
+    if provider == 'xai':
+        excluded = excluded_model_ids('xai')
+        aliases = {mid: canonical for mid, canonical in aliases.items() if mid not in excluded}
     if not aliases:
         raise ValueError("Provider requires explicit reviewed source bindings")
     if provider == 'openrouter':

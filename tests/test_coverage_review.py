@@ -10,6 +10,7 @@ from unittest.mock import patch
 from providers import anthropic, deepinfra, gemini, meta, mistral, moonshot, openai
 from providers.comparison_expansion import expanded_quotes
 from providers.markdoc import table_markdown
+from providers.policy import POLICIES
 from scripts.catalog_inventory import normalize_inventory
 from scripts.collect import apply_snapshot
 from scripts.normalize import catalog, normalize
@@ -39,7 +40,8 @@ class CoverageReviewTests(unittest.TestCase):
         self.assertEqual(len(added), 58)
         baseline = json.loads((FIXTURES.parent / 'reviewed-bindings-2026-10-26.json').read_text())
         self.assertLessEqual(set(baseline['model_ids']) | added, {m['id'] for m in self.models})
-        records = [r for p in ('openai', 'anthropic', 'gemini', 'mistral', 'meta', 'moonshot', 'xai', 'zai', 'alibaba', 'deepinfra') for r in self.rows(p)]
+        with patch.dict(POLICIES, {'xai': {}}):
+            records = [r for p in ('openai', 'anthropic', 'gemini', 'mistral', 'meta', 'moonshot', 'xai', 'zai', 'alibaba', 'deepinfra') for r in self.rows(p)]
         normalized = [normalize(r, self.aliases, TIME, HASH)[0] for r in records]
         self.assertEqual({o['model_id'] for o in normalized} & added, added)
         self.assertEqual(len({o['id'] for o in normalized}), len(normalized))
@@ -92,8 +94,6 @@ class CoverageReviewTests(unittest.TestCase):
         self.assertIsNone(small['context_window'])
         for old, new in [('/M Tokens', '/Min'), ('`codestral-2508`', '`unreviewed-latest`'), ('| API name |', '| Endpoint |')]:
             with self.assertRaises(ValueError): self.rows('mistral', body('mistral').replace(old, new))
-        with patch.object(mistral, 'fetch_text', side_effect=[body('mistral'), '<button aria-pressed="true">EUR</button><button aria-pressed="true">Standard</button>']):
-            with self.assertRaises(ValueError): mistral.collect(self.aliases)
 
     def test_meta_contributor_prices_never_substitute_for_standard(self):
         rows = self.rows('meta')

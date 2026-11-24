@@ -8,6 +8,7 @@ import json
 from dataclasses import dataclass
 
 from .common import Collection, fetch_text, safe_error
+from .coverage_quotes import UPSTAGE_COMPATIBILITY
 from .pricing_api import encode_payload
 from .policy import collection_disabled
 
@@ -72,7 +73,7 @@ PUBLIC_SOURCES = {
     "stepfun": PublicSource("stepfun", "StepFun", "https://platform.stepfun.ai/docs/en/guides/pricing/details.md",
         scope_note="Global English pricing document, including text, image, audio and voice charges. Chinese-region billing, coding subscriptions and credits are separate products. Cache hit/miss and session rounding remain explicit."),
     "upstage": PublicSource("upstage", "Upstage", "https://www.upstage.ai/pricing/api",
-        documents=("https://www.upstage.ai/pricing/api", "https://console.upstage.ai/docs/models.md", "https://console.upstage.ai/docs/models/solar-pro-4.md", "https://console.upstage.ai/docs/models/solar-mini-4.md"),
+        documents=("https://www.upstage.ai/pricing/api", "https://console.upstage.ai/docs/models.md", "https://console.upstage.ai/docs/models/solar-pro-4.md", "https://console.upstage.ai/docs/models/solar-mini-4.md", UPSTAGE_COMPATIBILITY),
         scope_note="Direct API pricing and model references. Current Solar 4 versions, ended Solar 2/3 service, document pages, prepaid bonuses, VAT and Studio subscriptions stay distinct. No retrospective prices are imported."),
     "telnyx": PublicSource("telnyx", "Telnyx Inference", "https://telnyx.com/pricing/inference-api",
         scope_note="Public inference pricing document. Different deployment/pricing sections, promotional rows and cached-input rates are source-native; no cheapest-row selection or inferred endpoint IDs."),

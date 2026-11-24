@@ -66,10 +66,13 @@ permission only to those named sources; another matching native ID is not a quot
   preview and stays native-only. Sonar's Agent API identity is separate from
   legacy search endpoints and request fees; optional tools remain outside token
   estimates. An advertised Perplexity-hosted prefix identifies the serving source.
-- **Upstage:** two exact dated Solar 4 releases. Model-document token prices and
-  the API pricing page's explicit USD setting must both remain valid. Older ended
-  service, prepaid bonuses, taxes, Studio plans and introductory history are not
-  substituted for the current quotes.
+- **Upstage:** two exact dated Solar 4 releases. The compatibility notice, exact
+  version headings, model-document list prices and API pricing page's explicit
+  USD setting support the existing offer identities. The November 24 quarantine
+  excludes both offers from workload estimates pending promotion review.
+  Promotional schedules, Contributor pricing, older ended service, prepaid
+  bonuses, taxes and Studio plans remain separate. See the
+  [November 24 investigation](pricing-sources.md#november-24-collection-investigation-issue-59).
 
 Weight access was not independently reviewed for these 66 identities. Their
 `open_weight: null` values display **Weights unverified** in Compare and Models.

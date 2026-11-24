@@ -52,6 +52,23 @@ describe('bounded source operating policies', () => {
     expect(rankOfferings(data, 'zai/glm-5.3-flash', defaultWorkload).some((r) => r.offering.provider === 'arcee')).toBe(true);
   });
 
+  it('pauses only the exact xAI Grok Build binding and retains both historical bands', () => {
+    const id = 'grok-build-0.1';
+    expect(providerPolicies.xai).toMatchObject({ excluded_model_ids: [id] });
+    expect(comparisonsPaused('xai', id)).toBe(true);
+    expect(comparisonsPaused('xai', `${id}-other`)).toBe(false);
+    expect(comparisonsPaused('vercel', id)).toBe(false);
+    expect(collectionDisabled('xai')).toBe(false);
+    const held = data.offerings.filter((o) => o.provider === 'xai' && o.provider_model_id === id);
+    expect(held).toHaveLength(2);
+    expect(new Set(held.map((o) => o.min_input_tokens))).toEqual(new Set([0, 200000]));
+    const rows = rankOfferings(data, 'xai/grok-build-0.1', defaultWorkload, 'all');
+    expect(rows.some((r) => r.offering.provider === 'xai')).toBe(false);
+    expect(comparisonCsv(rows)).not.toContain(',xAI,');
+    expect(comparisonProviders(data, new Set(['xai/grok-build-0.1']))).not.toContain('xai');
+    expect(rankOfferings(data, 'xai/grok-4.7', defaultWorkload).some((r) => r.offering.provider === 'xai')).toBe(true);
+  });
+
   it('excludes stopped quotes from current rankings, workload winners, provider columns and comparison CSV', () => {
     const before = JSON.stringify(data);
     for (const model of data.models) {

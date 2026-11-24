@@ -65,7 +65,7 @@ The normal scheduled command selects all **29** providers automatically. Health 
 
 ## November direct-source additions
 
-The [provider coverage review](provider-coverage-review.md) adds Mistral API (`mistral`), Meta Model API (`meta`) and Moonshot AI (`moonshot`), all from public pricing documents without credentials. Mistral selects Standard USD and preserves its complete pricing document; Meta keeps Standard and Contributor modes separate; Kimi reads inert serialized public price tables because its Markdown export omits them. No inference endpoints are called. Historical backfill is not expanded by this current-source addition.
+The [provider coverage review](provider-coverage-review.md) adds Mistral API (`mistral`), Meta Model API (`meta`) and Moonshot AI (`moonshot`), all from public pricing documents without credentials. Mistral verifies Standard USD against the rendered pricing tables and their serialized model IDs, units and rates; Meta keeps Standard and Contributor modes separate; Kimi reads inert serialized public price tables because its Markdown export omits them. No inference endpoints are called. Historical backfill is not expanded by this current-source addition.
 
 ```bash
 python -m scripts.collect --strict --dry-run --provider mistral --provider meta --provider moonshot

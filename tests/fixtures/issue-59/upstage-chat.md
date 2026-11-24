@@ -1,0 +1,1 @@
+> `solar-pro4` and `solar-mini4`, along with their snapshots `solar-pro4-260806` and `solar-mini4-260922`, are the previous names of `solar-pro-4` and `solar-mini-4`. They continue to work, so existing integrations need no changes.

@@ -142,6 +142,39 @@ from issue #46. All other Vercel bindings remain required. The exclusions preser
 retained observations and availability flags. Reappearance requires separate
 source review. Vendor retirement remains unconfirmed.
 
+### November 24 collection investigation (issue #59)
+
+The [failed run](https://github.com/yogenpro/token3/actions/runs/45451893963/attempts/1)
+reported failures for Alibaba, Mistral, Upstage and xAI. A strict dry-run on
+current main reproduced all four.
+
+- [Alibaba Model Studio](https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md)
+  now uses English paths in the reworded Singapore Qwen cache and Batch links.
+  The parser accepts each exact locale form. All 17 reviewed quotes preserve
+  prices, served IDs, prompt bands, mode, discount and regional scope.
+- [Mistral API pricing](https://docs.mistral.ai/inference/pricing) serves HTML,
+  and the former Markdown route returned HTTP 404. The parser checks the exact
+  API IDs and per-million-token components in the inert serialized table data
+  against the rendered USD/Standard controls and rates. All six reviewed
+  quotes and their unknown cache fields match the preceding source.
+- [Upstage's compatibility notice](https://console.upstage.ai/docs/capabilities/generate/chat)
+  confirms that both previously reviewed IDs still work under their current
+  hyphenated version names. The [Pro 4](https://console.upstage.ai/docs/models/solar-pro-4)
+  and [Mini 4](https://console.upstage.ai/docs/models/solar-mini-4) documents
+  distinguish list prices from promotions, also reflected in the
+  [API pricing cards](https://www.upstage.ai/pricing/api). The user approved
+  quarantining only the two existing Solar 4 quotes. Collection retains the
+  original USD list amounts per million input, output and cached tokens under
+  the same offering IDs and marks their scope unverified. Promotional schedules
+  and Contributor rates remain native evidence. Workload estimates and
+  cheapest-price results exclude the quarantined quotes until separate review.
+- The [xAI public pricing table](https://docs.x.ai/developers/pricing) omits
+  `grok-build-0.1`. The user approved excluding this exact xAI binding on
+  November 20. Both retained price bands, original observations, native evidence
+  and availability flags are preserved. The remaining four models still require
+  both bands. Retirement is unconfirmed, and reappearance requires a separate
+  source review.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
@@ -270,7 +303,7 @@ For future schema troubleshooting, manually dispatch `inspect-fireworks.yml`. `s
 
 ## November 2026 coverage review
 
-The [provider coverage review](provider-coverage-review.md) adds three free public document sources: [Mistral API](https://docs.mistral.ai/inference/pricing.md), [Meta Model API](https://dev.meta.ai/docs/pricing-rate-limits.md) and [Moonshot AI](https://platform.kimi.ai/docs/pricing/chat). Mistral also checks the HTML controls for explicit USD/Standard scope. Meta selects Standard mode by its exact per-1M-token header independently of Contributor discounts and column order; duplicate or changed headers and incomplete token components fail closed. Kimi tables are read from serialized HTML literals without JavaScript/MDX execution; its Markdown version omits them. Native records include unreviewed rows and billing/access rules. Exact source bindings, prompt bands, thinking modes, introductory schedules and TTLs remain separate. That review expanded current collection to 29 groups while retaining the original 26-group historical scope. Current collection subsequently reached 47 groups, and the separately authorized [November 5 backfill](recent-provider-history.md) expands selected historical recovery to those 47 groups. No additional key, inference call, paid service or release gate is introduced.
+The [provider coverage review](provider-coverage-review.md) adds three free public document sources: [Mistral API](https://docs.mistral.ai/inference/pricing), [Meta Model API](https://dev.meta.ai/docs/pricing-rate-limits.md) and [Moonshot AI](https://platform.kimi.ai/docs/pricing/chat). Mistral checks the rendered currency and tier controls and validates exact model IDs, units and rates against the pricing table’s serialized data. Meta selects Standard mode by its exact per-1M-token header independently of Contributor discounts and column order; duplicate or changed headers and incomplete token components fail closed. Kimi tables are read from serialized HTML literals without JavaScript/MDX execution; its Markdown version omits them. Native records include unreviewed rows and billing/access rules. Exact source bindings, prompt bands, thinking modes, introductory schedules and TTLs remain separate. That review expanded current collection to 29 groups while retaining the original 26-group historical scope. Current collection subsequently reached 47 groups, and the separately authorized [November 5 backfill](recent-provider-history.md) expands selected historical recovery to those 47 groups. No additional key, inference call, paid service or release gate is introduced.
 
 ## Additional provider and model coverage
 

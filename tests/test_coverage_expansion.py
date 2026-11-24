@@ -7,7 +7,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from providers.coverage_expansion import PUBLIC_SOURCES
-from providers.coverage_quotes import REVIEWED_PROVIDERS, reviewed_quotes
+from providers.coverage_quotes import REVIEWED_PROVIDERS, UPSTAGE_COMPATIBILITY, reviewed_quotes
 from providers.reviewed_inventory import reviewed_quotes as gateway_quotes
 from scripts.catalog_inventory import normalize_inventory
 from scripts.collect import PROVIDERS, apply_snapshot
@@ -34,7 +34,8 @@ def payload(provider):
     if collector.adapter != 'public_documents':
         result['catalog'] = json.loads(sources[collector.SOURCE])
     urls = collector.documents or ((collector.SOURCE,) if collector.adapter == 'public_documents' else ())
-    result['documents'] = [dict(source_url=url, body=sources[url]) for url in urls]
+    # The dated enrollment predates Upstage's version-label change and its compatibility witness.
+    result['documents'] = [dict(source_url=url, body=sources[url]) for url in urls if url != UPSTAGE_COMPATIBILITY]
     return result
 
 
