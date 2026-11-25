@@ -48468,6 +48468,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "alibaba-bd7d3fe88a573ad4d3318e4c",
+      "provider": "alibaba",
+      "native_id": "4284fadd4fd2037176b54c1a",
+      "kind": "document_row",
+      "label": "decision-model",
+      "scope": {
+        "table": 240,
+        "headings": [
+          "Model Invocation Pricing",
+          "Industry Models <span id=\"25e65689b1jsa\" />",
+          "Decision Model <span id=\"dm-pricing\" />"
+        ],
+        "tabs": [
+          "China (Beijing)"
+        ],
+        "headers": [
+          "Model ID",
+          "Input unit price (per million tokens)",
+          "Free quota"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "decision-model",
+          "\\$0.042",
+          "No free quota"
+        ],
+        "columns": [
+          "Model ID",
+          "Input unit price (per million tokens)",
+          "Free quota"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input unit price (per million tokens):0",
+          "amount": "0.042",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.042",
+            "unit_verified": true,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
       "id": "alibaba-be1cc178547e94783e6d697e",
       "provider": "alibaba",
       "native_id": "f4cb4d0ad14d1136a0aec98d",
@@ -53997,6 +54050,59 @@
           "conditions": {
             "source_expression": "\\$0.459",
             "unit_verified": false,
+            "active_rate_not_inferred": true
+          }
+        }
+      ],
+      "metadata": {},
+      "comparison_eligible": false
+    },
+    {
+      "id": "alibaba-d23b3fb130f6ee67f2479f3d",
+      "provider": "alibaba",
+      "native_id": "6de0b9260ae4fd5e650a588e",
+      "kind": "document_row",
+      "label": "decision-model",
+      "scope": {
+        "table": 239,
+        "headings": [
+          "Model Invocation Pricing",
+          "Industry Models <span id=\"25e65689b1jsa\" />",
+          "Decision Model <span id=\"dm-pricing\" />"
+        ],
+        "tabs": [
+          "Singapore"
+        ],
+        "headers": [
+          "Model ID",
+          "Input unit price (per million tokens)",
+          "Free quota"
+        ],
+        "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
+      },
+      "billing": {
+        "cells": [
+          "decision-model",
+          "\\$0.042",
+          "1 million tokens"
+        ],
+        "columns": [
+          "Model ID",
+          "Input unit price (per million tokens)",
+          "Free quota"
+        ],
+        "alignment_verified": true,
+        "interpretation": "source-native expressions; no inferred unit or cross-provider equivalence"
+      },
+      "rates": [
+        {
+          "dimension": "Input unit price (per million tokens):0",
+          "amount": "0.042",
+          "currency": "USD",
+          "unit": "per million tokens",
+          "conditions": {
+            "source_expression": "\\$0.042",
+            "unit_verified": true,
             "active_rate_not_inferred": true
           }
         }
@@ -66678,6 +66784,7 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.0375/ s",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.04/ s",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.04/image",
+    "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.042",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.0424/s",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.043",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: $0.043006/ s",
@@ -67004,6 +67111,7 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 0<Token≤256K",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 0<Token≤32K",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 1 million Tokens",
+    "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 1 million tokens",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 128K<Token≤256K",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 256K<Token≤1M",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: 32K<Token≤128K",
@@ -67131,6 +67239,7 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The following table shows the original prices. Some models have limited-time off-peak discounts (see the label next to the price). Off-peak hours are 22:00 to 8:00 the next day in UTC+8, and all other hours are peak hours, based on the billing time.",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The free quota indicated in the table applies only to the Singapore region; other regions have no free quota.",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The free quota is 36,000 seconds (10 hours), available only in the Singapore region. It is valid for 90 days, starting from the latest of the following dates: when you activate Model Studio, when the model is published, or when your request to use the model is approved. You can view your quota and remaining balance in the console. For details, see [Free Quota for New Users](/en/model-studio/new-free-quota#977b13081ab56).",
+    "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The free quota is valid for 90 days from Model Studio activation, model release, or application approval, whichever is later.",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The qwen-image-2.0 series is billed by image and supports text-to-image and image-to-image/image editing. Unit prices by region are as follows.",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The realtime voice chat model supports text and audio input and output, and bills input tokens and output tokens separately. Audio tokens are converted based on duration: `Total number of tokens = Audio duration (in seconds) * 12.5`. Audio under 1 second is counted as 1 second.",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: The unit price varies by output video mode (standard mode/professional mode); failed requests do not incur fees or consume the free quota.",
@@ -67149,17 +67258,17 @@
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: With prompt rewriting enabled ( prompt\\_extend=true ): $0.02868/image",
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md: With prompt rewriting enabled ( prompt\\_extend=true ): $0.03/image"
   ],
-  "catalog_sha256": "bb8e47545b0901e3c5c6c23919860232963c29be74bcb4afa9d0b426e5b2d500",
-  "revision": 25,
-  "changed_at": "2026-11-24T17:46:05Z",
+  "catalog_sha256": "c35082333414cd1e14875da859d5209dec5035ec03afd231ae11aaac1f865a29",
+  "revision": 26,
+  "changed_at": "2026-11-25T17:15:39Z",
   "source_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
   "source_urls": [
     "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md"
   ],
-  "source_sha256": "6de737eabf3e394f9c8e777833a8908a671c60c9737de316059f6caca6d2ea7a",
+  "source_sha256": "2e2249614a6c673a0f78591df87e266257c8fd9e48cfe745b5f97da4d71b5423",
   "archive_reference": {
     "state": "unavailable",
     "target_url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/model-pricing.md",
-    "checked_at": "2026-11-24T17:46:05Z"
+    "checked_at": "2026-11-25T17:15:39Z"
   }
 }

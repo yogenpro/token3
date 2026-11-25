@@ -355,6 +355,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "perplexity-170a4f976211613437b6a002",
+      "provider": "perplexity",
+      "native_id": "14d8c27e6580c965207b0da5",
+      "kind": "document_row",
+      "label": "`google/gemini-4-hydrogen`",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Orchestrator Models & Pricing",
+          "Available Models",
+          "Google"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Usage tier",
+          "Context window",
+          "Max output",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)"
+        ],
+        "source_url": "https://docs.perplexity.ai/docs/router/models.md"
+      },
+      "billing": {
+        "cells": [
+          "`google/gemini-4-hydrogen`",
+          "Tier 1",
+          "1,048,576",
+          "65,536",
+          "1.50",
+          "7.50",
+          "0.075"
+        ],
+        "columns": [
+          "Model",
+          "Usage tier",
+          "Context window",
+          "Max output",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "google/gemini-4-hydrogen"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "perplexity-1ab48bf0de26415f833f8221",
       "provider": "perplexity",
       "native_id": "7600791e8bf0dd788bb61996",
@@ -1943,6 +1996,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "perplexity-5e54ce8ed6b306c0a7933235",
+      "provider": "perplexity",
+      "native_id": "7d7ad87befa6de3de01e6788",
+      "kind": "document_row",
+      "label": "`google/gemini-4-neon`",
+      "scope": {
+        "table": 2,
+        "headings": [
+          "Orchestrator Models & Pricing",
+          "Available Models",
+          "Google"
+        ],
+        "tabs": [],
+        "headers": [
+          "Model",
+          "Usage tier",
+          "Context window",
+          "Max output",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)"
+        ],
+        "source_url": "https://docs.perplexity.ai/docs/router/models.md"
+      },
+      "billing": {
+        "cells": [
+          "`google/gemini-4-neon`",
+          "Tier 1",
+          "1,048,576",
+          "65,536",
+          "3.00",
+          "15.00",
+          "0.15"
+        ],
+        "columns": [
+          "Model",
+          "Usage tier",
+          "Context window",
+          "Max output",
+          "Input ($/1M)",
+          "Output ($/1M)",
+          "Cache read ($/1M)"
+        ],
+        "alignment_verified": true,
+        "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
+      },
+      "rates": [],
+      "metadata": {
+        "source_model_id": "google/gemini-4-neon"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "perplexity-62cc25933145953995075ada",
       "provider": "perplexity",
       "native_id": "adfa973d2691288b34afda72",
@@ -2547,7 +2653,7 @@
         "source_url": "https://docs.perplexity.ai/docs/router/models.md"
       },
       "billing": {
-        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nOrchestrator Models & Pricing\nOrchestrator API models with context windows, output limits, per-token pricing, and usage tier requirements.\nAvailable Models\nEvery model below uses the same prefixed ID, such as openai/gpt-6-luna or perplexity/glm-5.3, in Chat Completions (https://docs.perplexity.ai/api-reference/gateway-chat-completions-post.md), Responses (https://docs.perplexity.ai/api-reference/gateway-responses-post.md), and Messages (https://docs.perplexity.ai/api-reference/gateway-messages-post.md). perplexity/auto is not a model in the tables: it picks one of these models for each request, and you are billed at that model's rate. See Routing & Reliability (https://docs.perplexity.ai/docs/orchestrator/routing-and-reliability.md).\nContext window and max output are in tokens; the context window covers input and output together. Rates are USD per 1 million tokens. A rate with a context-length range, such as (≤272k), changes when the input is above that range. The Usage tier column is the minimum usage tier (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md) that can call the model.\n[tab] Anthropic\nanthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 are not available to organizations with zero data retention enabled.\n[tab] OpenAI\nopenai/gpt-6.2-astra is not available to organizations with zero data retention enabled.\n[tab] Google\nThe google/gemini-3.8-flash and google/gemini-3.7-flash rates apply through December 31, 2026.\n[tab] xAI\nxAI sets no separate output limit for xai/grok-4.7 and xai/grok-4.6, so max output equals the context window.\n[tab] Z.AI\n[tab] DeepSeek\n[tab] Moonshot AI\nAccess by Usage Tier\nGoogle, xAI, and open-weight models work at every usage tier. OpenAI models and most Anthropic models require Tier 1, which starts at $50 in cumulative credit purchases. anthropic/claude-opus-5, anthropic/claude-opus-5-5, anthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 require Tier 2, which starts at $250. Check your tier under Usage tiers (https://console.perplexity.ai/project/pricing?tab=usage-tiers) on the API Console's Pricing page.\nA request for a model above your tier returns HTTP 402. The message names your current tier and the model's minimum tier:\nThe check is on your tier, not on the type of credits you hold, so adding credits without reaching the model's minimum tier does not unlock it. Choose a model your current tier can use, or reach the required tier.\nOrganizations with zero data retention (ZDR) enabled cannot call anthropic/claude-fable-5, anthropic/claude-fable-5-1, anthropic/claude-fable-5-2, or openai/gpt-6.2-astra; those requests return HTTP 403. ZDR is off by default and requires a written agreement with Perplexity and account-level configuration; see Privacy & Security (https://docs.perplexity.ai/docs/resources/privacy-security.md). The FAQ (https://docs.perplexity.ai/docs/orchestrator/faq.md#access) lists the common 402 and 403 messages.\nBilling\nUsage is billed per token at the served model's rates in the tables, with no per-request fee. Orchestrator API usage draws on the same credit balance as the rest of the Perplexity API; see Pricing (https://docs.perplexity.ai/docs/getting-started/pricing.md) for how credits work. Project admins can review spend by model and by API key on the Billing page in the API Console. To keep environments or applications apart, use separate projects and API keys (https://docs.perplexity.ai/docs/getting-started/projects.md).\n* Cache reads are billed at the cache-read rate.\n* Cache writes with the standard five-minute lifetime are billed once, at 1.25 times the input rate, on Anthropic models and on the openai/gpt-6.2-*, openai/gpt-6.1-*, openai/gpt-6-*, and openai/gpt-5.6-* models. One-hour cache writes, available on Anthropic models, are billed at 2 times the input rate.\n* Reasoning tokens are billed at the output rate.\n* service_tier on /chat/completions and /responses: a request served at the flex tier is billed at 0.5 times the token rates, and a request served at the priority tier at 2 times. Both values are accepted on OpenAI models only; other models return HTTP 400. openai/gpt-6.2-sol and openai/gpt-6.2-astra reject flex; send auto, default, or priority. auto and default are accepted on every model at the listed rates. On /messages, service_tier accepts only auto and standard_only, both at the listed rates.\nReasoning & Caching (https://docs.perplexity.ai/docs/orchestrator/reasoning-and-caching.md) explains how to turn on caching for each model family and where each format reports cached and reasoning tokens.\nOther Models\nOther models are available upon request and subject to approval. Contact api@perplexity.ai (mailto:api@perplexity.ai) to learn more.\nList Models with the API\n[accordion] Response\nThe response lists the models your usage tier can call, sorted by ID, with base token rates in USD per 1M tokens. It omits context windows, max output, and perplexity/auto. It does not apply zero data retention or organization model settings, so a ZDR organization whose tier includes them still sees the Claude Fable models and openai/gpt-6.2-astra. GET /orchestrator/v1/models/{model} returns one model; the ID contains a /, so the path is, for example, /orchestrator/v1/models/perplexity/kimi-k3.\nA request for a model ID that is not in the catalog returns HTTP 404. /responses sets error.code to model_not_found and param to model. /messages returns its native envelope with error.type set to not_found_error. On /responses:\nNext Steps\n[card] Quickstart (https://docs.perplexity.ai/docs/orchestrator/quickstart.md)\nMake your first Orchestrator API call.\n[card] Reasoning & Caching (https://docs.perplexity.ai/docs/orchestrator/reasoning-and-caching.md)\nSet reasoning effort and cache prompts in each request format.\n[card] Routing & Reliability (https://docs.perplexity.ai/docs/orchestrator/routing-and-reliability.md)\nModel routing with perplexity/auto, deployment selection, and failover.\n[card] API Reference (https://docs.perplexity.ai/api-reference/gateway-models-get.md)\nList the models your usage tier can call.",
+        "text": "Documentation Index\nFetch the complete documentation index at: https://docs.perplexity.ai/llms.txt\nUse this file to discover all available pages before exploring further.\nOrchestrator Models & Pricing\nOrchestrator API models with context windows, output limits, per-token pricing, and usage tier requirements.\nAvailable Models\nEvery model below uses the same prefixed ID, such as openai/gpt-6-luna or perplexity/glm-5.3, in Chat Completions (https://docs.perplexity.ai/api-reference/gateway-chat-completions-post.md), Responses (https://docs.perplexity.ai/api-reference/gateway-responses-post.md), and Messages (https://docs.perplexity.ai/api-reference/gateway-messages-post.md). perplexity/auto is not a model in the tables: it picks one of these models for each request, and you are billed at that model's rate. See Routing & Reliability (https://docs.perplexity.ai/docs/orchestrator/routing-and-reliability.md).\nContext window and max output are in tokens; the context window covers input and output together. Rates are USD per 1 million tokens. A rate with a context-length range, such as (≤272k), changes when the input is above that range. The Usage tier column is the minimum usage tier (https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md) that can call the model.\n[tab] Anthropic\nanthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 are not available to organizations with zero data retention enabled.\n[tab] OpenAI\nopenai/gpt-6.2-astra is not available to organizations with zero data retention enabled.\n[tab] Google\nThe google/gemini-3.8-flash and google/gemini-3.7-flash rates apply through December 31, 2026.\n[tab] xAI\nxAI sets no separate output limit for xai/grok-4.7 and xai/grok-4.6, so max output equals the context window.\n[tab] Z.AI\n[tab] DeepSeek\n[tab] Moonshot AI\nAccess by Usage Tier\nxAI, open-weight, and Google Gemini Flash models work at every usage tier. OpenAI models, google/gemini-4-neon, google/gemini-4-hydrogen, and most Anthropic models require Tier 1, which starts at $50 in cumulative credit purchases. anthropic/claude-opus-5, anthropic/claude-opus-5-5, anthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 require Tier 2, which starts at $250. Check your tier under Usage tiers (https://console.perplexity.ai/project/pricing?tab=usage-tiers) on the API Console's Pricing page.\nA request for a model above your tier returns HTTP 402. The message names your current tier and the model's minimum tier:\nThe check is on your tier, not on the type of credits you hold, so adding credits without reaching the model's minimum tier does not unlock it. Choose a model your current tier can use, or reach the required tier.\nOrganizations with zero data retention (ZDR) enabled cannot call anthropic/claude-fable-5, anthropic/claude-fable-5-1, anthropic/claude-fable-5-2, or openai/gpt-6.2-astra; those requests return HTTP 403. ZDR is off by default and requires a written agreement with Perplexity and account-level configuration; see Privacy & Security (https://docs.perplexity.ai/docs/resources/privacy-security.md). The FAQ (https://docs.perplexity.ai/docs/orchestrator/faq.md#access) lists the common 402 and 403 messages.\nBilling\nUsage is billed per token at the served model's rates in the tables, with no per-request fee. Orchestrator API usage draws on the same credit balance as the rest of the Perplexity API; see Pricing (https://docs.perplexity.ai/docs/getting-started/pricing.md) for how credits work. Project admins can review spend by model and by API key on the Billing page in the API Console. To keep environments or applications apart, use separate projects and API keys (https://docs.perplexity.ai/docs/getting-started/projects.md).\n* Cache reads are billed at the cache-read rate.\n* Cache writes with the standard five-minute lifetime are billed once, at 1.25 times the input rate, on Anthropic models and on the openai/gpt-6.2-*, openai/gpt-6.1-*, openai/gpt-6-*, and openai/gpt-5.6-* models. One-hour cache writes, available on Anthropic models, are billed at 2 times the input rate.\n* Reasoning tokens are billed at the output rate.\n* service_tier on /chat/completions and /responses: a request served at the flex tier is billed at 0.5 times the token rates, and a request served at the priority tier at 2 times. Both values are accepted on OpenAI models only; other models return HTTP 400. openai/gpt-6.2-sol and openai/gpt-6.2-astra reject flex; send auto, default, or priority. auto and default are accepted on every model at the listed rates. On /messages, service_tier accepts only auto and standard_only, both at the listed rates.\nReasoning & Caching (https://docs.perplexity.ai/docs/orchestrator/reasoning-and-caching.md) explains how to turn on caching for each model family and where each format reports cached and reasoning tokens.\nOther Models\nOther models are available upon request and subject to approval. Contact api@perplexity.ai (mailto:api@perplexity.ai) to learn more.\nList Models with the API\n[accordion] Response\nThe response lists the models your usage tier can call, sorted by ID, with base token rates in USD per 1M tokens. It omits context windows, max output, and perplexity/auto. It does not apply zero data retention or organization model settings, so a ZDR organization whose tier includes them still sees the Claude Fable models and openai/gpt-6.2-astra. GET /orchestrator/v1/models/{model} returns one model; the ID contains a /, so the path is, for example, /orchestrator/v1/models/perplexity/kimi-k3.\nA request for a model ID that is not in the catalog returns HTTP 404. /responses sets error.code to model_not_found and param to model. /messages returns its native envelope with error.type set to not_found_error. On /responses:\nNext Steps\n[card] Quickstart (https://docs.perplexity.ai/docs/orchestrator/quickstart.md)\nMake your first Orchestrator API call.\n[card] Reasoning & Caching (https://docs.perplexity.ai/docs/orchestrator/reasoning-and-caching.md)\nSet reasoning effort and cache prompts in each request format.\n[card] Routing & Reliability (https://docs.perplexity.ai/docs/orchestrator/routing-and-reliability.md)\nModel routing with perplexity/auto, deployment selection, and failover.\n[card] API Reference (https://docs.perplexity.ai/api-reference/gateway-models-get.md)\nList the models your usage tier can call.",
         "interpretation": "Source-native document expressions and context; per-cell currency, denominator and current applicability are not inferred."
       },
       "rates": [],
@@ -5343,7 +5449,6 @@
     "https://docs.perplexity.ai/docs/router/models.md: Documentation Index",
     "https://docs.perplexity.ai/docs/router/models.md: Every model below uses the same prefixed ID, such as openai/gpt-6-luna or perplexity/glm-5.3, in Chat Completions (https://docs.perplexity.ai/api-reference/gateway-chat-completions-post.md), Responses (https://docs.perplexity.ai/api-reference/gateway-responses-post.md), and Messages (https://docs.perplexity.ai/api-reference/gateway-messages-post.md). perplexity/auto is not a model in the tables: it picks one of these models for each request, and you are billed at that model's rate. See Routing & Reliability (https://docs.perplexity.ai/docs/orchestrator/routing-and-reliability.md).",
     "https://docs.perplexity.ai/docs/router/models.md: Fetch the complete documentation index at: https://docs.perplexity.ai/llms.txt",
-    "https://docs.perplexity.ai/docs/router/models.md: Google, xAI, and open-weight models work at every usage tier. OpenAI models and most Anthropic models require Tier 1, which starts at $50 in cumulative credit purchases. anthropic/claude-opus-5, anthropic/claude-opus-5-5, anthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 require Tier 2, which starts at $250. Check your tier under Usage tiers (https://console.perplexity.ai/project/pricing?tab=usage-tiers) on the API Console's Pricing page.",
     "https://docs.perplexity.ai/docs/router/models.md: List Models with the API",
     "https://docs.perplexity.ai/docs/router/models.md: List the models your usage tier can call.",
     "https://docs.perplexity.ai/docs/router/models.md: Make your first Orchestrator API call.",
@@ -5375,24 +5480,25 @@
     "https://docs.perplexity.ai/docs/router/models.md: [tab] xAI",
     "https://docs.perplexity.ai/docs/router/models.md: anthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 are not available to organizations with zero data retention enabled.",
     "https://docs.perplexity.ai/docs/router/models.md: openai/gpt-6.2-astra is not available to organizations with zero data retention enabled.",
-    "https://docs.perplexity.ai/docs/router/models.md: xAI sets no separate output limit for xai/grok-4.7 and xai/grok-4.6, so max output equals the context window."
+    "https://docs.perplexity.ai/docs/router/models.md: xAI sets no separate output limit for xai/grok-4.7 and xai/grok-4.6, so max output equals the context window.",
+    "https://docs.perplexity.ai/docs/router/models.md: xAI, open-weight, and Google Gemini Flash models work at every usage tier. OpenAI models, google/gemini-4-neon, google/gemini-4-hydrogen, and most Anthropic models require Tier 1, which starts at $50 in cumulative credit purchases. anthropic/claude-opus-5, anthropic/claude-opus-5-5, anthropic/claude-fable-5, anthropic/claude-fable-5-1, and anthropic/claude-fable-5-2 require Tier 2, which starts at $250. Check your tier under Usage tiers (https://console.perplexity.ai/project/pricing?tab=usage-tiers) on the API Console's Pricing page."
   ],
-  "catalog_sha256": "2aaeb62f886df616236945d0ed95210e5d7d8fb365dbee8e94ee59c7cf0a28f9",
-  "revision": 18,
-  "changed_at": "2026-11-24T17:46:05Z",
+  "catalog_sha256": "fb6da5c74a0636a6d023d52c6b72bce32d511b603b48a56724586753e7d4d7f1",
+  "revision": 19,
+  "changed_at": "2026-11-25T17:15:39Z",
   "source_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
   "source_urls": [
     "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
     "https://docs.perplexity.ai/docs/router/models.md"
   ],
-  "source_sha256": "3e07f4ad36d396ee891c26d2692d1094549d96b64eeae01fdc2a15a9a68ce56a",
+  "source_sha256": "ca08c41869b9424d2232df389e64cd9e83be3fa9b40e1c35a3362511db696945",
   "archive_reference": {
     "state": "content_mismatch",
     "target_url": "https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "url": "https://web.archive.org/web/20261109132904/https://docs.perplexity.ai/docs/getting-started/pricing.md",
     "capture_at": "2026-11-09T13:29:04Z",
-    "checked_at": "2026-11-24T17:46:05Z",
+    "checked_at": "2026-11-25T17:15:39Z",
     "verification": null
   }
 }
