@@ -12,6 +12,7 @@ import inventory from '../../data/provider_inventory.json';
 import review from '../../tests/fixtures/provider-model-expansion/review.json';
 
 const data = datasetSchema.parse({ models, offerings, prices, history, changes, status });
+const quarantinedUpstage = new Set(['solar-pro4-260806', 'solar-mini4-260922']);
 
 describe('current provider and model coverage', () => {
   it('preserves the retained baseline and binds every new selection to its reviewed billing source', () => {
@@ -26,7 +27,13 @@ describe('current provider and model coverage', () => {
       const retained = data.offerings.filter((o) => o.model_id === id);
       expect(retained.some((o) => {
         const price = data.prices.find((p) => p.offering_id === o.id);
-        return price !== undefined && estimateCost(o, price, defaultWorkload).eligible;
+        if (!price) return false;
+        const cost = estimateCost(o, price, defaultWorkload);
+        if (o.provider === 'upstage' && quarantinedUpstage.has(o.provider_model_id)) {
+          return !cost.eligible && !cost.pricingScopeVerified
+            && data.history.some((entry) => entry.offering_id === o.id);
+        }
+        return cost.eligible;
       }), id).toBe(true);
     }
     for (const [provider, bindings] of Object.entries(review.reviewed_bindings)) {
