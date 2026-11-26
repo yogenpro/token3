@@ -578,6 +578,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-45a33c9fca5b37b2afe0c059",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+      "kind": "model",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "scope": {
+        "serving_mode": "flex"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.003",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.15",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.6",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.003",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.15",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.6",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/deepseek-v4p1-flash-1017-flex"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-46a8c169757bd2486e8dd0f3",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/glm-5p3",
@@ -1341,6 +1406,71 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-8a5573ec845a3bb43c177800",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/kimi-k3p1-pro",
+      "kind": "model",
+      "label": "Kimi K3.1 Pro",
+      "scope": {
+        "serving_mode": "ultrafast"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.5",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "25",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "5",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "5",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/kimi-k3p1-pro-ultrafast"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-8da941d73f9669ed885fc5cb",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/minimax-m3p1-flash",
@@ -1476,7 +1606,7 @@
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/hy4-flash",
       "kind": "model",
-      "label": "Hy4 Flash",
+      "label": "Hy4 flash",
       "scope": {
         "serving_mode": "standard"
       },
@@ -1532,6 +1662,71 @@
           "text"
         ],
         "context_length": 524288
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "fireworks-9ee4f3a3e6eeebd0764923a6",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/glm-5p3-flash",
+      "kind": "model",
+      "label": "GLM 5.3 Flash",
+      "scope": {
+        "serving_mode": "flex"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.015",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.075",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.25",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.015",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.075",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "0.25",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/glm-5p3-flash-flex"
       },
       "comparison_eligible": false
     },
@@ -2256,6 +2451,70 @@
       "comparison_eligible": false
     },
     {
+      "id": "fireworks-e5a45ccbebd0a7a8ba2b2255",
+      "provider": "fireworks",
+      "native_id": "accounts/fireworks/models/glm-5p3",
+      "kind": "model",
+      "label": "GLM-5.3",
+      "scope": {
+        "serving_mode": "flex"
+      },
+      "billing": {
+        "state": "reported",
+        "rules": [
+          {
+            "amount": "0.13",
+            "sku": "LLM input tokens (cached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "0.7",
+            "sku": "LLM input tokens (uncached)",
+            "unit": "1M tokens"
+          },
+          {
+            "amount": "2.2",
+            "sku": "LLM output tokens",
+            "unit": "1M tokens"
+          }
+        ]
+      },
+      "rates": [
+        {
+          "dimension": "LLM input tokens (cached)",
+          "amount": "0.13",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM input tokens (uncached)",
+          "amount": "0.7",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        },
+        {
+          "dimension": "LLM output tokens",
+          "amount": "2.2",
+          "currency": "USD",
+          "unit": "1M tokens",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_length": 1048576,
+        "usage_identifier": "accounts/fireworks/routers/glm-5p3-flex"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "fireworks-ec959ac4b807112c6020dd53",
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/qwen3p8-max",
@@ -2326,7 +2585,7 @@
       "provider": "fireworks",
       "native_id": "accounts/fireworks/models/hy4-flash",
       "kind": "model",
-      "label": "Hy4 Flash",
+      "label": "Hy4 flash",
       "scope": {
         "serving_mode": "priority"
       },
@@ -2797,14 +3056,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "6c352e5b658369452a72c739a119f66c0744fba04a07dd77c0dc1031797bb872",
-  "revision": 24,
-  "changed_at": "2026-11-25T17:15:39Z",
+  "catalog_sha256": "01f2815406bedff7d9324a019e53a880d6573dba08cf501d5b220d04ec424d54",
+  "revision": 25,
+  "changed_at": "2026-11-26T07:28:28Z",
   "source_url": "https://api.fireworks.ai/v1/serverless/models",
   "source_urls": [
     "https://api.fireworks.ai/v1/serverless/models"
   ],
-  "source_sha256": "65d1ef53e61f018539c0a3c92cd5c061da8dc156c715dd9100cbba2c03e2a062",
+  "source_sha256": "01dd2451803b6d1812eefa65b2d25b4b366d6b07fdce866af705c59b27f6ed2e",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

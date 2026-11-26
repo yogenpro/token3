@@ -6770,7 +6770,8 @@
         "rules": {
           "input": "0.000000075",
           "input_cache_read": "0.000000015",
-          "output": "0.0000003"
+          "output": "0.0000003",
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -6848,7 +6849,7 @@
             ]
           }
         ],
-        "zdr": "none",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -10633,13 +10634,14 @@
       "provider": "vercel",
       "native_id": "tencent/hy4-flash",
       "kind": "model",
-      "label": "Tencent Hy4 Flash",
+      "label": "Hy4 Flash",
       "scope": {},
       "billing": {
         "rules": {
           "input": "0.000000035",
           "input_cache_read": "0.0000000015",
-          "output": "0.0000001405"
+          "output": "0.0000001405",
+          "varies_by_provider": true
         },
         "currency": "USD",
         "state": "reported",
@@ -10670,7 +10672,7 @@
         }
       ],
       "metadata": {
-        "name": "Tencent Hy4 Flash",
+        "name": "Hy4 Flash",
         "owned_by": "tencent",
         "type": "language",
         "context_window": 1024000,
@@ -10712,8 +10714,8 @@
             ]
           }
         ],
-        "zdr": "none",
-        "no_training": "none"
+        "zdr": "some",
+        "no_training": "some"
       },
       "comparison_eligible": false
     },
@@ -21295,7 +21297,7 @@
         "owned_by": "particle",
         "type": "language",
         "context_window": 1048576,
-        "max_tokens": 131072,
+        "max_tokens": 1048576,
         "supported_parameters": [
           "max_tokens",
           "temperature",
@@ -21394,7 +21396,7 @@
             "text"
           ]
         },
-        "zdr": "all",
+        "zdr": "some",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -37575,6 +37577,67 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-c431d42fa80fac9701c56f98",
+      "provider": "vercel",
+      "native_id": "nace-ai/drex-max-v1.2",
+      "kind": "model",
+      "label": "Drex Max v1.2",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.00000003",
+          "output": "0",
+          "regional": {
+            "us": {
+              "input": "0.00000003"
+            }
+          }
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "output",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Drex Max v1.2",
+        "owned_by": "nace-ai",
+        "type": "evaluation",
+        "context_window": 262144,
+        "max_tokens": 0,
+        "supported_specifications": [
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text",
+            "image"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-c452bb491c5f85e98a6a7403",
       "provider": "vercel",
       "native_id": "google/gemini-3.8-live",
@@ -40544,7 +40607,7 @@
             "text"
           ]
         },
-        "zdr": "some",
+        "zdr": "all",
         "no_training": "all"
       },
       "comparison_eligible": false
@@ -47385,14 +47448,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "b9087e822ebe313e488764bc1a3a990e6818c89567e90c58bc5018dbd1355cf7",
-  "revision": 57,
-  "changed_at": "2026-11-25T17:15:39Z",
+  "catalog_sha256": "b28ca5b95906fa20afdde753d8512bc7bf6a0a32f19519260745f43d37aebbd9",
+  "revision": 58,
+  "changed_at": "2026-11-26T07:28:28Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "8702f2d6e62f141686b3eb7ca17707f7037756c73704c31e1b153766351e5cd8",
+  "source_sha256": "1c180155c3e3b4b03ab4562da27661836a6be4791f3632ce53751ee1104def6f",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"

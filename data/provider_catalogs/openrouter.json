@@ -2495,9 +2495,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000003",
-          "input_cache_read": "0.00000022",
-          "prompt": "0.00000045"
+          "completion": "0.0000036",
+          "input_cache_read": "0.0000003",
+          "prompt": "0.0000005"
         },
         "currency": "USD",
         "state": "reported",
@@ -2507,21 +2507,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000045",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000003",
+          "amount": "0.0000036",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000022",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -2548,7 +2548,7 @@
         "top_provider": {
           "context_length": 262144,
           "is_moderated": false,
-          "max_completion_tokens": 81920
+          "max_completion_tokens": 235929
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -5707,6 +5707,94 @@
           "repetition_penalty": null,
           "temperature": null,
           "top_k": null,
+          "top_p": null
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-212ecd354e77cf45480b9144",
+      "provider": "openrouter",
+      "native_id": "mistralai/mistral-large-2512:batch",
+      "kind": "model",
+      "label": "Mistral: Mistral Large 3 2512 (batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.00000075",
+          "input_cache_read": "0.000000025",
+          "prompt": "0.00000025"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000025",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000025",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mistral: Mistral Large 3 2512 (batch)",
+        "canonical_slug": "mistralai/mistral-large-2512",
+        "hugging_face_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image",
+            "file"
+          ],
+          "instruct_type": null,
+          "modality": "text+image+file->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral"
+        },
+        "context_length": 262144,
+        "top_provider": {
+          "context_length": 262144,
+          "is_moderated": false,
+          "max_completion_tokens": 209715
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "presence_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "frequency_penalty": null,
+          "temperature": 0.0645,
           "top_p": null
         },
         "expiration_date": null,
@@ -8921,7 +9009,7 @@
       "billing": {
         "rules": {
           "completion": "0.00000025",
-          "prompt": "0.00000017"
+          "prompt": "0.0000001"
         },
         "currency": "USD",
         "state": "reported",
@@ -8931,7 +9019,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000017",
+          "amount": "0.0000001",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -10465,8 +10553,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000006",
-          "input_cache_read": "0.000000003",
+          "completion": "0.0000012",
+          "input_cache_read": "0.000000006",
           "overrides": [
             {
               "completion": "0.0000006",
@@ -10548,7 +10636,7 @@
               "utc_start": 1000
             }
           ],
-          "prompt": "0.00000015"
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -10558,21 +10646,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000015",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000006",
+          "amount": "0.0000012",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000003",
+          "amount": "0.000000006",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -16888,8 +16976,8 @@
       "billing": {
         "rules": {
           "completion": "0.000001",
-          "input_cache_read": "0.00000005",
-          "prompt": "0.00000025"
+          "input_cache_read": "0.00000004",
+          "prompt": "0.0000003"
         },
         "currency": "USD",
         "state": "reported",
@@ -16899,7 +16987,7 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000025",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
@@ -16913,7 +17001,7 @@
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000005",
+          "amount": "0.00000004",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -16938,7 +17026,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -19329,9 +19417,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000038",
-          "input_cache_read": "0.00000002",
-          "prompt": "0.00000012"
+          "completion": "0.0000005",
+          "input_cache_read": "0.00000003",
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -19341,21 +19429,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000012",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000038",
+          "amount": "0.0000005",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000002",
+          "amount": "0.00000003",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -19380,9 +19468,9 @@
         },
         "context_length": 1048576,
         "top_provider": {
-          "context_length": 1048576,
+          "context_length": 1048575,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 943717
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -21122,9 +21210,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000015016",
-          "input_cache_read": "0.00000021",
-          "prompt": "0.000000765692"
+          "completion": "0.0000015082",
+          "input_cache_read": "0.0000002",
+          "prompt": "0.000000888188"
         },
         "currency": "USD",
         "state": "reported",
@@ -21134,21 +21222,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000765692",
+          "amount": "0.000000888188",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000015016",
+          "amount": "0.0000015082",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.00000021",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21727,9 +21815,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000002028",
-          "input_cache_read": "0.000000001014",
-          "prompt": "0.0000000507"
+          "completion": "0.00000042",
+          "input_cache_read": "0.0000000042",
+          "prompt": "0.00000014"
         },
         "currency": "USD",
         "state": "reported",
@@ -21739,21 +21827,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000507",
+          "amount": "0.00000014",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000002028",
+          "amount": "0.00000042",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001014",
+          "amount": "0.0000000042",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21916,9 +22004,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000003",
-          "input_cache_read": "0.000000035",
-          "prompt": "0.0000000456"
+          "completion": "0.00000018",
+          "input_cache_read": "0.000000015",
+          "prompt": "0.00000006"
         },
         "currency": "USD",
         "state": "reported",
@@ -21928,21 +22016,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000456",
+          "amount": "0.00000006",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000003",
+          "amount": "0.00000018",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000035",
+          "amount": "0.000000015",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -21967,7 +22055,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 943718
+          "max_completion_tokens": 384000
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -23307,6 +23395,93 @@
         "default_parameters": {},
         "expiration_date": null,
         "knowledge_cutoff": "2025-01-31"
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-8a11700a0d18afec2926f6c1",
+      "provider": "openrouter",
+      "native_id": "mistralai/ministral-8b-2512:batch",
+      "kind": "model",
+      "label": "Mistral: Ministral 3 8B 2512 (batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.000000075",
+          "input_cache_read": "0.0000000075",
+          "prompt": "0.000000075"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mistral: Ministral 3 8B 2512 (batch)",
+        "canonical_slug": "mistralai/ministral-8b-2512",
+        "hugging_face_id": "mistralai/Ministral-3-8B-Instruct-2512",
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "instruct_type": null,
+          "modality": "text+image->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral"
+        },
+        "context_length": 262144,
+        "top_provider": {
+          "context_length": 262144,
+          "is_moderated": false,
+          "max_completion_tokens": 209715
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "presence_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "frequency_penalty": null,
+          "temperature": 0.3,
+          "top_p": null
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": null
       },
       "comparison_eligible": false
     },
@@ -24769,7 +24944,7 @@
           "completion": "0.00000425",
           "input_cache_read": "0.00000015",
           "prompt": "0.00000125",
-          "web_search": "0.0025"
+          "web_search": "0.01"
         },
         "currency": "USD",
         "state": "reported",
@@ -24800,7 +24975,7 @@
         },
         {
           "dimension": "web_search",
-          "amount": "0.0025",
+          "amount": "0.01",
           "currency": "USD",
           "unit": "search",
           "conditions": {}
@@ -24827,7 +25002,7 @@
         "context_length": 1048576,
         "top_provider": {
           "context_length": 1048576,
-          "is_moderated": true,
+          "is_moderated": false,
           "max_completion_tokens": 943718
         },
         "per_request_limits": null,
@@ -27218,8 +27393,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000003",
-          "input_cache_read": "0.0000000075",
+          "completion": "0.0000006",
+          "input_cache_read": "0.000000015",
           "overrides": [
             {
               "completion": "0.0000003",
@@ -27236,7 +27411,7 @@
               "utc_start": 100
             }
           ],
-          "prompt": "0.000000075"
+          "prompt": "0.00000015"
         },
         "currency": "USD",
         "state": "reported",
@@ -27246,21 +27421,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.000000075",
+          "amount": "0.00000015",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000003",
+          "amount": "0.0000006",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000075",
+          "amount": "0.000000015",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -27607,6 +27782,92 @@
         },
         "expiration_date": null,
         "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-a0e320d710497694c31b05c0",
+      "provider": "openrouter",
+      "native_id": "mistralai/codestral-2508:batch",
+      "kind": "model",
+      "label": "Mistral: Codestral 2508 (batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.00000045",
+          "input_cache_read": "0.000000015",
+          "prompt": "0.00000015"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.00000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.00000045",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.000000015",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mistral: Codestral 2508 (batch)",
+        "canonical_slug": "mistralai/codestral-2508",
+        "hugging_face_id": "",
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "file"
+          ],
+          "instruct_type": null,
+          "modality": "text+file->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral"
+        },
+        "context_length": 256000,
+        "top_provider": {
+          "context_length": 256000,
+          "is_moderated": false,
+          "max_completion_tokens": 204800
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "max_tokens",
+          "prediction",
+          "presence_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "temperature": 0.3
+        },
+        "expiration_date": null,
+        "knowledge_cutoff": "2025-03-31"
       },
       "comparison_eligible": false
     },
@@ -33168,9 +33429,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.000005",
-          "input_cache_read": "0.0000000999",
-          "prompt": "0.0000000999"
+          "completion": "0.00000444",
+          "input_cache_read": "0.000000097",
+          "prompt": "0.000000111"
         },
         "currency": "USD",
         "state": "reported",
@@ -33180,21 +33441,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000999",
+          "amount": "0.000000111",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.000005",
+          "amount": "0.00000444",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000999",
+          "amount": "0.000000097",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -33219,7 +33480,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 393216
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -33338,6 +33599,99 @@
           "top_p"
         ],
         "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-be5f62f512ca9c7085e0e635",
+      "provider": "openrouter",
+      "native_id": "mistralai/mistral-small-2603:batch",
+      "kind": "model",
+      "label": "Mistral: Mistral Small 4 (batch)",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.0000003",
+          "input_cache_read": "0.0000000075",
+          "prompt": "0.000000075"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000000075",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.0000003",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000000075",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Mistral: Mistral Small 4 (batch)",
+        "canonical_slug": "mistralai/mistral-small-2603",
+        "hugging_face_id": "mistralai/Mistral-Small-4-119B-2603",
+        "architecture": {
+          "input_modalities": [
+            "text",
+            "image"
+          ],
+          "instruct_type": null,
+          "modality": "text+image->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "Mistral"
+        },
+        "context_length": 262144,
+        "top_provider": {
+          "context_length": 262144,
+          "is_moderated": false,
+          "max_completion_tokens": 209715
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "presence_penalty",
+          "reasoning",
+          "reasoning_effort",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "tool_choice",
+          "tools",
+          "top_p"
+        ],
+        "default_parameters": {
+          "frequency_penalty": null,
+          "presence_penalty": null,
+          "repetition_penalty": null,
+          "temperature": null,
+          "top_k": null,
+          "top_p": null
+        },
         "expiration_date": null,
         "knowledge_cutoff": null
       },
@@ -34526,8 +34880,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000086",
-          "prompt": "0.00000014"
+          "completion": "0.0000011",
+          "input_cache_read": "0.00000003",
+          "prompt": "0.0000002"
         },
         "currency": "USD",
         "state": "reported",
@@ -34537,16 +34892,23 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000014",
+          "amount": "0.0000002",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000086",
+          "amount": "0.0000011",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000003",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -34569,7 +34931,7 @@
         "top_provider": {
           "context_length": 131072,
           "is_moderated": false,
-          "max_completion_tokens": 117964
+          "max_completion_tokens": 98304
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -34684,9 +35046,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000013596",
-          "input_cache_read": "0.000000001442",
-          "prompt": "0.00000004532"
+          "completion": "0.0000003",
+          "input_cache_read": "0.000000035",
+          "prompt": "0.000000047"
         },
         "currency": "USD",
         "state": "reported",
@@ -34696,21 +35058,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.00000004532",
+          "amount": "0.000000047",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000013596",
+          "amount": "0.0000003",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000001442",
+          "amount": "0.000000035",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -34735,7 +35097,7 @@
         "top_provider": {
           "context_length": 1048576,
           "is_moderated": false,
-          "max_completion_tokens": 131072
+          "max_completion_tokens": 943718
         },
         "per_request_limits": null,
         "supported_parameters": [
@@ -40538,8 +40900,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.00000033",
-          "input_cache_read": "0.000000020625",
+          "completion": "0.000000528",
+          "input_cache_read": "0.000000033",
           "overrides": [
             {
               "completion": "0.000000528",
@@ -40556,7 +40918,7 @@
               "utc_start": 1600
             }
           ],
-          "prompt": "0.0000000825"
+          "prompt": "0.000000132"
         },
         "currency": "USD",
         "state": "reported",
@@ -40566,21 +40928,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000000825",
+          "amount": "0.000000132",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.00000033",
+          "amount": "0.000000528",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.000000020625",
+          "amount": "0.000000033",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -41254,6 +41616,91 @@
         },
         "expiration_date": null,
         "knowledge_cutoff": null
+      },
+      "comparison_eligible": false
+    },
+    {
+      "id": "openrouter-edab48721b56bf5db828b003",
+      "provider": "openrouter",
+      "native_id": "tngtech/deepseek-r1t2-chimera",
+      "kind": "model",
+      "label": "TNG: DeepSeek R1T2 Chimera",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "completion": "0.000002625",
+          "input_cache_read": "0.00000002",
+          "prompt": "0.000001"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "prompt",
+          "amount": "0.000001",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "completion",
+          "amount": "0.000002625",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.00000002",
+          "currency": "USD",
+          "unit": "cached input token",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "TNG: DeepSeek R1T2 Chimera",
+        "canonical_slug": "tngtech/deepseek-r1t2-chimera",
+        "hugging_face_id": "tngtech/DeepSeek-TNG-R1T2-Chimera",
+        "architecture": {
+          "input_modalities": [
+            "text"
+          ],
+          "instruct_type": null,
+          "modality": "text->text",
+          "output_modalities": [
+            "text"
+          ],
+          "tokenizer": "DeepSeek"
+        },
+        "context_length": 131072,
+        "top_provider": {
+          "context_length": 131072,
+          "is_moderated": false,
+          "max_completion_tokens": 32768
+        },
+        "per_request_limits": null,
+        "supported_parameters": [
+          "frequency_penalty",
+          "include_reasoning",
+          "max_tokens",
+          "min_p",
+          "presence_penalty",
+          "reasoning",
+          "repetition_penalty",
+          "response_format",
+          "seed",
+          "stop",
+          "structured_outputs",
+          "temperature",
+          "top_k",
+          "top_p"
+        ],
+        "default_parameters": {},
+        "expiration_date": null,
+        "knowledge_cutoff": "2024-07-31"
       },
       "comparison_eligible": false
     },
@@ -42681,8 +43128,8 @@
       "scope": {},
       "billing": {
         "rules": {
-          "completion": "0.0000022509",
-          "input_cache_read": "0.0000000378",
+          "completion": "0.000002501",
+          "input_cache_read": "0.000000042",
           "overrides": [
             {
               "completion": "0.000002501",
@@ -42699,7 +43146,7 @@
               "utc_start": 1600
             }
           ],
-          "prompt": "0.0000007506"
+          "prompt": "0.000000834"
         },
         "currency": "USD",
         "state": "reported",
@@ -42709,21 +43156,21 @@
       "rates": [
         {
           "dimension": "prompt",
-          "amount": "0.0000007506",
+          "amount": "0.000000834",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "completion",
-          "amount": "0.0000022509",
+          "amount": "0.000002501",
           "currency": "USD",
           "unit": "output token",
           "conditions": {}
         },
         {
           "dimension": "input_cache_read",
-          "amount": "0.0000000378",
+          "amount": "0.000000042",
           "currency": "USD",
           "unit": "cached input token",
           "conditions": {}
@@ -44402,14 +44849,14 @@
   "billing_notes": [
     "Public advertised model catalog; prices can be route-dependent. Dynamic -1 prices are unknown, not free. Per-provider endpoint listings and credit-purchase fees are outside this source."
   ],
-  "catalog_sha256": "214eafd9c3ffb0c7939fab5f58ce0263a2599eec24aa09f10f9d3e5e4e96a92e",
-  "revision": 71,
-  "changed_at": "2026-11-25T17:15:39Z",
+  "catalog_sha256": "195bf936db090d9da269e9147cb84ce1c5850eca9b6482ab57789b736fe89278",
+  "revision": 72,
+  "changed_at": "2026-11-26T07:28:28Z",
   "source_url": "https://openrouter.ai/api/v1/models",
   "source_urls": [
     "https://openrouter.ai/api/v1/models"
   ],
-  "source_sha256": "7fda7ea1d1d2936c4d3a66a3926f0fc530fced0e0225ef790fe1a9bd27ead3b8",
+  "source_sha256": "99827f911398f39efec0f76d734a518027723eb871054f516860afa420d7a6fc",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
