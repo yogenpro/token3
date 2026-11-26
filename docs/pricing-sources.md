@@ -175,6 +175,37 @@ current main reproduced all four.
   both bands. Retirement is unconfirmed, and reappearance requires a separate
   source review.
 
+### November 25 collection investigation (issues #61 and #62)
+
+[Issue #61’s failed run](https://github.com/yogenpro/token3/actions/runs/45487201555/attempts/1)
+and the [November 25 scheduled run](https://github.com/yogenpro/token3/actions/runs/45662484980/attempts/1)
+omitted the five reviewed Novita routes in the [Hugging Face router catalog](https://router.huggingface.co/v1/models).
+Later public per-model route mappings also omitted them. The
+[provider guide](https://huggingface.co/docs/inference-providers/providers)
+still lists Novita, so retirement is unconfirmed. Hugging Face’s
+[billing guide](https://huggingface.co/docs/inference-providers/pricing)
+describes charges and credits for routed use. The separately reviewed direct rates
+use [Novita’s own public model API](https://api.novita.ai/v3/openai/models), with a
+[public pricing page](https://novita.ai/pricing) for reference. A live strict dry-run
+confirmed independent Novita API quotes for all five reviewed models.
+
+The user approved pausing these exact Hugging Face source bindings on November 25.
+The approval covers `Qwen/Qwen3.8-27B`, `deepseek-ai/DeepSeek-V4-Pro-0813`,
+`openai/gpt-oss-120b`, `zai-org/GLM-5.3` and `zai-org/GLM-5.3-Flash`.
+They stay out of estimates, rankings, workload maps and comparison CSVs. The
+validated public native router catalog and billing guide continue to refresh.
+Original quote IDs, observations, native history and availability flags are
+retained. A returning route requires separate review before resumption.
+
+[Issue #62](https://github.com/yogenpro/token3/issues/62) also reported a
+[Mistral API pricing](https://docs.mistral.ai/inference/pricing) presentation
+change. Its rendered model links now use a single slash before `models/`.
+The collector accepts that exact path and the prior double-slash form, requiring
+one matching rendered row with the same rates as the serialized model data.
+All six reviewed Standard USD quotes preserve their exact IDs, amounts, token
+units and cache-price unknowns. The controls and duplicate-row checks remain in
+effect.
+
 ### OpenRouter public catalog availability
 
 The [official Models guide](https://openrouter.ai/docs/guides/overview/models)
