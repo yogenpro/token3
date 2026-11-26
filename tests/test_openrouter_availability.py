@@ -87,11 +87,12 @@ class OpenRouterAvailabilityTests(unittest.TestCase):
         for source in (SOURCE + '?output_modalities=text', 'https://example.com/models'):
             with self.subTest(source=source), self.assertRaises(ValueError):
                 reviewed_quotes('openrouter', capture(), self.aliases, source)
-        # Other adapters retain their complete tracked-binding requirement.
+        # Before its explicit pause, Hugging Face required every reviewed route.
         payload = json.loads((FIXTURES / 'provider-comparisons/huggingface.json').read_text())
         payload['catalog']['data'].pop()
-        with self.assertRaises(ValueError):
-            reviewed_quotes('huggingface', payload, self.aliases, INVENTORY_PROVIDERS['huggingface'].SOURCE)
+        with patch.dict('providers.policy.POLICIES', {'huggingface': {}}):
+            with self.assertRaisesRegex(ValueError, 'Incomplete reviewed source IDs'):
+                reviewed_quotes('huggingface', payload, self.aliases, INVENTORY_PROVIDERS['huggingface'].SOURCE)
 
     def test_removal_and_return_preserve_original_offerings_prices_and_history(self):
         payload = capture()

@@ -108,7 +108,8 @@ def standard_rates(model, rows):
     href = model["href"]
     if not re.fullmatch(r"/models/[a-z0-9-]+", href):
         raise ValueError("Mistral selected model link changed")
-    matched = [row for row in rows if row[0] == "/" + href]
+    # Match the same model path across both witnessed rendered link layouts.
+    matched = [row for row in rows if row[0] in (href, "/" + href)]
     if len(matched) != 1 or len(matched[0]) != 4:
         raise ValueError("Mistral selected rendered row missing, repeated or unaligned")
     rates = {}

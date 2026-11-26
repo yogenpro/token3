@@ -42,6 +42,10 @@ fetched source, never a hardcoded price list or a native-record projection.
 | MiniMax | MiniMax M3 | [International pay-as-you-go table](https://platform.minimax.io/docs/guides/pricing-paygo.md), published permanent-discount USD/1M, Standard/Priority × `≤512,000`/`>512,000` full-prompt bands. Original struck-out rates are validated against the explicit 50% expression; they are not current quotes. Missing bands fail the complete snapshot. Both legacy bold tier labels and quoted Markdown tabs are accepted without changing billing semantics. |
 | DeepSeek | Flash served as V4.1-Flash-1017, Pro served as V4-Pro-0813 | [Canonical pricing URL](https://api-docs.deepseek.com/quick_start/pricing/), USD/1M with both peak/off-peak scenarios, cache hit/miss, served versions and exact UTC/Chinese-public-holiday schedule. No local-time or holiday-calendar inference. Mutable served-version or schedule changes require new review. |
 
+The [November 25 Hugging Face pause](pricing-sources.md#november-25-collection-investigation-issues-61-and-62)
+applies to the five retained routes in this review. The native router catalog
+continues to refresh, and direct Novita prices still come from Novita’s API.
+
 ## Compare, history and exports
 
 Compare has a shareable billing-basis selector: **USD, EUR, Databricks DBUs or

@@ -11,8 +11,9 @@ import re
 from dataclasses import dataclass
 from urllib.parse import urlencode
 
-from .common import Collection, fetch_bytes, fetch_text, safe_error
+from .common import Collection, fetch_bytes, fetch_text, provider_aliases, safe_error
 from .comparison_expansion import OVHCLOUD_EUR_CARDS
+from .policy import excluded_model_ids
 from .pricing_api import MAX_CATALOG_BYTES, encode_payload
 from .openrouter_catalog import complete_model_ids
 from .reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS, reviewed_quotes
@@ -105,6 +106,13 @@ def _snowflake_pdf(url):
                 page_count=len(pages), pages=pages)
 
 
+def inventory_only_collection(provider, aliases):
+    """An explicit pause covers all currently reviewed Hugging Face bindings."""
+    return provider not in REVIEWED_INVENTORY_PROVIDERS or (
+        provider == "huggingface" and bool(aliases) and set(aliases) == excluded_model_ids(provider)
+    )
+
+
 @dataclass(frozen=True)
 class InventoryCollector:
     provider: str
@@ -160,17 +168,18 @@ class InventoryCollector:
                 payload["coverage"] = "billing_guide_only; model rates unavailable"
         body = encode_payload(payload)
         kind = "api+documentation" if self.adapter != "documents" and (docs or "reviewed_price_cards" in payload) else "documentation" if self.adapter == "documents" else "api"
-        reviewed = self.provider in REVIEWED_INVENTORY_PROVIDERS
+        bindings = provider_aliases(aliases or {}, self.provider)
+        inventory_only = inventory_only_collection(self.provider, bindings)
         records, parse_error = [], None
-        if reviewed:
+        if not inventory_only:
             try:
-                records = reviewed_quotes(self.provider, payload, aliases or {}, self.fetch_source or self.SOURCE)
+                records = reviewed_quotes(self.provider, payload, bindings, self.fetch_source or self.SOURCE)
             except Exception as error:
                 # Preserve the complete fetched native source on quote failure.
                 parse_error = safe_error(error)
         return Collection(records, self.SOURCE, hashlib.sha256(body.encode()).hexdigest(), source_payload=body,
                           authoritative_catalog=self.provider == "openrouter" and parse_error is None,
-                          source_urls=urls, source_kind=kind, fallback_reason=fallback, inventory_only=not reviewed,
+                          source_urls=urls, source_kind=kind, fallback_reason=fallback, inventory_only=inventory_only,
                           parse_error=parse_error,
                           source_evidence=[{key:payload['pdf_document'][key] for key in ('source_url', 'response_sha256')}]
                           if 'pdf_document' in payload else None)

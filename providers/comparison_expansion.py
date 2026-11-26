@@ -519,8 +519,8 @@ def alibaba_qwen_quotes(body, tables, aliases, source):
 
 
 def expanded_quotes(provider,payload,aliases,source):
-    if provider == 'xai':
-        excluded = excluded_model_ids('xai')
+    if provider in ('huggingface', 'xai'):
+        excluded = excluded_model_ids(provider)
         aliases = {mid: canonical for mid, canonical in aliases.items() if mid not in excluded}
     if not aliases:
         raise ValueError("Provider requires explicit reviewed source bindings")

@@ -18,6 +18,8 @@ export function History({ data, model, tier, unit = 'USD', period = 'peak' }: { 
   const rows = useMemo(() => historyRows(data.history, offerings, metric, days), [data.history, offerings, metric, days]);
   const providerIds = [...new Set(offerings.map((o) => o.provider))];
   const visible = offerings.filter((o) => !hidden.includes(o.provider));
+  const allProvidersHidden = providerIds.length > 0 && visible.length === 0;
+  const onlyUnverifiedPrices = offerings.length === 0 && retainedOfferings.length > 0;
   const hasValues = rows.some((row) => visible.some((o) => typeof row[o.id] === 'number'));
   const first = rows[0]?.timestamp ?? Date.now();
   const last = rows.at(-1)?.timestamp ?? first;
@@ -37,8 +39,12 @@ export function History({ data, model, tier, unit = 'USD', period = 'peak' }: { 
         <Tooltip contentStyle={{ borderRadius: 10, border: '1px solid var(--border)', background: 'var(--surface)', color: 'var(--text)', fontSize: 'var(--text-sm)', boxShadow: '0 8px 24px #16234512' }} labelFormatter={(timestamp) => exactDate(new Date(Number(timestamp)).toISOString())} formatter={(value, name) => [money(Number(value)), label(String(name))]} />
         {visible.map((o) => <Line key={o.id} dataKey={o.id} name={o.id} type="stepAfter" stroke={providerColor(o.provider)} strokeWidth={2.4} strokeDasharray={o.variant !== 'standard' || o.service_tier !== 'standard' ? '5 4' : undefined} dot={rows.length < 20 ? { r: 4, strokeWidth: 2, fill: 'var(--surface)' } : false} activeDot={{ r: 6 }} connectNulls={false} isAnimationActive={false} />)}
       </LineChart>
-    </ResponsiveContainer></div> : <div className="chart-empty"><ChartNoAxesCombined size={30} /><strong>{visible.length === 0 ? 'All providers are hidden' : 'No published observations for this selection'}</strong><span>{visible.length === 0 ? 'Click a provider below to show its history.' : 'Try a different metric or a wider date range. Unknown cache prices are not plotted as zero.'}</span></div>}
-    <div className="chart-legend" aria-label="Toggle providers in history">{providerIds.map((id) => <button key={id} aria-pressed={!hidden.includes(id)} onClick={() => setHidden(hidden.includes(id) ? hidden.filter((p) => p !== id) : [...hidden, id])} className={hidden.includes(id) ? 'hidden-series' : ''}><span style={{ background: providerColor(id) }} />{providerInfo(id).name}</button>)}</div>
+    </ResponsiveContainer></div> : <div className="chart-empty">
+      <ChartNoAxesCombined size={30} />
+      <strong>{allProvidersHidden ? 'All providers are hidden' : onlyUnverifiedPrices ? 'Pricing scope unverified' : 'No published observations for this selection'}</strong>
+      <span>{allProvidersHidden ? 'Click a provider below to show its history.' : onlyUnverifiedPrices ? 'See the retained rates in the exact observations table.' : 'Try a different metric or a wider date range. Unknown cache prices are not plotted as zero.'}</span>
+    </div>}
+    {providerIds.length > 0 && <div className="chart-legend" role="group" aria-label="Toggle providers in history">{providerIds.map((id) => <button key={id} aria-pressed={!hidden.includes(id)} onClick={() => setHidden(hidden.includes(id) ? hidden.filter((p) => p !== id) : [...hidden, id])} className={hidden.includes(id) ? 'hidden-series' : ''}><span style={{ background: providerColor(id) }} />{providerInfo(id).name}</button>)}</div>}
     {uniqueDays < 2 && <div className="history-note"><Info size={14} /><span>{uniqueDays === 1 ? 'Day one of tracking. This snapshot contains real observations; a trend needs more days.' : 'No historical backfill. History grows with each successful daily collection.'}</span></div>}
     <details className="history-data"><summary>View exact observations <span>{observations.length}</span></summary><div className="table-scroll"><table><thead><tr><th>Offering</th><th>Observed at (UTC)</th><th>{metrics.find(([key]) => key === metric)?.[1]} / 1M</th><th>Source</th></tr></thead><tbody>{observations.map((p) => <tr key={`${p.offering_id}-${p.observed_at}`}><td>{label(p.offering_id)}</td><td>{exactDate(p.observed_at)}</td><td>{p[metric] === null ? 'Not published' : money(p[metric]!)}</td><td><a href={p.source_url} target="_blank" rel="noopener noreferrer">Official source</a></td></tr>)}</tbody></table></div></details>
   </section>;

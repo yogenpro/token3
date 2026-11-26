@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 from providers.comparison_expansion import PROVIDERS
 from providers.expanded import INVENTORY_PROVIDERS
+from providers.policy import POLICIES
 from providers.reviewed_inventory import reviewed_quotes
 from scripts.catalog_inventory import normalize_inventory
 from scripts.collect import apply_snapshot, read_history, run
@@ -25,6 +26,10 @@ def fixture(provider):
 
 class ProviderComparisonTests(unittest.TestCase):
     def setUp(self):
+        # This fixture suite exercises the historical reviewed route before the pause.
+        policy = patch.dict(POLICIES, {'huggingface': {}})
+        policy.start()
+        self.addCleanup(policy.stop)
         _, self.aliases = catalog()
         baseline = json.loads((FIXTURES.parent / 'reviewed-bindings-2026-10-26.json').read_text())
         self.aliases.sources = baseline['sources']

@@ -69,6 +69,27 @@ describe('bounded source operating policies', () => {
     expect(rankOfferings(data, 'xai/grok-4.7', defaultWorkload).some((r) => r.offering.provider === 'xai')).toBe(true);
   });
 
+  it('pauses the five retained Hugging Face routes and keeps the direct Novita quotes in Compare', () => {
+    const ids = ['Qwen/Qwen3.8-27B', 'deepseek-ai/DeepSeek-V4-Pro-0813', 'openai/gpt-oss-120b',
+      'zai-org/GLM-5.3', 'zai-org/GLM-5.3-Flash'];
+    expect(providerPolicies.huggingface).toMatchObject({ excluded_model_ids: ids });
+    expect(collectionDisabled('huggingface')).toBe(false);
+    expect(comparisonsPaused('huggingface', 'other/model')).toBe(false);
+    const held = data.offerings.filter((o) => o.provider === 'huggingface');
+    expect(held.map((o) => o.provider_model_id).sort()).toEqual([...ids].sort());
+    const models = new Set(held.map((o) => o.model_id));
+    expect(comparisonProviders(data, models)).not.toContain('huggingface');
+    for (const offering of held) {
+      expect(data.prices.some((p) => p.offering_id === offering.id)).toBe(true);
+      expect(data.history.some((p) => p.offering_id === offering.id)).toBe(true);
+      expect(comparisonsPaused('novita', offering.provider_model_id)).toBe(false);
+      const rows = rankOfferings(data, offering.model_id, defaultWorkload, 'all');
+      expect(rows.some((r) => r.offering.provider === 'huggingface')).toBe(false);
+      expect(rows.some((r) => r.offering.provider === 'novita')).toBe(true);
+      expect(comparisonCsv(rows)).not.toContain('Hugging Face');
+    }
+  });
+
   it('excludes stopped quotes from current rankings, workload winners, provider columns and comparison CSV', () => {
     const before = JSON.stringify(data);
     for (const model of data.models) {

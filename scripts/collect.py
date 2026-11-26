@@ -11,8 +11,7 @@ from pathlib import Path
 
 from providers import anthropic, azure, bedrock, deepinfra, fireworks, gemini, groq, meta, mistral, moonshot, novita, openai, together, vertex
 from providers.common import safe_error
-from providers.expanded import INVENTORY_PROVIDERS
-from providers.reviewed_inventory import REVIEWED_INVENTORY_PROVIDERS
+from providers.expanded import INVENTORY_PROVIDERS, inventory_only_collection
 from providers.policy import collection_disabled, comparisons_paused
 from .detect_changes import detect_changes, event
 from .normalize import ROOT, PRICE_FIELDS, catalog, normalize, price_signature
@@ -132,7 +131,10 @@ def run(data_dir, selected=None, dry_run=False, strict=False, archive_legacy=Fal
             check_provenance = {}
             try:
                 result = future.result()
-                if result.inventory_only != (comparisons_paused(name) or (name in INVENTORY_PROVIDERS and name not in REVIEWED_INVENTORY_PROVIDERS)):
+                expected_inventory_only = comparisons_paused(name) or (
+                    name in INVENTORY_PROVIDERS and inventory_only_collection(name, aliases.for_provider(name))
+                )
+                if result.inventory_only != expected_inventory_only:
                     raise ValueError("Collector/dashboard scope mismatch")
                 if result.inventory_only and (result.records or result.authoritative_catalog):
                     raise ValueError("Inventory-only collectors cannot publish or retire dashboard quotes")

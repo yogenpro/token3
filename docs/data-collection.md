@@ -44,6 +44,13 @@ The other four xAI models still require both bands, and reappearance needs
 separate source review. See the
 [November 24 investigation](pricing-sources.md#november-24-collection-investigation-issue-59).
 
+The November 25 Hugging Face pause removes its five Novita-routed offers from
+current comparisons and quote completeness checks. The Hugging Face router and
+billing guide still feed validated native inventory. Inventory-only health records
+report zero refreshed reviewed offers, and retain the earlier quote and availability
+records. The direct Novita collector uses Novita’s own API. See the
+[November 25 investigation](pricing-sources.md#november-25-collection-investigation-issues-61-and-62).
+
 The November 24 Upstage quarantine covers `solar-pro4-260806` and
 `solar-mini4-260922`. The official compatibility notice and exact published
 version headings establish the existing serving IDs. Collection retains explicit

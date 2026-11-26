@@ -246,7 +246,7 @@ class InventoryOnlyRetentionTests(unittest.TestCase):
     def setUp(self):
         # Exercise the inventory-only trust boundary independently of current
         # enrollments; OpenRouter now has a separately reviewed quote adapter.
-        self.enterContext(patch('scripts.collect.REVIEWED_INVENTORY_PROVIDERS', frozenset(('vercel',))))
+        self.enterContext(patch('providers.expanded.REVIEWED_INVENTORY_PROVIDERS', frozenset(('vercel',))))
 
     def test_inventory_only_bootstrap_success_and_unchanged_retry_do_not_create_quotes(self):
         with tempfile.TemporaryDirectory() as directory:
