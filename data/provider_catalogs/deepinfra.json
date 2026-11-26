@@ -674,44 +674,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepinfra-04d0910e049639e615386a77",
-      "provider": "deepinfra",
-      "native_id": "ByteDance/Seedance-1.5-Pro",
-      "kind": "model",
-      "label": "ByteDance/Seedance-1.5-Pro",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "input_tokens",
-          "cents_per_input_token": 0.00012,
-          "cents_per_image_token": null
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_input_token",
-          "amount": "0.0000012",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-video",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "deepinfra-05a77c4940694d4a715e35e6",
       "provider": "deepinfra",
       "native_id": "anthropic/claude-opus-4-8",
@@ -3143,48 +3105,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepinfra-2483d56cd4aabab3eddbd756",
-      "provider": "deepinfra",
-      "native_id": "Qwen/Qwen-Image-Edit-Max",
-      "kind": "model",
-      "label": "Qwen/Qwen-Image-Edit-Max",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "image_units",
-          "cents_per_image_unit": 7.5,
-          "default_width": 0,
-          "default_height": 0,
-          "default_iterations": 0,
-          "default_price_cents": null,
-          "usage_from_cost": false
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_image_unit",
-          "amount": "0.075",
-          "currency": "USD",
-          "unit": "provider image unit",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-image",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "deepinfra-25ac45cbb4c03794d16e761a",
       "provider": "deepinfra",
       "native_id": "google/codegemma-7b-it",
@@ -4760,59 +4680,6 @@
       "comparison_eligible": false
     },
     {
-      "id": "deepinfra-3df3fc8486acfa749b7800b0",
-      "provider": "deepinfra",
-      "native_id": "ByteDance/Seed-1.8",
-      "kind": "model",
-      "label": "ByteDance/Seed-1.8",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": "$0.25 in $2 out $0.05 cached <= 128K, $0.5 in $4 out $0.1 cached",
-          "table": null,
-          "type": "tokens",
-          "cents_per_input_token": 2.5e-05,
-          "cents_per_output_token": 0.0002,
-          "rate_per_input_token_cached": 0.2,
-          "rate_per_input_token_cache_write": null,
-          "rate_per_service_tier_priority": null,
-          "rate_per_service_tier_flex": null,
-          "rate_per_explicit_cache_write_token": null,
-          "explicit_cache_granularity_tokens": null
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_input_token",
-          "amount": "0.00000025",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        },
-        {
-          "dimension": "cents_per_output_token",
-          "amount": "0.000002",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-generation",
-        "max_tokens": 256000,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
       "id": "deepinfra-3e12f5b326051dd741ab97a5",
       "provider": "deepinfra",
       "native_id": "allenai/olmOCR-7B-1025",
@@ -5898,6 +5765,59 @@
       "comparison_eligible": false
     },
     {
+      "id": "deepinfra-4b208d5215d01f4718aded17",
+      "provider": "deepinfra",
+      "native_id": "inclusionAI/LingSante-3.1-air-VL",
+      "kind": "model",
+      "label": "inclusionAI/LingSante-3.1-air-VL",
+      "scope": {},
+      "billing": {
+        "state": "reported",
+        "rules": {
+          "discount": null,
+          "discount_ends_at": null,
+          "short": null,
+          "full": null,
+          "table": null,
+          "type": "tokens",
+          "cents_per_input_token": 6e-06,
+          "cents_per_output_token": 1.8e-05,
+          "rate_per_input_token_cached": 0.2,
+          "rate_per_input_token_cache_write": null,
+          "rate_per_service_tier_priority": null,
+          "rate_per_service_tier_flex": null,
+          "rate_per_explicit_cache_write_token": null,
+          "explicit_cache_granularity_tokens": null
+        }
+      },
+      "rates": [
+        {
+          "dimension": "cents_per_input_token",
+          "amount": "0.00000006",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        },
+        {
+          "dimension": "cents_per_output_token",
+          "amount": "0.00000018",
+          "currency": "USD",
+          "unit": "output token",
+          "conditions": {
+            "native_currency_unit": "cent"
+          }
+        }
+      ],
+      "metadata": {
+        "type": "text-generation",
+        "max_tokens": 131072,
+        "quantization": "fp4"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "deepinfra-4b74edd0ed3c94202c28fa90",
       "provider": "deepinfra",
       "native_id": "intfloat/multilingual-e5-large-instruct",
@@ -6975,48 +6895,6 @@
         {
           "dimension": "cents_per_image_unit",
           "amount": "0.04",
-          "currency": "USD",
-          "unit": "provider image unit",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-image",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "deepinfra-59f974848231d101228df2cd",
-      "provider": "deepinfra",
-      "native_id": "Qwen/Qwen-Image-Max",
-      "kind": "model",
-      "label": "Qwen/Qwen-Image-Max",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "image_units",
-          "cents_per_image_unit": 7.5,
-          "default_width": 0,
-          "default_height": 0,
-          "default_iterations": 0,
-          "default_price_cents": null,
-          "usage_from_cost": false
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_image_unit",
-          "amount": "0.075",
           "currency": "USD",
           "unit": "provider image unit",
           "conditions": {
@@ -9824,48 +9702,6 @@
           "amount": "0.00012",
           "currency": "USD",
           "unit": "input token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-to-image",
-        "max_tokens": null,
-        "quantization": null
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "deepinfra-861bee94e8c0d7e81fa6b515",
-      "provider": "deepinfra",
-      "native_id": "Qwen/Qwen-Image-Edit",
-      "kind": "model",
-      "label": "Qwen/Qwen-Image-Edit",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": null,
-          "table": null,
-          "type": "image_units",
-          "cents_per_image_unit": 2.5,
-          "default_width": 1024,
-          "default_height": 1024,
-          "default_iterations": 25,
-          "default_price_cents": null,
-          "usage_from_cost": false
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_image_unit",
-          "amount": "0.025",
-          "currency": "USD",
-          "unit": "provider image unit",
           "conditions": {
             "native_currency_unit": "cent"
           }
@@ -13126,59 +12962,6 @@
         "type": "text-generation",
         "max_tokens": 131072,
         "quantization": "bfloat16"
-      },
-      "comparison_eligible": false
-    },
-    {
-      "id": "deepinfra-ab17a4463e0bce20c9eaf2ad",
-      "provider": "deepinfra",
-      "native_id": "ByteDance/Seed-2.0-mini",
-      "kind": "model",
-      "label": "ByteDance/Seed-2.0-mini",
-      "scope": {},
-      "billing": {
-        "state": "reported",
-        "rules": {
-          "discount": null,
-          "discount_ends_at": null,
-          "short": null,
-          "full": "$0.10 in $0.40 out $0.02 cached <= 128K, $0.2 in $0.80 out $0.2 cached",
-          "table": null,
-          "type": "tokens",
-          "cents_per_input_token": 1e-05,
-          "cents_per_output_token": 4e-05,
-          "rate_per_input_token_cached": 0.2,
-          "rate_per_input_token_cache_write": null,
-          "rate_per_service_tier_priority": null,
-          "rate_per_service_tier_flex": null,
-          "rate_per_explicit_cache_write_token": null,
-          "explicit_cache_granularity_tokens": null
-        }
-      },
-      "rates": [
-        {
-          "dimension": "cents_per_input_token",
-          "amount": "0.0000001",
-          "currency": "USD",
-          "unit": "input token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        },
-        {
-          "dimension": "cents_per_output_token",
-          "amount": "0.0000004",
-          "currency": "USD",
-          "unit": "output token",
-          "conditions": {
-            "native_currency_unit": "cent"
-          }
-        }
-      ],
-      "metadata": {
-        "type": "text-generation",
-        "max_tokens": 256000,
-        "quantization": null
       },
       "comparison_eligible": false
     },
@@ -19818,14 +19601,14 @@
     }
   ],
   "billing_notes": [],
-  "catalog_sha256": "08da58cf54ec1b88cb9fda49c199b57e91ae4d8e720fa9703208192a1e50e7ed",
-  "revision": 37,
-  "changed_at": "2026-11-26T07:28:28Z",
+  "catalog_sha256": "c7337d4ea8caf981d89dfdf61688e1688a5596b39bc5e7b1c9d44a821daa242b",
+  "revision": 38,
+  "changed_at": "2026-11-26T16:55:16Z",
   "source_url": "https://api.deepinfra.com/models/list",
   "source_urls": [
     "https://api.deepinfra.com/models/list"
   ],
-  "source_sha256": "07aef735f58b40d8e4f8f2040ded08a6b91b53868ee1039d1bdd05d6389795e0",
+  "source_sha256": "6035ec7386f0d98bb88cb69592c9a54750d5cf786ee65cb6b12bba7fcd908b12",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
