@@ -62,6 +62,13 @@ test('expanded billing sources and unverified weights remain explicit without na
   ]) {
     await page.getByLabel('SELECT A MODEL').selectOption(model);
     await expect(page.locator('.provider-cell strong').getByText(provider, { exact: true }).first()).toBeVisible();
+    if (provider === 'Upstage') {
+      await expect(page.getByLabel('Toggle providers in history')).toHaveCount(0);
+      await expect(page.locator('.chart-empty')).toContainText('Pricing scope unverified');
+      await page.getByLabel('History date range').selectOption('0');
+      await page.getByText('View exact observations', { exact: false }).click();
+      await expect(page.locator('.history-data tbody')).toContainText('Upstage · base rate, scope unverified');
+    }
     for (const theme of ['light', 'dark']) {
       await page.evaluate((value) => { document.documentElement.dataset.theme = value; }, theme);
       expect((await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze()).violations).toEqual([]);
