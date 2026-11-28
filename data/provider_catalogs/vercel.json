@@ -14754,6 +14754,60 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-499f39ce5a9da7f066ad31a7",
+      "provider": "vercel",
+      "native_id": "assemblyai/stt-3.7",
+      "kind": "model",
+      "label": "STT-3.7",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "transcription_duration_cost_per_second": "0.00005834"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "transcription_duration_cost_per_second",
+          "amount": "0.00005834",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "STT-3.7",
+        "owned_by": "assemblyai",
+        "type": "transcription",
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-4a081990c1a5d1f026f8fad7",
       "provider": "vercel",
       "native_id": "spacexai/grok-4.3",
@@ -22894,6 +22948,60 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-7723394c2cf6bf97f79c8357",
+      "provider": "vercel",
+      "native_id": "assemblyai/tts-1",
+      "kind": "model",
+      "label": "TTS-1",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0.000015",
+          "speech_input_character_cost": "0.000015"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0.000015",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "speech_input_character_cost",
+          "amount": "0.000015",
+          "currency": "USD",
+          "unit": "input character",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "TTS-1",
+        "owned_by": "assemblyai",
+        "type": "speech",
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "text"
+          ],
+          "output": [
+            "audio"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-787c5c3cf2d7c739118e6605",
       "provider": "vercel",
       "native_id": "alibaba/qwen3-embedding-4b",
@@ -24809,8 +24917,9 @@
       "scope": {},
       "billing": {
         "rules": {
-          "input": "0",
-          "output": "0"
+          "input": "0.000001",
+          "input_cache_read": "0.0000002",
+          "output": "0.0000052"
         },
         "currency": "USD",
         "state": "reported",
@@ -24820,16 +24929,23 @@
       "rates": [
         {
           "dimension": "input",
-          "amount": "0",
+          "amount": "0.000001",
           "currency": "USD",
           "unit": "input token",
           "conditions": {}
         },
         {
           "dimension": "output",
-          "amount": "0",
+          "amount": "0.0000052",
           "currency": "USD",
           "unit": "output token",
+          "conditions": {}
+        },
+        {
+          "dimension": "input_cache_read",
+          "amount": "0.0000002",
+          "currency": "USD",
+          "unit": "cached input token",
           "conditions": {}
         }
       ],
@@ -45270,6 +45386,60 @@
       "comparison_eligible": false
     },
     {
+      "id": "vercel-f4e8b3cad7671760054ed155",
+      "provider": "vercel",
+      "native_id": "assemblyai/universal-2",
+      "kind": "model",
+      "label": "Universal-2",
+      "scope": {},
+      "billing": {
+        "rules": {
+          "input": "0",
+          "transcription_duration_cost_per_second": "0.00004167"
+        },
+        "currency": "USD",
+        "state": "reported",
+        "unknown_price_dimensions": [],
+        "source_scope": "advertised gateway catalog, not a selected upstream route"
+      },
+      "rates": [
+        {
+          "dimension": "input",
+          "amount": "0",
+          "currency": "USD",
+          "unit": "input token",
+          "conditions": {}
+        },
+        {
+          "dimension": "transcription_duration_cost_per_second",
+          "amount": "0.00004167",
+          "currency": "USD",
+          "unit": "second",
+          "conditions": {}
+        }
+      ],
+      "metadata": {
+        "name": "Universal-2",
+        "owned_by": "assemblyai",
+        "type": "transcription",
+        "supported_specifications": [
+          "v3",
+          "v4"
+        ],
+        "modalities": {
+          "input": [
+            "audio"
+          ],
+          "output": [
+            "text"
+          ]
+        },
+        "zdr": "none",
+        "no_training": "none"
+      },
+      "comparison_eligible": false
+    },
+    {
       "id": "vercel-f52c62eba7dad01cc3597568",
       "provider": "vercel",
       "native_id": "mistral/voxtral-small-transcribe-3",
@@ -47489,14 +47659,14 @@
   "billing_notes": [
     "Public gateway catalog, all exposed modalities and billing rules. Provider-dependent and regional pricing remain explicit; not proof of a selected upstream route."
   ],
-  "catalog_sha256": "fd8ac09d34dcc019a1a5a9272354c7b533f265015049b74fd5b3621944df4f26",
-  "revision": 59,
-  "changed_at": "2026-11-27T16:40:59Z",
+  "catalog_sha256": "9331c2143b0cac1a32e2ccbb8405fdc984a9d09d4ee27b09e425b6ec3491161b",
+  "revision": 60,
+  "changed_at": "2026-11-28T15:32:49Z",
   "source_url": "https://ai-gateway.vercel.sh/v1/models",
   "source_urls": [
     "https://ai-gateway.vercel.sh/v1/models"
   ],
-  "source_sha256": "64ec8564b02792832978c3812705a8299715772a2ebe61786a6cce7e3a47482e",
+  "source_sha256": "1c13423ece1d11d94fb63b0fc557806b1f6db11d7cdefcc4df0c17227d388990",
   "archive_reference": {
     "state": "not_applicable",
     "reason": "API/feed responses are not public page captures"
